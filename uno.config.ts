@@ -2,7 +2,7 @@ import { defineConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
 
 export default defineConfig({
   shortcuts: [
-    ['btn', 'px-4 py-1 rounded inline-flex justify-center gap-2 text-white leading-30px children:mya !no-underline cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
+    ['btn', 'px-5 py-1.5 rounded-full inline-flex justify-center items-center gap-2 text-white leading-30px children:mya !no-underline cursor-pointer transition-all duration-200 hover:shadow-md active:scale-95 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
   ],
   presets: [
     presetUno({

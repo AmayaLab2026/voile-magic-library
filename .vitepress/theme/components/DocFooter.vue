@@ -3,14 +3,7 @@ import { useData, useRoute } from 'vitepress'
 import { computed, onMounted, ref } from 'vue'
 
 const route = useRoute()
-const { frontmatter } = useData()
-const browserLang = ref('')
-
-onMounted(() => {
-  if (typeof navigator !== 'undefined') {
-    browserLang.value = (navigator.language || (navigator.languages && navigator.languages[0]) || '').toLowerCase()
-  }
-})
+const { frontmatter, lang } = useData()
 
 const isAcknowledgements = computed(() => {
   if (frontmatter.value?.hideReprintNotice)
@@ -18,73 +11,79 @@ const isAcknowledgements = computed(() => {
   return route.path.includes('acknowledgements')
 })
 
+const isControlledSubstances = computed(() => {
+  return route.path.includes('controlled-substances')
+})
+
 const isZh = computed(() => {
-  if (browserLang.value)
-    return browserLang.value.startsWith('zh')
-  return route.path.startsWith('/zh')
+  if (lang.value)
+    return lang.value.startsWith('zh')
+  return !route.path.startsWith('/en') && !route.path.startsWith('/ja')
 })
 </script>
 
 <template>
-  <div v-if="!isAcknowledgements" class="reprint-attribution-card mt-12 rounded-xl p-4.5 transition-colors">
-    <div flex="~ items-center gap-2" text-sm font-semibold>
-      <span class="i-octicon:info-16 text-$vp-c-brand" />
-      <span>{{ isZh ? '转载声明与开源致谢' : 'Reproduction Notice & Acknowledgements' }}</span>
+  <div v-if="!isAcknowledgements" class="book-attribution-card mt-12 rounded-2xl p-5 transition-all">
+    <!-- 管制物质：联邦药物法的化学与法律指南 专属索书号与著者卡片 -->
+    <div v-if="isControlledSubstances">
+      <div flex="~ items-center gap-2" text-sm font-semibold class="text-$vp-c-brand">
+        <span class="i-carbon:book-reference" />
+        <span>{{ isZh ? '馆藏典籍索引 · 索书与著者信息' : 'Library Catalog & Book Call Card' }}</span>
+      </div>
+
+      <div class="mt-3 grid gap-2 text-xs text-$vp-c-text-2">
+        <div flex="~ wrap items-center gap-x-6 gap-y-1.5">
+          <div>
+            <span font-medium class="text-$vp-c-text-1">{{ isZh ? '著者' : 'Author' }}：</span>
+            <span font-medium class="text-$vp-c-text-1">Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）</span>
+          </div>
+          <div>
+            <span font-medium class="text-$vp-c-text-1">{{ isZh ? '馆藏索书号' : 'Call No.' }}：</span>
+            <code class="rounded px-2 py-0.5 text-$vp-c-brand font-mono font-bold bg-$vp-c-brand-soft">VML-KF3890.S58-1992</code>
+          </div>
+          <div>
+            <span font-medium class="text-$vp-c-text-1">ISBN：</span>
+            <span class="font-mono font-semibold">0-914171-50-X</span>
+          </div>
+        </div>
+
+        <div flex="~ wrap items-center gap-x-6 gap-y-1" class="text-xs opacity-90 mt-1">
+          <div>
+            <span font-medium class="text-$vp-c-text-1">{{ isZh ? '典籍原名' : 'Original Work' }}：</span>
+            <span italic>Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)</span>
+          </div>
+          <div>
+            <span font-medium class="text-$vp-c-text-1">{{ isZh ? '出版机构' : 'Publisher' }}：</span>
+            <span>Ronin Publishing, Inc. (Berkeley, CA)</span>
+          </div>
+          <div>
+            <span font-medium class="text-$vp-c-text-1">{{ isZh ? '馆藏库位' : 'Archive' }}：</span>
+            <span>ヴワル魔法図書館 · 特藏文献室</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <p v-if="isZh" class="mt-2 text-xs text-$vp-c-text-2 leading-relaxed">
-      本文档内容转载自
-      <a
-        href="https://vitepress.dev/"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >VitePress 官方文档</a>，
-      遵循
-      <a
-        href="https://github.com/vuejs/vitepress/blob/main/LICENSE"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >MIT 开源协议</a>。
-      原项目版权归 <strong>Evan You（尤雨溪）</strong> 及全体 VitePress 贡献者所有。
-      本站展示中已按约定将产品名称替换为 <strong>Sapphire Rapids</strong>。
-      详细技术项目参考与开源敬意请参见
-      <a
-        href="/zh/acknowledgements"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >项目致谢独立页面 →</a>
-    </p>
-
-    <p v-else class="mt-2 text-xs text-$vp-c-text-2 leading-relaxed">
-      This document is reproduced from the
-      <a
-        href="https://vitepress.dev/"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >official VitePress documentation</a>
-      under the
-      <a
-        href="https://github.com/vuejs/vitepress/blob/main/LICENSE"
-        target="_blank"
-        rel="noreferrer noopener"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >MIT License</a>.
-      Original copyright belongs to <strong>Evan You</strong> and the VitePress team.
-      In this deployment, product references are adapted to <strong>Sapphire Rapids</strong>.
-      For complete attribution and credits, visit our
-      <a
-        href="/acknowledgements"
-        class="text-$vp-c-brand font-medium hover:underline"
-      >Acknowledgements page →</a>
-    </p>
+    <!-- 其他通用页面 -->
+    <div v-else>
+      <div flex="~ items-center gap-2" text-sm font-semibold class="text-$vp-c-brand">
+        <span class="i-carbon:library" />
+        <span>{{ isZh ? '馆藏文献阅览说明' : 'Voile Magic Library Notice' }}</span>
+      </div>
+      <p class="mt-2 text-xs text-$vp-c-text-2 leading-relaxed">
+        {{ isZh ? '本站所有数字化文献与学术译本归档于 ヴワル魔法図書館，供学术研讨、法庭科学与知识传播查阅。更多开源与技术致谢请参阅' : 'Archived at Voile Magic Library for academic, forensic, and educational purposes. See ' }}
+        <a :href="isZh ? '/zh/acknowledgements' : '/acknowledgements'" class="text-$vp-c-brand font-medium hover:underline">
+          {{ isZh ? '项目致谢独立页面 →' : 'Acknowledgements →' }}
+        </a>
+      </p>
+    </div>
   </div>
 </template>
 
 <style scoped>
-.reprint-attribution-card {
-  border: 1px solid var(--vp-c-divider-light);
-  background-color: var(--vp-c-bg-soft);
+.book-attribution-card {
+  border: 1px solid var(--vp-c-border);
+  background-color: var(--vp-c-bg-elv);
+  box-shadow: 0 4px 18px -2px rgba(0, 0, 0, 0.03);
 }
 </style>

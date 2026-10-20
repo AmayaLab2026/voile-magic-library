@@ -1,284 +1,259 @@
 @import 'kbd.css';
 
 html, body {
-  -webkit-tap-highlight-color: transparent; /* 避免触屏下的点击高亮颜色 */
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
-/* 参考 Vitest */
-/* fix height ~ 2 lines of text: 3 or more cards per row */
-.VPTeamMembersItem.small .profile .data .affiliation {
-  min-height: 3rem;
+/* ==========================================================================
+   Claude Aesthetic & Rounded Beauty (ヴワル魔法図書館)
+   ========================================================================== */
+
+/* 优雅衬线标题字体：融合古典文书与现代人文质感 */
+:is(.VPHero .name, .vp-doc h1, .vp-doc h2, .vp-doc h3) {
+  font-family: "Charter", "Source Serif 4", "Source Serif Pro", "Georgia", "Cambria", "Songti SC", "Noto Serif CJK SC", serif;
+  letter-spacing: -0.015em;
 }
 
-.VPTeamMembersItem.small .profile .data .desc {
-  min-height: 3rem;
-}
-
-/* fix height ~ 3 lines of text: 4 cards per row */
-@media (min-width: 1064px) and (max-width: 1143px) {
-  .VPTeamMembersItem.small .profile .data .affiliation {
-    min-height: 4rem;
-  }
-
-  .VPTeamMembersItem.small .profile .data .desc {
-    min-height: 4rem;
-  }
-}
-
-/* fix height ~ 3 lines of text: 3 cards per row */
-@media (min-width: 815px) and (max-width: 875px) {
-  .VPTeamMembersItem.small .profile .data .affiliation {
-    min-height: 4rem;
-  }
-
-  .VPTeamMembersItem.small .profile .data .desc {
-    min-height: 4rem;
-  }
-}
-
-/* fix height ~ 3 lines of text: 2 cards per row */
-@media (max-width: 612px) {
-  .VPTeamMembersItem.small .profile .data .affiliation {
-    min-height: 4rem;
-  }
-
-  .VPTeamMembersItem.small .profile .data .desc {
-    min-height: 4rem;
-  }
-}
-
-/* fix height: one card per row */
-@media (max-width: 568px) {
-  .VPTeamMembersItem.small .profile .data .affiliation {
-    min-height: unset;
-  }
-
-  .VPTeamMembersItem.small .profile .data .desc {
-    min-height: unset;
-  }
-}
-
-/* 覆盖 VPTeamMembers 组件内部处理的子元素包含特定 max-width 样式致使元素宽度与正文不一致的问题 */
-.vp-doc .VPTeamMembers.small.count-2 .container,
-.vp-doc .VPTeamMembers.small.count-3 .container {
-  max-width: 1152px !important;
-}
-
-.VPTeamMembers.medium.count-2 .container {
-  max-width: unset;
-}
-
-.VPTeamMembers.small.count-2 .container {
-  max-width: unset;
-}
-
-/* 标题所需要的字体 */
-@font-face {
-  font-family: tengwarannatar;
-  src: url(/tengwar-annatar-glaemscrafu.woff2) format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
-/* 标题所需要的字体 */
-@font-face {
-  font-family: tengwarannatar-bold;
-  src: url(/tengwar-annatar-glaemscrafu-bold.woff2) format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
-/* 首页标题样式 */
-.VPHomeHero > .container > .main > h1 {
-  font-size: 5rem;
-}
-
+/* 首页 Hero 标题排版 */
 .VPHero.has-image span.name:nth-child(1) {
-  line-height: 7rem;
+  line-height: 1.25;
 }
 
-/* 首页子标题样式 */
-.VPHomeHero > .container > .main > .text {
-  padding-top: 45px;
-  font-size: 4rem;
+.VPHomeHero > .container > .main > h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
 }
 
-/* 首页介绍样式 */
 .VPHomeHero > .container > .main > .tagline {
-  padding-top: 24px;
+  padding-top: 18px;
+  font-size: 1.25rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
 }
 
-/* 自适应样式 */
 @media (max-width: 1024px) {
-  /* 首页标题样式 */
   .VPHomeHero > .container > .main > h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
-
-  /* 首页子标题样式 */
-  .VPHomeHero > .container > .main > .text {
-    padding-top: 30px;
-    font-size: 3rem;
-  }
-
-  /* 首页介绍样式 */
   .VPHomeHero > .container > .main > .tagline {
-    padding-top: 20px;
+    font-size: 1.15rem;
   }
 }
 
-/* 自适应样式 */
 @media (max-width: 640px) {
-  /* 首页标题样式 */
   .VPHomeHero > .container > .main > h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
-
-  /* 首页子标题样式 */
-  .VPHomeHero > .container > .main > .text {
-    padding-top: 20px;
-    font-size: 2rem;
-  }
-
-  /* 首页介绍样式 */
   .VPHomeHero > .container > .main > .tagline {
-    padding-top: 20px;
+    font-size: 1rem;
   }
 }
 
-/* 主页下方的页脚透明度 */
-.VPFooter {
-  opacity: 0.8;
+/* 1. 圆润胶囊按钮 (Claude Pill Buttons) */
+.VPButton,
+.VPHero .action .VPButton {
+  border-radius: 9999px !important;
+  font-weight: 500;
+  padding: 0 26px;
+  height: 44px;
+  line-height: 42px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* 正文结尾的 CC 协议链接基本样式 */
+.VPButton.brand {
+  background-color: var(--vp-c-brand-1) !important;
+  border-color: var(--vp-c-brand-1) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(193, 95, 62, 0.25);
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand-2) !important;
+  border-color: var(--vp-c-brand-2) !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(193, 95, 62, 0.35);
+}
+
+.VPButton.alt {
+  background-color: var(--vp-c-bg-elv) !important;
+  border: 1px solid var(--vp-c-border) !important;
+  color: var(--vp-c-text-1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.VPButton.alt:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  color: var(--vp-c-brand-1) !important;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* 2. 搜索框胶囊化与温暖质感 */
+.DocSearch-Button,
+.VPNavBarSearch .DocSearch-Button {
+  border-radius: 9999px !important;
+  background-color: var(--vp-c-bg-alt) !important;
+  border: 1px solid var(--vp-c-border) !important;
+  padding: 0 16px !important;
+  transition: all 0.2s ease;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 0 0 2px var(--vp-c-brand-soft) !important;
+}
+
+/* 3. 首页特性卡片：大圆角与温润拟纸质感 (Claude Card Aesthetic) */
+.VPHomeFeatures .item,
+.VPFeature {
+  border-radius: 20px !important;
+  border: 1px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg-elv) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+.VPHomeFeatures .item:hover,
+.VPFeature:hover {
+  transform: translateY(-3px);
+  border-color: rgba(193, 95, 62, 0.35) !important;
+  box-shadow: 0 12px 28px -4px rgba(193, 95, 62, 0.12);
+}
+
+.VPFeature .icon {
+  border-radius: 12px !important;
+  background-color: var(--vp-c-brand-soft) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 4. 代码块圆润化 */
+div[class*='language-'],
+.vp-doc div[class*='language-'] {
+  border-radius: 16px !important;
+  border: 1px solid var(--vp-c-border);
+  box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.04);
+}
+
+:not(pre) > code {
+  border-radius: 6px !important;
+  padding: 2px 7px !important;
+  font-size: 0.88em !important;
+  background-color: var(--vp-c-bg-alt) !important;
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* 5. 自定义提示块 (Custom Blocks / Callouts) 圆润化 */
+.custom-block {
+  border-radius: 16px !important;
+  border-left-width: 4px !important;
+  padding: 18px 22px !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+/* 6. 顶部导航与下拉菜单圆润化 */
+.VPMenu,
+.VPFlyout .menu {
+  border-radius: 16px !important;
+  border: 1px solid var(--vp-c-border) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.1) !important;
+  padding: 8px !important;
+  background-color: var(--vp-c-bg-elv) !important;
+}
+
+.VPMenu .VPMenuItem,
+.VPFlyout .menu-item {
+  border-radius: 10px !important;
+}
+
+/* 7. 侧边栏活动指示胶囊 */
+.VPSidebarItem .link {
+  border-radius: 10px !important;
+  transition: all 0.2s ease;
+  padding: 6px 12px !important;
+}
+
+.VPSidebarItem.is-active > .item > .link {
+  background-color: var(--vp-c-brand-soft) !important;
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600;
+}
+
+/* 8. 徽标与标签 Badge */
+.VPBadge {
+  border-radius: 9999px !important;
+  padding: 3px 10px !important;
+  font-weight: 500;
+}
+
+/* 9. 首页 Logo 与视觉柔光 */
+.VPHomeHero .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VPHomeHero .image-bg {
+  border-radius: 50%;
+}
+
+.VPHomeHero .image-src {
+  filter: drop-shadow(0 12px 32px rgba(193, 95, 62, 0.25));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.VPHomeHero .image-src:hover {
+  transform: translate(-50%, -50%) scale(1.04) rotate(2deg);
+}
+
+/* 10. 页脚与正文排版微调 */
+.VPFooter {
+  opacity: 0.85;
+  border-top: 1px solid var(--vp-c-border);
+  padding: 32px 24px;
+}
+
 .footer-cc-link {
   color: var(--vp-c-text-2);
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   text-decoration: underline;
-  text-decoration-color: rgb(114, 114, 114);
+  text-decoration-color: var(--vp-c-border);
 }
 
-/* 正文结尾的 CC 协议链接鼠标 hover 样式 */
 .footer-cc-link:hover {
-  color: var(--vp-c-text-1);
+  color: var(--vp-c-brand-1);
+  text-decoration-color: var(--vp-c-brand-1);
 }
 
-/* 正文结尾的 CC 协议链接暗色模式下鼠标 hover 样式 */
-.dark .footer-cc-link:hover {
-  color: var(--vp-c-text-1);
-}
-
-/* 调整文档页面页脚到正文结尾的间隔距离 */
 .VPDoc .VPDocFooter {
-  margin-top: 32px;
-}
-
-/* 脚注 */
-.footnotes > .footnotes-list {
-  margin-top: 32px;
-  opacity: 0.9;
-  font-size: 12px;
-  /* 确保脚注上的返回链接符号 ↩ 不会被 body 的 Emoji 字体覆盖渲染为 ↩️ */
-  font-family: sans-serif;
-}
-
-.footnotes > .footnotes-list > .footnote-item > p {
-  line-height: 18px;
-}
-
-/* 覆盖正文的 h1 标题样式 */
-.vp-doc > div > h1 {
-  margin-bottom: 16px;
+  margin-top: 40px;
 }
 
 .vp-doc a {
   text-decoration: none;
-  transition: all 0.3s ease;
+  color: var(--vp-c-brand-1);
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .vp-doc a:hover {
   text-decoration: underline;
+  color: var(--vp-c-brand-2);
 }
 
-/**
-  Discord 链接按钮样式
-*/
-
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
-  color: #6972d4;
-  border: 2px #6972d4 solid;
-  background-color: transparent;
+/* 团队成员卡片优雅圆角 */
+.VPTeamMembersItem {
+  border-radius: 18px !important;
+  border: 1px solid var(--vp-c-border) !important;
+  background-color: var(--vp-c-bg-elv) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.03);
 }
 
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
-  color: white;
-  background-color: #6975f2;
-}
-
-.VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
-  color: white;
-  background-color: #404eed;
-}
-
-/**
-  暗色模式下 Discord 链接按钮样式
-*/
-
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"] {
-  color: #898fcf;
-  border: 2px #898fcf solid;
-  background-color: transparent;
-}
-
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:hover {
-  color: white;
-  background-color: #404eed;
-}
-
-.dark .VPHero.VPHomeHero .actions a[href="https://discord.gg/XuNFDcDZGj"]:active {
-  color: white;
-  background-color: #444c9e;
-}
-
-/**
-  GitHub 链接按钮样式
-*/
-
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"] {
-  color: #616161;
-  border: 2px #616161 solid;
-  background-color: transparent;
-}
-
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:hover {
-  color: white;
-  background-color: #4b4b4b;
-}
-
-.VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:active {
-  color: white;
-  background-color: #000;
-}
-
-/**
-  暗色模式下 GitHub 链接按钮样式
-*/
-
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"] {
-  color: #a4a4a4;
-  border: 2px #a4a4a4 solid;
-  background-color: transparent
-}
-
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:hover {
-  color: white;
-  background-color: #252525;
-}
-
-.dark .VPHero.VPHomeHero .actions a[href="https://github.com/nolebase/nolebase"]:active {
-  color: white;
-  background-color: #4b4b4b;
+.VPTeamMembersItem .avatar {
+  border-radius: 50% !important;
+  border: 2px solid var(--vp-c-brand-soft);
 }

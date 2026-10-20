@@ -2,9 +2,9 @@ import type { Creator } from '../scripts/types/metadata'
 import { getAvatarUrlByGithubName } from '../scripts/utils'
 
 /** 文本 */
-export const siteName = 'Sapphire Rapids'
-export const siteShortName = 'Sapphire Rapids'
-export const siteDescription = '由 Vite 和 Vue 驱动的静态站点生成器'
+export const siteName = 'ヴワル魔法図書館'
+export const siteShortName = 'Voile Magic Library'
+export const siteDescription = '散发着书香的禁忌之识，尽在本馆'
 export const brandName = 'AmayaLab'
 export const currentYear = new Date().getFullYear()
 export const copyright = `Copyright © 2023-${currentYear} ${brandName}`
@@ -13,43 +13,31 @@ export const copyright = `Copyright © 2023-${currentYear} ${brandName}`
 export const include = ['docs']
 
 /** Repo */
-export const githubRepoLink = 'https://github.com/nolebase/nolebase'
+export const githubRepoLink = 'https://github.com'
 /** Discord */
-export const discordLink = 'https://discord.gg/XuNFDcDZGj'
+export const discordLink = 'https://discord.gg/'
 
 /** 无协议前缀域名 */
-export const plainTargetDomain = 'nolebase.ayaka.io'
+export const plainTargetDomain = ''
 /** 完整域名 */
 export const targetDomain = `https://${plainTargetDomain}`
 
 /** 创作者 */
 export const creators: Creator[] = [
   {
-    name: '絢香猫',
+    name: '翎奈猫',
     avatar: '',
-    username: 'nekomeowww',
-    title: 'Nólëbase 原始创作者',
-    desc: '开发者，专注于基础设施维护，数据分析，后端、DevOps 开发',
+    username: 'YuukiReina2023',
+    title: 'ヴワル魔法図書館馆长',
+    desc: '精神药理学家＆开源情报学家，万事通',
     links: [
-      { type: 'github', icon: 'github', link: 'https://github.com/nekomeowww' },
-      { type: 'twitter', icon: 'twitter', link: 'https://twitter.com/ayakaneko' },
+      { type: 'github', icon: 'github', link: 'https://github.com/YuukiReina2023' },
+      { type: 'twitter', icon: 'twitter', link: 'https://twitter.com/YuukiReina2023' },
     ],
-    nameAliases: ['nekomeowww', '绚香猫', '絢香猫', 'Neko Ayaka', 'Ayaka Neko'],
+    nameAliases: ['YuukiReina', '翎奈猫', 'Any Neko'],
     emailAliases: ['neko@ayaka.moe'],
   },
-  {
-    name: '絢香音',
-    avatar: '',
-    username: 'LittleSound',
-    title: 'Nólëbase 原始创作者',
-    desc: '开源开发者，专注于前端，以及前端相关工具库和工具链开发',
-    links: [
-      { type: 'github', icon: 'github', link: 'https://github.com/LittleSound' },
-      { type: 'twitter', icon: 'twitter', link: 'https://twitter.com/OikawaRizumu' },
-    ],
-    nameAliases: ['LittleSound', '绚香音', '絢香音', 'Rizumu Oikawa', 'Rizumu Ayaka', 'Ayaka Rizumu', 'Rizumu'],
-    emailAliases: ['rizumu@ayaka.moe', 'rizumu@oqo.moe'],
-  },
+ 
 ].map<Creator>((c) => {
   c.avatar = c.avatar || getAvatarUrlByGithubName(c.username)
   return c as Creator
