@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+# 关键修复：授予工作流向仓库（gh-pages分支）写入的权限
+permissions:
+  contents: write
+
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
