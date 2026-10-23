@@ -21,16 +21,16 @@ hero:
     alt: Voile Magic Library
 
 features:
-  - icon: <span class="memo"></span>
+  - icon: 🔭
     title: Rigorous Chemical Diagrams
     details: Features all 33 core chemical scaffold diagrams from Dr. Alexander Shulgin, illustrating opiate ring simplifications, fentanyl modifications, and psychedelic topologies.
-  - icon: <span class="vite"></span>
+  - icon: ⚖️
     title: Nexus of Law & Science
     details: In-depth analysis of the US Controlled Substances Act (CSA) 5-schedule logic, emergency scheduling powers, and Federal Analogue Act challenges.
-  - icon: <span class="vue"></span>
+  - icon: 📚
     title: Interdisciplinary Authorities
     details: Forewords by luminaries in law, forensic toxicology, and medicinal chemistry, bridging the gap between jurists and laboratory scientists.
-  - icon: <span class="rocket"></span>
+  - icon: ⚡
     title: Refined Reading Experience
     details: Built with VitePress and Claude-inspired warm paper aesthetics, featuring pill-capsule interactions and elegant serif typography.
 ---
