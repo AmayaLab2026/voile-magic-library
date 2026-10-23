@@ -86,6 +86,20 @@ pnpm serve
 
 ---
 
+## 自动化部署（Netlify）
+
+本站使用 Netlify 与 GitHub 的仓库集成进行自动化部署。部署配置保存在 `netlify.toml`，Node.js 使用 22，pnpm 使用 10.34.5，并通过锁文件安装依赖。
+
+1. 将文档或代码修改推送到 GitHub；合并到 `main` 分支后，Netlify 自动安装依赖并运行 `pnpm run build`。
+2. 构建成功后，Netlify 自动发布 `.vitepress/dist`，更新线上站点：https://willowy-panda-608127.netlify.app 。
+3. 在 Netlify 项目的 **Deploys** 页面查看部署状态和构建日志；构建失败时，线上站点继续使用上一次成功的部署。
+
+VitePress 的配置目录位于仓库根目录的 `.vitepress`，`srcDir: 'docs'` 仅指定文档源目录；构建产物仍位于 `.vitepress/dist`。仓库中的发布目录配置会覆盖 Netlify 控制台里旧的 `docs/.vitepress/dist` 设置。页面由 VitePress 预渲染，不使用将所有路径重写到首页的 SPA 规则，因此不存在的页面可正确返回 404。
+
+此流程使用现有的 GitHub 连接，无需额外配置 GitHub Actions 或部署令牌。部署配置合并到 `main` 后生效；修改依赖时，请一并提交 `pnpm-lock.yaml`。
+
+---
+
 ## 目录结构
 
 ```text

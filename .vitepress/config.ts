@@ -16,11 +16,9 @@ import head from './head'
 
 const nolebase = presetMarkdownIt()
 const nolebaseVite = presetVite({
-  gitChangelog: {
-    options: {
-      gitChangelog: {},
-    },
-  },
+  // Match the client preset: changelog rendering is disabled in the theme.
+  // The collector also writes Git config, which restricted deploys disallow.
+  gitChangelog: false,
 })
 
 export default defineConfig({
@@ -49,6 +47,20 @@ export default defineConfig({
       ],
     },
     plugins: [
+      // The client preset's optional dynamic imports are resolved even when
+      // changelog rendering is disabled. Supply its unused data module without
+      // enabling the Git collector (which writes repository configuration).
+      {
+        name: 'disabled-git-changelog-data',
+        resolveId(id) {
+          if (id === 'virtual:nolebase-git-changelog')
+            return '\0virtual:nolebase-git-changelog'
+        },
+        load(id) {
+          if (id === '\0virtual:nolebase-git-changelog')
+            return 'export default { commits: [], authors: [] }'
+        },
+      },
       Inspect(),
       Components({
         include: [/\.vue$/, /\.md$/],
@@ -173,15 +185,12 @@ export default defineConfig({
     config: (md) => {
       md.use(MarkdownItFootnote as any)
 
-      // Strip MathJax inline <style> tags that cause Vue template compiler side-effect errors in client templates
+      // Strip MathJax styles; VitePress already adds v-pre and block tabindex.
       const origMathInline = md.renderer.rules.math_inline
       if (origMathInline) {
         md.renderer.rules.math_inline = function (...args) {
           const res = origMathInline.apply(this, args)
-          return res
-            .replace(/<style[\s\S]*?<\/style>/gi, '')
-            .replace(/^(\s*<span)(\s+id="mjx-)/i, '$1 v-pre$2')
-            .replace(/^(\s*<mjx-container)(\s)/i, '$1 v-pre$2')
+          return res.replace(/<style[\s\S]*?<\/style>/gi, '')
         }
       }
 
@@ -189,10 +198,7 @@ export default defineConfig({
       if (origMathBlock) {
         md.renderer.rules.math_block = function (...args) {
           const res = origMathBlock.apply(this, args)
-          return res
-            .replace(/<style[\s\S]*?<\/style>/gi, '')
-            .replace(/^(\s*<span)(\s+id="mjx-)/i, '$1 v-pre tabindex="0"$2')
-            .replace(/^(\s*<mjx-container)(\s)/i, '$1 v-pre tabindex="0"$2')
+          return res.replace(/<style[\s\S]*?<\/style>/gi, '')
         }
       }
     },
