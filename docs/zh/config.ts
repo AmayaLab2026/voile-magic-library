@@ -93,12 +93,13 @@ export default defineConfig({
           text: '本馆导览',
           items: [
             { text: '关于本馆：ヴワル魔法図書館', link: '/about' },
+            { text: '馆藏典籍索引 · 索书与著者信息', link: '/catalogue' },
           ],
         },
         {
           text: '馆藏典籍',
           items: [
-            { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
+        { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
             { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
           ],
         },
@@ -155,11 +156,8 @@ export default defineConfig({
 
 function nav(): DefaultTheme.NavItem[] {
   return [
-    {
-      text: '本馆介绍',
-      link: '/about',
-      activeMatch: '/about',
-    },
+    { text: '本馆介绍', link: '/about', activeMatch: '/about' },
+    { text: '典籍索引', link: '/catalogue', activeMatch: '/catalogue' },
     {
       text: '馆藏书库',
       items: [

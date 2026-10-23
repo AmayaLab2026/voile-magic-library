@@ -257,3 +257,56 @@ div[class*='language-'],
   border-radius: 50% !important;
   border: 2px solid var(--vp-c-brand-soft);
 }
+
+
+/* MathJax SVG Math Rendering Styles */
+span[id^="mjx-"] {
+  display: inline-block;
+}
+
+mjx-container[jax="SVG"] {
+  direction: ltr;
+  display: inline-block;
+  line-height: 0;
+  text-indent: 0;
+  text-align: left;
+  letter-spacing: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  float: none;
+}
+
+mjx-container[jax="SVG"] > svg {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: -0.5ex;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1.2em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+mjx-container[jax="SVG"][display="true"] > svg {
+  max-width: 100%;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: none !important;
+  width: auto !important;
+  overflow: hidden !important;
+  user-select: none;
+}

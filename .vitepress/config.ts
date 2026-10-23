@@ -172,6 +172,29 @@ export default defineConfig({
     },
     config: (md) => {
       md.use(MarkdownItFootnote as any)
+
+      // Strip MathJax inline <style> tags that cause Vue template compiler side-effect errors in client templates
+      const origMathInline = md.renderer.rules.math_inline
+      if (origMathInline) {
+        md.renderer.rules.math_inline = function (...args) {
+          const res = origMathInline.apply(this, args)
+          return res
+            .replace(/<style[\s\S]*?<\/style>/gi, '')
+            .replace(/^(\s*<span)(\s+id="mjx-)/i, '$1 v-pre$2')
+            .replace(/^(\s*<mjx-container)(\s)/i, '$1 v-pre$2')
+        }
+      }
+
+      const origMathBlock = md.renderer.rules.math_block
+      if (origMathBlock) {
+        md.renderer.rules.math_block = function (...args) {
+          const res = origMathBlock.apply(this, args)
+          return res
+            .replace(/<style[\s\S]*?<\/style>/gi, '')
+            .replace(/^(\s*<span)(\s+id="mjx-)/i, '$1 v-pre tabindex="0"$2')
+            .replace(/^(\s*<mjx-container)(\s)/i, '$1 v-pre tabindex="0"$2')
+        }
+      }
     },
   },
   async transformHead(context) {

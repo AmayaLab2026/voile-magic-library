@@ -8,7 +8,10 @@ hero:
   tagline: 散发着书香的禁忌之识，尽在本馆
   actions:
     - theme: brand
-      text: 开始阅读
+      text: 馆藏典籍索引
+      link: ./catalogue
+    - theme: alt
+      text: 馆藏导览
       link: ./about
     - theme: alt
       text: 项目致谢
