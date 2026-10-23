@@ -10,6 +10,38 @@ description: ヴ瓦尔魔法图书馆数字化馆藏书目、索书编码、著�
 
 ---
 
+## 馆藏典籍快速索书卡片总览
+
+::: info 馆藏第一号典籍 · 索书与著者信息
+* **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）
+* **馆藏索书号**：`VML-KF3890.S58-1992`
+* **ISBN**：0-914171-50-X
+* **典籍原名**：Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)
+* **中文典藏名**：管制物质：联邦药物法的化学与法律指南（第二版）
+* **出版机构**：Ronin Publishing, Inc. (Berkeley, CA)
+* **馆藏库位**：ヴワル魔法図書館 · 特藏文献室
+* **借阅状态**：特藏开放 · 全卷在线阅读（含 33 幅手绘化学母核拓扑结构图版）
+* **快速入口**：**[立即前往翻阅本书总目录与章节](/controlled-substances/)**
+:::
+
+::: info 馆藏第二号典籍 · 索书与著者信息
+* **著者**：T. M. Mel'kumov 等（苏联科学院自然科学与技术史研究所 先驱著作编委会）
+* **先驱著述者**：N. I. Kibal'chich（基巴利契奇）、Yu. V. Kondratyuk（孔德拉秋克 / 亚历山大·沙尔盖）、K. E. Tsiolkovskiy（齐奥尔科夫斯基）、F. A. Tsander（灿德尔）
+* **力学奠基人**：I. V. Meshcherskiy（梅谢尔斯基）、V. P. Vetchinkin（韦钦金）
+* **考证与编撰**：V. N. Sokol'skiy（索科尔斯基 博士）
+* **馆藏索书号**：`VML-TL781.P56-1965`
+* **报告编号 / 文献代码**：NASA TT F-9285 / TT 65-50114（俄文原版：Nauka-1964）
+* **典籍原名**：Pioneers of Rocket Technology: Selected Works (Пионеры ракетной техники: Избранные труды)
+* **中文典藏名**：火箭技术先驱：选集（1881–1933）
+* **出版机构**：National Aeronautics and Space Administration (Washington, D.C.) / 科学出版社 (Nauka, Moscow) / 以色列科学翻译局 (IPST, Jerusalem)
+* **馆藏档案源**：苏联中央国家十月革命档案馆（TsGAOR 卷宗 112）/ 苏联科学院档案总库（ARAN 基金 733、555）
+* **馆藏库位**：ヴワル魔法図書館 · 特藏文献室
+* **借阅状态**：特藏开放 · 全卷在线阅读（含 42 幅高清工程力学图版与手稿影印）
+* **快速入口**：**[立即前往翻阅本书总目录与章节](/rocket-pioneers/)**
+:::
+
+---
+
 ## 馆藏分类与索书体系说明
 
 ヴ瓦尔魔法图书馆采用严密规范的数字化古籍与特藏书目排架体系（Voile Magic Library Classification, 简称 **VMLC**），同时全面兼容并对照国际标准文献分类体系：
@@ -20,35 +52,31 @@ description: ヴ瓦尔魔法图书馆数字化馆藏书目、索书编码、著�
 
 ### 索书号编码规则
 
-本馆内部统一索书号格式定义如下：
+本馆索书号融合了馆标前缀、国会图书馆核心分类索书号与原著出版/归档年份：
 
-$$\text{VML-}[\text{学科大类代码}]\text{-}[\text{原刊/归档年份}]\text{-}[\text{典籍馆藏序号}]$$
+$$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
-* **PHARM**：精神药理学、法庭毒理物证学与管制物质法律规制（Pharmacology, Toxicology & Drug Jurisprudence）
-* **AERO**：航空航天理论、变质量系统力学与行星际航行动力学（Aeronautics, Astrodynamics & Rocket Engineering）
-* **CRYPT**：信息隐藏、密码学与开源情报学（Cryptography & Open-Source Intelligence）
-* **PHYS**：理论物理、量子场论与高能唯象学（Theoretical Physics & Phenomenology）
+* **KF3890.S58**：美国联邦受控物质法律与法庭化学物质规制（Alexander T. Shulgin）
+* **TL781.P56**：火箭动力学理论史与早期航天科学论著选集（Pioneers of Rocket Technology）
 
 ---
 
 ## 馆藏第一号典籍（Vol. 01）
 
-### 索书与版本著录卡片
+### 典籍著录总档
 
-| 著录项目 | 著录内容 |
-| :--- | :--- |
-| **馆藏统一索书号** | **`VML-PHARM-1998-001`** |
-| **国会图书馆分类号（LCC）** | `RA1238 .S58 1998`（法庭毒理与精神药理学）/ `KF3890`（联邦药物法） |
-| **杜威分类号（DDC）** | `344.73/0545`（美国法律·管制麻醉药物与物质）/ `615.788`（神经系统药物） |
-| **文献统一书名** | *Controlled Substances: Chemical & Legal Guide to the Federal Drug Laws* |
-| **中文典藏译名** | **《管制物质：联邦药物法的化学与法律指南》**（第二版） |
-| **原著责任著者** | Alexander T. Shulgin, Ph.D.（亚历山大·“萨沙”·舒尔金 博士） |
-| **序言特约专家** | Ronald K. Siegel, Ph.D.；Gary L. Henderson, Ph.D.；David P. Krivitsky, Esq. |
-| **原始出版项** | Berkeley, California: Ronin Publishing, Inc., 1998（ISBN 0-914171-50-X） |
-| **数字化形态** | 全书 10 大完整编章、33 幅母核骨架图版、DEA 药物代码全表与分子经验式索引 |
-| **版本性质** | 中文逐段全译注释典藏本（含高清化学结构式图版） |
-| **学术主题标目** | 精神药理学；受控物质法案（CSA）；类似物法案；药物化学骨架；DEA 代码库 |
-| **借阅与查阅状态** | **特藏开放 · 全卷在线阅读** |
+* **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）
+* **馆藏索书号**：`VML-KF3890.S58-1992`
+* **国会图书馆分类号（LCC）**：`KF3890`（联邦药物法）/ `RA1238 .S58 1992`（法庭毒理与精神药理学）
+* **杜威分类号（DDC）**：`344.73/0545`（美国法律·管制麻醉药物与物质）/ `615.788`（神经系统药物）
+* **ISBN**：0-914171-50-X
+* **典籍原名**：Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)
+* **中文典藏译名**：管制物质：联邦药物法的化学与法律指南（第二版）
+* **出版机构**：Ronin Publishing, Inc. (Berkeley, CA)
+* **馆藏库位**：ヴワル魔法図書館 · 特藏文献室
+* **序言特约专家**：Ronald K. Siegel, Ph.D.；Gary L. Henderson, Ph.D.；David P. Krivitsky, Esq.
+* **数字化形态**：全书 10 大完整编章、33 幅母核骨架图版、DEA 药物代码全表与分子经验式索引
+* **学术主题标目**：精神药理学；受控物质法案（CSA）；类似物法案；药物化学骨架；DEA 代码库
 
 ### 责任著者与特约专家考略
 
@@ -87,27 +115,23 @@ $$\text{VML-}[\text{学科大类代码}]\text{-}[\text{原刊/归档年份}]\tex
 
 ## 馆藏第二号典籍（Vol. 02）
 
-### 索书与版本著录卡片
+### 典籍著录总档
 
-| 著录项目 | 著录内容 |
-| :--- | :--- |
-| **馆藏统一索书号** | **`VML-AERO-1965-002`** |
-| **国会图书馆分类号（LCC）** | `TL781 .P56 1965`（火箭学历史与早期理论）/ `TL782`（火箭技术论文集） |
-| **杜威分类号（DDC）** | `629.40947`（航天学·苏联与俄罗斯历史）/ `629.134354`（火箭发动机设计） |
-| **美国航天局技术报告号** | **`NASA TT F-9285`**（NASA Technical Translation Series） |
-| **原始俄文版题名** | **Пионеры ракетной техники: Избранные труды**（莫斯科：科学出版社 Nauka，1964） |
-| **英文官方译名** | *Pioneers of Rocket Technology: Selected Works*（华盛顿特区：NASA，1965） |
-| **中文典藏译名** | **《火箭技术先驱：选集（1881–1933）》** |
-| **先驱著者** | N. I. Kibal'chich；Yu. V. Kondratyuk；K. E. Tsiolkovskiy；F. A. Tsander |
-| **力学奠基著者** | I. V. Meshcherskiy（梅谢尔斯基）；V. P. Vetchinkin（韦钦金） |
-| **责任编辑委员会** | T. M. Mel'kumov 少将（主编）；V. N. Sokol'skiy 博士；I. A. Merkulov 等 |
-| **学术主管机构** | 苏联科学院自然科学与技术史研究所（Институт истории естествознания и техники АН СССР） |
-| **英译承印机构** | 以色列科学翻译计划局（Israel Program for Scientific Translations, IPST），耶路撒冷 |
-| **原始档案源流** | 1. 基巴利契奇手稿：苏联中央国家十月革命与社会主义建设档案馆（TsGAOR，卷宗 112）<br>2. 孔德拉秋克手稿：苏联科学院档案总库（ARAN，基金 733 与 555） |
-| **数字化形态** | 全书 4 大编 24 章节、42 幅精细工程力学图版、手稿原件影印、编委会理论评注 |
-| **版本性质** | 中文逐段全译注释典藏本（含全部原始数学推导、排气速度公式与力学图解） |
-| **学术主题标目** | 火箭动力学；宇航力学；变质量分析力学；月球轨道交会（LOR）；引力助推；多级火箭 |
-| **借阅与查阅状态** | **特藏开放 · 全卷在线阅读** |
+* **著者**：T. M. Mel'kumov 等（苏联科学院自然科学与技术史研究所 先驱著作编委会）
+* **先驱著述者**：N. I. Kibal'chich（基巴利契奇）、Yu. V. Kondratyuk（孔德拉秋克 / 亚历山大·沙尔盖）、K. E. Tsiolkovskiy（齐奥尔科夫斯基）、F. A. Tsander（灿德尔）
+* **力学奠基人**：I. V. Meshcherskiy（梅谢尔斯基）、V. P. Vetchinkin（韦钦金）
+* **考证与编撰**：V. N. Sokol'skiy（索科尔斯基 博士）
+* **馆藏索书号**：`VML-TL781.P56-1965`
+* **国会图书馆分类号（LCC）**：`TL781 .P56 1965`（火箭学历史与早期理论）/ `TL782`（火箭技术论文集）
+* **杜威分类号（DDC）**：`629.40947`（航天学·苏联与俄罗斯历史）/ `629.134354`（火箭发动机设计）
+* **报告编号 / 文献代码**：NASA TT F-9285 / TT 65-50114（俄文原版：Nauka-1964）
+* **典籍原名**：Pioneers of Rocket Technology: Selected Works (Пионеры ракетной техники: Избранные труды)
+* **中文典藏译名**：火箭技术先驱：选集（1881–1933）
+* **出版机构**：National Aeronautics and Space Administration (Washington, D.C.) / 科学出版社 (Nauka, Moscow) / 以色列科学翻译局 (IPST, Jerusalem)
+* **馆藏档案源**：苏联中央国家十月革命档案馆（TsGAOR 卷宗 112）/ 苏联科学院档案总库（ARAN 基金 733、555）
+* **馆藏库位**：ヴワル魔法図書館 · 特藏文献室
+* **数字化形态**：全书 4 大编 24 章节、42 幅精细工程力学图版、手稿原件影印、编委会理论评注
+* **学术主题标目**：火箭动力学；宇航力学；变质量分析力学；月球轨道交会（LOR）；引力助推；多级火箭
 
 ### 先驱著者与科学委员会考略
 
@@ -206,14 +230,15 @@ $$\text{VML-}[\text{学科大类代码}]\text{-}[\text{原刊/归档年份}]\tex
 1. **学术研究引用格式（BibTeX / APA）**：
    * **Vol. 01**:
      ```bibtex
-     @book{shulgin1998controlled,
+     @book{shulgin1992controlled,
        title={Controlled Substances: Chemical and Legal Guide to the Federal Drug Laws},
        author={Shulgin, Alexander T.},
        edition={2nd},
-       year={1998},
+       year={1992},
        publisher={Ronin Publishing},
        address={Berkeley, CA},
-       note={Voile Magic Library Digital Edition VML-PHARM-1998-001}
+       isbn={0-914171-50-X},
+       note={Voile Magic Library Call Number: VML-KF3890.S58-1992}
      }
      ```
    * **Vol. 02**:
@@ -226,7 +251,7 @@ $$\text{VML-}[\text{学科大类代码}]\text{-}[\text{原刊/归档年份}]\tex
        year={1965},
        publisher={National Aeronautics and Space Administration},
        address={Washington, D.C.},
-       note={Voile Magic Library Digital Edition VML-AERO-1965-002}
+       note={Voile Magic Library Call Number: VML-TL781.P56-1965}
      }
      ```
 2. **开放存取与版权政策**：
