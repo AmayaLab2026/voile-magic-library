@@ -37,7 +37,7 @@ export const creators: Creator[] = [
     nameAliases: ['YuukiReina', '翎奈猫', 'Any Neko'],
     emailAliases: ['neko@ayaka.moe'],
   },
- 
+
 ].map<Creator>((c) => {
   c.avatar = c.avatar || getAvatarUrlByGithubName(c.username)
   return c as Creator

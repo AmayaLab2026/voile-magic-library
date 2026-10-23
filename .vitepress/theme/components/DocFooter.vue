@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
-import { computed, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 
 const route = useRoute()
 const { frontmatter, lang } = useData()
@@ -31,7 +31,7 @@ const isZh = computed(() => {
         <span>{{ isZh ? '馆藏典籍索引 · 索书与著者信息' : 'Library Catalog & Book Call Card' }}</span>
       </div>
 
-      <div class="mt-3 grid gap-2 text-xs text-$vp-c-text-2">
+      <div class="grid mt-3 gap-2 text-xs text-$vp-c-text-2">
         <div flex="~ wrap items-center gap-x-6 gap-y-1.5">
           <div>
             <span font-medium class="text-$vp-c-text-1">{{ isZh ? '著者' : 'Author' }}：</span>
@@ -39,15 +39,15 @@ const isZh = computed(() => {
           </div>
           <div>
             <span font-medium class="text-$vp-c-text-1">{{ isZh ? '馆藏索书号' : 'Call No.' }}：</span>
-            <code class="rounded px-2 py-0.5 text-$vp-c-brand font-mono font-bold bg-$vp-c-brand-soft">VML-KF3890.S58-1992</code>
+            <code class="rounded bg-$vp-c-brand-soft px-2 py-0.5 text-$vp-c-brand font-bold font-mono">VML-KF3890.S58-1992</code>
           </div>
           <div>
             <span font-medium class="text-$vp-c-text-1">ISBN：</span>
-            <span class="font-mono font-semibold">0-914171-50-X</span>
+            <span class="font-semibold font-mono">0-914171-50-X</span>
           </div>
         </div>
 
-        <div flex="~ wrap items-center gap-x-6 gap-y-1" class="text-xs opacity-90 mt-1">
+        <div flex="~ wrap items-center gap-x-6 gap-y-1" class="mt-1 text-xs opacity-90">
           <div>
             <span font-medium class="text-$vp-c-text-1">{{ isZh ? '典籍原名' : 'Original Work' }}：</span>
             <span italic>Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)</span>

@@ -77,7 +77,7 @@ export default defineConfig({
     notFound: {
       title: 'PAGE NOT FOUND',
       quote:
-        "But if you don't change your direction, and if you keep looking, you may end up where you are heading.",
+        'But if you don\'t change your direction, and if you keep looking, you may end up where you are heading.',
       linkLabel: 'go to home',
       linkText: 'Take me home',
     },

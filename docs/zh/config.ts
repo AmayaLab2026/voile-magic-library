@@ -99,7 +99,7 @@ export default defineConfig({
         {
           text: '馆藏典籍',
           items: [
-        { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
+            { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
             { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
           ],
         },
@@ -171,20 +171,4 @@ function nav(): DefaultTheme.NavItem[] {
       activeMatch: '/acknowledgements',
     },
   ]
-}
-
-function searchOptions(): any {
-  return {
-    miniSearch: {
-      searchOptions: {
-        fuzzy: 0.2,
-        prefix: true,
-        boost: {
-          title: 4,
-          text: 2,
-          titles: 1,
-        },
-      },
-    },
-  }
 }

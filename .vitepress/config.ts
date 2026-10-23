@@ -1,17 +1,18 @@
+import process from 'node:process'
 import { presetMarkdownIt } from '@nolebase/integrations/vitepress/markdown-it'
 import { presetVite } from '@nolebase/integrations/vitepress/vite'
 import { transformHeadMeta } from '@nolebase/vitepress-plugin-meta'
 import MarkdownItFootnote from 'markdown-it-footnote'
 import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite'
-import { defineConfig } from 'vitepress'
 import Inspect from 'vite-plugin-inspect'
+import { defineConfig } from 'vitepress'
 
 import enConfig from '../docs/en/config'
 import jaConfig from '../docs/ja/config'
-import { githubRepoLink, siteDescription, siteName } from '../metadata/index'
-import zhConfig from '../docs/zh/config'
 import zhHantConfig from '../docs/zh-hant/config'
+import zhConfig from '../docs/zh/config'
+import { githubRepoLink, siteDescription, siteName } from '../metadata/index'
 import head from './head'
 
 const nolebase = presetMarkdownIt()
@@ -97,7 +98,7 @@ export default defineConfig({
       provider: 'local',
       options: {
         locales: {
-          zh: {
+          'zh': {
             translations: {
               button: {
                 buttonText: '搜索文档',
@@ -129,7 +130,7 @@ export default defineConfig({
               },
             },
           },
-          ja: {
+          'ja': {
             translations: {
               button: {
                 buttonText: 'ドキュメントを検索',
@@ -150,28 +151,28 @@ export default defineConfig({
     },
   },
   locales: {
-    root: {
+    'root': {
       label: '简体中文',
       lang: 'zh-Hans',
-      ...zhConfig,
+      ...(zhConfig as any),
     },
-    en: {
+    'en': {
       label: 'English',
       lang: 'en-US',
       link: '/en/',
-      ...enConfig,
+      ...(enConfig as any),
     },
     'zh-hant': {
       label: '繁體中文',
       lang: 'zh-Hant',
       link: '/zh-hant/',
-      ...zhHantConfig,
+      ...(zhHantConfig as any),
     },
-    ja: {
+    'ja': {
       label: '日本語',
       lang: 'ja-JP',
       link: '/ja/',
-      ...jaConfig,
+      ...(jaConfig as any),
     },
   },
   markdown: {
