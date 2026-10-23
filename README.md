@@ -36,10 +36,11 @@
 
 ## 现有馆藏书库
 
-| 馆藏号 | 书名 | 原作者 | 说明 |
+| 馆藏索书号 | 书名 | 著者与机构 | 说明 |
 | :---: | :--- | :--- | :--- |
-| **Vol. 01** | [《管制物质：联邦药物法的化学与法律指南》](/controlled-substances/) (*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws*) | Alexander T. Shulgin, Ph.D.（第二版） | 436 页经典巨著全书编译整理，完整收录 7 大核心章节、引言序言、33 幅母核图版与附录。 |
-| **Vol. 02** | [《火箭技术先驱：选集》](/rocket-pioneers/) (*Pioneers of Rocket Technology: Selected Works*) | 苏联科学院自然科学与技术史研究所 编纂，NASA TT F-9285 | 完整收录基巴利契奇 1881 死囚牢手稿、孔德拉秋克《致读此书以建造者》（1918–1919）与《征服星际空间》（1929）、索科尔斯基历史纲要全译，配齐全部 42 幅高清工程原理图版。 |
+| **馆藏总目** | [《馆藏典籍索引 · 索书与著者信息》](docs/zh/catalogue.md) (*Catalogue & Biographical Registry*) | ヴワル魔法図書館 编订 | 统一索书编码（VMLC 对照 LCC / DDC / NASA）、著者名人堂与解密档案（TsGAOR / ARAN）考证。 |
+| **Vol. 01**<br>`VML-KF3890.S58-1992` | [《管制物质：联邦药物法的化学与法律指南》](docs/zh/controlled-substances/) (*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws*) | Alexander T. Shulgin, Ph.D.（第二版，1992） | 436 页经典巨著全书编译整理，完整收录 7 大核心章节、引言序言、33 幅母核图版与附录。 |
+| **Vol. 02**<br>`VML-TL781.P56-1965` | [《火箭技术先驱：选集》](docs/zh/rocket-pioneers/) (*Pioneers of Rocket Technology: Selected Works*) | 苏联科学院自然科学与技术史研究所 编纂，NASA TT F-9285 | 完整收录基巴利契奇 1881 死囚牢手稿、孔德拉秋克《致读此书以建造者》（1918–1919）与《征服星际空间》（1929）、索科尔斯基历史纲要全译，配齐全部 42 幅高清工程原理图版。 |
 
 ---
 

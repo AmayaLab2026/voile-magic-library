@@ -1,5 +1,5 @@
 {
-  "name": "amayalab-vitepress-sandbox",
+  "name": "voile-magic-library",
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@10.34.5",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AmayaLab2026/amayalab-vitepress-sandbox.git"
+    "url": "git+https://github.com/AmayaLab2026/voile-magic-library.git"
   },
   "bugs": {
-    "url": "https://github.com/AmayaLab2026/amayalab-vitepress-sandbox/issues"
+    "url": "https://github.com/AmayaLab2026/voile-magic-library/issues"
   },
-  "homepage": "https://github.com/AmayaLab2026/amayalab-vitepress-sandbox#readme",
+  "homepage": "https://github.com/AmayaLab2026/voile-magic-library#readme",
   "license": "MIT",
   "keywords": [
     "vitepress",

@@ -18,7 +18,7 @@ hero:
       link: ./acknowledgements
     - theme: alt
       text: GitHub
-      link: https://github.com/AmayaLab2026/amayalab-vitepress-sandbox
+      link: https://github.com/AmayaLab2026/voile-magic-library
   image:
     src: /logo.svg
     alt: ヴワル魔法図書館
