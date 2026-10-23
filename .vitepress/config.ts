@@ -22,6 +22,7 @@ const nolebaseVite = presetVite({
 })
 
 export default defineConfig({
+  base: process.env.VITEPRESS_BASE || '/',
   srcDir: 'docs',
   vue: {
     template: {
