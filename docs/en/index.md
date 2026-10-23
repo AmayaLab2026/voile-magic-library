@@ -26,14 +26,14 @@ hero:
 features:
   - icon: 🔭
     title: Rigorous Chemical Diagrams
-    details: Features all 33 core chemical scaffold diagrams from Dr. Alexander Shulgin, illustrating opiate ring simplifications, fentanyl modifications, and psychedelic topologies.
+    details: All 33 of Shulgin's hand-drawn scaffold plates — from the six-step opiate ring simplification to the fentanyl piperidine matrix and the psychedelic phenethylamine and tryptamine families.
   - icon: ⚖️
-    title: Nexus of Law & Science
-    details: In-depth analysis of the US Controlled Substances Act (CSA) 5-schedule logic, emergency scheduling powers, and Federal Analogue Act challenges.
+    title: Law Meets Regulatory Science
+    details: A deep dive into the CSA's five-schedule framework and the judicial quagmire of the 1986 Federal Analogue Act — drawing the legal boundary of "substantially similar" chemical structures.
   - icon: 📚
-    title: Interdisciplinary Authorities
-    details: Forewords by luminaries in law, forensic toxicology, and medicinal chemistry, bridging the gap between jurists and laboratory scientists.
+    title: Rocket Pioneer Original Manuscripts
+    details: Complete texts of Kondratyuk's foundational works on Lunar Orbit Rendezvous (LOR), Kibal'chich's 1881 death-cell blueprints, and Sokol'skiy's historical survey — humanity's first cry into outer space.
   - icon: ⚡
     title: Refined Reading Experience
-    details: Built with VitePress and Claude-inspired warm paper aesthetics, featuring pill-capsule interactions and elegant serif typography.
+    details: Built on VitePress with Claude-inspired warm paper aesthetics — large rounded pill controls, elegant serif typography, and a soft glow like turning yellowed pages under a desk lamp.
 ---
