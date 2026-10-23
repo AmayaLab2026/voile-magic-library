@@ -44,7 +44,7 @@ DEA 当时坚称，这些编号的增补仅属于法律陈述的附带形式。�
 | **1480** | N,N-Dimethylamphetamine | Schedule I | 地下合成类似物 | 52 FR 44105 紧急列管 |
 | **1485** | Pyrovalerone (吡咯戊酮) | Schedule V | 兴奋剂 | 1988 国际公约列管 |
 | **1503** | Bemegride (贝美格 / 美解眠) | Not Scheduled | 中枢兴奋剂 / 惊厥剂 | 代码 1503 仅监控 |
-| **1504** | Fenethylline (芬乙茶碱 / 巧倍糖) | Schedule I | 茶碱-苯丙胺共价结合物 | 46 FR 42261 永久列管 |
+| **1504** | Fenethylline (芬乙茶碱 / 卡托根) | Schedule I | 茶碱-苯丙胺共价结合物 | 46 FR 42261 永久列管 |
 | **1605** | Mazindol (马吲哚) | Schedule IV | 食欲抑制剂 | 46 FR 57883 降级 |
 | **1615** | Phendimetrazine (芬美曲嗪) | Schedule III | 食欲抑制剂 | 图版 21 |
 | **1630** | SPA (Lefetamine / 乐非他明) | Schedule IV | 镇痛兴奋剂 | 45 FR 78632 列管 |
@@ -83,10 +83,10 @@ DEA 当时坚称，这些编号的增补仅属于法律陈述的附带形式。�
 | **2550** | **Glutethimide (格鲁米特 / 导眠能)** | Schedule II (提级) | 镇静催眠药 | 1991 年全面升级附表二 |
 | **2565** | **Methaqualone (甲喹酮 / 安眠酮 / Quaalude)**| Schedule I (死刑) | 禁绝中枢抑制药 | 1984 专项法案钉死附表一 |
 | **2572** | Mecloqualone (甲氯喹酮) | Schedule I | 禁绝安眠酮类似物 | 40 FR 28795 列管 |
-| **2600** | **Sulfondiethylmethane (磺乙烷)** | Schedule III | 遗忘沉睡四十年的分子 | 历史官僚照抄实证 |
+| **2600** | **Sulfondiethylmethane (磺二乙甲烷)** | Schedule III | 遗忘沉睡四十年的分子 | 历史官僚照抄实证 |
 | **2605** | Sulfonethylmethane (磺乙甲烷) | Schedule III | 砜类催眠药 | CAS 76-20-0 |
 | **2610** | Sulfonmethane (磺甲烷 / 索佛那) | Schedule III | 砜类催眠药 | CAS 115-24-2 |
-| **2710** | Acetophenazine (乙酰苯肼二顺丁烯二酸盐) | Not Scheduled | 安定类精神药监控 | 代码 2710/2892 |
+| **2710** | Acetophenazine (乙酰奋乃静二顺丁烯二酸盐) | Not Scheduled | 安定类精神药监控 | 代码 2710/2892 |
 | **2744** | **Chlordiazepoxide (氯氮䓬 / 利眠宁游离碱)** | Schedule IV | 苯二氮䓬开山先驱 | 40 FR 23998 列管 |
 | **2745** | Chlordiazepoxide HCl (盐酸氯氮䓬结晶) | Schedule IV | 盐酸盐结晶 | CAS 438-41-5 |
 | **2749** | Camazepam (卡马西泮) | Schedule IV | 苯二氮䓬衍生物 | 49 FR 39307 列管 |
@@ -108,7 +108,7 @@ DEA 当时坚称，这些编号的增补仅属于法律陈述的附带形式。�
 | **2834** | Nitrazepam (硝西泮 / 硝基安定) | Schedule IV | 镇静催眠药 | 49 FR 39307 列管 |
 | **2835** | Oxazepam (奥沙西泮 / Serax) | Schedule IV | 3-羟基活性代谢物 | 40 FR 23998 列管 |
 | **2836** | Medazepam (美达西泮) | Schedule IV | 苯二氮䓬衍生物 | 49 FR 39307 列管 |
-| **2837** | Nimetazepam (硝甲西泮 / 一滴眠) | Schedule IV | 强效催眠药 | 49 FR 39307 列管 |
+| **2837** | Nimetazepam (硝甲西泮 / 一粒眠) | Schedule IV | 强效催眠药 | 49 FR 39307 列管 |
 | **2882** | **Alprazolam (阿普唑仑 / Xanax)** | Schedule IV | 三唑并苯二氮䓬 | 46 FR 55688 列管 |
 | **2884** | Midazolam (咪达唑仑 / Versed) | Schedule IV | 水溶性催眠麻醉药 | 51 FR 10197 列管 |
 | **2885** | Lorazepam (劳拉西泮 / 罗拉 / Ativan) | Schedule IV | 高效力抗焦虑催眠药 | 42 FR 54546 列管 |

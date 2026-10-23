@@ -159,7 +159,7 @@
 
 ### 30. 砜类与单胺型老式镇静安眠药
 ![砜类与非巴比妥类镇静催眠药](/images/controlled-substances/30-sulfones-and-sedatives.png)
-* **涵盖分子**：磺甲烷（Sulfonal / Sulfonmethane）、磺乙烷（Sulfondiethylmethane）、水合氯醛（Chloral hydrate）、格鲁米特（Glutethimide / 导眠能）、甲乙哌酮（Methyprylon）。
+* **涵盖分子**：磺甲烷（Sulfonal / Sulfonmethane）、磺二乙甲烷（Sulfondiethylmethane）、水合氯醛（Chloral hydrate）、格鲁米特（Glutethimide / 导眠能）、甲乙哌酮（Methyprylon）。
 
 ### 31. 大麻素类活性成分与同系物
 ![大麻天然与合成活性分子图谱](/images/controlled-substances/31-cannabis-components.png)

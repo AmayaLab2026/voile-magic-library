@@ -445,10 +445,10 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 | `C12H16F3N` | 第 2 章 | **FENFLURAMINE** | 芬氟拉明 | — | — |
 | `C12H16N2O` | 第 2 章 | **BUFOTENINE** | 蟾毒色胺 / 5-羟基二甲基色胺 | — | — |
 | `C12H17N2O4P` | 第 2 章 | **PSILOCYBIN** | 裸盖菇素 / 赛洛西宾 | — | — |
-| `C12H18N2O3` | 第 2 章 | **SECOBARBITAL** | 司可巴比妥 / 速可眠 / 红娘 | — | — |
+| `C12H18N2O3` | 第 2 章 | **SECOBARBITAL** | 司可巴比妥 / 速可眠 / 红中 | — | — |
 | `C13H14N2O3` | 第 2 章 | **METHYLPHENOBARBITAL** | 甲苯巴比妥 / 麦非巴比妥 | — | — |
 | `C13H15NO2` | 第 2 章 | **GLUTETHIMIDE** | 格鲁米特 / 导眠能 | — | — |
-| `C13H16ClNO` | 第 2 章 | **KETAMINE** | 氯胺酮 / 开他敏 / 凯他敏 | — | — |
+| `C13H16ClNO` | 第 2 章 | **KETAMINE** | 氯胺酮 / K他命 / 凯他敏 | — | — |
 | `C14H19NO2` | 第 2 章 | **METHYLPHENIDATE** | 哌醋甲酯 / 利他林 / Ritalin | — | — |
 | `C14H21N` | 第 2 章 | **ETHYLAMINE ANALOG OF PHENCYCLIDINE** | 苯环利定乙胺类似物 / PCE | — | — |
 
@@ -475,9 +475,9 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 | `C16H13ClN2O` | 第 2 章 | **MAZINDOL** | 马吲哚 | — | — |
 | `C16H13ClN2O2` | 第 2 章 | **TEMAZEPAM** | 替马西泮 / 羟地西泮 | — | — |
 | `C16H11ClK2N2O4` | 第 2 章 | **CLORAZEPATE** | 氯氮䓬酸二钾 | — | — |
-| `C16H13N3O3` | 第 2 章 | **NIMETAZEPAM** | 硝甲西泮 / 一滴眠 / 甜睡诺 | — | — |
+| `C16H13N3O3` | 第 2 章 | **NIMETAZEPAM** | 硝甲西泮 / 一粒眠 / 甜睡诺 | — | — |
 | `C16H14ClN3O` | 第 2 章 | **CHLORDIAZEPOXIDE** | 氯氮䓬 / 利眠宁 | — | — |
-| `C16H14N2O` | 第 2 章 | **METHAQUALONE** | 甲喹酮 / 安眠酮 / 忽必烈 / Quaalude | — | — |
+| `C16H14N2O` | 第 2 章 | **METHAQUALONE** | 甲喹酮 / 安眠酮 / 忽得 / Quaalude | — | — |
 | `C16H15ClN2` | 第 2 章 | **MEDAZEPAM** | 美达西泮 | — | — |
 | `C16H16N2O2` | 第 2 章 | **LYSERGIC ACID** | 麦角酸 | — | — |
 | `C16H19N` | 第 2 章 | **SPA** | 左旋二甲基二苯乙胺 / 乐非他明 / Lefetamine | — | — |
@@ -550,7 +550,7 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 | `C22H28N2O2` | 第 2 章 | **ANILERIDINE** | 阿尼利啶 | — | — |
 | `C22H29NO2` | 第 2 章 | **DEXTROPROPOXYPHENE** | 右丙氧芬 | — | — |
 | `C22H30N2O2S` | 第 2 章 | **SUFENTANIL** | 舒芬太尼 | — | — |
-| `C22N0-5` | 第 2 章 | **ACETOPHENAZINE** | 乙酰苯肼 | — | — |
+| `C22N0-5` | 第 2 章 | **ACETOPHENAZINE** | 乙酰奋乃静 | — | — |
 | `C22N0-5` | 第 2 章 | **Thiothixene** | — | — | — |
 
 
