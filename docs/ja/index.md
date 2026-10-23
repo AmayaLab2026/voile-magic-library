@@ -8,7 +8,10 @@ hero:
   tagline: 本の香りに満ちた禁忌の知識、すべてはこの館に
   actions:
     - theme: brand
-      text: 読書を始める
+      text: 蔵書目録索引
+      link: ./catalogue
+    - theme: alt
+      text: 図書館案内
       link: ./about
     - theme: alt
       text: 謝辞

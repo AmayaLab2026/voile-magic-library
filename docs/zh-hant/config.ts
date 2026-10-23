@@ -31,12 +31,14 @@ export default defineConfig({
           text: '本館導覽',
           items: [
             { text: '關於本館：ヴワル魔法図書館', link: '/zh-hant/about' },
+            { text: '館藏典籍索引 · 索書與著者信息', link: '/zh-hant/catalogue' },
           ],
         },
         {
           text: '館藏典籍',
           items: [
-            { text: '管制物質：化學與法律指南', link: '/zh-hant/controlled-substances/' },
+            { text: 'Vol. 01 管制物質：化學與法律指南', link: '/zh-hant/controlled-substances/' },
+            { text: 'Vol. 02 火箭技術先驅：選集', link: '/rocket-pioneers/' },
           ],
         },
         {
@@ -92,10 +94,14 @@ export default defineConfig({
 
 function nav(): DefaultTheme.NavItem[] {
   return [
+    { text: '本館介紹', link: '/zh-hant/about', activeMatch: '/zh-hant/about' },
+    { text: '典籍索引', link: '/zh-hant/catalogue', activeMatch: '/zh-hant/catalogue' },
     {
-      text: '本館介紹',
-      link: '/zh-hant/about',
-      activeMatch: '/zh-hant/about',
+      text: '館藏書庫',
+      items: [
+        { text: 'Vol. 01 管制物質：化學與法律指南', link: '/zh-hant/controlled-substances/' },
+        { text: 'Vol. 02 火箭技術先驅：選集', link: '/rocket-pioneers/' },
+      ],
     },
     {
       text: '項目致謝',

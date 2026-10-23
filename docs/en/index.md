@@ -8,7 +8,10 @@ hero:
   tagline: Forbidden knowledge with the scent of books, all within this library
   actions:
     - theme: brand
-      text: Start Reading
+      text: Archival Catalogue
+      link: ./catalogue
+    - theme: alt
+      text: Library Guide
       link: ./about
     - theme: alt
       text: Acknowledgements

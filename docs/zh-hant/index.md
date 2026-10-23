@@ -8,7 +8,10 @@ hero:
   tagline: 散發著書香的禁忌之識，盡在本館
   actions:
     - theme: brand
-      text: 開始閱讀
+      text: 館藏典籍索引
+      link: ./catalogue
+    - theme: alt
+      text: 館藏導覽
       link: ./about
     - theme: alt
       text: 項目致謝

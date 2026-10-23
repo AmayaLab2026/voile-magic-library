@@ -31,12 +31,14 @@ export default defineConfig({
           text: 'Library Guide',
           items: [
             { text: 'About: Voile Magic Library', link: '/en/about' },
+            { text: 'Library Catalogue', link: '/en/catalogue' },
           ],
         },
         {
           text: 'Collections',
           items: [
-            { text: 'Controlled Substances Guide', link: '/en/controlled-substances/' },
+            { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
+            { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/rocket-pioneers/' },
           ],
         },
         {
@@ -96,6 +98,18 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'About',
       link: '/en/about',
       activeMatch: '/en/about',
+    },
+    {
+      text: 'Catalogue',
+      link: '/en/catalogue',
+      activeMatch: '/en/catalogue',
+    },
+    {
+      text: 'Collections',
+      items: [
+        { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
+        { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/rocket-pioneers/' },
+      ],
     },
     {
       text: 'Acknowledgements',

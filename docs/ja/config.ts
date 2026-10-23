@@ -31,12 +31,14 @@ export default defineConfig({
           text: '図書館案内',
           items: [
             { text: '当館について：ヴワル魔法図書館', link: '/ja/about' },
+            { text: '蔵書目録索引', link: '/ja/catalogue' },
           ],
         },
         {
           text: '所蔵文献',
           items: [
-            { text: '規制物質：化学と法律のガイド', link: '/ja/controlled-substances/' },
+            { text: 'Vol. 01 規制物質：化学と法律のガイド', link: '/ja/controlled-substances/' },
+            { text: 'Vol. 02 ロケット技術の先駆者たち：選集', link: '/rocket-pioneers/' },
           ],
         },
         {
@@ -96,6 +98,18 @@ function nav(): DefaultTheme.NavItem[] {
       text: '当館について',
       link: '/ja/about',
       activeMatch: '/ja/about',
+    },
+    {
+      text: '蔵書目録',
+      link: '/ja/catalogue',
+      activeMatch: '/ja/catalogue',
+    },
+    {
+      text: '蔵書庫',
+      items: [
+        { text: 'Vol. 01 規制物質：化学と法律のガイド', link: '/ja/controlled-substances/' },
+        { text: 'Vol. 02 ロケット技術の先駆者たち：選集', link: '/rocket-pioneers/' },
+      ],
     },
     {
       text: '謝辞',
