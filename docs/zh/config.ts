@@ -9,6 +9,20 @@ export default defineConfig({
     nav: nav(),
 
     sidebar: {
+      '/rocket-pioneers/': [
+        {
+          text: '火箭技术先驱：选集',
+          items: [
+            { text: '典籍概述与全书目录', link: '/rocket-pioneers/' },
+            { text: '主编序言：苏联航天历程与先驱评述', link: '/rocket-pioneers/preface' },
+            { text: '第一编：航空机器设想（基巴利契奇）', link: '/rocket-pioneers/kibalchich' },
+            { text: '第二编：致读此书以建造者（孔德拉秋克第一手稿）', link: '/rocket-pioneers/kondratyuk-build' },
+            { text: '第三编：征服星际空间（孔德拉秋克代表作）', link: '/rocket-pioneers/kondratyuk-space' },
+            { text: '第四编：俄罗斯与苏联火箭技术先驱历史纲要', link: '/rocket-pioneers/historical-outline' },
+            { text: '附录：先驱著作与历史文献全景索引', link: '/rocket-pioneers/bibliography' },
+          ],
+        },
+      ],
       '/controlled-substances/': [
         {
           text: '管制物质：化学与法律指南',
@@ -36,7 +50,8 @@ export default defineConfig({
         {
           text: '馆藏典籍',
           items: [
-            { text: '管制物质：化学与法律指南', link: '/controlled-substances/' },
+            { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
+            { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
           ],
         },
         {
@@ -96,6 +111,13 @@ function nav(): DefaultTheme.NavItem[] {
       text: '本馆介绍',
       link: '/about',
       activeMatch: '/about',
+    },
+    {
+      text: '馆藏书库',
+      items: [
+        { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
+        { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
+      ],
     },
     {
       text: '项目致谢',
