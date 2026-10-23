@@ -15,7 +15,7 @@ hero:
       link: ./acknowledgements
     - theme: alt
       text: GitHub
-      link: https://github.com
+      link: https://github.com/AmayaLab2026/amayalab-vitepress-sandbox
   image:
     src: /logo.svg
     alt: Voile Magic Library

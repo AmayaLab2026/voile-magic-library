@@ -7,6 +7,14 @@
     "name": "AmayaLab",
     "url": "https://github.com/AmayaLab2026"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmayaLab2026/amayalab-vitepress-sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AmayaLab2026/amayalab-vitepress-sandbox/issues"
+  },
+  "homepage": "https://github.com/AmayaLab2026/amayalab-vitepress-sandbox#readme",
   "license": "MIT",
   "keywords": [
     "vitepress",

@@ -13,7 +13,7 @@ export const copyright = `Copyright © 2023-${currentYear} ${brandName}`
 export const include = ['docs']
 
 /** Repo */
-export const githubRepoLink = 'https://github.com'
+export const githubRepoLink = 'https://github.com/AmayaLab2026/amayalab-vitepress-sandbox'
 /** Discord */
 export const discordLink = 'https://discord.gg/'
 
