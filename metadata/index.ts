@@ -18,7 +18,7 @@ export const githubRepoLink = 'https://github.com/AmayaLab2026/voile-magic-libra
 export const discordLink = 'https://discord.gg/'
 
 /** 无协议前缀域名 */
-export const plainTargetDomain = ''
+export const plainTargetDomain = 'amayalab2026.github.io/voile-magic-library'
 /** 完整域名 */
 export const targetDomain = `https://${plainTargetDomain}`
 
