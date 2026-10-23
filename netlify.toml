@@ -1,4 +1,8 @@
-[[redirects]]
-from = "/*"
-to = "/index.html"
-status = 200
+[build]
+command = "pnpm run build"
+publish = ".vitepress/dist"
+
+[build.environment]
+NODE_VERSION = "22"
+PNPM_VERSION = "10.34.5"
+PNPM_FLAGS = "--frozen-lockfile"
