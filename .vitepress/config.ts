@@ -42,6 +42,12 @@ export default defineConfig({
     optimizeDeps: {
       exclude: ['vitepress'],
     },
+    ssr: {
+      noExternal: [
+        /@nolebase\/.*/,
+        /@unlazy\/.*/,
+      ],
+    },
     plugins: [
       Inspect(),
       Components({
@@ -62,7 +68,7 @@ export default defineConfig({
     'zh/:rest*': ':rest*',
   },
   themeConfig: {
-    logo: { src: '/naruto.svg', width: 24, height: 24, alt: '🍥' },
+    logo: { src: '/naruto.svg', width: 24, height: 24, alt: 'Voile' },
     outline: {
       level: [2, 3],
       label: '本页导览',
