@@ -1,331 +1,441 @@
 ---
-title: "第 12 章：字體的設計、編輯與製作技術"
-description: "完整無刪節 1:1 學術全譯：數字字體制作工具演進史（Fontographer、FontStudio、Ikarus、FontLab、FontForge）；矢量輪廓數學機理（PostScript 三次貝塞爾與 TrueType 二次 B-樣條、極值點約束、輪廓方向與非零纏繞法則、排印度量網格）；FontLab 工業生產全流程（Names/Pages/Ranges/Index 四大字符視圖、Font Info 核心排印度量與 OpenType 元數據、字形繪圖與節點拓撲優化、字距調整與 Kerning 類、Multiple Master 多重母版設計空間、原生 Python 腳本自動化編程）；FontForge 開源架構與高級特性（X11 交互環境、垂直排版度量、CID 鍵控字體與扁平化）；位圖自動描摹技術（Potrace 與 ScanFont 參數調優與幾何缺陷）。"
+title: "第 12 章：字型的編輯與建立"
+description: "系統剖析 FontLab Studio、FontForge、貝茲曲線幾何、度量類、Python 指令碼批處理與 PostScript BlueValues 提示系統。"
 ---
 
-# 第 12 章：字體的設計、編輯與製作技術
-
-**雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）著**  
-*選自《Fonts & Encodings》第 441–504 頁*
-
+# 第 12 章：字型的編輯與建立
+### Chapter 12: Editing and Creating Fonts
+選自《Fonts & Encodings》第 445–508 頁
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-現在，我們來到了全書最爲核心的聖殿：**創造字體**。
+在本著作的前述章節中，我們已經深入探討了編碼體系、字形度量、字型光柵化渲染以及數字排版的數學基礎。然而，對於字型設計師（Type Designer）或數字排版工程師而言，最具創造力與工程挑戰性的任務莫過於**親手編輯與建立一款全新的數字字型**。
 
-我們是否必須成爲像赫爾曼·察普夫（Hermann Zapf）或讓·弗朗索瓦·波爾謝茲（Jean François Porchez）那樣的曠世設計大師，纔能有資格踏入字體創作的領域？絕非如此。正如任何人都可以揮毫寫下一封書信、繪出一幅素描一樣，今天每一個具備基本審美與技術直覺的人，都可以投身於字體的設計與改良。
+編輯與建立字型絕非單純在向量繪圖軟體中勾勒優美的藝術線條。一款合規、高品質的商用數字輪廓字型，是一個融合了多門學科的複雜工程系統：
+1. **純幾何輪廓資料**：基於三次貝茲曲線（PostScript / OpenType CFF）或二次貝茲曲線（TrueType）構成的拓撲封閉閉合路徑（Contours）；
+2. **微觀排版度量（Metrics）**：字元的左側軸承留白（LSB）、右側軸承留白（RSB）、前進寬度（Advance Width）以及精細的字偶間距表（Kerning）；
+3. **結構化字元後設資料**：字型內嵌的字名、Unicode 碼點對映、PostScript 字典資訊與 TrueType 命名記錄；
+4. **低解析度渲染提示系統（Hinting）**：PostScript 提示（Hints）或 TrueType 位元組碼指令（Instructions），用於在低 DPI 螢幕或粗糙鐳射列印中維持筆畫粗細一致性並避免墨斑糊死；
+5. **高階排版特性（OpenType / AAT）**：連字、上下文變體與光學錨點定位。
 
-在計算機排版技術徹底普及的今天，創造一套高品質的數字矢量字體不再是隻有大型鑄字工坊與跨國軟件巨頭才能染指的祕術。隨着個人圖形工作站與專業字體設計軟件（Font Editors）的飛速演進，獨立字體設計師、排版學者乃至業餘愛好者，都能夠直接在屏幕上操縱純粹的幾何矢量輪廓，賦予每一個字符以獨特的靈魂與生命力。
-
-然而，字體設計是一門在“極致自由的藝術靈感”與“冰冷嚴苛的數學和工業標準”之間走鋼絲的高難度科學。在字形美感背後，隱藏着一整套涉及貝塞爾微積分、輪廓纏繞拓撲學、整型網格離散化、排印度量度量系統以及複雜的跨平臺二進制格式包裝邏輯。本章將全面解構現代數字字體創作的核心軟件生態與底層幾何技術機理。
-
----
-
-# 字體設計與編輯軟件全景
-
-在過去二十餘年的數字字體演進史上，至少有六套具有里程碑意義的大型系統塑造了現代字體工業的工作流：
-
-## 1. 拓荒時代的先驅：Fontographer 與 FontStudio
-
-* **Macromedia Fontographer**（最早由 Altsys 公司的吉姆·馮·赫爾（Jim von Ehr）於 1986 年開發）：這是人類歷史上首個在 Macintosh 圖形界面上實現直接用貝塞爾鋼筆工具交互繪製 PostScript Type 1 輪廓的革命性字體編輯器。它讓千萬排印創作者從晦澀的 PostScript 純代碼座標中徹底解脫出來。儘管後續歷經 Altsys 轉讓給 Macromedia、再轉手給 FontLab 的滄桑歷程，其界面更新一度陷入停滯，但其直觀的“字體字符網格窗口”與“字形編輯畫板”奠定了後世所有字體軟件的人機交互範式（圖 12-1）。
-* **Letraset FontStudio**（運行於經典 Mac OS 9 時代）：由著名的幹印即貼字字模巨頭 Letraset 打造的高端專業級字體工坊軟件。它引入了極其先進的自動微調提示（Auto-hinting）、灰度預覽與多圖層度量網格系統，在 1990 年代初受到各大專業鑄字廠商的極高推崇（圖 12-2）。
-* **URW Ikarus**：由彼得·卡羅（Peter Karow）領導的德國 URW 公司開發的史詩級工業系統。與面向微機的軟件不同，Ikarus 誕生於大型機與專業繪圖板時代，率先採用了切線點、角點與圓弧極值點的嚴密數學描述體系，成爲全球頂級字體公司數字化歷史鉛字檔案的核心基石。
-* **FontToolbox**：一套在專業排印工程師圈子內廣泛流傳的底層字體操作工具集。
-
-::: tip 圖 12-1：Macromedia Fontographer 在 Mac OS X 下的字體字符總覽窗口。每個方格內直觀呈現字符圖形、Unicode 編碼與 PostScript 字形名稱
-![圖 12-1：Macromedia Fontographer 在 Mac OS X 下的字體字符總覽窗口](/images/fonts-encodings/fig12-1.png)
-*圖 12-1：Macromedia Fontographer 在 Mac OS X 下的字體字符總覽窗口。每個方格內直觀呈現字符圖形、Unicode 編碼與 PostScript 字形名稱。*
-:::
-
-::: tip 圖 12-2：Letraset FontStudio 在經典 Mac OS 9 系統下的單字符字形編輯工作窗口。展示了早期專業字體設計所依賴的參考基準輔助線與貝塞爾節點調控界面
-![圖 12-2：Letraset FontStudio 在經典 Mac OS 9 系統下的單字符字形編輯工作窗口](/images/fonts-encodings/fig12-2.png)
-*圖 12-2：Letraset FontStudio 在經典 Mac OS 9 系統下的單字符字形編輯工作窗口。展示了早期專業字體設計所依賴的參考基準輔助線與貝塞爾節點調控界面。*
-:::
+在本章中，我們將深入兩大統治現代字型工程世界的專業工具：商業領域無可替代的王者 **FontLab Studio**，以及開源社群自由與強大的旗幟 **FontForge**。我們將系統剖析其介面哲學、幾何路徑構建、Python 指令碼批處理自動化，並揭示 PostScript 全域性與區域性提示系統（Hinting）的深層數學機理。
 
 ---
 
-## 2. 現代工業標準霸主：FontLab 與開源傳奇 FontForge
+## 1. 字型設計與數字化全景導論（Introduction）
 
-在當今字體工業中，佔據統治地位的兩大旗艦軟件分別是商業領域的 **FontLab** 與開源社區的 **FontForge**：
+### 1.1 數字輪廓字形的解剖學結構
 
-* **FontLab Studio**：由蘇聯裔天才程序員尤里·亞爾莫拉（Yuri Yarmola）與瓦季姆·蘇沃洛夫（Vadim Suvorov）聯合傾力打造。自 1990 年代初問世以來，它在長達二十餘年的時間裏無可爭辯地統治着全球各大商業字體廠商（如 Adobe、Linotype、Monotype、Bitstream）的工業生產流水線。它具備無懈可擊的跨平臺兼容性、工業級 OpenType 特性編譯器以及強大的原生 Python 腳本擴展接口。
-* **FontForge**（原名 **PfaEdit**）：由傳奇黑客**喬治·威廉姆斯**（George Williams）傾注畢生心血獨立打造的自由開源軟件（FOSS）。它不僅完全支持所有已知的矢量與位圖字體格式，更內建了完整的 TrueType 虛擬機單步調試器與深邃的數學幾何引擎。
+在數字字型中，每一個字元在底層被描述為一個**字形（Glyph）**。每個字形存在於一個抽象的二維笛卡爾座標系中，該座標系通常以大寫字母“H”的設計高度或全形字元寬度作為基本尺度單位（在 PostScript Type 1 中通常為 1000 單元/em，在 TrueType 中通常為 2048 單元/em）。
 
----
+一個字形的幾何結構包含三大核心要素：
+1. **基線（Baseline, $y = 0$）與原點 $(0, 0)$**：所有字元水平排列的公共基準線；
+2. **前進寬度（Advance Width）**：排版引擎在繪製完當前字形後，將游標原點沿水平方向向前推進的物理跨度；
+3. **側邊軸承留白（Sidebearings）**：
+   - **左側軸承留白（Left Sidebearing, LSB）**：從原點 $(0,0)$ 沿 $x$ 軸到字形最左側黑色輪廓邊緣的水平距離；
+   - **右側軸承留白（Right Sidebearing, RSB）**：從字形最右側黑色輪廓邊緣到前進寬度終點線（Advance Width Line）的水平距離。
 
-# 字體工程的底層幾何與通用原則
+字元之間的天然間距，本質上是由前一個字元的 RSB 與後一個字元的 LSB 疊加而成的。
 
-在真正動筆繪製第一個字符之前，每一個設計者都必須牢牢掌握數字字體在底層幾何、數學與空間度量上的嚴苛通用原則：
+### 1.2 曲線幾何：三次貝茲與二次貝茲的本質差異
 
-## 1. 三次貝塞爾曲線與二次 B-樣條的本質分野
-
-數字字體主要由兩大對立陣營的矢量數學模型所支配：
-* **PostScript / OpenType CFF 陣營**：採用**三次貝塞爾曲線**（Cubic Bézier Curves）。每段曲線由 4 個點決定：2 個端點（On-curve nodes）與 2 個離散控制點（Off-curve control points）。數學公式爲：
-  $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t)t^2 P_2 + t^3 P_3, \quad t \in [0, 1]$$
-  三次貝塞爾曲線具備極高的曲率靈活性與自由度，能夠用極少的節點描摹出極其流暢的曲線，是傳統字體藝術家的最愛。
-* **TrueType 陣營**：採用**二次 B-樣條曲線**（Quadratic Bézier / B-Splines）。每段曲線僅由 3 個點決定：2 個端點與 1 個控制點：
-  $$B(t) = (1-t)^2 P_0 + 2(1-t)t P_1 + t^2 P_2, \quad t \in [0, 1]$$
-  當兩個連續控制點相鄰出現時，TrueType 規範規定在其線段中點處隱式插入一個虛擬的端點。二次曲線的計算速度極快，但由於自由度較低，通常需要比三次曲線多出 30% 到 50% 的控制節點才能達到相同的擬合精度。現代字體編輯器必須能夠在這兩種曲線空間之間進行無損或極低誤差的互相轉換。
-
-## 2. 整數設計網格與全身身長（Units per em, UPM）
-
-字體內部的幾何座標並非無限精密的實數，而是映射在一個剛性的整數笛卡爾座標系中：
-* 在 PostScript Type 1 / CFF 字體中，全身身長通常固定爲 **1000** 個單位；
-* 在 TrueType / OpenType TTF 字體中，爲了便於二進制快速移位運算，全身身長通常設定爲 2 的冪次方，最經典的標準是 **2048** 個單位。
-所有的節點座標必須被量化取整爲整數。取整誤差若處理不當，極易導致曲線光滑接點處發生肉眼可見的微小折角。
-
-## 3. 輪廓方向與非零纏繞法則（Non-Zero Winding Rule）
-
-一個字符往往由多個閉合子輪廓（Contours）複合而成（例如圓環 ‘O’ 包含一個外輪廓和一個內輪廓）。光柵化填充引擎如何判斷哪個區域是黑色實體、哪個區域是白色鏤空？這完全依賴於輪廓的走向與纏繞法則：
-* **PostScript 鐵律**：**外層輪廓必須遵循逆時針方向（Counter-Clockwise），內層鏤空輪廓必須遵循順時針方向（Clockwise）。**
-* **TrueType 鐵律**：恰好截然相反！**外層輪廓必須遵循順時針方向，內層鏤空輪廓必須遵循逆時針方向。**
-若輪廓方向顛倒，現代文本渲染引擎在執行非零纏繞數（Non-zero winding number）判定時，就會發生字符“反白”或內部孔洞被完全填黑的毀滅性錯誤！字體編輯器均配備了一鍵反轉輪廓方向（Reverse Contour）與自動糾正纏繞向的工具。
-
-## 4. 極值點約束（Extrema Points）
-
-在貝塞爾曲線的數學切線方向平行於 X 軸或 Y 軸的最外側頂峯與谷底位置，必須嚴格放置端點（On-curve Extrema Nodes）。**這是數字字體工業的一條鐵律！**
-若在曲線的極值點處缺乏端點支撐，PostScript 與 TrueType 的微調提示（Hinting）引擎將無法捕獲字符的外邊界座標，導致字號縮小時筆畫外突量失控、基線顛簸或發生嚴重的光柵化截斷。
-
-## 5. 排印度量：步進寬度與側邊軸承（Side Bearings）
-
-一個字符在水平排版時所佔據的空間不僅由其黑體墨跡決定，更由其看不見的虛擬外框決定：
-* **字形原點（Origin, (0,0)）**：字符繪製的起始基準點。
-* **左側邊距（Left Side Bearing, LSB）**：從原點到字符最左側幾何邊緣的水平距離。
-* **字符寬度 / 步進寬度（Advance Width / Set-Width）**：字符排印時光標從當前字符原點跳轉到下一個字符原點的總距離。
-* **右側邊距（Right Side Bearing, RSB）**：從字符最右側幾何邊緣到步進寬度終點的水平距離。
-$$ \text{Advance Width} = \text{LSB} + \text{Bounding Box Width} + \text{RSB} $$
-控制好 LSB 與 RSB，是確保連續文字排版時灰度均勻、間隙和諧的關鍵所在。
+數字輪廓字型採用引數化貝茲曲線來描述字形的邊緣輪廓：
+- **PostScript Type 1 / OpenType (CFF)**：採用**三次貝茲曲線（Cubic Bézier Curves）**。每條曲線段由兩個端點（On-curve Points）和兩個離軸控制柄（Off-curve Control Handles）精確定義：
+  $$\mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2 t \mathbf{P}_1 + 3(1-t) t^2 \mathbf{P}_2 + t^3 \mathbf{P}_3, \quad t \in [0, 1]$$
+  三次曲線在數學上能夠以極少的節點擬合極其流暢的 S 形反向曲率與優雅拐點；
+- **TrueType**：採用**二次貝茲曲線（Quadratic Bézier Curves）**。每條曲線段僅由兩個端點和一個離軸控制點構成：
+  $$\mathbf{B}(t) = (1-t)^2 \mathbf{P}_0 + 2(1-t) t \mathbf{P}_1 + t^2 \mathbf{P}_2, \quad t \in [0, 1]$$
+  二次曲線的數學求導與光柵化計算極其輕量快速，但若要擬合相同精度的高階曲率，往往需要比三次貝茲多出 $50\%$ 至 $100\%$ 的控制節點。
 
 ---
 
-# 現代工業標準：FontLab 全景深度實戰
+## 2. FontLab Studio 工業級設計體系（FontLab）
 
-FontLab 深度整合了對 Type 1、TrueType、OpenType 以及 Multiple Master 格式的全功能原生支持，其核心工作流構建在高度專業化的“四大字符總覽視圖模式”之上：
+由 Yuri Yarmola、Alexandre Prokhorov 與 Ted Harrison 聯合打造的 **FontLab Studio**（尤其是經典版本 FontLab 5），是過去二十年全球專業商業字型設計事務所（Monotype, Linotype, Adobe, Dalton Maag 等）不可撼動的行業支柱。
 
-## 1. FontLab 字體總覽窗口的四大視圖模式
+### 2.1 四大字形瀏覽檢視（Font Window Display Modes）
 
-在 FontLab 的主字體管理窗口中，用戶可以根據當前工程任務的側重點，自如切換四種完全不同的字符組織模式：
+在開啟一款字型時，FontLab 的字型視窗（Font Window）提供了四種功能截然不同的檢視模式，用於從不同維度俯瞰字型檔資產：
 
-1. **Names 模式（字形名稱模式，圖 12-3）**：依據標準 Adobe PostScript 字形命名規範（如 `A`, `acute`, `adieresis`, `hyphen`, `ampersand`）組織排列。這是傳統 PostScript 字體工程師最習慣的視角，直觀反映字形在排版引擎內部的符號命名樹。
-2. **Pages 模式（編碼代碼頁模式，圖 12-4）**：以經典的 256 字符單字節編碼頁（Code Page，如 Windows-1252 Latin 1、MacRoman、IBM CP437、ISO 8859 系列）爲基準劃分。每個代碼頁被切分爲整齊的 16×16 矩陣表格，極大地方便了設計者爲特定舊式操作系統或區域市場快速排查字符缺漏。每個編碼頁在後臺直接映射至一個擴展名爲 `.cpg` 的配置文件。
-3. **Ranges 模式（Unicode 字符塊模式，圖 12-5）**：完全遵循 Unicode 聯盟官方劃分的標準字符集區間（Unicode Blocks / Ranges，如 Basic Latin、Latin-1 Supplement、Latin Extended-A、Greek and Coptic、Cyrillic 等）。在開發包含數千字符的大型泛歐或全球化通用 OpenType 字體時，該模式是必不可少的工作中樞。
-4. **Index 模式（字形索引模式，圖 12-6）**：直接以字體二進制文件內部的物理字形索引（Glyph Index, **GID**）爲順序展示。在底層 TrueType/OpenType 結構中，GID 0 永遠固定指派給缺失符號（`.notdef`），隨後的各字形按其實際編譯進字體數據流中的物理先後次序自左向右嚴格遞增排列。
-
-::: tip 圖 12-3：FontLab 字體窗口中的 Names（字形名稱）視圖模式
-![圖 12-3：FontLab 字體窗口中的 Names（字形名稱）視圖模式](/images/fonts-encodings/fig12-3.png)
-*圖 12-3：FontLab 字體窗口中的 Names（字形名稱）視圖模式。*
-:::
-
-::: tip 圖 12-4：FontLab 字體窗口中的 Pages（單字節編碼代碼頁）視圖模式
-![圖 12-4：FontLab 字體窗口中的 Pages（單字節編碼代碼頁）視圖模式](/images/fonts-encodings/fig12-4.png)
-*圖 12-4：FontLab 字體窗口中的 Pages（單字節編碼代碼頁）視圖模式。*
-:::
-
-::: tip 圖 12-5：FontLab 字體窗口中的 Ranges（Unicode 標準字符區間塊）視圖模式
-![圖 12-5：FontLab 字體窗口中的 Ranges（Unicode 標準字符區間塊）視圖模式](/images/fonts-encodings/fig12-5.png)
-*圖 12-5：FontLab 字體窗口中的 Ranges（Unicode 標準字符區間塊）視圖模式。*
-:::
-
-::: tip 圖 12-6：FontLab 字體窗口中的 Index（物理字形索引 GID）視圖模式
-![圖 12-6：FontLab 字體窗口中的 Index（物理字形索引 GID）視圖模式](/images/fonts-encodings/fig12-6.png)
-*圖 12-6：FontLab 字體窗口中的 Index（物理字形索引 GID）視圖模式。*
-:::
+1. **名稱模式（Names Mode）**：
+   在該模式下，每個字形單元格的下方清晰顯示其合法的 PostScript 字形名稱（如 `A`, `eacute`, `fi`, `zero.oldstyle`）。這是字型設計師繪製和命名具體字形時的首選工作模式；
+2. **頁面模式（Pages Mode）**：
+   將字型檔按照每頁固定數量（通常為 256 個字元）劃分為離散的“頁面”。這一模式忠實反映了經典 8 位字型（如 256 字元的 Type 1 字型）的底層物理分塊，便於排版師逐頁校對編碼對映；
+3. **範圍模式（Ranges Mode）**：
+   按照國際標準將字型資產劃分為特定的技術子集：如“基本拉丁（Basic Latin）”、“拉丁文補充-1（Latin-1 Supplement）”、“西裡爾字母（Cyrillic）”、“數學運算子（Mathematical Operators）”等。當設計師需要為已有字型增補特定語種支援時，範圍模式能一目瞭然地指出哪些字元尚待繪製；
+4. **索引模式（Index Mode）**：
+   按照字形在字型檔案內部的物理儲存順序（Glyph Index, GID 0 至 $N-1$）進行線性排列。這直接揭示了字型在二進位制底層的資料索引拓撲。
 
 ---
 
-## 2. 全面的排印度量與元數據架構（Font Info）
+### 2.2 輪廓編輯幾何學：節點型別與控制柄約束
 
-設計字體絕不僅僅是畫出好看的矢量外形，更是一項極其繁重的技術元數據配置工程。在 FontLab 的“Font Info”（字體信息屬性面板，`File > Font Info`）中，涵蓋了決定字體跨平臺行爲的關鍵標籤頁：
+在 FontLab 的字形編輯視窗中，設計師使用鋼筆工具與節點編輯工具操縱三次貝茲曲線。FontLab 確立了一套嚴密的節點拓撲學規範，將所有輪廓節點劃分為三大基本型別：
 
-* **Names and Copyright（名稱與版權信息，圖 12-7 [a]）**：遵循嚴格的 OpenType `name` 記錄規範（多達 20 餘種預定義字符串標識符），包括字體族名稱（Family Name）、樣式名稱（Style Name）、完整字模名稱（Full Font Name）、PostScript 內部名稱、獨一無二的唯一標識符（Unique Font Identifier）、版本號以及設計者商標與法律版權聲明。
-* **Key Dimensions（核心排印度量尺寸，圖 12-8 [a]）**：精確設定字體的全身身長網格（Units per em，通常 PostScript 設定爲 1000，TrueType 設定爲 2048）、大寫字母高度（Cap-Height）、小寫 x-高度（X-Height）、字體上行升幅（Ascender）、下行降幅（Descender）以及行距（Line Gap）。
-* **Supported Codepages and Unicode Ranges（支持的代碼頁與 Unicode 範圍標誌位，圖 12-8 [b]、[c]）**：直接對應 TrueType/OpenType 二進制規範中 `OS/2` 表的 128 位 `ulUnicodeRange` 掩碼與 64 位 `ulCodePageRange` 掩碼。這些比特位明確通知操作系統與文字渲染管線：本字體經過認證能夠完整支持哪些語言與國家標準！
-* **TrueType 特定高級度量表**：包括預計算字形水平物理像素寬度的 `hdmx` 表、垂直度量對齊控制的 `VDMX` 表，以及決定在特定低分辨率下是否開啓平滑抗鋸齒的 `gasp` 表。
+1. **角點（Corner Node, 綠色方形標識）**：
+   在角點處，曲線的方向發生突變，形成尖銳的折角（如字母“A”的頂部尖端或襯線的直角拐折）。角點兩側的控制柄可以完全獨立移動，互不干擾；
+2. **平滑點（Smooth Node, 紅色圓形標識）**：
+   在平滑點處，曲線保持一階連續性（$C^1$ 連續）。該節點兩側的控制柄與節點自身嚴格保持共線（Collinear）。當設計師用滑鼠拖拽其中一個控制柄時，對向的控制柄會自動沿反方向對稱旋轉，確保曲線在經過該點時絕不出現視覺摺痕；
+3. **切線點（Tangent Node, 藍色三角形標識）**：
+   專門用於連線一條直線段與一條曲線段。切線點處的曲線控制柄被嚴格約束在相鄰直線段的共線延長線上，保證直線與弧線在交接處無縫平滑切合。
 
-::: tip 圖 12-7：FontLab 字體屬性面板：字體命名規範、版權信息及 OpenType 擴展名稱配置標籤頁：(a) 核心名稱與版權；(b) 附加 OpenType 名稱字段；(c) 法律說明與版權詳錄
-![圖 12-7：FontLab 字體屬性面板：字體命名規範、版權信息及 OpenType 擴展名稱配置標籤頁](/images/fonts-encodings/fig12-7.png)
-*圖 12-7：FontLab 字體屬性面板：字體命名規範、版權信息及 OpenType 擴展名稱配置標籤頁：(a) 核心名稱與版權；(b) 附加 OpenType 名稱字段；(c) 法律說明與版權詳錄。*
-:::
+#### 輪廓方向（Contour Direction）鐵律
+在數字字型中，所有封閉路徑的走向方向絕非無關緊要：
+- **外輪廓（Outer Contours）**必須嚴格遵循**順時針方向（Clockwise）**；
+- **內輪廓/挖空字懷（Inner Contours / Holes）**必須嚴格遵循**逆時針方向（Counter-clockwise）**。
 
-::: tip 圖 12-8：FontLab 字體屬性面板：核心排印度量尺寸（Key dimensions）、支持代碼頁與 Unicode 覆蓋區間配置標籤頁：(a) 全身尺寸與基準高度；(b) 支持的代碼頁與默認字符集；(c) 支持的 Unicode 區間掩碼
-![圖 12-8：FontLab 字體屬性面板：核心排印度量尺寸（Key dimensions）、支持代碼頁與 Unicode 覆蓋區間配置標籤頁](/images/fonts-encodings/fig12-8.png)
-*圖 12-8：FontLab 字體屬性面板：核心排印度量尺寸（Key dimensions）、支持代碼頁與 Unicode 覆蓋區間配置標籤頁：(a) 全身尺寸與基準高度；(b) 支持的代碼頁與默認字符集；(c) 支持的 Unicode 區間掩碼。*
-:::
-
----
-
-## 3. 字形繪製、節點拓撲與度量微調視窗
-
-在 FontLab 的字形繪製編輯視窗中（圖 12-9），設計師擁有極高精度的鋼筆工具與變換操縱桿：
-* **節點類型系統**：FontLab 將節點分爲角節點（Corner nodes，兩側控制桿獨立運動）、光滑切線節點（Smooth nodes，兩側控制桿保持共線反向聯動）以及對稱節點（Symmetric nodes）。
-* **背景臨摹層（Template Layer）**：可將高分辨率手繪掃描線稿或歷史字模位圖直接導入背景層，通過半透明高亮輔助矢量勾勒。
-* **輪廓極值自動對齊與曲線平滑優化**：具備一鍵清理冗餘多餘控制節點（Optimize Curve）功能，在保持極高視覺保真度的同時將文件體積壓縮至極致。
-
-在字距度量視窗中（Metrics Window，圖 12-10）：
-* 支持任意字符串文本的即時排印流預覽；
-* 設計師可直接用光標拖拽字符兩側的側邊軸承虛線，實時微調 LSB 與 RSB；
-* **字距調整對（Kerning Pairs）與基於類的字距（Class-based Kerning）**：對於大寫字母組合如 “AV”、“To”、“WA”，常規固定間距會導致字符間出現刺眼的巨大空間縫隙。通過定義特定字符對的負向微調值，可使兩字緊密咬合。爲了避免 $O(N^2)$ 組合爆炸，FontLab 提供了強大的“字距調整類”功能，將具有相似右側輪廓的字符歸爲一組（如 ‘A’, ‘À’, ‘Á’, ‘Â’, ‘Ã’），實現跨字符組的批量聯動微調！
-
-::: tip 圖 12-9：FontLab 字形繪製編輯視窗。展示了節點狀態、控制桿操縱、座標讀數以及背景參考線
-![圖 12-9：FontLab 字形繪製編輯視窗](/images/fonts-encodings/fig12-9.png)
-*圖 12-9：FontLab 字形繪製編輯視窗。展示了節點狀態、控制桿操縱、座標讀數以及背景參考線。*
-:::
-
-::: tip 圖 12-10：FontLab 度量與字距調整視窗（Metrics Window）。支持多字符交互混排、側邊距拖拽與 Kerning 字符對實時校正
-![圖 12-10：FontLab 度量與字距調整視窗](/images/fonts-encodings/fig12-10.png)
-*圖 12-10：FontLab 度量與字距調整視窗。支持多字符交互混排、側邊距拖拽與 Kerning 字符對實時校正。*
-:::
+光柵化引擎（如 FreeType 或 Windows ClearType）採用“非零環繞數規則（Non-zero Winding Rule）”或“奇偶規則（Even-Odd Rule）”來計算墨跡填充。若輪廓方向發生反轉，字形內部本應挖空的字懷（如“O”或“B”的內部）將被錯誤地填充為實心黑墨！FontLab 提供了 `Contour > Correct Direction` 工具，可在毫秒級自動修復所有路徑的拓撲朝向。
 
 ---
 
-## 4. 多重母版字體（Multiple Master Fonts）設計空間
+### 2.3 度量視窗與字間距系統（Metrics and Kerning）
 
-FontLab 深度內建了對 Adobe **Multiple Master**（**MM**）技術的原生建模支持：
-* 設計師可以定義多達 4 個連續設計軸（如字重 Weight 軸：從 Light 到 Black；字寬 Width 軸：從 Condensed 到 Expanded；視覺字號 Optical Size 軸：從 6pt Caption 到 72pt Display）；
-* 在設計空間的各個極值角落分別繪製一套幾何拓撲完全同構的母版字形（Master Glyphs）；
-* **拓撲相容性鐵律**：所有母版字形必須具備**絕對完全相同數量的閉合輪廓、完全相同數量的控制節點，以及完全相同類型的控制點序列！**
-一旦母版拓撲校驗通過，系統便能在多維設計空間中進行全自動多項式線性插值，瞬間演算衍生出成百上千種截然不同的衍生字族樣式！
+優美的字形輪廓若沒有精準的度量支撐，排版時依然會潰不成軍。FontLab 的度量視窗（Metrics Window）是字距調校的核心中樞。
+
+#### 1. LSB、RSB 與前進寬度的幾何聯動
+在度量視窗中，設計師可以輸入任意連續測試文字（如 `HHHAHHH` 或 `nnnonnn`）。字形兩側顯示兩條垂直的虛線，分別代表原點基準線與前進寬度終點線。
+拖拽虛線即可實時修改 LSB 與 RSB 數值：
+$$\text{Advance Width} = \text{LSB} + \text{Bounding Box Width} + \text{RSB}$$
+
+#### 2. 字偶間距（Kerning）與度量類（Metric Classes）
+在處理大寫字母組合如“AV”、“To”、“WA”時，僅靠固定的 RSB 與 LSB 會留下巨大的三角形視覺空洞。排版師必須為這些特定組合定義負向字偶微調值（如 `pos A V -100;`）。
+
+然而，如果為字型中成百上千個字形兩兩定義字距，字偶對的總數將呈指數級爆炸（$O(N^2)$），導致字型檔案急劇膨脹且編譯崩潰。
+FontLab 引入了革命性的**度量類（Metric Classes）**機制：
+- 將所有左側具有平直主幹的字形歸為一類：`@Left_Flat = [B D E F H I K L P R]`;
+- 將所有右側具有弧形輪廓的字形歸為一類：`@Right_Round = [C G O Q]`;
+設計師只需在 `@Left_Flat` 與 `@Right_Round` 之間定義一次微調值（如 `-40`），FontLab 在匯出 OpenType 時會自動將其編譯為高效的基於類的 GPOS 查詢表，單行配置瞬間覆蓋數十對甚至上百對字偶！
 
 ---
 
-## 5. 原生 Python 腳本自動化編程
+### 2.4 輪廓變換引擎與布林運算
 
-FontLab 工業價值的巔峯之一，在於其內置了完整的 Python 解釋器與極其豐富的原生對象模型（FontLab Python API）。排印工程師可以通過編寫純 Python 腳本，完全繞開耗時的人工鼠標點選，批量自動化操縱海量字庫。
+FontLab 提供了功能強大的幾何形變引擎：
+- **仿斜切（Slanting）**：透過剪下變換矩陣將正體快速生成機械仿斜體；
+- **輪廓展寬（Expanding Stems / Bolding）**：沿輪廓法線方向向外平移曲線，從而在保留字形骨架的前提下自動生成加粗變體；
+- **布林運算（Boolean Operations）**：支援輪廓之間的並集（Union）、交集（Intersection）、差集（Difference）運算。這在拼接複合字母（如將帶符字母的基底與變音符融合成單一路徑）時極其高效。
 
-### 核心對象模型：
-* `fl` 全局應用上下文對象：管理當前活動字體 `fl.font`、當前字形索引 `fl.iglyph`、視窗刷新與重繪；
-* `Font` 字體對象：包含了全部字形集合、元數據屬性與代碼頁表；
-* `Glyph` 字形對象：包含了輪廓（Contours）、節點（Nodes）、組件（Components）與側邊軸承；
-* `Node` 節點對象：包含座標 `Point`、節點類型標誌位（`nLINE`, `nCURVE`, `nMOVE`, `nSMOOTH`, `nFIXED` 等）。
+---
 
-### 經典實戰腳本範例：
+## 3. 基於 Python 指令碼驅動 FontLab Studio（Driving FontLab with Python Scripts）
 
-#### 範例 1：批量篩選所有以字母 ‘f’ 開頭的字形並統計其總數
+FontLab 5 最令工業界推崇的技術殺手鐧，莫過於其內建的完整 **Python 指令碼直譯器**。透過暴露底層 C++ 核心物件模型，排版師可以用簡潔優雅的 Python 程式碼，完全接管字型建立、批處理分析、輪廓修改與度量計算的全部流程。
 
-```python
-import re
+### 3.1 FontLab Python API 核心類層次體系
 
-total = 0
-r1 = re.compile(r'^f')
-fl.Unselect()
+在 FontLab 的 Python 環境中，系統預定義了一個全域性單例物件 **`fl`**（即 `FontLab` 類的例項）。從 `fl` 出發，排版師可以導航至整個物件圖：
 
-for gi in range(len(fl.font)):
-    glyph_name = fl.font[gi].name
-    if r1.match(glyph_name):
-        fl.Select(gi)
-        total += 1
-
-print(f"Total matching glyphs found: {total}")
-fl.UpdateFont()
+```
+[fl (全域性單例)]
+    │
+    ├── fl.font (當前活動字型 Font 物件)
+    │       │
+    │       ├── font.glyphs (字形列表: list of Glyph)
+    │       │       │
+    │       │       ├── glyph.nodes (節點列表: list of Node)
+    │       │       ├── glyph.layers (多層資料)
+    │       │       └── glyph.kerning (字距對字典: dict of KerningPair)
+    │       │
+    │       ├── font.encoding (當前啟用的 Encoding 物件)
+    │       └── font.classes (類定義列表)
+    │
+    └── fl.Open() / fl.Save() / fl.GenerateFont()
 ```
 
-#### 範例 2：通過純數學腳本向當前字形動態插入幾何矩形輪廓
+#### 核心類及其關鍵屬性與方法：
+
+1. **`FontLab` 類（全域性操作樞紐 `fl`）**：
+   - `fl.New()`：在記憶體中建立全新空白字型；
+   - `fl.Open(path)`：開啟現有字型；
+   - `fl.Save(path)`：儲存當前工程；
+   - `fl.GenerateFont(format, path)`：匯出目標格式字型。其內建格式常量包括：
+     - `ftFONTLAB`（FontLab 本地 `.vfb` 工程檔案）
+     - `ftTYPE1`（PostScript Type 1 二進位制 `.pfb`）
+     - `ftTYPE1ASCII`（PostScript Type 1 純文字 `.pfa`）
+     - `ftTRUETYPE`（TrueType `.ttf`）
+     - `ftOPENTYPE`（OpenType `.otf`）
+     - `ftMACTYPE1`、`ftMACTRUETYPE`、`ftMACTRUETYPE_DFONT`（蘋果專屬格式）
+
+2. **`Font` 類（字型資產總成）**：
+   - `font.font_name`、`font.family_name`、`font.weight`：字型命名與後設資料；
+   - `font.upm`：每 em 單位數（如 1000 或 2048）；
+   - `font.FindGlyph(name)`：按名稱快速查詢字形物件；
+   - `font.Add(glyph)`：將新生成的字形插入字型庫；
+   - `font.modified`：標記字型已被修改。
+
+3. **`Glyph` 類（字形實體）**：
+   - `glyph.name`：字形名稱；
+   - `glyph.unicode`：主 Unicode 碼點；
+   - `glyph.width`：水平前進寬度（Advance Width）；
+   - `glyph.lsb`：左側軸承留白；
+   - `glyph.rsb`：右側軸承留白；
+   - `glyph.nodes`：由 `Node` 物件構成的線性序列；
+   - `glyph.GetBoundingBox()`：返回 `Rect` 矩形物件，描述字形墨跡的物理範圍 `(x1, y1, x2, y2)`；
+   - `glyph.GetContourNumbers()`：返回該字形包含的封閉獨立輪廓數量；
+   - `glyph.FindContour(n)`：返回包含索引為 $n$ 的節點所屬的輪廓編號。
+
+4. **`Node` 類與 `Point` 類（微觀幾何元素）**：
+   - `node.x`, `node.y`：節點物理座標；
+   - `node.type`：節點拓撲型別，常量取值：
+     - `ntCORNER`（角點）
+     - `ntSMOOTH`（平滑點）
+     - `ntTANGENT`（切線點）
+   - `node.alignment`：控制柄對齊狀態；
+   - `Point(x, y)`：二維幾何點物件，過載了加減法與縮放算術運算子；
+   - `Rect(llx, lly, urx, ury)`：矩形邊界框物件。
+
+5. **`Encoding` 類與 `KerningPair` 類**：
+   - `enc = Encoding()`；`enc.Load(path)`：載入外部編碼對映表；
+   - `KerningPair(key, value)`：描述兩兩字形之間的字距微調數值。
+
+---
+
+### 3.2 工業實戰指令碼剖析：全自動重編碼與度量分析
+
+#### 指令碼一：批次分析字型檔全域性高度與極值包圍盒
+
+以下 Python 指令碼遍歷當前字型中的所有字形，高精度計算整套字型檔的實際最大上升部、最大下降部與最寬字元：
 
 ```python
+# -*- coding: utf-8 -*-
 from fontlab import *
 
-# 獲取當前活動字形
-g = fl[fl.ifont][fl.iglyph]
+f = fl.font
+if f is None:
+    print("錯誤：當前未開啟任何字型！")
+else:
+    max_ascender = 0
+    min_descender = 0
+    widest_glyph = ""
+    max_width = 0
 
-# 定義矩形四角座標
-r_ll = Point(100, 0)
-r_ur = Point(500, 700)
+    print("開始分析字型: %s ..." % f.font_name)
 
-# 動態構築輪廓閉合環
-n1 = Node(nMOVE, r_ll)
-n2 = Node(nLINE, Point(r_ur.x, r_ll.y))
-n3 = Node(nLINE, r_ur)
-n4 = Node(nLINE, Point(r_ll.x, r_ur.y))
+    for g in f.glyphs:
+        # 獲取字元物理邊界框
+        bbox = g.GetBoundingBox()
+        if bbox is not None:
+            if bbox.ury > max_ascender:
+                max_ascender = bbox.ury
+            if bbox.lly < min_descender:
+                min_descender = bbox.lly
+        
+        # 統計最寬字元
+        if g.width > max_width:
+            max_width = g.width
+            widest_glyph = g.name
 
-# 壓入字形並閉合
-g.Add(n1)
-g.Add(n2)
-g.Add(n3)
-g.Add(n4)
-g.JoinAll()
+    print("----------------------------------------")
+    print("全域性物理最高點 (Max Ascender): %d" % max_ascender)
+    print("全域性物理最低點 (Min Descender): %d" % min_descender)
+    print("最寬字形: %s (寬度: %d)" % (widest_glyph, max_width))
+    print("設計 em 尺寸: %d" % f.upm)
+```
 
-# 強制重算邊界框並刷新字體
-g.SetModified(1)
+#### 指令碼二：全自動批次組裝帶重音複合字形（Composite Glyphs）
+
+在西文字型設計中，手動為數十個大寫字母疊加銳音符（acute）、抑音符（grave）、分音符（dieresis）極其繁瑣且極易出現對齊偏差。藉助 Python 指令碼，我們可以根據基底字母的中心座標自動完成焊接：
+
+```python
+# -*- coding: utf-8 -*-
+from fontlab import *
+
+f = fl.font
+
+def create_accented_glyph(base_name, accent_name, target_name, target_unicode):
+    # 查詢基底與重音字形
+    base_glyph = f.FindGlyph(base_name)
+    accent_glyph = f.FindGlyph(accent_name)
+
+    if base_glyph is None or accent_glyph is None:
+        print("缺少必要字形元件: %s 或 %s" % (base_name, accent_name))
+        return
+
+    # 複製基底字形生成新字形
+    new_glyph = Glyph(base_glyph)
+    new_glyph.name = target_name
+    new_glyph.unicode = target_unicode
+
+    # 計算基底水平視覺中心
+    base_bbox = base_glyph.GetBoundingBox()
+    base_center_x = (base_bbox.llx + base_bbox.urx) / 2.0
+
+    # 計算重音符號中心
+    accent_bbox = accent_glyph.GetBoundingBox()
+    accent_center_x = (accent_bbox.llx + accent_bbox.urx) / 2.0
+
+    # 計算需要平移的 X 偏移量
+    offset_x = base_center_x - accent_center_x
+    # 將重音放置在基底頂部上方 50 單元處
+    offset_y = base_bbox.ury - accent_bbox.lly + 50
+
+    # 將重音輪廓深複製並施加平移後注入新字形
+    for node in accent_glyph.nodes:
+        new_node = Node(node)
+        new_node.x += offset_x
+        new_node.y += offset_y
+        new_glyph.nodes.append(new_node)
+
+    # 保持前進寬度與母體一致
+    new_glyph.width = base_glyph.width
+
+    # 注入字型
+    f.Add(new_glyph)
+    print("成功構建複合字形: %s (U+%04X)" % (target_name, target_unicode))
+
+# 批次執行生成
+create_accented_glyph("A", "acute", "Aacute", 0x00C1)
+create_accented_glyph("E", "acute", "Eacute", 0x00C9)
+create_accented_glyph("O", "acute", "Oacute", 0x00D3)
+
+f.modified = 1
 fl.UpdateFont()
+```
+
+這一簡明優雅的指令碼將需要排版師枯燥重複數小時的機械勞動，濃縮為毫秒級的確定性計算，完美展示了程式設計賦能數字藝術的無盡魅力。
+
+---
+
+## 4. FontForge 開源自由字型工坊（FontForge）
+
+如果說 FontLab 是商業商業閉源領域的瑰寶，那麼喬治·威廉姆斯（George Williams）開創的 **FontForge**（早期名為 PfaEdit）則是自由軟體精神在排版藝術領域的永恆豐碑。FontForge 不僅跨平臺（Linux、macOS、Windows），而且在底層演演算法上包容並蓄，甚至在很多前沿數學特性上超越了商業對手。
+
+### 4.1 檢視哲學與全平面 Unicode 支援
+
+FontForge 的主視窗從底層直接以純粹的 Unicode 碼點矩陣展開：
+- 使用者可以自由跨越 Plane 0（BMP）至 Plane 16（私用平面）；
+- 支援數十種全球編碼體系（ISO 8859 系列、KOI8、Shift-JIS、GB2312、Big5）的即時檢視重對映；
+- 能夠原汁原味地開啟並解析幾乎人類歷史上存在過的所有字型格式（PostScript Type 1/3/42、TrueType、OpenType、BDF、PCF、甚至 METAFONT 生成的 PK 點陣）。
+
+---
+
+### 4.2 曲線輪廓繪製：三次、二次貝茲與 Spiro 曲線數學模型
+
+FontForge 最令人矚目的技術特質在於其**完全開放的多引擎曲線編輯核心**：
+
+#### 1. PostScript（三次）與 TrueType（二次）原生雙向切換
+在 FontForge 的 `Element > Font Info > Layers` 中，使用者可以顯式指定輪廓層採用**三次貝茲曲線**還是**二次貝茲曲線**。
+- 當使用者將三次曲線轉換為二次曲線時，FontForge 會呼叫內建的高階多項式逼近演演算法，在控制誤差小於 1 畫素的前提下自動拆分插值生成二次拋物線段；
+- 反向轉換時，FontForge 則透過精確數學公式：
+  $$\mathbf{Q}_0 = \mathbf{P}_0, \quad \mathbf{Q}_1 = \mathbf{P}_0 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_0), \quad \mathbf{Q}_2 = \mathbf{P}_2 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_2), \quad \mathbf{Q}_3 = \mathbf{P}_2$$
+  將二次貝茲無損、確定性地提升為等效的三次貝茲曲線。
+
+#### 2. 拉夫·萊維安（Raph Levien）的 Spiro 曲線數學模型
+在傳統貝茲繪圖中，保持曲線在節點處的曲率連續性（$C^2$ 或 $G^2$ 連續，即曲率沒有突變躍遷）極其困難，往往導致高光反光處出現不自然的“折角波紋”。
+
+FontForge 率先整合了著名的 **Spiro 曲線引擎**。Spiro 基於尤拉螺線（Euler Spirals / Clothoids，迴旋線，其曲率隨弧長線性連續變化：$\kappa(s) = c \cdot s$）。在 Spiro 模式下，設計師只需在字形關鍵轉折點放置幾個控制錨點，Spiro 求解器會自動計算出整條曲線上曲率變化能量泛函最小（Minimum Bending Energy）的純天然流線，生成如同大自然水滴般無瑕圓潤的極美輪廓！
+
+---
+
+### 4.3 點陣圖向量化自動追蹤（Auto-tracing）
+
+對於從歷史古籍、羊皮紙手稿或掃描稿中復原字型的排版學者，FontForge 深度整合了兩大工業級開源向量化引擎：
+- **Potrace**：彼得·塞爾溫格（Peter Selinger）開發的多邊形逼近與光滑輪廓追蹤演演算法；
+- **Autotrace**：馬丁·韋伯（Martin Weber）開發的彩色輪廓提取器。
+
+工作流極其流暢：將手繪字形的高解析度黑白 TIFF/PNG 影象匯入 Background 背景圖層，點選 `Element > AutoTrace`，引擎在瞬間即可將邊緣畫素點陣擬合為由三次貝茲曲線構成的純淨向量路徑！
+
+---
+
+### 4.4 FontForge Python 指令碼自動化系統
+
+與 FontLab 類似，FontForge 提供了一套極其強大且遵循現代 Pythonic 規範的內嵌指令碼庫（`import fontforge`）：
+
+```python
+# -*- coding: utf-8 -*-
+import fontforge
+
+# 開啟現有 TrueType 字型
+font = fontforge.open("source_font.ttf")
+
+print("正在處理字型: %s" % font.fontname)
+
+# 遍歷所有字形，自動進行極值點檢測與輪廓平滑
+for glyph in font.glyphs():
+    # 強制在水平和垂直極值點處插入節點（極值點切線水平或垂直是光柵化渲染的黃金鐵律）
+    glyph.addExtrema()
+    # 自動校正輪廓走向（順時針/逆時針）
+    glyph.correctDirection()
+    # 消除冗餘冗餘重合點
+    glyph.simplify()
+
+# 自動生成 TrueType 指令提示
+font.autoHint()
+font.autoInstr()
+
+# 匯出為高品質 OpenType (CFF) 格式
+font.generate("output_optimized.otf")
+print("最佳化編譯完成，已成功生成 output_optimized.otf！")
 ```
 
 ---
 
-# 開源世界的傳奇旗幟：FontForge 架構與實戰
+## 5. PostScript 提示系統（PostScript Hinting）
 
-由喬治·威廉姆斯獨立打造的 **FontForge**，是自由與開源排印世界的鎮國之寶。它基於嚴謹的 X11 視窗架構運行，底層以 C 語言寫就，兼具難以置信的跨平臺靈活性與深度技術通透性。
+當我們在螢幕上以 12 磅的大小檢視正文時，一個英文字母“H”的主幹可能只有區區 1 到 2 個畫素寬。在如此粗糙的離散點陣畫布上，純數學貝茲曲線的理論輪廓會與實際畫素網格發生劇烈衝突：
+- 稍有舍入偏差，原本粗細相同的兩條豎線，一條被光柵化為 1 個畫素寬，另一條被算作 2 個畫素寬，導致字母看起來一邊胖一邊瘦；
+- 字母“E”的中間橫線可能直接掉入兩個畫素行之間的縫隙中，導致筆畫完全蒸發丟失！
 
-::: tip 圖 12-11：FontForge 主字體字符表視窗（Font Table Window）。展示了完備的 Unicode 字符方格陣列、字符編碼槽位與狀態標記
-![圖 12-11：FontForge 主字體字符表視窗](/images/fonts-encodings/fig12-11.png)
-*圖 12-11：FontForge 主字體字符表視窗。展示了完備的 Unicode 字符方格陣列、字符編碼槽位與狀態標記。*
-:::
+為了解決這一災難性問題，Adobe 在 PostScript Type 1 字型格式中發明了一套登峰造極的數學控制體系——**PostScript 提示系統（Hinting）**。
 
-::: tip 圖 12-12：FontForge 字形輪廓編輯繪製視窗。展示了三次/二次混合編輯模式、多圖層管理、仿射變換工具箱與精密座標讀數
-![圖 12-12：FontForge 字形輪廓編輯繪製視窗](/images/fonts-encodings/fig12-12.png)
-*圖 12-12：FontForge 字形輪廓編輯繪製視窗。展示了三次/二次混合編輯模式、多圖層管理、仿射變換工具箱與精密座標讀數。*
-:::
+### 5.1 全域性提示（Global Hints）與對齊區（Alignment Zones）
 
-## 1. FontForge 的獨特架構優勢
+全域性提示作用於整套字型檔，用於保證同族所有字形在視覺高度與基準軸線上具有絕對的一致性。
 
-* **主字體映射視窗（Font Table Window，圖 12-11）**：支持從 0 到 1,114,111 全部 Unicode 字符空間乃至自定義私有編碼頁的無級縮放總覽。
-* **字形多圖層編輯視窗（Glyph Window，圖 12-12）**：具有清晰的前景圖層（Foreground）、背景臨摹層（Background）以及專業數學輔助線層（Guide Layer）。支持在三次貝塞爾與二次 B-樣條模式之間隨時切換。
-* **豐富的導出伴生格式**：生成字體時，可一鍵協同生成伴生的 AFM（Adobe Font Metrics）、PFM（Printer Font Metrics）、以及專供 TeX/LaTeX 系統的 TFM（TeX Font Metric）與 ENC 編碼映射表！
-* **仿射變換矩陣（Affine Transformation Matrix）**：內置強大的幾何數學工具箱，支持通過設置 $2 \times 3$ 仿射矩陣，對字符輪廓進行精確的平移、旋轉、縮放、斜切與鏡像操作：
-  $$ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} a & c \\ b & d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} $$
+#### 1. 對齊區與 `BlueValues`
+PostScript 引入了著名的**藍色值陣列（`BlueValues`）**。之所以稱為“藍色”，是因為早期在 NeXT 電腦的螢幕上，字型設計軟體用藍色半透明陰影區域來視覺化渲染這些基準區。
 
-## 2. 垂直排版（Vertical Typesetting）與 CJK 度量支持
+`BlueValues` 是一個由偶數個整陣列成的配對陣列，必須嚴格按照升序排列：
 
-在處理中日韓（CJK）以及傳統蒙古文等東亞豎排文本時，字符的排印度量從傳統的水平基線轉向了垂直中央基線。FontForge 對垂直排版提供了全方位原生支持：
-* 在度量視窗中直接啓用垂直排版模式（Vertical Metrics）；
-* 獨立測量並配置每個字符的**上側邊距（Top Side Bearing, TSB）**、**垂直步進高度（Vertical Advance Height）**與底側邊距；
-* 自動生成並校驗 OpenType/TrueType 二進制規範中的垂直頭信息表 `vhea` 與垂直度量表 `vmtx`，並深度配合 OpenType `vert`（垂直書寫替代）與 `vrt2` 高級佈局特性。
+$$\text{BlueValues} = [y_{b0}, y_{t0}, \quad y_{b1}, y_{t1}, \quad \dots]$$
 
-## 3. CID 鍵控字體（CID-keyed Fonts）與扁平化
+每一對整數 $[y_{bottom}, y_{top}]$ 定義了一個水平對齊區（Alignment Zone）：
+- **第一對必須是基線對齊區（Baseline Zone）**：通常為 $[-15, 0]$（從基線下方 15 單元至基線 0 處）；
+- **第二對通常是小寫字母 x 高度對齊區**：如 $[480, 495]$；
+- **後續配對包括大寫字母高度（Cap-height）、升部高度（Ascender）等**。
 
-面對包含數萬漢字的超大型東亞字庫，傳統的單字節或簡單 Unicode 扁平映射往往難以承載複雜的異體字體系。FontForge 原生支持 Adobe 的 **CID 架構**（基於字符集合 Registry-Ordering-Supplement 的 CIDFont）：
-* 允許設計者將字體組織爲多子字族聚合體；
-* 提供極其關鍵的 `CID > Flatten`（扁平化）指令：能夠一鍵“剝離”晦澀複雜的 CID 結構，將其直接解構降級爲普通的全局 Unicode 編碼字體，極大地方便了將舊式專業東亞字體向現代跨平臺 OpenType 格式的平民化遷移！
+此外，對於位於基線之下的降部區域（Descender），使用 **`OtherBlues`** 陣列定義輔助對齊區（如 $[-250, -235]$）。
 
----
+#### 對齊區的工作原理：過沖（Overshoot）與尺寸閾值
+在光學設計中，圓形字母（如“O”, “C”）如果與平頂字母（如“H”, “I”）物理高度完全相同，在視覺上看起來圓形字母會顯得矮小縮水。因此，優秀的設計師總會將圓形字母的頂端與底端故意微量畫高一點（超出基準線約 $1.5\%$ 至 $2\%$），這被稱為**過沖（Overshoot）**。
 
-# 位圖自動描摹技術（Autotracing）
+在紙張高解析度印刷時，這種過沖呈現出優美的光學平衡；然而在 72 DPI 或 96 DPI 的低解析度螢幕上，這多出來的微小過沖會導致圓形字母的頂部多霸佔整整一排畫素，顯得極其突兀突起！
 
-對於通過紙張手工繪製或歷史掃描獲得的字形圖像，如果每一個字符都需要人工拉貝塞爾曲線重新勾勒，其勞動量對於數萬漢字庫而言是無法想象的。爲此，圖形學界誕生了**自動描摹技術**（**Autotracing** / 矢量化）。
+**`BlueValues` 的數學魔法正是為了消除這一低解析度失真**：
+1. 當渲染引擎檢測到某個字元的極值點落在 `BlueValues` 定義的對齊區內部時；
+2. 如果當前螢幕字號小於某個物理閾值（由 `BlueScale` 與 `BlueShift` 引數嚴格定義）：
+   $$\text{Threshold Size} = \frac{1}{\text{BlueScale} \times (\text{Zone Height})}$$
+3. 光柵化引擎會**強行將所有過沖的圓弧平整吸附（Snap）到基準平線上**，使所有字母在畫素點陣上呈現出完全整齊劃一的絕對平頂；
+4. 當字號放大超過閾值尺寸後，對齊區自動解禁，平滑釋放出微觀過沖曲線，恢復其古典的光學藝術美感！
 
-然而，哈拉蘭博斯博士在此提出了極其嚴肅的排印學術警示：**自動描摹絕非靈丹妙藥，濫用描摹軟件生產的字體往往是排印學上的災難！**
-* 掃描位圖中的任何微小墨暈、紙張纖維噪點或光學畸變，都會被算法不加甄別地忠實還原成數十個細碎扭曲的貝塞爾斷點；
-* 算法無法理解排印學中的“骨骼對齊”概念，導致直筆不直、圓弧扁塌、左右兩柱粗細不一。
-
-儘管如此，在掌握嚴密參數調校的前提下，現代描摹工具依然是字體拓荒的重要武器：
-
-## 1. Peter Selinger 的開源神器：Potrace
-
-作爲開源世界無可替代的幾何矢量化核心引擎，彼得·塞林格（Peter Selinger）編寫的 **potrace** 採用了一套精妙的多邊形逼近與三次貝塞爾平滑擬合算法：
-1. **輪廓多邊形粗分解**：追蹤二值化位圖的黑白像素邊緣；
-2. **最優多邊形降採樣**：基於距離懲罰函數尋找頂點最少的最優閉合多邊形；
-3. **貝塞爾平滑逼近**：對多邊形連續角點進行曲率評估，自動生成極度優美光滑的三次曲線段。
-FontForge 深度內嵌了對 potrace 的無縫調用接口（`Element > AutoTrace`）。
-
-## 2. 商業描摹巔峯：ScanFont
-
-由 FontLab 官方出品的配套工具 **ScanFont**（圖 12-13），專爲將複雜手繪圖樣轉化爲專業字模而生。它提供了極其豐富的實時交互參數滑塊：
-* **Smoothness（平滑度）**：過濾微觀像素毛刺的平滑門限；
-* **Corner threshold（拐角閾值）**：決定何處強制摺疊爲銳利尖角、何處圓融過渡；
-* **Curve fitting tolerance（曲線擬合容差）**：控制矢量線條偏離原始像素邊緣的最大允許誤差；
-* **Extrema optimization（極值點自動對齊）**：確保生成的節點嚴格落在水平與垂直極值點切線上。
-
-::: tip 圖 12-13：ScanFont 中實時配置與動態預覽位圖自動描摹參數的交互式面板
-![圖 12-13：ScanFont 中實時配置與動態預覽位圖自動描摹參數的交互式面板](/images/fonts-encodings/fig12-13.png)
-*圖 12-13：ScanFont 中實時配置與動態預覽位圖自動描摹參數的交互式面板。*
-:::
-
-在實際描摹測試中對比發現：ScanFont 在處理字母 ‘A’ 尖銳的內角頂點時偶有輕微形變；而 potrace 則傾向於在平直長主幹的中段冗餘插入若干微小的控制點。**因此，任何自動描摹產物，都必須經過字體設計師在字形窗口中進行人工審查、刪除冗餘雜點、對齊極值並重構關鍵水平/垂直主幹，方能真正達到工業級出版質量標準！**
+#### 2. 標準主幹寬度：`StdHW`, `StdVW` 與筆畫捕捉
+- **`StdHW`（Standard Horizontal Width）**：描述字型檔中最具代表性的水平主幹粗細（如大寫“E”或“H”橫樑的厚度）；
+- **`StdVW`（Standard Vertical Width）**：描述最具代表性的垂直主幹粗細（如大寫“H”或“I”主豎線粗細）；
+- **`StemSnapH` 與 `StemSnapV`**：由一組遞增數值構成的陣列，記載字型中允許存在的典型筆畫寬度梯隊。
+在低解析度光柵化時，渲染引擎會將所有寬度接近某梯隊的筆畫，強制歸整（Snap）為完全相同的畫素列寬，徹底杜絕字行筆畫忽粗忽細的視覺抖動。
 
 ---
 
-# 結語
+### 5.2 區域性提示（Local Hints）與提示替換（Hint Substitution）
 
-字體的設計與編輯，是數字人文科學中最具魅力的交匯點。它一方面紮根於數千年書法墨跡與金屬活字的經典藝術風骨，另一方面又緊密咬合着離散微分幾何、現代計算機圖形學與龐大的二進制文件規範。
+在字形內部，設計師需要為每一條關鍵筆畫顯式掛載區域性提示指令：
+- **`hstem`（水平筆畫提示）**：由兩個引數構成：起始 $y$ 座標與筆畫厚度 $dy$；
+- **`vstem`（垂直筆畫提示）**：由兩個引數構成：起始 $x$ 座標與筆畫厚度 $dx$。
 
-無論是駕馭商業流水線上的霸主 FontLab，還是馳騁在開源自由的 FontForge 天地中，真正賦予一套字體以不朽生命力的，始終是設計者那雙在微觀網格與宏觀排印節律之間洞悉全局的慧眼，以及對技術規範毫釐不爽的工匠之心。
+#### 提示替換（Hint Substitution）的破局之道
+在簡單字形（如字母“I”）中，一條 `vstem` 即可貫穿始終。然而，在複雜字形（如字母“B”、“B”有兩個圓肚，或者帶複雜中橫線的西裡爾字母）中，垂直筆畫沿水平方向可能重疊或交錯，在整個字形中強行施加單一的一組提示會導致嚴重的幾何衝突。
+
+Adobe 在 Type 1 規範中引入了**提示替換（Hint Substitution）**機制：
+當光柵化掃描線從下向上推進遍歷輪廓時，字形程式碼可以在特定的曲線拐點處，透過呼叫操作碼動態清空舊的提示集，並瞬時啟用一組專門針對當前區域性區域的新提示！這種區域性動態適配能力，使得 PostScript 輪廓即使在極低解析度的惡劣顯示硬體上，依然能夠勾勒出鋒利、清晰且骨骼端正的字元風骨。
+
+---
+
+## 6. 結論（Conclusions）
+
+字型的編輯與建立，是一場在毫釐之間平衡數學嚴謹性與視覺美學感知的修行。
+- 從三次與二次貝茲曲線的幾何擬合，到度量類與字偶間距的組合爆炸規避；
+- 從 FontLab 強大的 Python 批處理指令碼，到 FontForge 自由開放的 Spiro 尤拉螺線與多格式相容；
+- 從深藏於 PostScript 規範深處的 `BlueValues` 對齊區與動態提示替換，到 OpenType/AAT 智慧排版邏輯的注入。
+
+數字字型絕不是一幅死板的點陣圖快照，而是一套具有生命力、能夠根據解析度自適應呼吸、在不同語言環境下敏銳變通的**自包含微型計算機程式**。只有深刻理解了這些隱藏在漂亮字形背後的工程靈魂，我們才能真正駕馭數字排版的大道，創造出跨越時空與硬體阻隔的永恆文字藝術經典！

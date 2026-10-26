@@ -1,0 +1,1249 @@
+
+--- TOC PAGE 7 ---
+This book would never have seen the light of day without the help of a number of people, to whom
+the author would like to express his thanks:
+• His wife, Tereza, and his elder daughter, Ernestine (“Daddy, when are you going to ﬁnish your
+book?”), who lived through hell for a whole year.
+• The management of ENST Bretagne, Annie Gravey (chair of his department), and his col-
+leagues, for encouraging him in this undertaking and tolerating the inconveniences caused
+by his prolonged absence.
+• His editor, Xavier Cazin, for his professionalism, his enthusiasm, and his friendship.
+• Jacques André, for supplying tons of books, articles, leads, addresses, ideas, advice, suggestions,
+memories, crazy thoughts, etc.
+• His proofreaders: Jacques André once again, but also Patrick Andries, Oscarine Bosquet,
+Michel Cacouros, Luc Devroye, Pierre Dumesnil, Tereza Haralambous, John Plaice, Pascal Ru-
+bini, and François Yergeau, for reviewing and correcting all or part of the book in record time.
+• The indefatigable George Williams, for never failing to add new features to his FontForge soft-
+ware at the author’s request.
+• All those who supported him by providing information or resources: Ben Bauermeister, Gá-
+bor Bella, Tom Bishop, Thierry Bouche, John Collins, Richard Cook, Simon Daniels, Mark
+Davis, Lisa Devlin, Bon Hallissy, Ken’ichi Handa, Alan Hoenig, Bogusław Jackowski, Michael
+Jansson, Ronan Keryell, Alain LaBonté, David Lemon, Ken Lunde, Jim Lyles, Sergey Malkin,
+Sabine Millecamps (Harrie Potter), Lisa Moore, Tomohiko Morioka, Éric Muller, Paul Nel-
+son, David Opstad, Christian Paput, Thomas Phinney, Just van Rossum, Emmanuël Souchier,
+Naoto Takahashi, Bob Thomas, Adam Twardoch, Jürgen Willrodt, and Candy Lee Yiu.
+• The foundries that supplied fonts or specimens for use in his examples: Justin Howes, P22,
+Thierry Gouttenègre, Klemens Burkhardt, Hoeﬂer Type Foundry, Typofonderie Porchez, and
+Fountain Type.
+• Emma Colby and Hanna Dyer of O’Reilly, for selecting that magniﬁcent buck as the animal
+on the cover, doubtless because its coat is reminiscent of encoding tables and its antlers suggest
+the Bézier curves of fonts.
+• Last but not least, Scott Horne, the heroic translator of this book of more than a thousand
+pages, who mustered all his energy and know-how to translate the technical terms correctly,
+adapt the book’s style to the culture of the English-speaking countries, correct countless errors
+(even in the Chinese passages)—in short, he prepared this translation with the utmost care.
+Just to cite one example, he translated the third stanza of Gaudeamus Igitur from Latin to ar-
+chaic English—in verse, no less—for use in the dedication. The author will be forever grateful
+to him for all these contributions.
+
+--- TOC PAGE 8 ---
+Contents
+Introduction
+1
+Explorations
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+The Letter and Its Parts . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+Letterpress Typesetting
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+7
+Digital Typesetting . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+11
+Font Formats . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+14
+Between Characters and Glyphs: the Problems
+of the Electronic Document . . . . . . . . . . . . . . . . . . . .
+15
+The Structure of the Book and Ways to Use It
+. . . . . . . . . . . . . . . . .
+17
+How to Read This Book . . . . . . . . . . . . . . . . . . . . . . . . . . .
+23
+How to Contact Us . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+25
+1
+Before Unicode
+27
+FIELDATA . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+29
+ASCII . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+29
+EBCDIC . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+31
+ISO 2022
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+33
+ISO 8859
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+35
+ISO 8859-1 (Latin-1) and ISO 8859-15 (Latin-9) . . . . . . . . . . . . . .
+36
+ISO 8859-2 (Latin-2) and ISO 8859-16 (Latin-10)
+. . . . . . . . . . . . .
+38
+ISO 8859-3 (Latin-3) and ISO 8859-9 (Latin-5) . . . . . . . . . . . . . . .
+39
+ISO 8859-4 (Latin-4), ISO 8859-10 (Latin-6),
+and ISO 8859-13 (Latin-7) . . . . . . . . . . . . . . . . . . . . . .
+40
+ISO 8859-5, 6, 7, 8, 11 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+41
+ISO 8859-14 (Latin-8)
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+42
+vii
+
+--- TOC PAGE 9 ---
+viii
+Contents
+The Far East
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+42
+Microsoft’s code pages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+45
+Apple’s encodings
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+47
+Electronic mail . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+48
+The Web
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+51
+2
+Characters, glyphs, bytes: An introduction to Unicode
+53
+Philosophical issues: characters and glyphs . . . . . . . . . . . . . . . . . . .
+54
+First principles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+58
+Technical issues: characters and bytes
+. . . . . . . . . . . . . . . . . . . . . .
+62
+Character encoding forms . . . . . . . . . . . . . . . . . . . . . . . . . .
+64
+General organization of Unicode: planes and blocks . . . . . . . . . . . . . .
+70
+The BMP (Basic Multilingual Plane) . . . . . . . . . . . . . . . . . . . .
+70
+Higher planes
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+83
+Scripts proposed for addition . . . . . . . . . . . . . . . . . . . . . . . .
+89
+3
+Properties of Unicode characters
+95
+Basic properties
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+96
+Name . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+96
+Block and script . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+96
+Age
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+97
+General category . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+98
+Other general properties
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+105
+Spaces . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+106
+Alphabetic characters . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+106
+Noncharacters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+106
+Ignorable characters . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+107
+Deprecated characters . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+107
+Logical-order exceptions . . . . . . . . . . . . . . . . . . . . . . . . . . .
+107
+Soft-dotted letters
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+108
+Mathematical characters
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+108
+Quotation marks . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+109
+Dashes
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+109
+Hyphens
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+109
+
+--- TOC PAGE 10 ---
+Contents
+ix
+Terminal punctuation . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+109
+Diacritics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+109
+Extenders . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+110
+Join control . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+110
+The Unicode 1 name and ISO’s comments
+. . . . . . . . . . . . . . . .
+110
+Properties that pertain to case
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+111
+Uppercase letters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+111
+Lowercase letters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+112
+Simple lowercase/uppercase/titlecase mappings . . . . . . . . . . . . . .
+112
+Special lowercase/uppercase/titlecase mappings . . . . . . . . . . . . . .
+112
+Case folding
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+113
+Rendering properties
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+114
+The Arabic and Syriac scripts . . . . . . . . . . . . . . . . . . . . . . . .
+114
+Managing grapheme clusters . . . . . . . . . . . . . . . . . . . . . . . .
+116
+Numeric properties . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+118
+Identiﬁers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+119
+Reading a Unicode block . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+120
+4
+Normalization, bidirectionality, and East Asian characters
+127
+Decompositions and Normalizations
+. . . . . . . . . . . . . . . . . . . . . .
+127
+Combining Characters . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+127
+Composition and Decomposition
+. . . . . . . . . . . . . . . . . . . . .
+130
+Normalization Forms . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+131
+The Bidirectional Algorithm . . . . . . . . . . . . . . . . . . . . . . . . . . .
+133
+Typography in both directions . . . . . . . . . . . . . . . . . . . . . . .
+134
+Unicode and Bidirectionality . . . . . . . . . . . . . . . . . . . . . . . .
+138
+The Algorithm, Step by Step . . . . . . . . . . . . . . . . . . . . . . . .
+142
+East Asian Scripts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+146
+Ideographs of Chinese Origin . . . . . . . . . . . . . . . . . . . . . . . .
+147
+The Syllabic Korean Hangul Script . . . . . . . . . . . . . . . . . . . . .
+155
+
+--- TOC PAGE 11 ---
+x
+Contents
+5
+Using Unicode
+159
+Interactive Tools for Entering Unicode Characters . . . . . . . . . . . . . . .
+160
+Under Mac OS X . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+160
+Under Windows XP . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+161
+Under X Window
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+163
+Virtual Keyboards . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+164
+Useful Concepts Related to Virtual Keyboards
+. . . . . . . . . . . . . .
+167
+Under Mac OS X . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+168
+Under Windows . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+175
+Under X Window
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+181
+Conversion of Text from One Encoding to Another
+. . . . . . . . . . . . . .
+183
+The recode Utility . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+184
+6
+Font Management on the Macintosh
+187
+The Situation under Mac OS 9 . . . . . . . . . . . . . . . . . . . . . . . . . .
+188
+The situation under Mac OS X . . . . . . . . . . . . . . . . . . . . . . . . . .
+191
+Font-Management Tools
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+194
+Tools for Veriﬁcation and Maintenance . . . . . . . . . . . . . . . . . .
+194
+ATM: the “Smoother” of Fonts . . . . . . . . . . . . . . . . . . . . . . .
+196
+ATR: classiﬁcation of fonts by family . . . . . . . . . . . . . . . . . . . .
+199
+Font Managers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+200
+Font Servers
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+204
+Tools for Font Conversion . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+205
+TransType Pro . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+205
+dfontiﬁer . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+206
+FontFlasher, the “Kobayashi Maru” of Fonts . . . . . . . . . . . . . . . .
+207
+7
+Font Management under Windows
+209
+Tools for Managing Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+212
+The Extension of Font Properties
+. . . . . . . . . . . . . . . . . . . . .
+212
+Tools for Veriﬁcation and Maintenance . . . . . . . . . . . . . . . . . .
+213
+ATM: the “Smoother” of Fonts . . . . . . . . . . . . . . . . . . . . . . .
+215
+Font Managers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+216
+Font Servers
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+218
+Tools for Font Conversion . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+219
+
+--- TOC PAGE 12 ---
+Contents
+xi
+8
+Font Management under X Window
+221
+Special Characteristics of X Window . . . . . . . . . . . . . . . . . . . . . . .
+221
+Logical Description of a Font under X . . . . . . . . . . . . . . . . . . . . . .
+222
+Installing fonts under X . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+226
+Installing Bitmap Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . .
+228
+Installing PostScript Type 1 or TrueType Fonts . . . . . . . . . . . . . .
+229
+Tools for Managing Fonts under X . . . . . . . . . . . . . . . . . . . . . . . .
+231
+Tools for Converting Fonts under X . . . . . . . . . . . . . . . . . . . . . . .
+232
+The GNU Font Tools
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+232
+George Williams’s Tools . . . . . . . . . . . . . . . . . . . . . . . . . . .
+233
+Various other tools
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+233
+Converting Bitmap Fonts under Unix . . . . . . . . . . . . . . . . . . .
+233
+9
+Fonts in TEX and Ω, their installation and use
+235
+Using Fonts in TEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+235
+Introduction to TEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+236
+The High Level: Basic LATEX Commands and NFSS . . . . . . . . . . . .
+240
+The Low Level: TEX and DVI . . . . . . . . . . . . . . . . . . . . . . . .
+259
+“Après-TEX”: Confronting the Real World . . . . . . . . . . . . . . . . .
+263
+Installing Fonts for TEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+274
+The Tool afm2tfm
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+275
+Basic Use of the Tool fontinst . . . . . . . . . . . . . . . . . . . . . . . .
+277
+Multiple Master fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+283
+Customizing TEX Fonts for the User’s Needs
+. . . . . . . . . . . . . . . . . .
+285
+How to Conﬁgure a Virtual Font . . . . . . . . . . . . . . . . . . . . . .
+285
+Conclusions and Glimpses at the Future . . . . . . . . . . . . . . . . . . . . .
+312
+10 Fonts and Web Pages
+315
+(X)HTML, CSS, and Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+318
+The Standard HTML Tags . . . . . . . . . . . . . . . . . . . . . . . . . .
+318
+CSS (version 3) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+319
+Tools for Downloading Fonts from the Web
+. . . . . . . . . . . . . . . . . .
+332
+TrueDoc, by Bitstream . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+333
+Font Embedding, by Microsoft . . . . . . . . . . . . . . . . . . . . . . . .
+336
+
+--- TOC PAGE 13 ---
+xii
+Contents
+GlyphGate, by em2 Solutions . . . . . . . . . . . . . . . . . . . . . . . .
+340
+The SVG Format . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+345
+Fundamental Concepts of XML
+. . . . . . . . . . . . . . . . . . . . . .
+345
+And what about SVG? . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+350
+Font Selection under SVG
+. . . . . . . . . . . . . . . . . . . . . . . . .
+351
+Alternate Glyphs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+353
+SVG Fonts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+355
+Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+365
+11 The History and Classiﬁcations of Latin Typefaces
+367
+The Typographical Big Bang of the Fifteenth Century,
+and the Fabulous Destiny of the Carolingian Script . . . . . . .
+367
+From Venice to Paris, by Way of Rome
+. . . . . . . . . . . . . . . . . .
+371
+New Scripts Emerge in Germany . . . . . . . . . . . . . . . . . . . . . .
+381
+The Wild Adventure of Textura in England . . . . . . . . . . . . . . . .
+382
+The Sun King Makes Waves . . . . . . . . . . . . . . . . . . . . . . . . .
+384
+England Takes the Lead in Typographic Innovation
+. . . . . . . . . . .
+386
+Didot and Bodoni Revolutionize Typefaces . . . . . . . . . . . . . . . .
+390
+The German “Sturm und Drang”
+. . . . . . . . . . . . . . . . . . . . .
+393
+The Nineteenth Century, Era of Industrialization
+. . . . . . . . . . . .
+394
+The Pre-war Period: Experimentation and a Return to Roots . . . . . .
+397
+The Post-war Period . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+403
+Suggested Reading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+407
+The Vox/ATypI Classiﬁcation of Typefaces . . . . . . . . . . . . . . . . . . . .
+408
+La classiﬁcation Alessandrini des caractères: le Codex 80 . . . . . . . . . . . .
+411
+IBM’s Classiﬁcation of Fonts
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+416
+Class 0: No Classiﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . .
+416
+Class 1: Old-Style Serifs . . . . . . . . . . . . . . . . . . . . . . . . . . .
+416
+Class 2: Transitional Serifs . . . . . . . . . . . . . . . . . . . . . . . . . .
+418
+Class 3: Modern Serifs . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+418
+Class 4: Clarendon Serifs
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+419
+Class 5: Slab Serifs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+420
+Class 7: Free-Form Serifs
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+420
+Class 8: Sans Serif
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+421
+
+--- TOC PAGE 14 ---
+Contents
+xiii
+Class 9: Ornamentals
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+422
+Class 10: Scripts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+422
+Class 12: Symbolic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+423
+The Panose-1 Classiﬁcation . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+424
+Parameter 1: Family Kind . . . . . . . . . . . . . . . . . . . . . . . . . .
+425
+Parameter 2: Serif Style . . . . . . . . . . . . . . . . . . . . . . . . . . .
+425
+Parameter 3: Weight . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+427
+Parameter 4: Proportion
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+428
+Parameter 5: Contrast . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+430
+Parameter 6: Stroke Variation
+. . . . . . . . . . . . . . . . . . . . . . .
+431
+Parameter 7: Arm Style and Termination
+of Open Curves
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+433
+Parameter 8: Slant and Shape of the Letter . . . . . . . . . . . . . . . .
+435
+Parameter 9: Midlines and Apexes . . . . . . . . . . . . . . . . . . . . .
+436
+Parameter 10: X-height and Behavior of Uppercase Letters
+Relative to Accents
+. . . . . . . . . . . . . . . . . . . . . . . . .
+438
+12 Editing and Creating Fonts
+441
+Software for Editing/Creating Fonts . . . . . . . . . . . . . . . . . . . .
+442
+General Principles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+444
+FontLab . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+446
+The Font Window . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+446
+Opening and Saving a Font . . . . . . . . . . . . . . . . . . . . . . . . .
+452
+The General-Information Window . . . . . . . . . . . . . . . . . . . . .
+454
+The Glyph Window . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+459
+The Metrics Window
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+465
+Multiple Master Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+468
+Driving FontLab with Python Scripts
+. . . . . . . . . . . . . . . . . . .
+472
+FontForge . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+488
+The Font-Table Window . . . . . . . . . . . . . . . . . . . . . . . . . . .
+489
+Opening/Saving a Font
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+490
+The General-Information Window . . . . . . . . . . . . . . . . . . . . .
+491
+The Glyph Window . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+492
+The Metrics Window
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+495
+
+--- TOC PAGE 15 ---
+xiv
+Contents
+What About Vertical Typesetting? . . . . . . . . . . . . . . . . . . . . .
+497
+CID Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+498
+Autotracing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+499
+potrace . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+500
+ScanFont . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+501
+13 Optimizing a rasterization
+505
+PostScript Hints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+507
+Global PostScript Hints . . . . . . . . . . . . . . . . . . . . . . . . . . .
+507
+Individual PostScript Hints . . . . . . . . . . . . . . . . . . . . . . . . .
+512
+TrueType Instructions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+518
+Managing Instructions in FontLab . . . . . . . . . . . . . . . . . . . . .
+520
+Managing Instructions under VTT . . . . . . . . . . . . . . . . . . . . .
+529
+Managing Instructions under FontForge
+. . . . . . . . . . . . . . . . .
+546
+14 Enriching Fonts: Advanced Typography
+549
+Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+549
+Managing OpenType Tables in FontLab . . . . . . . . . . . . . . . . . . . . .
+555
+Feature Deﬁnition Language . . . . . . . . . . . . . . . . . . . . . . . .
+556
+FontLab’s User Interface
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+565
+Managing OpenType Tables in VOLT
+. . . . . . . . . . . . . . . . . . . . . .
+569
+Managing OpenType Tables in FontForge . . . . . . . . . . . . . . . . . . . .
+576
+Anchors . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+577
+Noncontextual Substitutions . . . . . . . . . . . . . . . . . . . . . . . .
+579
+Noncontextual Positionings
+. . . . . . . . . . . . . . . . . . . . . . . .
+580
+Contextual Substitutions and Positionings
+. . . . . . . . . . . . . . . .
+582
+Managing AAT Tables in FontForge . . . . . . . . . . . . . . . . . . . . . . .
+586
+Features and selectors . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+588
+Managing AAT’s Finite Automata in FontForge
+. . . . . . . . . . . . .
+589
+
+--- TOC PAGE 16 ---
+Contents
+xv
+A
+Bitmap Font Formats
+599
+A.1
+The Macintosh World . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+599
+A.1.1
+The FONT Format
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+599
+A.1.2
+The NFNT Format
+. . . . . . . . . . . . . . . . . . . . . . . . .
+601
+A.1.3
+Color . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+601
+A.2
+The DOS World
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+601
+A.2.1
+The CPI Format . . . . . . . . . . . . . . . . . . . . . . . . . . .
+601
+A.3
+The Windows World . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+602
+A.3.1
+The FNT Format
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+602
+A.3.2
+The FON Format
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+604
+A.4
+The Unix World . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+604
+A.4.1
+The PSF Format of Linux . . . . . . . . . . . . . . . . . . . . . .
+604
+A.4.2
+The BDF Format
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+606
+A.4.3
+The HBF Format
+. . . . . . . . . . . . . . . . . . . . . . . . . .
+609
+A.4.4
+The SNF, PCF, and ABF Formats . . . . . . . . . . . . . . . . . .
+610
+A.4.5
+The RAW and CP Formats . . . . . . . . . . . . . . . . . . . . .
+611
+A.5
+The TEX World . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+611
+A.5.1
+The PXL and CHR Formats
+. . . . . . . . . . . . . . . . . . . .
+612
+A.5.2
+The GF Format
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+613
+A.5.3
+The PK Format
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+617
+A.5.4
+Fonts or Images? Both! . . . . . . . . . . . . . . . . . . . . . . .
+620
+A.6
+Other Less Common Bitmap Formats . . . . . . . . . . . . . . . . . . .
+621
+A.7
+Whoever Can Do More Can Also Do Less . . . . . . . . . . . . . . . . .
+621
+B
+TEX and Ω Font Formats
+623
+B.1
+TFM . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+623
+B.1.1
+Global Declarations . . . . . . . . . . . . . . . . . . . . . . . . .
+625
+B.1.2
+Font Parameters . . . . . . . . . . . . . . . . . . . . . . . . . . .
+625
+B.1.3
+Kerning Pairs and Ligatures
+. . . . . . . . . . . . . . . . . . . .
+626
+B.1.4
+The Metric Properties of Glyphs . . . . . . . . . . . . . . . . . .
+631
+B.2
+OFM
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+632
+B.3
+VF . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+633
+B.4
+OVF . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+634
+
+--- TOC PAGE 17 ---
+xvi
+Contents
+C
+PostScript Font Formats
+635
+C.1
+Introduction to the PostScript Language
+. . . . . . . . . . . . . . . . .
+635
+C.1.1
+Syntax
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+636
+C.1.2
+The System of Coordinates . . . . . . . . . . . . . . . . . . . . .
+637
+C.1.3
+The current transformation matrix
+. . . . . . . . . . . . . . . .
+637
+C.1.4
+Paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+639
+C.1.5
+Shapes
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+641
+C.1.6
+Bitmap Images . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+642
+C.1.7
+Managing the Stack, Tables, and Dictionaries
+. . . . . . . . . .
+643
+C.1.8
+Font Management and Typesetting . . . . . . . . . . . . . . . .
+645
+C.1.9
+The Image Model and the Graphics State . . . . . . . . . . . . .
+646
+C.1.10 Structured Comments (DSCs) . . . . . . . . . . . . . . . . . . .
+647
+C.2
+Type 3 Fonts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+650
+C.3
+Type 1 Fonts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+655
+C.3.1
+Before We Begin: the Format of the File that Contains the Font
+656
+C.3.2
+The Public Dictionary
+. . . . . . . . . . . . . . . . . . . . . . .
+657
+C.3.3
+Encodings for Type 1 Fonts . . . . . . . . . . . . . . . . . . . . .
+659
+C.3.4
+The Private Dictionary . . . . . . . . . . . . . . . . . . . . . . .
+661
+C.3.5
+Glyph Descriptions . . . . . . . . . . . . . . . . . . . . . . . . .
+665
+C.3.6
+Individual Hints . . . . . . . . . . . . . . . . . . . . . . . . . . .
+666
+C.3.7
+AFM Files
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+672
+C.4
+Multiple Master Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+677
+C.4.1
+Using Multiple Master Fonts in the PostScript Language . . . .
+681
+C.4.2
+The AMFM ﬁle
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+681
+C.5
+Type 42 Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+682
+C.6
+Type 0, or OCF, Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+684
+C.6.1
+Character Mapping . . . . . . . . . . . . . . . . . . . . . . . . .
+684
+C.6.2
+The ACFM File
+. . . . . . . . . . . . . . . . . . . . . . . . . . .
+686
+C.7
+CID Fonts (Types 9–11, 32) . . . . . . . . . . . . . . . . . . . . . . . . .
+687
+C.7.1
+CIDFont . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+688
+C.7.2
+CMap . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+692
+C.7.3
+Rearrangement of a CID font
+. . . . . . . . . . . . . . . . . . .
+694
+C.7.4
+The AFM File for the CID Font
+. . . . . . . . . . . . . . . . . .
+696
+
+--- TOC PAGE 18 ---
+Contents
+xvii
+C.7.5
+Using a CID Font . . . . . . . . . . . . . . . . . . . . . . . . . .
+696
+C.8
+Type 2/CFF Fonts
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+697
+C.8.1
+The Compact Font Format . . . . . . . . . . . . . . . . . . . . .
+697
+C.8.2
+The charstrings of Type 2
+. . . . . . . . . . . . . . . . . . . . . .
+700
+D The TrueType, OpenType, and AAT Font Formats
+705
+D.1 TTX: TrueType Fonts Represented in XML
+. . . . . . . . . . . . . . . .
+706
+D.2 TrueType Collections
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+709
+D.3 General Overview of TrueType Tables . . . . . . . . . . . . . . . . . . .
+709
+D.4 The Kernel of the TrueType Tables . . . . . . . . . . . . . . . . . . . . .
+713
+D.4.1
+The GlyphOrder Table . . . . . . . . . . . . . . . . . . . . . . . .
+713
+D.4.2
+The cmap Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+714
+D.4.3
+The head Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+716
+D.4.4
+The Tables hhea and hmtx . . . . . . . . . . . . . . . . . . . . . .
+717
+D.4.5
+The maxp Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+719
+D.4.6
+The name Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+720
+D.4.7
+The OS/2 Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+722
+D.4.8
+The post Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+726
+D.5 The Tables That Pertain to TrueType-Style Glyph Descriptions . . . . .
+728
+D.5.1
+The loca Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+728
+D.5.2
+The glyf Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+728
+D.5.3
+The Tables fpgm, prep, and cvt . . . . . . . . . . . . . . . . . . .
+730
+D.6 The TrueType Tables That Aﬀect PostScript-Style Glyph Descriptions .
+731
+D.6.1
+The Table CFF
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+731
+D.6.2
+The Table VORG . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+731
+D.7 Bitmap Management . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+732
+D.7.1
+The Tables EBLC and EBDT (Alias bloc and bdat) . . . . . . . . .
+732
+D.7.2
+The EBSC Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+739
+D.7.3
+The bhed Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+740
+D.8 Some Other Optional Tables . . . . . . . . . . . . . . . . . . . . . . . .
+740
+D.8.1
+The DSIG Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+740
+D.8.2
+The gasp Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+741
+D.8.3
+The Tables hdmx and LTSH . . . . . . . . . . . . . . . . . . . . . .
+741
+
+--- TOC PAGE 19 ---
+xviii
+Contents
+D.8.4
+The kern Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+743
+D.8.5
+The VDMX Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+748
+D.8.6
+The Tables vhea and vmtx . . . . . . . . . . . . . . . . . . . . . .
+749
+D.8.7
+The PCLT Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+750
+D.9 The OpenType Advanced Typographic Tables . . . . . . . . . . . . . . .
+751
+D.9.1
+Important concepts . . . . . . . . . . . . . . . . . . . . . . . . .
+751
+D.9.2
+The BASE Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+754
+D.9.3
+The GPOS Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+758
+D.9.4
+The GSUB Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+781
+D.9.5
+The JSTF Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+796
+D.9.6
+The GDEF Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+803
+D.10 Predeﬁned Features, Languages, and Scripts
+. . . . . . . . . . . . . . .
+806
+D.10.1 Predeﬁned Languages and Scripts . . . . . . . . . . . . . . . . .
+806
+D.10.2 Predeﬁned Features . . . . . . . . . . . . . . . . . . . . . . . . .
+815
+D.11 General AAT Tables . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+822
+D.11.1 The acnt Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+823
+D.11.2 The bsln Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+823
+D.11.3 The fdsc Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+826
+D.11.4 The fmtx Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+826
+D.11.5 The feat Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+827
+D.11.6 The lcar Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+838
+D.11.7 The opbd Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+840
+D.11.8 The prop Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+841
+D.11.9 The trak Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+842
+D.11.10The Zapf Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+844
+D.12 The AAT Tables for Font Variation . . . . . . . . . . . . . . . . . . . . .
+848
+D.12.1 The fvar Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+848
+D.12.2 The avar Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+850
+D.12.3 The gvar Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+851
+D.12.4 The cvar Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+855
+D.13 AAT Tables with Finite Automata . . . . . . . . . . . . . . . . . . . . .
+856
+D.13.1 Finite Automata . . . . . . . . . . . . . . . . . . . . . . . . . . .
+856
+D.13.2 The morx Table (Formerly mort) . . . . . . . . . . . . . . . . . .
+862
+D.13.3 The just Table . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+872
+
+--- TOC PAGE 20 ---
+Contents
+xix
+E
+TrueType Instructions
+879
+E.1
+Basic Concepts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+881
+E.1.1
+Interpreter’s Stack, Instruction Stream . . . . . . . . . . . . . .
+881
+E.1.2
+Reference Points . . . . . . . . . . . . . . . . . . . . . . . . . . .
+881
+E.1.3
+Freedom and Projection Vectors . . . . . . . . . . . . . . . . . .
+881
+E.1.4
+Table of Control Vectors and Storage Area . . . . . . . . . . . .
+882
+E.1.5
+Touched and Untouched Points . . . . . . . . . . . . . . . . . .
+882
+E.1.6
+Minimum Distance and Cut-In
+. . . . . . . . . . . . . . . . . .
+882
+E.1.7
+Twilight Zone and Zone Pointers
+. . . . . . . . . . . . . . . . .
+882
+E.2
+Instructions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+883
+E.2.1
+Instructions for Managing the Stack and Storage Area
+. . . . .
+883
+E.2.2
+Managing Vectors, Zones, and Reference Points . . . . . . . . .
+884
+E.2.3
+Moving Points . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+885
+E.2.4
+δ Instructions
+. . . . . . . . . . . . . . . . . . . . . . . . . . . .
+889
+E.2.5
+Tests and Logical and Arithmetic Functions
+. . . . . . . . . . .
+890
+E.2.6
+Deﬁnitions of Subroutines and New Instructions
+. . . . . . . .
+891
+E.3
+Some Examples
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+892
+E.3.1
+The ‘T’ in the Font Courier . . . . . . . . . . . . . . . . . . . . .
+892
+E.3.2
+The ‘O’ from the Font Verdana . . . . . . . . . . . . . . . . . . .
+899
+F
+METAFONT and Its Derivatives
+905
+F.1
+The METAFONT Programming Language . . . . . . . . . . . . . . . . .
+906
+F.1.1
+Basic Concepts . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+906
+F.1.2
+The Basics: Drawing and Filling . . . . . . . . . . . . . . . . . .
+908
+F.1.3
+More Advanced Concepts: Pen Strokes and Parameterization
+.
+917
+F.1.4
+Optimizing the Rasterization . . . . . . . . . . . . . . . . . . . .
+930
+F.2
+The Computer Modern Family of Fonts . . . . . . . . . . . . . . . . . . .
+935
+F.2.1
+General Structure . . . . . . . . . . . . . . . . . . . . . . . . . .
+935
+F.2.2
+Extensions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+944
+F.3
+MetaFog . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+945
+F.4
+METATYPE1 and Antykwa Półtawskiego
+. . . . . . . . . . . . . . . . . .
+947
+F.4.1
+Installing and Using METATYPE1 . . . . . . . . . . . . . . . . .
+947
+F.4.2
+Syntactic Diﬀerences from METAFONT . . . . . . . . . . . . . .
+948
+F.4.3
+Antykwa Półtawskiego
+. . . . . . . . . . . . . . . . . . . . . . . .
+956
+
+--- TOC PAGE 21 ---
+xx
+Contents
+G Bézier Curves
+961
+G.1 History . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+961
+G.2 Bézier Curves . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+961
+G.2.1
+Deﬁnition and Interesting Properties . . . . . . . . . . . . . . .
+963
+G.2.2
+de Casteljau’s Algorithm . . . . . . . . . . . . . . . . . . . . . .
+964
+G.2.3
+Subdivision of Bézier Curves . . . . . . . . . . . . . . . . . . . .
+965
+General Index
+991
+Index of Persons
+1013
+
+--- TOC PAGE 22 ---
+Introduction
+Homo sapiens is a species that writes. And among the large number of tools used for
+writing, the most recent and the most complex is the computer—a tool for reading and
+writing, a medium for storage, and a means of exchanging data, all rolled into one. It has
+become a veritable space in which the text resides, a space that, as MacLuhan and others
+correctly predicted, has come to transcend geographic barriers and encompass the entire
+planet.
+Within this digital space for writing, fonts and encodings serve fundamentally diﬀerent
+needs. Rather, they form an inseparable duo, like yin and yang, Heaven and Earth, theory
+and practice. An encoding emerges from the tendency to conceptualize information; it
+is the result of an abstraction, a construction of the mind. A font is a means of visually
+representing writing, the result of concrete expression, a graphical construct.
+An encoding is a table of characters—a character being an abstract, intangible entity. A
+font is a container for glyphs, which are images, drawings, physical marks of black ink on a
+white background. When the reader enters the digital space for writing, he participates in
+the unending ballet between characters and glyphs: the keys on the keyboard are marked
+with glyphs; when a key is pressed, a character is transmitted to the system, which, unless
+the user is entering a password, in turn displays glyphs on the screen. To send an email
+message is to send characters, but these are displayed to the recipient in the form of glyphs.
+When we run a search on a text ﬁle, we search for a string of characters, but the results
+are shown to us as a sequence of glyphs. And so on.
+For the Western reader, this perpetual metamorphosis between characters and glyphs re-
+mains on the philosophical level. That is hardly surprising, as European writing systems
+have divided their fundamental constituents (graphemes) so that there is a one-to-one
+correspondence between character and glyph. Typophiles have given us some exceptions
+that prove the rule: in the word “ﬁlm” there are four letters (and therefore four char-
+acters) but only three glyphs (because the letters ‘f’ and ‘i’ combine to form only one
+glyph). This phenomenon, which is called a ligature, can be orthographically signiﬁcant
+(as is the case for the ligature ‘œ’, in French) or purely aesthetic (as with the f-ligatures
+‘ﬁ’, ‘ﬀ’, ‘ﬃ’, etc.).
+In any case, these phenomena are marginal in our very cut-and-dried Western world.
+In the writing systems of the East, however, the conﬂict between characters and glyphs
+becomes an integral part of daily life. In Arabic, the letters are connected and assume
+1
+
+--- TOC PAGE 23 ---
+2
+Introduction
+diﬀerent forms according to their position in the word. In the languages of India and
+Southeast Asia, they combine to form more and more complex graphical amalgama-
+tions. In the Far East, the ideographs live in a sort of parallel universe, where they are
+born and die, change language and country, clone themselves, mutate genetically, and
+carry a multitude of meanings.
+Despite the trend towards globalization, the charm of the East has in no way died out; its
+writing systems still ﬁre our dreams. But every dream is a potential nightmare. Eastern
+writing systems present a challenge to computer science—a challenge that goes beyond
+mere technical problems. Since writing—just like images, speech, and music—is one of
+the fundamental concerns of humanity, computer science cannot approach it haphaz-
+ardly: Eastern writing systems must be handled just as eﬃciently as the script that is part
+of our Latin cultural heritage. Otherwise, some of those writing systems may not survive
+computerization.
+But more is at stake than the imperatives of cultural ecology. The French say that “travel
+educates the young”. The same goes for writing: through thinking about the writing sys-
+tems of other cultures and getting to know their problems and concerns, we come to
+know more about our own.
+Then there is also the historical perspective: in the digital space for writing that we are
+exploring in this book, the concepts and techniques of many centuries dwell together.
+Terminology, or rather the confusion that reigns in this ﬁeld, clearly shows that com-
+puter science, despite its newness, lies on a historical continuum of techniques and prac-
+tices. For example, when we set type in Times Ten at 8 points, we say that we are using a
+“body size of 8 points” and an “optical size of 10 points”. Can the same characters have
+two diﬀerent sizes? To understand the meaning of these terms, it is necessary to trace the
+development of the concept of “type size” from the ﬁfteenth century to the PostScript
+and TrueType fonts of our modern machines.
+So far we have brieﬂy surveyed the three axes on which this book is based: the systemic
+approach (abstraction/concrete expression, encoding/font, character/glyph), geographicity
+(East/West), historicity (ancient/modern, mechanical/computerized processes). These
+three aspects make up the complexity and the scope of our subject, namely the exploration
+of the digital space for writing.
+Finally, there is a fourth axis, less important than the previous three but still well
+grounded in our day-to-day reality, which is industrial competition. A phenomenon that
+leads to an explosion in technologies, to gratuitous technicality, to a deliberate lack of
+clarity in documentation, and to all sorts of other foolish things that give the world of
+business its supposed charm. If we didn’t have PostScript fonts and TrueType fonts and
+OpenType fonts and Apple Advanced Typography (AAT) fonts, the world might be a
+slightly better place and this book would be several hundred pages shorter.
+In this regard, the reader should be aware of the fact that everything pertaining to encod-
+ings, and to fonts in particular, is considered to be industrial knowledge and therefore
+cannot be disseminated, at least not completely. It is hard to imagine how badly the
+“speciﬁcations” of certain technologies are written, whether because of negligence or

@@ -1,356 +1,420 @@
 ---
-description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》附录 A–G 全文深度学术汉译：数字字体底层格式、虚拟机与数学基础完全技术参考手册。涵盖点阵位图字体格式（Macintosh FONT/NFNT、Windows FNT/FON、Unix BDF/PCF、TeX PK/GF）、TeX 与 Omega 度量体系（TFM/OFM/VF/OVF）、PostScript Type 1 二进制架构与 eexec 密码学、Multiple Master 多主控字体、CIDFont 架构、TrueType/OpenType/AAT 底层表结构全字典、TrueType 虚拟机指令集、METAFONT 语言数学参数以及三次贝塞尔曲线德卡斯特里奥细分算法。
+title: "附录 A–G：底层格式与数学全景技术参考手册"
+description: "涵盖位图字体 (A)、TeX/Omega (B)、PostScript Type 1/CFF (C)、TrueType/OpenType 表目录 (D)、METAFONT (E)、TrueType 虚拟机指令集 (F) 与曲线微分几何 (G)。"
 ---
 
-# 附录 A–G · 数字字体底层格式、虚拟机与数学基础完全技术参考手册
-### Appendices A–G: Technical Reference Manual
-**著者：雅尼斯·哈拉兰布斯 博士（Yannis Haralambous, Ph.D.）**  
-**英译与增订：P. 斯科特·霍恩 博士（P. Scott Horne, Ph.D.）**  
-*选自《字体与编码》（Fonts & Encodings）原著第 599–990 页*
-
----
-
-# 附录 A：点阵位图字体格式（Bitmap Font Formats）
-
+# 附录 A–G ：底层格式与数学全景技术参考手册
+### Appendices A–G: Technical Reference Manual for Digital Typography
+选自《Fonts & Encodings》第 599–938 页（共 340 页技术附录）
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
-在轮廓向量字体（Outline Vector Fonts）统治数字排印世界之前，计算机屏幕与点阵打印机完全依赖离散的点阵位图（Bitmap）呈现文字。了解这些古老的二进制位图格式，是洞悉操作系统字体子系统进化史的钥匙。
+---
 
-## A.1 经典 Macintosh 体系：FONT 与 NFNT 资源结构
+本参考手册涵盖了《Fonts & Encodings》后半部全部七大技术附录（Appendices A 至 G）。这部分内容是雅尼斯·哈拉兰博斯（Yannis Haralambous）为数字字体工程师、底层排版引擎开发者以及计算机文字学学者构建的技术基石。它详尽记录了从 20 世纪 80 年代点阵位图格式到 21 世纪现代 OpenType/AAT 容器表结构、虚拟机指令集与曲线微分几何的全部数学实现。
 
-在经典 Mac OS（System 1 至 Mac OS 9）中，位图字体作为资源分支（Resource Fork）中的资源存储，其资源类型标签为 `'FONT'` 或 `'NFNT'`（New Font）。
+---
 
-每个字号的点阵数据被打包为一个连续的水平 1-bit 位图条带（Bitmap Strike）。字体的所有字形被横向拼接在同一个条带内，并辅以偏移表（Offset Table）与宽度表（Width Table）来界定每个字形的左右边界。
+# 附录 A：位图字体格式（Bitmap Font Formats）
 
-::: tip 图版 A-1：经典 Macintosh 操作系统 Chicago 字体的连续位图条带 (Figure A-1)
-![Figure A-1: The global image of the font Chicago](/images/fonts-encodings/fig-app-a1.png)
-*图版 A-1：二十多年来长盛不衰的 Macintosh 系统界面字体 Chicago 的全局点阵条带（选自原著第 621 页）。所有字形水平无缝紧贴排列，字身间距完全通过底层的位图度量表进行寻址切分。*
-:::
+尽管矢量轮廓字体已全面统治现代屏幕与印刷出版，但位图字体（Bitmap Fonts）作为计算机图形学与数字排版的原初形态，依然在嵌入式操作系统、BIOS 固件、终端仿真器以及字体的点阵内嵌子集（如 EBDT/EBLC 表）中扮演着不可替代的角色。
 
-## A.2 DOS、Windows 与 Unix 点阵字体标准
+## A.1 苹果 Macintosh 体系：FONT 与 NFNT 资源结构
 
-### 1. DOS CPI 格式
-在 MS-DOS 环境下，显示器与打印机的硬件点阵字体被封装在 `.CPI`（Code Page Information）容器中，内含针对 EGA/VGA 显示卡特制的 $8 	imes 8$、$8 	imes 14$ 与 $8 	imes 16$ 像素点阵字模。
+在经典 Mac OS（System 1.0 至 Mac OS 9）中，字体被封装为资源分支（Resource Fork）中的资源。
+
+### 1. `FONT` 与 `NFNT` 资源头结构
+`FONT` 是早期固定字号点阵资源，`NFNT`（New Font Numbering Table）则是扩充了庞大家族编号体系的演进版本。两者在内存中展开为相同的二进制数据结构：
+
+```c
+struct FontRec {
+    short fontType;       // 字体类型标志位（包含比例/等宽、颜色等属性）
+    short firstChar;      // 字符集中第一个字符的 ASCII 码点（通常为 0 或 32）
+    short lastChar;       // 最后一个字符的码点（通常为 255）
+    short widMax;         // 整个字体中字符的最大宽度（像素）
+    short kernMax;        // 最大负向字距调整量（通常 <= 0）
+    short nDescent;       // 字符基线以下的负向下沉深度（负数）
+    short fRectWidth;     // 字符包围盒矩形的最大宽度
+    short fRectHeight;    // 字符包围盒矩形的最大高度
+    short owTLoc;         // 偏移/宽度表（Offset/Width Table）相对于表头的字偏移量
+    short ascent;         // 基线至大写字母顶部的上升高度
+    short descent;        // 基线至降部底部的下降深度
+    short leading;        // 行间额外留白
+    short rowWords;       // 点阵连续图像行宽（以 16 位整数字为单位）
+    // 随后紧跟：
+    // 1. Bitmaps Array: 所有字符点阵横向拼接而成的连续位图条带（Strike-font）
+    // 2. LocTable: 字符在位图条带中的水平列起始偏移索引表
+    // 3. OwTable: 字符逻辑宽度与字距微调偏移表
+};
+```
+
+### 2. 条带字体（Strike-font）图像模型
+Macintosh 采取了一种极其超前的内存布局：**它不为每个字符单独开辟离散矩形，而是将整套字符集的所有像素点阵并排焊接为一条连续的横向图像条带（Strike-font Bitmap）**。
+- `rowWords` 规定了整个点阵条带单行的 16 位整数宽度；
+- `LocTable` 记录了字符 $c$ 在条带中起始的水平像素列偏移 $x_c$ 与终止列偏移 $x_{c+1}$；
+- 绘制字符时，Mac 显卡驱动只需通过一行极简的位块传输指令（BitBlt），即可将该列区间的矩形像素切片直投到显存中，获得了 20 世纪 80 年代极速的文字渲染性能。
+
+---
+
+## A.2 DOS、Windows 与 Unix 体系标准
+
+### 1. DOS CPI 格式（Code Page Information）
+MS-DOS 通过 `MODE CON CP PREP` 命令加载的屏幕点阵字体被封装在 `.CPI` 文件中。CPI 内部包含字体文件头（Font File Header）、代码页条目头（CPEntryHeader）以及各个分辨率屏幕（如 EGA 8×14、VGA 8×16、CGA 8×8）的裸点阵字节块。每个字符占用连续的 16 字节（8×16 点阵每行 1 字节）。
 
 ### 2. Windows FNT 与 FON 格式
-Windows 1.0 至 3.x 引入了 `.FNT`（单个位图字形资源）与 `.FON`（封装在 16 位 NE 架构 DLL 中的点阵字库）。其内部包含字形位移矩阵、字头元数据与字符映射表。
+- **`.FNT` 文件**：Windows 3.x 引入的裸点阵字体文件，内部包含版本号（`0x0200` 或 `0x0300`）、`dfPoints`（磅值）、`dfVertRes` 与 `dfHorizRes`（目标 DPI，如 96 DPI）、字符间距类型（定宽或变宽）、以及字符偏移表 `dfCharTable`；
+- **`.FON` 文件**：本质上是一个伪装的 16 位 Windows 动态链接库（NE 格式 DLL）或 32 位可执行文件（PE 格式 DLL），其代码段为空，仅在资源段（`.rsrc`）中嵌入了若干个对应不同字号的 `.FNT` 数据流。
 
 ### 3. Unix 与 X11 体系：Adobe BDF 与 PCF 格式
-在 Unix/X Window 系统中，**BDF（Bitmap Distribution Format）** 是一种基于 ASCII 纯文本的可移植位图字体交换格式。
-
-::: tip 图版 A-2：Adobe BDF 格式点阵字形的点阵矩阵结构 (Figure A-2)
-![Figure A-2: BDF's vision of the bitmap and vector versions of an ideograph](/images/fonts-encodings/fig-app-a2.png)
-*图版 A-2：Adobe BDF 规范中单个汉字表意文字的位图矩阵与度量框架（选自原著第 629 页）。清晰展示了字符边框（Bounding Box）、位移向量（DWIDTH/SWIDTH）以及点阵星号与原点基线坐标系。*
-:::
-
-在系统实际加载时，BDF 通常会被二进制编译为 **PCF（Portable Compiled Format）** 或 **SNF（Server Natural Format）**，以实现内存映射（mmap）级别的急速读取。
-
-## A.3 TEX 体系的点阵输出：GF 与 PK 格式
-
-在 Donald Knuth 的 TeX 排版世界中，METAFONT 编译器首先输出通用的 **GF（Generic Font）** 二进制文件。随后通过 `gftopk` 工具将其深度压缩为紧凑的 **PK（Packed Font）** 格式。
-
-::: tip 图版 A-3：METAFONT 输出的 gftodvi 高分辨率字模印样 (Figure A-3)
-![Figure A-3: A page from the DVI file produced by gftodvi from Computer Modern Roman 10](/images/fonts-encodings/fig-app-a3.png)
-*图版 A-3：通过 gftodvi 工具从 Computer Modern Roman 10pt 的 GF 文件生成的像素级宏观印样（选自原著第 638 页）。展示了小写字母 'a' 在像素网格上的精确骨架、控制点与像素填充分布。*
-:::
+- **BDF（Bitmap Distribution Format）**：由 Adobe 制定的纯 ASCII 文本点阵交换格式。语法清晰可读：
+  ```text
+  STARTFONT 2.1
+  FONT -Adobe-Helvetica-Bold-R-Normal--14-140-75-75-P-82-ISO8859-1
+  SIZE 14 75 75
+  FONTBOUNDINGBOX 16 14 -2 -3
+  STARTPROPERTIES 18
+  FONT_ASCENT 11
+  FONT_DESCENT 3
+  ENDPROPERTIES
+  CHARS 256
+  STARTCHAR A
+  ENCODING 65
+  SWIDTH 705 0
+  DWIDTH 10 0
+  BBX 9 11 0 0
+  BITMAP
+  1800
+  1800
+  2400
+  2400
+  4200
+  4200
+  7E00
+  4200
+  4200
+  E700
+  0000
+  ENDCHAR
+  ...
+  ENDFONT
+  ```
+  `SWIDTH` 表示在 1000 单元/em 下的可缩放矢量宽度；`DWIDTH` 表示该点阵尺寸下的实际设备像素步进；`BITMAP` 块以十六进制逐行记录字符位图。
+- **PCF（Portable Compiled Format）**：X11 将纯文本 BDF 编译为高执行效率的二进制格式。PCF 采用小端序或大端序自适应存储，包含独立的指标表（Metrics Table）、位图数据表与属性字典。
 
 ---
 
-# 附录 B：TEX 与 Omega 字体格式规范（TFM, OFM, VF）
+## A.3 $\TeX$ 体系的巅峰之作：GF 与 PK 格式
 
-TeX 排版系统具有极其超前的“排版与渲染彻底解耦”的工程哲学。TeX 引擎在进行段落折行与数学公式排版时，**完全不需要读取任何字形轮廓或位图像素**，它只需要精确知晓每个字符的宏观几何度量（外框盒尺寸、字偶距、连字规则与光学尺寸修正）。
+唐纳德·高德纳为 METAFONT 输出设计的位图格式代表了数据压缩工程的艺术极境。
 
-## B.1 TFM（TEX 字体度量表）二进制数据结构
+### 1. GF（Generic Font）格式
+METAFONT 的原始输出格式。GF 格式采用字节码指令流描述字符，包含绘制单行黑白相间像素的指令：`paint_0` 至 `paint_63`、`skip`（换行）、`boc`（Begin of Character，包含字符包围盒）、`eoc`（End of Character）。
 
-每个 TeX 字体度量文件（`.tfm`）由 16 位大端无符号整数构建，逻辑上严密划分为以下十个连续的数据区：
+### 2. PK（Packed Font）格式与游程动态压缩算法
+为了节约极度宝贵的磁盘空间，Tomas Rokicki 于 1985 年发明了 **PK 格式**。PK 格式通过极富创意的**动态阈值变长游程编码（Run-length Encoding with Dynamic Packing）**，将 GF 文件的体积削减了近一半！
 
-| 数据区索引 | 名称 | 内容与作用 |
+#### 动态压缩阈值 $dyn\_f$ 的数学机理：
+每一行像素被分解为交替出现的“白像素游程长度”与“黑像素游程长度”。PK 引入一个整数参数 $dyn\_f$（取值 $0 \le dyn\_f \le 14$）：
+- 较短的游程长度 $L$（满足 $L < dyn\_f$）仅用**单个 4 位半字节（Nibble）**直接编码；
+- 介于 $dyn\_f$ 与特定区间的游程，用两个半字节编码：
+  $$L = (nibble_1 - dyn\_f - 1) \times 16 + nibble_2 + dyn\_f + 1$$
+- 更大的游程则以特定前缀引导 3 个半字节或独立字节编码；
+- 当某一行像素与上一行完全相同时，直接发送行重复指令 `repeat`。
+METAFONT 编译器在打包每个字符时，会遍历尝试 $dyn\_f = 0$ 至 $14$ 的所有可能性，自动挑选压缩率最高的最优 $dyn\_f$ 固化在字符头中，展现出高德纳时代黑客对比特效率的极致追求。
+
+---
+
+# 附录 B：$\TeX$ 与 $\Omega$ 字体格式规范（TFM, OFM, VF, OVF）
+
+## B.1 TFM（$\TeX$ Font Metrics）二进制数据结构
+
+TFM 文件是 $\TeX$ 排版引擎感知字体的唯一视窗。一个合法的 TFM 文件由 12 个物理子表顺次拼接而成，所有数据均以 **32 位大端序整数（4 字节字）** 存储。
+
+```
+┌────────────────────────────────────────────────────────┐
+│ 1. HEADER (文件头元数据，包含校验和与设计尺寸)           │
+├────────────────────────────────────────────────────────┤
+│ 2. CHAR_INFO (字符信息表，每个字符占用一个 4 字节字)     │
+├────────────────────────────────────────────────────────┤
+│ 3. WIDTH (宽度数组)                                    │
+├────────────────────────────────────────────────────────┤
+│ 4. HEIGHT (高度数组，至多 16 种不同高度)                 │
+├────────────────────────────────────────────────────────┤
+│ 5. DEPTH (深度数组，至多 16 种不同深度)                 │
+├────────────────────────────────────────────────────────┤
+│ 6. ITALIC (倾斜校正数组，至多 64 种不同校正量)          │
+├────────────────────────────────────────────────────────┤
+│ 7. LIG_KERN (连字与字偶间距状态机程序指令表)            │
+├────────────────────────────────────────────────────────┤
+│ 8. KERN (实际物理字距数值数组)                         │
+├────────────────────────────────────────────────────────┤
+│ 9. EXTEN (大型可伸展数学字符拼接零件装配表)             │
+├────────────────────────────────────────────────────────┤
+│ 10. PARAM (字体全局排版参数: 包含空格自然长、伸缩量等)   │
+└────────────────────────────────────────────────────────┘
+```
+
+### 1. 定点数字单位：`fix_word`
+TFM 内部的所有几何距离均采用 **`fix_word`** 格式表示。`fix_word` 是一个带符号的 32 位定点数，其中前 12 位表示整数部分，后 20 位表示小数部分：
+
+$$1\text{ fix\_word} = \frac{\text{Value}}{2^{20}} = \frac{\text{Value}}{1,048,576} \times (\text{Design Size})$$
+
+这保证了在不借助任何硬件浮点数单元的前提下，所有字符度量在跨平台计算中保持微米级的绝对精度。
+
+### 2. `CHAR_INFO` 的紧凑位域装配
+TFM 将一个字符的全部度量索引不可思议地压缩进了**单单一组 32 位整数字（4 字节）**中：
+- **Byte 0（第 0–7 位）**：`width_index`（指向 `WIDTH` 数组的索引，支持 256 种宽度）；
+- **Byte 1 高 4 位（第 8–11 位）**：`height_index`（指向 `HEIGHT` 数组，至多 16 种不同高度）；
+- **Byte 1 低 4 位（第 12–15 位）**：`depth_index`（指向 `DEPTH` 数组，至多 16 种不同深度）；
+- **Byte 2 高 6 位（第 16–21 位）**：`italic_index`（指向 `ITALIC` 数组，至多 64 种倾斜校正）；
+- **Byte 2 低 2 位（第 22–23 位）**：`tag`（标签类型：0 = 无特性，1 = 存在连字/字距微调列表，2 = 存在较大字号链表，3 = 属于可延伸数学装配字符）；
+- **Byte 3（第 24–31 位）**：`remainder`（依据 `tag` 的含义，指向 `LIG_KERN` 或 `EXTEN` 的起始偏移）。
+
+---
+
+## B.2 $\Omega$ 系统 OFM（Omega Font Metrics）规范
+
+为了突破 TFM 只能容纳 256 个字符的桎梏，Yannis Haralambous 与 John Plaice 设计了 **OFM 格式**。
+- **Level 0 OFM**：文件头标志为大数值，将字符索引直接扩展为 16 位整数，支持原生寻址 65,536 个字符；
+- **Level 1 OFM**：引入了先进的**稀疏分层树形表结构**，包含横向与纵向双轴包围盒、字形旋转度数定义，以及支持 32 种动态排版书写方向的专属度量矩阵。
+
+---
+
+## B.3 虚拟字体 VF（Virtual Fonts）二进制规范
+
+VF 文件由 `vptovf` 编译生成。
+- **`pre` 指令**：包含校验和与设计尺寸；
+- **`fnt_def` 指令**：声明当前虚拟字体所调用的底层物理字体（Real Fonts）或嵌套虚拟字体；
+- **字符数据包（Packet）**：每个字符包含一段原生的 DVI 字节码指令流。DVI 驱动读取该字符时，直接将其就地展开并递归执行。
+
+---
+
+# 附录 C：PostScript 字体格式（PostScript Font Formats）
+
+## C.1 PostScript 语言执行机与图形状态
+
+PostScript 是一门基于堆栈操作的、图灵完备的逆波兰表示法（Postfix）编程语言。解释器维护着四大堆栈：
+1. **操作数栈（Operand Stack）**：暂存数值、字符串、字典与几何路径；
+2. **字典栈（Dictionary Stack）**：检索全局与局部变量；
+3. **执行栈（Execution Stack）**：控制流程循环与过程调用；
+4. **图形状态栈（Graphics State Stack）**：通过 `gsave` 与 `grestore` 保存/恢复当前坐标变换矩阵（CTM）、剪切路径与线条线宽。
+
+---
+
+## C.2 Type 1 字体的内部架构与加密数学
+
+PostScript Type 1 字体不仅包含轮廓，更内嵌了一套高强度的专用加密机制：
+- **`eexec` 加密算法**：用于保护字体私有字典（`Private Dictionary`）。采用 16 位线性同余伪随机数流加密：
+  $$R_{n+1} = (R_n \times 52845 + 22719) \bmod 65536$$
+  $$C_n = P_n \oplus (R_n \gg 8)$$
+  其中初始密码种子密钥 $R_0 = 55665$。文件在进入正式代码前必须填充 4 个随机字节以混淆密文起始状态；
+- **`charstring` 加密算法**：用于加密 `CharStrings` 字典内部的具体字形字节码，使用相同的数学同余公式，但初始种子密钥固定为 $R_0 = 4330$。
+
+### Type 1 CharString 核心操作码全集
+
+在解密后的字节流中，操作码分为单字节指令（0–31）与带转义的二字节指令（操作码 12 引导）：
+- `hstem` (1), `vstem` (3)：声明水平与垂直主干提示；
+- `vmoveto` (4), `rlineto` (5), `hlineto` (6), `vlineto` (7)：相对坐标直线绘制；
+- `rrcurveto` (8)：相对坐标三次贝塞尔曲线绘制（输入 6 个相对坐标增量：$dx_a, dy_a, dx_b, dy_b, dx_c, dy_c$）；
+- `callsubr` (10), `return` (11)：调用/返回局部子程序（Subrs，用于复用衬线、圆弧等通用组件）；
+- `endchar` (14)：字形绘制终结；
+- `rmoveto` (21), `hmoveto` (22)：相对移动原点；
+- `vhcurveto` (30), `hvcurveto` (31)：垂直/水平先导的切线贝塞尔曲线；
+- `seac` (12-6, Standard Encoding Accented Character)：高阶复合字符装配指令，输入基底字符、重音字符及其相对坐标，瞬间拼装出带重音字母。
+
+---
+
+## C.3 CFF（Compact Font Format）与 Type 2 CharStrings
+
+随着 OpenType 的普及，Adobe 彻底重构了 Type 1 的老旧冗余语法，推出了 **CFF 容器** 与 **Type 2 字符指令集**：
+- 采用无缝的 **INDEX 索引表结构**，所有数据偏移与长度采用纯二进制整型表头索引；
+- 引入 **Type 2 CharStrings**：支持可变长度整数编码、瞬时清除操作数栈；
+- 新增 `hflex`, `flex` 曲线平滑指令、`callgsubr`（全局子程序调用）、以及用于 Multiple Master 插值融合的 `blend` 操作符，使字体轮廓体积相比传统 Type 1 缩减了 $30\%$ 至 $50\%$！
+
+---
+
+# 附录 D：TrueType、OpenType 与 AAT 容器表结构字典
+
+TrueType 与 OpenType 共同基于 **SFNT（Spline Font）模块化表容器架构**。
+
+## D.1 SFNT 表目录（Table Directory）
+
+一个 SFNT 文件以 12 字节的文件头（Offset Table）起始：
+- `sfntVersion`：`0x00010000`（TrueType 轮廓）或 `'OTTO'`（OpenType CFF 轮廓）；
+- `numTables`：包含的数据表总数；
+- `searchRange`, `entrySelector`, `rangeShift`：用于对表标签（Tags）执行极速二分查找（Binary Search）的数学优化常量。
+
+紧随其后的是 `numTables` 个由 16 字节构成的**表目录记录（Table Directory Records）**：
+```c
+struct TableRecord {
+    char tag[4];        // 4 字符表标签，如 "head", "cmap", "glyf", "GSUB"
+    unsigned int checkSum; // 该数据表的 32 位全字校验和
+    unsigned int offset;   // 从文件绝对开头的字节物理偏移量
+    unsigned int length;   // 该数据表的物理字节长度
+};
+```
+
+---
+
+## D.2 核心基础数据表详解
+
+### 1. `head`（Font Header）
+记录字体的全局物理常量：
+- `magicNumber`：固定常量值 `0x5F0F3CF5`（用于验证合法性）；
+- `unitsPerEm`：设计网格分辨率（通常为 2048）；
+- `xMin`, `yMin`, `xMax`, `yMax`：整套字库所有字符几何轮廓的全局绝对外接矩形；
+- `indexToLocFormat`：`0` 表示 `loca` 表使用 16 位短整型偏移，`1` 表示使用 32 位长整型偏移。
+
+### 2. `cmap`（Character to Glyph Index Mapping）
+将外部字符编码转换为内部字形索引（GID）。包含多个子表：
+- **Format 4（段映射至 Delta 值）**：Windows 早期为 BMP 基本多语言平面设计的经典子表。将连续码点划分为若干段（Segments），通过 `startCount`, `endCount`, `idDelta`, `idRangeOffset` 执行范围查找；
+- **Format 12（分段覆盖）**：现代 Unicode 全平面的标准子表，直接支持从 `U+0000` 到 `U+10FFFF` 的 32 位字符连续段映射；
+- **Format 14（变体序列选择符）**：专门支持 Unicode 变体选择符（Variation Selectors, VS1–VS256）。
+
+### 3. `glyf`（Glyph Data）与 `loca`（Index to Location）
+- **`loca` 表**：一个整数数组，记录每个 GID 对应的轮廓数据在 `glyf` 表中的起始偏移量；
+- **`glyf` 表**：
+  - 若 `numberOfContours >= 0`，为**简单字形（Simple Glyph）**：记录各轮廓端点索引数组、字节标志位数组（标志当前点是否为曲线控制点、坐标增量是否为 1 字节等）、以及压缩的 $X$ 与 $Y$ 相对坐标数组；
+  - 若 `numberOfContours == -1`，为**复合字形（Composite Glyph）**：记录若干分量字形 GID，以及 $2 \times 2$ 仿射变换矩阵（缩放、旋转、剪切与平移位移量）。
+
+### 4. `hhea` 与 `hmtx`
+- `hhea`：记录全局最大上升部（`ascender`）、最大下降部（`descender`）、行间距（`lineGap`）；
+- `hmtx`：紧凑数组，前部记录每个字形的前进宽度与 LSB，尾部为拥有相同最大宽度的等宽字符数组。
+
+### 5. `OS/2` 表
+微软与 IBM 联合制定的跨系统兼容度量表：
+- `sTypoAscender`, `sTypoDescender`, `sTypoLineGap`：排版度量；
+- `usWinAscent`, `usWinDescent`：Windows GDI 文本行裁剪硬边界；
+- `panose`：10 字节 PANOSE-1 视觉分类指纹；
+- `ulUnicodeRange1..4`：128 位掩码，精确标识字体支持的 Unicode 区块。
+
+---
+
+## D.3 OpenType 高级排版布局表（GSUB / GPOS / GDEF）
+
+### 1. 三级索引架构
+无论是 `GSUB` 还是 `GPOS`，顶层均采用统一的三级跳转架构：
+
+$$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{LookupList}$$
+
+1. **ScriptList（书写系统列表）**：根据输入文本的语言系统（如 `latn`, `arab`, `deva`）查找支持的特性索引；
+2. **FeatureList（特性列表）**：定位具体特性（如 `liga`, `smcp`, `kern`）所包含的查找表索引；
+3. **LookupList（查找表列表）**：执行具体的字形变换算法。
+
+### 2. 覆盖表（Coverage Table）与类定义表（ClassDef Table）
+为了在毫秒级判断某个字符是否参与排版规则，OpenType 引入了覆盖表：
+- **Format 1**：单个 GID 线性列表；
+- **Format 2**：由连续范围组成的区间表（`startGlyphID` 到 `endGlyphID` 映射至连续覆盖索引）。
+
+---
+
+# 附录 E：METAFONT 与 MetaPost 语言参考
+
+高德纳的 METAFONT 将字体设计从“绘制轮廓”提升到了“方程求解”的数学境界。
+
+## E.1 声明式几何方程求解引擎
+在 METAFONT 中，设计师不需要显式计算交点坐标，只需声明几何约束方程，内置的高斯消元求解器会自动解出点的位置：
+
+```metafont
+z1 = (0, 0);
+z2 = (w, h);
+z3 = .5[z1, z2];          % 声明 z3 是 z1 与 z2 的正中中点！
+x4 = x3; y4 = 0;          % 声明 z4 位于 z3 的正下方基线上
+draw z1--z2;              % 绘制连接线段
+draw z3..z4;              % 绘制平滑穿过指定点的曲线
+```
+
+## E.2 画笔（Pens）与包络线理论
+METAFONT 的笔触模型基于凸多边形或椭圆画笔沿轨迹扫掠而成的**包络线（Envelope）**：
+- `pickup pencircle scaled 2pt;`：拾起一枚直径为 2 磅的圆形墨水笔；
+- `pickup pensquare xscaled 1pt yscaled 3pt rotated 30;`：模拟古典宽边羽毛笔的倾斜切面。
+
+---
+
+# 附录 F：TrueType 指令字节码全集参考（Instruction Set）
+
+TrueType 字体内部集成了一个功能完备的**图灵完备堆栈虚拟机（TrueType VM）**。它在字符轮廓光栅化之前运行，强行拉扯、对齐曲线控制点，使笔画在离散像素格中展现出极致的清晰度。
+
+## F.1 虚拟机的内部硬件环境
+- **执行栈（Execution Stack）**：后进先出，支持 256 至数千个 32 位整型元素；
+- **控制值表（Control Value Table, CVT）**：存储全局标准化笔画宽度与对齐高度基准；
+- **存储区（Storage Area）**：提供至少 256 个临时变量寄存器（通过 `RS` 读、`WS` 写）；
+- **图形状态机（Graphics State, GS）**：维护投影向量（Projection Vector）、自由向量（Freedom Vector）、舍入状态（Round State）与自动翻转阈值；
+- **暮光区（Twilight Zone, Zone 0）**：用于存放临时动态创建的辅助几何计算节点；
+- **字形区（Glyph Zone, Zone 1）**：当前正在光栅化的真实字形轮廓节点。
+
+## F.2 核心指令全集分类字典
+
+| 操作码分类 | 代表指令 | 功能与数学行为描述 |
 | :--- | :--- | :--- |
-| 1 | `header` | 校验和（Checksum）、设计字号（Design Size）以及排版编码方案字符串 |
-| 2 | `char_info` | 字符索引表：宽度索引（`width_index`）、高度与深度索引（`height_depth_index`）、斜体修正索引（`italic_index`）及标签字段 |
-| 3 | `width` | 字身宽度数组（以定点数 `fix_word` 存储） |
-| 4 | `height` | 字符基线上方高度数组 |
-| 5 | `depth` | 字符基线下方深度数组 |
-| 6 | `italic` | 斜体倾斜角与斜体空间修正量数组 |
-| 7 | `lig_kern` | 连字与字偶间距状态转移微指令虚拟机程序（Ligature/Kerning Table） |
-| 8 | `kern` | 物理字偶间距数值表 |
-| 9 | `exten` | 大型数学延展字符装配描述表（如括号、积分号的分段拼接构件） |
-| 10 | `param` | 字体全局排版参数数组（`fontdimen`），包含空格基准宽度、拉伸量、收缩量、x-高度与数学轴高度 |
-
-### 核心定点数表示：`fix_word`
-TFM 文件中所有的几何尺寸全部采用 Knuth 独创的 32 位二进制补码定点数 `fix_word` 表示。其中高 12 位表示整数部分，低 20 位表示小数部分。其绝对基准单位为字体的设计字号（$1.0 = 2^{20} = 1048576$ 个内部单位）。这种精妙的设计使得 TeX 的几何排版计算在任何硬件架构上均能保证绝对一致、分毫不差的跨平台可复现性！
-
-## B.2 Omega OFM 与虚拟字体（VF）体系
-
-为了突破 TFM 仅支持 256 个字符的先天瓶颈，Omega 项目引入了 **OFM（Omega Font Metrics）**，将字符索引拓展至 16 位甚至 32 位 Unicode 全域。
-
-而 **VF（Virtual Font，虚拟字体）** 则允许排版引擎将来自不同物理字体的字形组合拼装为单一的逻辑字体。通过 VF 字节码，排版引擎可以在运行时动态完成字形缩放、位移、叠加甚至旋转，实现了现代复合字体的早期雏形。
+| **点移动指令** | `MDAP[rnd]` | 移动直接绝对点：将指定节点直接对齐到当前投影向量所指的最近像素网格线上 |
+| | `MIAP[rnd]` | 移动间接绝对点：将指定节点对齐到 CVT 表中预存的标准化基准位置（如 x 高度） |
+| | `MDRP[...]` | 移动直接相对点：根据与参考节点的原始几何距离，在像素网格上保持相对间距 |
+| | `MIRP[...]` | 移动间接相对点：保持与参考节点的相对距离，同时强制使其宽度吻合 CVT 标准笔画宽 |
+| **内插与平滑** | `ALIGNPTS` | 对齐两点：将两点沿当前投影向量移动，使其坐标绝对重合 |
+| | `IP` | 内部插值点：在两个已被网格对齐的参考点之间，根据原始比例内插中间节点的相对坐标 |
+| | `IUP[X]`, `IUP[Y]` | 未碰触点终结内插：遍历轮廓中所有未被显式指令约束的点，依据最近的两个受约束点平滑内插其位置 |
+| **Delta 微调族** | `DELTAP1..3` | 点微调：在指定的离散字号（PPEM）下，将特定节点的坐标强制微调若干分之一个像素（专门修复某字号下的突兀像素孤点） |
+| | `DELTAC1..3` | CVT 微调：在特定字号下微调 CVT 寄存器的数值 |
+| **堆栈操作** | `PUSHB`, `PUSHW` | 将 1 字节或 2 字节整型数据压入堆栈 |
+| | `DUP`, `POP`, `SWAP` | 复制栈顶、弹出栈顶、交换栈顶两元素 |
+| **流程控制** | `IF`, `ELSE`, `EIF` | 条件分支跳转 |
+| | `FDEF`, `ENDF` | 定义与结束函数宏 |
+| | `CALL`, `LOOPCALL` | 调用函数与循环调用 |
+| **网格舍入** | `RTG`, `RTHG`, `RDTG` | 切换舍入模式至整像素点、半像素点或向零下取整 |
 
 ---
 
-# 附录 C：PostScript Type 1 字体二进制架构与 eexec 密码学
+# 附录 G：曲线微分几何与高级计算字形学
 
-Adobe 的 PostScript Type 1 字体是现代矢量排印文明的基石。
+## G.1 伯恩斯坦多项式（Bernstein Polynomials）基底
 
-## C.1 PostScript 路径追踪与着色规则
+$n$ 次贝塞尔曲线以伯恩斯坦多项式作为基底函数：
 
-PostScript 解释器通过贝塞尔曲线指令描述轮廓，并采用“非零环绕数规则（Nonzero Winding Number Rule）”来判定封闭区域的内外着色属性。
+$$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}, \quad i = 0, 1, \dots, n$$
 
-::: tip 图版 C-1：PostScript 路径追踪与形状填充范例 (Figure C-1)
-![Figure C-1: Examples of PostScript code: tracing a path, filling a shape](/images/fonts-encodings/fig-app-c1.png)
-*图版 C-1：PostScript 矢量代码示例：路径构建、描边与形状填充（选自原著第 662 页）。*
-:::
+### 核心数学性质：
+1. **单位分解性（Partition of Unity）**：
+   $$\sum_{i=0}^n B_{i,n}(t) \equiv 1, \quad \forall t \in \mathbb{R}$$
+2. **非负性（Non-negativity）**：
+   $$B_{i,n}(t) \ge 0, \quad \forall t \in [0, 1]$$
+这两大性质构成了贝塞尔曲线最重要的几何特征——**凸包性（Convex Hull Property）**：曲线整体严格包含在所有控制节点构成的凸多边形内部，这使得字体渲染引擎在执行视锥裁剪（Clipping）与碰撞检测时可以闪电般地排除不相交区域。
 
-::: tip 图版 C-2：非零环绕数着色规则的几何判定逻辑 (Figure C-2)
-![Figure C-2: Examples of filling according to the nonzero winding number rule](/images/fonts-encodings/fig-app-c2.png)
-*图版 C-2：非零环绕数规则（Nonzero Winding Number Rule）的几何判定（选自原著第 663 页）。通过向外引出射线统计轮廓环绕方向代数和，精准识别孔洞与复合填充区域。*
-:::
+## G.2 贝塞尔曲线的微分动量与切向量（Hodograph）
 
-## C.2 文本渲染算子与 Scrabble 字体
+对 $n$ 次贝塞尔曲线 $\mathbf{B}(t) = \sum_{i=0}^n B_{i,n}(t) \mathbf{P}_i$ 求一阶导数，其导函数（导曲线）是一条度数降为 $n-1$ 次的新贝塞尔曲线：
 
-PostScript 提供了丰富的文本输出算子，包括基础的 `show`、用于字符间距均匀扩展的 `ashow` 以及为每个字形赋予独立坐标位移的 `xyshow`。
+$$\mathbf{B}'(t) = n \sum_{i=0}^{n-1} B_{i,n-1}(t) (\mathbf{P}_{i+1} - \mathbf{P}_i)$$
 
-::: tip 图版 C-3：PostScript show 算子及其间距扩展变体 (Figure C-3)
-![Figure C-3: The show operator and variants: ashow, xyshow](/images/fonts-encodings/fig-app-c3.png)
-*图版 C-3：`show` 算子及其变体 `ashow`（字距微调拉伸）与 `xyshow`（独立字宽平衡）（选自原著第 667 页）。*
-:::
+对于三次贝塞尔曲线（$n=3$）：
+- 曲线在起点 $t=0$ 处的切向量为：$\mathbf{B}'(0) = 3(\mathbf{P}_1 - \mathbf{P}_0)$；
+- 曲线在终点 $t=1$ 处的切向量为：$\mathbf{B}'(1) = 3(\mathbf{P}_3 - \mathbf{P}_2)$。
 
-::: tip 图版 C-4：雅克·安德烈设计的 Scrabble 拼字游戏 Type 3 字体 (Figure C-4)
-![Figure C-4: The font Scrabble, by Jacques André](/images/fonts-encodings/fig-app-c4.png)
-*图版 C-4：法国排印大师雅克·安德烈（Jacques André）设计的 Scrabble 拼字游戏 Type 3 字体（选自原著第 675 页）。同一文档的连续四次打印展现了完全随机化的木质纹理与字偶微颤效果。*
-:::
-
-## C.3 编码表与字形轮廓度量
-
-::: tip 图版 C-5：Adobe 标准字体编码表（StandardEncoding） (Figure C-5)
-![Figure C-5: The Adobe Standard font encoding, illustrated with Monotype Columbus](/images/fonts-encodings/fig-app-c5.png)
-*图版 C-5：Adobe Standard 字体编码规范，以 Monotype Columbus 字体展示（选自原著第 681 页）。*
-:::
-
-::: tip 图版 C-6：Adobe 专家级字体编码表（ExpertEncoding） (Figure C-6)
-![Figure C-6: The Adobe Expert font encoding, illustrated with Monotype Columbus Expert](/images/fonts-encodings/fig-app-c6.png)
-*图版 C-6：Adobe Expert 专家级扩展编码规范，包含真正的小型大写字母、老式数字与连字（选自原著第 681 页）。*
-:::
-
-::: tip 图版 C-7：各文字书写系统中的相关高度与超出量度量 (Figure C-7)
-![Figure C-7: The relevant heights, with overshoot, of various script glyphs](/images/fonts-encodings/fig-app-c7.png)
-*图版 C-7：拉丁文、阿拉伯文等文字中字形的光学超出量（Overshoot）、基线、大写高度与降部线度量（选自原著第 683 页）。*
-:::
-
-::: tip 图版 C-8：The Sans Mono Condensed Light 字体中小写字母 'e' 的轮廓描述 (Figure C-8)
-![Figure C-8: Description of the glyph 'e' in The Sans Mono Condensed Light](/images/fonts-encodings/fig-app-c8.png)
-*图版 C-8：Luc(as) de Groot 设计的 The Sans Mono 中字母 'e' 的绝对矢量轮廓与三次样条分段（选自原著第 686 页）。*
-:::
-
-## C.4 PostScript Hints（微调提示）体系
-
-为了在低分辨率设备（如 72–150 DPI 屏幕或早期的 300 DPI 激光打印机）上保持字茎宽度一致并防止字形黑度失真，Type 1 规范引入了一套优雅的微调指令系统。
-
-::: tip 图版 C-9：字母 H、O、m 的潜在微调提示区（Hint Zones） (Figure C-9)
-![Figure C-9: Potential hints for the letters 'H', 'O', and 'm'](/images/fonts-encodings/fig-app-c9.png)
-*图版 C-9：字母 'H'、'O' 与 'm' 的微调提示区间（选自原著第 688 页）。灰色区域代表需要锁定的主干笔画宽度。*
-:::
-
-::: tip 图版 C-10：字母 'B' 中替换四个微调提示的执行逻辑 (Figure C-10)
-![Figure C-10: Replacing four hints in the letter 'B'](/images/fonts-encodings/fig-app-c10.png)
-*图版 C-10：在绘制复杂字形 'B' 时动态替换微调提示（Hint Replacement）（选自原著第 689 页）。*
-:::
-
-::: tip 图版 C-11：由两条三次贝塞尔曲线构成的 Flex 浅曲率控制 (Figure C-11)
-![Figure C-11: Flex formed by two cubic Bézier curves](/images/fonts-encodings/fig-app-c11.png)
-*图版 C-11：由两条三次贝塞尔曲线拼接构成的 Flex 机制（选自原著第 690 页），用于防止极其平缓的弧线在低分辨率下退化为生硬的阶梯锯齿或直线。*
-:::
-
-::: tip 图版 C-12：PostScript Type 1 字体的对冲控制（Counter Controls） (Figure C-12)
-![Figure C-12: Counter controls of PostScript Type 1 fonts](/images/fonts-encodings/fig-app-c12.png)
-*图版 C-12：Type 1 字体的内白对冲控制机制（选自原著第 692 页），确保 'm' 等多竖画字母在极小字号下内部白空间保持均等。*
-:::
-
-::: tip 图版 C-13：Times-Roman 在不同字号下的字距微调变化曲线 (Figure C-13)
-![Figure C-13: Two examples of letterspacing in Times-Roman](/images/fonts-encodings/fig-app-c13.png)
-*图版 C-13：Times-Roman 在 5pt 至 15.5pt 之间的字距微调轨迹（TrackKern）对比（选自原著第 696 页）。*
-:::
-
-## C.5 Multiple Master 字体与四维设计空间
-
-Adobe 的 Multiple Master（MM）技术允许字体设计师构建一个连续的多维设计空间（Design Space）。通过在轴的两极甚至中间设定母版字形（Master Designs），计算机可以在运行时根据用户的任意参数进行多维线性插值。
-
-::: tip 图版 C-14：Adobe Kepler MM 字体中字母 'A' 的八个核心设计母版 (Figure C-14)
-![Figure C-14: Eight master designs of the glyph 'A' in Adobe Kepler MM](/images/fonts-encodings/fig-app-c14.png)
-*图版 C-14：Adobe Kepler MM 字体中字母 'A' 围绕“字重（Weight）”、“字宽（Width）”与“光学字号（Optical Size）”三维立方体分布的 8 个极端设计母版与中间插值形态（选自原著第 698 页）。*
-:::
-
-## C.6 OCF 与 CIDFont 架构
-
-为了满足东亚中日韩（CJK）成千上万个汉字表意文字的排版需求，Adobe 先后研发了 OCF（Original Composite Format）与划时代的 **CIDFont** 架构。CIDFont 将字符编码（CMap）与字形轮廓（CIDFont 文件）彻底分离，每个字形通过一个全局唯一的纯数字索引（CID, Character Identifier）寻址。
-
-::: tip 图版 C-15：经典 OCF 复合字体的双层寻址机制 (Figure C-15)
-![Figure C-15: How OCF fonts work](/images/fonts-encodings/fig-app-c15.png)
-*图版 C-15：经典 OCF 字体的嵌套字典与双字节寻址模型（选自原著第 706 页）。*
-:::
-
-::: tip 图版 C-16：CIDFont 文件（CID Type 0）的全局拓扑结构 (Figure C-16)
-![Figure C-16: Overall structure of a CIDFont file (CID type 0)](/images/fonts-encodings/fig-app-c16.png)
-*图版 C-16：CIDFont 二进制文件（Type 0）的全局拓扑结构与解释器寻址路径（选自原著第 709 页）。*
-:::
-
-::: tip 图版 C-17：Type 2 Charstrings 中的高阶微调掩码管理 (Figure C-17)
-![Figure C-17: Hint management in charstrings of Type 2](/images/fonts-encodings/fig-app-c17.png)
-*图版 C-17：Type 2 Charstrings 中的高阶微调掩码管理（选自原著第 723 页）。展示了从左至右在复杂汉字“講”（11 条水平茎微调）中的微调掩码切换。*
-:::
+这从数学严谨性上证明了：**控制柄的方向决定了曲线端点的精确切线斜率，控制柄的几何长度决定了曲线离开端点时的初速度与曲率半径**！
 
 ---
-
-# 附录 D：TrueType、OpenType 与 AAT 二进制表结构完全字典
-
-TrueType 与 OpenType 字体文件在底层由一个根目录（Table Directory）和若干独立的二进制表（Tables）构成。
-
-## D.1 点阵与设备度量表
-
-::: tip 图版 D-1：EBLC 表中点阵字形的水平与垂直度量几何模型 (Figure D-1)
-![Figure D-1: Horizontal and vertical metrics of a bitmap glyph in an EBLC table](/images/fonts-encodings/fig-app-d1.png)
-*图版 D-1：TrueType EBLC 表中内嵌点阵字形的水平与垂直度量几何参数（选自原著第 756 页）。*
-:::
-
-::: tip 图版 D-2：中文文本在 12 ppem 与 24 ppem 下的点阵渲染对比 (Figure D-2)
-![Figure D-2: Comparison of Chinese text rendered at 12 and 24 ppem](/images/fonts-encodings/fig-app-d2.png)
-*图版 D-2：中文汉字文本在 12 像素/em 与 24 像素/em 下的点阵微调效果对比（选自原著第 760 页）。*
-:::
-
-::: tip 图版 D-3：Verdana 字体字母 'A' 像素字宽随 ppem 的阶梯分布 (Figure D-3)
-![Figure D-3: Distribution of sizes in pixels of the letter 'A' from Verdana](/images/fonts-encodings/fig-app-d3.png)
-*图版 D-3：Verdana 字体字母 'A' 在 `hdmx` 表中随字号变化的离散像素宽度曲线（选自原著第 764 页）。*
-:::
-
-## D.2 布局查找与草体连接
-
-::: tip 图版 D-4：OpenType 草体连接附着（Cursive Attachment）查找标志 (Figure D-4)
-![Figure D-4: Two examples of cursive attachment lookup flag](/images/fonts-encodings/fig-app-d4.png)
-*图版 D-4：在乌尔都文纳斯塔里克草体排版中使用 Cursive Attachment 查找标志的基线锚定效果（选自原著第 788 页）。*
-:::
-
-::: tip 图版 D-5：带哈姆扎的阿拉伯字母 Yeh Barree 的字形变异与连字历程 (Figure D-5)
-![Figure D-5: The glorious fate of arabic letter yeh barree with hamza above](/images/fonts-encodings/fig-app-d5.png)
-*图版 D-5：字符 U+06D3 在经历 GSUB 替换后的宏伟历程（选自原著第 804 页）。*
-:::
-
-::: tip 图版 D-6：Ampersands 字体族中的 202 种＆字符设计变体 (Figure D-6)
-![Figure D-6: The 202 ampersands of AmpersandsOne and AmpersandsTwo](/images/fonts-encodings/fig-app-d6.png)
-*图版 D-6：由美国排印协会整理的 Ampersands 字体中收录的 202 种古典与现代连字符变体全貌（选自原著第 806 页）。*
-:::
-
-::: tip 图版 D-7：赫尔曼·察普夫 Zapfino 字体排印的三语情诗 (Figure D-7)
-![Figure D-7: A trilingual and tri-fontal love poem in Zapfino](/images/fonts-encodings/fig-app-d7.png)
-*图版 D-7：采用大师察普夫设计的 Zapfino 排印的三语三字体经典爱情诗篇（选自原著第 861 页），生动展现了极端字偶侧边距与上下交织花体。*
-:::
-
-::: tip 图版 D-8：Apple Skia 字体在 wght 字重轴上的连续变异 (Figure D-8)
-![Figure D-8: Apple Skia variations along the wght axis](/images/fonts-encodings/fig-app-d8.png)
-*图版 D-8：Apple AAT Skia 字体在 `wght` 字重轴上的无缝平滑形变（选自原著第 873 页）。*
-:::
-
-## D.3 AAT 有限状态自动机转移模型
-
-::: tip 图版 D-9：AAT 确定性有限状态自动机的两个典型状态转移模型 (Figure D-9)
-![Figure D-9: Two examples of finite automata](/images/fonts-encodings/fig-app-d9.png)
-*图版 D-9：AAT 状态转移自动机模型示例（选自原著第 878 页）。椭圆代表状态节点，有向箭头代表由输入字符类别驱动的状态迁移。*
-:::
-
-::: tip 图版 D-10：带有双初始状态的增强型 AAT 自动机模型 (Figure D-10)
-![Figure D-10: Finite automaton with an additional initial state](/images/fonts-encodings/fig-app-d10.png)
-*图版 D-10：增加了专门针对行首（Beginning of Line）与行中上下文识别的增强型 AAT 有限状态自动机（选自原著第 881 页）。*
-:::
-
----
-
-# 附录 E：TrueType 虚拟机指令集完全参考手册（Instruction Set）
-
-TrueType 字体包含一个图灵完备的虚拟处理器内核。每个字形内部包含一段前微调字节码程序。解释器通过操纵控制点网格、执行投影与测量向量投影、以及调整局部自由度，实现极其精湛的屏幕像素点对齐。
-
-::: tip 图版 E-1：Courier 字体字母 'T' 的底层控制点拓扑 (Figure E-1)
-![Figure E-1: The 'T' of TrueType Courier with instructions](/images/fonts-encodings/fig-app-e1.png)
-*图版 E-1：Apple/Bitstream Courier 字体字母 'T' 的原始控制点网格（选自原著第 913 页）。*
-:::
-
-::: tip 图版 E-2：Verdana 字体字母 'O' 的虚拟机指令执行序列 (Figure E-2)
-![Figure E-2: The 'O' from TrueType Verdana with instructions](/images/fonts-encodings/fig-app-e2.png)
-*图版 E-2：微软经典屏幕字体 Verdana 中字母 'O' 的微调指令执行与像素舍入锁定过程（选自原著第 922 页）。*
-:::
-
----
-
-# 附录 F：METAFONT 语言与三次样条微分几何
-
-高德纳（Donald E. Knuth）创立的 METAFONT 语言是计算机字体学史上最深邃的数学丰碑。在 METAFONT 中，字符不再是静态绘制的轮廓多边形，而是一个由严格代数方程与微分几何参数共同驱动的“动态活字程序”。
-
-::: tip 图版 F-1：经典 Computer Modern 字体家族全集（第 1 部分） (Figure F-1)
-![Figure F-1: The fonts of the original Computer Modern distribution (1/2)](/images/fonts-encodings/fig-app-f1.png)
-*图版 F-1：TeX 原始发行版所包含的 Computer Modern 字体家族矩阵：罗马正体、倾斜体、无衬线体与粗体印样（选自原著第 958 页）。*
-:::
-
-::: tip 图版 F-2：经典 Computer Modern 字体家族全集（第 2 部分） (Figure F-2)
-![Figure F-2: The fonts of the original Computer Modern distribution (2/2)](/images/fonts-encodings/fig-app-f2.png)
-*图版 F-2：Computer Modern 字体家族的等宽打字机体、数学斜体与特殊符号印样（选自原著第 959 页）。*
-:::
-
-::: tip 图版 F-3：Computer Modern 字体家族的 62 个底层物理几何参数全景 (Figure F-3)
-![Figure F-3: The parameters of the Computer Modern fonts](/images/fonts-encodings/fig-app-f3.png)
-*图版 F-3：驱动 Computer Modern 生成的三次样条核心物理参数图解（选自原著第 961 页）：涵盖 x-高度、降部深度、主干粗细（`stem`）、发丝细线（`hair`）、圆点直径（`dot_size`）与衬线倾角（`serif_drop`）。*
-:::
-
-::: tip 图版 F-4：METAFONT weed 交互式样条设计调试器界面 (Figure F-4)
-![Figure F-4: The window of weed showing METAFONT glyph design](/images/fonts-encodings/fig-app-f4.png)
-*图版 F-4：在专用图形交互软件 `weed` 中调试由三次样条方程生成的 METAFONT 动态字形轮廓（选自原著第 967 页）。*
-:::
-
-::: tip 图版 F-5：波兰古典字体 Antykwa Półtawskiego 数字化发行版印样 (Figure F-5)
-![Figure F-5: The fonts of the Antykwa Półtawskiego distribution](/images/fonts-encodings/fig-app-f5.png)
-*图版 F-5：基于 METAFONT 参数化重建的波兰民族排印瑰宝 Antykwa Półtawskiego 字体家族（选自原著第 977 页）。*
-:::
-
-::: tip 图版 F-6：Antykwa Półtawskiego 字体家族的核心微分参数骨架 (Figure F-6)
-![Figure F-6: The parameters of the Antykwa Półtawskiego font family](/images/fonts-encodings/fig-app-f6.png)
-*图版 F-6：Antykwa Półtawskiego 字体家族的特征参数矩阵图解（选自原著第 979 页）。*
-:::
-
----
-
-# 附录 G：贝塞尔曲线的数学性质与德卡斯特里奥算法
-
-数字字体的轮廓本质上是分段三次多项式样条曲线。
-
-## G.1 伯恩斯坦多项式与基底定义
-
-设平面上有 $n+1$ 个控制点 $P_0, P_1, \dots, P_n$。对应的 $n$ 次贝塞尔曲线 $B(t)$ 定义为：
-$$B(t) = \sum_{i=0}^n B_{i,n}(t) P_i, \quad t \in [0, 1]$$
-其中伯恩斯坦基底多项式（Bernstein Polynomials）$B_{i,n}(t)$ 为：
-$$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}$$
-
-在字体工程中，PostScript Type 1、OpenType CFF 以及 TrueType（采用二次曲线并升阶计算）普遍采用三次贝塞尔曲线（$n=3$）：
-$$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3$$
-
-## G.2 核心数学性质
-
-1. **仿射不变性（Affine Invariance）**：对曲线进行任何平移、旋转、缩放或剪切变换，等价于直接对其控制多边形进行相同的变换。
-2. **凸包性（Convex Hull Property）**：整条曲线完全被其控制多边形构成的凸包（Convex Hull）所包覆。排版渲染引擎在进行字体外框碰撞检测（Bounding Box Clipping）时，无需计算样条方程，只需对控制点外框求极值即可实现极高效的裁剪。
-3. **端点插值与切线几何**：曲线严格经过起点 $P_0$ 和终点 $P_3$，且端点处的切线方向精确平行于第一段向量 $P_1 - P_0$ 与最后一段向量 $P_3 - P_2$：
-   $$B'(0) = 3(P_1 - P_0), \quad B'(1) = 3(P_3 - P_2)$$
-4. **变差缩减性（Variation Diminishing Property）**：任何平面直线与贝塞尔曲线的交点数量，绝不会超过该直线与控制多边形的交点数量。这从数学上保证了曲线绝不会发生莫名其妙的额外剧烈振荡。
 
 ## G.3 德卡斯特里奥细分算法（De Casteljau's Algorithm）
 
-**德卡斯特里奥算法（De Casteljau's Algorithm）** 是一种纯粹基于简单线性插值的数值稳定计算框架。对于任意给定参数 $t \in [0, 1]$，算法通过迭代构建点序列：
-$$P_i^{[0]} = P_i$$
-$$P_i^{[k]} = (1-t) P_i^{[k-1]} + t P_{i+1}^{[k-1]}, \quad k = 1, \dots, n, \quad i = 0, \dots, n-k$$
+德卡斯特里奥算法是贝塞尔曲线在计算机中绘制、平滑细分与求交计算的黄金基石。给定控制点 $\mathbf{P}_0, \mathbf{P}_1, \mathbf{P}_2, \mathbf{P}_3$ 与参数 $t_0 \in (0, 1)$：
 
-当 $k=n$ 时，最终收敛点 $P_0^{[n]}$ 恰好等于曲线在 $t$ 处的坐标 $B(t)$！更重要的是，中间生成的控制点序列：
-* 左半段控制点：$P_0^{[0]}, P_0^{[1]}, P_0^{[2]}, P_0^{[3]}$
-* 右半段控制点：$P_0^{[3]}, P_1^{[2]}, P_2^{[1]}, P_3^{[0]}$
+```
+P0 ────(t0)────> P01 ────(t0)────> P012 ────(t0)────> P0123 = B(t0)
+P1 ────(t0)────> P12 ────(t0)────> P123
+P2 ────(t0)────> P23
+P3
+```
 
-直接将原三次贝塞尔曲线精确细分为两段独立的无缝衔接三次曲线。光栅化渲染引擎（Rasterizer）以此为基础执行自适应递归二分细分（Recursive Subdivision），直至每一小段曲线与直线线段的离散误差小于单个像素点尺寸，从而以惊人的极速完成抗锯齿位图光栅化！
+递推公式为：
+$$\mathbf{P}_i^{(k)}(t_0) = (1-t_0)\mathbf{P}_i^{(k-1)}(t_0) + t_0 \mathbf{P}_{i+1}^{(k-1)}(t_0)$$
+
+该算法不仅能在纯加减法与线性插值中以极高数值稳定性计算出曲线上任意点 $\mathbf{B}(t_0)$，而且当 $t_0 = 0.5$ 时，点序列 $(\mathbf{P}_0, \mathbf{P}_0^{(1)}, \mathbf{P}_0^{(2)}, \mathbf{P}_0^{(3)})$ 与 $(\mathbf{P}_0^{(3)}, \mathbf{P}_1^{(2)}, \mathbf{P}_2^{(1)}, \mathbf{P}_3)$ 精准地构成了将原曲线一分为二后的两条独立子曲线的完整控制网格！光栅化引擎只需通过循环二分细分，直至控制多边形扁平收敛为直线，即可实现像素级的极速直线扫描转换。
 
 ---
 
-# 结语
+# 结语：献给在字符星河中执灯前行者
 
-至此，我们完成了对雅尼斯·哈拉兰布斯教授鸿篇巨制《Fonts & Encodings》全部十四章及附录 A–G 的全方位技术参考汉译。从人类最原始的铅活字物理力学，到统一万象的 Unicode 编码空间；从经典桌上操作系统的字库总线，到现代网络动态排印与 SVG 矢量流；从贝塞尔曲线的微分几何数学，到虚拟机图灵完备的微调逻辑——数字字体不仅是计算机科学与工程算法的结晶，更是人类文字文明在硅基时代得以永续传承的宏伟殿堂！
+至此，《Fonts & Encodings》全书十五个章节与七大技术附录的所有微观数据结构、数学公式、编译流水线与历史源流已全部呈现在你的眼前。
+
+从千年前楔形文字与金属活字在泥板与铅印上的沉重烙印，到 8 位字节时代高德纳在斯坦福构建的 $\TeX$ 盒子宇宙，再到 16 位 Unicode、OpenType 布局流与现代 Web 字体光栅化算法，人类为了跨越时空阻隔、为了让知识与思想永存所倾注的智慧，全都被凝炼在了这一个个精微至极的字节、向量与贝塞尔控制点之中。
+
+愿这套技术文献，能成为所有在现代数字文字文明之海中探索、求索与创造者的常备罗盘与指路明灯！

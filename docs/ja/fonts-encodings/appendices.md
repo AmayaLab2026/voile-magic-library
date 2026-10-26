@@ -1,357 +1,408 @@
 ---
-title: 付録 A–G · デジタルフォント内部構造、仮想マシンと数学的基礎の完全技術リファレンスマニュアル
-description: ヤニス・ハラランブス『Fonts & Encodings』付録 A–G 全文の学術和訳：デジタルフォント低水準形式、仮想マシンと数学的基礎の完全技術リファレンスマニュアル。ビットマップフォント形式（Macintosh FONT/NFNT、Windows FNT/FON、Unix BDF/PCF、TeX PK/GF）、TeX と Omega のメトリクス体系（TFM/OFM/VF/OVF）、PostScript Type 1 バイナリアーキテクチャと eexec 暗号、Multiple Master、CIDFont 構造、TrueType/OpenType/AAT テーブル構造辞典、TrueType 仮想マシン命令セット、METAFONT 言語と 3 次ベジェ曲線のド・カステリョ細分アルゴリズム。
+title: "付録 A–G：低レベルフォーマットと数学的基礎全景技術リファレンスマニュアル"
+description: "ビットマップフォント (A)、TeX/Omega (B)、PostScript Type 1/CFF (C)、TrueType/OpenType テーブル構造 (D)、METAFONT (E)、TrueType 仮想マシン命令セット (F)、曲線微分幾何学 (G)。"
 ---
 
-# 付録 A–G · デジタルフォント内部構造、仮想マシンと数学的基礎の完全技術リファレンスマニュアル
-### Appendices A–G: Technical Reference Manual
-**著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
-**英訳・増補：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
-*『フォントとエンコーディング』（Fonts & Encodings）原著第 599–990 頁より*  
-
+# 付録 A–G：低レベルフォーマットと数学的基礎全景技術リファレンスマニュアル
+### Appendices A–G: Technical Reference Manual for Digital Typography
+選書『Fonts & Encodings』第 599–938 頁（全 340 頁技術付録）
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
+
+---
+
+本技術リファレンスマニュアルは、『Fonts & Encodings』後半部に収録された全 7 つの技術付録（Appendices A〜G）を網羅する完全な日本語全訳です。著者のヤニス・ハラランボス（Yannis Haralambous）が、デジタルフォント技術者、組版エンジン開発者、そして計算機文字学者のために築き上げた工学的基盤です。1980 年代のビットマップ形式から 21 世紀現代の OpenType/AAT コンテナ構造、仮想マシン命令セット、曲線微分幾何学に至るすべての数学的・工学的実装を徹底解剖します。
 
 ---
 
 # 付録 A：ビットマップフォント形式（Bitmap Font Formats）
 
-輪郭ベクトルフォント（Outline Vector Fonts）がデジタルタイポグラフィの世界を席巻する以前、コンピュータディスプレイやドットインパクトプリンタは、文字の表現を離散的なビットマップ（Bitmap）に完全に依存していた。これら往年のバイナリビットマップ形式を理解することは、オペレーティングシステムのフォントサブシステム進化史を紐解くための鍵となる。
+ベクターアウトラインフォントが現代のスクリーン表示と商業印刷を席巻した今日においても、ビットマップフォント（Bitmap Fonts）は組み込み機器、BIOS ファームウェア、端末エミュレータ、そしてフォントの内蔵ビットマップ（EBDT/EBLC テーブル）において依然として代替不可能な役割を果たしています。
 
-## A.1 古典的 Macintosh 体系：FONT および NFNT リソース構造
+## A.1 Apple Macintosh 体系：FONT と NFNT リソース構造
 
-クラシック Mac OS（System 1 から Mac OS 9 まで）において、ビットマップフォントはリソースフォーク（Resource Fork）内のリソースとして格納され、そのリソースタイプタグは `'FONT'` または `'NFNT'`（New Font）であった。
+クラシック Mac OS（System 1.0 〜 Mac OS 9）において、フォントはリソースフォーク（Resource Fork）内のリソースとしてカプセル化されていました。
 
-各文字サイズのビットマップデータは、連続した水平方向の 1 ビットビットマップストライク（Bitmap Strike）としてパックされていた。フォント内のすべてのグリフは同一のストリップ内に横方向に隙間なく連結配置され、各グリフの左右境界はオフセットテーブル（Offset Table）および幅テーブル（Width Table）によって定義された。
+### 1. `FONT` と `NFNT` リソースヘッダー構造
 
-::: tip 図版 A-1：クラシック Macintosh システムフォント Chicago の連続ビットマップストリップ (Figure A-1)
-![Figure A-1: The global image of the font Chicago](/images/fonts-encodings/fig-app-a1.png)
-*図版 A-1：二十年以上にわたり親しまれた Macintosh システムフォント Chicago の全体ビットマップストリップ（原著第 621 頁より）。すべてのグリフが水平方向に隙間なく並び、文字間隔は下位のメトリクステーブルによって切り出される。*
-:::
+`FONT` は初期の固定サイズビットマップリソースであり、`NFNT`（New Font Numbering Table）は膨大なファミリー番号体系を拡張した進化版です。両者はメモリ内で同一の `FontRec` レコード構造を共有します：
 
-## A.2 DOS、Windows および Unix のビットマップフォント標準
+```c
+struct FontRec {
+    short fontType;       // フォント型フラグ（プロポーショナル/等幅、カラー属性等）
+    short firstChar;      // 定義された最初の文字の ASCII/MacRoman コード
+    short lastChar;       // 定義された最後の文字コード
+    short widMax;         // 最大文字送り幅（バウンディングボックス幅の最大値）
+    short kernMax;        // 最大負のカーニング量（先行文字との重なり量）
+    short nDescent;       // ディセンダの負の深さ（ベースライン下のピクセル数）
+    short fRectWidth;     // ストライク画像（Strike Image）のビットマップ幅
+    short fRectHeight;    // ストライク画像（Strike Image）のビットマップ高さ
+    short owTLoc;         // オフセット/幅テーブル（Offset/Width Table）へのワードオフセット
+    short ascent;         // ベースライン上のアセンダ高さ
+    short descent;        // ベースライン下のディセンダ深さ
+    short leading;        // 行送り時の推奨行間（Leading）
+    short rowWords;       // ビットマップ画像 1 行あたりの 16 ビットワード数（fRectWidth / 16）
+};
+```
 
-### 1. DOS CPI 形式
-MS-DOS 環境下において、ディスプレイおよびプリンタ用のハードウェアビットマップフォントは `.CPI`（Code Page Information）コンテナに格納され、EGA/VGA グラフィックカード向けに特化された $8 \times 8$、$8 \times 14$、$8 \times 16$ ピクセルのビットマップフォントパターンを保持していた。
+### 2. ストライクフォント（Strike-font）ビットマップモデル
 
-### 2. Windows FNT および FON 形式
-Windows 1.0 から 3.x は、`.FNT`（単一のビットマップグリフリソース）および `.FON`（16 ビット NE アーキテクチャの DLL 内にパッケージ化されたフォントライブラリ）を導入した。内部にはグリフ変位マトリクス、ヘッダメタデータ、文字マッピングテーブルが含まれる。
+Macintosh は**ストライクフォント（Strike-font）**アーキテクチャを採用しました。これはフォント内の全文字のビットマップを 1 枚の横長ビットマップストリップとして結合したものです：
+- すべてのグリフは共通の高さ $fRectHeight$ を持ち、横方向に連結されます；
+- `rowWords` はラスタライン 1 行あたりの 16 ビットワード数を規定し、行境界アライメントを保証します；
+- `LocTable`（位置テーブル）は各文字がストライクビットマップ内で開始する水平ビット座標を記録します；
+- `owTLoc` が指すオフセット/幅テーブルは各文字の論理送り幅（Advance Width）と左サイドベアリング（LSB）を格納します。画面描画時、QuickDraw は BitBlt（Bit Block Transfer、ビットブロック転送）命令を実行し、連続ビデオメモリから指定矩形をフレームバッファへ超高速転送します。
 
-### 3. Unix および X11 体系：Adobe BDF および PCF 形式
-Unix / X Window System において、**BDF（Bitmap Distribution Format）** は ASCII プレーンテキストに基づく可搬性の高いビットマップフォント交換形式であった。
+## A.2 DOS、Windows、Unix 体系規格
 
-::: tip 図版 A-2：Adobe BDF 形式におけるビットマップグリフのマトリクス構造 (Figure A-2)
-![Figure A-2: BDF's vision of the bitmap and vector versions of an ideograph](/images/fonts-encodings/fig-app-a2.png)
-*図版 A-2：Adobe BDF 仕様における単一漢字表意文字のビットマップマトリクスとメトリクスフレームワーク（原著第 629 頁より）。バウンディングボックス、変位ベクトル（DWIDTH/SWIDTH）、アスタリスクによるドットパターン、原点とベースライン座標系を示す。*
-:::
+### 1. DOS CPI 形式（Code Page Information）
+IBM PC/MS-DOS 体系における画面表示フォントコンテナです：
+- `.CPI` ファイルはファイルヘッダー、フォントヘッダー、コードページデータパケットで構成されます；
+- 各フォントパケットは標準 EGA/VGA キャラクタジェネレータ用の $8\times 8$、$8\times 14$、$8\times 16$ ピクセルの生グリフマトリクスを含み、DOS の `MODE CON CP PREP` コマンドでグラフィックスカードの文字ラッチレジスタへ直接ロードされます。
 
-実際のシステム読み込み時、BDF は通常、メモリマッピング（mmap）による超高速読み込みを実現するため、バイナリ形式の **PCF（Portable Compiled Format）** または **SNF（Server Natural Format）** へとコンパイルされた。
+### 2. Windows FNT と FON 形式
+Windows 1.0 〜 3.1x で標準とされたビットマップ規格です：
+- `.FNT`：個々のポイントサイズと文字セットに対応する生のビットマップバイナリストリーム；
+- `.FON`：16 ビット NE（New Executable）または 32 ビット PE（Portable Executable）形式のダイナミックリンクライブラリ（DLL）コンテナ。コードは持たず、リソースセクション（`.rsrc`）内に複数の `.FNT` ストリームをパッケージングします。各グリフは `GLYPHENTRY`（文字幅とビットマップオフセット）によってインデックスされます。
 
-## A.3 TeX 体系のビットマップ出力：GF および PK 形式
+### 3. Unix および X11 体系：Adobe BDF と PCF 形式
+- **BDF（Bitmap Distribution Format）**：ASCII テキストベースのオープンビットマップ交換フォーマット。`FONT`、`SIZE`、`FONTBOUNDINGBOX`、各グリフの `SWIDTH`（スケーラブル幅）、`DWIDTH`（デバイスピクセル幅）、`BBX`、16 進数 `BITMAP` 行で構成されます；
+- **PCF（Portable Compiled Format）**：BDF を X サーバー用にバイナリコンパイルした高速テーブル形式で、エンディアン独立なテーブルディレクトリ構造を持ちます。
 
-ドナルド・クヌースの TeX 組版体系において、METAFONT コンパイラはまず汎用の **GF（Generic Font）** バイナリファイルを出力する。次いで `gftopk` ツールにより、高圧縮されたコンパクトな **PK（Packed Font）** 形式へと変換される。
+## A.3 $\TeX$ 体系の精緻：GF と PK 形式
 
-::: tip 図版 A-3：METAFONT 出力による gftodvi 高解像度字型見本 (Figure A-3)
-![Figure A-3: A page from the DVI file produced by gftodvi from Computer Modern Roman 10](/images/fonts-encodings/fig-app-a3.png)
-*図版 A-3：`gftodvi` ツールにより Computer Modern Roman 10pt の GF ファイルから生成されたピクセルレベルのマクロ見本（原著第 638 頁より）。ピクセル格子上の骨格、制御点、ピクセル塗りつぶし分布を示す。*
-:::
+Donald E. Knuth の METAFONT コンパイラと現代の $\TeX$ 出力エンジンにおいて、ビットマップフォントは極めて高度な圧縮数学を誇ります。
 
----
+### 1. GF（Generic Font）形式
+METAFONT が `.mf` ソースコードを解釈した直後に出力する原始バイトコードです。グラフィックス描画コマンド `paint_0`..`paint_63`、スキップ行 `skip0`..`skip3`、文字定義 `boc`（beginning of character）、`eoc`（end of character）により、幾何輪郭からラスタライズされたランレングスデータを記述します。
 
-# 付録 B：TeX および Omega フォント形式仕様（TFM, OFM, VF）
+### 2. PK（Packed Font）形式と動的閾値圧縮アルゴリズム
+Tomas Rokicki が考案した PK 形式は、GF ファイルを約 50% 圧縮する標準フォーマットです。PK は動的閾値 $dyn\_f$（$0 \le dyn\_f \le 14$）を用いた可変長ニブル（4 ビット）ランレングスエンコーディングを採用しています。
 
-TeX 組版システムは、「組版処理と描画の完全な分離」という極めて先駆的な工学哲学を備えている。TeX エンジンが段落の改行計算や数式組版を行う際、**グリフの輪郭やビットマップピクセルを読み取る必要は一切ない**。必要とされるのは、個々の文字のマクロな幾何メトリクス（外接枠の寸法、カーニング、合字規則、視覚的サイズ補正）のみである。
-
-## B.1 TFM（TeX フォントメトリクス表）バイナリデータ構造
-
-各 TeX フォントメトリクスファイル（`.tfm`）は 16 ビットのビッグエンディアン符号なし整数で構築され、論理的に以下の 10 個の連続するデータ領域に分割されている。
-
-| 領域インデックス | 名称 | 内容と役割 |
-| :--- | :--- | :--- |
-| 1 | `header` | チェックサム、デザインサイズ（Design Size）、符号化スキーム文字列 |
-| 2 | `char_info` | 文字インデックス表：幅インデックス（`width_index`）、高さ・深さインデックス（`height_depth_index`）、イタリック補正インデックス（`italic_index`）、タグフィールド |
-| 3 | `width` | 文字幅配列（固定小数点数 `fix_word` で格納） |
-| 4 | `height` | ベースライン上方の文字高さ配列 |
-| 5 | `depth` | ベースライン下方の文字深さ配列 |
-| 6 | `italic` | イタリック傾斜角および字間余白補正量配列 |
-| 7 | `lig_kern` | 合字およびカーニング状態遷移マイクロ命令仮想マシンプログラム（Ligature/Kerning Table） |
-| 8 | `kern` | 物理的カーニング値テーブル |
-| 9 | `exten` | 大型数学伸長文字の組み立て記述表（括弧や積分記号の部品結合など） |
-| 10 | `param` | フォント全体組版パラメータ配列（`fontdimen`）：空白基準幅、伸縮量、x-ハイト、数式軸の高さなど |
-
-### 中核の固定小数点数表現：`fix_word`
-TFM ファイル内の幾何寸法はすべて、クヌースが創案した 32 ビットの 2 の補数固定小数点数 `fix_word` で表現される。上位 12 ビットが整数部、下位 20 ビットが小数部を表す。絶対基準単位はフォントのデザインサイズである（$1.0 = 2^{20} = 1,048,576$ 内部単位）。この精緻な設計により、TeX の幾何計算はいかなるハードウェア環境においても完全に同一かつ再現可能な結果を保証する。
-
-## B.2 Omega OFM と仮想フォント（VF）体系
-
-TFM が 256 文字しかサポートできないという制約を打破するため、Omega プロジェクトは **OFM（Omega Font Metrics）** を導入し、文字インデックスを 16 ビットおよび 32 ビットの Unicode 全域へと拡張した。
-
-**VF（Virtual Font、仮想フォント）** は、組版エンジンが異なる物理フォントに属するグリフを組み合わせて単一の論理フォントを合成することを可能にした。VF バイトコードにより、実行時にグリフの拡大縮小、変位、重ね合わせ、回転を動的に実行でき、現代の複合フォントの先駆的プロトタイプとなった。
+#### 動的圧縮閾値 $dyn\_f$ の数学原理
+黒ピクセルと白ピクセルの連続長（Run-length）$L$ をパッキングする際、バイトストリームは 4 ビットのニブル単位に分解されます：
+- $L \le dyn\_f$ の場合、単一のニブル（値 $L$）で表現；
+- $dyn\_f < L \le (13 - dyn\_f) \times 16 + dyn\_f$ の場合、2 個のニブル $nibble_1, nibble_2$ で表現され、長さは次式で復元されます：
+$$L = (nibble_1 - dyn\_f - 1) \times 16 + nibble_2 + dyn\_f + 1$$
+- より長いランレングスや 1 行全体の反復（`repeat count`）には特殊オペコードが割り当てられます。各文字の開始時に最適な $dyn\_f$ が動的に算出され、文字パケットヘッダーに格納されます。
 
 ---
 
-# 付録 C：PostScript Type 1 フォントのバイナリアーキテクチャと eexec 暗号
+# 付録 B：$\TeX$ および $\Omega$ フォント形式仕様（TFM, OFM, VF, OVF）
 
-Adobe の PostScript Type 1 フォントは、現代ベクトルタイポグラフィの礎石である。
+## B.1 TFM（$\TeX$ Font Metrics）データ構造
 
-## C.1 PostScript パストラッキングと塗りつぶし規則
+TFM ファイルは 32 ビットビッグエンディアン符号付き整数（4 バイトワード）で構成される完全な固定長配列の集合です。物理グリフのビットマップや輪郭は一切含まず、組版エンジンが必要とする厳密な幾何寸法と状態機械のみを記述します。
 
-PostScript インタプリタはベジェ曲線命令によって輪郭を記述し、「ノンゼロ・ワインディング数ルール（Nonzero Winding Number Rule）」を用いて閉領域の内外判定を行う。
+### 1. 固定小数点数単位 `fix_word`
+TFM 内のすべての寸法測定値（幅、高さ、深さ、カーニング値など）は、フォントのデザインサイズ（Design Size）を $1.0$ とする **`fix_word`** 形式（32 ビット固定小数点数）で格納されます：
+- 符号ビット 1 ビット、整数部 11 ビット、小数部 20 ビット；
+- 精度は $2^{-20} \approx 0.00000095$ デザインサイズ単位です：
 
-::: tip 図版 C-1：PostScript パス構築と形状塗りつぶしのコード例 (Figure C-1)
-![Figure C-1: Examples of PostScript code: tracing a path, filling a shape](/images/fonts-encodings/fig-app-c1.png)
-*図版 C-1：PostScript ベクトルコード例：パス構築、線画描画、形状塗りつぶし（原著第 662 頁より）。*
-:::
+$$1\text{ fix\_word} = \frac{\text{Stored Integer Value}}{2^{20}} = \frac{\text{Stored Integer Value}}{1,048,576} \times (\text{Design Size})$$
 
-::: tip 図版 C-2：ノンゼロ・ワインディング数塗りつぶし規則の幾何判定ロジック (Figure C-2)
-![Figure C-2: Examples of filling according to the nonzero winding number rule](/images/fonts-encodings/fig-app-c2.png)
-*図版 C-2：ノンゼロ・ワインディング数規則の幾何判定（原著第 663 頁より）。外部への半直線を引き、輪郭の周回方向の代数和を計算して穴あき複合領域を判定する。*
-:::
+浮動小数点プロセッサが存在しない環境でも、アーキテクチャ間で 1 ナノメートルも狂わない組版の絶対的決定性を保証します。
 
-## C.2 テキスト描画演算子と Scrabble フォント
+### 2. `CHAR_INFO` の 32 ビットビットフィールドパッキング
+TFM の文字情報は、文字ごとに 32 ビット（4 バイト）の単一ワードへ驚異的な密度でパックされています：
 
-PostScript は多彩なテキスト出力演算子を提供する。基本的な `show`、文字間隔を一様に拡張する `ashow`、各グリフに個別の変位座標を与える `xyshow` などである。
+```text
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  width_index  | height| depth | italic_index  |tag| remainder |
+|    (8 bit)    | (4bit)| (4bit)|    (6 bit)    |(2)|  (8 bit)  |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+```
 
-::: tip 図版 C-3：PostScript show 演算子とその字間拡張バリアント (Figure C-3)
-![Figure C-3: The show operator and variants: ashow, xyshow](/images/fonts-encodings/fig-app-c3.png)
-*図版 C-3：`show` 演算子とそのバリアント `ashow`（トラッキング調整）および `xyshow`（個別文字幅バランシング）（原著第 667 頁より）。*
-:::
+- **`width_index`**（8 ビット）：`width` テーブルへのインデックス（最大 256 通りの異なる文字幅）；
+- **`height_index`**（4 ビット）：`height` テーブルへのインデックス（最大 16 通りの高さ）；
+- **`depth_index`**（4 ビット）：`depth` テーブルへのインデックス（最大 16 通りの深さ）；
+- **`italic_index`**（6 ビット）：`italic` 補正値テーブルへのインデックス；
+- **`tag`**（2 ビット）：`remainder` の解釈を決定するタグ：
+  - `tag = 0`（`no_tag`）：通常の文字。`remainder` は未使用（0）；
+  - `tag = 1`（`lig_tag`）：`remainder` は `lig_kern` 配列の開始インデックスを指し、リガチャ・カーニング有限状態機械を起動；
+  - `tag = 2`（`list_tag`）：数式フォントにおける拡大グリフチェーン（大括弧や積分記号のサイズ進行）；
+  - `tag = 3`（`ext_tag`）：`remainder` は `exten` 配列を指し、上部・反復部・中部・下部グリフから構成される任意長数式括弧の組み立てを指定。
 
-::: tip 図版 C-4：ジャック・アンドレ設計による Scrabble 拼字ゲーム Type 3 フォント (Figure C-4)
-![Figure C-4: The font Scrabble, by Jacques André](/images/fonts-encodings/fig-app-c4.png)
-*図版 C-4：フランスのタイポグラフィの泰斗ジャック・アンドレ（Jacques André）が設計した Scrabble ゲーム用 Type 3 フォント（原著第 675 頁より）。同一文書の連続 4 回の印刷で、木目テクスチャと文字の揺らぎがランダムに変化する。*
-:::
+## B.2 $\Omega$ システム OFM（Omega Font Metrics）仕様
 
-## C.3 エンコーディングテーブルとグリフ輪郭メトリクス
+8 ビット（256 文字）の制約を打破するため、John Plaice と Yannis Haralambous は $\Omega$ のために OFM 形式を設計しました：
+- **Level 0 OFM**：TFM の 16 ビット直接拡張版。文字インデックスを 65,536 まで拡張し、`fix_word` は維持しつつ、Unicode 基本多言語面（BMP）の直接組版を実現；
+- **Level 1 OFM**：動的ツリーテーブル構造。Unicode サロゲートペアや SMP 面へのアクセスを可能にし、32 種類の多方向組版（縦書き、右横書き、逆向進行）のための方向固有メトリックテーブルをサポート。
 
-::: tip 図版 C-5：Adobe Standard 欧文フォントエンコーディング表 (Figure C-5)
-![Figure C-5: The Adobe Standard font encoding, illustrated with Monotype Columbus](/images/fonts-encodings/fig-app-c5.png)
-*図版 C-5：Adobe Standard 符号化仕様（Monotype Columbus フォントによる例示、原著第 681 頁より）。*
-:::
+## B.3 仮想フォント VF（Virtual Fonts）仕様
 
-::: tip 図版 C-6：Adobe Expert 専門家向け拡張エンコーディング表 (Figure C-6)
-![Figure C-6: The Adobe Expert font encoding, illustrated with Monotype Columbus Expert](/images/fonts-encodings/fig-app-c6.png)
-*図版 C-6：Adobe Expert 拡張符号化仕様。本格的なスモールキャピタル、オールドスタイル数字、合字を完備（原著第 681 頁より）。*
-:::
-
-::: tip 図版 C-7：各言語書記体系における関連高さと突出量メトリクス (Figure C-7)
-![Figure C-7: The relevant heights, with overshoot, of various script glyphs](/images/fonts-encodings/fig-app-c7.png)
-*図版 C-7：ラテン文字、アラビア文字等におけるグリフの視覚的突出量（Overshoot）、ベースライン、キャップハイト、ディセンダーラインのメトリクス（原著第 683 頁より）。*
-:::
-
-::: tip 図版 C-8：The Sans Mono Condensed Light における小文字 'e' の輪郭記述 (Figure C-8)
-![Figure C-8: Description of the glyph 'e' in The Sans Mono Condensed Light](/images/fonts-encodings/fig-app-c8.png)
-*図版 C-8：リュック(アス)・ド・フロート設計の The Sans Mono における文字 ‘e’ の絶対ベクトル輪郭と 3 次スプライン分割（原著第 686 頁より）。*
-:::
-
-## C.4 PostScript ヒンティング（Hinting）体系
-
-低解像度機器（72〜150 DPI の画面や初期の 300 DPI レーザープリンタなど）においてステム幅の一貫性を保ち、黒みの潰れを防ぐため、Type 1 仕様は洗練されたヒンティング機構を導入した。
-
-::: tip 図版 C-9：文字 H、O、m における潜在的ヒントゾーン (Figure C-9)
-![Figure C-9: Potential hints for the letters 'H', 'O', and 'm'](/images/fonts-encodings/fig-app-c9.png)
-*図版 C-9：文字 ‘H’、‘O’、‘m’ のヒント適用区間（原著第 688 頁より）。灰色領域はピクセル格子に整列・固定すべき主ステム幅を表す。*
-:::
-
-::: tip 図版 C-10：文字 'B' における 4 つのヒントの動的置換ロジック (Figure C-10)
-![Figure C-10: Replacing four hints in the letter 'B'](/images/fonts-encodings/fig-app-c10.png)
-*図版 C-10：複雑なグリフ ‘B’ の描画過程におけるヒント置換（Hint Replacement）の実行（原著第 689 頁より）。*
-:::
-
-::: tip 図版 C-11：2 つの 3 次ベジェ曲線から構成される Flex 浅曲率制御 (Figure C-11)
-![Figure C-11: Flex formed by two cubic Bézier curves](/images/fonts-encodings/fig-app-c11.png)
-*図版 C-11：2 本の 3 次ベジェ曲線で構成される Flex 機構（原著第 690 頁より）。緩やかな円弧が低解像度で不自然な直線や階段状ジャギーに退化するのを防ぐ。*
-:::
-
-::: tip 図版 C-12：PostScript Type 1 フォントのカウンターコントロール (Figure C-12)
-![Figure C-12: Counter controls of PostScript Type 1 fonts](/images/fonts-encodings/fig-app-c12.png)
-*図版 C-12：Type 1 フォントの内部空白カウンター制御機構（原著第 692 頁より）。‘m’ などの多幹文字において、小サイズでも均等な内白を保持する。*
-:::
-
-::: tip 図版 C-13：Times-Roman の各サイズにおける字間調整曲線 (Figure C-13)
-![Figure C-13: Two examples of letterspacing in Times-Roman](/images/fonts-encodings/fig-app-c13.png)
-*図版 C-13：Times-Roman における 5pt から 15.5pt までのトラッキングカーニング（TrackKern）対比（原著第 696 頁より）。*
-:::
-
-## C.5 Multiple Master フォントと多次元デザイン空間
-
-Adobe の Multiple Master（MM）技術は、フォントデザイナーが連続的な多次元デザイン空間（Design Space）を構築することを可能にした。軸の両極や中間にマスターグリフ（Master Designs）を設定し、ユーザーのパラメータに応じて多次元線形補間を行う。
-
-::: tip 図版 C-14：Adobe Kepler MM フォントにおける文字 'A' の 8 つのマスターデザイン (Figure C-14)
-![Figure C-14: Eight master designs of the glyph 'A' in Adobe Kepler MM](/images/fonts-encodings/fig-app-c14.png)
-*図版 C-14：Adobe Kepler MM において「ウェイト（Weight）」「幅（Width）」「光学サイズ（Optical Size）」の 3 次元立方体空間に配置された 8 つの極限マスターデザインと中間補間形態（原著第 698 頁より）。*
-:::
-
-## C.6 OCF および CIDFont アーキテクチャ
-
-東アジアの日中韓（CJK）の膨大な漢字需要に応えるため、Adobe は OCF（Original Composite Format）および画期的な **CIDFont** アーキテクチャを開発した。CIDFont は文字エンコーディング（CMap）とグリフ輪郭（CIDFont ファイル）を完全に分離し、各グリフは一意の数値インデックス（CID, Character Identifier）でアドレッシングされる。
-
-::: tip 図版 C-15：古典的 OCF 複合フォントの二層参照機構 (Figure C-15)
-![Figure C-15: How OCF fonts work](/images/fonts-encodings/fig-app-c15.png)
-*図版 C-15：古典的 OCF フォントの入れ子型辞書と 2 バイト参照モデル（原著第 706 頁より）。*
-:::
-
-::: tip 図版 C-16：CIDFont ファイル（CID Type 0）の全体構造 (Figure C-16)
-![Figure C-16: Overall structure of a CIDFont file (CID type 0)](/images/fonts-encodings/fig-app-c16.png)
-*図版 C-16：CIDFont バイナリファイル（Type 0）の全体トポロジー構造とインタプリタの探索パス（原著第 709 頁より）。*
-:::
-
-::: tip 図版 C-17：Type 2 Charstrings における高次ヒントマスク管理 (Figure C-17)
-![Figure C-17: Hint management in charstrings of Type 2](/images/fonts-encodings/fig-app-c17.png)
-*図版 C-17：Type 2 Charstrings における高次ヒントマスク管理（原著第 723 頁より）。複雑な漢字「講」（11 本の水平ステムヒント）におけるヒントマスクの切り替えを示す。*
-:::
+仮想フォントは物理グリフを持たず、DVI バイトコード命令によって複数の物理フォントグリフを合成・再エンコードする極めて洗練された抽象化レイヤーです：
+- パケットヘッダー `packet_bytes` と文字コード；
+- パケット内部には標準 DVI 命令（`push`, `pop`, `set_char`, `right`, `down`, `fnt_num`）が直接記述され、アクセント付き文字の合成（ベース文字の上にアクセント記号を移動配置）、フォントの混合（Times の英数に Symbol のギリシャ文字を割り当て）、縮小大文字（スモールキャップス）の動的スケーリングを実現します。
 
 ---
 
-# 付録 D：TrueType、OpenType および AAT バイナリテーブル構造完全辞典
+# 付録 C：PostScript フォント形式（PostScript Font Formats）
 
-TrueType および OpenType フォントファイルは、低水準においてテーブルディレクトリ（Table Directory）と複数の独立したバイナリテーブル群（Tables）から構成される。
+## C.1 PostScript 仮想マシンの状態スタック
 
-## D.1 ビットマップおよびデバイスメトリクステーブル
+PostScript インタプリタはチューリング完全なスタック指向プログラミング言語環境です。以下の独立スタックを維持します：
+1. **オペランドスタック（Operand Stack）**：数値、文字列、名前、配列、辞書オブジェクトを操作；
+2. **ディクショナリスタック（Dictionary Stack）**：スコープ解決のための辞書スタック（`systemdict`, `globaldict`, `userdict`, フォント固有辞書）；
+3. **実行スタック（Execution Stack）**：制御構造（`if`, `ifelse`, `for`, `loop`, プロシージャ呼び出し）；
+4. **グラフィックス状態スタック（Graphics State Stack）**：現在の変換行列（CTM）、現在点 $(x, y)$、パス、線幅、色、クリッピング領域（`gsave` と `grestore` で退避・復帰）。
 
-::: tip 図版 D-1：EBLC 表におけるビットマップグリフの水平・垂直メトリクスモデル (Figure D-1)
-![Figure D-1: Horizontal and vertical metrics of a bitmap glyph in an EBLC table](/images/fonts-encodings/fig-app-d1.png)
-*図版 D-1：TrueType EBLC テーブルに内蔵されたビットマップグリフの水平・垂直幾何メトリクスパラメータ（原著第 756 頁より）。*
-:::
+## C.2 Type 1 フォントの内部アーキテクチャと暗号化
 
-::: tip 図版 D-2：中国語テキストの 12 ppem と 24 ppem におけるビットマップ描画対比 (Figure D-2)
-![Figure D-2: Comparison of Chinese text rendered at 12 and 24 ppem](/images/fonts-encodings/fig-app-d2.png)
-*図版 D-2：漢字テキストにおける 12 ppem と 24 ppem のビットマップヒンティング効果の対比（原著第 760 頁より）。*
-:::
+Adobe Type 1 フォントは ASCII ヘッダー部、暗号化バイナリ（または 16 進数 ASCII）部、および 512 バイトのゼロクリア部（`cleartomark` 実行前のバッファフラッシュ）で構成されます。
 
-::: tip 図版 D-3：Verdana フォント文字 'A' の ppem に伴うピクセル幅の階段状分布 (Figure D-3)
-![Figure D-3: Distribution of sizes in pixels of the letter 'A' from Verdana](/images/fonts-encodings/fig-app-d3.png)
-*図版 D-3：Verdana フォントの文字 ‘A’ が `hdmx` テーブル内で文字サイズに伴って示す離散ピクセル幅の曲線（原著第 764 頁より）。*
-:::
+### 1. 2 段階の線形合同法暗号アルゴリズム
+Type 1 フォントはリバースエンジニアリング防止と改ざん検知のため、2 つの暗号レイヤーを備えています：
+- **`eexec` 暗号化**：`Private` 辞書全体（Subrs、CharStrings、ヒントゾーン）を暗号化。初期キー $R_0 = 55665$；
+- **`charstring` 暗号化**：各グリフの描画バイトコードを個別に暗号化。初期キー $R_0 = 4330$。
 
-## D.2 レイアウト検索と連筆結合
+暗号化・復号アルゴリズムは 16 ビット線形合同法（LCG）漸化式に従います：
 
-::: tip 図版 D-4：OpenType 連筆結合（Cursive Attachment）ルックアップフラグ (Figure D-4)
-![Figure D-4: Two examples of cursive attachment lookup flag](/images/fonts-encodings/fig-app-d4.png)
-*図版 D-4：ウルドゥー語ナスタアリーク体において Cursive Attachment フラグを用いたベースライン係留効果（原著第 788 頁より）。*
-:::
+$$R_{n+1} = (R_n \times 52845 + 22719) \bmod 65536$$
 
-::: tip 図版 D-5：ハムザ付きアラビア文字 Yeh Barree のグリフ変異と合字の変遷 (Figure D-5)
-![Figure D-5: The glorious fate of arabic letter yeh barree with hamza above](/images/fonts-encodings/fig-app-d5.png)
-*図版 D-5：コード U+06D3 が GSUB 置換テーブルを経て遂げる変形プロセスの全景（原著第 804 頁より）。*
-:::
+バイト復号式（$C_n$ は暗号化バイト、$P_n$ は平文バイト）：
 
-::: tip 図版 D-6：Ampersands フォントファミリーにおける 202 種類のアンパサンド変体 (Figure D-6)
-![Figure D-6: The 202 ampersands of AmpersandsOne and AmpersandsTwo](/images/fonts-encodings/fig-app-d6.png)
-*図版 D-6：米国タイポグラフィ協会によって編纂された Ampersands フォント収録の 202 種におよぶ古典・現代の「＆」記号バリアント（原著第 806 頁より）。*
-:::
+$$C_n = P_n \oplus (R_n \gg 8)$$
 
-::: tip 図版 D-7：ヘルマン・ツァップ Zapfino による三言語愛の詩篇 (Figure D-7)
-![Figure D-7: A trilingual and tri-fontal love poem in Zapfino](/images/fonts-encodings/fig-app-d7.png)
-*図版 D-7：巨匠ツァップ設計による Zapfino で組まれた 3 言語 3 書体の名作愛の詩篇（原著第 861 頁より）。極端なスウォッシュと上下行の交差装飾を示す。*
-:::
+各暗号化ブロックの先頭には 4 バイトのランダムバイト（Random Bytes）が付加され、暗号文の周波数解析を無効化します。
 
-::: tip 図版 D-8：Apple Skia フォントの wght ウェイト軸に沿った連続変形 (Figure D-8)
-![Figure D-8: Apple Skia variations along the wght axis](/images/fonts-encodings/fig-app-d8.png)
-*図版 D-8：Apple AAT Skia フォントにおける `wght` 軸上の滑らかな無段階モーフィング（原著第 873 頁より）。*
-:::
+### 2. Type 1 CharString 命令コード全表
 
-## D.3 AAT 有限状態機械（Finite State Automaton）遷移モデル
+CharString バイトストリームは可変長バイトコードで表現されます。数値はスタックにプッシュされ、1 バイトまたは 2 バイト（エスケープコード 12）の命令によって消費されます：
 
-::: tip 図版 D-9：AAT 決定性有限オートマトンの二つの典型状態遷移モデル (Figure D-9)
-![Figure D-9: Two examples of finite automata](/images/fonts-encodings/fig-app-d9.png)
-*図版 D-9：AAT 状態遷移オートマトンモデルの例（原著第 878 頁より）。楕円が状態ノード、有向矢印が入力文字クラスによる状態遷移を表す。*
-:::
+| オペコード | コマンド名 | 引数スタック | 機能解説 |
+|:---|:---|:---|:---|
+| `1` | `hstem` | $y, dy$ | 水平ヒントステム定義（下端 $y$ と幅 $dy$） |
+| `3` | `vstem` | $x, dx$ | 垂直ヒントステム定義（左端 $x$ と幅 $dx$） |
+| `4` | `vmoveto` | $dy$ | 現在点から垂直相対移動 $(0, dy)$ |
+| `5` | `rlineto` | $dx, dy$ | 現在点から相対直線描画 $(dx, dy)$ |
+| `6` | `hlineto` | $dx$ | 水平相対直線描画 $(dx, 0)$ |
+| `7` | `vlineto` | $dy$ | 垂直相対直線描画 $(0, dy)$ |
+| `8` | `rrcurveto` | $dx_a, dy_a, dx_b, dy_b, dx_c, dy_c$ | 3 次ベジェ曲線描画（制御点 $A, B$ と終点 $C$） |
+| `9` | `closepath` | — | パスを閉じ、サブパスを完了 |
+| `10` | `callsubr` | $subr\_index$ | `Subrs` 配列内の共通サブルーチン呼び出し |
+| `11` | `return` | — | サブルーチン呼び出し元への復帰 |
+| `13` | `hsbw` | $sb_x, wx$ | サイドベアリング（LSB）と水平送り幅（Advance Width）の宣言 |
+| `14` | `endchar` | — | グリフ輪郭の終了とラスタライザの起動 |
+| `12 0` | `dotsection` | — | 小文字 'i' や 'j' のドット等、微小領域のヒント優先度宣言 |
+| `12 1` | `vstem3` | $x_1, dx_1, x_2, dx_2, x_3, dx_3$ | 3 本連動垂直ヒント（'m' など同幅ステムの均等化） |
+| `12 2` | `hstem3` | $y_1, dy_1, y_2, dy_2, y_3, dy_3$ | 3 本連動水平ヒント（'E' や 'B' の横バー均等化） |
+| `12 6` | `seac` | $asb, dx, dy, bchar, achar$ | 標準複合アクセント文字合成（Standard Encoding Accented Character） |
+| `12 7` | `sbw` | $sb_x, sb_y, wx, wy$ | 2 次元サイドベアリングおよび送り幅宣言 |
+| `12 16` | `callothersubr` | $arg_1..arg_n, n, index$ | ドライバ固有外部サブルーチン呼び出し（Flex 曲線、ヒント置換） |
+| `12 17` | `pop` | — | `callothersubr` の戻り値を引数スタックへプッシュ |
 
-::: tip 図版 D-10：二重初期状態を持つ拡張型 AAT オートマトンモデル (Figure D-10)
-![Figure D-10: Finite automaton with an additional initial state](/images/fonts-encodings/fig-app-d10.png)
-*図版 D-10：行頭（Beginning of Line）と行中の文脈識別を分離した拡張型 AAT 有限状態オートマトン（原著第 881 頁より）。*
-:::
+## C.3 CFF（Compact Font Format）と Type 2 CharStrings
 
----
-
-# 付録 E：TrueType 仮想マシン命令セット完全リファレンスマニュアル
-
-TrueType フォントはチューリング完全な仮想プロセッサコアを内蔵している。各グリフ内部にはプリヒンティング・バイトコードプログラムが格納されている。インタプリタは制御点グリッドの操作、投影ベクトル・測定ベクトルの射影計算、自由度の調整を通じて、精緻無比なピクセルグリッド調整（Grid-fitting）を実行する。
-
-::: tip 図版 E-1：Courier フォント文字 'T' の低水準制御点トポロジー (Figure E-1)
-![Figure E-1: The 'T' of TrueType Courier with instructions](/images/fonts-encodings/fig-app-e1.png)
-*図版 E-1：Apple/Bitstream Courier フォント文字 ‘T’ の元の制御点グリッド（原著第 913 頁より）。*
-:::
-
-::: tip 図版 E-2：Verdana フォント文字 'O' の仮想マシン命令実行シーケンス (Figure E-2)
-![Figure E-2: The 'O' from TrueType Verdana with instructions](/images/fonts-encodings/fig-app-e2.png)
-*図版 E-2：Microsoft の名作画面フォント Verdana における文字 ‘O’ のヒンティング実行とピクセル丸めロックの過程（原著第 922 頁より）。*
-:::
+CFF（PostScript Type 2）は OpenType の `.otf` フォントにおける CFF テーブルとして採用されています：
+- **INDEX テーブル**：全オブジェクトの長さとオフセット配列を集約し、ファイル内ポインタの局所性を向上；
+- **Type 2 CharStrings の進歩**：
+  - `hsbw`/`sbw` を廃止し、最初の移動コマンド（`rmoveto`）のスタック引数余剰分として送り幅を暗黙定義；
+  - `blend` オペレータ：Multiple Master フォントの輪郭補間を 1 つの CharString 内で直接実行；
+  - 高度な曲線合成命令：`hflex`, `flex`, `hflex1`, `flex1` により、円弧や微小湾曲部を少ないバイト数で記述；
+  - ヒント置換（Hint Substitution）のネイティブサポート：マスクビット命令（`hintmask`, `cntrmask`）により、グリフ内の任意の位置でヒント辞書を動的更新。
 
 ---
 
-# 付録 F：METAFONT 言語と 3 次スプライン微分幾何学
+# 付録 D：TrueType、OpenType、AAT テーブル構造辞書
 
-ドナルド・クヌースが創始した METAFONT 言語は、計算機フォント学史上最も深遠な数学的記念碑である。METAFONT において、文字は静的に描画された輪郭ポリゴンではなく、厳密な代数方程式と微分幾何パラメータによって動的に駆動される「生きたプログラム」である。
+## D.1 SFNT テーブルディレクトリ（Table Directory）
 
-::: tip 図版 F-1：古典 Computer Modern フォントファミリー全集（第 1 部） (Figure F-1)
-![Figure F-1: The fonts of the original Computer Modern distribution (1/2)](/images/fonts-encodings/fig-app-f1.png)
-*図版 F-1：TeX オリジナル配布版に収録された Computer Modern フォントファミリー：ローマン立体、傾斜体、サンセリフ、ボールドの見本（原著第 958 頁より）。*
-:::
+SFNT コンテナはすべての TrueType/OpenType フォントの共通基盤です。ファイル先頭の 12 バイト **Offset Table** から始まります：
 
-::: tip 図版 F-2：古典 Computer Modern フォントファミリー全集（第 2 部） (Figure F-2)
-![Figure F-2: The fonts of the original Computer Modern distribution (2/2)](/images/fonts-encodings/fig-app-f2.png)
-*図版 F-2：Computer Modern の等幅タイプライター体、数式用イタリック、特殊記号の見本（原著第 959 頁より）。*
-:::
+```c
+struct OffsetTable {
+    uint32_t sfntVersion;   // 0x00010000 (TrueType) または 'OTTO' (CFF OpenType)
+    uint16_t numTables;     // 格納されているテーブルの総数
+    uint16_t searchRange;   // (2^floor(log2(numTables))) * 16 (バイナリサーチ用)
+    uint16_t entrySelector; // floor(log2(numTables))
+    uint16_t rangeShift;    // numTables * 16 - searchRange
+};
+```
 
-::: tip 図版 F-3：Computer Modern フォントファミリーの 62 個の幾何パラメータ全景 (Figure F-3)
-![Figure F-3: The parameters of the Computer Modern fonts](/images/fonts-encodings/fig-app-f3.png)
-*図版 F-3：Computer Modern を生成する 3 次スプライン中核幾何パラメータ図解（原著第 961 頁より）：x-ハイト、ディセンダー深さ、主ステム幅（`stem`）、ヘアライン幅（`hair`）、ドット径（`dot_size`）、セリフ傾角（`serif_drop`）など。*
-:::
+これに続き、各テーブルごとに 16 バイトの **Table Record** が `tag` のアルファベット昇順で厳密にソートされて配置されます：
 
-::: tip 図版 F-4：METAFONT weed 対話的スプライン設計デバッガ画面 (Figure F-4)
-![Figure F-4: The window of weed showing METAFONT glyph design](/images/fonts-encodings/fig-app-f4.png)
-*図版 F-4：専用グラフィックツール `weed` 上での 3 次スプライン方程式による METAFONT 動的グリフ輪郭デバッグ（原著第 967 頁より）。*
-:::
+```c
+struct TableRecord {
+    uint32_t tag;          // 4 バイトのテーブル識別子（例: 'cmap', 'glyf', 'head'）
+    uint32_t checkSum;     // テーブルデータのチェックサム（32 ビット符号なし加算）
+    uint32_t offset;       // ファイル先頭からのバイトオフセット（4 バイト境界にアライメント）
+    uint32_t length;       // テーブルの実データ長（パディングを含まない）
+};
+```
 
-::: tip 図版 F-5：ポーランド古典書体 Antykwa Półtawskiego デジタル版見本 (Figure F-5)
-![Figure F-5: The fonts of the Antykwa Półtawskiego distribution](/images/fonts-encodings/fig-app-f5.png)
-*図版 F-5：METAFONT パラメータ記述によって復元されたポーランド民族タイポグラフィの至宝 Antykwa Półtawskiego 書体ファミリー（原著第 977 頁より）。*
-:::
+## D.2 中核基本データテーブル
 
-::: tip 図版 F-6：Antykwa Półtawskiego 書体ファミリーの中核パラメータ骨格 (Figure F-6)
-![Figure F-6: The parameters of the Antykwa Półtawskiego font family](/images/fonts-encodings/fig-app-f6.png)
-*図版 F-6：Antykwa Półtawskiego 書体ファミリーの特徴パラメータマトリクス図解（原著第 979 頁より）。*
-:::
+### 1. `head`（Font Header）テーブル
+フォントの大域的な物理属性を定義します：
+- `magicNumber`：常に `0x5F0F3CF5`（ファイル整合性検証用）；
+- `unitsPerEm`：仮想デザイングリッドの解像度（TrueType では通常 2048、CFF では 1000）；
+- `checkSumAdjustment`：ファイル全体のチェックサム。全ファイルの 32 ビットワードの総和が `0xB1B0AFBA` になるよう調整値を算出；
+- `indexToLocFormat`：0 ならば `loca` テーブルは 16 ビット（オフセット値 / 2）、1 ならば 32 ビット絶対バイトオフセット。
+
+### 2. `cmap`（Character to Glyph Index Mapping）テーブル
+Unicode コードポイントからフォント内グリフインデックス（GID）への写像を実行します：
+- **Format 4**：Unicode 基本多言語面（BMP, U+0000〜U+FFFF）用の区分線形セグメントテーブル。連続するコード範囲を `segCount` 個の区間に分割し、`endCount`, `startCount`, `idDelta`, `idRangeOffset` 配列を用いて $O(\log N)$ の二分探索で GID を高速解決；
+- **Format 12**：SMP/SIP（絵文字、歴史的文字、CJK 統合漢字拡張面、U+10000〜U+10FFFF）を網羅する 32 ビット連続範囲マッピングテーブル。
+
+### 3. `glyf`（Glyph Data）と `loca`（Index to Location）テーブル
+- **単純グリフ（Simple Glyph）**：輪郭数 `numberOfContours >= 0`。各輪郭の終端点インデックス `endPtsOfContours[]`、バイトごとのフラグ `flags[]`（オンカーブ/オフカーブ、X/Y 差分圧縮フラグ）、X/Y 座標ストリーム、および TrueType バイトコード命令列 `instructions[]`；
+- **複合グリフ（Composite Glyph）**：`numberOfContours == -1`。他の単純グリフ（コンポーネント）を参照し、フラグ（`ARG_1_AND_2_ARE_WORDS`, `ARGS_ARE_XY_VALUES`, `WE_HAVE_A_SCALE`, `WE_HAVE_A_TWO_BY_TWO` 等）とアフィン変換行列によってアクセント付き文字や部首合成文字を形成。
+
+### 4. `hhea` と `hmtx` テーブル
+水平組版のメトリック仕様です：
+- `hhea`：最大アセンダ `ascender`、最大ディセンダ `descender`、行間 `lineGap`、最大送り幅 `advanceWidthMax`、`numberOfHMetrics`（`hmtx` 内のロングホリゾンタルメトリック数）；
+- `hmtx`：グリフごとの送り幅 `advanceWidth` と左サイドベアリング `lsb` のペア配列。
+
+### 5. `OS/2` テーブル
+Windows と OS/2 の互換性のために設計され、現在では全 OpenType フォントの必須中核テーブルです：
+- PANOSE-1 10 バイトフォント分類システム（文字のプロポーション、セリフ形状、コントラスト等の分類）；
+- `ulUnicodeRange1`..`4`（128 ビットの Unicode カバレッジビットフィールド）；
+- `achVendID`（4 バイトのベンダー識別タグ）；
+- `sTypoAscender`, `sTypoDescender`, `sTypoLineGap`（アプリケーション標準行間計算パラメータ）；
+- `usWinAscent`, `usWinDescent`（Windows GDI クラッシュ回避クリッピング境界）。
+
+## D.3 OpenType 高度組版レイアウトテーブル（GSUB / GPOS / GDEF）
+
+### 1. 3 段階インデックス階層アーキテクチャ
+OpenType レイアウトエンジン（HarfBuzz, DirectWrite, CoreText）は以下の厳密な階層ツリーを走査します：
+
+$$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{LookupList}$$
+
+1. **ScriptList**：書記系（`latn`, `arab`, `cyrl`, `hani` 等）を照合；
+2. **LangSysTable**：言語システム（デフォルト `dflt`、言語指定 `TRK `, `URD ` 等）を照合；
+3. **FeatureTable**：機能タグ（`liga`, `smcp`, `kern`, `calt`, `mark` 等）から `LookupListIndex` 配列を取得；
+4. **LookupTable**：実際の変換を実行するサブテーブル（SubTable）群を包含。
+
+### 2. カバレッジテーブル（Coverage Table）とクラス定義テーブル（ClassDef Table）
+照合高速化のため、すべてのサブテーブルは先頭にカバレッジテーブルを持ちます：
+- **Coverage Format 1**：個々の GID の昇順配列；
+- **Coverage Format 2**：連続する GID 範囲 `RangeRecord { startCoverageIndex, startGlyphID, endGlyphID }` の配列；
+- **ClassDef Table**：グリフをカテゴリ（基底文字、マーク、リガチャ、約物）や文字幅グループ（左側丸みグループ、右側直線グループ）に分類し、マトリクス形式のカーニングや文脈的置換を可能にします。
 
 ---
 
-# 付録 G：ベジェ曲線（Bézier Curve）の数学的性質とド・カステリョのアルゴリズム
+# 付録 E：METAFONT および MetaPost 言語リファレンス
 
-デジタルフォントの輪郭は、本質的に区分 3 次多項式スプライン曲線である。
+Donald Knuth の METAFONT と John Hobby の MetaPost は、宣言的数式関係（Declarative Equations）に基づくベクターグラフィックス記述言語です。
 
-## G.1 バーンスタイン多項式（Bernstein Polynomials）と基底定義
+## E.1 代数方程式による幾何定義
 
-平面上に $n+1$ 個の制御点 $P_0, P_1, \dots, P_n$ が与えられたとき、$n$ 次ベジェ曲線 $B(t)$ は次のように定義される。
-$$B(t) = \sum_{i=0}^n B_{i,n}(t) P_i, \quad t \in [0, 1]$$
-ここでバーンスタイン基底多項式 $B_{i,n}(t)$ は次の通りである。
-$$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}$$
+命令型グラフィックス言語（PostScript の `moveto`/`lineto` など）と異なり、METAFONT ではノード座標を連立一次方程式で定義します：
 
-フォント工学において、PostScript Type 1、OpenType CFF、および TrueType（2 次曲線を昇階計算）は一般に 3 次ベジェ曲線（$n=3$）を採用する。
-$$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3$$
+```metafont
+z1 = (0.1w, 0.5h);
+z2 = (0.9w, 0.5h);
+z3 = 0.5[z1, z2] + (0, 0.2h);  % z1 と z2 の中点から 0.2h 上方へシフト
+z1 - z4 = z2 - z3;              % 平行四辺形ベクトル関係
+```
 
-## G.2 中核的数学性質
+METAFONT の内部ソルバーはガウス消去法を用いてすべての末知数座標を自動的に解決します。
 
-1. **アフィン不変性（Affine Invariance）**：曲線に対する任意の平行移動、回転、拡大縮小、剪断変形は、その制御多角形に対する同一の変換と等価である。
-2. **凸包性（Convex Hull Property）**：曲線全体は、その制御多角形の凸包（Convex Hull）の内部に完全に包含される。レンダリングエンジンは、外接矩形クリッピング判定において複雑なスプライン方程式を解くことなく、制御点の極値のみで高速に判定できる。
-3. **端点補間と接線幾何**：曲線は厳密に始点 $P_0$ と終点 $P_3$ を通過し、端点における接線方向は最初と最後の制御ベクトル $P_1 - P_0$ および $P_3 - P_2$ に正確に平行である。
-   $$B'(0) = 3(P_1 - P_0), \quad B'(1) = 3(P_3 - P_2)$$
-4. **変差減少性（Variation Diminishing Property）**：任意の平面直線とベジェ曲線の交点数は、その直線と制御多角形の交点数を決して超えない。これにより、曲線が想定外の不要な振動を起こさないことが数学的に保証される。
+## E.2 ペン（Pens）と包絡線理論（Envelopes）
 
-## G.3 ド・カステリョのアルゴリズム（De Casteljau's Algorithm）
+METAFONT の描画は「ペン」の概念に依拠します：
+- ペンは凸多角形または楕円（`pencircle`）として定義されます；
+- パス $z(t)$ に沿ってペン $P$ を走査させる描画は、数学的にはミンコフスキー和（Minkowski Sum）およびその境界である包絡線（Envelope）の生成に相当します：
 
-**ド・カステリョのアルゴリズム（De Casteljau's Algorithm）** は、単純な線形補間に基づく数値的に極めて安定した計算フレームワークである。任意のパラメータ $t \in [0, 1]$ に対し、以下の反復によって点列を構築する。
-$$P_i^{[0]} = P_i$$
-$$P_i^{[k]} = (1-t) P_i^{[k-1]} + t P_{i+1}^{[k-1]}, \quad k = 1, \dots, n, \quad i = 0, \dots, n-k$$
+$\text{Stroke}(z(t), P) = \partial \left( \bigcup_{t} (z(t) + P) \right)$
 
-$k=n$ のとき、最終収束点 $P_0^{[n]}$ は正確に $t$ における曲線の座標 $B(t)$ と一致する！ さらに重要なことに、途中で生成された制御点系列：
-* 前半区間の制御点：$P_0^{[0]}, P_0^{[1]}, P_0^{[2]}, P_0^{[3]}$
-* 後半区間の制御点：$P_0^{[3]}, P_1^{[2]}, P_2^{[1]}, P_3^{[0]}$
-
-は、元の 3 次ベジェ曲線を二つの独立した滑らかに接続された 3 次曲線へと正確に分割する。ラスタライザ（Rasterizer）はこの性質を利用して再帰的二分割細分（Recursive Subdivision）を実行し、個々の微小曲線と直線線分の離散誤差が単一ピクセル未満になるまで分割を繰り返すことで、驚異的な超高速でアンチエイリアスビットマップラスタライズを完遂するのである！
+MetaPost はこの包絡線を正確な 3 次ベジェ曲線アウトラインに変換し、PostScript 形式として出力します。
 
 ---
 
-# 結び
+# 付録 F：TrueType 命令バイトコード全集（Instruction Set）
 
-ここに、ヤニス・ハラランブス教授の記念碑的大著『Fonts & Encodings』の全十四章および付録 A〜G の学術和訳が完結した。人類の最も原初的な鉛活字の物理力学から、森羅万象を統べる Unicode の符号化空間に至るまで；古典的デスクトップ OS のフォントバスから、現代の Web 動的タイポグラフィと SVG ベクトル流に至るまで；ベジェ曲線の微分幾何学から、仮想マシンのチューリング完全なヒンティング論理に至るまで――デジタルフォントとは単なる計算機工学アルゴリズムの結晶であるのみならず、人類の文字文明がシリコンの時代において永劫に息づくための壮大なる神殿なのである！
+TrueType 仮想マシンは 2 つのスタック（オペランドスタック、呼び出しスタック）、グラフィックス状態（Graphics State）、コントロール値テーブル（CVT）、ストレージエリア（Storage Area）、および Twilight ゾーンを持つスタック型プロセッサです。
+
+## F.1 内部ハードウェアコンポーネント
+
+- **Projection Vector（射影ベクトル $pv$）**：距離測定の方向単位ベクトル；
+- **Freedom Vector（自由ベクトル $fv$）**：ノードが移動を許可される方向単位ベクトル；
+- **Dual Projection Vector（双対射影ベクトル $dpv$）**：変形前（元のデザイン空間）における距離測定ベクトル；
+- **Twilight Zone（黄昏ゾーン）**：グリフ輪郭に属さない計算用の一時ノード（最大 64 個）を保持するメモリ空間。
+
+## F.2 中核命令全集分類
+
+| カテゴリ | オペコード | コマンド名 | 機能と数学的効果 |
+|:---|:---|:---|:---|
+| **ノード移動** | `0x2E` | `MDAP[a]` | ノードを現在のグリッド線にスナップ（Round Point）。引数 `a=1` で丸め実行 |
+| | `0x3E` | `MIAP[a]` | CVT テーブルの指定値に基づきノードを強制位置合わせ |
+| | `0xC0`..`0xDF`| `MDRP[abcde]` | 基準ノードからの相対距離を維持しつつ目標ノードを配置（丸め・最小距離制御） |
+| | `0xE0`..`0xFF`| `MIRP[abcde]` | 基準ノードから CVT 参照距離を維持して配置（ステム幅の一貫性を強制） |
+| | `0x49` | `ALIGNPTS` | 2 つのノードの距離を射影ベクトル上でゼロにし、完全整列させる |
+| **補間命令** | `0x39` | `IP` | 2 つの基準ノードの間で 1 つ以上の目標ノードの座標を線形補間 |
+| | `0x30`..`0x31`| `IUP[v]` | 輪郭上の移動されていない全ノードを、移動済みノードの間で自動補間（水平/垂直） |
+| **ゾーン制御** | `0x02`..`0x05`| `SRP0..3` | 基準ノードポインタ 0, 1, 2 を設定 |
+| | `0x06`..`0x09`| `SZP0..3` | ゾーンポインタ（通常グリフゾーンまたは Twilight ゾーン）を設定 |
+| **デルタ微調整**| `0x5D` | `DELTAP1` | 指定 PPM（ピクセル・パー・エム、9〜16 ppm）において指定ノードを $\pm n/64$ ピクセル微調整 |
+| | `0x71` | `DELTAP2` | 17〜24 ppm におけるノード座標微調整 |
+| | `0x72` | `DELTAP3` | 25〜32 ppm におけるノード座標微調整 |
+| | `0x73`..`0x75`| `DELTAC1..3` | 特定 PPM における CVT テーブル値自体のデルタ微調整 |
+| **算術・スタック**| `0x60` | `ADD` | スタックトップの 2 数を加算 |
+| | `0x61` | `SUB` | 減算 |
+| | `0x62` | `DIV` | 64 ビット固定小数点数除算 |
+| | `0x63` | `MUL` | 64 ビット固定小数点数乗算 |
+| | `0x68`..`0x6B`| `ROUND[ab]` | 指定された丸め状態（`RoundState`）に基づき数値を丸める |
+
+---
+
+# 付録 G：微分幾何学と曲線計算の数学的基礎
+
+フォントアウトラインの生成と補間は、パラメトリック多項式曲線とその微分幾何学的性質に完全に支配されています。
+
+## G.1 バーンスタイン多項式（Bernstein Polynomials）
+
+次数 $n$ のパラメトリックベジェ曲線 $B(t)$ は、$n+1$ 個の制御点 $P_0, P_1, \dots, P_n$ とバーンスタイン基底関数の線形結合として定義されます：
+
+$B(t) = \sum_{i=0}^n P_i B_{i,n}(t), \quad t \in [0, 1]$
+
+バーンスタイン基底関数 $B_{i,n}(t)$ の代数定義：
+
+$$B_{i,n}(t) = \binom{n}{i} t^i (1 - t)^{n - i} = \frac{n!}{i!(n - i)!} t^i (1 - t)^{n - i}$$
+
+### 必須の数学的性質：
+1. **非負性（Non-negativity）**：すべての $t \in [0, 1]$ において基底関数は常に非負：
+$$B_{i,n}(t) \ge 0, \quad \forall t \in [0, 1]$$
+2. **単位の分割（Partition of Unity）**：全基底関数の総和は恒等的に $1$ に等しい：
+$$\sum_{i=0}^n B_{i,n}(t) = 1$$
+3. **凸包性（Convex Hull Property）**：曲線 $B(t)$ は制御点群 $\{P_i\}$ が形成する凸包の内部に完全に包含されます。ラスタライザはこの性質を利用して極めて高速なクリッピングと交差判定を実行します。
+
+## G.2 曲線の導関数とホドグラフ（Hodograph）
+
+ベジェ曲線の 1 階導関数（接線ベクトル）$B'(t)$ は、元の制御点の差分から生成される次数 $n-1$ のベジェ曲線（ホドグラフ）を形成します：
+
+$$B'(t) = n \sum_{i=0}^{n-1} (P_{i+1} - P_i) B_{i, n-1}(t)$$
+
+同様に、曲率を決定する 2 階導関数は次式で与えられます：
+
+$B''(t) = n(n - 1) \sum_{i=0}^{n-2} (P_{i+2} - 2P_{i+1} + P_i) B_{i, n-2}(t)$
+
+パラメトリック平面曲線の幾何学的曲率 $\kappa(t)$：
+
+$\kappa(t) = \frac{x'(t)y''(t) - y'(t)x''(t)}{(x'(t)^2 + y'(t)^2)^{3/2}}$
+
+フォントデザインにおいて変曲点（$\kappa(t) = 0$）および曲率極値（極値点）の正確な検出は、極値ノード（On-curve Extrema）の自動挿入とヒンティング精度に直結します。
+
+## G.3 ド・カステリョの細分アルゴリズム（De Casteljau's Algorithm）
+
+ド・カステリョのアルゴリズムは、ベジェ曲線の任意のパラメータ $t \in [0, 1]$ における点評価および曲線の分割（Subdivision）を数値的に安定した反復線形補間によって実行します：
+
+$P_i^{(0)}(t) = P_i \quad (i = 0, \dots, n)$
+
+$$P_i^{(k)}(t) = (1 - t) P_i^{(k-1)}(t) + t P_{i+1}^{(k-1)}(t) \quad (k = 1, \dots, n; \ i = 0, \dots, n - k)$$
+
+最終的な点 $P_0^{(n)}(t)$ は曲線上の座標 $B(t)$ と厳密に一致します。さらに、中間点群：
+- 左側セグメントの制御点：$P_0^{(0)}, P_0^{(1)}, \dots, P_0^{(n)}$
+- 右側セグメントの制御点：$P_0^{(n)}, P_1^{(n-1)}, \dots, P_n^{(0)}$
+
+このアルゴリズムにより、浮動小数点丸め誤差を回避しつつ、任意の精度で輪郭を平坦な直線セグメントへと細分化（Flattening）してラスタライザへ供給することが可能となります。
+
+---
+
+# 結語：デジタル文字の工学的尊厳
+
+これら全 7 編の付録が明示しているように、文字の組版とレンダリングは単なるグラフィックデザインの領域に留まりません。それは固定小数点数演算のビット境界から 3 次多項式の微分幾何学、そして仮想マシンのチューリング完全なバイトコードに至るまで、コンピュータサイエンスと応用数学が織りなす精緻な極致です。
+
+*本付録集の全訳および完全技術校正は ヴワル魔法図書館（Voile Magic Library）文献翻訳工房 により完了しました。*
