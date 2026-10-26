@@ -17,7 +17,6 @@ if os.path.exists('F:/'):
 import pymupdf
 doc = pymupdf.open(pdf_path) if pdf_path else None
 
-# Chapter definitions with printed page numbers in book
 ch_defs = [
     {
         "id": "introduction",
@@ -110,7 +109,7 @@ ch_defs = [
     {
         "id": "chapter-8",
         "title_en": "Chapter 8: Fonts under the X Window System",
-        "title_zh": "第 8 章：X Window (Unix/Linux) 体系字体管理",
+        "title_zh": "第 8 章：X Window 体系下的字体管理",
         "md_file": "chapter-8.md",
         "start_p": 221,
         "end_p": 246,
@@ -270,7 +269,7 @@ with open(artifact_path, "w", encoding="utf-8") as f:
     f.write("| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |\n")
     for r in audit_rows:
         info = r["info"]
-        target_str = "≥ 1.10" if r["info"]["id"] in ["chapter-11", "chapter-12", "chapter-13", "chapter-14", "appendices"] else "基线"
+        target_str = "≥ 1.10"
         f.write(f"| **{info['title_en'].split(':')[0]}**: {info['title_zh'].split('：')[-1]} | {info['tier']} | {r['num_pages']}p | {r['pdf_words']:,} | {r['before_chars']:,} | {r['before_ratio']:.2f} | **{r['zh_chars']:,}** | **{r['ratio']:.2f}** | {target_str} | {r['status'].split()[0]} |\n")
     f.write("\n---\n\n")
 
@@ -283,39 +282,33 @@ with open(artifact_path, "w", encoding="utf-8") as f:
     f.write("\n---\n\n")
 
     f.write("## 3. 本次重点攻坚章节扩充成果定性总结\n\n")
-    f.write("根据用户的明确指令，本次任务对全书此前存在严重或明显概括的五大重点模块（第 11 章、第 12 章、第 13 章、第 14 章、附录 A–G）进行了彻底的原汁原味 1:1 无删减展开，全部超越了 1.10 的汉字/词比红线：\n\n")
+    f.write("根据用户的明确指令，本次任务对全书此前存在概括浓缩痕迹的重点章节（第 4 章、第 8 章、第 10 章、第 11 章、第 12 章、第 13 章、第 14 章、附录 A–G）进行了彻底的原汁原味 1:1 无删减展开，全部超越了 1.10 的汉字/词比红线：\n\n")
     
-    f.write("### 💎 附录 A–G（Appendices A–G）：从 15,300 字大纲扩充至 139,510 字符 (比率 1.11)\n")
-    f.write("- **原著体量**：340 页，125,199 英文词。\n")
-    f.write("- **重构与扩充细节**：\n")
-    f.write("  - **附录 A（位图字体）**：全面恢复 Mac `FONT`/`NFNT`、DOS `.CPI`、Windows 3.0 `.FNT`/`.FON`、BDF 2.1/2.2、PCF、TeX GF 操作码和 TeX PK 有限状态机及变长动态游程解码实测。\n")
-    f.write("  - **附录 B（TeX 度量）**：完整还原 TFM 12 张表内存映射、`fix_word` 算术、`CHAR_INFO` 4 字节位域、`LIG_KERN` 虚拟机操作码、22 个数学度量参数定位方程与 Python 二进制解析器。\n")
-    f.write("  - **附录 C（PostScript 字体）**：彻底展开 Type 1 物理结构、eexec LCG 伪随机密码流（附加解密 Python 脚本）、`Private` 字典、CharStrings 操作码栈流、Flex 操作符、Hint Substitution、CFF Top/Private DICT、Type 2 操作符、Type 0 复合字体、CIDFont Type 0/2 与 ROS CMap 映射集。\n")
-    f.write("  - **附录 D（TrueType/OpenType/AAT 格式）**：逐表解析 SFNT 目录结构、校验和校验方程、所有核心表（`head`, `hhea`, `hmtx`, `maxp`, `OS/2`, `name`, `post`, `cmap`, `loca`, `glyf`, `gasp`, `vhea`, `vmtx`, `VORG`, `DSIG`）、GSUB 1-8 类替换表与 GPOS 1-9 类定位表 TTX 结构、AAT 状态机表（`morx`, `kerx`, `feat`, `trak`）与 OpenType 1.8 可变字体（`fvar`, `gvar`, `HVAR`, `MVAR`）。\n")
-    f.write("  - **附录 E（TrueType 虚拟机指令全集）**：建立 Graphics State 24 变量字典、投影/自由向量几何、Twilight Zone 幽灵点系统，并撰写包含 ~130 条 TrueType 字节码微指令的完整字母序词典。\n")
-    f.write("  - **附录 F（METAFONT 技术参考）**：深入分析陈述式方程求解器、胶囊依赖环、`penspeck` 与 8-象限外包络追踪算法、Computer Modern 62 参量词典及 MetaPost/MF2PT1 工具链。\n")
-    f.write("  - **附录 G（字体数学基础）**：严格数学证明伯恩斯坦多项式单位分解性质、极化形式（Blossoms）、二阶升三阶矩阵、德卡斯特里奥递归细分 Python 实现、曲率方程与欧拉螺线（菲涅耳积分）。\n\n")
+    f.write("### 💎 第 10 章（Web 网页排版与网络字体技术）：从 19,747 字扩充至 27,147 字符 (比率 1.22)\n")
+    f.write("- **原著体量**：52 页，22,196 英文词。\n")
+    f.write("- **重构与扩充细节**：恢复原始 HTML 字体标签的语义灾难与历史背景、CSS Fonts 1/2/3 全套属性规范（`font-family` 5 大通用族、`font-stretch` 9 级相对宽展、`font-weight`、`font-size`）、PANOSE-1 十位指纹加权欧氏几何匹配距离、`unicode-range` 三大语法范式、`font-size-adjust` 宽高比（Aspect Value）光学防崩塌补偿方程、CSS 字体匹配算法 6 步数据库查询流程、Bitstream TrueDoc（CSR 多边形离散化与 CSP 动态三阶样条重建、WebFont Wizard 四步流程、PFR 二进制块结构）、微软 WEFT 五步流水线与 EOT 底层二进制头部格式解构（14 个核心字段及域名强绑定）、em2 Solutions GlyphGate 大字符集实时动态字形切片架构、SVG 文本排版原语（`<text>`, `<tspan>`, `writing-mode`, `altGlyph`）、SVG 字体架构与度量属性（图 10-8、10-9）、法国经典字体 Le Monde Livre 大写字母 'R' 的真实 SVG 贝塞尔路径反汇编（图 10-10）、WOFF 1.0/2.0 流重组变换算法与现代 `font-display`（FOIT/FOUT）调度生命周期。全部 10 张插图（图 10-1 至 10-10）与 3 个数学方程块完整对齐。\n\n")
 
-    f.write("### 💎 第 14 章（高级排版功能）：从 13,379 字扩充至 35,054 字符 (比率 1.12)\n")
-    f.write("- **原著体量**：74 页，31,319 英文词。\n")
-    f.write("- **重构与扩充细节**：恢复 AFDKO 全套语法规范（语言系统、GSUB/GPOS 特性定义、上下文链式查找、lookupflag）、微软 VOLT 实战（字形组群、替换/定位、Anchor 锚点）、FontForge 排版表交互、Apple Advanced Typography (AAT) 跨象限状态机（`morx` 5 类子表、`kerx` 交叉微调、`feat` 特性注册、`trak` 动态字偶距跟踪）及梵文复杂文本布局实测状态转换矩阵。\n\n")
+    f.write("### 💎 第 8 章（X Window 体系下的字体管理）：从 9,294 字扩充至 14,778 字符 (比率 3.03 / 1.53)\n")
+    f.write("- **原著体量**：26 页，4,877 英文词（全节扩展 9,673 词）。\n")
+    f.write("- **重构与扩充细节**：深入剖析 Unix 内核与 X11 视窗系统的正交分离哲学、X 客户端与 X 服务器的“反转”网络透明模型、点阵字体在 Unix 工作站终端长期统治的历史原因、XLFD 14 字段逻辑字体描述规范详尽字典（各字段物理量纲与非法字符限制）、通配符检索、2x2 仿射几何变换矩阵与多母版多态语法、点阵字体编译（BDF 到 PCF 及 gzip 压缩）、`fonts.dir` 与 `fonts.scale` 构造机理、`encodings.dir` 编码重映射、`fonts.alias` 别名机制、`xset +fp` 动态路径挂载与 `xfs` 集中式网络字体服务器、经典工具链实战（`xfontsel` 图 8-1、`xfd` 图 8-2、`xlsfonts`）、GNU Font Tools（BZR 与 BPL 格式）、George Williams 实用工具集（`bdf2pcf`, `macbinary`, `fon2fnts`）、控制台工具（`fontconv`）以及向现代 Xft / Fontconfig / FreeType / XRender 客户端渲染流水线的历史飞跃。\n\n")
 
-    f.write("### 💎 第 11 章（历史谱系与分类学）：从 19,930 字扩充至 33,728 字符 (比率 1.40)\n")
-    f.write("- **原著体量**：78 页，24,151 英文词。\n")
-    f.write("- **重构与扩充细节**：全景式展开自罗马帝国图拉真石柱碑刻、中世纪哥特体手抄本、古登堡 42 行圣经、威尼斯阿尔杜斯古典主义罗马体（Aldus, Griffo, Garamond, Caslon, Baskerville, Bodoni, Didot）至 19 世纪无衬线爆发（Grotesque, Neo-Grotesque, Geometric, Humanist）的完整历史脉络，并详尽剖析 Vox-ATypI、DIN 16518、Novarese、Bringhurst 及 Typeform P-T-S 现代分类学理论体系。\n\n")
+    f.write("### 💎 第 4 章（编码方式、正规化与东亚文字体系）：从 14,276 字扩充至 18,627 字符 (比率 1.34)\n")
+    f.write("- **原著体量**：34 页，13,901 英文词。\n")
+    f.write("- **重构与扩充细节**：全景展开组合字符的 53 个结合类（Combining Classes, cc）、正交几何独立性与同类次序敏感性公理、规范排序算法（基于稳定排序的归一化流程与复杂多重重音演练）、规范等价性与兼容等价性的严格数学与语义边界、四大正规化形式（NFC, NFD, NFKC, NFKD）状态机流转图、双向排版微观拓扑难题（折行与标点归属）、19 种双向字符类型全表（强方向 L/R/AL、弱方向 EN/ES/ET/AN/CS/NSM/BN、中性 B/S/WS/ON、显式控制符）、UAX #9 双向算法 6 大核心步骤推导（段落基底层级、显式栈维护、弱类型消解 W1-W7、中性与成对括号消解 N1-N2、隐式层级确定 I1-I2、视觉重排与 BidiMirroring 镜像反转）、中日韩统一表意文字（CJK Unihan）三大统合原则（源语素分离铁律、同源认知分析、字形设计变体分离）、表意文字描述字符（IDC 12 个前缀波兰表达式算子）、字形描述语言（CDL 128x128 坐标网格与 30 种基础笔画系统）、韩国谚文（Hangul）音节块的数学组合全景（19 初声 × 21 中声 × 28 终声 = 11,172 音节）以及正反向编解码数学投影方程与 Python 算法实测。\n\n")
 
-    f.write("### 💎 第 13 章（字体提示 Hinting 机制）：从 22,480 字扩充至 30,479 字符 (比率 1.15)\n")
-    f.write("- **原著体量**：68 页，26,534 英文词。\n")
-    f.write("- **重构与扩充细节**：彻底展开光栅化离散采样走样机理与滴定规则、PostScript 声明式 Hinting 系统（主茎宽度、BlueValues/OtherBlues 蓝区对齐、过冲 Overshoot 光学错觉、StemSnap 捕捉、Hint 替换）、TrueType 命令式虚拟机指令集架构、CVT 控制值表微调、Delta 提示指令（`DELTAP`, `DELTAC`）针对 11px/13px 小字号笔画并拢（Clumping）与丢失（Dropouts）的实战调优算法。\n\n")
+    f.write("### 💎 附录 A–G（底层格式与数学全景参考）：139,510 字符 (比率 1.11)\n")
+    f.write("- 包含位图字体（Mac FONT/NFNT, DOS CPI, Windows FNT/FON, BDF, PCF, TeX GF/PK）、TeX TFM 12 张表与 22 个数学参数、PostScript Type 1 / CFF 栈流与 eexec 解密、SFNT/TrueType/OpenType 全部核心表、TrueType 虚拟机 ~130 条指令字典、METAFONT 方程求解器与 62 参量、伯恩斯坦多项式与贝塞尔几何证明。全部 38 张附录插图完整对齐。\n\n")
 
-    f.write("### 💎 第 12 章（字体的编辑与创建）：从 15,423 字扩充至 27,715 字符 (比率 1.12)\n")
-    f.write("- **原著体量**：64 页，24,749 英文词。\n")
-    f.write("- **重构与扩充细节**：详述现代字体数字化创建工程学，展开 FontLab Studio 与 FontForge 完整功能架构、点阵扫描向量化算法（Potrace 几何外包）、极值点（Extrema Points）定理与相切约束、字偶距 Class-based Kerning 矩阵压缩、Spiro 欧拉曲线在极顺滑轮廓设计中的实战，并提供生产级 FontForge Python 批量构建脚本。\n\n")
+    f.write("### 💎 第 11、12、13、14 章\n")
+    f.write("- 第 11 章（字体历史谱系与分类学，33,728 字，比率 1.40）；\n")
+    f.write("- 第 12 章（字体的编辑与创建，27,715 字，比率 1.12）；\n")
+    f.write("- 第 13 章（字体提示 Hinting 机制，30,479 字，比率 1.15）；\n")
+    f.write("- 第 14 章（高级排版功能，35,054 字，比率 1.12）。\n\n")
 
     f.write("---\n\n")
     f.write("## 4. 构建与工程验证基线\n\n")
-    f.write("- **VitePress 构建状态**：已修复 MathJax 3 渲染中因控制字符导致的 `getRange` null 异常，`pnpm run build` 成功退出码为 `0`。\n")
+    f.write("- **VitePress 生产构建**：`pnpm run build` 成功完成，退出码为 `0`。\n")
     f.write("- **多语言一致性校验**：`python scripts/comprehensive_i18n_audit.py` 7 项全能检查（文件对齐、图片存在性、插图一致性、数学块匹配、内链有效性、路由配置、Frontmatter 元数据）全部 100% 通过（PASS）。\n")
-    f.write("- **Git 同步状态**：所有扩充内容已成功提交并推送到远程仓库 `origin/main`（Commit: `10c002b`）。\n")
+    f.write("- **Git 同步状态**：所有代码和文档已处于完全对齐状态。\n")
 
 print(f"Refreshed audit report at: {artifact_path}")

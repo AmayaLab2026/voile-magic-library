@@ -1,224 +1,342 @@
 ---
-title: 第八章 · X Window 系統下的字型管理架構
-description: 雅尼斯·哈拉蘭布斯《Fonts & Encodings》第八章全文深度學術漢譯：X 視窗系統邏輯字型描述（XLFD）14 欄位全規範、二維仿射矩陣變換、BDF/PCF 點陣字型編譯、fonts.dir/scale/alias 索引架構、xfs 字型伺服器、xfontsel 與 xfd 除錯工具鏈、GNU Font Tools 與現代 FreeType/fontconfig/Xft 渲染革命。
+title: 第八章：X Window 體系下的字體管理
+description: X Window (Unix/Linux) 客戶端-服務器網絡透明圖形架構、XLFD 14 字段邏輯字體描述規範、字體目錄與配置、核心交互工具與字體轉換生態全景技術解析
 ---
 
-# 第八章 · X Window 系統下的字型管理架構
-### Chapter 8: Font Management under X Window
-**著者：雅尼斯·哈拉蘭布斯 博士（Yannis Haralambous, Ph.D.）**  
-*選自《字型與編碼》（Fonts & Encodings）原著第 221–234 頁*
+# 第 8 章：X Window 體系下的字體管理
 
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
----
+在深入探討了 Macintosh（經典 Mac OS 與 Mac OS X）以及 Windows 體系下的字體機制後，我們發現這兩大個人操作系統在字體處理的哲學與工程實現上呈現出驚人的相似性。現在，我們將視線轉向 Unix——這一最初主要應用於大型工業研究機構、國家實驗室和高等學術界，如今通過以 GNU/Linux、FreeBSD 爲代表的自由開源化生而在全球開發者與服務器市場佔據絕對統治地位的操作系統。
 
-在 Macintosh 和 Windows 陣營憑藉兩三種高度壟斷、深度整合於作業系統的專有商業字型格式獨步天下的時代，UNIX 世界與 X 視窗系統（X Window System）展現出了截然不同的生態面貌：**極端的開放性、無與倫比的協議靈活性、以及近乎殘酷的技術異構性**。
-
-在 X Window 的分散式網路透明架構中，應用程式（Client）與實際負責繪圖和呈現字形的顯示伺服器（Server）可以執行在相隔萬里的不同物理主機之上。這就帶來了一系列獨特的工程挑戰：伺服器如何向客戶端宣告本機支援的字型資產？客戶端如何在不依賴本地物理字型檔檔案的前提下向伺服器發起字型度量與光柵化請求？系統如何在低頻寬網路環境下高速共享字型資料？
-
-為了在高度異構的 UNIX 各發行版與工作站網路之間建立統一的秩序，麻省理工學院（MIT）X 聯合會制定了奠定整個圖形視窗基石的字型命名規範——**X 邏輯字型描述規範（X Logical Font Description, XLFD）**。
+雖然經典 Mac OS 與早期的 Windows 並沒有將操作系統底層內核與圖形窗口系統截然分開，但 Unix 從設計伊始就恪守着極度的正交模塊化哲學：**操作系統內核（Kernel）與視窗圖形系統（Windowing System）是徹底分離的獨立實體**。在 Unix 世界中，這一圖形視窗子系統幾乎無一例外地由 **X Window 系統（X Window System，通常簡稱 X 或 X11）** 獨佔鰲頭。
 
 ---
 
-## X 平臺下的字型邏輯描述規範（XLFD）
+## 1. X Window 架構的獨特性質與運行機理
 
-在 X Window 哲學中，字型的物理檔名（例如磁碟上的 `courB12.pcf.Z`）被嚴格隱藏在底層；任何上層應用程式在開啟、請求或測量一個字型時，必須使用一段由 **14 個用連字元（hyphen）精確分隔的欄位** 構成的規範化純文字字串。
+X Window 系統最初於 1984 年在麻省理工學院（MIT）著名的雅典娜計劃（Project Athena）中誕生，隨後由 X 財團（X Consortium）及後來的 X.Org 基金會持續標準化與演進。理解 X Window 體系下字體管理機制的第一步，是必須確立其核心的**網絡透明性（Network Transparency）與客戶端-服務器（Client-Server）架構**：
 
-標準的 XLFD 命名語法結構如下：
+```
++-------------------------------------------------------------+
+|                      Remote Host / Supercomputer            |
+|  +-------------------------------------------------------+  |
+|  |             X Client (Application: Emacs / CAD)       |  |
+|  |  * Sends rendering requests via X11 Core Protocol    |  |
+|  |  * Requests font metrics, character glyphs, strings   |  |
+|  +-------------------------------------------------------+  |
++------------------------------|------------------------------+
+                               | Network Socket (TCP/IP / SSH)
+                               v
++-------------------------------------------------------------+
+|                      Local Workstation / Display            |
+|  +-------------------------------------------------------+  |
+|  |             X Server (X.Org / XFree86)                |  |
+|  |  * Manages physical screen, GPU, mouse, keyboard      |  |
+|  |  * Accesses Font Path: rasterizes / draws glyphs      |  |
+|  +-------------------------------------------------------+  |
+|                              |                              |
+|                              v                              |
+|                   [ Physical Framebuffer ]                  |
++-------------------------------------------------------------+
+```
+
+1. **角色反轉認知**：在通常的網絡應用（如 Web 或 FTP）中，“服務器”往往是位於遠程機房的高性能大型機，而“客戶端”是用戶面前的終端電腦。然而在 X Window 哲學中，這一稱謂恰恰相反：
+   - **X 服務器（X Server）**：運行在用戶本地直接操作的物理設備上，負責直接控制物理顯示器、顯卡幀緩衝區（Framebuffer）、鍵盤以及鼠標輸入。
+   - **X 客戶端（X Client）**：則是實際運行的應用程序（例如文本編輯器、科學仿真繪圖軟件或排版程序）。X 客戶端既可以運行在本地，也可以運行在通過高速局域網甚至遠隔重洋的遠程高性能計算集羣上。
+2. **字體光柵化的物理駐留位置**：
+   - 當遠程 X 客戶端請求在屏幕上繪製一行字符時，在傳統的 X11 核心協議模型下，客戶端並不會將字體的矢量輪廓點陣直接打包發送給屏幕，而是向本地的 X 服務器發出類似“請使用字體 $F$ 在座標 $(x, y)$ 處繪製字符串 $S$”的高級繪圖協議請求。
+   - 這意味着：**字體文件本身必須物理存在於 X 服務器所在的機器上（或者由 X 服務器能夠訪問的網絡字體服務器託管）**！如果遠程主機安裝了某種專業數學字體，而本地的 X 服務器終端沒有安裝該字體的度量與光柵數據，遠程程序就根本無法在本地屏幕上將其實例化呈現。
+3. **點陣字體的長期統治與頑固生命力**：
+   - 經典 Mac OS 和 Windows 在早期各自僅保留兩三款原始點陣字體（如 Chicago, Geneva, System, Terminal），並在 TrueType 誕生後迅速全面轉向全矢量字體渲染。
+   - 與此形成鮮明對照的是，X Window 系統在其誕生後的前十五年裏，**點陣字體始終佔據着核心支柱地位**。在 Unix 工作站日常所依賴的虛擬終端模擬器（`xterm`）、代碼編輯器（Vi, Emacs）中，終端字符必須嚴格遵循網格對齊，每一個像素都必須清晰銳利、無抗鋸齒模糊且具備極致的響應速度。在 1980 至 1990 年代缺乏現代 GPU 硬件加速的硬件環境下，矢量輪廓的實時解析與平滑光柵化計算開銷巨大，而預先烘焙好的點陣字體（如 `6x13`, `8x13`, `10x20`）能夠以微秒級的內存拷貝直接傾倒至顯存。
+   - 爲此，X 委員會設計了一套極其精密、涵蓋 14 項物理與光學維度的分類與命名檢索標準，並輔以完善的模式匹配與替補回退策略，以確保網絡分佈環境下的字符圖形永遠不會發生“斷流”。這套基石體系就是 **XLFD（X 邏輯字體描述規範）**。
+
+---
+
+## 2. X 邏輯字體描述規範（XLFD）全解
+
+**XLFD（X Logical Font Description Conventions）** 是一套由 X 財團制定、用於在 X 視窗環境中唯一標識、檢索、匹配和實例化任何點陣或矢量字體的行業規範。
+
+在 XLFD 定義中，一個合法的完整字體名稱由 **14 個使用連字符（Hyphen `-`）分隔的字段** 組成，全串必須以連字符開始，並採用 ISO 8859-1（Latin-1）字符集進行純文本編碼。
+
+### 2.1 命名格式與字符集限制
+一個典型的 XLFD 結構模板如下：
+```
+-FOUNDRY-FAMILY_NAME-WEIGHT_NAME-SLANT-SETWIDTH_NAME-ADD_STYLE_NAME-PIXEL_SIZE-POINT_SIZE-RESOLUTION_X-RESOLUTION_Y-SPACING-AVERAGE_WIDTH-CHARSET_REGISTRY-CHARSET_ENCODING
+```
+
+爲了確保跨網絡解析的魯棒性，XLFD 各字段內部**嚴禁包含以下保留字符**：
+- 連字符（`-`）：字段分隔符；
+- 星號（`*`）與問號（`?`）：通配檢索符；
+- 逗號（`,`）：字體列表分隔符；
+- 雙引號（`"`）：字符串定界符。
+
+### 2.2 14 個核心字段的語義與物理量綱
+
+| 字段序號 | 字段標識名稱 | 屬性分類 | 物理單位 / 取值範圍 | 技術語義與行業規範 |
+| :---: | :--- | :---: | :---: | :--- |
+| **1** | `FOUNDRY` | 廠商 | 字符串標識 | 字體數字化鑄模商或提供者（如 `adobe`, `bitstream`, `misc`, `urw`, `b&h`, `sony`, `daewoo`, `schumacher`）。`misc` 通常表示未署名的公開開源收集體。 |
+| **2** | `FAMILY_NAME` | 家族 | 純文本字名 | 字體商業或設計家族全名（如 `times`, `helvetica`, `courier`, `fixed`, `clean`, `lucida`, `palatino`）。 |
+| **3** | `WEIGHT_NAME` | 字重 | 視覺明度分類 | 筆畫視覺黑度（如 `bold`, `medium`, `demibold`, `light`, `black`, `regular`）。 |
+| **4** | `SLANT` | 傾斜度 | 單字符代碼 | 字形姿態幾何編碼：<br>• `r` (Roman)：直立正體；<br>• `i` (Italic)：專門設計的斜體手寫風格；<br>• `o` (Oblique)：算法機械傾斜的僞斜體；<br>• `ri` (Reverse Italic)：反向向左傾斜的意大利體；<br>• `ro` (Reverse Oblique)：反向機械傾斜體；<br>• `ot` (Other)：其他非常規姿態。 |
+| **5** | `SETWIDTH_NAME` | 比例寬 | 相對展寬比 | 字符在比例設計上的水平收縮或擴展（如 `normal`, `condensed`, `semicondensed`, `narrow`, `extended`）。 |
+| **6** | `ADD_STYLE_NAME` | 附加變體 | 變體修飾串 | 附加設計風格特徵分類，用於區分同一家族內的特殊子集（如 `sans serif`, `informal`, `serif`, `ja`, `alt`）。通常爲空。 |
+| **7** | `PIXEL_SIZE` | 像素高度 | 整數像素 ($px$) | 字體字形光柵化後的垂直高度包絡。對於尚未光柵化的可縮放矢量字體（PostScript Type 1 / TrueType），此字段通常標註爲 `0`。 |
+| **8** | `POINT_SIZE` | 磅值尺寸 | 十分之一磅 ($1/10 \ pt$) | 字體在傳統美製排版中的名義磅值（$1 \ pt = 1/72.27 \ in$）的十倍值。例如，`120` 表示 12 磅，`140` 表示 14 磅。此字段表徵字體設計時所針對的**光學尺寸（Optical Size）**。 |
+| **9** | `RESOLUTION_X` | 水平分辨率 | 點每英寸 ($DPI$) | 字體光柵化設計所針對的目標設備水平物理分辨率。傳統 Unix 屏幕常用 `75` 或 `100`。 |
+| **10** | `RESOLUTION_Y` | 垂直分辨率 | 點每英寸 ($DPI$) | 目標設備垂直物理分辨率。**Unix 歷史上允許存在非正方形物理像素的顯示設備**（例如早期的專業工作站顯示管，物理分辨率可能爲 $100 \times 75$），因此水平與垂直解析度必須拆分爲獨立字段。 |
+| **11** | `SPACING` | 排版間距 | 單字符分類 | 字符寬度度量模型：<br>• `p` (Proportional)：變寬/比例字體，各字符根據字形自然寬度佔據空間（如 Times, Helvetica）；<br>• `m` (Monospaced)：等寬字體，所有字符的進深步長完全一致（如 Courier）；<br>• `c` (Character Cell)：嚴格字符單元格字體，所有字符不僅寬度完全恆定，而且字形黑體區域嚴格限定在固定矩形單元格內，專爲終端模擬器設計（如 `fixed`）。 |
+| **12** | `AVERAGE_WIDTH`| 平均寬度 | 十分之一像素 ($1/10 \ px$) | 字體所有可打印字符進深寬度的加權算術平均值的十倍。對於等寬字體，此值精確等於單一單元格寬度乘以 10；對於矢量字體模板，該字段常填 `0`。 |
+| **13** | `CHARSET_REGISTRY`| 編碼機構 | 國際標準化代號 | 字符集註冊機構或權威標準名稱（如 `iso8859`, `iso10646`, `jisx0208.1983`, `koi8`, `adobe`）。 |
+| **14** | `CHARSET_ENCODING`| 編碼分部 | 具體代碼編號 | 該字符集標準下的具體子集或代碼頁劃分（如 `1`, `2`, `15`, `r`, `0`）。 |
+
+### 2.3 實戰示例與逐字段剖析
+
+我們可以通過分析兩個經典的現實 XLFD 字符串來加深理解：
+
+#### 示例 A：終端專用 Unicode 點陣字體
+```
+-misc-fixed-medium-r-normal--20-140-100-100-c-100-iso10646-1
+```
+- `-misc-`：由通用開源社區維護，無特定單一商業字模廠；
+- `-fixed-`：經典 X11 終端等寬家族；
+- `-medium-`：正常標準字重；
+- `-r-`：直立正體（Roman）；
+- `-normal-`：正常寬度比例；
+- `--`：附加風格變體爲空；
+- `-20-`：像素高度爲 20 像素；
+- `-140-`：光學磅值爲 14 磅（$14.0 \ pt$）；
+- `-100-100-`：專爲水平 100 DPI、垂直 100 DPI 的正方形像素顯示器優化；
+- `-c-`：嚴格字符單元格（Character Cell）終端字體；
+- `-100-`：平均寬度爲 10 像素（$100 / 10 = 10 \ px$），即每個字符格爲 $10 \times 20$ 矩陣；
+- `-iso10646-1`：全量支持 ISO 10646 / Unicode BMP（基本多語言平面）通用編碼。
+
+#### 示例 B：URW 提供的可縮放矢量的 Palatino 字體
+```
+-urw-palatino-medium-r-normal--12-120-75-75-p-0-iso8859-2
+```
+- `-urw-`：德國著名數字字模開發商 URW++；
+- `-palatino-`：著名排版大師赫爾曼·察普夫（Hermann Zapf）設計的帕拉蒂諾古典體；
+- `-medium-r-normal-`：標準字重、直立羅馬體、常規寬展；
+- `--`：無特殊附加修飾；
+- `-12-120-`：設計像素 12px，光學尺寸 12 磅；
+- `-75-75-`：匹配 75 DPI 經典屏幕；
+- `-p-`：比例字體（Proportional）；
+- `-0-`：平均寬度爲 0，表明其爲連續矢量輪廓，可在實例化時動態按需計算度量；
+- `-iso8859-2`：包含東歐中歐拉丁字符集（Latin-2）。
+
+### 2.4 通配符機制與模式匹配
+
+在日常開發與腳本調用中，要求操作者或應用程序記憶並完整書寫全部 14 個字段顯然是極不切合實際的。爲此，XLFD 原生集成了兩種強力通配符：
+- **`*`（星號）**：匹配 0 個、1 個或任意多個連續字符；
+- **`?`（問號）**：精確匹配單一任意字符。
+
+例如，用戶在啓動終端模擬器時只需指定：
+```bash
+xterm -fn "-*-fixed-medium-r-*-*-16-*-*-*-*-*-iso8859-1"
+```
+甚至可以極致簡化爲：
+```bash
+xterm -fn "*fixed-medium-r-*-16-*-iso8859-1"
+```
+X 服務器在接收到此類含有通配符的請求字符串後，會掃描當前系統已掛載的字體數據庫，按照字段確定性優先級展開匹配，並返回第一個命中的物理字體句柄。
+
+### 2.5 幾何變換矩陣語法與多母版多態支持
+
+除了靜態字體查找，XLFD 規範還極富前瞻性地定義了字體的**動態實時幾何變換語法**。對於由 FreeType 或 Type 1 柵格化引擎驅動的矢量字體，XLFD 允許在像素尺寸或磅值字段嵌入類似 PostScript 的二維仿射變換矩陣（Affine Transformation Matrix）：
+
+```
+[-12 0 0 12]
+```
+當此類矩陣置於 XLFD 的尺寸字段時：
+```
+-adobe-utopia-regular-r-normal--[-12 0 0 12]-*-*-*-p-*-iso8859-1
+```
+- 矩陣形式爲 `[s_x \ s_{xy} \ s_{yx} \ s_y]`；
+- 負號表示水平鏡像反轉（Horizontal Reflection），非對角元非零則表示剪切（Shearing / 傾斜）或任意角度旋轉（Rotation）。這使得 Unix 客戶端無需在磁盤上安裝新字體，即可命令 X 服務器現場合成傾斜體、翻轉體或任意變倍體。
+- 此外，針對 Adobe Multiple Master 多母版字體，XLFD 也預留了在附加風格字段注入設計軸動態座標向量（如 `_wd600_wt400`）的標準化擴展語法。
+
+---
+
+## 3. X Window 字體安裝與服務器部署架構
+
+在傳統 X Window 系統中，向系統安裝一套新字體絕非簡單地將文件拷貝至特定目錄即可生效，而是涉及一整套**目錄索引編譯、編碼重映射與動態路徑重載**流程。
+
+### 3.1 點陣字體的物理封裝與編譯
+
+X Window 系統支持兩種標準點陣字體文件格式：
+1. **BDF（Bitmap Distribution Format）**：基於 ASCII 純文本的人類可讀明文格式（詳見本書附錄 A.4）。由於其以純文本存儲點陣十六進制數據，體積龐大且解析效率低；
+2. **PCF（Portable Compiled Format）**：機器相關的二進制編譯格式。它將 BDF 中的字頭、偏移表、字形點陣打包爲高效的內存映射結構，具備極快的讀取速度。
+
+在實際生產部署中，系統管理員必須通過 `bdftopcf` 編譯器將 BDF 轉換爲 PCF，並使用 `gzip` 進行高強度壓縮：
+```bash
+# 编译点阵字体并启用极致压缩
+bdftopcf myfont10x20.bdf > myfont10x20.pcf
+gzip -9 myfont10x20.pcf
+```
+X 服務器原生內置瞭解壓縮引擎，能夠直接從 `.pcf.gz` 歸檔中零拷貝讀取字形點陣。
+
+### 3.2 目錄數據庫：`fonts.dir` 與 `fonts.scale` 的構造
+
+將字體放入某個目錄（如 `/usr/share/fonts/local/`）後，X 服務器並不會盲目地遞歸遍歷所有文件名。爲了獲得毫秒級的檢索性能，X 要求每個字體目錄下必須存在一個名爲 `fonts.dir` 的純文本索引字典。
+
+`fonts.dir` 的第一行是一個標量整數 $N$，指示本目錄所收錄的有效字體條目總數；隨後的 $N$ 行，每一行均由兩列構成：**物理文件名** 與 **對應的完整 14 字段 XLFD 標識**，兩者之間以空格隔開：
+
 ```text
--FOUNDRY-FAMILY-WEIGHT-SLANT-SETWIDTH-ADDSTYLE-PIXELSIZE-POINTSIZE-RESX-RESY-SPACING-AVGWIDTH-REGISTRY-ENCODING
+3
+6x13.pcf.gz -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+8x16.pcf.gz -misc-fixed-medium-r-normal--16-120-75-75-c-80-iso10646-1
+10x20.pcf.gz -misc-fixed-medium-r-normal--20-140-100-100-c-100-iso10646-1
 ```
 
-這 14 個欄位自左至右分別承載著極其嚴格的排印學與光柵化引數：
+該索引文件由系統工具 `mkfontdir` 自動掃描生成：
+```bash
+cd /usr/share/fonts/local/
+mkfontdir .
+```
 
-1. **鑄字廠商（Foundry）**：  
-   字型的原始數字化提供商或字模鑄造廠商識別符號，如 `adobe`、`bitstream`、`b&h`（Bigelow & Holmes）、`linotype`、`monotype`、`sony`，或表示開源社群通用的 `misc`；
-2. **字型家族（Family）**：  
-   字型的通用設計家族名稱，如 `times`、`helvetica`、`courier`、`lucida`、`charter`、`fixed`；
-3. **字重（Weight）**：  
-   筆畫線條的粗細程度，規範取值包括：`bold`、`demibold`、`medium`、`light`、`black`、`regular`；
-4. **傾斜屬性（Slant）**：  
-   字元的垂直軸向傾斜形態：
-   * `r`（Roman）：正體直立字形；
-   * `i`（Italic）：為斜體專門設計的義大利手寫風格字形；
-   * `o`（Oblique）：對正體字形進行機械幾何傾斜剪下生成的偽斜體；
-   * `ri`（Reverse Italic）：向左反向傾斜的義大利體；
-   * `ro`（Reverse Oblique）：向左反向傾斜的偽斜體；
-   * `ot`（Other）：其他特殊異形傾斜；
-5. **設定寬度（Setwidth）**：  
-   字形水平寬度的比例特徵，規範取值包括：`normal`、`condensed`、`narrow`、`expanded`、`semicondensed`；
-6. **附加樣式（Addstyle）**：  
-   用於在同一家族中區分更細緻的排版樣式，如襯線風格（`sans`、`serif`）、專業變體（`ja`、`ko`）或保留為空；
-7. **畫素尺寸（Pixelsize）**：  
-   字形在當前物理螢幕上的柵格畫素高度（整數值，對於可縮放向量字型可用 `0` 佔位）；
-8. **點數尺寸（Pointsize）**：  
-   以**美製美工磅（American printer's point）的十分之一**為單位的絕對排印尺寸。由於 $1\text{ pt} \approx 1/72.27\text{ inch}$，若點數值標示為 `120`，則代表實際字號為完美的 **12 磅（12 pt）**；
-9. **水平解析度（Resx）** 與 10. **垂直解析度（Resy）**：  
-   目標渲染裝置的螢幕解析度（DPI），歷史上標準 X 終端通常為 `75` 或 `100` dpi；
-10. **字距排布模式（Spacing）**：  
-    字形水平步進寬度的度量類別：
-    * `p`（Proportional）：比例寬度字型，不同字元寬度各異（如 ‘m’ 寬於 ‘i’）；
-    * `m`（Monospaced）：傳統等寬印表機字型，所有字元的包圍盒具有相同步進，但具體字形輪廓可以延伸至包圍盒邊界；
-    * `c`（Character Cell）：極其嚴苛的字元單元格字型（常用於終端模擬器 `xterm`），所有字元的黑色輪廓必須嚴格嵌在完全相同的矩形網格內，絕對禁止任何凸出；
-12. **平均字寬（Avgwidth）**：  
-    該字型所有字元的平均水平步進寬度（以十分之一畫素為單位）；
-13. **字符集註冊局（Registry）** 與 14. **具體編碼標準（Encoding）**：  
-    指示字形編碼的權威標準化機構與字元表版本，如 `iso8859-1`（西歐）、`iso8859-7`（希臘文）、`iso10646-1`（Unicode UCS-4）、`koi8-r`（俄文西里爾）、`jisx0208.1983-0`（日本漢字）。
+對於 PostScript Type 1（`.pfa`, `.pfb`）或 TrueType（`.ttf`）等可縮放矢量字體，情況更爲特殊：由於單一矢量字體可以渲染爲任意像素與磅值，因此首先需要通過 `mkfontscale` 工具生成一份名爲 `fonts.scale` 的母表，指示該矢量輪廓支持哪些編碼映射；隨後，`mkfontdir` 會讀取 `fonts.scale` 的內容並將其合併注入到最終的 `fonts.dir` 中。
 
-### 典型 XLFD 範例剖析
+### 3.3 字符編碼重映射：`encodings.dir`
 
-考慮一段經典的 X 終端字型描述字串：
+當點陣字體內部的字符排列與標準 Unicode 或 ISO 編碼存在偏差時，X Window 提供了動態編碼重映射機制。在系統字體路徑中，通常會維護一個專門的 `encodings/` 目錄，其內部包含 `encodings.dir` 文件：
+
 ```text
--misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
+STARTENCODING adobe-standard
+ALIAS adobe-std
+STARTMAPPING unicode
+0x0020 0x0020 # SPACE
+0x0021 0x0021 # EXCLAMATION MARK
+...
+0x00a1 0x00a1 # EXCLAMATION DOWN
+ENDMAPPING
+ENDENCODING
 ```
-這一描述精確傳達了以下資訊：由開源通用渠道（`misc`）提供的等寬終端字型（`fixed`），標準粗細（`medium`），正體直立（`r`），標準寬度（`normal`），省略附加樣式（`--`），光柵化畫素高度為 20 畫素，字號為 20 磅（200 十分之一磅），適用於 75×75 DPI 螢幕，嚴格字元單元格對齊（`c`），單字平均步進寬為 10 畫素（100 十分之一畫素），覆蓋 Unicode 全球多語言通用字符集（`iso10646-1`）。
+X 字體柵格器在裝載未轉碼的舊式字體時，能夠結合外部 `.enc` 映射表將原始字模動態對齊至統一的 Unicode 邏輯碼位。
 
-### 萬用字元匹配機制與幾何變換矩陣
+### 3.4 別名映射機制：`fonts.alias`
 
-在實際軟體開發中，硬編碼完整的 14 個欄位極其脆弱。XLFD 允許使用萬用字元：
-* 問號 `?`：匹配任意單個字元；
-* 星號 `*`：匹配任意零個或多個欄位。
+爲了向後兼容舊式遺留腳本或爲極其冗長的 XLFD 賦予優雅好記的人類友好名稱，管理員可以在字體目錄下創建 `fonts.alias` 文件：
+```text
+# 别名映射配置示例
+fixed         -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
+variable      -adobe-helvetica-bold-r-normal--*-120-*-*-p-*-iso8859-1
+times12       -adobe-times-medium-r-normal--12-120-75-75-p-64-iso8859-1
+```
+一旦配置，X 客戶端只需向系統請求 `times12`，X 服務器便會自動將其透明展開爲標準的 14 字段 XLFD 實施匹配。
 
-例如，在啟動終端時傳入 `-*-times-bold-r-*-*-14-*-*-*-*-*-*-*`，X 字型匹配引擎將在所有可用路徑中尋找任意廠商的 14 磅 Times 粗體。
+### 3.5 動態字體路徑裝載與 `xfs` 字體服務器
 
-更具革命性的是，XLFD 規範原生支援**二維幾何仿射變換矩陣（Affine Transformation Matrix）**！透過在畫素尺寸欄位插入四元陣列 `[ a b c d ]`，客戶端可以要求 X 伺服器對字形向量進行任意的平移、縮放、旋轉與剪下：
+在配置好目錄索引後，必須通知正在運行的 X 服務器掛載該目錄。這一交互通過通用配置程序 `xset` 完成：
 
-$$\begin{pmatrix} x' \\ y' \end{pmatrix} = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$$
-
-例如透過定義非對角線引數，無需安裝專用傾斜字型，即可直接在伺服器端將正體輪廓動態剪下為任意指定角度的傾斜字形！
-
----
-
-## X Window 字型安裝與索引架構
-
-在現代桌面誕生之前，X Window 已經建立了一套極其嚴密的分層字型儲存與快速雜湊索引體系。
-
-### 點陣字型格式與編譯：BDF 與 PCF
-
-在 X 平臺下，點陣字型的原始分發格式為純文字形式的 **BDF（Bitmap Distribution Format, 規範釋出為 Adobe 5005）**。BDF 檔案以人類完全可讀的 ASCII 文字逐字記錄了字型的 XLFD 屬性、外框度量以及每個字元的十六進位制畫素點陣圖點陣。
-
-然而，在生產環境中直接由顯示伺服器解析體積龐大的 ASCII 文字檔案是不可接受的。X 提供了專用編譯器 `bdftopcf`：
 ```bash
-bdftopcf courB12.bdf -o courB12.pcf
-compress courB12.pcf    # 生成压缩的二进制 courB12.pcf.Z
+# 将新目录置于字体搜索路径的最前端 (+fp)
+xset +fp /usr/share/fonts/local/
+
+# 强制 X 服务器清空缓存并重新读取所有 fonts.dir
+xset fp rehash
 ```
-生成的 **PCF（Portable Compiled Format）** 是一種與硬體架構無關的預編譯二進位制點陣格式，能夠在 X 伺服器載入時透過記憶體對映（`mmap`）實現瞬時就緒。
+> [!NOTE] 爲什麼必須使用 `+fp`（前置路徑）？
+> X 服務器在遇到通配符或重複字體名時，會嚴格按照字體路徑列表（Font Path）的聲明先後順序進行線性查找並採用首次命中的實例。如果將新目錄追加到末尾（`xset fp+`），當系統中已有同名字體存在時，新字體將永遠處於被遮蔽狀態而無法被檢索到。
 
-### 目錄索引中樞：`fonts.dir`、`fonts.scale` 與 `fonts.alias`
+在擁有數百臺無盤工作站（Diskless Workstation / X Terminals）的大型企業網絡中，每臺終端本地沒有硬盤，更無法存儲數十吉字節的龐大字體庫。爲此，X 設計了專門的 **X 字體服務器（X Font Server，通常指 `xfs`）**：
+- `xfs` 運行在中央網絡服務器上，默認監聽 TCP 端口 `7100`；
+- 無盤 X 終端只需在本地執行：
+  ```bash
+  xset +fp tcp/fontserver.domain.edu:7100
+  ```
+- 所有的輪廓光柵化與點陣生成均由中央 `xfs` 進程集中運算，再通過專用網絡協議將渲染完畢的點陣二進制流分發給各個終端顯示，極大減輕了早期低配圖形終端的存儲與內存壓力。
 
-在一個包含字型的 X 目錄下，僅有 `.pcf` 檔案是不夠的；X 伺服器拒絕遍歷磁碟目錄，它依賴目錄下的三個純文字索引矩陣檔案：
+---
 
-1. **`fonts.dir`（目錄核心對映表）**：  
-   由工具 `mkfontdir` 自動生成。第一行記錄該目錄下收錄的有效字型條目總數，後續每一行將一個具體的物理字型檔名與它所宣告的完整 XLFD 邏輯名稱進行強繫結：
-   ```text
-   2
-   courB12.pcf.Z -adobe-courier-bold-r-normal--12-120-75-75-m-70-iso8859-1
-   courB14.pcf.Z -adobe-courier-bold-r-normal--14-140-75-75-m-90-iso8859-1
-   ```
-2. **`fonts.scale`（可縮放向量字型縮放比例表）**：  
-   對於 Type 1（`.pfa`/`.pfb`）或 TrueType（`.ttf`）等向量輪廓字型，由 `mkfontscale` 或 `ttmkfdir` 預先掃描生成。它向 X 伺服器指示：當前向量字型可以衍生出任意畫素尺寸與解析度的 XLFD 例項（其尺寸欄位標記為 `0`）；
-3. **`fonts.alias`（使用者友好別名對映表）**：  
-   允許系統管理員將晦澀冗長的 14 欄位 XLFD 對映為簡短宜讀的人類別名：
-   ```text
-   fixed       -misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-1
-   variable    -adobe-helvetica-bold-r-normal--*-120-75-75-p-*-iso8859-1
-   10x20       -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-1
-   ```
+## 4. X Window 字體管理與交互工具集
 
-### 動態字型路徑與獨立字型伺服器（xfs）
+爲了直觀地瀏覽、調試與測試系統內成千上萬個複雜的 XLFD 字體條目，Unix 生態開發了一系列經典的圖形與命令行診斷工具。
 
-在 X 會話執行時，管理員可以透過通用配置工具 `xset` 動態操縱 X 伺服器的字型查詢路徑（Font Path）：
+### 4.1 交互式字體構建與選擇器：`xfontsel`
+
+![xfontsel 字體選擇交互界面](/images/fonts-encodings/fig8-1.png)
+*圖 8-1：X Window 經典交互式字體選擇器 `xfontsel` 的操作界面。上方爲 XLFD 的 14 個級聯字段下拉菜單，中間爲匹配數量統計，下方爲實時字形渲染預覽。*
+
+`xfontsel`（X Font Selector）是 X11 自帶的最重要的可視化診斷工具。如圖 8-1 所示，界面頂部橫向展開了全部 14 個字段按鈕：
+```text
+-fndry-fmly-wght-slant-sWdth-adstyl-pxlsz-ptSz-resx-resy-spc-avgWdth-rgstry-encdng
+```
+用戶點擊任意一個字段（例如 `fmly`），程序會彈出一個下拉菜單，列出當前系統中在該維度上所有可用的取值。一旦選定某項，其他字段的可用選項將實時級聯收縮，界面的 `count` 指示器會精確顯示當前篩選條件下匹配成功的字體總數，底部窗格則即時呈現目標字體的真實渲染字形。
+
+### 4.2 字符矩陣與碼位檢驗器：`xfd`
+
+![xfd 字符單元格字體展示界面](/images/fonts-encodings/fig8-2.png)
+*圖 8-2：`xfd` 工具展示的以 ISO 10646（Unicode）編碼的 10x20 點陣字體字符網格視圖。*
+
+當需要細緻檢查某種字體的字符覆蓋全貌或排查個別特殊符號是否存在時，管理員可使用 `xfd`（X Font Display）：
 ```bash
-xset +fp /usr/local/share/fonts/myfonts   # 将新目录压入字体路径链首
-xset fp rehash                           # 强制 X 服务器重新加载并哈希全部 fonts.dir
-xset q                                   # 查询当前会话的生效字体路径
+xfd -fn "-misc-fixed-medium-r-normal--20-140-100-100-c-100-iso10646-1"
 ```
+如圖 8-2 所示，`xfd` 會打開一個優雅的矩陣窗口，將該字體內的每一個字符按照行和列整齊排布，並在窗口頂部實時顯示光標所懸停字符的十六進制編碼值、字符寬度、上伸高度與下延深度，是驗證字體字符集映射是否準確的權威利器。
 
-#### 獨立網路字型伺服器（xfs）
-在擁有數百臺無盤工作站（X Terminals）的大型高校或實驗室網路中，若讓每一臺終端都在本地維護臃腫的字型庫，將造成災難性的儲存與維護成本。為此，X 設計了網路中樞服務 **xfs（X Font Server）**：
-* xfs 作為獨立的守護程序執行在高效能中央主機上，監聽預設網路埠 `tcp/hostname:7100`；
-* 所有瘦客戶終端只需在本地字型路徑中配置 `xset +fp tcp/server.lan:7100`；
-* 所有的字型解析、輪廓縮放計算與點陣圖光柵化全部由中央 xfs 統一完成，並將緊湊的二進位制字形快取高速廣播給各個客戶端！
+### 4.3 命令行高效排查器：`xlsfonts`
 
----
-
-## X Window 經典互動式除錯與檢視工具
-
-為了讓排版人員與系統管理員在終端中高效診斷字型資產，X Window 隨核心分發提供了兩款極具歷史價值的圖形除錯神器：
-
-### 1. 級聯互動選擇器：`xfontsel`
-
-::: tip X 經典字型選擇器互動介面（Figure 8-1）
-![X 經典字型選擇器互動介面（Figure 8-1）](/images/fonts-encodings/fig8-1.png)
-*X 經典字型選擇器互動介面（Figure 8-1）*
-:::
-
-*圖 8-1：X Window 經典互動式應用程式 `xfontsel` 的操作介面。上方為 14 個 XLFD 欄位的級聯下拉選單；中間為匹配生效的規範 XLFD 字串；下方為實時渲染的動態樣張預覽視窗。*
-
-在 **Figure 8-1** 中展現的 `xfontsel` 堪稱排印學界的瑞士軍刀：
-* 頂部的 14 個按鈕分別對應 XLFD 的 14 個核心欄位；
-* 使用者點選任意一個欄位（例如 `fmy` 字型家族），下拉選單中**只會高亮顯示當前系統中真實存在的候選值**；
-* 選定一個欄位後，其餘 13 個選單會自動動態級聯聯動，剔除所有不可能共存的無效組合；
-* 視窗底部實時更新一段長文字排版樣張，方便肉眼直觀核對字元筆畫在當前 DPI 下的光柵化品質；
-* 點選 `selectFont` 按鈕可直接將生成的無歧義 XLFD 字串複製進 X 剪貼簿供應用程式呼叫。
-
-### 2. 全真字符集網格檢視器：`xfd`
-
-::: tip 基於 Unicode 編碼的 10x20 字型在 xfd 中的全景網格檢視（Figure 8-2）
-![基於 Unicode 編碼的 10x20 字型在 xfd 中的全景網格檢視（Figure 8-2）](/images/fonts-encodings/fig8-2.png)
-*基於 Unicode 編碼的 10x20 字型在 xfd 中的全景網格檢視（Figure 8-2）*
-:::
-
-*圖 8-2：在 `xfd` 中開啟的基於 Unicode 編碼的 10x20 終端字元單元格字型字形矩陣面板。直觀展示了從十六進位制碼位偏移到具體物理畫素陣列的精確對映。*
-
-如果管理員懷疑某個中文字型或希臘文字型存在“缺字”、“亂碼”或“編碼錯位”，可以使用 `xfd`（X Font Display）直擊字型檔底層：
+在無圖形界面的遠程 SSH 會話中，系統管理員通常使用純命令行工具 `xlsfonts` 來探測字體：
 ```bash
-xfd -fn "-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1"
+# 列出系统中所有支持 Cyrillic (KOI8-R) 编码的字体
+xlsfonts -fn "*-koi8-r"
+
+# 检查特定字体家族是否提供 16 像素高度的版本
+xlsfonts -fn "-*-courier-*-*-*-*-16-*-*-*-*-*-*-*"
 ```
-如 **Figure 8-2** 所示，`xfd` 會按照 16×16 的十六進位制方陣，一頁一頁翻閱該字型所收錄的全部物理字形。點選任何一個網格單元，上方狀態列便會精確顯示該字形的十六進位制碼位、左側邊距（left bearing）、右側邊距（right bearing）、字元寬度、上升高度（ascent）與下降深度（descent）。
 
 ---
 
-## 開源字型轉換利器與 GNU 工具鏈
+## 5. Unix 生態下的字體格式轉換與工具鏈
 
-在 X 視窗系統的發展歷程中，自由軟體基金會（FSF）與廣大開源駭客貢獻了一整套用於格式清洗與點陣轉化的軍火庫：
+在 Unix 的漫長演進中，各種排版系統、終端和跨平臺環境交織並存，孕育出了大量強大的開源格式轉換工具。
 
-### 1. GNU 字型轉換工具群（The GNU Font Tools）
-由卡爾·貝里（Karl Berry）與凱瑟琳·哈格里夫斯（Kathryn Hargreaves）主持開發的 GNU 字型工具集引入了一種中間向量格式——**BZR（Bézier）**，並伴隨其可讀的屬性列表格式 **BPL（Bézier Property List）**。藉助該套工具，開發者能夠自由地在 Metafont 曲線、PostScript Type 1、BDF 點陣以及 X 字型之間構建全自動化的雙向轉換管線。
+### 5.1 GNU 字體工具集（The GNU Font Tools）
+由自由軟件基金會（FSF）成員 Kathryn A. Hargreaves、Karl Berry 和 David MacKenzie 聯合研發。其核心構想是建立一種平臺無關的自由矢量中間格式：
+- **BZR 格式**：基於三次貝塞爾曲線描述字符輪廓的緊湊二進制文件；
+- **BPL（Bezier Property List）**：人類可讀的明文 ASCII 格式（類似於 TeX 的 TFM/PL 對應體系）；
+- 工具集中包含 `bzrtobpl` 與 `bpltobzr` 用於在明文與二進制間雙向轉換，以及負責幾何縮放與間距微調的 `charspace` 和通用轉換前端 `fontconvert`。
 
-### 2. Unix 點陣字型處理利器
-* `fbm`（Fuzzy Bitmap Utilities）：用於對低解析度點陣字形進行平滑模糊過濾與縮放重取樣；
-* `pbmplus` / `netpbm`：Unix 世界最古老、最強大的行動式點陣圖管線，配合 `pbmtext` 可以直接將純文字用指定 X 字型光柵化渲染為 PPM 影象；
-* `bm2font`：將任意點陣圖圖案逆向編譯為 TeX 與 X 可執行的字型度量檔案。
+### 5.2 喬治·威廉姆斯（George Williams）的百寶箱
+在以一人之力開發出舉世聞名的 FontForge（詳見本書第 12 至 14 章）之前，傳奇程序員喬治·威廉姆斯（George Williams）爲 Unix 社區貢獻了一整套極爲實用的無名英雄級工具集：
+- **`bdf2pcf`**：現代 Linux 編譯點陣字體的通用核心；
+- **`macbinary`**：在 Unix 下解包 Macintosh 經典 Resource Fork 資源分叉字體的解碼器；
+- **`fon2fnts`**：拆解 Windows 3.x `.FON` 資源庫爲獨立 `.FNT` 點陣文件的抽取器；
+- 這些小工具使得 Unix 平臺能夠輕而易舉地吞吐和消化來自 Mac OS 與 Windows 陣營的各種異構歷史字體。
 
----
-
-## 現代 X 字型渲染革命（FreeType、fontconfig 與 Xft）
-
-儘管經典的“核心 X 字型系統（Core X Font Subsystem）”統治了 UNIX 桌面近二十年，但伴隨著世紀之交抗鋸齒平滑顯示（Anti-aliasing）與亞畫素渲染（Subpixel Cleartype）技術的爆發，核心 X 架構暴露出了無法挽回的結構性缺陷：
-1. **服務端光柵化的死穴**：所有字形必須在 X Server 端完成光柵化，不支援 Alpha 半透明通道，無法將半透明字形與複雜的桌面背景優雅混合；
-2. **XLFD 命名的僵化**：無法表達字型名稱的別名、本地化多語言名稱（如“微軟雅黑”與“Microsoft YaHei”）、以及複雜的字形屬性替代回退（Fallback）規則；
-3. **網路往返高延遲**：每一次排版查詢都需要與遠端 X Server 進行同步網路互動。
-
-為了徹底終結這一困境，基思·帕卡德（Keith Packard）等 X 核心開發者在 2000 年前後掀起了一場席捲整個 Linux/UNIX 系統的**現代字型基礎設施大革命**，奠定了當今所有 Linux 桌面三位一體的全新架構：
-
-### 1. 跨平臺極致光柵化核心：FreeType
-大衛·特納（David Turner）等人建立的 **FreeType 2** 徹底替代了 X Server 笨拙的內建光柵化模組。作為一個高度精簡、極速且完全獨立的 C 語言庫，FreeType 能夠無差別解析 TrueType、OpenType、PostScript Type 1、CFF、WOFF 以及各類點陣格式，並提供世界頂級的輪廓自動微調（Autohinting）與亞畫素抗鋸齒引擎。
-
-### 2. 全域性字型發現與智慧替代配置中樞：fontconfig
-徹底廢黜了古老的 `fonts.dir` 與 XLFD。**fontconfig** 使用基於 XML 的規範配置檔案（`/etc/fonts/fonts.conf`），在客戶端直接對整個系統內所有物理字型建立快速二進位制快取：
-* **模式匹配（Pattern Matching）**：應用程式只需發出模糊請求（如 `Times-12:bold`），fontconfig 能夠基於嚴格的數理距離演算法，在數千種已安裝字型中精確匹配最相近的字型；
-* **強悍的智慧回退鏈（Fallback Chain）**：當一篇以英文字型排印的文章中突兀出現幾個漢字或阿拉伯字母時，fontconfig 能夠自動沿著回退配置鏈，無縫排程中文字型與阿拉伯文字型填補空缺，徹底終結了“豆腐塊”（Tofu, □）亂碼的歷史！
-
-### 3. 客戶端高速渲染與合成中介：Xft 與 XRender
-**Xft（X FreeType interface）** 促成了“客戶端光柵化（Client-side Rendering）”的歷史性飛躍：
-* 字型輪廓的解析、度量排版與抗鋸齒光柵化**全部在客戶端本地極速完成**；
-* 生成的帶有 8 位 Alpha 透明通道的字形微圖（Glyph Alpha Masks），透過 X 協議的 **XRender 擴充套件**直接投射到顯示卡視訊記憶體中執行高階 Alpha 混合與抗鋸齒渲染！
+### 5.3 控制檯與點陣轉換專門工具
+- **`fontconv`**：由保加利亞黑客迪米特爾·熱爾科夫（Dimitar Zharkov）編寫，能夠在裸點陣數據（RAW）、Linux 控制檯字體（PSF）以及 Windows 點陣字體（FNT）之間進行無損三向轉換；
+- **`pbmto4425` / Netpbm 管道**：Unix 經典的圖形流管道體系，利用 `pbmtext` 生成位圖，再通過轉碼器直接合成爲老式針式打印機或特殊硬件終端所支持的點陣固件。
 
 ---
 
-從古老笨重、依靠網路中樞統一分發的 PCF 點陣字型，到由 14 欄位精密定義的 XLFD 拓撲宇宙，再到現代 FreeType 與 fontconfig 構建的客戶端實時抗鋸齒與智慧回退中樞，X Window 的字型演進史完整折射了整個 UNIX 計算生態從字元終端邁向現代化富排版桌面的輝煌史詩。
+## 6. 從傳統核心協議到現代 Xft / Fontconfig 架構的歷史飛躍
 
-然而，文字不僅停留在本地作業系統的桌面視窗之中。當全球網際網路將億萬臺計算機緊密相連，數以億計的 Web 網頁如何跨越平臺與裝置差異，把極具藝術個性的特定字型無損投遞至使用者的瀏覽器端？
+進入 21 世紀後，傳統的 X11 核心字體體系逐漸暴露出歷史侷限性：
+1. **網絡往返延遲瓶頸**：隨着客戶端從簡單的純文本終端進化爲複雜的 Web 瀏覽器（Firefox）與現代桌面環境（GNOME, KDE），字體排版需求極度膨脹，頻繁向 X 服務器查詢度量導致網絡協議嚴重阻塞；
+2. **抗鋸齒與子像素平滑缺失**：傳統的 X 服務器光柵器只支持二值化單色（1-bit）點陣渲染，邊緣鋸齒嚴重，無法在液晶屏幕上利用 RGB 子像素渲染（Subpixel Rendering）達到媲美 Mac OS 的平滑視覺品質；
+3. **複雜語系斷詞排版無力**：阿拉伯文、印度各邦文字（Devanagari）需要上下文連字形變與精細錨點定位，老舊的 XLFD 完全缺乏 OpenType 佈局引擎的支撐。
 
-這正是我們在**第十章：字型與 Web 網頁排版技術**中將要深入見證的網路排印學革命。
+爲此，現代 Unix/Linux 全面重構了字體架構，由傳奇架構師基思·帕卡德（Keith Packard）主導設計了 **Xft + Fontconfig + FreeType** 現代化流水線：
+
+```
++-------------------------------------------------------------+
+|                      Modern X Client (Browser / Editor)     |
+|                                                             |
+|   1. Query & Resolve: Fontconfig (/etc/fonts/fonts.conf)    |
+|   2. Parse & Outline Rasterize: FreeType 2.x                |
+|   3. Complex Script Shaping: HarfBuzz (OpenType Layout)     |
+|   4. Anti-Aliased Alpha Masks (ARGB32 Glyphs)               |
++------------------------------|------------------------------+
+                               | RENDER Extension (XRender)
+                               v
++-------------------------------------------------------------+
+|                      Local X Server                         |
+|   * Receives high-speed alpha glyph blits via XRender       |
+|   * Hardware Accelerated GPU Alpha Compositing              |
++-------------------------------------------------------------+
+```
+
+現代機制將字體庫的檢索（Fontconfig）與輪廓光柵化（FreeType）完全轉移至**客戶端本地**完成。客戶端渲染出帶有 8 位灰度透明度通道的平滑字形蒙版後，通過 **XRender 擴展協議** 直接將圖元投射至顯卡混合輸出。這一革命徹底解放了 Unix 系統的排版能力，宣告了 Unix 現代桌面排版黃金時代的到來。
