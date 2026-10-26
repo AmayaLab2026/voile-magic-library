@@ -63,8 +63,10 @@ understood that “the medium is part of the message”, they wished to read the
 not in Gothic, which reminded them of the barbarian peoples to the north, but in a script
 closer to that of the original manuscripts.
 
+::: tip Plate 11-1: Specimen from Gutenberg's 42-Line Bible (B42) in textura blackletter
 ![Plate 11-1: Specimen from Gutenberg's 42-Line Bible (B42) in textura blackletter](/images/fonts-encodings/plate11-1.png)
 *Plate 11-1: Specimen from Gutenberg's 42-Line Bible (B42) in textura blackletter.*
+:::
 
 
 <!-- Page 390 (Book page 370) -->
@@ -98,8 +100,10 @@ caught wind of it and sent one of his engravers, Nicolas Jenson, to Gutenberg in
 France”. Jenson was the “James Bond” of the ﬁfteenth century: this remarkable man was
 always in the right place at the right time. After working at the ﬁrst German printing
 
+::: tip Plate 11-2: Specimen from Sweynheym and Pannartz at Subiaco (1465), showing early humanist semi-gothic roman
 ![Plate 11-2: Specimen from Sweynheym and Pannartz at Subiaco (1465)](/images/fonts-encodings/plate11-2.png)
 *Plate 11-2: Specimen from Sweynheym and Pannartz at Subiaco (1465), showing early humanist semi-gothic roman.*
+:::
 
 
 <!-- Page 391 (Book page 371) -->
@@ -131,8 +135,10 @@ special typeface that is heavier than Jenson’s. The oblique serifs of the asce
 exaggerated than those of Jenson, as Morris wished to highlight the “humanist” aspects
 of his typeface. Here is the digital version by the Font Company:
 
+::: tip Plate 11-3: Nicolas Jenson's Roman typeface (Venice, 1470), the archetype of humanist roman type
 ![Plate 11-3: Nicolas Jenson's Roman typeface (Venice, 1470)](/images/fonts-encodings/plate11-3.png)
 *Plate 11-3: Nicolas Jenson's Roman typeface (Venice, 1470), the archetype of humanist roman type.*
+:::
 
 
 <!-- Page 392 (Book page 372) -->
@@ -191,8 +197,10 @@ face. Here is an extract of the book:
 2 In 2004, American authors Ian Caldwell and Dustin Thomason wrote an action novel based on this
 book: The Rule of Four [93].
 
+::: tip Plate 11-4: Specimen of Francesco Griffo's roman cut for Aldus Manutius's De Aetna (1495)
 ![Plate 11-4: Specimen of Francesco Griffo's roman cut for Aldus Manutius's De Aetna (1495)](/images/fonts-encodings/plate11-4.png)
 *Plate 11-4: Specimen of Francesco Griffo's roman cut for Aldus Manutius's De Aetna (1495).*
+:::
 
 
 <!-- Page 394 (Book page 374) -->
@@ -216,8 +224,10 @@ which italic letters are called letra grifa.
 Manutius’s output was enormous. Humanism owes him much, as he was the most im-
 portant publisher of Greek and Latin texts. He died at the age of 65 in a wretched state
 
+::: tip Plate 11-5: Comparison between Aldus Manutius's Hypnerotomachia Poliphili (1499) and Franck Jalleau's revival (1998)
 ![Plate 11-5: Comparison between Aldus Manutius's Hypnerotomachia Poliphili (1499) and Franck Jalleau's revival (1998)](/images/fonts-encodings/plate11-5.png)
 *Plate 11-5: Comparison between Aldus Manutius's Hypnerotomachia Poliphili (1499) and Franck Jalleau's revival (1998).*
+:::
 
 
 <!-- Page 395 (Book page 375) -->
@@ -338,8 +348,10 @@ for the updating of Garamond’s fonts. According to this version, nothing was e
 Whatever the case may be, Monotype Garamond, which is used, for example, in the pres-
 tigious series Collection de la Pléiade, is always called “Garamond” instead of “Jannon”.
 
+::: tip Plate 11-6: Specimen of Claude Garamond's roman typeface
 ![Plate 11-6: Specimen of Claude Garamond's roman typeface](/images/fonts-encodings/plate11-6.png)
 *Plate 11-6: Specimen of Claude Garamond's roman typeface.*
+:::
 
 
 <!-- Page 399 (Book page 379) -->
@@ -590,8 +602,10 @@ he called it “Dutch-style” and criticized its “excessively material feel�
 elegant one with the small x-height yields an airier text—Pierre-Simon Fournier called
 it “poetic”. Here is a specimen of the poetic type, from a 1742 catalog:
 
+::: tip Plate 11-7: Specimen of Romain du Roi (Philippe Grandjean, 1702) showing the distinctive spur on lowercase 'l'
 ![Plate 11-7: Specimen of Romain du Roi (Philippe Grandjean, 1702)](/images/fonts-encodings/plate11-7.png)
 *Plate 11-7: Specimen of Romain du Roi (Philippe Grandjean, 1702) showing the distinctive spur on lowercase 'l'.*
+:::
 
 
 <!-- Page 407 (Book page 387) -->
@@ -621,8 +635,10 @@ sioned to design an Arabic font for the needs of missionaries, which he cut at 1
 together with his name, as a “signature” for the font. Greatly impressed by this single cut
 word, the publishers and booksellers of London encouraged him to go into the design of
 
+::: tip Plate 11-8: Specimen of Pierre-Simon Fournier le Jeune's typeface (1742)
 ![Plate 11-8: Specimen of Pierre-Simon Fournier le Jeune's typeface (1742)](/images/fonts-encodings/plate11-8.png)
 *Plate 11-8: Specimen of Pierre-Simon Fournier le Jeune's typeface (1742).*
+:::
 
 
 <!-- Page 408 (Book page 388) -->
@@ -664,8 +680,10 @@ which bleeding could be perceived as intentional, not as an error in printing.
 Figure 11-1: Caslon’s typeface, digitized by Justin Howes. The sizes are 8, 10, 12, 14, 18, 22,
 24, 30, 36, 42, 48, 60, 72, and 96 points.
 
+::: tip Figure 11-1: Caslon's typeface, digitized by Justin Howes. The sizes shown are 8, 10, 12, 14, 18, 22, 24, 30, 36, 42, 48, 60, 72, and 96 points
 ![Figure 11-1: Caslon's typeface, digitized by Justin Howes at 14 optical sizes (8 to 96 points)](/images/fonts-encodings/fig11-1.png)
 *Figure 11-1: Caslon's typeface, digitized by Justin Howes. The sizes shown are 8, 10, 12, 14, 18, 22, 24, 30, 36, 42, 48, 60, 72, and 96 points.*
+:::
 
 
 <!-- Page 410 (Book page 390) -->
@@ -781,8 +799,10 @@ ton, completed for Monotype in 1907 and known today by the name of Monotype Bodo
 and that of Heinrich Jost for Bauer, 1926, which is closer to the original. It is sold today
 under the name of Bauer Bodoni:
 
+::: tip Figure 11-2: Didot's typeface, digitized by Jonathan Hoefler, HTF foundry. The sizes shown are 6, 11, 16, 24, 42, 64, and 96 points
 ![Figure 11-2: Didot's typeface, digitized by Jonathan Hoefler (HTF foundry) at 7 optical sizes (6 to 96 points)](/images/fonts-encodings/fig11-2.png)
 *Figure 11-2: Didot's typeface, digitized by Jonathan Hoefler, HTF foundry. The sizes shown are 6, 11, 16, 24, 42, 64, and 96 points.*
+:::
 
 
 <!-- Page 414 (Book page 394) -->
@@ -805,8 +825,10 @@ Fraktur type and tried to bring it closer to Didot’s roman. Unger went so far 
 Firmin Didot to cut gothic type, which unfortunately turned out to be rather mediocre.
 Here, as a curiosity, is a sample of the gothic cut by Didot, which dates to 1793:
 
+::: tip Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone. The sizes shown are 6, 12, and 72 points
 ![Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone at 3 optical sizes (6, 12, and 72 points)](/images/fonts-encodings/fig11-3.png)
 *Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone. The sizes shown are 6, 12, and 72 points.*
+:::
 
 
 <!-- Page 415 (Book page 395) -->
@@ -1255,8 +1277,10 @@ ground knowledge in semiology and linguistics.
 Figure 11-4: The schematic classiﬁcation of Maximilien Vox, according to [342]. We have set
 each name in the typeface in question.
 
+::: tip Figure 11-4: The schematic classification of Maximilien Vox, according to [342]. Each category name is set in a representative typeface
 ![Figure 11-4: The schematic classification of Maximilien Vox](/images/fonts-encodings/fig11-4.png)
 *Figure 11-4: The schematic classification of Maximilien Vox, according to [342]. Each category name is set in a representative typeface.*
+:::
 
 
 <!-- Page 431 (Book page 411) -->
@@ -1375,8 +1399,10 @@ Vox that has strictly triangular serifs (see Figure 11-5).
 The serifs of these deltapodes are rounded (see Figure 11-5). It is diﬃcult to distin-
 guish this category from the ﬁlextres à congés or the romaines.
 
+::: tip Figure 11-5: Alessandrini's dénominations préliminaires
 ![Figure 11-5: Alessandrini's dénominations préliminaires](/images/fonts-encodings/fig11-5.png)
 *Figure 11-5: Alessandrini's dénominations préliminaires.*
+:::
 
 
 <!-- Page 434 (Book page 414) -->
@@ -1445,8 +1471,10 @@ drini’s categories are deﬁned in such a way that an hybride can only be the 
 a deliberate choice by the designer. For example, Dynamo is an hybride combining
 elements of simplices and emparectes (see Figure 11-6).
 
+::: tip Figure 11-6: Examples of typefaces according to Alessandrini's classification
 ![Figure 11-6: Examples of typefaces according to Alessandrini's classification](/images/fonts-encodings/fig11-6.png)
 *Figure 11-6: Examples of typefaces according to Alessandrini's classification.*
+:::
 
 
 <!-- Page 436 (Book page 416) -->
@@ -1803,8 +1831,8 @@ parameter:
 
 
 .,/
-
-
+
+
 	
 Once we have selected the type from the list above, we must decide whether the font’s
 serifs are or are not obtuse. First, however, we must decide whether the font has serifs or

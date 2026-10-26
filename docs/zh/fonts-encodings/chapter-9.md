@@ -26,7 +26,10 @@ description: "权威全译本：TeX 编译流水线、Computer Modern 家族、N
 
 要真正驾驭 $\TeX$，首先必须领会其严整无暇的**四阶段编译流水线**（Compilation Pipeline）：
 
+::: tip 图 9-1：使用 TeX 生产高质量文献的编译流程全景
 ![图 9-1：使用 TeX 生产高质量文献的编译流程全景](/images/fonts-encodings/fig9-1.png)
+*图 9-1：使用 TeX 生产高质量文献的编译流程全景*
+:::
 
 *图 9-1：$\TeX$ 排版生产流水线。作者准备纯文本源文件（.tex），$\TeX$ 核心引擎依据 TFM 字体度量表计算出最优断行与分页，输出设备无关文件（.dvi）；最后由 DVI 驱动程序结合具体字库输出 PostScript 或 PDF。*
 
@@ -44,7 +47,10 @@ description: "权威全译本：TeX 编译流水线、Computer Modern 家族、N
 
 与 $\TeX$ 系统相伴相生的，是由高德纳亲自运用 METAFONT 语言编写参数化方程式所设计的旗舰字体家族——**Computer Modern**（简称 CM 家族）：
 
+::: tip 图 9-2：Computer Modern 字体家族全景标样
 ![图 9-2：Computer Modern 字体家族全景标样](/images/fonts-encodings/fig9-2.png)
+*图 9-2：Computer Modern 字体家族全景标样*
+:::
 
 *图 9-2：Computer Modern 字体家族部分经典变体在 10 点字号下的实际排印风貌：CM Roman（正立体）、CM Slanted（仿斜体）、CM Italic（真正斜体）、CM Bold Extended（加粗扩展体）、CM Sans Serif（现代无衬线体）、CM Typewriter（打字机等宽体）、以及古典雅致的 Dunhill 字体。*
 
@@ -79,7 +85,10 @@ NFSS 确立了五个彼此完全独立的数学正交轴（Axes），任何一�
 #### 1. 高德纳最初的 7 位编码：OT1
 高德纳在 1970 年代设计初代 $\TeX$ 时，计算机的主流存储单元依然是 7 位 ASCII。因此，最初的默认编码 **OT1** 仅收录了 128 个基本字符：
 
+::: tip 图 9-3：OT1 字符编码表（高德纳 TeX 默认编码）
 ![图 9-3：OT1 字符编码表（高德纳 TeX 默认编码）](/images/fonts-encodings/fig9-3.png)
+*图 9-3：OT1 字符编码表（高德纳 TeX 默认编码）*
+:::
 
 *图 9-3：OT1 编码矩阵。注意其前 32 个位置并没有用于存放 ASCII 控制符，而是极富创造力地被高德纳塞入了希腊大写字母（$\Gamma, \Delta, \Theta...$）、挪威字母（\ae, \o, \aa）以及用于拼装欧洲带音符字母的纯悬浮变音符（Acute, Grave, Circumflex, Tilde, Macron 等）。*
 
@@ -90,7 +99,10 @@ NFSS 确立了五个彼此完全独立的数学正交轴（Axes），任何一�
 #### 2. 欧洲统一编码革命：T1（Cork 编码）与 TS1
 1990 年，在爱尔兰科克市（Cork）召开的欧洲 $\TeX$ 大会上，全体专家一致通过了里程碑式的 8 位统一欧洲字符编码标准——**T1 编码**（亦称 Cork 编码）：
 
+::: tip 图 9-4：T1（Cork 编码，上）与 TS1（Text Companion 伴侣编码，下）矩阵全景
 ![图 9-4：T1（Cork 编码，上）与 TS1（Text Companion 伴侣编码，下）矩阵全景](/images/fonts-encodings/fig9-4.png)
+*图 9-4：T1（Cork 编码，上）与 TS1（Text Companion 伴侣编码，下）矩阵全景*
+:::
 
 *图 9-4：T1 编码（顶端）完整收录了西欧、中欧、波罗的海沿岸几乎所有使用拉丁字母语言的全部预组合带音符字母，使欧洲语言的断词算法得以高速平滑运转；TS1 编码（底部）作为伴侣库，集中收纳了货币符号（欧元 €、英镑 £）、版权号、商业符号与排版特殊记号。*
 
@@ -99,11 +111,17 @@ NFSS 确立了五个彼此完全独立的数学正交轴（Axes），任何一�
 #### 3. 征服西里尔文字：T2 系列编码（T2A, T2B, T2C, T2D）
 为了让俄罗斯、乌克兰、白俄罗斯以及前苏联各加盟共和国（中亚与高加索地区）的学者畅通无阻地使用 $\LaTeX$，西里尔 $\TeX$ 工作组研发了系统化的 **T2 系列编码表**：
 
+::: tip 图 9-5：T2A 与 T2B 西里尔字母核心编码矩阵
 ![图 9-5：T2A 与 T2B 西里尔字母核心编码矩阵](/images/fonts-encodings/fig9-5.png)
+*图 9-5：T2A 与 T2B 西里尔字母核心编码矩阵*
+:::
 
 *图 9-5：T2A（顶端）与 T2B（底部）编码表，完整覆盖了当代欧洲斯拉夫语系与绝大部分亚洲西里尔字母少数民族语言。*
 
+::: tip 图 9-6：T2C 与 T2D（古典与教会斯拉夫文）编码矩阵
 ![图 9-6：T2C 与 T2D（古典与教会斯拉夫文）编码矩阵](/images/fonts-encodings/fig9-6.png)
+*图 9-6：T2C 与 T2D（古典与教会斯拉夫文）编码矩阵*
+:::
 
 *图 9-6：T2C（顶端，亚欧多民族西里尔文）与 T2D（底部，专门收录珍稀的古教会斯拉夫语 Old Cyrillic 复杂宗教手稿文字）。*
 
@@ -112,7 +130,10 @@ NFSS 确立了五个彼此完全独立的数学正交轴（Axes），任何一�
 #### 4. 国际音标与非洲语言：T3 与 T4 编码
 $\TeX$ 的普适性进一步向全球语言学界迈进，诞生了针对国际音标与非洲多民族文字的专门规范：
 
+::: tip 图 9-7：T3（国际音标 IPA，上）与 T4（非洲语言拉丁字母，下）编码矩阵
 ![图 9-7：T3（国际音标 IPA，上）与 T4（非洲语言拉丁字母，下）编码矩阵](/images/fonts-encodings/fig9-7.png)
+*图 9-7：T3（国际音标 IPA，上）与 T4（非洲语言拉丁字母，下）编码矩阵*
+:::
 
 *图 9-7：T3 编码（顶端）遵循国际语音学学会标准收录了全套精密的 IPA 辅音与元音变体符号；T4 编码（底部）专门收录了非洲诸语言中带有横杠、弯钩与开口形态的特殊拉丁字母。*
 
@@ -126,7 +147,10 @@ $\TeX$ 的普适性进一步向全球语言学界迈进，诞生了针对国际�
 
 高德纳从一开始就深刻洞悉了这一真理：在 Computer Modern 家族中，`cmr5`, `cmr7`, `cmr10`, `cmr17` 绝非同一字形的机械缩放，而是由 METAFONT 分别针对各自的光学尺寸独立编译出的不同几何骨架！而在商用字体中，Adobe 的 Kepler Multiple Master 字体同样展现出这种极致的光学适配艺术：
 
+::: tip 图 9-8：Adobe Kepler MM 字体在 5 点至 72 点不同光学尺寸下的排印风貌对比
 ![图 9-8：Adobe Kepler MM 字体在 5 点至 72 点不同光学尺寸下的排印风貌对比](/images/fonts-encodings/fig9-8.png)
+*图 9-8：Adobe Kepler MM 字体在 5 点至 72 点不同光学尺寸下的排印风貌对比*
+:::
 
 *图 9-8：Adobe Kepler MM 在不同光学设计尺寸下统一排印在 10 点字号下的对比。顶端 5 点设计形态粗壮扎实、开口宽宏；底端 72 点展示形态纤细优雅、骨力遒劲。*
 
@@ -164,7 +188,10 @@ fontinst 能够在 $\TeX$ 引擎内部直接执行高精度的字体度量线性
 
 以下图版展示了由 fontinst 成功将经典商用 Centaur 字体转译编译为 $\LaTeX$ T1 布局的完整成果：
 
+::: tip 图 9-9：fontinst 自动化生成的 t1centaurmn 字体完整排印布局图
 ![图 9-9：fontinst 自动化生成的 t1centaurmn 字体完整排印布局图](/images/fonts-encodings/fig9-9.png)
+*图 9-9：fontinst 自动化生成的 t1centaurmn 字体完整排印布局图*
+:::
 
 *图 9-9：由 fontinst 自动化编译合成生成的 t1centaurmn 完整字符编码矩阵。原著第 303 页真实截取。黑色方块精准标示出原字体确实缺失、且无法通过合成弥补的冷僻字符，直观严谨。*
 
@@ -238,7 +265,10 @@ input text  ==>  [ OTP 1 ]  ==>  [ OTP 2 ]  ==>  [ OTP 3 ]  ==>  TeX Typesetting
 
 由此，在一份由 $\Omega$ 编译的史诗级文献中，左侧页面可以排印从上至下阅读的古蒙古文或日本竖排明朝体，右侧页面可以排印从右向左流动的希伯来文圣经与阿拉伯文注疏，而在两者的中央插页中，则可以完美穿插从左向右流动的现代英文解析与微积分公式！
 
+::: tip 图 9-10：荷兰设计工作室 LettError 的 LTR Bleifrei LayerPlayer 动态多图层字体渲染器
 ![图 9-10：荷兰设计工作室 LettError 的 LTR Bleifrei LayerPlayer 动态多图层字体渲染器](/images/fonts-encodings/fig9-10.png)
+*图 9-10：荷兰设计工作室 LettError 的 LTR Bleifrei LayerPlayer 动态多图层字体渲染器*
+:::
 
 *图 9-10：原书第 330 页截取。荷兰著名字体先锋设计工作室 LettError 研发的 LayerPlayer 实用工具，展示了通过多图层颜色微调与几何错位来呈现前卫多色印刷效果的高阶实验排印界面。*
 

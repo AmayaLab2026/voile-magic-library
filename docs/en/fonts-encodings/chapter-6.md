@@ -100,7 +100,10 @@ Créateur movr
 Fonte dfont
 Non reconnue
 sous MacOS 9
+::: tip Figure 6-1: A Mac OS 9 screenshot showing a certain number of Macintosh font files
 ![Figure 6-1: A Mac OS 9 screenshot showing a certain number of Macintosh font files](/images/fonts-encodings/fig6-1.png)
+*Figure 6-1: A Mac OS 9 screenshot showing a certain number of Macintosh font files*
+:::
 Font, Agfa (before its merger with Monotype), URW, Font Bureau, Font Company, ATF
 Kingsley, Esselte Letraset, Mecanorma, and Red Rooster.
 Let us now take a closer look at these diﬀerent ﬁle types. First of all, note that we can
@@ -204,7 +207,10 @@ words. Thus, for example, Miracle-BoldItalic becomes MiracBolIta.
 
 
 192
+::: tip Figure 6-2: The same files shown in Figure 6-1, as seen under Mac OS X
 ![Figure 6-2: The same files shown in Figure 6-1, as seen under Mac OS X](/images/fonts-encodings/fig6-2.png)
+*Figure 6-2: The same files shown in Figure 6-1, as seen under Mac OS X*
+:::
 section the variety of ﬁle types in use (“font suitcases”, bitmaps, TrueType, PostScript,
 OpenType, etc.). Obviously Mac OS X had to accept all these ﬁle formats, for reasons of
 compatibility. But Mac OS X also aimed to simplify the existing order.
@@ -311,7 +317,10 @@ priority should go to PostScript and OpenType fonts or to TrueType fonts.
 
 
 195
+::: tip Figure 6-3: Font Doctor's configuration interface
 ![Figure 6-3: Font Doctor's configuration interface](/images/fonts-encodings/fig6-3.png)
+*Figure 6-3: Font Doctor's configuration interface*
+:::
 • Detecting “orphaned bitmaps”. The term is ill chosen, as it applies not necessarily to
 bitmaps but rather to FOND resources containing links to PostScript fonts that are not
 available.
@@ -350,12 +359,18 @@ aging font ﬁles. Finally, ATM was released in two versions: ATM Light, the fre
 which only “smooths” glyphs, and the commercial version ATM Deluxe [17], which also
 serves as a font manager and a tool for checking the integrity of fonts. Before delving
 into font managers, we should say a few words about the “smoother”.
+::: tip Figure 6-4: The configuration interface of ATM
 ![Figure 6-4: The configuration interface of ATM](/images/fonts-encodings/fig6-4.png)
+*Figure 6-4: The configuration interface of ATM*
+:::
 The conﬁguration interface of this program (Figure 6-4) is quite simple:
 
 
 197
+::: tip Figure 6-5: The letters 'Aa' in Agfa's Throhand at 128 points, showing ATM glyph smoothing
 ![Figure 6-5: The letters 'Aa' in Agfa's Throhand at 128 points, showing ATM glyph smoothing](/images/fonts-encodings/fig6-5.png)
+*Figure 6-5: The letters 'Aa' in Agfa's Throhand at 128 points, showing ATM glyph smoothing*
+:::
 
 *Figure 6-5: The letters 'Aa' in Agfa's Throhand at 128 points. Left: without ATM smoothing; right: with ATM smoothing.*
 play without ATM; display with ATM but without glyph smoothing; and display with ATM and
@@ -411,7 +426,10 @@ and requests the creation of an instance.4 ATM will then produce a FOND resource
 and an NFNT resource, which it will add to the “font suitcase”. From that point on,
 the instance is available to every application; it is identiﬁed by the values of its pa-
 rameters on a submenu of the font-selection menu (see Figure 6-6, right).
+::: tip Figure 6-6: The interface for creating and selecting Multiple Master font instances
 ![Figure 6-6: The interface for creating and selecting Multiple Master font instances](/images/fonts-encodings/fig6-6.png)
+*Figure 6-6: The interface for creating and selecting Multiple Master font instances*
+:::
 In conclusion, let us note that even though ATM is no longer necessary under Mac OS X
 and Adobe has announced that it has halted development of this product, the latest ver-
 4 Note that certain applications, such as Adobe Illustrator and Quark XPress, have their own internal
@@ -474,7 +492,10 @@ classifying font families and personalizing the names of the fonts. The same too
 
 
 200
+::: tip Figure 6-7: The interface for classifying font families in Adobe ATM Deluxe
 ![Figure 6-7: The interface for classifying font families in Adobe ATM Deluxe](/images/fonts-encodings/fig6-7.png)
+*Figure 6-7: The interface for classifying font families in Adobe ATM Deluxe*
+:::
 Type Reunion.
 allows us to deﬁne groups of font families by adding a third level of classiﬁcation to the
 font-selection menus.
@@ -512,7 +533,10 @@ compatible with Mac OS X. Adobe has announced that it has no intention to contin
 its development. The abandonment of the “glyph smoother”, ATM, on the grounds that
 it was no longer needed on Mac OS X also sounded the death knell for the font-manager
 component of ATM Deluxe, which was nevertheless greatly appreciated by its users.
+::: tip Figure 6-8: Font Book v.1.0 (standard in Mac OS X 10.3+)
 ![Figure 6-8: Font Book v.1.0 (standard in Mac OS X 10.3+)](/images/fonts-encodings/fig6-8.png)
+*Figure 6-8: Font Book v.1.0 (standard in Mac OS X 10.3+)*
+:::
 Font Book (see Figure 6-8), not to be confused with FontBook (by Lehmke Software), is
 a relatively recent piece of software: its ﬁrst version came out only in System 10.3 (Pan-
 ther). It is quite easy to use: it presents a list of fonts that can be enabled or disabled by
@@ -564,12 +588,21 @@ functionality.
 
 
 203
+::: tip Figure 6-9: Extensis Suitcase Fusion
 ![Figure 6-9: Extensis Suitcase Fusion](/images/fonts-encodings/fig6-9.png)
+*Figure 6-9: Extensis Suitcase Fusion*
+:::
+::: tip Figure 6-10: Insider Software FontAgent Pro
 ![Figure 6-10: Insider Software FontAgent Pro](/images/fonts-encodings/fig6-10.png)
+*Figure 6-10: Insider Software FontAgent Pro*
+:::
 
 
 204
+::: tip Figure 6-11: Two specimens created by FontBook v.4.4
 ![Figure 6-11: Two specimens created by FontBook v.4.4](/images/fonts-encodings/fig6-11.png)
+*Figure 6-11: Two specimens created by FontBook v.4.4*
+:::
 most admirable reconstructions of historic fonts, with a simulated eﬀect of the bleeding of ink:
 Historical Fell Type and Historical English Textura, by Jonathan Hoeﬂer.
 Font Servers
@@ -633,7 +666,10 @@ which the table OS/2 contains these data (§D.4.7).
 
 
 206
+::: tip Figure 6-12: The main window of TransType Pro
 ![Figure 6-12: The main window of TransType Pro](/images/fonts-encodings/fig6-12.png)
+*Figure 6-12: The main window of TransType Pro*
+:::
 Mac to PC, or from PC to Mac, or from PC to PC. When the target is a Macintosh font
 suitcase, the program automatically assembles the fonts of the same family. When it
 converts a Multiple Master font to an ordinary font, it can create any desired instance.

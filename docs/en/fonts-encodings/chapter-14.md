@@ -261,8 +261,10 @@ predeﬁned features, illustrated with examples.
 In the window in Figure 14-1, we have selected the liga feature. In the upper right sec-
 tion, we see a description of this feature in a syntax developed by Adobe and known as
 
+::: tip Figure 14-1: The OpenType window in FontLab
 ![Figure 14-1: The OpenType window in FontLab](/images/fonts-encodings/fig14-1.png)
 *Figure 14-1: The OpenType window in FontLab.*
+:::
 
 
 <!-- Page 577 (Book page 557) -->
@@ -671,8 +673,10 @@ and automatically obtain the following code:
 5 Again, take, for example, the font Linotype Old Style 7: is it indeed meant to be used at the optical size
 of 7, or does the “7” indicate something else?
 
+::: tip Figure 14-2: The OpenType window in FontLab
 ![Figure 14-2: The OpenType window in FontLab](/images/fonts-encodings/fig14-2.png)
 *Figure 14-2: The OpenType window in FontLab.*
+:::
 
 
 <!-- Page 587 (Book page 567) -->
@@ -708,8 +712,10 @@ opens
 the window shown in Figure 14-3. This window contains three tabs. The one of interest
 to us here is the ﬁrst: OpenType Features. We see at the left a list of the font’s features,
 
+::: tip Figure 14-3: The OpenType testing window in FontLab
 ![Figure 14-3: The OpenType testing window in FontLab](/images/fonts-encodings/fig14-3.png)
 *Figure 14-3: The OpenType testing window in FontLab.*
+:::
 
 
 <!-- Page 588 (Book page 568) -->
@@ -747,8 +753,10 @@ In this tab, we can deﬁne glyph classes just as in the OpenType window (button
 ﬂesh them out by writing names glyphs or dragging and dropping glyphs’ boxes from
 the font window.
 
+::: tip Figure 14-4: The Classes panel in FontLab
 ![Figure 14-4: The Classes panel in FontLab](/images/fonts-encodings/fig14-4.png)
 *Figure 14-4: The Classes panel in FontLab.*
+:::
 
 
 <!-- Page 589 (Book page 569) -->
@@ -796,11 +804,11 @@ graphical interface for the management of OpenType positioning.
 
 <!-- Page 590 (Book page 570) -->
 
-## Managing OpenType Tables in VOLT
+## 14.3 Managing OpenType Tables in VOLT
 
 Figure 14-5: The Preview panel window in FontLab.
 
-## Managing OpenType Tables in VOLT
+## 14.3 Managing OpenType Tables in VOLT
 
 VOLT (Visual OpenType Layout Tool) is a utility distributed freely by Microsoft whose only
 purpose is to add OpenType tables to TrueType fonts. VOLT runs only under Windows.
@@ -814,11 +822,15 @@ menus, a row of buttons, three graphical areas, and another row of buttons. The 
 graphical areas will contain:
 • The hierarchy of scripts, languages, features, and lookups in the font
 
+::: tip Figure 14-5: The Preview panel window in FontLab
 ![Figure 14-5: The Preview panel window in FontLab](/images/fonts-encodings/fig14-5.png)
 *Figure 14-5: The Preview panel window in FontLab.*
+:::
 
+::: tip Figure 14-6: The project window in VOLT
 ![Figure 14-6: The project window in VOLT](/images/fonts-encodings/fig14-6.png)
 *Figure 14-6: The project window in VOLT.*
+:::
 
 
 <!-- Page 591 (Book page 571) -->
@@ -864,8 +876,6 @@ features on the pull-down menu in the OpenType panel window and then to save the
 features in VTP format. Unfortunately, however, in version 5 of FontLab, neither method works in practice.
 
 <!-- Page 592 (Book page 572) -->
-
-## Managing OpenType Tables in VOLT
 
 lookups are listed in the second section of the window, since they are independent of
 the hierarchy of scripts, languages, and features. We assign a name to the lookup that we
@@ -934,13 +944,15 @@ left of this bar and the “after” part to the right. For example, to replace 
 hyphen -> endash
 as the rule, and in the context area we write:
 
+::: tip Figure 14-7: The substitution window in VOLT
 ![Figure 14-7: The substitution window in VOLT](/images/fonts-encodings/fig14-7.png)
 *Figure 14-7: The substitution window in VOLT.*
+:::
 
 
 <!-- Page 594 (Book page 574) -->
 
-## Managing OpenType Tables in VOLT
+## 14.3 Managing OpenType Tables in VOLT
 
 [ zero - nine ] | [ zero - nine ]
 • For a reverse chaining contextual substitution, we check the Reversal box in the up-
@@ -962,8 +974,10 @@ glyphs as being of “base glyph” type by default when it opens a TrueType fon
 Positionings
 Figure 14-8: The positioning window in VOLT.
 
+::: tip Figure 14-8: The positioning window in VOLT
 ![Figure 14-8: The positioning window in VOLT](/images/fonts-encodings/fig14-8.png)
 *Figure 14-8: The positioning window in VOLT.*
+:::
 
 
 <!-- Page 595 (Book page 575) -->
@@ -1012,7 +1026,7 @@ names. By contrast, a diacritic can have only one anchor. If a glyph can be used
 
 <!-- Page 596 (Book page 576) -->
 
-## Managing OpenType Tables in VOLT
+## 14.3 Managing OpenType Tables in VOLT
 
 a diacritic in two diﬀerent ways (for example, a dot can be written above or beneath
 a letter), we must create two diﬀerent glyphs, one for each use of the diacritic.
@@ -1058,7 +1072,7 @@ put area.
 Chapter 14 : Enriching Fonts: Advanced Typography
 Figure 14-9: The prooﬁng window in VOLT.
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 Once again, FontForge oﬀers us a perspective rather
 diﬀerent from those of the other software systems, this
@@ -1086,13 +1100,15 @@ Nevertheless, we can get a synthetic view of the OpenType and AAT features throu
 View>Show ATT (see ﬁgure opposite). But this window allows us only to inspect the
 data, not to modify them.
 
+::: tip Figure 14-9: The proofing window in VOLT
 ![Figure 14-9: The proofing window in VOLT](/images/fonts-encodings/fig14-9.png)
 *Figure 14-9: The proofing window in VOLT.*
+:::
 
 
 <!-- Page 598 (Book page 578) -->
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 Another peculiarity of FontForge is that anchors are managed in a way very diﬀerent
 from that of VOLT (and one closer to what we hope to have one day in FontLab): we
@@ -1120,8 +1136,10 @@ only certain features recognized by the major software packages have any chance 
 being used. That is why FontForge oﬀers us six predeﬁned features (see page 577 for more
 information):
 
+::: tip Figure 14-10: Two anchors defined in the glyph window. Right: the anchor-class window in FontForge
 ![Figure 14-10: Two anchors defined in the glyph window (left) and the anchor-class window (right) in FontForge](/images/fonts-encodings/fig14-10.png)
 *Figure 14-10: Two anchors defined in the glyph window. Right: the anchor-class window in FontForge.*
+:::
 
 
 <!-- Page 599 (Book page 579) -->
@@ -1161,7 +1179,7 @@ because they are inapplicable.
 
 <!-- Page 600 (Book page 580) -->
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 Figure 14-11: Left: the glyph window, “single substitution” tag. Right: the window for a new
 single substitution.
@@ -1190,8 +1208,10 @@ ligatures, or diacritical marks.
 click with a modifying key under Mac OS X. In Mac OS X, the modifying key associated with the right-click is
 selected in the preferences of X11 or XDarwin.
 
+::: tip Figure 14-11: Left: the glyph window, 'single substitution' tag. Right: the window for a new single substitution in FontForge
 ![Figure 14-11: Left: the glyph window, single substitution tag; Right: the window for a new single substitution in FontForge](/images/fonts-encodings/fig14-11.png)
 *Figure 14-11: Left: the glyph window, 'single substitution' tag. Right: the window for a new single substitution in FontForge.*
+:::
 
 
 <!-- Page 601 (Book page 581) -->
@@ -1237,7 +1257,7 @@ We have good control over both the point at which the active glyph will be rende
 
 <!-- Page 602 (Book page 582) -->
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 Figure 14-12: The windows for simple (left) and pairwise (right) positionings.
 (using its origin) and the point at which the following glyph will be rendered (using
@@ -1262,8 +1282,10 @@ of the same class for both diacritics and base glyphs. The features to which the
 sitioning is associated, the script, and the relevant language are chosen through the
 deﬁnition of the anchor’s class, under Font Info>Anchor Classes.
 
+::: tip Figure 14-12: The windows for simple (left) and pairwise (right) positionings in FontForge
 ![Figure 14-12: The windows for simple (left) and pairwise (right) positionings in FontForge](/images/fonts-encodings/fig14-12.png)
 *Figure 14-12: The windows for simple (left) and pairwise (right) positionings in FontForge.*
+:::
 
 
 <!-- Page 603 (Book page 583) -->
@@ -1309,7 +1331,7 @@ in order to launch the transformation. Let this string be denoted M = M0,... ,Mn
 
 <!-- Page 604 (Book page 584) -->
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 (a)
 (b)
@@ -1317,8 +1339,10 @@ in order to launch the transformation. Let this string be denoted M = M0,... ,Mn
 (d)
 Figure 14-13: The ﬁrst four steps for deﬁning a chained contextual substitution.
 
+::: tip Figure 14-13: The first four steps for defining a chained contextual substitution in FontForge
 ![Figure 14-13: The first four steps for defining a chained contextual substitution in FontForge](/images/fonts-encodings/fig14-13.png)
 *Figure 14-13: The first four steps for defining a chained contextual substitution in FontForge.*
+:::
 
 
 <!-- Page 605 (Book page 585) -->
@@ -1365,7 +1389,7 @@ would ever write those? They do not exist in English.
 
 <!-- Page 606 (Book page 586) -->
 
-## Managing OpenType Tables in FontForge
+## 14.4 Managing OpenType Tables in FontForge
 
 one
 s t
@@ -1509,8 +1533,10 @@ and (c), we can modify existing translations or add new ones.
 It is important to understand that only the names are deﬁned at this step. No information
 about the features or selectors is given, with one exception: when we modify a selector
 
+::: tip Figure 14-14: Editing the names of AAT features and selectors
 ![Figure 14-14: Editing the names of AAT features and selectors](/images/fonts-encodings/fig14-14.png)
 *Figure 14-14: Editing the names of AAT features and selectors.*
+:::
 
 
 <!-- Page 610 (Book page 590) -->
@@ -1526,7 +1552,7 @@ File>Preferences>Mac we have a tab allowing us to modify the default names of Ap
 ple’s predeﬁned features (see §D.11.5.1 for a detailed description) and a table of map-
 pings between AAT features and their OpenType counterparts. This table will be used
 when FontForge has to convert an AAT font to OpenType or vice versa.
-Managing AAT’s Finite Automata in FontForge
+### 14.5.2 Managing AAT's Finite Automata in FontForge
 To the reader who is not familiar with the concept of ﬁnite automata, we highly recom-
 mend reading section §D.13.1 of this book. She will ﬁnd a plethora of examples using
 the same conventions and notations as the AAT tables.
@@ -1669,8 +1695,10 @@ the automaton reads an element in the class “K P T G H”, i.e., class 4. Thus
 box “class 4, state 0” that we shall move to the new state, which does not yet exist. Let us
 click on this box!
 
+::: tip Figure 14-15: (a) The input window for the class and state tables for a rearrangement of glyphs in AAT; (b) and (c) the input windows for contextual glyph substitutions
 ![Figure 14-15: Class and state tables for rearrangement of glyphs in AAT](/images/fonts-encodings/fig14-15.png)
 *Figure 14-15: (a) The input window for the class and state tables for a rearrangement of glyphs in AAT; (b) and (c) the input windows for contextual glyph substitutions.*
+:::
 
 
 <!-- Page 614 (Book page 594) -->

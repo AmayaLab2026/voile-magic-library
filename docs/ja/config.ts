@@ -71,6 +71,60 @@ export default defineConfig({
           ],
         },
       ],
+            '/ja/fonts-encodings/': [
+        {
+          text: '巻頭および総論',
+          items: [
+            { text: '典籍概要と全巻目録', link: '/ja/fonts-encodings/' },
+            { text: '序論 · 探求篇：文字の解剖学とタイポグラフィ', link: '/ja/fonts-encodings/introduction' },
+          ],
+        },
+        {
+          text: '第一部：符号化と文字集合（Part I）',
+          collapsed: false,
+          items: [
+            { text: '第1章：前Unicode時代の符号化体系', link: '/ja/fonts-encodings/chapter-1' },
+            { text: '第2章：文字、グリフ、バイト（Unicode序説）', link: '/ja/fonts-encodings/chapter-2' },
+            { text: '第3章：Unicode文字プロパティ体系', link: '/ja/fonts-encodings/chapter-3' },
+            { text: '第4章：正規化、双方向テキストと東アジア文字', link: '/ja/fonts-encodings/chapter-4' },
+            { text: '第5章：Unicode実践と文字入力ツール', link: '/ja/fonts-encodings/chapter-5' },
+          ],
+        },
+        {
+          text: '第二部：OSにおけるフォント管理（Part II）',
+          collapsed: false,
+          items: [
+            { text: '第6章：Macintosh環境におけるフォント管理', link: '/ja/fonts-encodings/chapter-6' },
+            { text: '第7章：Windows環境におけるフォント管理', link: '/ja/fonts-encodings/chapter-7' },
+            { text: '第8章：X WindowとUnix環境におけるフォント管理', link: '/ja/fonts-encodings/chapter-8' },
+          ],
+        },
+        {
+          text: '第三部：組版エンジンとWebフォント技術（Part III）',
+          collapsed: false,
+          items: [
+            { text: '第9章：TeXおよびOmegaシステムのフォント技術', link: '/ja/fonts-encodings/chapter-9' },
+            { text: '第10章：Webページ組版技術', link: '/ja/fonts-encodings/chapter-10' },
+          ],
+        },
+        {
+          text: '第四部：書体設計学と高度な組版（Part IV）',
+          collapsed: false,
+          items: [
+            { text: '第11章：ラテン文字書体の歴史的変遷と分類学', link: '/ja/fonts-encodings/chapter-11' },
+            { text: '第12章：フォント設計と編集の実践', link: '/ja/fonts-encodings/chapter-12' },
+            { text: '第13章：ラスタライズ最適化とヒンティング', link: '/ja/fonts-encodings/chapter-13' },
+            { text: '第14章：書体の深化：高度な組版特性', link: '/ja/fonts-encodings/chapter-14' },
+          ],
+        },
+        {
+          text: '第五部：技術付録（Part V）',
+          collapsed: false,
+          items: [
+            { text: '付録全編：内部構造と数学的原理マニュアル', link: '/ja/fonts-encodings/appendices' },
+          ],
+        },
+      ],
       '/ja/controlled-substances/': [
         {
           text: '規制物質：化学と法律のガイド',
@@ -101,6 +155,7 @@ export default defineConfig({
           items: [
             { text: 'Vol. 01 規制物質：化学と法律のガイド', link: '/ja/controlled-substances/' },
             { text: 'Vol. 02 ロケット技術の先駆者たち：選集', link: '/ja/rocket-pioneers/' },
+        { text: 'Vol. 03 フォントとエンコーディング：Unicodeと高度な組版技術', link: '/ja/fonts-encodings/' },
           ],
         },
         {
@@ -171,6 +226,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Vol. 01 規制物質：化学と法律のガイド', link: '/ja/controlled-substances/' },
         { text: 'Vol. 02 ロケット技術の先駆者たち：選集', link: '/ja/rocket-pioneers/' },
+        { text: 'Vol. 03 フォントとエンコーディング：Unicodeと高度な組版技術', link: '/ja/fonts-encodings/' },
       ],
     },
     {

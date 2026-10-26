@@ -18,8 +18,10 @@ description: "完整无删节中文译本：低分辨率屏幕渲染困境与物
 
 为了化解上述严峻危机，数字字体技术中诞生了一门至关重要的核心高阶工艺——**字形微调技术**（**Hinting** / 优化光栅化）。
 
+::: tip 图 13-1：PostScript Type 1 字体在不同光栅化优化策略下的显示效果显微对比（以 Monotype Old Style 字体为例）。从上至下依次展示：完全无微调的原始粗暴采样、施加基础全局微调对齐、施加局部高级微调提示，以及结合抗锯齿（Anti-aliasing）与次像素渲染（ClearType）后的锐利优雅呈现
 ![图 13-1：PostScript Type 1 字体在不同光栅化优化策略下的显示效果显微对比](/images/fonts-encodings/fig13-1.png)
 *图 13-1：PostScript Type 1 字体在不同光栅化优化策略下的显示效果显微对比（以 Monotype Old Style 字体为例）。从上至下依次展示：完全无微调的原始粗暴采样、施加基础全局微调对齐、施加局部高级微调提示，以及结合抗锯齿（Anti-aliasing）与次像素渲染（ClearType）后的锐利优雅呈现。*
+:::
 
 在字体工程史上，两大对立阵营发展出了截然相反的两套微调技术哲学：**Adobe PostScript 的声明式微调（Declarative Hinting）**与**苹果/微软 TrueType 的指令式微调（Imperative Hinting / Bytecode）**。
 
@@ -37,15 +39,19 @@ Adobe 在设计 PostScript Type 1 与 Type 2 (OpenType CFF) 格式时，秉承�
 
 每个对齐区由一对严格递增的整型坐标定义：$[y_{\text{bottom&#125;&#125;, y_{\text{top&#125;&#125;]$。其中一条边代表平直字符（如大写 ‘H’）的严格几何基准线，另一条边则划定了圆弧字符（如大写 ‘O’）为了在视错觉上与平直字符等高而在物理上刻意微微超出基准线的**外突溢出区**（Overshoot）。
 
+::: tip 图 13-2：PostScript 字体中的核心对齐区示意图：(1) 大写字母基准高度与大写 ‘O’ 的顶部外突区；(2) 小写字母 x-高度与小写 ‘o’ 的顶部外突区；(3) 文本基线与 ‘o’、‘p’ 的底部外突区；(4) 下行降部最低线与 ‘p’ 的底部外突区
 ![图 13-2：PostScript 字体中的核心对齐区示意图](/images/fonts-encodings/fig13-2.png)
 *图 13-2：PostScript 字体中的核心对齐区示意图：(1) 大写字母基准高度与大写 ‘O’ 的顶部外突区；(2) 小写字母 x-高度与小写 ‘o’ 的顶部外突区；(3) 文本基线与 ‘o’、‘p’ 的底部外突区；(4) 下行降部最低线与 ‘p’ 的底部外突区。*
+:::
 
 当光栅化引擎检测到当前目标字号极小（低于系统设定的 `BlueScale` 阈值，通常为 12 磅以下）时，解释器将启动强大的“过冲抑制机制”：**强制将所有落在溢出区内的圆弧外突节点强行拉平至基准水平像素线上，确保所有字母严丝合缝地锁定在同一像素高度！** 只有当分辨率或字号足够大、单个像素已无法察觉视错觉差异时，引擎才会松开约束，恢复圆弧字体的饱满微弧。
 
 此外，为了保证整个庞大字体家族（正体、粗体、斜体、浓缩体）在同一页面混排时视觉高度绝对整齐划一，Type 1 还允许定义 `FamilyBlues` 与 `FamilyOtherBlues`，强制所有衍生样式服从统一的家族基准。
 
+::: tip 图 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面
 ![图 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面](/images/fonts-encodings/fig13-3.png)
 *图 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面。*
+:::
 
 ---
 
@@ -56,8 +62,10 @@ Adobe 在设计 PostScript Type 1 与 Type 2 (OpenType CFF) 格式时，秉承�
 * `vstem`（垂直主干）：声明一条由起始横坐标 $x$ 与笔画水平跨度宽度 $dx$ 所界定的垂直笔画区域。
 * `hstem3` 与 `vstem3`：专门用于应对具有三根等宽、等间距平行骨架的复杂字形（例如小写字母 ‘m’ 的三根垂直立柱，或大写字母 ‘E’ 的三根水平横梁）。
 
+::: tip 图 13-4：FontLab 字形编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面。半透明彩色高亮条直观映射各受保护笔画的宽度与位置边界
 ![图 13-4：FontLab 字形编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面](/images/fonts-encodings/fig13-4.png)
 *图 13-4：FontLab 字形编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面。半透明彩色高亮条直观映射各受保护笔画的宽度与位置边界。*
+:::
 
 ---
 
@@ -67,11 +75,15 @@ Adobe 在设计 PostScript Type 1 与 Type 2 (OpenType CFF) 格式时，秉承�
 
 为了突破这一瓶颈，Type 1 规范引入了革命性的**微调替换机制**（Hint Substitution）：在字形绘制数据流中，允许在不同的子轮廓绘制指令之间插入新的微调定义；而在更先进的 Type 2 (CFF) 规范中，更将所有主干微调集中声明在字形头部，随后在路径绘制过程中通过轻量级的 `hintmask`（微调掩码）指令，随时按需激活或冻结特定的微调子集！
 
+::: tip 图 13-5：FontLab 中对字形实施高级微调动态替换（Hint Replacement）的分组配置界面
 ![图 13-5：FontLab 中对字形实施高级微调动态替换（Hint Replacement）的分组配置界面](/images/fonts-encodings/fig13-5.png)
 *图 13-5：FontLab 中对字形实施高级微调动态替换（Hint Replacement）的分组配置界面。*
+:::
 
+::: tip 图 13-6：FontForge 软件中管理与自动化生成独立微调指令的交互界面
 ![图 13-6：FontForge 软件中管理与自动化生成独立微调指令的交互界面](/images/fonts-encodings/fig13-6.png)
 *图 13-6：FontForge 软件中管理与自动化生成独立微调指令的交互界面。*
+:::
 
 ---
 
@@ -89,8 +101,10 @@ Adobe 在设计 PostScript Type 1 与 Type 2 (OpenType CFF) 格式时，秉承�
 
 在 TrueType 中，光栅化引擎不再是一个能够自作主张的“智能艺术家”，而是一个绝对听话的“执行木偶”。字体设计师通过向虚拟机灌入底层字节码汇编指令，亲自接管从轮廓缩放到每个像素点亮与熄灭的绝对控制权！
 
+::: tip 图 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与微调指令管线。灰色轮廓直观展示了被字节码指令强行扭曲推拉至像素物理网格边缘的真实变形状态
 ![图 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与微调指令管线](/images/fonts-encodings/fig13-7.png)
 *图 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与微调指令管线。灰色轮廓直观展示了被字节码指令强行扭曲推拉至像素物理网格边缘的真实变形状态。*
+:::
 
 ## 1. TrueType 虚拟机的内存与执行架构
 
@@ -101,11 +115,15 @@ TrueType 虚拟机的内部结构由以下核心部件咬合而成：
 * **微光区（The Twilight Zone）**：一个极其神秘而精妙的虚拟几何绘图平面（对应字形索引 0 之前的虚拟区）。设计者可以在微光区中凭空创造出实际字符轮廓中根本不存在的纯数学虚拟几何辅助参考点（Phantom Points），利用它们作为复杂连字或倾斜投影的物理对齐杠杆！
 * **控制值表（Control Value Table, CVT）**：整个 TrueType 字体中最关键的全局排印度量常数库！它在字体二进制文件中以 `'cvt '` 表形式独立存储。
 
+::: tip 图 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图。条目中精确固化了基线、大写高度、小写 x-高度等核心物理尺寸在设计网格下的标准数值
 ![图 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图](/images/fonts-encodings/fig13-8.png)
 *图 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图。条目中精确固化了基线、大写高度、小写 x-高度等核心物理尺寸在设计网格下的标准数值。*
+:::
 
+::: tip 图 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图
 ![图 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图](/images/fonts-encodings/fig13-9.png)
 *图 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图。*
+:::
 
 ---
 
@@ -144,17 +162,25 @@ TrueType 的指令集包含上百条底层机器码，涵盖从堆栈逻辑、�
 * **Microsoft Visual TrueType**（**VTT**）：微软公司倾力打造的工业级官方微调利器。它采用高层人类可读的高级微调语言（TalkBack / VTT Talk），通过直观的图形化箭头锚点，自动将其编译为底层 TrueType 字节码流（图 13-10）。
 * **FontForge 指令调试器**：为开源世界提供了媲美专业软件调试工具的交互式单步执行环境（Instruction Debugger）。设计者可以在虚拟机的堆栈、寄存器、CVT 表、Storage 区与光栅化点阵窗口之间设置断点，逐帧观察每一个贝塞尔锚点在微调指令驱动下的微观跳动轨迹（图 13-11、13-12、13-13）！
 
+::: tip 图 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口
 ![图 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口](/images/fonts-encodings/fig13-10.png)
 *图 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口。*
+:::
 
+::: tip 图 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口
 ![图 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口](/images/fonts-encodings/fig13-11.png)
 *图 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口。*
+:::
 
+::: tip 图 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口：通用寄存器（Registers）、控制值表（Cvt）、临时存储区（Storage）、节点坐标表（Points）、执行堆栈（Stack）、光栅化位图预览（Raster）与术语字典（Glossary）
 ![图 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口](/images/fonts-encodings/fig13-12.png)
 *图 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口：通用寄存器（Registers）、控制值表（Cvt）、临时存储区（Storage）、节点坐标表（Points）、执行堆栈（Stack）、光栅化位图预览（Raster）与术语字典（Glossary）。*
+:::
 
+::: tip 图 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面
 ![图 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面](/images/fonts-encodings/fig13-13.png)
 *图 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面。*
+:::
 
 ---
 

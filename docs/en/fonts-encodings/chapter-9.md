@@ -46,7 +46,7 @@ mouse, the screen, our hands, and our eyes are themselves not very accurate. And
 take the trouble to be accurate by using magnifying glasses and sophisticated tools for
 measurement, alignment, and uniformity, along with any other devices supplied by the
 software, the eﬀort required is completely out of proportion to the result obtained—a
-the Greek letters tau, epsilon, chi, the ﬁrst letters of the word τχνη, which means “art” and “technique” in
+the Greek letters tau, epsilon, chi, the ﬁrst letters of the word τχνη, which means “art” and “technique” in
 classical Greek. For this reason, the pronunciation of TEX depends on the pronunciation of classical Greek in
 the language being used, which diﬀers dramatically among speakers of English, French, German, Japanese,
 and, yes, modern Greek. In English, TEX rhymes with “blecchhh”, as explained by Knuth in [217].
@@ -101,7 +101,10 @@ independent). This ﬁle format, compared with formats such as PDF, PostScript, 
 
 238
 Chapter 9 : Fonts in TEX and Ω, their installation and use
+::: tip Figure 9-1: The process of producing documents with TeX
 ![Figure 9-1: The process of producing documents with TeX](/images/fonts-encodings/fig9-1.png)
+*Figure 9-1: The process of producing documents with TeX*
+:::
 Why are simplicity and abstraction so important? Because when TEX was created (in the
 1970s), each screen and each printer had its own computer codes. Rather than making
 as many versions of TEX as there were models of screens and printers, Knuth decided to
@@ -178,7 +181,10 @@ a human being, 62 parameters are enough to char-
 acterize a font
 in
 the Computer Modern family.
+::: tip Figure 9-2: A sample of various fonts of the Computer Modern family
 ![Figure 9-2: A sample of various fonts of the Computer Modern family](/images/fonts-encodings/fig9-2.png)
+*Figure 9-2: A sample of various fonts of the Computer Modern family*
+:::
 guage herself,3 but one dedicated to creating fonts. We shall discuss her in great depth in
 Appendix F of this book.
 Thus we have one more font format to take into consideration when we prepare to man-
@@ -438,7 +444,10 @@ new horizons for font management.
 
 
 245
+::: tip Figure 9-3: The OT1 glyph encoding (TeX's default encoding)
 ![Figure 9-3: The OT1 glyph encoding (TeX's default encoding)](/images/fonts-encodings/fig9-3.png)
+*Figure 9-3: The OT1 glyph encoding (TeX's default encoding)*
+:::
 
 – OT1, Knuth’s original encoding; see Figure 9-3 [217, p. 427]
 – T1, an encoding inspired by ISO Latin-1 that also incorporates glyphs for the lan-
@@ -465,19 +474,28 @@ European countries, such as Greece); PostScript points, bp (‘b’ for big, sin
 
 
 
+::: tip Figure 9-4: Glyph encodings: T1 (Cork encoding) and TS1 (Text Companion)
 ![Figure 9-4: Glyph encodings: T1 (Cork encoding) and TS1 (Text Companion)](/images/fonts-encodings/fig9-4.png)
+*Figure 9-4: Glyph encodings: T1 (Cork encoding) and TS1 (Text Companion)*
+:::
 
 *Figure 9-4: Glyph encodings: T1, or the "Cork encoding", named for the city of Cork, Ireland, where the TeX Users Group meeting of 1990 took place (top); and TS1, or the "Text Companion encoding" (bottom).*
 
 
 
+::: tip Figure 9-5: The T2A and T2B Cyrillic glyph encodings
 ![Figure 9-5: The T2A and T2B Cyrillic glyph encodings](/images/fonts-encodings/fig9-5.png)
+*Figure 9-5: The T2A and T2B Cyrillic glyph encodings*
+:::
 
 *Figure 9-5: The T2A and T2B glyph encodings (for European and Asian languages that use the Cyrillic script).*
 
 
 
+::: tip Figure 9-6: The T2C (Asian Cyrillic) and T2D (Old Cyrillic) glyph encodings
 ![Figure 9-6: The T2C (Asian Cyrillic) and T2D (Old Cyrillic) glyph encodings](/images/fonts-encodings/fig9-6.png)
+*Figure 9-6: The T2C (Asian Cyrillic) and T2D (Old Cyrillic) glyph encodings*
+:::
 
 *Figure 9-6: The T2C (Asian languages that use the Cyrillic script) and T2D (Old Cyrillic) glyph encodings.*
 
@@ -524,7 +542,10 @@ both cases.
 
 
 
+::: tip Figure 9-7: The T3 (IPA) and T4 (African languages) glyph encodings
 ![Figure 9-7: The T3 (IPA) and T4 (African languages) glyph encodings](/images/fonts-encodings/fig9-7.png)
+*Figure 9-7: The T3 (IPA) and T4 (African languages) glyph encodings*
+:::
 
 *Figure 9-7: The T3 (IPA) and T4 glyph encodings (for African languages that use the Latin alphabet).*
 
@@ -662,7 +683,10 @@ document.
 
 254
 Chapter 9 : Fonts in TEX and Ω, their installation and use
+::: tip Figure 9-8: Specimens of the font Adobe Kepler MM at optical sizes between 5 and 72 points
 ![Figure 9-8: Specimens of the font Adobe Kepler MM at optical sizes between 5 and 72 points](/images/fonts-encodings/fig9-8.png)
+*Figure 9-8: Specimens of the font Adobe Kepler MM at optical sizes between 5 and 72 points*
+:::
 
 *Figure 9-8: Specimens of the font Adobe Kepler MM at optical sizes between 5 and 72 points, set at 10 points.*
 24 points.
@@ -2102,7 +2126,10 @@ SS
 ˝D
 ˝E
 ˝F
+::: tip Figure 9-9: The layout of the font t1centaurmn produced by fontinst
 ![Figure 9-9: The layout of the font t1centaurmn produced by fontinst](/images/fonts-encodings/fig9-9.png)
+*Figure 9-9: The layout of the font t1centaurmn produced by fontinst*
+:::
 
 *Figure 9-9: The layout of the font t1centaurmn produced by fontinst. Compare it with the table of the T1 glyph encoding (Figure 9-4).*
 of the T1 glyph encoding (Figure 9-4). The font does not contain glyphs for ‘%’, ‘j’, ‘N’, or ‘n’; these
@@ -2742,8 +2769,8 @@ Another example of the use of ligatures: the contextual analysis of the Arabic s
 simplicity’s sake, we shall assume that there are only two letters: one with two forms,
 and one with four forms. To assist the reader who does not read Arabic, we shall take
 two letters whose forms are quite diﬀerent from one another: ghayn (isolated, J; initial,
-K; medial, L; ﬁnal, M) and dal (isolated, ; ﬁnal, N). Thus the four two-letter words that
-we can write are J and  (letters not connected), NK and MK (letters connected). The
+K; medial, L; ﬁnal, M) and dal (isolated, ; ﬁnal, N). Thus the four two-letter words that
+we can write are J and  (letters not connected), NK and MK (letters connected). The
 three-letter words with all the letters joined up are MLK and NLK. And so forth.
 Ordinarily the glyphs that we are going to discuss are called afii57434 for ghayn and
 afii57423; but since these names will not necessarily help the reader to understand the
@@ -2755,7 +2782,7 @@ if it has four forms, or the ﬁnal form, if it has only two. Therefore, by defa
 ask TEX to set a ghayn or a dal, it will set a L (ghayn.medi) or a N (dal.fina). Now we must
 write the ligatures that will produce the other contextual forms.
 First, let us deal with the beginning of the word. We want L and N to become K and
-, respectively, in that position. But what is the beginning of a word? That question is
+, respectively, in that position. But what is the beginning of a word? That question is
 anything but trivial. In fact, we must enumerate all the glyphs that may appear before
 either ghayn or dal. The opening parenthesis (parenright) is one such glyph. Therefore
 we shall write, in the deﬁnition of this glyph, in the ETX ﬁle:
@@ -2766,7 +2793,7 @@ we shall write, in the deﬁnition of this glyph, in the ETX ﬁle:
 The slash before the keyword LIG means that we are keeping the preceding glyph and
 that the new glyph obtained will replace the second glyph; thus we keep the parenthesis
 and replace one Arabic letter with another. That solves the problem of ‘L)’ and ‘N)”, which
-become ‘K)’ and ‘)’, respectively.
+become ‘K)’ and ‘)’, respectively.
 Nonetheless, most of the time it is a space that will appear at the beginning of a word.
 And we ﬁnd ourselves once again faced with the peculiarity of TEX that the “space” is
 not a glyph but merely an oﬀset. How can we specify the behavior of a glyph when it is
@@ -3167,7 +3194,10 @@ with \frenchdieresis deﬁned in the following manner:
 
 Customizing TEX Fonts for the User’s Needs
 309
+::: tip Figure 9-10: The utility LTR Bleifrei LayerPlayer of LettError
 ![Figure 9-10: The utility LTR Bleifrei LayerPlayer of LettError](/images/fonts-encodings/fig9-10.png)
+*Figure 9-10: The utility LTR Bleifrei LayerPlayer of LettError*
+:::
 \movert{\add{\sub{\scale{\width{#1&#125;&#125;{500&#125;&#125;{%
 \scale{\width{dieresis&#125;&#125;{500&#125;&#125;}
 {\scale{\sub{\height{#1&#125;&#125;{\int{xheight&#125;&#125;}{\int{italicslant&#125;&#125;&#125;&#125;

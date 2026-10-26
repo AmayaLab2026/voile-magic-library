@@ -24,11 +24,15 @@ description: "完整无删节中文译本：现代数字字体制作软件全景
 * **Macromedia Fontographer**（最早由 Altsys 公司于 1986 年开发）：这是人类历史上首个在 Macintosh 图形界面上实现直接用贝塞尔钢笔工具交互绘制 PostScript Type 1 轮廓的革命性字体编辑器。它让千万排印创作者从晦涩的 PostScript 纯代码坐标中彻底解脱出来。尽管后续历经所有权易手与停滞，但其直观的“字体字符网格窗口”与“字形编辑画板”奠定了后世所有字体软件的人机交互范式。
 * **Letraset FontStudio**（运行于经典 Mac OS 9 时代）：由著名的干印即贴字字模巨头 Letraset 打造的高端专业级字体工坊软件。它引入了极其先进的自动微调提示（Auto-hinting）、灰度预览与多图层度量网格系统，在 1990 年代初受到各大专业铸字厂商的极高推崇。
 
+::: tip 图 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口。每个方格内直观呈现字符图形、Unicode 编码与 PostScript 字形名称
 ![图 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口](/images/fonts-encodings/fig12-1.png)
 *图 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口。每个方格内直观呈现字符图形、Unicode 编码与 PostScript 字形名称。*
+:::
 
+::: tip 图 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符字形编辑工作窗口。展示了早期专业字体设计所依赖的参考基准辅助线与贝塞尔节点调控界面
 ![图 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符字形编辑工作窗口](/images/fonts-encodings/fig12-2.png)
 *图 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符字形编辑工作窗口。展示了早期专业字体设计所依赖的参考基准辅助线与贝塞尔节点调控界面。*
+:::
 
 ---
 
@@ -47,17 +51,25 @@ FontLab 深度整合了对 Type 1、TrueType、OpenType 以及 Multiple Master �
 3. **Ranges 模式（Unicode 字符块模式）**：完全遵循 Unicode 联盟官方划分的标准字符集区间（Unicode Blocks / Ranges，如 Basic Latin、Latin-1 Supplement、Latin Extended-A、Greek and Coptic、Cyrillic 等）。在开发包含数千字符的大型泛欧或全球化通用 OpenType 字体时，该模式是必不可少的工作中枢。
 4. **Index 模式（字形索引模式）**：直接以字体二进制文件内部的物理字形索引（Glyph Index, **GID**）为顺序展示。在底层 TrueType/OpenType 结构中，GID 0 永远固定指派给缺失符号（`.notdef`），随后的各字形按其实际编译进字体数据流中的物理先后次序自左向右严格递增排列。
 
+::: tip 图 12-3：FontLab 字体窗口中的 Names（字形名称）视图模式
 ![图 12-3：FontLab 字体窗口中的 Names（字形名称）视图模式](/images/fonts-encodings/fig12-3.png)
 *图 12-3：FontLab 字体窗口中的 Names（字形名称）视图模式。*
+:::
 
+::: tip 图 12-4：FontLab 字体窗口中的 Pages（单字节编码代码页）视图模式
 ![图 12-4：FontLab 字体窗口中的 Pages（单字节编码代码页）视图模式](/images/fonts-encodings/fig12-4.png)
 *图 12-4：FontLab 字体窗口中的 Pages（单字节编码代码页）视图模式。*
+:::
 
+::: tip 图 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式
 ![图 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式](/images/fonts-encodings/fig12-5.png)
 *图 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式。*
+:::
 
+::: tip 图 12-6：FontLab 字体窗口中的 Index（物理字形索引 GID）视图模式
 ![图 12-6：FontLab 字体窗口中的 Index（物理字形索引 GID）视图模式](/images/fonts-encodings/fig12-6.png)
 *图 12-6：FontLab 字体窗口中的 Index（物理字形索引 GID）视图模式。*
+:::
 
 ---
 
@@ -69,11 +81,15 @@ FontLab 深度整合了对 Type 1、TrueType、OpenType 以及 Multiple Master �
 * **Key Dimensions（核心排印度量尺寸）**：精确设定字体的全身身长网格（Units per em，通常 PostScript 设定为 1000，TrueType 设定为 2048）、大写字母高度（Cap-Height）、小写 x-高度（X-Height）、字体上行升幅（Ascender）、下行降幅（Descender）以及行距（Line Gap）（图 12-8）。
 * **Supported Codepages and Unicode Ranges（支持的代码页与 Unicode 范围标志位）**：直接对应 TrueType/OpenType 二进制规范中 `OS/2` 表的 128 位 `ulUnicodeRange` 掩码与 64 位 `ulCodePageRange` 掩码。这些比特位明确通知操作系统与文字渲染管线：本字体经过认证能够完整支持哪些语言与国家标准！
 
+::: tip 图 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页
 ![图 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页](/images/fonts-encodings/fig12-7.png)
 *图 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页。*
+:::
 
+::: tip 图 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持代码页与 Unicode 覆盖区间配置标签页
 ![图 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持代码页与 Unicode 覆盖区间配置标签页](/images/fonts-encodings/fig12-8.png)
 *图 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持代码页与 Unicode 覆盖区间配置标签页。*
+:::
 
 ---
 
@@ -91,8 +107,10 @@ FontForge 基于 Unix/X11 图形架构开发，以完全开放、完全无商业
 
 ## 1. PostScript 三次贝塞尔曲线 vs TrueType 二次 B-样条
 
+::: tip 图 12-11：PostScript 三次贝塞尔曲线轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比。实心黑点代表链上节点（On-curve nodes），白色空心圆点代表链外控制点（Off-curve control handles）
 ![图 12-11：PostScript 三次贝塞尔曲线轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比](/images/fonts-encodings/fig12-11.png)
 *图 12-11：PostScript 三次贝塞尔曲线轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比。实心黑点代表链上节点（On-curve nodes），白色空心圆点代表链外控制点（Off-curve control handles）。*
+:::
 
 ### PostScript 三次贝塞尔曲线（Cubic Bézier Splines, 3阶）
 由法国雷诺汽车工程师皮埃尔·贝塞尔（Pierre Bézier）在汽车车身设计中首创，后被 Adobe 采纳为 PostScript 核心。
@@ -141,11 +159,15 @@ FontForge 基于 Unix/X11 图形架构开发，以完全开放、完全无商业
 
 1991 年，Adobe 推出了革命性的**多重母版技术**（Multiple Master, **MM**）。设计师只需精心绘制处于多维设计空间极值角落上的若干个基准“母版字形”（Master Designs，例如图 12-9 中的极细母版与极粗母版），计算机算法便能利用多维线性插值（Linear Interpolation），动态、无级、连续地衍生生成出成千上万款拥有完美灰度与骨架过渡的衍生字体！
 
+::: tip 图 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口。同一画板中同时叠映着极细母版与极黑母版的矢量轮廓骨架
 ![图 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口](/images/fonts-encodings/fig12-9.png)
 *图 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口。同一画板中同时叠映着极细母版与极黑母版的矢量轮廓骨架。*
+:::
 
+::: tip 图 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口
 ![图 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口](/images/fonts-encodings/fig12-10.png)
 *图 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口。*
+:::
 
 ### 多重母版插值的严格数学相容性约束（Compatibility）
 插值算法能够在两个母版之间流畅演算的前提，是两者在数学拓扑上具有绝对的一一对应关系：
@@ -162,14 +184,20 @@ FontForge 基于 Unix/X11 图形架构开发，以完全开放、完全无商业
 
 许多经典的印刷字体复刻或古老书籍排印工程，始于对古籍原版的纸质扫描。由 FontLab 家族出品的专用工具 **ScanFont**，代表了数字字体领域位图自动描摹（Autotracing）的最高专业水准。
 
+::: tip 图 12-12：ScanFont 软件对扫描页面进行自动字形切分与包围框分离界面
 ![图 12-12：ScanFont 软件对扫描页面进行自动字形切分与包围框分离界面](/images/fonts-encodings/fig12-12.png)
 *图 12-12：ScanFont 软件对扫描页面进行自动字形切分与包围框分离界面。*
+:::
 
+::: tip 图 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框
 ![图 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框](/images/fonts-encodings/fig12-13.png)
 *图 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框。*
+:::
 
+::: tip 图 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比。清晰展现了算法自动拟合在极小拐角与弧度转折处不可避免产生的多余冗余噪点
 ![图 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比](/images/fonts-encodings/fig12-14.png)
 *图 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比。清晰展现了算法自动拟合在极小拐角与弧度转折处不可避免产生的多余冗余噪点。*
+:::
 
 通过图 12-14 的显微对比，作者给出了极具警示意义的技术箴言：**无论计算机的位图边缘侦测与贝塞尔拟合算法多么强大，自动描摹生成的轮廓永远充满着多余的锯齿噪点、缺少正交极值点，且控制点分布极度紊乱**。因此，自动描摹只能作为起草参考底稿，一位追求卓越的字体工匠，最终必须以虔诚的耐心，亲手在关键极值点处逐一落笔雕琢每一根优雅匀称的贝塞尔矢量曲线！
 

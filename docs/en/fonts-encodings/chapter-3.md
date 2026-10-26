@@ -188,7 +188,7 @@ practices! They would instead go into the catchall No, which we shall see in jus
 moment.
 • Nl (number, letter). An especially nasty problem: in many writing systems, letters are
 used to count (in which case we call them “numerals”). In Greek, for instance, 2006
-is written κ . But if the letters employed are also used in running text, they cannot
+is written κ . But if the letters employed are also used in running text, they cannot
 belong to two categories at the same time. And Unicode cannot double the size of
 the blocks for these scripts simply because someone might wish to use their letters as
 numerals. What, then, is a “number-letter”, if not a letter that appears in text? There
@@ -323,9 +323,9 @@ should not be connected, or in those cases in which we want to avoid a ligature
 at all costs, as in the German word Auflage, in which the letters ‘f’ and ‘l’ belong
 to different components of the compound word.
 – 0x200D zero width joiner, or “ZWJ”, is the opposite of ZWNJ. It is very useful
-when we need to obtain a specific contextual form. For example, the abbreviation “” is found in Arabic dictionaries. It is the initial form of the letter hah.
+when we need to obtain a specific contextual form. For example, the abbreviation “” is found in Arabic dictionaries. It is the initial form of the letter hah.
 Since this letter is preceded and followed by non-letters, the rendering engine
-will automatically select the glyph  for the isolated form. To obtain the initial
+will automatically select the glyph  for the isolated form. To obtain the initial
 form, we follow the letter with the character ZWJ, which leads the rendering
 engine to think that the letter is followed by another Arabic letter, to which it
 must be connected.
@@ -346,7 +346,7 @@ Its rôle is strictly semantic. It indicates that two mathematical symbols stand
 in relation to each other as a function and its argument. When we write f(x),
 it is clear that we are referring to the function f of x; likewise, when we write
 a(b + c), it is clear that we are referring to the product of the variable a and
-the sum of the variables b + c. But what is f(g + h)? Is it f : g + h →f(g + h) or
+the sum of the variables b + c. But what is f(g + h)? Is it f : g + h →f(g + h) or
 f ·g+ f ·h? To eliminate the ambiguity, we have an invisible “function” character
 that indicates, when placed between f and (g + h), that the notation refers to
 the application of a function. This invisible character can also be used for other
@@ -717,11 +717,11 @@ which appears at the end of words. When converting from uppercase to lowercase l
 the appropriate character. Unfortunately, reality is more complex: in an abbreviated
 word, sigma retains its form even when it is the last letter of the abbreviation. The
 sentence “Ο ΦΙΛΟΣ. ΙΩΑΝΝΗΣ ΕΙΝΑΙ ΦΙΛΟΣ.” (= ‘The philos(opher) Ioannis
-is a friend’) becomes “S φιλTσ. ’Ιω!ννηP εUναι φλοP.” in lower case because the
+is a friend’) becomes “S φιλTσ. ’Ιω!ννηP εUναι φλοP.” in lower case because the
 first “ΦΙΛΟΣ.” is the abbreviation for “ΦΙΛΟΣΟΦΟΣ”, while the second one is the
 word “ΦΙΛΟΣ” followed by a period to end the sentence. The computer cannot distinguish the two instances without advanced linguistic processing. Not to mention
-the use of medial sigma as a number (σ = 200) and the similar use of a letter that is
-not a final sigma but that looks like one: stigma ‘’, whose numeric value is 6.
+the use of medial sigma as a number (σ = 200) and the similar use of a letter that is
+not a final sigma but that looks like one: stigma ‘’, whose numeric value is 6.
 • Although everyone likes to “dot his ‘i’s”, the Lithuanians do so even when the ‘i’
 also bears other accents. Thus the lowercase versions of ‘Ì’, ‘Í’, and ‘˜I’ in Lithuanian
 are not ‘ì’, ‘í’, and ‘˜ı’ as in most other languages but ‘ÿ’, ‘Ÿ’, and ‘⁄’. We say that the
@@ -793,14 +793,14 @@ form. Finally, the second B is medial and becomes final because we are at the en
 word. Thus we have R0B1B3.
 The reader may work out the remaining words in the same manner: B1R3R0, R0B1R3,
 R0R0B0, R0R0R0. To illustrate this mechanism, let us take two genuine Arabic letters: beh
-in its four forms, “   	”, and reh in its two forms, “
+in its four forms, “   	”, and reh in its two forms, “
 ”. Here are our eight hypothetical
-words in the Arabic alphabet: BBB , BBR
-, BRB
-, RBB 
+words in the Arabic alphabet: BBB , BBR
+, BRB
+, RBB 
 , BRR
-, RBR
-
+, RBR
+
 ,
 RRB 	
 
@@ -841,11 +841,11 @@ classification of the letters. To understand how it works, we need to review the
 dots in the Arabic script.
 In its earliest form, the Arabic script suffered from acute polysemy of its glyphs. The
 sounds b, t, th (as in the word think), n, and y (the last of these in its initial and medial forms only) were written with the same symbol. How, then, to distinguish
- bayt
+ bayt
 (house) and
- tayb (well)? To alleviate this difficulty, a system of dots was invented:
+ tayb (well)? To alleviate this difficulty, a system of dots was invented:
 one dot below beh, two dots below yeh, one dot above noon, two dots above teh, three dots
-above theh. Thus the words ‘house’ and ‘well’ can finally be distinguished:  and .
+above theh. Thus the words ‘house’ and ‘well’ can finally be distinguished:  and .
 Systems of dots used to disambiguate words were further developed by the other languages that use the Arabic script, other signs were added, and today we find ourselves
 with several hundred signs, all derived from the same few undotted Arabic letters. Thus
 we can classify letters according to their ancestry: if they are derived from the same ancestor (free of dots and diacritical marks), we shall say that they are in the same joining
@@ -931,7 +931,7 @@ For that reason, Unicode set aside three fields in UnicodeData.txt: value of dec
 (field 6), value of digit or value of numeral (field 7), and numeric value or value of alphanumeric numeral (field 8). Once again we are baffled by the subtleties of the jargon being
 used: what exactly distinguishes these three fields?
 Value of decimal digit is the strictest of the fields. The only characters that are “decimal
-digits” are those that act as—decimal digits. Thus ‘1’ is a decimal digit, ‘’ is a decimal
+digits” are those that act as—decimal digits. Thus ‘1’ is a decimal digit, ‘’ is a decimal
 digit (in Arabic), ‘‰’ is a decimal digit (in Amharic), etc. These characters combine with
 their associates to form numbers in a system of decimal numeration.
 By contrast, ‘’ is not a “decimal digit” (the teacher would be rather unhappy if we wrote
@@ -966,7 +966,7 @@ is constructed—a subject that is not necessarily of interest to the XML novice
 A priori, we can regard XML tags as being written with ASCII letters and digits; at least
 that is what we shall see in all the examples. That is true for good old SGML but not for
 young, dynamic XML, which proudly proclaims itself “Unicode compatible”. We are free
-to use <книга>, <βιβλον>, <	>, &lt;girw&gt;, <読本>, and other exotic tags!
+to use <книга>, <βιβλον>, <	>, &lt;girw&gt;, <読本>, and other exotic tags!
 But does that really mean that we can use just any Unicode character in the names of
 our tags? No. By this point, the reader will certainly be aware that the various scripts of
 the world have largely the same structures as ours: letters (or similar), diacritical marks,
@@ -1023,10 +1023,10 @@ setlength
 
 LATIN SMALL LETTER E WITH MACRON
 • Latvian, Latin, ...
-≡ 0065 e  0304 \$
+≡ 0065 e  0304 \$
 Ĕ
 LATIN CAPITAL LETTER E WITH BREVE
-≡ 0045 E  0306 
+≡ 0045 E  0306 
 
 Reading a Unicode block in which we learn that the ‘œ’ ligature is used not only in French but also in Old English, where it had the pretty name eðel, and in Old Icelandic. But let us return to our example, which still has plenty of things to teach us. The lines that begin with an arrow →are either “explicit inequalities” (which indicate likely sources of confusion with other characters whose glyphs are similar) or “linguistic relationships” (transliterations or phonetic similarities). In reality, these lines have to be understood as comments that show how the character is related to other characters in Unicode. Thus we can find the following under the name of the character 0x0110 latin capital letter d with stroke: →00D0 Ð latin capital letter edh →0111 Æ latin small letter d with stroke →0189 Ð latin capital letter african d Of these three lines, the first and the third are “inequalities”: they warn us not to mistake this character for the Icelandic eth or the African “barred D” used in the Ewe language. The second line simply refers us to the corresponding lowercase letter, which incidentally is the next one in the table. And this is what we find under 0x0111 latin small letter d with stroke: →0110 Ð latin capital letter d with stroke →0452 r cyrillic small letter dje The first line is a cross-reference back to the uppercase version. The second line is a “linguistic relationship”: we learn that this letter, as used in Croatian, has a Serbian counterpart, the letter ‘r’. This information can be useful when transliterating between the two alphabets. When a line begins with an “identical to” sign ≡, the character can be decomposed into others, and this line shows its canonical decomposition. This decomposition is, by definition, unique and always consists of either one or two characters. When there are two characters, the first is a base character and the second is a combining character. Thus we see that the canonical decomposition of ‘ ’ is the letter ‘A’ followed by the macron. We shall discuss compositions and decompositions in the next chapter. Another type of decomposition, which is not illustrated on this page, is the compatibility decomposition. This represents a compromise that can be made when the software’s configuration does not allow us to use the original character. Thus, two pages later, we see the description of the character 0x0149, which, as shown by its representative glyph, is an apostrophe followed by an ‘n’. This letter is used in Afrikaans, the language of the colonists of Dutch origin in South Africa. Here is the full description of this letter:
 

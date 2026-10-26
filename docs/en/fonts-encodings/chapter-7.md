@@ -17,7 +17,10 @@ for oﬃce automation or artistic design, have been ported from one platform to 
 (from Windows to the Macintosh, in the case of oﬃce automation; from the Macintosh
 to Windows, in the case of desktop publishing and the graphic arts). Why should the
 same not apply to ancillary resources—in particular, fonts?
+::: tip Figure 7-1: The Fonts directory in Windows XP
 ![Figure 7-1: The Fonts directory in Windows XP](/images/fonts-encodings/fig7-1.png)
+*Figure 7-1: The Fonts directory in Windows XP*
+:::
 Installing fonts under Windows is as easy as installing them under Mac OS: one need
 only go into the Control Panel and open the shortcut to the Fonts directory, which,
 209
@@ -70,11 +73,17 @@ compatibility between macStyle and fsSelection.
 
 
 211
+::: tip Figure 7-2: Dialog box for installing fonts
 ![Figure 7-2: Dialog box for installing fonts](/images/fonts-encodings/fig7-2.png)
+*Figure 7-2: Dialog box for installing fonts*
+:::
 created; these are the icons that have a little arrow at the lower left. Note that this link
 is not an ordinary ﬁle: if we run dir at the Windows command prompt, these “links” do
 not appear among the ﬁles.
+::: tip Figure 7-3: List of fonts by similarity
 ![Figure 7-3: List of fonts by similarity](/images/fonts-encodings/fig7-3.png)
+*Figure 7-3: List of fonts by similarity*
+:::
 Also note that the View menu in this window has one very special entry: List Fonts By
 Similarity. In this case, the Panose-1 classiﬁcation of the fonts is used to categorize them
 according to their similarity to a given font. We shall examine the Panose-1 classiﬁcation
@@ -103,7 +112,10 @@ utility called ttfext [257] that Microsoft provides free of charge. It is launch
 we ask to see the properties of a TrueType or OpenType font. Its interface takes the form
 of a window with tabs. It includes the classic General tab (which is also the only way to
 determine the name of a given font) and adds nine others:
+::: tip Figure 7-4: Two tabs of the Properties window of the font Linotype Palatino
 ![Figure 7-4: Two tabs of the Properties window of the font Linotype Palatino](/images/fonts-encodings/fig7-4.png)
+*Figure 7-4: Two tabs of the Properties window of the font Linotype Palatino*
+:::
 properties. Right: a general description of the font.
 • Embedding: can the font in question be embedded in a document? There are four
 possibilities: Installable embedding allowed (the font can be embedded in a document
@@ -150,7 +162,10 @@ the fonts are in diﬀerents formats. This situation frequently arises, since mo
 
 
 214
+::: tip Figure 7-5: Interface for configuring FontAgent v.8.8
 ![Figure 7-5: Interface for configuring FontAgent v.8.8](/images/fonts-encodings/fig7-5.png)
+*Figure 7-5: Interface for configuring FontAgent v.8.8*
+:::
 simultaneously release their fonts in both traditional formats: PostScript Type 1 and
 TrueType.
 Fortunately, there are tools for detecting both corrupted fonts and duplicates. One such
@@ -186,7 +201,10 @@ containing PostScript font ﬁles: one folder for .pfb and .otf ﬁles containin
 code for Type 1 fonts and OpenType-CFF fonts, and one folder for .pfm and .mmm ﬁles con-
 taining Windows font metrics for Type 1 and Multiple Master fonts. (It should be noted
 that Vista is not compatible with Adobe Type Manager.)
+::: tip Figure 7-6: The interface for creating instances of Multiple Master fonts
 ![Figure 7-6: The interface for creating instances of Multiple Master fonts](/images/fonts-encodings/fig7-6.png)
+*Figure 7-6: The interface for creating instances of Multiple Master fonts*
+:::
 There is, however, a valid reason to install ATM under Windows 2000 or XP: it allows us
 to create Multiple Master instances. The procedure is as follows (see Figure 7-6). When
 we select a Multiple Master font, the diﬀerent axes of variation are displayed in the form
@@ -201,7 +219,10 @@ of the ﬁle from the values of the parameters. Thus in Figure 7-7 we are using 
 
 
 216
+::: tip Figure 7-7: Using Multiple Master font instances under WordPad
 ![Figure 7-7: Using Multiple Master font instances under WordPad](/images/fonts-encodings/fig7-7.png)
+*Figure 7-7: Using Multiple Master font instances under WordPad*
+:::
 bold 435, width 350, optical size 68 of the font Kepler MM Swash in the application
 WordPad.
 Note that we can also use Multiple Master fonts like ordinary Type 1 fonts under Win-
@@ -234,7 +255,10 @@ is rebooted or another font with the same name is enabled), and permanently enab
 
 
 217
+::: tip Figure 7-8: Font Reserve v.2.6.5
 ![Figure 7-8: Font Reserve v.2.6.5](/images/fonts-encodings/fig7-8.png)
+*Figure 7-8: Font Reserve v.2.6.5*
+:::
 For displaying font specimens, Suitcase has a vertical area that is permanently left open
 and that can be customized; Font Reserve, on the other hand, displays a few glyphs when
 one clicks on a font’s icon in the list of fonts and keeps the mouse button held down.
@@ -259,8 +283,14 @@ font (using the font’s own glyphs), compare a certain number of fonts by viewi
 
 
 218
+::: tip Figure 7-9: Suitcase v.9.2.2 for Windows
 ![Figure 7-9: Suitcase v.9.2.2 for Windows](/images/fonts-encodings/fig7-9.png)
+*Figure 7-9: Suitcase v.9.2.2 for Windows*
+:::
+::: tip Figure 7-10: The font-search interface in Font Reserve v.2.6.5
 ![Figure 7-10: The font-search interface in Font Reserve v.2.6.5](/images/fonts-encodings/fig7-10.png)
+*Figure 7-10: The font-search interface in Font Reserve v.2.6.5*
+:::
 properties side by side, and print out specimens of one or more fonts by using any of a
 dozen diﬀerent models, whose text can be customized. It also supports classiﬁcation of
 fonts and searching for fonts according to their Panose data or their “IBM class”.
@@ -274,7 +304,10 @@ vantage is that their prices are often prohibitive.
 
 
 219
+::: tip Figure 7-11: The main interface and properties of Arial in Typograf
 ![Figure 7-11: The main interface and properties of Arial in Typograf](/images/fonts-encodings/fig7-11.png)
+*Figure 7-11: The main interface and properties of Arial in Typograf*
+:::
 v.4.8f.
 We have already described several tools for font conversion in the chapter on Mac OS.
 Among them, TransType Pro and FontFlasher also exist in Windows versions that are iden-
@@ -297,5 +330,11 @@ full functionality before deciding which one to buy.
 
 
 220
+::: tip Figure 7-12: The interface of TransType Pro under Windows XP
 ![Figure 7-12: The interface of TransType Pro under Windows XP](/images/fonts-encodings/fig7-12.png)
+*Figure 7-12: The interface of TransType Pro under Windows XP*
+:::
+::: tip Figure 7-13: The interface of CrossFont v.4.1 under Windows XP
 ![Figure 7-13: The interface of CrossFont v.4.1 under Windows XP](/images/fonts-encodings/fig7-13.png)
+*Figure 7-13: The interface of CrossFont v.4.1 under Windows XP*
+:::

@@ -75,7 +75,7 @@ ogonek (J)
 • Class 216: attached above and to the right of a letter, as with the Vietnamese horn (q)
 • Class 218: attached beneath and to the left of a letter, as with a small circle that indi-
 cates the ﬁrst tone of a Chinese ideograph
-• Class 220: centered beneath a letter and detached from it, as with the underdot (),
+• Class 220: centered beneath a letter and detached from it, as with the underdot (),
 the underbar (R), and 79 other signs of this type
 • Class 222: to the right of a letter, beneath it, and detached from it, as with two Ma-
 soretic signs, yetiv (Í) and dehi (Î), among other signs
@@ -122,7 +122,7 @@ or more combining characters. But for historical reasons, or merely so as not to
 our software, Unicode contains a large number of decomposable characters—those whose
 glyph consists of a base glyph and a certain number of diacritical marks. In order for a
 glyph to be decomposable, its constituents must also be Unicode characters. Example: we
-could say that ‘’ is the precomposed form of a character ‘’ and a trio of Arabic dots,
+could say that ‘’ is the precomposed form of a character ‘’ and a trio of Arabic dots,
 but that would be of no validity, as Unicode does not separate the Arabic characters from
 their dots, much as we do not say that ‘W’ is made up of two instances of the letter ‘V’.
 Thus these two characters are not decomposable.
@@ -322,13 +322,19 @@ are arranged. Thus a passage in an English book might look like this:
 
 
 135
+::: tip Figure 4-1: Paragraph flow and line indentation in a global left-to-right context
 ![Figure 4-1: Paragraph flow and line indentation in a global left-to-right context](/images/fonts-encodings/fig4-1.png)
+*Figure 4-1: Paragraph flow and line indentation in a global left-to-right context*
+:::
 
 There will be (perhaps) an indention, and the last line does not run to the full measure.
 We read the lines in the order indicated, but we disregard the contents of each line. We
 say that we are in a (global) left-to-right context.
 In a Hebrew or Arabic book, the situation will be reversed:
+::: tip Figure 4-2: Paragraph flow and line indentation in a global right-to-left context
 ![Figure 4-2: Paragraph flow and line indentation in a global right-to-left context](/images/fonts-encodings/fig4-2.png)
+*Figure 4-2: Paragraph flow and line indentation in a global right-to-left context*
+:::
 
 The indention is at the right; the club line ends at the left. We say that we are in a right-
 to-left context. Once again, as long as we remain at the global level, we see nothing but
@@ -346,7 +352,10 @@ Example: Suppose that within our left-to-right text we have a passage written fr
 to left. The principle that we have just stated tells us that, when embedding occurs, ev-
 erything remains the same on the global level, as if we remained in the initial context,
 namely, the left-to-right context:
+::: tip Figure 4-3: Short embedded right-to-left quotation within left-to-right text
 ![Figure 4-3: Short embedded right-to-left quotation within left-to-right text](/images/fonts-encodings/fig4-3.png)
+*Figure 4-3: Short embedded right-to-left quotation within left-to-right text*
+:::
 
 
 136
@@ -357,7 +366,10 @@ The situation is quite diﬀerent when the passages are sequential. For, once 
 typeset, the context has changed, and so  will begin not at the left but at the right
 (as required by the right-to-left global aspect). Likewise, when we have ﬁnished , the
 context is no longer the same, and therefore  will begin at the left. Here is the result:
+::: tip Figure 4-5: Reading order across line breaks in bidirectional text
 ![Figure 4-5: Reading order across line breaks in bidirectional text](/images/fonts-encodings/fig4-5.png)
+*Figure 4-5: Reading order across line breaks in bidirectional text*
+:::
 We can also reason in terms of mode. We change modes when the passages are sequential.
 When we write , we are in the (global) right-to-left mode; therefore, the following line
 will behave like a line in a left-to-right work. In particular, it will begin at the right. When
@@ -370,10 +382,16 @@ level imposes its will on the local. Indeed, the local level is not even concern
 arrangement of the blocks. It has only one task to complete: arranging the words within
 the available blocks in the required order, according to the space available. Here is how
 the text looks to the eye of the reader:
+::: tip Figure 4-5: Reading order across line breaks in bidirectional text
 ![Figure 4-5: Reading order across line breaks in bidirectional text](/images/fonts-encodings/fig4-5.png)
+*Figure 4-5: Reading order across line breaks in bidirectional text*
+:::
 A ﬁne exercise for eye movements! It is a bit easier in the case of sequential passages
 because at least the paths traced by the eyes do not cross:
+::: tip Figure 4-5: Reading order across line breaks in bidirectional text
 ![Figure 4-5: Reading order across line breaks in bidirectional text](/images/fonts-encodings/fig4-5.png)
+*Figure 4-5: Reading order across line breaks in bidirectional text*
+:::
 Let us exercise our eyes, then. Here is a paragraph containing just the ordinal numbers
 from 1 to 17, with those from 5 to 13 set from right to left:
 
@@ -390,29 +408,29 @@ fourteenth htneetriht htflewt htnevele htnet htnin
 ﬁfteenth sixteenth seventeenth.
 And here, by way of illustration, are the same examples in Arabic script. First, the em-
 bedded passage:
-First second third fourth  
+First second third fourth  
 
-  ! 
- "# 
- \$ %! \$
+  ! 
+ "# 
+ \$ %! \$
 
- &'! fourteenth ﬁfteenth sixteenth
+ &'! fourteenth ﬁfteenth sixteenth
 seventeenth.
 And then the sequential passages:
-First second third fourth  
+First second third fourth  
 
-  ! 
- "# 
- \$ %! \$
+  ! 
+ "# 
+ \$ %! \$
 fourteenth ﬁfteenth sixteenth 
- &'!
+ &'!
 seventeenth.
 Another problem compounds the diﬃculties of mixing scripts: the use of numbers. In
 Arabic, Hebrew, Syriac, and Thaana alike, numbers are written from left to right.
 Thus the author’s birthday is written 1962 ,16 yraurbeF ,yadirF, which in Arabic looks
 like this: ()*+ 
 ,-
-. (* /012'- 34, (or 565 78 55, meaning 11 Ramadan 1381 ah
+. (* /012'- 34, (or 565 78 55, meaning 11 Ramadan 1381 ah
 [337]). That means that each number is treated as an embedded “left-to-right” block.
 And we must not forget the characters that appear within numbers: the decimal point,
 for example, which is a period in the United States but a comma in France and a small
@@ -487,10 +505,10 @@ bols.
 Arabic, Syriac, and Thaana characters of the “strong” right-to-left type. There are 981
 of them—a large number, because all the Arabic presentation ligatures are included.
 • Category EN (“European number”, weak): the digits and “European-style” numerals.
-A surprising fact is that the “Eastern Arabic-Indic digits” 95:;&lt;=&gt;6?, used in
+A surprising fact is that the “Eastern Arabic-Indic digits” 95:;&lt;=&gt;6?, used in
 Iran and India, are also included in this category. There are 161 numerals of this type.
 • Category AN (“Arabic number”, weak): the “Arabic-style” numerals. There are
-12 characters of this type: the 10 “Hindu-Arabic” digits 95:@AB>6?, the decimal
+12 characters of this type: the 10 “Hindu-Arabic” digits 95:@AB>6?, the decimal
 separator (C), and the thousands separator ( ’ ).
 • Category ES (“European number separator”, weak): number separators—or, more
 precisely, a separator, the slash. There are two characters in this category: the second
@@ -742,8 +760,8 @@ Then L quotes him by saying “
 −−−−−−−−−−−−−−−−−−−→
 R said that ‘←−−−−−−−−−
 −→
-yes means yes’.” (“He said that ‘D0E DF
-
+yes means yes’.” (“He said that ‘D0E DF
+
 yes’.”). Thus we have right-to-left embedding in a left-to-right passage.
 But if we leave the algorithm to do its work unassisted, it will yield undesired results. By
 merely reading “He said that ‘yes ... ”, the algorithm cannot know that the word “yes”
@@ -764,8 +782,8 @@ Did you say that ‘
 −−−−−−−−−−−−−−−−−−−→
 R said that “←−−−−−−−−−
 −→
-yes means yes” ’?” (“G“He said that ‘D0EDF
- yes’ ”HI”).
+yes means yes” ’?” (“G“He said that ‘D0EDF
+ yes’ ”HI”).
 We have surrounded the entire previous sentence with the question “Did you say that”
 and a question mark ‘?’. And since R′ is right-to-left, we are in that context from the very
 beginning; i.e., the embedding level ˚ of the ﬁrst character already has the value of 1.
@@ -1073,11 +1091,17 @@ as values of the type attribute of element stroke.)
 
 In Character Description Language (CDL), ideographs are decomposed into basic calligraphic strokes. The complete inventory of 42 basic strokes, their stroke names in Pinyin, abbreviations, and sample occurrences are presented in the following plates:
 
+::: tip Plate 4-1: CDL Stroke Classification Table — Strokes 1 to 29 (p. 154)
 ![Plate 4-1: CDL Stroke Classification Table — Strokes 1 to 29 (p. 154)](/images/fonts-encodings/plate4-1.png)
+*Plate 4-1: CDL Stroke Classification Table — Strokes 1 to 29 (p. 154)*
+:::
 
 
 
+::: tip Plate 4-2: CDL Stroke Classification Table — Strokes 30 to 42 (p. 155)
 ![Plate 4-2: CDL Stroke Classification Table — Strokes 30 to 42 (p. 155)](/images/fonts-encodings/plate4-2.png)
+*Plate 4-2: CDL Stroke Classification Table — Strokes 30 to 42 (p. 155)*
+:::
 
 The reader will notice that certain words are repeated in the Chinese names of these strokes. They are basic stroke types: *héng* (horizontal), *shù* (vertical), *piě* (slash/fall left), *nà* (press down/fall right), *diǎn* (dot), *tí* (rise), *zhé* (fold/bend), *gōu* (hook), *wān* (curve), and *quān* (circle).
 
@@ -1098,13 +1122,19 @@ the world.4
 The shapes of the hangul consonants were established according to the positions of the
 vocal organs. They are distributed among ﬁve phonetic categories built up by adding one
 or more strokes to indicate phonetic features:
+::: tip Figure 4-7: Hangul Consonants — Articulatory Geometric Design
 ![Figure 4-7: Hangul Consonants — Articulatory Geometric Design](/images/fonts-encodings/fig4-7.png)
+*Figure 4-7: Hangul Consonants — Articulatory Geometric Design*
+:::
 Among the consonants, ‘ᄋ’ plays the role of a placeholder for an independent vowel, or
 produces an ‘ng’ sound at the end of a syllable.
 The vowels are based on the four elements of East Asian philosophy: heaven (a short
 stroke), earth (a horizontal stroke), man (a vertical line), and the yin–yang circle (in
 evidence from the cyclical pattern that the forms of the vowels follow):
+::: tip Figure 4-8: Hangul Vowels — Trinitarian Philosophical Design (Heaven, Earth, Man)
 ![Figure 4-8: Hangul Vowels — Trinitarian Philosophical Design (Heaven, Earth, Man)](/images/fonts-encodings/fig4-8.png)
+*Figure 4-8: Hangul Vowels — Trinitarian Philosophical Design (Heaven, Earth, Man)*
+:::
 The reader will note that we have chosen to entitle this section “The Syllabic Korean
 Hangul Script”, whereas here we can see nothing but letters (consonants and vowels). In-
 deed, the signs that we have just described, which are called jamo, are merely the building
@@ -1168,19 +1198,19 @@ their encoding. To obtain 한, we used the Unicode jamo characters 0x1112, 0x116
 0x11AB. Where, then, does the syllable 한appear in the encoding? The computer can
 answer the question in a few microseconds, as it has only to carry out the following
 computation:
-
+
 (I −0x1100)×21
-
+
 +(V −0x1161)
-
+
 ×28+(F −0x11A7)+0xAC00
 (where I, V, F are the Unicode code points of the jamo).
 When a syllable has no ﬁnal consonant F, the formula is simpler:
-
+
 (I −0x1100)×21
-
+
 +(V −0x1161)
-
+
 ×28+0xAC00
 Unlike the ideographs, the Unicode characters for syllables that are constructed in this
 manner do have names. These names are formed from the letters associated with the

@@ -24,7 +24,10 @@ description: '权威全译本：Windows XP 字体中枢、C:\Windows\Fonts 特�
 
 然而，当用户在 Windows 资源管理器中双击进入该目录时，呈现在眼前的绝非一个普通的文件列表，而是一个由 Windows Shell 扩展特殊接管的**专用字体管理控制台**：
 
+::: tip 图 7-1：Windows XP 中的 Fonts 字体系统专用目录
 ![图 7-1：Windows XP 中的 Fonts 字体系统专用目录](/images/fonts-encodings/fig7-1.png)
+*图 7-1：Windows XP 中的 Fonts 字体系统专用目录*
+:::
 
 *图 7-1：Windows XP 资源管理器中的 Fonts 目录。窗口展示了各字体的全名、文件图标（带有 ‘TT’ 标识的 TrueType 或带有 ‘O’ 标识的 OpenType），以及特有的字体管理菜单。*
 
@@ -34,7 +37,10 @@ description: '权威全译本：Windows XP 字体中枢、C:\Windows\Fonts 特�
 1. 直接将外部字体文件拖拽并拷贝进 `C:\WINDOWS\Fonts` 目录；
 2. 通过菜单栏选择“文件” $\to$ “安装新字体”（Install New Font），弹出专用的安装对话框（见图 7-2）。
 
+::: tip 图 7-2：Windows 字体安装对话框
 ![图 7-2：Windows 字体安装对话框](/images/fonts-encodings/fig7-2.png)
+*图 7-2：Windows 字体安装对话框*
+:::
 
 *图 7-2：Windows 经典的“添加字体”对话框。注意其底部包含一个极其关键的复选框：“将字体复制到 Fonts 文件夹”（Copy fonts to Fonts folder）。*
 
@@ -46,7 +52,10 @@ description: '权威全译本：Windows XP 字体中枢、C:\Windows\Fonts 特�
 
 在 Windows Fonts 目录的“查看”（View）菜单中，隐藏着一项令排印学者惊叹的高阶功能——“**按相似度列出字体**”（List Fonts by Similarity）：
 
+::: tip 图 7-3：按相似度列出字体的智能匹配窗口
 ![图 7-3：按相似度列出字体的智能匹配窗口](/images/fonts-encodings/fig7-3.png)
+*图 7-3：按相似度列出字体的智能匹配窗口*
+:::
 
 *图 7-3：在下拉菜单中选中基准字体 Linotype Palatino 后，系统依据 PANOSE 度量矩阵计算出其他字体的外观相似度分级（Very similar / Fairly similar / Not similar）。*
 
@@ -74,7 +83,10 @@ Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclid
 
 安装该扩展后，右键单击任何 `.ttf` 或 `.otf` 文件的“属性”视窗，系统会暴增多达十几个极其深邃的专业技术标签页（见图 7-4）：
 
+::: tip 图 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）
 ![图 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）](/images/fonts-encodings/fig7-4.png)
+*图 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）*
+:::
 
 *图 7-4：Font Properties Extension 详尽展示了 OpenType 特性标签页（左）以及字符集覆盖表、度量基线、厂商版权与数字签名信息。*
 
@@ -96,7 +108,10 @@ Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclid
 ### Insider Software FontAgent 8.8
 在 Windows 平台上，**FontAgent** 同样提供了坚实的库管理与文件完整性校验，能够自动隔离损坏的字体并维护干净的物理分类（见图 7-5）。
 
+::: tip 图 7-5：Windows 平台下的 FontAgent v.8.8 配置界面
 ![图 7-5：Windows 平台下的 FontAgent v.8.8 配置界面](/images/fonts-encodings/fig7-5.png)
+*图 7-5：Windows 平台下的 FontAgent v.8.8 配置界面*
+:::
 
 *图 7-5：FontAgent 在 Windows 下的配置面板，支持自动建立集中字体库与系统字体清理。*
 
@@ -108,11 +123,17 @@ Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclid
 
 在 Windows 版本的 ATM 中，用户同样可以自由调用**多重母版**（Multiple Master）字体生成器（见图 7-6），并在写字板（WordPad）等标准文字处理软件中直接排印定制生成的动态母版实例（见图 7-7）。
 
+::: tip 图 7-6：Windows 下的多重母版字体变体实例创建器
 ![图 7-6：Windows 下的多重母版字体变体实例创建器](/images/fonts-encodings/fig7-6.png)
+*图 7-6：Windows 下的多重母版字体变体实例创建器*
+:::
 
 *图 7-6：Windows 平台下 ATM 的多重母版实例创建视窗。*
 
+::: tip 图 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现
 ![图 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现](/images/fonts-encodings/fig7-7.png)
+*图 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现*
+:::
 
 *图 7-7：在 WordPad 中使用实时定制的多重母版字体实例排印的正文范例。*
 
@@ -124,15 +145,24 @@ Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclid
 - **Font Reserve 2.6.5**（图 7-8）：拥有无可比拟的**多条件布尔高级检索面板**（图 7-10），允许设计师依照铸字厂商（Foundry）、文件格式、字重、PANOSE 属性以及字符集支持情况进行复合多维查询；
 - **Extensis Suitcase for Windows**（图 7-9）：轻巧灵动，与主流排版软件无缝整合自动激活特性。
 
+::: tip 图 7-8：Extensis Font Reserve 2.6.5 主视窗
 ![图 7-8：Extensis Font Reserve 2.6.5 主视窗](/images/fonts-encodings/fig7-8.png)
+*图 7-8：Extensis Font Reserve 2.6.5 主视窗*
+:::
 
 *图 7-8：Font Reserve 2.6.5 for Windows 主界面。*
 
+::: tip 图 7-9：Extensis Suitcase v.9.2.2 for Windows
 ![图 7-9：Extensis Suitcase v.9.2.2 for Windows](/images/fonts-encodings/fig7-9.png)
+*图 7-9：Extensis Suitcase v.9.2.2 for Windows*
+:::
 
 *图 7-9：Suitcase v.9.2.2 紧凑实用的字体组管理窗口。*
 
+::: tip 图 7-10：Font Reserve 强大的多条件组合高级检索视窗
 ![图 7-10：Font Reserve 强大的多条件组合高级检索视窗](/images/fonts-encodings/fig7-10.png)
+*图 7-10：Font Reserve 强大的多条件组合高级检索视窗*
+:::
 
 *图 7-10：Font Reserve 高级检索面板。展示了基于布尔逻辑（AND/OR）对字体元数据进行精密过滤的强大能力。*
 
@@ -142,7 +172,10 @@ Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclid
 
 对于资深字体架构师与技术人员而言，德国 Neuber Software 开发的 **Typograf** 堪称整个 Windows 生态中最具极客精神与排印深度的一款神兵利器：
 
+::: tip 图 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析
 ![图 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析](/images/fonts-encodings/fig7-11.png)
+*图 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析*
+:::
 
 *图 7-11：Typograf 正在深度剖析 Arial 字体的内部 TrueType 二进制表结构。*
 
@@ -157,11 +190,17 @@ Typograf 不仅是一款美观的字体查看器，更是一套便携式字体�
 
 在跨平台协作中，Windows 用户经常需要处理来自 Mac 客户的原始字体文件。除了前一章介绍的跨平台巨擘 **TransType Pro**（见图 7-12）之外，Windows 平台上还孕育了一款轻盈迅捷的独立转换软件——Acute Systems 出品的 **CrossFont**（见图 7-13）。
 
+::: tip 图 7-12：TransType Pro 在 Windows XP 下的工作视窗
 ![图 7-12：TransType Pro 在 Windows XP 下的工作视窗](/images/fonts-encodings/fig7-12.png)
+*图 7-12：TransType Pro 在 Windows XP 下的工作视窗*
+:::
 
 *图 7-12：运行在 Windows XP 平台上的 FontLab TransType Pro。*
 
+::: tip 图 7-13：CrossFont v.4.1 字体格式转换器界面
 ![图 7-13：CrossFont v.4.1 字体格式转换器界面](/images/fonts-encodings/fig7-13.png)
+*图 7-13：CrossFont v.4.1 字体格式转换器界面*
+:::
 
 *图 7-13：CrossFont v.4.1 主视窗。直观支持将 Mac PostScript/TrueType 文件一键批量转码为 Windows 标淮 TrueType 与 Type 1。*
 

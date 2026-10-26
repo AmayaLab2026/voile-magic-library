@@ -72,7 +72,7 @@ description: ヴ瓦尔魔法图书馆 馆藏第三号典籍：雅尼斯·哈拉�
 * **[第九章：TeX 与 Omega 系统的字体技术](./chapter-9)**  
   高德纳批处理编译器架构；TFM 字体度量与 DVI 设备无关文件；虚拟字体（VF）与 PK 点阵压缩；哈拉兰布斯开创的 16/32 位 Omega 系统与 OTPs 有限状态文本变换流。
 * **[第十章：Web 网页字体与排版技术](./chapter-10)**  
-  万维网排版演化史；HTML/CSS 字体模块规范；ont-size-adjust 几何归一化算法与 x-height 视觉对齐；早期网络字体技术（Bitstream TrueDoc、Microsoft WEFT/EOT）；SVG 矢量字体规范。
+  万维网排版演化史；HTML/CSS 字体模块规范；ont-size-adjust 几何归一化算法与 x-height 视觉对齐；早期网络字体技术（Bitstream TrueDoc、Microsoft WEFT/EOT）；SVG 矢量字体规范。
 
 ### 第四编：字体艺术、设计与高级排版（Part IV: Typeface Art, Design & Typography）
 * **[第十一章：拉丁字体的历史演进与分类学](./chapter-11)**  

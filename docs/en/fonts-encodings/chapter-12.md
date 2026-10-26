@@ -85,11 +85,15 @@ based on FontLab.
 Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X.
 Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9.
 
+::: tip Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X
 ![Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X](/images/fonts-encodings/fig12-1.png)
 *Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X.*
+:::
 
+::: tip Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9
 ![Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9](/images/fonts-encodings/fig12-2.png)
 *Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9.*
+:::
 
 
 <!-- Page 465 (Book page 445) -->
@@ -237,8 +241,10 @@ in the pull-down menu:
 %%FONTLAB ENCODING: 1; Default Encoding
 %%GROUP:Type 1 Western/Roman
 
+::: tip Figure 12-3: The Names mode of the FontLab font window
 ![Figure 12-3: The Names mode of the FontLab font window](/images/fonts-encodings/fig12-3.png)
 *Figure 12-3: The Names mode of the FontLab font window.*
+:::
 
 
 <!-- Page 469 (Book page 449) -->
@@ -262,8 +268,10 @@ The two modes correspond to these two pieces of data: while in Names mode the
 glyphs are arranged according to their glyph names, in Pages mode they are arranged
 according to their associated Unicode characters.
 
+::: tip Figure 12-4: The Pages mode of the FontLab font window
 ![Figure 12-4: The Pages mode of the FontLab font window](/images/fonts-encodings/fig12-4.png)
 *Figure 12-4: The Pages mode of the FontLab font window.*
+:::
 
 
 <!-- Page 470 (Book page 450) -->
@@ -333,8 +341,10 @@ radical, even brutal.
 When we select Glyphs>Glyph Names>Reencode Glyphs, FontLab will take the
 glyphs in their current positions and regard them from that point on as being glyphs in a
 
+::: tip Figure 12-5: The Ranges mode of the FontLab font window
 ![Figure 12-5: The Ranges mode of the FontLab font window](/images/fonts-encodings/fig12-5.png)
 *Figure 12-5: The Ranges mode of the FontLab font window.*
+:::
 
 
 <!-- Page 472 (Book page 452) -->
@@ -363,8 +373,10 @@ oﬀers us nine (!) diﬀerent ways to label them:
 Speciﬁcally, by their names (the default choice), by the corresponding Unicode character,
 by their indexes (i.e., the sequential numbers of their glyph descriptions), by their set-
 
+::: tip Figure 12-6: The Index mode of the FontLab font window
 ![Figure 12-6: The Index mode of the FontLab font window](/images/fonts-encodings/fig12-6.png)
 *Figure 12-6: The Index mode of the FontLab font window.*
+:::
 
 
 <!-- Page 473 (Book page 453) -->
@@ -502,8 +514,10 @@ limited to the OS/2 operating system but also covers Windows (Appendix D.4.7).
 Figure 12-7: The tabs Names and Copyright, Additional OpenType names, and
 Copyright information.
 
+::: tip Figure 12-7: The tabs Names and Copyright, Additional OpenType names, and Copyright information
 ![Figure 12-7: FontLab font properties: Names and Copyright tabs](/images/fonts-encodings/fig12-7.png)
 *Figure 12-7: The tabs Names and Copyright, Additional OpenType names, and Copyright information.*
+:::
 
 
 <!-- Page 477 (Book page 457) -->
@@ -554,8 +568,10 @@ dows 95, and more recent versions of these operating systems will pretend to sho
 Figure 12-8: The tabs Key dimensions, Supported codepages and default character
 set, and Supported Unicode ranges.
 
+::: tip Figure 12-8: The tabs Key dimensions, Supported codepages and default character set, and Supported Unicode ranges
 ![Figure 12-8: FontLab font properties: Key dimensions, Supported codepages, and Unicode ranges tabs](/images/fonts-encodings/fig12-8.png)
 *Figure 12-8: The tabs Key dimensions, Supported codepages and default character set, and Supported Unicode ranges.*
+:::
 
 
 <!-- Page 479 (Book page 459) -->
@@ -1054,8 +1070,10 @@ bold weight. Obviously there is no guarantee that the glyphs in the bold weight 
 8 Note that in the font Kepler the optical size can be extrapolated downward all the way to the value −28!
 Which raises a truly metaphysical issue: what is a negative optical size?
 
+::: tip Figure 12-9: The interface for designing Multiple Master fonts in FontLab. In it are shown the contours of two master designs (one ultra light, the other ultra bold)
 ![Figure 12-9: The interface for designing Multiple Master fonts in FontLab](/images/fonts-encodings/fig12-9.png)
 *Figure 12-9: The interface for designing Multiple Master fonts in FontLab. In it are shown the contours of two master designs (one ultra light, the other ultra bold).*
+:::
 
 
 <!-- Page 492 (Book page 472) -->
@@ -1090,8 +1108,10 @@ MeMM for which the ﬁrst master design is a very proper sans serif font and the
 raunchy images [112]. This font, oﬀlimits to minors, follows in the long tradition of anthropomorphic and
 often erotic typefaces [92].
 
+::: tip Figure 12-10: The window for creating Multiple Master fonts from two ordinary fonts
 ![Figure 12-10: The window for creating Multiple Master fonts from two ordinary fonts](/images/fonts-encodings/fig12-10.png)
 *Figure 12-10: The window for creating Multiple Master fonts from two ordinary fonts.*
+:::
 
 
 <!-- Page 493 (Book page 473) -->
@@ -1651,8 +1671,10 @@ side of Figure 12-11 and consider the Bézier curve formed by points 3 (the star
 4′ (the ﬁrst control point), 4′′ (the second control point), and 4 (the ending point). The
 last three of these points are regarded as forming a node of type nCURVE. It may seem
 
+::: tip Figure 12-11: Contours in PostScript (left) and TrueType (right). The control points are represented by white dots. In TrueType, the control points are quadratic, whereas in PostScript they are cubic
 ![Figure 12-11: Contours in PostScript (left) and TrueType (right)](/images/fonts-encodings/fig12-11.png)
 *Figure 12-11: Contours in PostScript (left) and TrueType (right). The control points are represented by white dots. In TrueType, the control points are quadratic, whereas in PostScript they are cubic.*
+:::
 
 
 <!-- Page 507 (Book page 487) -->
@@ -2306,8 +2328,10 @@ tiatied, a conﬁguration window opens (Figure 12-13). In this window, we can va
 values of three parameters (trace tolerance, curve ﬁt quality, straightness of angles). What
 is extremely interesting is that we see the eﬀect of these parameters on the trace in real
 
+::: tip Figure 12-12: Separation of glyphs under ScanFont. The autotracing of a font under ScanFont is a procedure performed in two steps. The first is the segmentation of the scanned page into distinct glyph boxes
 ![Figure 12-12: Separation of glyphs under ScanFont](/images/fonts-encodings/fig12-12.png)
 *Figure 12-12: Separation of glyphs under ScanFont. The autotracing of a font under ScanFont is a procedure performed in two steps. The first is the segmentation of the scanned page into distinct glyph boxes.*
+:::
 
 
 <!-- Page 523 (Book page 503) -->
@@ -2330,11 +2354,15 @@ not see any diﬀerences among the three contours. By inspecting the control poi
 can tell that ScanFont used fewer points to trace the straight lines but far more to trace
 the curves. There is an abnormally heavy cluster of points all along the serifs. Likewise,
 
+::: tip Figure 12-13: Dialog box for the real-time configuration of autotracing under ScanFont
 ![Figure 12-13: Dialog box for the real-time configuration of autotracing under ScanFont](/images/fonts-encodings/fig12-13.png)
 *Figure 12-13: Dialog box for the real-time configuration of autotracing under ScanFont.*
+:::
 
+::: tip Figure 12-14: Comparing a contour traced by hand and two contours autotraced from the same rendering
 ![Figure 12-14: Comparing a contour traced by hand and two contours autotraced from the same rendering](/images/fonts-encodings/fig12-14.png)
 *Figure 12-14: Comparing a contour traced by hand and two contours autotraced from the same rendering.*
+:::
 
 
 <!-- Page 524 (Book page 504) -->

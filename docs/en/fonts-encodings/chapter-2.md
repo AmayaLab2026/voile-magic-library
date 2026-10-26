@@ -51,13 +51,13 @@ Let us take another example: the symbol ‘×’. We could give it the descripti
 
 But are the names of characters always as clear and precise as these?
 
-Unfortunately not. For example, we have a character that is described as the “double high-reversed-9 quotation mark”. The “high-reversed-9” part of the description is neither linguistic nor logical but rather crudely graphical, even awkward. To describe this character, whose glyph is ‘ ’, it would have been easier to call it the “second-level Greek opening quotation mark”, because that is its most common use.
+Unfortunately not. For example, we have a character that is described as the “double high-reversed-9 quotation mark”. The “high-reversed-9” part of the description is neither linguistic nor logical but rather crudely graphical, even awkward. To describe this character, whose glyph is ‘ ’, it would have been easier to call it the “second-level Greek opening quotation mark”, because that is its most common use.
 
 56 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 
 Fortunately the Unicode book and the PDF files that can be found at the Consortium’s Web site (http://www.unicode.org/charts/) always supply with the description of each character a glyph that is called the representative glyph. It is not prescriptive, but its presence is extremely useful because it enables non-speakers of a language to identify the symbols described by their names. In the absence of representative glyphs, one would have to speak Tibetan in order to know that dzud rtags bzhi mig can is a cross made of four dots, and one would have to be a specialist in runes to know that the letter ingwaz is shaped like a diamond.
 
-The representative glyph is not always sufficient when one is not familiar with a given writing system. Indeed, the glyphs that correspond to a given character may sometimes assume forms far removed from one another. That variation may be due to stylistic effects or historical reasons (the difference between ‘W’ and ‘W’ is considerable), or even to reasons of grammar. The latter is true in the case of Arabic, whose grammar provides that the letters assume different forms according to context and, more specifically, according to their position in the word. Thus the representative glyph for the character arabic letter kaf is ‘’, but within a word the same letter is rendered by a glyph similar to ‘’, a shape that is not a priori trivial for the reader unfamiliar with the Arabic script to recognize.
+The representative glyph is not always sufficient when one is not familiar with a given writing system. Indeed, the glyphs that correspond to a given character may sometimes assume forms far removed from one another. That variation may be due to stylistic effects or historical reasons (the difference between ‘W’ and ‘W’ is considerable), or even to reasons of grammar. The latter is true in the case of Arabic, whose grammar provides that the letters assume different forms according to context and, more specifically, according to their position in the word. Thus the representative glyph for the character arabic letter kaf is ‘’, but within a word the same letter is rendered by a glyph similar to ‘’, a shape that is not a priori trivial for the reader unfamiliar with the Arabic script to recognize.
 
 The representative glyph is the only way to find an ideographic character, as those characters have no description. We might have imagined, for example, that the character 門 could be described as “character meaning ‘gate’ ”; but since it also means “entrance”, “section”, “field”, “disciple”, “school”, and “clan”—and all that in Japanese alone—, we can see that an attempt to represent the encoding’s 70,027 ideographic characters in that manner would be a task as monumental as it would be futile. We shall see in Chapter 4 the specific problems that ideographs present.
 
@@ -78,9 +78,9 @@ Figure 2-1: When scripts are mixed.... [Photo taken in Athens by the author.]
 
 have to look up the properties of the characters ‘æ’, ‘º’, and ‘¬’ to learn that they are digits whose numeric values are precisely 2, 0, and 6—and voilà!
 
-Of course, that does not work for numeration systems such as those of the Romans (in which 2006 is written “MMVI”), the Greeks (“κ”), and the Chinese (“二〇〇六”), but it hardly matters: using Unicode properties, software can process Unicode data in an intelligent way without having to reinvent the wheel. Chapter 3 is dedicated to Unicode character properties.
+Of course, that does not work for numeration systems such as those of the Romans (in which 2006 is written “MMVI”), the Greeks (“κ”), and the Chinese (“二〇〇六”), but it hardly matters: using Unicode properties, software can process Unicode data in an intelligent way without having to reinvent the wheel. Chapter 3 is dedicated to Unicode character properties.
 
-Another characteristic of the relationships between characters and glyphs: for reasons that are usually historical, the same glyph can represent multiple characters. Only context enables one to identify the character visually. Thus when we write ‘H’ in an Englishlanguage context such as this book, it is clear that we are using the eighth letter of the Latin alphabet. But the same glyph in the word “ΓΙΑΝΝΗΣ” (which is the author’s first name) or in the word “Ηρεμα” (Aremia = ‘tranquillity’) represents the Greek letter eta. Yet mixtures of writing systems are not always impossible, as shown by the photo taken in Athens that appears in Fig. 2-1. In it we see the word “PARKING” that starts off in Greek letters and ends with Latin ones, passing through the letters ‘K’, ‘I’, and ‘N’, which are common, both graphically and phonetically, to the two scripts. Finally, the same glyph in a word such as “РЕСТОРАН” (= ‘restaurant’) or “Наташа” (= ‘Natasha’) is ordinarily recognized right away as the Cyrillic letter ‘N’ (except by the various Western tourists who believe that restaurants in Russian are called pektopah... ). In the case of the glyph ‘H’, the lower-case versions enable us to identify the character unambiguously: ‘h’, ‘η’, ‘н’. There are also Unicode characters that have the same glyph yet belong to the same writing system: ‘Ð’ can be the Icelandic letter eth (lower-case ‘ð’) or the Croatian letter djé (lower-case ‘Æ’). The glyph ‘!’ may represent either greek small letter alpha with tonos or greek small letter alpha with acute: in the first instance, the acute accent is regarded as the single accent of the “monotonic” system; in the second instance, it is an ordinary acute accent. Even worse, there are Unicode characters belonging to the
+Another characteristic of the relationships between characters and glyphs: for reasons that are usually historical, the same glyph can represent multiple characters. Only context enables one to identify the character visually. Thus when we write ‘H’ in an Englishlanguage context such as this book, it is clear that we are using the eighth letter of the Latin alphabet. But the same glyph in the word “ΓΙΑΝΝΗΣ” (which is the author’s first name) or in the word “Ηρεμα” (Aremia = ‘tranquillity’) represents the Greek letter eta. Yet mixtures of writing systems are not always impossible, as shown by the photo taken in Athens that appears in Fig. 2-1. In it we see the word “PARKING” that starts off in Greek letters and ends with Latin ones, passing through the letters ‘K’, ‘I’, and ‘N’, which are common, both graphically and phonetically, to the two scripts. Finally, the same glyph in a word such as “РЕСТОРАН” (= ‘restaurant’) or “Наташа” (= ‘Natasha’) is ordinarily recognized right away as the Cyrillic letter ‘N’ (except by the various Western tourists who believe that restaurants in Russian are called pektopah... ). In the case of the glyph ‘H’, the lower-case versions enable us to identify the character unambiguously: ‘h’, ‘η’, ‘н’. There are also Unicode characters that have the same glyph yet belong to the same writing system: ‘Ð’ can be the Icelandic letter eth (lower-case ‘ð’) or the Croatian letter djé (lower-case ‘Æ’). The glyph ‘!’ may represent either greek small letter alpha with tonos or greek small letter alpha with acute: in the first instance, the acute accent is regarded as the single accent of the “monotonic” system; in the second instance, it is an ordinary acute accent. Even worse, there are Unicode characters belonging to the
 
 58 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 
@@ -443,31 +443,31 @@ x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF
 
 0x
 
-
 
-
 
-
 
-
+
+
+
+
 
 !
 
 #
 
-  
+  
 
 1x
 
-
 
-
 
- 
 
- 
 
-  
+ 
+
+ 
+
+  
 
 "
 
@@ -475,7 +475,7 @@ x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF
 
 2x
 
-
+
 
 x
 
@@ -525,7 +525,8 @@ Private Zone
 
 Fx
 
-Figure 2-3: The roadmap of Unicode’s Basic Multilingual Plane (BMP):  ASCII and Latin 1,  Latin Extended-A and -B,  phonetic alphabet and modifiers,  diacritical marks,  Greek (crippled by the monotonic reform) and Coptic,  Cyrillic,  Armenian,  Hebrew,  Arabic,  Syriac, Thaana and N’ko, . Thai and Lao, / Tibetan,  Myanmar and Georgian,  elements for forming hangul syllables, 	 Amharic,  Cherokee,  Canadian aboriginal scripts,  runes, 0 scripts of the Philippines, 1 Khmer,  Mongolian,  Limbu, Tai Le, etc.,  Balinese,  phonetic extensions, ! Latin Extended Additional, # Greek with accents and breathings (as it should be),  general punctuation, superscripts and subscripts, currency symbols, diacritical marks for symbols,  letterlike symbols, Roman numerals   arrows, mathematical and technical symbols,  graphic pictures for control codes, OCR,  enclosed alphanumerics,  geometric shapes,  miscellaneous symbols,  “Zapf dingbats”,  braille,  supplemental arrows and mathematical symbols,  Glagolitic and Latin Extended-C,  Coptic disunified from Greek,  Khutsuri, Tifinagh and Ethiopic Extended,  Supplemental Punctuation, " ideographic radicals, \$ ideographic description characters,  ideographic punctuation, x kana, e bopomofo, hangul supplement, kanbun and CJK strokes, z enclosed ideographs and abbreviations used in ideographic writing systems, { Yijing hexagrams, | modified tone letters and Latin Extended-D, } Syloti Nagri, ~ Phags-pa, ³ highhalf zone for surrogates, Á low zone, ´ compatibility ideographs, Ç presentation forms A (Latin, Armenian, Hebrew, Arabic), µ variation selectors and other oddities, È presentation forms B (Arabic), ¶ full-width Latin letters and halfwidth katakana, specials.
+Figure 2-3: The roadmap of Unicode’s Basic Multilingual Plane (BMP):  ASCII and Latin 1,  Latin Extended-A and -B,  phonetic alphabet and modifiers,  diacritical marks,  Greek (crippled by the monotonic reform) and Coptic,  Cyrillic,  Armenian,  Hebrew,  Arabic,  Syriac, Thaana and N’ko, . Thai and Lao, / Tibetan,  Myanmar and Georgian,  elements for forming hangul syllables, 	 Amharic, 
+ Cherokee,  Canadian aboriginal scripts,  runes, 0 scripts of the Philippines, 1 Khmer,  Mongolian,  Limbu, Tai Le, etc.,  Balinese,  phonetic extensions, ! Latin Extended Additional, # Greek with accents and breathings (as it should be),  general punctuation, superscripts and subscripts, currency symbols, diacritical marks for symbols,  letterlike symbols, Roman numerals   arrows, mathematical and technical symbols,  graphic pictures for control codes, OCR,  enclosed alphanumerics,  geometric shapes,  miscellaneous symbols,  “Zapf dingbats”,  braille,  supplemental arrows and mathematical symbols,  Glagolitic and Latin Extended-C,  Coptic disunified from Greek,  Khutsuri, Tifinagh and Ethiopic Extended,  Supplemental Punctuation, " ideographic radicals, \$ ideographic description characters,  ideographic punctuation, x kana, e bopomofo, hangul supplement, kanbun and CJK strokes, z enclosed ideographs and abbreviations used in ideographic writing systems, { Yijing hexagrams, | modified tone letters and Latin Extended-D, } Syloti Nagri, ~ Phags-pa, ³ highhalf zone for surrogates, Á low zone, ´ compatibility ideographs, Ç presentation forms A (Latin, Armenian, Hebrew, Arabic), µ variation selectors and other oddities, È presentation forms B (Arabic), ¶ full-width Latin letters and halfwidth katakana, specials.
 
 ::: tip Global Roadmap: The Basic Multilingual Plane (Figure 2-3)
 ![Figure 2-3: The BMP roadmap](/images/fonts-encodings/fig2-3-bmp-roadmap.png)
@@ -538,7 +539,7 @@ Figure 2-3: The roadmap of Unicode’s Basic Multilingual Plane (BMP):  ASCII 
 
  Wrapping up the series of Latin characters, the Latin Extended-
 
-B block (0x0180-0x024F), home to numerous rare and strange characters as well as some that Western linguists cobbled together for the African languages. Also in this block are the Romanian characters ‘¨’ and ‘≠’, which previously were conflated with the characters ‘¸s’ and ‘¸t’ (which have a cedilla instead of the comma). Finally, there are three digraphs—‘dž’, ‘lj’, and ‘nj’—which are the Latin versions of the Cyrillic letters ‘’, ‘y’, and ‘z’. The original idea behind these was to establish a one-to-one correspondence between the Serbian alphabet and the Croatian alphabet. But there is a problem: the upper-case version of the digraph will differ according to whether it appears as the first letter of a capitalized word (‘Dž’, ‘Lj’, ‘Nj’) or as a letter in a word written in full capitals (‘DŽ’, ‘LJ’, ‘NJ’). It was therefore necessary to include both forms in Unicode.  There are 6 columns (0x0250-0x02AF) for the special letters of
+B block (0x0180-0x024F), home to numerous rare and strange characters as well as some that Western linguists cobbled together for the African languages. Also in this block are the Romanian characters ‘¨’ and ‘≠’, which previously were conflated with the characters ‘¸s’ and ‘¸t’ (which have a cedilla instead of the comma). Finally, there are three digraphs—‘dž’, ‘lj’, and ‘nj’—which are the Latin versions of the Cyrillic letters ‘’, ‘y’, and ‘z’. The original idea behind these was to establish a one-to-one correspondence between the Serbian alphabet and the Croatian alphabet. But there is a problem: the upper-case version of the digraph will differ according to whether it appears as the first letter of a capitalized word (‘Dž’, ‘Lj’, ‘Nj’) or as a letter in a word written in full capitals (‘DŽ’, ‘LJ’, ‘NJ’). It was therefore necessary to include both forms in Unicode.  There are 6 columns (0x0250-0x02AF) for the special letters of
 
 the International Phonetic Alphabet. This alphabet is typically unicameral (i.e., written only in lower case), except for those letters within it that are also used as ordinary letters in African languages. The upper-case versions of those letters appear in the “Latin Extended-B” block.
 
@@ -979,15 +980,17 @@ x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF
 
 12x
 
-  	 
+  	 
 
-
+
+
 
 1Dx
 
 1Ex
 
-Figure 2-4: The roadmap of Unicode’s Supplementary Multilingual Plane:  Linear B,  Aegean and ancient Greek numbers,  Old Italic and Gothic,  Ugaritic and Persian cuneiform,  Deseret,  Shavian,  Osmanya,  the Cypriot syllabary,  Phœnician,  Kharoshthi, . cuneiform, / cuneiform numbers and punctuation,  Byzantine musical notation,  Western musical notation, 	 ancient Greek musical notation,  monograms, digrams, and tetragrams of the Yijing,  counting rod numerals,  Latin, Fraktur, and Greek letters used in mathematical formulae.
+Figure 2-4: The roadmap of Unicode’s Supplementary Multilingual Plane:  Linear B,  Aegean and ancient Greek numbers,  Old Italic and Gothic,  Ugaritic and Persian cuneiform,  Deseret,  Shavian,  Osmanya,  the Cypriot syllabary,  Phœnician,  Kharoshthi, . cuneiform, / cuneiform numbers and punctuation,  Byzantine musical notation,  Western musical notation, 	 ancient Greek musical notation, 
+ monograms, digrams, and tetragrams of the Yijing,  counting rod numerals,  Latin, Fraktur, and Greek letters used in mathematical formulae.
 
 ::: tip Supplementary Roadmap: SMP, SIP, and SSP (Figures 2-4, 2-5, 2-6)
 ![Figure 2-4: The SMP roadmap](/images/fonts-encodings/fig2-4-smp-roadmap.png)
@@ -1122,7 +1125,7 @@ Unicode’s last “inhabited” plane is Plane 14. Here we find two blocks, the
 
 According to the XML standard, the value of xml:lang is a combination of abbreviations of the name of a language (ISO 639 standard [191]) and the name of a country (ISO 3166 standard [190]), the latter being unnecessary if the name of the language is precise enough. The code for English is en, and this is what we would write in a document to indicate that it is in English: 0xE0001 language tag, 0xE0065 tag latin small letter e, 0xE006E tag latin small letter n. If we use letters in boxes for the tags (and Ä for 0xE0001, which marks the beginning of a sequence), the immortal verses of Goethe and their translations into various languages would look somewhat like this:
 
-ÄdeÜber allen Gipfeln ist Ruh. In allen Wipfeln spürest Du kaum einen Hauch. ÄelΕπ2 π!ντων τ4ν 5ρ0ων 6συχα βασιλε9ει. Επ2 τ4ν κλαδσκων πλ0ον ο;τε φ9λλον δ<ν σαλε9ει. ÄfrAu dessus de tous les sommets est le repos. Écoute dans toutes les cimes, à peine si tu surprends un souffle. Äen Hush’d on the hill is the breeze. Scarce by the zephyr the trees softly are press’d.
+ÄdeÜber allen Gipfeln ist Ruh. In allen Wipfeln spürest Du kaum einen Hauch. ÄelΕπ2 π!ντων τ4ν 5ρ0ων 6συχα βασιλε9ει. Επ2 τ4ν κλαδσκων πλ0ον ο;τε φ9λλον δ<ν σαλε9ει. ÄfrAu dessus de tous les sommets est le repos. Écoute dans toutes les cimes, à peine si tu surprends un souffle. Äen Hush’d on the hill is the breeze. Scarce by the zephyr the trees softly are press’d.
 
 The purpose of Ä is to indicate the version of markup. It is quite possible to envision a different use of the same tags, with a character other than 0xE0001 to mark the beginning of the sequence.
 

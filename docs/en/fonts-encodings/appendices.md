@@ -39,8 +39,6 @@ Athens, and Cairo, rather quickly left the scene; others, such as Chicago (which
 
 
 
-![Plate A-1: Macintosh FONT / NFNT 1-bit strike bitmap table](/images/fonts-encodings/plate-app-a1.png)
-*Plate A-1: Macintosh FONT / NFNT 1-bit strike bitmap table.*
 *.............................................................*.......................*.....*.................*......................**.............*....................
 ............................................................................................................................................................................*.......*.....................................................*.....................
 ................................................................................................................................................................................................................................................................
@@ -120,6 +118,12 @@ Athens, and Cairo, rather quickly left the scene; others, such as Chicago (which
 ............................................................................................................................*....*.............
 ...........................................................................................................................*......*............gp
 Figure A-1: The global image of the font Chicago, which was used on the Macintosh’s menus for more than
+
+::: tip Figure A-1: The global image of the font Chicago
+![Figure A-1: The global image of the font Chicago](/images/fonts-encodings/fig-app-a1.png)
+*Figure A-1: The global image of the font Chicago, which was used on the Macintosh’s menus for more than.*
+:::
+
 15 years. It is an up-to-date version of the font, as we can see that the euro sign has been included.
 Charcoal to give the Mac’s desktop a new look), stayed around for a while; finally, two of them
 have survived to the present, becoming vector fonts along the way: Geneva and Monaco.
@@ -423,9 +427,6 @@ the primary origin and ends at the secondary origin.
 
 
 
-![Plate A-2: BDF / PCF bitmap glyph dot matrix](/images/fonts-encodings/plate-app-a2.png)
-*Plate A-2: BDF / PCF bitmap glyph dot matrix.*
-
 ...*.........*.....
 ...***********.....
 ...*.........*.....
@@ -451,6 +452,12 @@ DWIDTH (19 × 0 pixels)
 SWIDTH 1000 0
 SWIDTH1 0 -1000
 Figure A-2: BDF’s vision of the bitmap and vector versions of a single ideographic character, with all the
+
+::: tip Figure A-2: BDF's vision of the bitmap and vector versions of an ideograph
+![Figure A-2: BDF's vision of the bitmap and vector versions of an ideograph](/images/fonts-encodings/fig-app-a2.png)
+*Figure A-2: BDF’s vision of the bitmap and vector versions of a single ideographic character, with all the.*
+:::
+
 associated metric properties.
 2. Metric properties established on a grid of 1,000 × 1,000 units (similar to that of the
 PostScript fonts):
@@ -865,6 +872,12 @@ the result of the following manipulations:
 ```text
 A.5. The TEX World
 Figure A-3: A page from the DVI file produced by gftodvi from the font Computer Modern Roman 10, at
+
+::: tip Figure A-3: A page from the DVI file produced by gftodvi from Computer Modern Roman 10
+![Figure A-3: A page from the DVI file produced by gftodvi from Computer Modern Roman 10](/images/fonts-encodings/fig-app-a3.png)
+*Figure A-3: A page from the DVI file produced by gftodvi from the font Computer Modern Roman 10, at.*
+:::
+
 5,203 DPI.
 mf "\mag:=2; input cmr10"
 gftodvi cmr10.5203gf
@@ -982,14 +995,14 @@ version of the heading or one of the longer versions is being used.
 A.5.4
 Fonts or Images? Both!
 One interesting application of the PK
- 
-
- 
-
- 
-
- 
-
+
+
+
+
+
+
+
+
 format is the utility bm2font, by Friedhelp
 Sowa, developed between 1989 and 1993.
 The goal is to segment an image (GIF,
@@ -1507,7 +1520,7 @@ the selected system of coordinates. In the case of fonts, this approach allows u
 the definition of the glyphs and set them at any size and at any angle: only the system of
 coordinates changes.
 But how do we indicate a change to the system of coordinates?
-A bit of mathematics: a linear transformation of the Euclidean plane is a function (x,y) →
+A bit of mathematics: a linear transformation of the Euclidean plane is a function (x,y) →
 (ax+by+tx,cx+dy+ty), where (x,y) ∈R2 and a,b,c,d,tx,ty are real numbers. A linear transformation can thus be written as a system of two linear equations in two variables:
 x′ = ax+by+tx
 y′ = cx+dy+ty
@@ -1515,53 +1528,53 @@ and we say then that it is characterized by the six parameters (a,b,c,d,tx,ty).
 We all know from our high-school math courses (and if we have forgotten, it is easy enough
 to verify) that translation, scaling, and rotation are linear transformations and that we can use
 matrix notation to describe them. For instance:
-
+
 x
 y
-
-→
-
+
+→
+
 x+tx
 y+ty
-
+
 ,
-
+
 x
 y
-
-→
-
+
+→
+
 sx x
 sy y
-
+
 ,
-
+
 x
 y
-
-→
-
+
+→
+
 x cosθ−y sinθ
 x sinθ+y cosθ
-
+
 
 ```text
 are, respectively, a translation of (tx,ty), a scaling of (sx,sy), and a rotation of the axes by the
 angle θ.
 Thus we can say that translation is the sum of the matrix ( x
 y) with the matrix
-txty
-
+txty
+
 , whereas scaling and rotation are the products of the matrix ( x
 y) with the matrices
-
+
 sx 0
 0 sy
 and
- cosθ −sinθ
+ cosθ −sinθ
 sinθ
 cosθ
-
+
 .
 In the former case, we add matrices; in the latter, we multiply them.
 That is quite a nuisance if we wish to find a general way to describe linear transformations,
@@ -1619,7 +1632,7 @@ ty
 where the parameters (a,b,c,d,tx,ty) are precisely those of the linear transformation with
 which we started. The transformation of a point (x,y) of the plane is therefore the product of
 this point, considered as the matrix
- x
+ x
 y
 , by the transformation matrix M.
 Even better, suppose that we carry out a series of operations (translations, scalings, rotations)
@@ -1637,11 +1650,11 @@ Let us leave the platonic world of mathematics and come back down to earth. It i
 these reasons that the PostScript language uses the methods that we have just examined. In
 our code, we shall use the notation [a b c d tx ty] to represent a transformation by the
 matrix
-
+
 a b tx
 c d ty
 0 0 1
-
+
 .
 As we have just seen, some special cases of linear transformations are:
 • Translation: [1 0 0 1 tx ty]
@@ -1667,45 +1680,45 @@ C.1.4
 Paths
 We use two mathematical objects to draw: straight lines and cubic Bézier curves (Appendix G).
 The straight line between the starting point (x0,y0) and the ending point (x1,y1) is the function:
-t →(1−t)
-
+t →(1−t)
+
 x0
 y0
-
+
 +t
-
+
 x1
 y1
-
+
 [0,1] →R2
 4 Do not be surprised by the name: Adobe calls the product of matrices “concatenation”.
 
 The cubic Bézier curve with starting point (x0,y0), control points (x1,y1) and (x2,y2), and ending point (x3,y3) is the function:
-t →(1−t)3
-
+t →(1−t)3
+
 x0
 y0
-
+
 +3t(1−t)2
-
+
 x1
 y1
-
+
 +3t2(1−t)
-
+
 x2
 y2
-
+
 +t3
-
+
 x3
 y3
-
+
 [0,1] →R2
 If f1, f2 are functions of these kinds (straight lines or cubic Bézier curves) in which the ending
 point of the first coincides with the starting point of the second, their concatenation is the
 function:
-t →
+t →
 ⎧
 ⎨
 ⎩
@@ -1739,17 +1752,17 @@ y2 ), and ending point ( x3
 y3 ).
 – x1 y1 x2 y2 x3 y3 rcurveto, however, will draw the Bézier curve with the same
 starting point but with control points
- xc+x1
+ xc+x1
 yc+y1
-
+
 and
- xc+x2
+ xc+x2
 yc+y2
-
+
 and ending point
- xc+x3
+ xc+x3
 yc+y3
-
+
 .
 5 Note that lineto, unlike moveto, will not initialize the current point. Therefore, after a newpath, we
 must perform a moveto to obtain a current point before drawing anything.
@@ -1776,6 +1789,12 @@ C.1. Introduction to the PostScript Language
 
 
 Figure C-1: Examples of PostScript code: tracing a path, filling a shape.
+
+::: tip Figure C-1: Examples of PostScript code: tracing a path, filling a shape
+![Figure C-1: Examples of PostScript code: tracing a path, filling a shape](/images/fonts-encodings/fig-app-c1.png)
+*Figure C-1: Examples of PostScript code: tracing a path, filling a shape.*
+:::
+
 • thickness setlinewidth specifies the thickness of the current path in PostScript points.
 Note that the thickness 0 is in fact one pixel (thus it is invisible to the naked eye, if the
 printer is of high resolution).
@@ -1817,6 +1836,12 @@ the concepts of inside and outside are in no way trivial.
 fill
 eofill
 Figure C-2: Examples of filling according to the nonzero winding number rule (the three figures at the left)
+
+::: tip Figure C-2: Examples of filling according to the nonzero winding number rule
+![Figure C-2: Examples of filling according to the nonzero winding number rule](/images/fonts-encodings/fig-app-c2.png)
+*Figure C-2: Examples of filling according to the nonzero winding number rule (the three figures at the left).*
+:::
+
 and the even–odd rule (the three figures at the right).
 to violate this condition, adjust it by some epsilon to bring it into compliance.) Let n = 0.
 Suppose that we are standing on the ray and that we start walking from its point of origin
@@ -1959,7 +1984,7 @@ We can also distort the glyphs in a more flexible way by modifying the font’s 
 matrix (whose initial value is part of the font dictionary, as we shall soon see). By writing:
 /Palatino-Roman findfont [21.6 0 0 24 0 0] makefont setfont
 we multiply the font’s current transformation matrix by
- 21.6 0 0
+ 21.6 0 0
 24 0
 0 1
 , which will yield glyphs
@@ -1976,6 +2001,12 @@ The first moveto is needed so that we will be well inside the page (the current 
 5 0 (Voici du texte) ashow
 0 5 116 (Voici du texte) widthshow
 Figure C-3: The show and three of its variants: ashow (letterspacing), xyshow (equalizing the set-widths of
+
+::: tip Figure C-3: The show operator and variants: ashow, xyshow
+![Figure C-3: The show operator and variants: ashow, xyshow](/images/fonts-encodings/fig-app-c3.png)
+*Figure C-3: The show and three of its variants: ashow (letterspacing), xyshow (equalizing the set-widths of.*
+:::
+
 all the glyphs), and widthshow (the glyph ‘t’ has a slanted width vector). We can see clearly that PostScript
 does not manage kerning automatically: the glyphs ‘V’ and ‘o’ are a bit too far apart.
 string in the active font (and the data on the current font also include the actual size, as we
@@ -2299,6 +2330,12 @@ setcachedevice
 (3)
 (4)
 Figure C-4: The font Scrabble, by Jacques André [32]. Four consecutive printings of the same document,
+
+::: tip Figure C-4: The font Scrabble, by Jacques André
+![Figure C-4: The font Scrabble, by Jacques André](/images/fonts-encodings/fig-app-c4.png)
+*Figure C-4: The font Scrabble, by Jacques André [32]. Four consecutive printings of the same document,.*
+:::
+
 with slight random displacements of the letters. Here is the code that produced these three words: 2 8
 moveto (JACQUES) show 4 6 moveto (ANDRE) show 4 9 moveto (scrabble) show. We can notice
 two things: (a) the capital letters are set horizontally and the lowercase letters are set vertically; (b) the
@@ -2776,6 +2813,12 @@ FD
 FE
 FF
 Figure C-5: The Adobe Standard font encoding, illustrated with the font Monotype Columbus.
+
+::: tip Figure C-5: The Adobe Standard font encoding, illustrated with Monotype Columbus
+![Figure C-5: The Adobe Standard font encoding, illustrated with Monotype Columbus](/images/fonts-encodings/fig-app-c5.png)
+*Figure C-5: The Adobe Standard font encoding, illustrated with the font Monotype Columbus.*
+:::
+
 0A
 0B
 0C
@@ -2996,6 +3039,12 @@ EF
 ÿ FF
 Figure C-6: The Adobe Expert font encoding, illustrated with the font Monotype Columbus Expert.
 
+::: tip Figure C-6: The Adobe Expert font encoding, illustrated with Monotype Columbus Expert
+![Figure C-6: The Adobe Expert font encoding, illustrated with Monotype Columbus Expert](/images/fonts-encodings/fig-app-c6.png)
+*Figure C-6: The Adobe Expert font encoding, illustrated with the font Monotype Columbus Expert.*
+:::
+
+
 C.3. Type 1 Fonts
 glyphs may be more complex than what a measly string (representing a glyph name) could
 ever represent.
@@ -3034,6 +3083,12 @@ PostScript processor and hope that they will be used judiciously.
 We can divide the entries of the private dictionary into five categories.
 
 Figure C-7: The relevant heights, with overshoot, of a number of glyphs in various scripts (Latin, Arabic,
+
+::: tip Figure C-7: The relevant heights, with overshoot, of various script glyphs
+![Figure C-7: The relevant heights, with overshoot, of various script glyphs](/images/fonts-encodings/fig-app-c7.png)
+*Figure C-7: The relevant heights, with overshoot, of a number of glyphs in various scripts (Latin, Arabic,.*
+:::
+
 Hebrew, Armenian). The font is Omega Serif.
 C.3.4.1
 Relevant heights
@@ -3185,6 +3240,12 @@ endchar
 ORIG
 ORIG
 Figure C-8: The description of the glyph ‘e’ in the font The Sans Mono Condensed Light, by Luc[as] de Groot.
+
+::: tip Figure C-8: Description of the glyph 'e' in The Sans Mono Condensed Light
+![Figure C-8: Description of the glyph 'e' in The Sans Mono Condensed Light](/images/fonts-encodings/fig-app-c8.png)
+*Figure C-8: The description of the glyph ‘e’ in the font The Sans Mono Condensed Light, by Luc[as] de Groot.*
+:::
+
 There is another type of subroutine, one that is less interesting for the font designer because he usually cannot modify them. These subroutines—whose name, “other subroutines”,
 shows a severe lack of imagination—are written in the ordinary PostScript language, not in
 the more limited language of Type 1 fonts. They are stored in the entry OtherSubrs in the
@@ -3258,6 +3319,12 @@ C.3. Type 1 Fonts
 -9
 -9
 Figure C-9: Potential hints for the letters ‘H’, ‘O’, and ‘m’. The gray zones are the font’s alignment zones.
+
+::: tip Figure C-9: Potential hints for the letters 'H', 'O', and 'm'
+![Figure C-9: Potential hints for the letters 'H', 'O', and 'm'](/images/fonts-encodings/fig-app-c9.png)
+*Figure C-9: Potential hints for the letters ‘H’, ‘O’, and ‘m’. The gray zones are the font’s alignment zones.*
+:::
+
 the lower y-coordinate of the stroke (calculated from the left side-bearing) and the stroke’s
 thickness. Similarly, the vstem is used to indicate a relevant vertical stroke, and its two arguments are the left-hand x-coordinate (calculated from the left side-bearing) and the stroke’s
 thickness. In the ‘H’ in Figure C-9, for example, the code for the hints of the vertical strokes
@@ -3309,6 +3376,12 @@ width, but also because we want the white spaces between them to have the same w
 631 46 hstem
 (5)
 Figure C-10: An example of replacing four hints in the letter ‘B’. Image 1 shows the initial situation;
+
+::: tip Figure C-10: Replacing four hints in the letter 'B'
+![Figure C-10: Replacing four hints in the letter 'B'](/images/fonts-encodings/fig-app-c10.png)
+*Figure C-10: An example of replacing four hints in the letter ‘B’. Image 1 shows the initial situation;.*
+:::
+
 images 2 to 5 show the situation after each hint replacement. The thickest stroke is the one drawn in each
 configuration of hints.
 Adobe has introduced a new operator for this purpose: vstem3 (the ‘3’ doubtless means that
@@ -3354,6 +3427,12 @@ f
 g
 (220,-10)
 Figure C-11: An example of flex formed by two cubic Bézier curves, abcd and de fg. The point of reference
+
+::: tip Figure C-11: Flex formed by two cubic Bézier curves
+![Figure C-11: Flex formed by two cubic Bézier curves](/images/fonts-encodings/fig-app-c11.png)
+*Figure C-11: An example of flex formed by two cubic Bézier curves, abcd and de fg. The point of reference.*
+:::
+
 is d′.
 0 57 vstem 300 60 vstem
 360 196 rmoveto
@@ -3433,6 +3512,12 @@ V2
 525 583
 717 775
 Figure C-12: The “counter controls” of PostScript Type 1 fonts, illustrated on the glyph 講(k(, “oration”).
+
+::: tip Figure C-12: Counter controls of PostScript Type 1 fonts
+![Figure C-12: Counter controls of PostScript Type 1 fonts](/images/fonts-encodings/fig-app-c12.png)
+*Figure C-12: The “counter controls” of PostScript Type 1 fonts, illustrated on the glyph 講(k(, “oration”).*
+:::
+
 皿(sara, “dish”), it is sufficient to give the coordinates of these famous counters in order to
 obtain a good rendering, dixit Adobe.
 But things become more complicated when the glyph contains several zones with different counters. Take the example in Figure C-12: we have the glyph 講(k(, “oration”), which
@@ -3556,6 +3641,13 @@ constant.
 
 C.3. Type 1 Fonts Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m’endors. Et, une demi- heure après, la pensée q Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m’endors. Et, une demi- heure Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m’endors. Et, Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le tem Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais p Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite q Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaie Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fe Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes ye Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, me Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie étein Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie é Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bou Longtemps, je me suis couché de bonne heure. Parfois, à peine ma b Longtemps, je me suis couché de bonne heure. Parfois, à peine ma L o n g t e m p s, j e m e s u i s c o u c h é d e b o n n e h e u r e . P a r f o i s , à p e i n e m a b o u g i e é t e i n t e , m e s y e u x s e f e r m a i e n t s i v i t e q u e j e n ’ a v a i s p a s l e t e m p s d e m e d i r e : J e m ’ e n d o r s . E t , u n e d e m i - h e Longtemps , je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m’endors. Et, Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire : Je m’e Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de me dire Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le temps de Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais pas le t Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n’avais p Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite que je n Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si vite q Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaient si Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fermaie Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se fe Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes ye Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, me Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteint Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éte Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie é Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bou Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bo Figure C-13: Two examples of letterspacing in the font Times-Roman for sizes between 5 and 15.5. In the first case, letterspacing varies with the point size throughout its magnitude: TrackKern 1 5 0.5 15.5 1.55. In the second case, letterspacing remains constant below 8 points and above 12 points: TrackKern 1 8 0.8 12 1.2. We can request that letterspacing remain constant below 5 PostScript points and above 240 points. By making that specification, we give the values of letterspacing at its extremes. The value of letterspacing for an intermediate point size is calculated by interpolation from the extremes. In other words, if at every point size below p the letterspacing is k and if at every point size below P it is K, then for c ∈[p,P] the letterspacing will be (K−k)(c−p) P−p +k. Note that nothing prevents us from taking inordinately large values of P and ridiculously small ones of p in order to keep letterspacing from becoming constant in a document. For example, a specification such as TrackKern 10 1 0.1 65535 6553
 
+::: tip Figure C-13: Two examples of letterspacing in Times-Roman
+![Figure C-13: Two examples of letterspacing in Times-Roman](/images/fonts-encodings/fig-app-c13.png)
+*Figure C-13: Two examples of letterspacing in the font Times-Roman for sizes between 5 and 15.5.*
+:::
+
+
+
 ```text
 is entirely possible and will produce letterspacing of one point at point size 10, two points at
 point size 20, and so on.
@@ -3595,6 +3687,13 @@ description of these font formats.
 ```
 
 C.4. Multiple Master Fonts Axe 1 : weight Axe 2 : width Axe 3 : optical size 275,350,5 510,350,5 275,850,5 275,600,5 775,600,5 775,600,72 510,850,5 775,600,12 510,600,12 275,600,12 775,850,5 775,350,5 275,350,72 275,850,72 510,850,72 775,850,72 275,850,12 510,850,12 775,850,12 275,350,12 510,350,12 775,350,12 775,350,72 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 internal values external values (in PostScript points) Axe 3 : optical size (correspondence between internal and external values) Figure C-14: The eight master designs of the glyph ‘A’ in the font Adobe Kepler MM, together with several intermediate glyphs. Next to each glyph, we can read the triplets of values for the parameters. The glyph whose values are 510,600,12 appears in the middle of the cube and is, in a sense, the average value of the glyph ‘A’ in this font. C.4 Multiple Master Fonts The idea is very simple. A master is an outline of a master design, which is most often designed by a human. The computer can interpolate two or more master designs to obtain arbitrary intermediate outlines called instances. Thus we have not only a single glyph for every character but an infinite number16 of instances, described by their coefficients of interpolation from some number of master designs. We can have up to 16 master designs in a Multiple Master font, and they can be organized around four axes of interpolation. Each axis of interpolation is defined by two master designs placed at extreme locations. We can also decide that certain master designs will appear not at the extremities of an axis but at “intermediate positions” along a given axis. Here we have a practical example: the font Adobe Kepler MM is a Multiple Master font with three axes, respectively called “weight”, “width”, and “size”. In the left part of Figure C-14, we see the three axes of the font represented in Cartesian form. The encircled glyphs take on the extreme values and are therefore master designs. Now let us look at the technical side. Multiple Master fonts have a well-deserved reputation for being quite complex. Here is some information that will help us to understand Adobe’s strategy: 1. According to the nature of the axes that have been defined, some properties remain fixed and others vary. For instance, in the case of Adobe Kepler MM, the property ItalicAngle remains equal to 0, regardless of the instance. It is a fixed property. But we can easily 16 In computer science, the term “infinity” means “a very large number”.
+
+::: tip Figure C-14: Eight master designs of the glyph 'A' in Adobe Kepler MM
+![Figure C-14: Eight master designs of the glyph 'A' in Adobe Kepler MM](/images/fonts-encodings/fig-app-c14.png)
+*Figure C-14: The eight master designs of the glyph 'A' in the font Adobe Kepler MM, together with several intermediate glyphs.*
+:::
+
+
 
 ```text
 imagine a Multiple Master font with one axis for the slope; in that case, the property
@@ -3852,6 +3951,12 @@ DaiFonto33
 ...
 ...
 Figure C-15: How OCF fonts work: the show operator supplies a pair of integers “subfont number plus
+
+::: tip Figure C-15: How OCF fonts work
+![Figure C-15: How OCF fonts work](/images/fonts-encodings/fig-app-c15.png)
+*Figure C-15: How OCF fonts work: the show operator supplies a pair of integers “subfont number plus.*
+:::
+
 glyph number”; by means of the subfont number, an index for the subfont is obtained from the table Encoding; by means of the subfont index, the name of the subfont is obtained from the table FDepVector; finally,
 by means of the subfont name and the glyph number, the much-desired glyph (here, 女, that is, onna, or
 “woman”) is obtained.
@@ -3967,6 +4072,12 @@ Pointers to subroutines
 Subroutines
 CID
 Figure C-16: The overall structure of a CIDFont file (of CID type 0) and the path that must be followed
+
+::: tip Figure C-16: Overall structure of a CIDFont file (CID type 0)
+![Figure C-16: Overall structure of a CIDFont file (CID type 0)](/images/fonts-encodings/fig-app-c16.png)
+*Figure C-16: The overall structure of a CIDFont file (of CID type 0) and the path that must be followed.*
+:::
+
 to obtain the data needed for rendering the glyph. The starting point is the datum for the CID number.
 C.7.1
 CIDFont
@@ -4510,6 +4621,12 @@ V2
 (b)
 (c)
 Figure C-17: Hint management in charstrings of Type 2. From left to right: hint replacement, counter
+
+::: tip Figure C-17: Hint management in charstrings of Type 2
+![Figure C-17: Hint management in charstrings of Type 2](/images/fonts-encodings/fig-app-c17.png)
+*Figure C-17: Hint management in charstrings of Type 2. From left to right: hint replacement, counter.*
+:::
+
 control for three downstrokes, counter control for 11 horizontal and 7 vertical strokes.
 Figure C-10). Here is how we proceed: we associate a bit with each hint; the bit will have the
 value 1 if the hint is enabled, otherwise 0. These bits aligned in order (horizontal hints first)
@@ -5187,15 +5304,15 @@ whether that exhortation is itself legal.
 • 19: a sample of text; for example, a pangram.7
 • 20: a CID font name, with the CMap component. The notes in 6, above, also apply to the
 values of the parameters for this record.
-7 A pangram, from the Greek πν (“all”) and γρμμα (“letter”), is a sentence containing all the letters in
+7 A pangram, from the Greek πν (“all”) and γρμμα (“letter”), is a sentence containing all the letters in
 a given alphabet. For example, in English, “The quick brown fox jumps over the lazy dog”; in French, Portez
 ce vieux whisky au juge blond qui fume (“Take this old whisky to the blond judge who is smoking”); in German,
 Franz jagt im komplett verwahrlosten Taxi quer durch Bayern (“Franz chases straight across Bavaria in a completely
 run-down taxi”); in Russian, в чащах юга жил-был цитрус... да, но фальшивый экземпляръ! (“Once upon
-a time there was a citrus in the bushes of the south—yes, but a fake one!”) [358]; in Greek, γαζε
-κα μυρτι
+a time there was a citrus in the bushes of the south—yes, but a fake one!”) [358]; in Greek, γαζε
+κα μυρτι
 
-δν θ βρ πι στ χρυσαφ ξφωτο (“No more shall I see acacias or myrtles in the golden clearing”) [137], etc.
+δν θ βρ πι στ χρυσαφ ξφωτο (“No more shall I see acacias or myrtles in the golden clearing”) [137], etc.
 
 ```text
 Appendix D : The TrueType, OpenType, and AAT Font Formats
@@ -5785,6 +5902,12 @@ e
 f
 d
 Figure D-1: The horizontal and vertical metrics of a bitmap glyph in an EBLC table. To avoid giving incomprehensible names, we have used the letters a, ... , h for some measurements that we shall use later.
+
+::: tip Figure D-1: Horizontal and vertical metrics of a bitmap glyph in an EBLC table
+![Figure D-1: Horizontal and vertical metrics of a bitmap glyph in an EBLC table](/images/fonts-encodings/fig-app-d1.png)
+*Figure D-1: The horizontal and vertical metrics of a bitmap glyph in an EBLC table. To avoid giving incomprehensible names, we have used the letters a, ... , h for some measurements that we shall use later.*
+:::
+
 – The number of tables of pointers (numberOfIndexSubTables). Specifically, for each
 bitmap font, we can have several blocks of glyphs, in different formats. And these
 tables of pointers can also be in formats different from the bitmaps—which yields
@@ -5935,6 +6058,12 @@ in EBDT tables.
 D.7. Bitmap Management
 這本書寫得十分好用了很合當的例子我十分欣賞
 Figure D-2: Comparison of a line of Chinese text rendered at 12 pixels per em and 24 pixels per em (by a
+
+::: tip Figure D-2: Comparison of Chinese text rendered at 12 and 24 ppem
+![Figure D-2: Comparison of Chinese text rendered at 12 and 24 ppem](/images/fonts-encodings/fig-app-d2.png)
+*Figure D-2: Comparison of a line of Chinese text rendered at 12 pixels per em and 24 pixels per em (by a.*
+:::
+
 rather poor rendering engine), then enlarged from 12 to 24 by means of the EBSC table. Finally, the same
 text in a vector font.
 D.7.2
@@ -6109,6 +6238,12 @@ taille en ppem
 chasse de la lettre A en pixels
 yPel
 Figure D-3: The distribution of the sizes in pixels of the letter ‘A’ from the font Verdana, as a function of
+
+::: tip Figure D-3: Distribution of sizes in pixels of the letter 'A' from Verdana
+![Figure D-3: Distribution of sizes in pixels of the letter 'A' from Verdana](/images/fonts-encodings/fig-app-d3.png)
+*Figure D-3: The distribution of the sizes in pixels of the letter ‘A’ from the font Verdana, as a function of.*
+:::
+
 point size, expressed in pixels per em. The data come from the font’s gasp table.
 &lt;yPel name="Abreve" value="50"/&gt;
 ...
@@ -7124,6 +7259,12 @@ D.9. The OpenType Advanced Typographic Tables
 ➁
 ➁
 Figure D-4: Two examples of the use of the lookup flag for cursive attachment. First example: in the Urdu
+
+::: tip Figure D-4: Two examples of cursive attachment lookup flag
+![Figure D-4: Two examples of cursive attachment lookup flag](/images/fonts-encodings/fig-app-d4.png)
+*Figure D-4: Two examples of the use of the lookup flag for cursive attachment. First example: in the Urdu.*
+:::
+
 script, groups of connected letters (written from right to left, don’t forget!) must end on the baseline. Case 1:
 bit enabled, correct typesetting; case 2: bit disabled, poor typesetting (going offin every direction).
 Second example: a figurative use of typeset text: letters “sent flying”. Case 1: bit disabled, correct typesetting;
@@ -7848,6 +7989,12 @@ D.9.4.2
 Lookup type 2: multiple substitution
 It is relatively rare to replace one glyph with several. The font Nafees Nasta’leeq [1], for example, uses this mechanism to replace an Arabic glyph by its base part and its dots (see
 Figure D-5). Do not forget that after going through the GSUB table we must still go through
+
+::: tip Figure D-5: The glorious fate of arabic letter yeh barree with hamza above
+![Figure D-5: The glorious fate of arabic letter yeh barree with hamza above](/images/fonts-encodings/fig-app-d5.png)
+*Figure D-5). Do not forget that after going through the GSUB table we must still go through.*
+:::
+
 ```
 
 ```text
@@ -7957,7 +8104,7 @@ D.9. The OpenType Advanced Typographic Tables
 L M N O P Q R S T U V W X Y Z
 [ \ ] ^ _ ` a b c d e f g h
 i j k l m n o p q r s t u v
-w x y z { | } ~  Ä Å Ç É Ñ Ö
+w x y z { | } ~  Ä Å Ç É Ñ Ö
 Ü á à â ä ã å ç é è ê ë í ì î ï
 ñ ó ò ô ö õ ú ù û ü † ° ¢
 £ § • ¶ ß ® © ™´ ¨ ≠Æ Ø ∞
@@ -7967,6 +8114,12 @@ w x y z { | } ~  Ä Å Ç É Ñ Ö
 ⁄ € ‹ › fifl‡ · ‚ „ ‰ Â Ê
 Á Ë È Í
 Figure D-6: The 202 (!) ampersands of the two fonts AmpersandsOne and AmpersandsTwo, by the American foundry CastleType. In these fonts we find everything, from the sublime to the horrible.
+
+::: tip Figure D-6: The 202 ampersands of AmpersandsOne and AmpersandsTwo
+![Figure D-6: The 202 ampersands of AmpersandsOne and AmpersandsTwo](/images/fonts-encodings/fig-app-d6.png)
+*Figure D-6: The 202 (!) ampersands of the two fonts AmpersandsOne and AmpersandsTwo, by the American foundry CastleType. In these fonts we find everything, from the sublime to the horrible.*
+:::
+
 We could hardly do anything simpler. The element AlternateSubst contains all the cases
 of glyphs with variants. Each AlternateSet contains one such glyph and its variants. The
 original glyph is given by the glyph attribute of the element AlternateSet. This element can
@@ -9859,8 +10012,14 @@ And here is an example of this table, in Format 1:
 ```text
 Appendix D : The TrueType, OpenType, and AAT Font Formats
 Figure D-7: A trilingual and tri-fontal love poem (the fonts, in order: the sublime Zapfino, by Hermann
-Zapf; equally sublime, for fonts of its kind, Δεκαεξρια τ!
-κσσα
+
+::: tip Figure D-7: A trilingual and tri-fontal love poem in Zapfino
+![Figure D-7: A trilingual and tri-fontal love poem in Zapfino](/images/fonts-encodings/fig-app-d7.png)
+*Figure D-7: A trilingual and tri-fontal love poem (the fonts, in order: the sublime Zapfino, by Hermann.*
+:::
+
+Zapf; equally sublime, for fonts of its kind, Δεκαεξρια τ!
+κσσα
 [“Sixteen-point [letters] taken from
 the case”] by Tereza Tranaka-Haralambous; and Monotype Modern italic). Left: default typesetting, with
 simple line changes and justification according to the letter’s point of origin. Right: the same typesetting,
@@ -10363,10 +10522,10 @@ to decide, for each glyph, which points are to be modified and for which axis va
 
 ```text
 Appendix D : The TrueType, OpenType, and AAT Font Formats
-This is font Skia. “Skia” in Greek means “shadow”.
-This is font Skia. “Skia” in Greek means “shadow”.
-This is font Skia. “Skia” in Greek means “shadow”.
-This is font Skia. “Skia” in Greek means “shadow”.
+This is font Skia. “Skia” in Greek means “shadow”.
+This is font Skia. “Skia” in Greek means “shadow”.
+This is font Skia. “Skia” in Greek means “shadow”.
+This is font Skia. “Skia” in Greek means “shadow”.
 This is font Skia. “Skia” in Greek means “shadow”
 This is font Skia. “Skia” in Greek means “shadow
 This is font Skia. “Skia” in Greek means “shadow
@@ -10374,6 +10533,12 @@ This is font Skia. “Skia” in Greek means “shado
 This is font Skia. “Skia” in Greek means “shado
 This is font Skia. “Skia” in Greek means “shad
 Figure D-8: The font Apple Skia and its variations along the wght axis.
+
+::: tip Figure D-8: Apple Skia variations along the wght axis
+![Figure D-8: Apple Skia variations along the wght axis](/images/fonts-encodings/fig-app-d8.png)
+*Figure D-8: The font Apple Skia and its variations along the wght axis.*
+:::
+
 offsets are to be given explicitly (whereas for the other axis values, the system will perform
 the necessary interpolations to obtain appropriate glyphs).
 The structure of this table is relatively simple, at least when it is represented in TTX (whereas
@@ -10644,6 +10809,12 @@ if letter other than ‘h’
 ➆
 ➇
 Figure D-9: Two examples of finite automata.
+
+::: tip Figure D-9: Two examples of finite automata
+![Figure D-9: Two examples of finite automata](/images/fonts-encodings/fig-app-d9.png)
+*Figure D-9: Two examples of finite automata.*
+:::
+
 we preserve it and stay within the same state (arrow ). When a letter arrives, we perform
 an action: we retain the letter and append a period to it; at the same time, we change states
 (arrow ), and then we are in the state “inside a word”. Thus we find ourselves in the ellipse
@@ -10799,6 +10970,12 @@ if letter other than ‘h’
 ➆
 ➇
 Figure D-10: The second example of a finite automaton, with an additional initial state.
+
+::: tip Figure D-10: Finite automaton with an additional initial state
+![Figure D-10: Finite automaton with an additional initial state](/images/fonts-encodings/fig-app-d10.png)
+*Figure D-10: The second example of a finite automaton, with an additional initial state.*
+:::
+
 – Where does it lead? The entry table answers this question. The state table gives us
 a reference to the entry table, and an entry contains, among other things, a “target
 state”, which is where the corresponding arrow leads.
@@ -11695,7 +11872,7 @@ Let us begin with the two vectors. There are four ways to define them:
 1. Using the stack: SFVFS[] and SPVFS[] retrieve two values, y and x, from the stack. These
 are the normalized coordinates of the freedom vector and the projection vector, respectively. Warning! These numbers are expressed in “F2.14”, which means 2 bits for the integer part and 14 bits for the decimal part; the coordinates must be normalized, which is to
 say that
-
+
 x2 +y2 = 0x4000, where 0x4000 is nothing but the number 1 written in “F2.14”.
 2. Using two points on the plane. To do so, we use the instructions SFVTL[0] and SPVTL[0],
 which take two point numbers, a1 and a2, from the stack. The direction of the freedom
@@ -12024,6 +12201,12 @@ a new instruction been introduced!
 ```text
 31 32
 Figure E-1: The ‘T’ of the TrueType font Courier, by Apple/Bistream. The control points are not indicated.
+
+::: tip Figure E-1: The 'T' of TrueType Courier with instructions
+![Figure E-1: The 'T' of TrueType Courier with instructions](/images/fonts-encodings/fig-app-e1.png)
+*Figure E-1: The ‘T’ of the TrueType font Courier, by Apple/Bistream. The control points are not indicated.*
+:::
+
 E.3
 Some Examples
 Here are a few examples that will, the author hopes, show concretely how the instructions
@@ -12518,6 +12701,12 @@ the origin of the glyph. Next comes an MIRP[] instruction:
 ```text
 E.3. Some Examples
 Figure E-2: The ‘O’ from the TrueType font Verdana, by Microsoft.
+
+::: tip Figure E-2: The 'O' from TrueType Verdana with instructions
+![Figure E-2: The 'O' from TrueType Verdana with instructions](/images/fonts-encodings/fig-app-e2.png)
+*Figure E-2: The ‘O’ from the TrueType font Verdana, by Microsoft.*
+:::
+
 MIRP[10110]
 /* 104, 15.
 rp0=15, rp1=36, rp2=15 */
@@ -13525,30 +13714,30 @@ Next, we define a numeric variable i and create a loop using that variable, with
 stem=(i/63)[join,2.2u], which means that we go from the value of the connecting stroke
 to 2.2u in 64 steps.
 And here is the result:
- 
-
-
-
-
-
-
+
+
+
+
+
+
+
 ```
 
-
+
 Æ
-
-
-
-
-
-
-
-
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
+
+
+
 !
 "
 #
@@ -13575,9 +13764,9 @@ weight would also have required the modification of the other parameters at the 
 Let us run another test: we shall modify the glyph’s set-width. We wish to emphasize that it
 is not merely a matter of reducing the image’s horizontal scaling factor. We shall modify the
 set-width while leaving all the stroke thicknesses unchanged. Here is the result:
-
 
-        Æ       ! " # \$ % &
+
+        Æ       ! " # \$ % &
 
 F.1. The METAFONT Programming Language
 '
@@ -13587,14 +13776,14 @@ F.1. The METAFONT Programming Language
 +
 ,
 -
- .
+.
 /
-
-
-
-
-
-
+
+
+
+
+
+
 :
 ;
 <
@@ -13613,29 +13802,29 @@ serif_tip=.2u; serif_ht=max(serif_tip,.7u);
 Now serif_ht is always at least as large as serif_tip. One other change to make: as the serifs become larger, it is also desirable to thicken the letter’s connecting stroke slightly. Here
 we shall take connecting strokes whose thickness is at least half that of the tips of the serifs:
 join=max(.2u,.5serif_tip);. Here is what we get once these precautions have been taken:
- 
-
-
-
-
-
-
 
-
+
+
+
+
+
+
+
+
 Æ
-
-
-
-
-
-
-
-
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
+
+
+
 !
 "
 #
@@ -13659,29 +13848,29 @@ join=max(.2u,.5serif_tip);. Here is what we get once these precautions have been
 ?
 Finally, we can play with the lengths of the serifs—the serif parameter. Let us draw glyphs
 for which the serif parameter ranges from 0 to 1.5 times the usual serif:
- 
-
-
-
-
-
-
 
-
+
+
+
+
+
+
+
+
 Æ
-
-
-
-
-
-
-
-
-
-
-
-
-
+
+
+
+
+
+
+
+
+
+
+
+
+
 !
 "
 #
@@ -14274,7 +14463,20 @@ Livre, by Porchez. The font cminch does not mention its size because that size i
 
 F.2. The Computer Modern Family of Fonts Figure F-1: The fonts of the original Computer Modern distribution, 1/2.
 
+::: tip Figure F-1: The fonts of the original Computer Modern distribution (1/2)
+![Figure F-1: The fonts of the original Computer Modern distribution (1/2)](/images/fonts-encodings/fig-app-f1.png)
+*Figure F-1: The fonts of the original Computer Modern distribution, 1/2.*
+:::
+
+
+
 Figure F-2: The fonts of the original Computer Modern distribution, 2/2.
+
+::: tip Figure F-2: The fonts of the original Computer Modern distribution (2/2)
+![Figure F-2: The fonts of the original Computer Modern distribution (2/2)](/images/fonts-encodings/fig-app-f2.png)
+*Figure F-2: The fonts of the original Computer Modern distribution, 2/2.*
+:::
+
 
 F.2. The Computer Modern Family of Fonts
 • A “Dutch” sans serif font (i.e., one with a very large x-height), “sans serif quotation”
@@ -14310,6 +14512,13 @@ parameter is, the narrower the letters will be.
 • body_height: the height of the parentheses, brackets, and other large symbols.
 
 curve curve vair bar_height body_height cap_height asc_height x_height x_height desc_depth comma_depth notch_cut apex_oo fig_height thin_join stem beak beak_jut cap_bar math_axis dot_size dot_size cap_stem cap_curve cap_band rule_thickness crisp tiny fine flare hair ess cap_ess bar slab serif_drop bracket apex_o o oo vair vair' curve cap_curve cap_hair dish cap_jut jut Figure F-3: The parameters of the Computer Modern fonts.
+
+::: tip Figure F-3: The parameters of the Computer Modern fonts
+![Figure F-3: The parameters of the Computer Modern fonts](/images/fonts-encodings/fig-app-f3.png)
+*Figure F-3: The parameters of the Computer Modern fonts.*
+:::
+
+
 
 F.2. The Computer Modern Family of Fonts
 • asc_height: the height of the ascenders.
@@ -14413,9 +14622,9 @@ Starting in 1981 [236], Hermann Zapf designed mathematical fonts for the America
 in METAFONT78, and the code has never been made public. In 1985 [67, 68], the AMS supplemented these fonts with additional mathematical symbols and some Cyrillic fonts. Only
 in 1995 were the fonts rewritten in METAFONT82, improved, and publicly released as METAFONT source code [31].
 In 1988, Silvio Levy [238] developed a Greek version (in the hapla style) of Computer Modern:
- 
-
-
+
+
+
 !"#\$
 %&
 '()*+,-./01
@@ -14436,47 +14645,47 @@ the METAFONT code is of poor quality. The situation was corrected in 1996 when F
 Alphabet.
 In that same year, 1991, Mícheál Ó Searcóid [315] designed a Gaelic Computer Modern
 font, EIAD:
- 
-
- !"#\$%&'()*+,-./01234
+
+
+ !"#\$%&'()*+,-./01234
 In 1993, Jörg Knappen [211] developed an extension of Computer Modern for the African languages that use the Latin alphabet and for certain languages not supported by DC: Maltese,
 Esperanto, etc. These fonts are called FC.
 In 1996, at the TEX Users Group meeting in Moscow, Olga Lapko [227] presented a new family of Computer Modern Cyrillic fonts that were of higher quality than those of the AMS and
 that contained enough glyphs for all of the languages, including the Asian ones, that use the
 Cyrillic alphabet. These fonts are called LH:
- 
-
-
-
-
-
- 
-#
+
+
+
+
+
+
+ 
+#
 \$
 ```
 
-F.3. MetaFog 
+F.3. MetaFog 
 
-
+
 
 ```text
--./0123456789
+-./0123456789
 :;<=>?@ABCD
 EFG
 In 1998, Walter Schmidt [314] noticed that the sans serif font of Computer Modern was used
 mainly as a supplementary typeface for roman but was ill suited for use on its own. He released CM Bright, a lighter sans serif font that is appropriate for running text:
- 
-
-
- !"#\$%&'()*+,-./01234
+
+
+
+ !"#\$%&'()*+,-./01234
 Starting in 2000, Hàn Th© Thành [328, 327] designed Computer Modern fonts for Vietnamese,
 the VN fonts.
 In 2001, Alan Hoenig [181] tried to adapt the parameters of Computer Modern to Monotype
 Modern. The result, called Modernized Modern, is very interesting:
- 
-
-
-
+
+
+
+
 !"#\$%&'()*
 +,-./01234
 F.3
@@ -14503,6 +14712,12 @@ is quite entertaining to see the glyph take its shape amidst a heap of useless c
 ```
 
 Figure F-4: The window of weed, where we see the METAFONT glyph that we designed in §F.1.3. 4. Finally, one last script collects the files produced by weed into a TTF font. MetaFog includes quite a few “administrative” scripts: those that calculate the metrics, manage the encoding, etc. Richard Kinch used MetaFog to produce the Computer Modern TrueType fonts that accompany TrueTEX. The result is excellent. In fact, Kinch was the only one to do serious work on the mathematical calculation of the curves that envelop the METAFONT strokes. He gives an overview of his calculations in [209]. The tragedy is that these calculations, with which we could have created splendid fonts, remain prisoner to MetaFog, a program that does indeed do an admirable job of “vectorizing” METAFONT code but that is in general of such abominably complex structure that it would give any programmer nightmares—and that is, alas, inaccessible to nonprogrammers. We can only hope that Richard will manage in the coming years to convert this chaotic set of
+
+::: tip Figure F-4: The window of weed showing METAFONT glyph design
+![Figure F-4: The window of weed showing METAFONT glyph design](/images/fonts-encodings/fig-app-f4.png)
+*Figure F-4: The window of weed, where we see the METAFONT glyph that we designed in §F.1.3. 4. Finally, one last script collects the files produced by weed into a TTF font. MetaFog includes quite a few “administrative” scripts: those that calculate the metrics, manage the encoding, etc. Richard Kinch used MetaFog to produce the Computer Modern TrueType fonts that accompany TrueTEX. The result is excellent. In fact, Kinch was the only one to do serious work on the mathematical calculation of the curves that envelop the METAFONT strokes. He gives an overview of his calculations in [209]. The tragedy is that these calculations, with which we could have created splendid fonts, remain prisoner to MetaFog, a program that does indeed do an admirable job of “vectorizing” METAFONT code but that is in general of such abominably complex structure that it would give any programmer nightmares—and that is, alas, inaccessible to nonprogrammers. We can only hope that Richard will manage in the coming years to convert this chaotic set of.*
+:::
+
 
 ```text
 F.4. METATYPE1 and Antykwa Półtawskiego
@@ -14890,6 +15105,12 @@ find_outlines(stroke_4, stroke_2)(stroke_);
 ```
 
 Figure F-5: The fonts of the Antykwa Półtawskiego distribution, v.0.52.
+
+::: tip Figure F-5: The fonts of the Antykwa Półtawskiego distribution
+![Figure F-5: The fonts of the Antykwa Półtawskiego distribution](/images/fonts-encodings/fig-app-f5.png)
+*Figure F-5: The fonts of the Antykwa Półtawskiego distribution, v.0.52.*
+:::
+
 find_outlines(stroke_1, stroke_3)(stroke_);
 find_outlines(stroke_1, stroke_5)(stroke_);
 find_outlines(stroke_1, stroke_6)(stroke_);
@@ -14982,6 +15203,12 @@ spread_ht
 lc_serif_jut
 uc_serif_jut
 Figure F-6: The parameters of the Antykwa Półtawskiego font family.
+
+::: tip Figure F-6: The parameters of the Antykwa Półtawskiego font family
+![Figure F-6: The parameters of the Antykwa Półtawskiego font family](/images/fonts-encodings/fig-app-f6.png)
+*Figure F-6: The parameters of the Antykwa Półtawskiego font family.*
+:::
+
 • lc_stem': the thickness of the thick curved strokes of the lowercase letters.
 • lc_stem: the thickness of the thick upright strokes of the lowercase letters.
 • marg: the standard side-bearings of the glyphs.
@@ -15134,13 +15361,13 @@ We wish to show that A(b(t)) = (1−t)3A(z0)+3t(1−t)2A(z1)+3t2(1−t)A(z2)+t3A
 Let us simplify by writing b(t) = ∑3
 i=0 bi(t)zi and then proceed:
 A(b(t)) = A
-
+
 ∑
 i=0
 bi(t)zi
-
+
 =
-
+
 α
 ∑
 i=0
@@ -15154,7 +15381,7 @@ bi(t)xi + ε
 ∑
 i=0
 bi(t)yi +ζ
-
+
 .
 But we just proved in Property 2 that ∑3
 i=0 bi(t) = 1 for all t. We can therefore multiply γ and ζ by
@@ -15196,9 +15423,9 @@ z0,3(t) = (1−t)z0,2(t)+t z1,2(t).
 Therefore b(t) = z0,3(t).
 ```
 
-G.2. Bézier Curves Proof. — We need only replace zi,j(t) with their values: z0,1(t) = (1−t)z0 +t z1 z1,1(t) = (1−t)z1 +t z2 z2,1(t) = (1−t)z2 +t z3 and therefore: z0,2(t) = (1−t)[(1−t)z0 +t z1]+t[(1−t)z1 +t z2] z1,2(t) = (1−t)[(1−t)z1 +t z2]+t[(1−t)z2 +t z3] which gives: z0,3(t) = (1−t)  (1−t)[(1−t)z0 +t z1]+t[(1−t)z1 +t z2]  +t  (1−t)[(1−t)z1 +t z2]+t[(1−t)z2 +t z3]  = (1−t)3z0 +3t(1−t)2z1 +3t2(1−t)z2 +t3z3 = b(t). qed Comments. — de Casteljau’s algorithm can be represented graphically as follows: z0 = b(0) z3 = b(1) z0,3 b(2/3) z1 z2 z0,1 z0,2 z1,1 z1,2 z2,1 where we have chosen to determine the point b( 2 3) graphically. The point z0,1 lies at 2 3 of the distance between z0 and z1. The same goes for z1,1 and z2,1. We draw the line segments z0,1z1,1 and z1,1z2,1. Then we find the points z0,2 and z1,2, which are 2 3 of the distance between the endpoints of the line segments. We draw the segment z0,2z1,2. It must necessarily be tangent to the Bézier curve. The point of intersection of this segment with the curve is b( 2 3). G.2.3 Subdivision of Bézier Curves Definition. — Let b(t) be a Bézier curve and let κ be in [0,1]. Then b(t) is subdivided into two Bézier curves bstart(t) = b(κt) and bend(t) = b( t−κ 1−κ). Theorem. — Let z0,z1,z2,z3 be in R2 and let b be the cubic Bézier curve defined on [0,1] by those points. Let κ be in [0,1]. Let bstart and bend be the two Bézier curves obtained by subdividing b at the
+G.2. Bézier Curves Proof. — We need only replace zi,j(t) with their values: z0,1(t) = (1−t)z0 +t z1 z1,1(t) = (1−t)z1 +t z2 z2,1(t) = (1−t)z2 +t z3 and therefore: z0,2(t) = (1−t)[(1−t)z0 +t z1]+t[(1−t)z1 +t z2] z1,2(t) = (1−t)[(1−t)z1 +t z2]+t[(1−t)z2 +t z3] which gives: z0,3(t) = (1−t)  (1−t)[(1−t)z0 +t z1]+t[(1−t)z1 +t z2]  +t  (1−t)[(1−t)z1 +t z2]+t[(1−t)z2 +t z3]  = (1−t)3z0 +3t(1−t)2z1 +3t2(1−t)z2 +t3z3 = b(t). qed Comments. — de Casteljau’s algorithm can be represented graphically as follows: z0 = b(0) z3 = b(1) z0,3 b(2/3) z1 z2 z0,1 z0,2 z1,1 z1,2 z2,1 where we have chosen to determine the point b( 2 3) graphically. The point z0,1 lies at 2 3 of the distance between z0 and z1. The same goes for z1,1 and z2,1. We draw the line segments z0,1z1,1 and z1,1z2,1. Then we find the points z0,2 and z1,2, which are 2 3 of the distance between the endpoints of the line segments. We draw the segment z0,2z1,2. It must necessarily be tangent to the Bézier curve. The point of intersection of this segment with the curve is b( 2 3). G.2.3 Subdivision of Bézier Curves Definition. — Let b(t) be a Bézier curve and let κ be in [0,1]. Then b(t) is subdivided into two Bézier curves bstart(t) = b(κt) and bend(t) = b( t−κ 1−κ). Theorem. — Let z0,z1,z2,z3 be in R2 and let b be the cubic Bézier curve defined on [0,1] by those points. Let κ be in [0,1]. Let bstart and bend be the two Bézier curves obtained by subdividing b at the
 
-point b(κ). Let z0,1,z1,1,z2,1,z0,2,z1,2 be the points obtained by applying de Casteljau’s algorithm to the curve b. Then the points z0,1 and z0,2 are the control points of bstart, and the points z1,2 and z2,1 are the control points of bend. z0 = b(0) z3 = b(1) z0,3 b(2/3) z1 z2 z0,1 z0,2 z1,1 z1,2 z2,1 bstart bend Comments. — The mystery is solved: here is how the software instantly knows the control points of the new Bézier curve obtained by “cutting” the old Bézier curve into two pieces. As soon as we click on a point z on the curve, the software calculates the value t of that point through the bisection method: it takes b( 1 2) and checks whether the point z lies in the polygon formed by the four points of bstart or bend. According to the result, the curve is subdivided again, and the the software determines in which polygon the point lies, and so forth. By continuing in this manner, it can calculate the value of t for which b(t) ≈z with ever greater precision. Proof. — By performing the calculations of de Casteljau’s algorithm on the point κ, we find: z0,1 = (1−κ)z0 +κz1 z0,2 = (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2] z0,3 = (1−κ)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +κ  (1−κ)[(1−κ)z1 +κz2]+κ[(1−κ)z2 +κz3]  . Suppose that the theorem is true. Then we have: bstart(t) = (1−t)3z0 +3t(1−t)2z0,1 +3t2(1−t)z0,2 +t3z0,3. Make the substitutions: bstart(t) = (1−t)3z0 +3t(1−t)2[(1−κ)z0 +κz1] +3t2(1−t)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +t3  (1−κ)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +κ  (1−κ)[(1−κ)z1 +κz2]+κ[(1−κ)z2 +κz3]  .
+point b(κ). Let z0,1,z1,1,z2,1,z0,2,z1,2 be the points obtained by applying de Casteljau’s algorithm to the curve b. Then the points z0,1 and z0,2 are the control points of bstart, and the points z1,2 and z2,1 are the control points of bend. z0 = b(0) z3 = b(1) z0,3 b(2/3) z1 z2 z0,1 z0,2 z1,1 z1,2 z2,1 bstart bend Comments. — The mystery is solved: here is how the software instantly knows the control points of the new Bézier curve obtained by “cutting” the old Bézier curve into two pieces. As soon as we click on a point z on the curve, the software calculates the value t of that point through the bisection method: it takes b( 1 2) and checks whether the point z lies in the polygon formed by the four points of bstart or bend. According to the result, the curve is subdivided again, and the the software determines in which polygon the point lies, and so forth. By continuing in this manner, it can calculate the value of t for which b(t) ≈z with ever greater precision. Proof. — By performing the calculations of de Casteljau’s algorithm on the point κ, we find: z0,1 = (1−κ)z0 +κz1 z0,2 = (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2] z0,3 = (1−κ)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +κ  (1−κ)[(1−κ)z1 +κz2]+κ[(1−κ)z2 +κz3]  . Suppose that the theorem is true. Then we have: bstart(t) = (1−t)3z0 +3t(1−t)2z0,1 +3t2(1−t)z0,2 +t3z0,3. Make the substitutions: bstart(t) = (1−t)3z0 +3t(1−t)2[(1−κ)z0 +κz1] +3t2(1−t)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +t3  (1−κ)  (1−κ)[(1−κ)z0 +κz1]+κ[(1−κ)z1 +κz2]  +κ  (1−κ)[(1−κ)z1 +κz2]+κ[(1−κ)z2 +κz3]  .
 
 G.2. Bézier Curves We need only check that this expression is equal to: b(κt) = (1−κt)3z0 +3κt(1−κt)2z1 +3κ2t2(1−κt)z2 +t3κ3z3. Simply carry out the calculations term by term. A full page of calculations of no great interest.
 
@@ -15530,10 +15757,10 @@ b.10.36, 1999. http://omega.enstb.org/yannis/pdf/boston99.pdf
 Unicode et typographie : un amour impossible.
 Document
 Numérique, 6(3-4):105–137, 2002. http://omega.enstb.org/yannis/pdf/docnum.pdf
-[166] Yannis Haralambous. Ο# \$ναφορ
-τν μονοτονιστν στν Βιλαμ'βιτ
-κα στν Γε)ργιο
-Χατζιδκι (References of monotonists to Wilamowitz and to Georgios Hadzidakis). Ο μικρ[P
+[166] Yannis Haralambous. Ο# \$ναφορ
+τν μονοτονιστν στν Βιλαμ'βιτ
+κα στν Γε)ργιο
+Χατζιδκι (References of monotonists to Wilamowitz and to Georgios Hadzidakis). Ο μικρ[P
 &στρολ!βοP, Ε`θ9νη, 2007. http://www.polytoniko.org/haralambous.php
 [167] Yannis Haralambous and Gábor Bella. Injecting information into atomic units of text.
 In Proceedings of the ACM Symposium on Document Engineering, Bristol, 2005.

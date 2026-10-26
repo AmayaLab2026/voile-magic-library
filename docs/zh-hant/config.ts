@@ -71,6 +71,60 @@ export default defineConfig({
           ],
         },
       ],
+            '/zh-hant/fonts-encodings/': [
+        {
+          text: '卷首與總論',
+          items: [
+            { text: '典籍概述與全書目錄', link: '/zh-hant/fonts-encodings/' },
+            { text: '導言 · 探索篇：字母部件與排版', link: '/zh-hant/fonts-encodings/introduction' },
+          ],
+        },
+        {
+          text: '第一編：編碼與字符集（Part I）',
+          collapsed: false,
+          items: [
+            { text: '第一章：前 Unicode 時代編碼體系', link: '/zh-hant/fonts-encodings/chapter-1' },
+            { text: '第二章：字符字形與字節（Unicode 導論）', link: '/zh-hant/fonts-encodings/chapter-2' },
+            { text: '第三章：Unicode 字符核心屬性體系', link: '/zh-hant/fonts-encodings/chapter-3' },
+            { text: '第四章：規範化、雙向算法與東亞文字', link: '/zh-hant/fonts-encodings/chapter-4' },
+            { text: '第五章：Unicode 實踐與字符錄入工具', link: '/zh-hant/fonts-encodings/chapter-5' },
+          ],
+        },
+        {
+          text: '第二編：操作系統字體管理（Part II）',
+          collapsed: false,
+          items: [
+            { text: '第六章：Macintosh 操作系統的字體管理', link: '/zh-hant/fonts-encodings/chapter-6' },
+            { text: '第七章：Windows 操作系統的字體管理', link: '/zh-hant/fonts-encodings/chapter-7' },
+            { text: '第八章：X Window 與 Unix 字體管理', link: '/zh-hant/fonts-encodings/chapter-8' },
+          ],
+        },
+        {
+          text: '第三編：排版引擎與技術生態（Part III）',
+          collapsed: false,
+          items: [
+            { text: '第九章：TeX 與 Omega 系統的字體技術', link: '/zh-hant/fonts-encodings/chapter-9' },
+            { text: '第十章：Web 網頁字體與排版技術', link: '/zh-hant/fonts-encodings/chapter-10' },
+          ],
+        },
+        {
+          text: '第四編：字體藝術、設計與高級排版（Part IV）',
+          collapsed: false,
+          items: [
+            { text: '第十一章：拉丁字體的歷史演進與分類學', link: '/zh-hant/fonts-encodings/chapter-11' },
+            { text: '第十二章：字體設計與編輯實操', link: '/zh-hant/fonts-encodings/chapter-12' },
+            { text: '第十三章：柵格化渲染優化與字形微調', link: '/zh-hant/fonts-encodings/chapter-13' },
+            { text: '第十四章：豐富字體表達：高級排版特性', link: '/zh-hant/fonts-encodings/chapter-14' },
+          ],
+        },
+        {
+          text: '第五編：技術附錄（Part V）',
+          collapsed: false,
+          items: [
+            { text: '附錄全編：底層格式與數學原理手冊', link: '/zh-hant/fonts-encodings/appendices' },
+          ],
+        },
+      ],
       '/zh-hant/controlled-substances/': [
         {
           text: '管制物質：化學與法律指南',
@@ -101,6 +155,7 @@ export default defineConfig({
           items: [
             { text: 'Vol. 01 管制物質：化學與法律指南', link: '/zh-hant/controlled-substances/' },
             { text: 'Vol. 02 火箭技術先驅：選集', link: '/zh-hant/rocket-pioneers/' },
+        { text: 'Vol. 03 字體與編碼：Unicode 與高級排版', link: '/zh-hant/fonts-encodings/' },
           ],
         },
         {
@@ -163,6 +218,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Vol. 01 管制物質：化學與法律指南', link: '/zh-hant/controlled-substances/' },
         { text: 'Vol. 02 火箭技術先驅：選集', link: '/zh-hant/rocket-pioneers/' },
+        { text: 'Vol. 03 字體與編碼：Unicode 與高級排版', link: '/zh-hant/fonts-encodings/' },
       ],
     },
     {

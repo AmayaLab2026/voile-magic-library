@@ -999,7 +999,7 @@ A few comments:
 
 In 1998 a third encoding dedicated to the Baltic languages came out: ISO 8859-13 (or “Latin-7”), which has the peculiarity of combining these languages with Polish and including the appropriate types of quotation marks.
 
-ISO 8859-5, or “ISO Cyrillic”, stems from a Soviet standard of 1987, GOST 19768/87, and is meant for the languages that use the Cyrillic alphabet. As there are many such languages, all of them rich in characters, the encoding is limited to Russian as spelled after the revolution (without the characters “fita …, yat , izhitsa ‡, i dessyatirichnoye i” that Lenin eliminated) and to the languages spoken in European countries: Ukrainian (without the character ‘‰ ’, which the Soviet government did not recognize), Byelorussian, Moldavian, Bulgarian, Serbian, and Macedonian. This encoding also includes the ‘№’ ligature, a number sign (like the North American English ‘#’), which appears in practically every Russian font. The ‘N’ in this character is a foreign letter; it does not appear in the Cyrillic alphabet.
+ISO 8859-5, or “ISO Cyrillic”, stems from a Soviet standard of 1987, GOST 19768/87, and is meant for the languages that use the Cyrillic alphabet. As there are many such languages, all of them rich in characters, the encoding is limited to Russian as spelled after the revolution (without the characters “fita …, yat , izhitsa ‡, i dessyatirichnoye i” that Lenin eliminated) and to the languages spoken in European countries: Ukrainian (without the character ‘‰ ’, which the Soviet government did not recognize), Byelorussian, Moldavian, Bulgarian, Serbian, and Macedonian. This encoding also includes the ‘№’ ligature, a number sign (like the North American English ‘#’), which appears in practically every Russian font. The ‘N’ in this character is a foreign letter; it does not appear in the Cyrillic alphabet.
 
 ISO 8859-6, or “ISO Arabic”, covers the Arabic alphabet. We are astonished by the minimalist appearance of this encoding: there are numerous empty blocks, yet many languages that use the Arabic script have extra characters that are not provided. ISO 8859-6 includes only the basic letters required to write Arabic and also the short vowels and some of the diacritical marks (the wasla and the vertical fatha are missing). The punctuation marks that differ in appearance from their Latin counterparts (the comma, semicolon, question mark) are also included.
 
@@ -1136,7 +1136,7 @@ FC ² FD a FE nbspFF
 
 FB
 
-This code page is a real mixed bag: a few accented letters (there is an ‘É’ but no ‘È’... ), a handful of currency symbols, some punctuation marks, three rows of building blocks for drawing user interfaces, and a number of mathematical symbols, including a small range of Greek letters. One startling fact: the author does not know whether the character in position xE1 is a Greek beta ‘β’ or a German eszett ‘ß’. Its location between alpha and gamma suggests that it is a beta, but at the same time the presence of the German letters ‘ä’, ‘ö’, and ‘ü’ implies that this encoding should logically include an ‘ß’. Could it be that the same character was supposed to serve for both? If so, depending on the font, we would have had aberrations such as “ßιßλον” or “Gieβgefäβ”...
+This code page is a real mixed bag: a few accented letters (there is an ‘É’ but no ‘È’... ), a handful of currency symbols, some punctuation marks, three rows of building blocks for drawing user interfaces, and a number of mathematical symbols, including a small range of Greek letters. One startling fact: the author does not know whether the character in position xE1 is a Greek beta ‘β’ or a German eszett ‘ß’. Its location between alpha and gamma suggests that it is a beta, but at the same time the presence of the German letters ‘ä’, ‘ö’, and ‘ü’ implies that this encoding should logically include an ‘ß’. Could it be that the same character was supposed to serve for both? If so, depending on the font, we would have had aberrations such as “ßιßλον” or “Gieβgefäβ”...
 
 Code page 850 (MS-DOS Latin 1) is a variant of the preceding. It contains fewer graphical characters and more characters for the languages of Western Europe. Note that the German eszett ‘ß’ appears in the same position as the ‘β / ß’ of code page 437:
 
@@ -1293,7 +1293,7 @@ BD æ
 
 BE ø
 
- 
+
 
 BF ¿ C0 ¡ C1 ¬ C2
 

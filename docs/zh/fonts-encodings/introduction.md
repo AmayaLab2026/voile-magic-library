@@ -61,7 +61,10 @@ description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》导言全文深度
 
 在 **Figure 0-1** 中，我们以正体罗马字（roman）标出了本书所统一采用的标准术语，并以斜体字（italics）列出了业界对同一字母构件所使用的其他别名。
 
+::: tip 字母各组成部件解剖图（Figure 0-1）
 ![字母各组成部件解剖图（Figure 0-1）](/images/fonts-encodings/fig0-1-parts-of-a-letter.png)
+*字母各组成部件解剖图（Figure 0-1）*
+:::
 
 *图 0-1：字母的各组成部件（The parts of a letter）。本全书中统一采用的标准术语以正体列出，业界现存之替代别名以斜体标出。*
 
@@ -102,7 +105,10 @@ description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》导言全文深度
 * **若弗鲁瓦·托里（Geofroy Tory）**：法国巴黎杰出的人文主义大师（也是在法文中引入重音符与下加符 ç 的先驱），在其 1524 年的名作《花之原野》（*Champ fleury*）中详述的阿提卡字母真正比例法则；
 * **若戎委员会（Jaugeon Commission）**：1716 年在法王路易十四授意下成立的技术委员会，为法国皇家印刷局设计了纯几何构型的“皇家罗马体”（*Romain du Roi*）。
 
+::: tip 字母“E”的六种数学几何描述（Figure 0-2）
 ![字母“E”的六种数学几何描述（Figure 0-2）](/images/fonts-encodings/fig0-2-mathematical-descriptions-letter-e.png)
+*字母“E”的六种数学几何描述（Figure 0-2）*
+:::
 
 *图 0-2：字母‘E’的六种数学几何描述：卢卡·德·帕乔利（1509）、阿尔布雷希特·丢勒（1535）、若弗鲁瓦·托里（1524）、若戎委员会（1716），以及当代专业字体设计软件 FontLab 中的两幅轮廓截屏。*
 
@@ -131,7 +137,10 @@ $$\text{字母（Letters）} \longrightarrow \text{单词（Words）} \longright
 
 凸版印刷的核心基石是**可移动活字（movable type）**，即被称为**字块（type sorts）**的小金属方块。它们由铅（lead）、锡（tin）与锑（antimony）三种金属熔炼而成的特殊活字合金精密铸造而成，在金属方块的顶端端面（face）上，雕刻或铸造着镜像反转的凸起字母（relief mirror image）。
 
+::: tip 十八世纪活字印刷字盘结构图（Figure 0-3）
 ![十八世纪活字印刷字盘结构图（Figure 0-3）](/images/fonts-encodings/fig0-3-eighteenth-century-type-case.png)
+*十八世纪活字印刷字盘结构图（Figure 0-3）*
+:::
 
 *图 0-3：十八世纪活字印刷字盘与工作台（选自狄德罗与达朗贝尔《百科全书》）。上方为盛放铅活字的字盘格子，下方为支撑排字盘的倾斜木架工作台。*
 
@@ -143,7 +152,10 @@ $$\text{字母（Letters）} \longrightarrow \text{单词（Words）} \longright
 
 排字工站在字盘前，根据稿件内容以极高的手速从各个格子中抓取活字，并将其依序排列在手中的**手合子（composing stick）**上。
 
+::: tip 手工排字手合子（Figure 0-4）
 ![手工排字手合子（Figure 0-4）](/images/fonts-encodings/fig0-4-composing-stick.png)
+*手工排字手合子（Figure 0-4）*
+:::
 
 *图 0-4：手工排字手合子（选自狄德罗与达朗贝尔《百科全书》）。排字工在手合子上逐字拼合一行文本，并通过活动卡规设定页边栏宽（measure）。*
 
@@ -156,7 +168,10 @@ $$\text{Gloire à DIEU.}$$
 $$\text{Honneur au ROI.}$$
 $$\text{Salut aux Armes.}$$
 
+::: tip 三行拼版铅字及其物理重叠机制（Figure 0-5）
 ![三行拼版铅字及其物理重叠机制（Figure 0-5）](/images/fonts-encodings/fig0-5-three-typeset-lines.png)
+*三行拼版铅字及其物理重叠机制（Figure 0-5）*
+:::
 
 *图 0-5：三行拼版铅字（选自狄德罗与达朗贝尔《百科全书》）。展示了斜体字母的悬挑字距微调（kerning）、活字底端斜切与垂直避让，以及字身体积（body size）与字身宽（set-width）的物理度量。*
 
@@ -275,7 +290,10 @@ TrueType 采用了二次 B 样条曲线（B-splines），并在字形内部集�
 
 为了帮助读者在手中这本洋洋洒洒包含 250 万字的浩瀚典籍中找准自己的研读航道，作者将全书 14 个核心章节（扩展为 19 章体系）与 7 大附录的有机脉络，绘制成了 **Figure 0-6** 所示的系统知识图谱：
 
+::: tip 本书全书章节与附录体系结构图（Figure 0-6）
 ![本书全书章节与附录体系结构图（Figure 0-6）](/images/fonts-encodings/fig0-6-book-structure.png)
+*本书全书章节与附录体系结构图（Figure 0-6）*
+:::
 
 *图 0-6：本书各章节与附录的系统结构图谱（Structure of the chapters of this book）。左侧弧线统揽编码与字符（Encodings / Characters），右侧弧线统揽字体与字形（Fonts / Glyphs），下方汇聚于各技术附录（Appendices）。*
 

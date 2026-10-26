@@ -39,7 +39,10 @@ description: "权威全译本：字符调色板交互录入（Mac OS X、Windows
 
 在苹果公司的 Mac OS X 操作系统中，系统原生内建了极其优雅的**字符调色板**（Character Palette）。该工具直接集成在国际化输入菜单栏中，用户可以在任何文本编辑区域随时唤出该浮动窗口：
 
+::: tip 图 5-1：Mac OS X 字符调色板界面
 ![图 5-1：Mac OS X 字符调色板界面](/images/fonts-encodings/fig5-1.png)
+*图 5-1：Mac OS X 字符调色板界面*
+:::
 
 *图 5-1：Mac OS X 的 Character Palette 界面。左侧为分类目录，右侧为字符网格与大字预览。*
 
@@ -55,7 +58,10 @@ description: "权威全译本：字符调色板交互录入（Mac OS X、Windows
 
 在 Mac OS 9（即 Classic 环境）时代，处理中日韩汉字一直是一门高深莫测的技术苦旅。当时由独立学者开发的 **UniDict** 软件，开创了一种极富启发性的部首检索与笔画拼合交互模式：
 
+::: tip 图 5-2：Classic 环境下的 UniDict 汉字检索构造器
 ![图 5-2：Classic 环境下的 UniDict 汉字检索构造器](/images/fonts-encodings/fig5-2.png)
+*图 5-2：Classic 环境下的 UniDict 汉字检索构造器*
+:::
 
 *图 5-2：运行于 Classic 环境下的 UniDict 软件，展示了其独创的汉字部首检字与结构过滤窗口。*
 
@@ -67,7 +73,10 @@ description: "权威全译本：字符调色板交互录入（Mac OS X、Windows
 
 在微软 Windows 操作系统中，自 Windows 3.1 时代延续至今的经典工具便是**字符映射表**（Character Map，执行文件名 `charmap.exe`）：
 
+::: tip 图 5-3：Windows XP 字符映射表界面
 ![图 5-3：Windows XP 字符映射表界面](/images/fonts-encodings/fig5-3.png)
+*图 5-3：Windows XP 字符映射表界面*
+:::
 
 *图 5-3：Windows XP 操作系统自带的字符映射表（Character Map）主窗口。*
 
@@ -79,7 +88,10 @@ description: "权威全译本：字符调色板交互录入（Mac OS X、Windows
 
 为了彻底突破操作系统自带小工具的局限，英国杰出的汉学家与西夏学专家**魏安**（Andrew West）编写了一款堪称 Windows 平台上最强大的免费 Unicode 检字工具——**BabelMap**：
 
+::: tip 图 5-4：BabelMap 软件主窗口
 ![图 5-4：BabelMap 软件主窗口](/images/fonts-encodings/fig5-4.png)
+*图 5-4：BabelMap 软件主窗口*
+:::
 
 *图 5-4：功能卓绝的 BabelMap 主窗口。支持高达 17 个平面的全部 Unicode 码点高速漫游与上下文塑形。*
 
@@ -88,11 +100,17 @@ BabelMap 的卓越之处在于其极度专业的计算语言学素养：
 2. **上下文塑形预览**：如图 5-4 底部所示，它能够即时模拟阿拉伯文与叙利亚文在词首、词中、词尾与孤立形态下的真实连笔字形；
 3. **多模态部首检字法**：不仅内建了基于《康熙字典》214 部首与现代汉语 187 部首的精密筛选器（见图 5-5），更开天辟地地支持了**凉山规范彝文表意文字**（Yi Radicals）的专业部首检字（见图 5-6）！
 
+::: tip 图 5-5：BabelMap 汉字部首检字窗口
 ![图 5-5：BabelMap 汉字部首检字窗口](/images/fonts-encodings/fig5-5.png)
+*图 5-5：BabelMap 汉字部首检字窗口*
+:::
 
 *图 5-5：BabelMap 中通过部首与笔画数筛选检索 CJK 统一表意文字的交互面板。*
 
+::: tip 图 5-6：BabelMap 彝文表意文字部首检字窗口
 ![图 5-6：BabelMap 彝文表意文字部首检字窗口](/images/fonts-encodings/fig5-6.png)
+*图 5-6：BabelMap 彝文表意文字部首检字窗口*
+:::
 
 *图 5-6：BabelMap 专为中国凉山彝文音节文字设计的部首检索窗口。*
 
@@ -102,7 +120,10 @@ BabelMap 的卓越之处在于其极度专业的计算语言学素养：
 
 在类 Unix 与 GNU/Linux 桌面生态中，GNOME 桌面环境的标准组件是 **gucharmap**（GNOME Unicode Character Map）：
 
+::: tip 图 5-7：Linux 平台下的 gucharmap 软件
 ![图 5-7：Linux 平台下的 gucharmap 软件](/images/fonts-encodings/fig5-7.png)
+*图 5-7：Linux 平台下的 gucharmap 软件*
+:::
 
 *图 5-7：运行在 GNU/Linux 平台上的 gucharmap 字符查看器。*
 
@@ -131,7 +152,10 @@ gucharmap 完全基于开源的 Unicode 字符数据库（UCD）构建，左侧�
 
 在 Windows 2000 与 XP 以后，微软官方发布了一套轻量级但极其高效的免费开发套件——**微软键盘布局创建器**（Microsoft Keyboard Layout Creator, MSKLC）：
 
+::: tip 图 5-8：微软键盘布局创建器 MSKLC 主窗口
 ![图 5-8：微软键盘布局创建器 MSKLC 主窗口](/images/fonts-encodings/fig5-8.png)
+*图 5-8：微软键盘布局创建器 MSKLC 主窗口*
+:::
 
 *图 5-8：MSKLC 主界面。键盘键帽上直观映射各层 Shift、AltGr 与死键（灰色背景指示）。*
 
@@ -146,7 +170,10 @@ gucharmap 完全基于开源的 Unicode 字符数据库（UCD）构建，左侧�
 
 对于某些书写逻辑极度复杂的非西方文字（如高棉文、藏文、缅甸文以及各种北美原住民文字），单纯的双键死键机制显得捉襟见肘。此时，澳大利亚 Tavultesoft 公司研发的 **Keyman Developer** 成为了国际语言学界事实上的工业标准：
 
+::: tip 图 5-9：Tavultesoft Keyman Developer 主窗口
 ![图 5-9：Tavultesoft Keyman Developer 主窗口](/images/fonts-encodings/fig5-9.png)
+*图 5-9：Tavultesoft Keyman Developer 主窗口*
+:::
 
 *图 5-9：Keyman Developer 开发调试环境，内建状态机脚本编译器、虚拟键盘布局图与单步调试器。*
 
@@ -160,7 +187,10 @@ Keyman 允许开发者编写一种类似于上下文无关文法（Context-Free 
 
 在传统的 X11 环境中，用户主要通过命令行工具 `xmodmap` 加载自定义配置文件来重定义按键行为。而为了摆脱枯燥的十六进制编码配置，传奇黑客杰米·扎温斯基（Jamie Zawinski）在 1991 年编写了著名的图形化配置工具 **XKeyCaps**：
 
+::: tip 图 5-10：X Window 系统下的 XKeyCaps 主窗口
 ![图 5-10：X Window 系统下的 XKeyCaps 主窗口](/images/fonts-encodings/fig5-10.png)
+*图 5-10：X Window 系统下的 XKeyCaps 主窗口*
+:::
 
 *图 5-10：XKeyCaps 图形界面。真实复刻了数十种历史上各厂商物理工作站键盘的物理外形与按键拓扑。*
 

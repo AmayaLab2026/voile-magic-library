@@ -59,7 +59,10 @@ description: "权威全译本：X11 逻辑字体描述规范（XLFD 十四字段
 
 在 X11 实际排版与终端显示中，以下四套典型的 XLFD 字体展现出浓厚的技术文献风貌：
 
+::: tip 图版 8-1：X Window 系统下四套典型 XLFD 字体的全真终端光栅化渲染标样
 ![图版 8-1：X Window 系统下四套典型 XLFD 字体的全真终端光栅化渲染标样](/images/fonts-encodings/plate8-1.png)
+*图版 8-1：X Window 系统下四套典型 XLFD 字体的全真终端光栅化渲染标样*
+:::
 
 *图版 8-1：原书第 225 页真实截取。自上而下分别展示了四套经典 XLFD 字体的实际光栅化排印风貌：*
 1. `-misc-fixed-medium-r-normal--20-140-100-100-c-100-iso8859-1`：经典的无名 20 像素终端字符单元等宽字体；
@@ -101,14 +104,20 @@ description: "权威全译本：X11 逻辑字体描述规范（XLFD 十四字段
 #### 1. 级联选择器：xfontsel
 如图 8-1 所示，`xfontsel` 将 14 个 XLFD 字段转化为 14 个并排的下拉菜单按钮：
 
+::: tip 图 8-1：X Window 经典字体选择工具 xfontsel 界面
 ![图 8-1：X Window 经典字体选择工具 xfontsel 界面](/images/fonts-encodings/fig8-1.png)
+*图 8-1：X Window 经典字体选择工具 xfontsel 界面*
+:::
 
 *图 8-1：xfontsel 软件界面。用户可以在顶部各个字段菜单中逐步缩小筛选范围，中部的通配符字符串动态更新，底部即时排印全真文本预览。*
 
 #### 2. 全真字符集网格查看器：xfd
 当用户需要核验某个字体是否真正收录了特定的 Unicode 码点时，标准命令 `xfd`（X Font Display）能够以二维网格形式弹出该字体的完整字符位图矩阵：
 
+::: tip 图 8-2：在 xfd 中查看支持 Unicode 编码的 10x20 终端字符单元字体的字形网格
 ![图 8-2：在 xfd 中查看支持 Unicode 编码的 10x20 终端字符单元字体的字形网格](/images/fonts-encodings/fig8-2.png)
+*图 8-2：在 xfd 中查看支持 Unicode 编码的 10x20 终端字符单元字体的字形网格*
+:::
 
 *图 8-2：使用 xfd 工具查阅著名的 Unicode 编码 10x20 终端点阵字体。左侧展示了从 0x0000 起始的 Basic Latin 与扩展拉丁字符页，右侧展示了希腊文与西里尔文页。*
 

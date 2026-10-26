@@ -35,7 +35,10 @@ What we shall examine in this chapter are the three ways to obtain text in Unico
 
 
 160
+::: tip Figure 5-1: The Character Palette of Mac OS X
 ![Figure 5-1: The Character Palette of Mac OS X](/images/fonts-encodings/fig5-1.png)
+*Figure 5-1: The Character Palette of Mac OS X*
+:::
 
 *Figure 5-1: The Character Palette of Mac OS X.*
 Interactive Tools for Entering Unicode Characters
@@ -102,7 +105,10 @@ applies the relevant contextual rules appropriately. Thus, as shown in Figure 5-
 
 
 162
+::: tip Figure 5-2: The UniDict software under the Classic environment
 ![Figure 5-2: The UniDict software under the Classic environment](/images/fonts-encodings/fig5-2.png)
+*Figure 5-2: The UniDict software under the Classic environment*
+:::
 
 *Figure 5-2: The UniDict software under the Classic environment.*
 is displayed correctly, the Indian ligatures (included in the font speciﬁed for display) are
@@ -121,7 +127,10 @@ tributed Unicode-compatible fonts.
 
 Interactive Tools for Entering Unicode Characters
 163
+::: tip Figure 5-3: The Character Map of Windows XP
 ![Figure 5-3: The Character Map of Windows XP](/images/fonts-encodings/fig5-3.png)
+*Figure 5-3: The Character Map of Windows XP*
+:::
 
 *Figure 5-3: The Character Map of Windows XP.*
 tain amount of training is required to recognize a radical in a nonstandard form), then
@@ -148,7 +157,10 @@ tab provides information on the selected character that is drawn directly from t
 
 
 164
+::: tip Figure 5-4: The main window of the program BabelMap
 ![Figure 5-4: The main window of the program BabelMap](/images/fonts-encodings/fig5-4.png)
+*Figure 5-4: The main window of the program BabelMap*
+:::
 
 *Figure 5-4: The main window of the program BabelMap.*
 Virtual Keyboards
@@ -172,7 +184,10 @@ all writing systems (although Windows provides a rich set of virtual keyboards);
 
 Virtual Keyboards
 165
+::: tip Figure 5-5: The BabelMap for selecting a Chinese ideograph through the use of radicals
 ![Figure 5-5: The BabelMap for selecting a Chinese ideograph through the use of radicals](/images/fonts-encodings/fig5-5.png)
+*Figure 5-5: The BabelMap for selecting a Chinese ideograph through the use of radicals*
+:::
 
 *Figure 5-5: The BabelMap for selecting a Chinese ideograph through the use of radicals.*
 ticular, they do not cover ancient languages. To be sure, we can always ﬁnd a supplier
@@ -197,7 +212,10 @@ does not support the script (email on a non-Unicode machine, ﬁlenames, etc.). 
 
 
 166
+::: tip Figure 5-6: The BabelMap window for selecting an Yi ideograph through the use of radicals
 ![Figure 5-6: The BabelMap window for selecting an Yi ideograph through the use of radicals](/images/fonts-encodings/fig5-6.png)
+*Figure 5-6: The BabelMap window for selecting an Yi ideograph through the use of radicals*
+:::
 
 *Figure 5-6: The BabelMap window for selecting an Yi ideograph through the use of radicals.*
 is nothing unusual about that: transliteration is a habit for everyone who works in an
@@ -227,7 +245,10 @@ one has the hands of Sergey Rachmaninoﬀor Clara Haskil); etc.
 
 Virtual Keyboards
 167
+::: tip Figure 5-7: The main window of gucharmap under Linux
 ![Figure 5-7: The main window of gucharmap under Linux](/images/fonts-encodings/fig5-7.png)
+*Figure 5-7: The main window of gucharmap under Linux*
+:::
 
 *Figure 5-7: The main window of gucharmap under Linux.*
 Useful Concepts Related to Virtual Keyboards
@@ -515,7 +536,7 @@ We have covered the syntax of this method of describing a keyboard.
 Here is one other example, this time with a triple dead key: the Vietnamese letter ‘,’.
 To obtain it, we shall use the following characters in the order speciﬁed: the circumﬂex
 accent, the acute accent, the dot. We shall take advantage of this approach to produce
-the intermediate characters ‘ó’, ‘ô’, ‘’, ‘’, ‘×’, and ‘p’ as well. Here are the deﬁnitions of
+the intermediate characters ‘ó’, ‘ô’, ‘’, ‘’, ‘×’, and ‘p’ as well. Here are the deﬁnitions of
 the keys:
 &lt;keyMap index="0"&gt;
 &lt;!-- no modifiers --&gt;
@@ -587,7 +608,10 @@ board Layout Creator (MSKLC). This software is certainly robust and easy to use,
 
 
 176
+::: tip Figure 5-8: The main window of Microsoft Keyboard Layout Creator (MSKLC)
 ![Figure 5-8: The main window of Microsoft Keyboard Layout Creator (MSKLC)](/images/fonts-encodings/fig5-8.png)
+*Figure 5-8: The main window of Microsoft Keyboard Layout Creator (MSKLC)*
+:::
 
 *Figure 5-8: The main window of Microsoft Keyboard Layout Creator (MSKLC).*
 played is the one for “polytonic Greek”.
@@ -616,7 +640,10 @@ with .Net version 2).
 
 Virtual Keyboards
 177
+::: tip Figure 5-9: The main window of Tavultesoft Keyman Developer
 ![Figure 5-9: The main window of Tavultesoft Keyman Developer](/images/fonts-encodings/fig5-9.png)
+*Figure 5-9: The main window of Tavultesoft Keyman Developer*
+:::
 
 *Figure 5-9: The main window of Tavultesoft Keyman Developer.*
 character map.
@@ -900,7 +927,10 @@ with this library that performs conversions is called iconv.
 
 
 184
+::: tip Figure 5-10: The main window of XKeyCaps under the X Window System
 ![Figure 5-10: The main window of XKeyCaps under the X Window System](/images/fonts-encodings/fig5-10.png)
+*Figure 5-10: The main window of XKeyCaps under the X Window System*
+:::
 
 *Figure 5-10: The main window of XKeyCaps under the X Window System.*
 The recode Utility

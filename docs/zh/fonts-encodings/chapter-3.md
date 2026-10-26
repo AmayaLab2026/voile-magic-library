@@ -323,7 +323,10 @@ Unicode 为此专门设立了独立的规范文件 `CaseFolding.txt`，制定了
 
 以下即为该页面高清晰度历史文献图版的完整再现：
 
+::: tip 图版 3-1：The Unicode Standard 5.0 官方代码表图版 —— 拉丁文扩展-A 区块（第 121 页）
 ![图版 3-1：The Unicode Standard 5.0 官方代码表图版 —— 拉丁文扩展-A 区块（第 121 页）](/images/fonts-encodings/plate3-1.png)
+*图版 3-1：The Unicode Standard 5.0 官方代码表图版 —— 拉丁文扩展-A 区块（第 121 页）*
+:::
 
 现在，让我们将目光转向原书第 122 页上的官方字符描述列表（Character Names List）。该页面顶端粗体黑体字印刷的副标题“European Latin”（欧洲拉丁文），表明了该数据表依照字符现实应用领域所进行的语义细分（在本区块中，这是唯一的分类子项）。
 
@@ -351,7 +354,10 @@ LATIN SMALL LIGATURE OE
 
 以下即为该字符描述详单高清晰度历史文献图版的完整再现：
 
+::: tip 图版 3-2：The Unicode Standard 5.0 官方字符描述详单图版 —— 拉丁文扩展-A 区块（第 122 页）
 ![图版 3-2：The Unicode Standard 5.0 官方字符描述详单图版 —— 拉丁文扩展-A 区块（第 122 页）](/images/fonts-encodings/plate3-2.png)
+*图版 3-2：The Unicode Standard 5.0 官方字符描述详单图版 —— 拉丁文扩展-A 区块（第 122 页）*
+:::
 
 让我们进一步深入剖析字符详单条目中蕴藏的深邃密码：
 

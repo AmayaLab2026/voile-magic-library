@@ -385,7 +385,10 @@ to ﬁll it in and rebuild the internal tables in the ﬁle server’s database.
 
 Tools for Managing Fonts under X
 231
+::: tip Figure 8-1: The interface of the application xfontsel
 ![Figure 8-1: The interface of the application xfontsel](/images/fonts-encodings/fig8-1.png)
+*Figure 8-1: The interface of the application xfontsel*
+:::
 Tools for Managing Fonts under X
 The application xfontsel [324] allows us to choose a font name from the components of
 its XLFD font name. For example, we have a line of text (Figure 8-2)
@@ -415,7 +418,10 @@ as well as its font-metric properties.
 
 
 232
+::: tip Figure 8-2: Two tables of glyphs from the Unicode-encoded character-cell font 10x20 in xfd
 ![Figure 8-2: Two tables of glyphs from the Unicode-encoded character-cell font 10x20 in xfd](/images/fonts-encodings/fig8-2.png)
+*Figure 8-2: Two tables of glyphs from the Unicode-encoded character-cell font 10x20 in xfd*
+:::
 by xfd.
 Tools for Converting Fonts under X
 It is quite natural that a plethora of tools for converting one format to another has arisen

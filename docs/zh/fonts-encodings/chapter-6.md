@@ -35,7 +35,10 @@ description: "权威全译本：经典 Mac OS 9 资源分叉与行李箱文件�
 
 用户可以在桌面访达（Finder）视窗中双击打开一个行李箱文件，直接窥见其内部所封装的各个字体构件：
 
+::: tip 图 6-1：Mac OS 9 桌面下的各类字体文件图标与行李箱展示
 ![图 6-1：Mac OS 9 桌面下的各类字体文件图标与行李箱展示](/images/fonts-encodings/fig6-1.png)
+*图 6-1：Mac OS 9 桌面下的各类字体文件图标与行李箱展示*
+:::
 
 *图 6-1：Mac OS 9 截屏。直观呈现了字体行李箱文件（带有手提箱造型图标）、TrueType 单文件、以及 PostScript Type 1 打印机轮廓文件（带有激光打印机造型图标）在桌面上的真实形态。*
 
@@ -59,7 +62,10 @@ description: "权威全译本：经典 Mac OS 9 资源分叉与行李箱文件�
 
 2001 年，苹果公司发布了划时代的 **Mac OS X**（基于 Mach 微内核与 FreeBSD 的现代 Unix 操作系统）。伴随着底层操作系统的彻底涅槃，Mac 平台的数字字体架构迎来了翻天覆地的技术重塑：
 
+::: tip 图 6-2：Mac OS X 访达中查看同一批字体文件的现代展示
 ![图 6-2：Mac OS X 访达中查看同一批字体文件的现代展示](/images/fonts-encodings/fig6-2.png)
+*图 6-2：Mac OS X 访达中查看同一批字体文件的现代展示*
+:::
 
 *图 6-2：在 Mac OS X 访达（Finder）中打开图 6-1 所示的相同字体目录。所有繁琐的打印机文件已被系统平滑抽象整合，图标焕然一新。*
 
@@ -104,7 +110,10 @@ Quartz 的核心哲学是 **Display PDF**：操作系统的屏幕图形渲染模
 
 由 Morrison SoftDesign 开发的 **Font Doctor** 成为了苹果生态中最具声望的字体“体检医生”：
 
+::: tip 图 6-3：Font Doctor 诊断与修复配置界面
 ![图 6-3：Font Doctor 诊断与修复配置界面](/images/fonts-encodings/fig6-3.png)
+*图 6-3：Font Doctor 诊断与修复配置界面*
+:::
 
 *图 6-3：Font Doctor 软件配置主界面。提供深入的文件完整性扫描、缺失打印机字体搜寻、孤立行李箱清理以及自动重构功能。*
 
@@ -119,26 +128,38 @@ Font Doctor 能够深入字库深处，自动诊断并修复十六类恶性排�
 
 在 Mac OS X 带来 Quartz 渲染革命之前，Mac OS 9 的排版人员要实现在屏幕上平滑查看 PostScript 矢量字体，必须依赖 Adobe 传奇的系统级扩展程序——**Adobe Type Manager**（ATM）：
 
+::: tip 图 6-4：Adobe Type Manager (ATM) 经典配置面板
 ![图 6-4：Adobe Type Manager (ATM) 经典配置面板](/images/fonts-encodings/fig6-4.png)
+*图 6-4：Adobe Type Manager (ATM) 经典配置面板*
+:::
 
 *图 6-4：ATM 控制板配置界面。展示了字体缓存尺寸（Font Cache）设置与字形平滑开关。*
 
 ATM 的划时代意义在于：它接管了 QuickDraw 对字体的粗暴光栅化，在后台实时解析 PostScript 贝塞尔曲线，并在屏幕上动态生成平滑无比的灰阶抗锯齿字形。以下对比展现了 ATM 技术带来的颠覆性视觉飞跃：
 
+::: tip 图 6-5：Agfa Throhand 字体在 128 点下开启与关闭 ATM 平滑渲染的剧烈对比
 ![图 6-5：Agfa Throhand 字体在 128 点下开启与关闭 ATM 平滑渲染的剧烈对比](/images/fonts-encodings/fig6-5.png)
+*图 6-5：Agfa Throhand 字体在 128 点下开启与关闭 ATM 平滑渲染的剧烈对比*
+:::
 
 *图 6-5：Agfa 著名古典手写字体 Throhand 在 128 点特大字号下的屏幕渲染效果。左侧：未开启 ATM 平滑，字形呈现出令人绝望的粗糙阶梯锯齿；右侧：开启 ATM 动态光栅化平滑后，曲线圆融如丝，纤毫毕现。*
 
 #### 多重母版（Multiple Master）字体变体定制
 在高级商业版本 **ATM Deluxe** 中，Adobe 更是集成了开创性的**多重母版**（Multiple Master, MM）交互式实例生成器：
 
+::: tip 图 6-6：多重母版（Multiple Master）字体变体实例创建与轴向微调界面
 ![图 6-6：多重母版（Multiple Master）字体变体实例创建与轴向微调界面](/images/fonts-encodings/fig6-6.png)
+*图 6-6：多重母版（Multiple Master）字体变体实例创建与轴向微调界面*
+:::
 
 *图 6-6：左侧为多重母版动态插值调节视窗，用户可以在粗细（Weight）、宽度（Width）与光学字号（Optical Size）连续轴上无级拖动滑块；右侧为应用程序字体菜单中实时生成的动态字体实例。*
 
 通过在两个或多个极端母版轮廓之间进行精密的多元多项式线性插值，排版工匠可以为一首十四行诗定制出绝对独一无二的专属字重与宽高比！此外，ATM Deluxe 还提供了极其强大的字体家族归类整理功能（见图 6-7）。
 
+::: tip 图 6-7：Adobe ATM Deluxe 中的字体家族分类与名称个性化面板
 ![图 6-7：Adobe ATM Deluxe 中的字体家族分类与名称个性化面板](/images/fonts-encodings/fig6-7.png)
+*图 6-7：Adobe ATM Deluxe 中的字体家族分类与名称个性化面板*
+:::
 
 *图 6-7：ATM Deluxe 字体分类管理视窗，允许排版工匠依据印刷流派将数百套杂乱字体重新编组。*
 
@@ -148,7 +169,10 @@ ATM 的划时代意义在于：它接管了 QuickDraw 对字体的粗暴光栅�
 
 在 Mac OS X 10.3（Panther）中，苹果公司首次随系统免费捆绑了原生的 **Font Book**（字体册 1.0 版）：
 
+::: tip 图 6-8：Mac OS X 10.3 系统内建的 Font Book 1.0 界面
 ![图 6-8：Mac OS X 10.3 系统内建的 Font Book 1.0 界面](/images/fonts-encodings/fig6-8.png)
+*图 6-8：Mac OS X 10.3 系统内建的 Font Book 1.0 界面*
+:::
 
 *图 6-8：苹果原生 Font Book 1.0 视窗。提供左侧字体集（Collection）分组、中列字体列表与右侧字形即时交互预览。*
 
@@ -167,11 +191,17 @@ Font Book 为普通用户带来了极其直观的字体管理体验：
 2. **Insider Software FontAgent Pro**（图 6-10）：
    - 以其钢铁般坚不可摧的**集中式字库引擎**（Font Engine）著称。它在导入字体时执行极其严苛的物理隔离与哈希校验，自动将散乱在各处的文件按制作厂商、字体家族、版本号重新归类整理为绝对标准化的物理目录树。
 
+::: tip 图 6-9：Extensis Suitcase Fusion 专业字体管理界面
 ![图 6-9：Extensis Suitcase Fusion 专业字体管理界面](/images/fonts-encodings/fig6-9.png)
+*图 6-9：Extensis Suitcase Fusion 专业字体管理界面*
+:::
 
 *图 6-9：Suitcase Fusion 现代化工作区，展示了分类标签、字体激活指示灯与大样预览。*
 
+::: tip 图 6-10：Insider Software FontAgent Pro 专业字体管理界面
 ![图 6-10：Insider Software FontAgent Pro 专业字体管理界面](/images/fonts-encodings/fig6-10.png)
+*图 6-10：Insider Software FontAgent Pro 专业字体管理界面*
+:::
 
 *图 6-10：FontAgent Pro 高效的层级管理面板与字体属性分析器。*
 
@@ -183,7 +213,10 @@ Font Book 为普通用户带来了极其直观的字体管理体验：
 
 在数字时代，由 Lemke Software 开发的 **FontBook** 软件（注意与苹果系统的 Font Book 区分）继承了这一深厚的排印学传统：
 
+::: tip 图 6-11：FontBook 软件生成的专业活字字体排印标样（Specimens）
 ![图 6-11：FontBook 软件生成的专业活字字体排印标样（Specimens）](/images/fonts-encodings/fig6-11.png)
+*图 6-11：FontBook 软件生成的专业活字字体排印标样（Specimens）*
+:::
 
 *图 6-11：由 FontBook v.4.4 生成的高阶排印标样。完整排印了字符集映射表、字母瀑布流排叠（Font Waterfall）以及经典正文样张段落，展现出纯正的排印文献典雅风貌。*
 
@@ -199,7 +232,10 @@ Font Book 为普通用户带来了极其直观的字体管理体验：
 
 在这一领域，无可争议的行业技术标准是由世界顶尖字体软件实验室 FontLab 开发的 **TransType Pro**：
 
+::: tip 图 6-12：FontLab TransType Pro 跨平台字体格式转换主界面
 ![图 6-12：FontLab TransType Pro 跨平台字体格式转换主界面](/images/fonts-encodings/fig6-12.png)
+*图 6-12：FontLab TransType Pro 跨平台字体格式转换主界面*
+:::
 
 *图 6-12：TransType Pro 批量转换工作台。支持在 Mac PostScript、Windows Type 1、TrueType 与 OpenType 之间进行双向批量编译转换。*
 

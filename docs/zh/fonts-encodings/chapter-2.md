@@ -33,7 +33,10 @@ description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》第二章全文深
 
 因此，现代编码哲学的至高法则为：**编码（encoding）只负责收录抽象的“字符”（What you mean），而字体（font）则负责提供具象的“字形”（How it looks）**。
 
+::: tip 多文种混排引发的语义混淆（Figure 2-1）
 ![多文种混排引发的语义混淆（Figure 2-1）](/images/fonts-encodings/fig2-1-mixed-scripts-athens.png)
+*多文种混排引发的语义混淆（Figure 2-1）*
+:::
 
 *图 2-1：多文种混排引发的视觉与语义混淆（作者摄于希腊雅典街头商业招牌）。招牌文字表面上混用了希腊字母与拉丁字母，造成了人类辨识与字符语义流的严重错位。*
 
@@ -176,7 +179,10 @@ UTF-8 是一套纯粹的**以 8 位字节为基准的变长编码形式（variab
 
 在目前定义的 17 个平面中，已正式入驻字符的共有 **6 大核心平面**，如 **Figure 2-2** 所示：
 
+::: tip Unicode 版本 4 中已填充的六大平面全貌（Figure 2-2）
 ![Unicode 版本 4 中已填充的六大平面全貌（Figure 2-2）](/images/fonts-encodings/fig2-2-populated-planes-unicode.png)
+*Unicode 版本 4 中已填充的六大平面全貌（Figure 2-2）*
+:::
 
 *图 2-2：Unicode 体系中已分配填充的六大平面（The six currently populated planes of Unicode）：第 0 平面（BMP）、第 1 平面（SMP）、第 2 平面（SIP）、第 14 平面（SSP）、以及第 15 与 16 平面（私用补充平面）。*
 
@@ -197,7 +203,10 @@ UTF-8 是一套纯粹的**以 8 位字节为基准的变长编码形式（variab
 
 基本多语言平面（Plane 0）是整部人类数字文字文明的微缩全景图。在 **Figure 2-3** 中，作者绘制了一幅精妙绝伦的 BMP 分布矩阵总图：
 
+::: tip 基本多语言平面（BMP）宏观路线分布矩阵图（Figure 2-3）
 ![基本多语言平面（BMP）宏观路线分布矩阵图（Figure 2-3）](/images/fonts-encodings/fig2-3-bmp-roadmap.png)
+*基本多语言平面（BMP）宏观路线分布矩阵图（Figure 2-3）*
+:::
 
 *图 2-3：Unicode 基本多语言平面（BMP）宏观路线图（The roadmap of Unicode's Basic Multilingual Plane）。横轴与纵轴以十六进制网格标示，直观展现了从西欧拉丁字母、近东闪米特文字、南亚天城文系统、直到东亚浩瀚汉字表意文字大区的完整拓扑结构。*
 
@@ -242,15 +251,24 @@ UTF-8 是一套纯粹的**以 8 位字节为基准的变长编码形式（variab
 
 当跨越 $0\text{xFFFF}$ 的边界后，我们便步入了需要使用 4 字节（UTF-32）或代理对（UTF-16）才能访问的**高位辅助平面（Supplementary Planes）**。在 **Figure 2-4、2-5 与 2-6** 中，作者分别绘制了三大高位平面的布局图版：
 
+::: tip 辅助多语言平面、表意文字补充平面与特别用途补充平面路线图（Figure 2-4, 2-5, 2-6）
 ![辅助多语言平面、表意文字补充平面与特别用途补充平面路线图（Figure 2-4, 2-5, 2-6）](/images/fonts-encodings/fig2-4-smp-roadmap.png)
+*辅助多语言平面、表意文字补充平面与特别用途补充平面路线图（Figure 2-4, 2-5, 2-6）*
+:::
 
 *图 2-4：第一辅助平面 / 多语言补充平面（SMP, Plane 1）路线图：收录迈锡尼线形文字 B、塞浦路斯音节文字、古希腊古典记数法、古哥特文、乌加里特楔形文字、古波斯楔形文字、肖伯纳字母、奥斯曼亚文、拜占庭音乐记号、西洋音乐记号与数学字母数字符号。*
 
+::: tip 第二辅助平面（SIP）路线图（Figure 2-5）
 ![第二辅助平面（SIP）路线图（Figure 2-5）](/images/fonts-encodings/fig2-5-sip-roadmap.png)
+*第二辅助平面（SIP）路线图（Figure 2-5）*
+:::
 
 *图 2-5：第二辅助平面 / 表意文字补充平面（SIP, Plane 2）路线图：容纳了极其庞大的 CJK 统一表意文字扩展 B 区（Extension B）以及补充兼容表意文字。*
 
+::: tip 特别用途补充平面（SSP）路线图（Figure 2-6）
 ![特别用途补充平面（SSP）路线图（Figure 2-6）](/images/fonts-encodings/fig2-6-ssp-roadmap.png)
+*特别用途补充平面（SSP）路线图（Figure 2-6）*
+:::
 
 *图 2-6：特别用途补充平面（SSP, Plane 14）路线图：包含语言标签与补充变体选择符。*
 
