@@ -33,3 +33,4 @@ yarn.lock
 # Scratch
 scratch_*.txt
 audit_translation.py
+*_real_text.txt
