@@ -19,6 +19,7 @@ yarn.lock
 
 # VitePress
 .vitepress/dist
+.vitepress/.temp
 .vitepress/docsMetadata.json
 .vitepress/cache/
 .vitepress/components.d.ts
@@ -31,3 +32,4 @@ yarn.lock
 
 # Scratch
 scratch_*.txt
+audit_translation.py

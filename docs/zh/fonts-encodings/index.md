@@ -48,55 +48,42 @@ description: ヴ瓦尔魔法图书馆 馆藏第三号典籍：雅尼斯·哈拉�
 * **[导言 · 探索篇：字母部件、印刷排版、数字模型与全书知识图谱](./introduction)**  
   *原著：Yannis Haralambous* —— 奠定全书基础概念。系统论述字符（character）与字形（glyph）的心智二元性；详解字母解剖学各部位术语（配高清全彩图版 Figure 0-1）；考据字母“E”的六大数学几何描述（配帕乔利、丢勒、托里、若戎委员会图版 Figure 0-2）；回溯狄德罗百科全书手工活字拼版机制（配十八世纪字盘与手合子图版 Figure 0-3 至 0-5）；详解数字排版基线、进深矢量与字距微调；全景解析全书四大编体系知识图谱（配图版 Figure 0-6）。
 
-### 第一编：编码与 Unicode（Part I: Encodings & Unicode）
+### 第一编：编码与字符集（Part I: Encodings & Unicode）
 * **[第一章：前 Unicode 时代的编码体系](./chapter-1)**  
   从电传机与军用 FIELDATA、7 位 ASCII 到 8 位 EBCDIC；详解 ISO 2022 转义序列框架；深入剖析 ISO 8859 家族（Latin-1 至 Latin-16）及东亚早期双字节编码标准；微软 Windows 代码页与苹果 MacRoman 历史架构；电子邮件 MIME 与早期 Web 文本传输困境。
 * **[第二章：字符、字形与字节：Unicode 导论](./chapter-2)**  
   文字学哲学命题；Unicode 核心原则与四维空间；UTF-8、UTF-16、UTF-32、CESU-8 与 SCSU 编码形式底层比特流映射；基本多语言平面（BMP）与各辅助平面分布全景。
-* **第三章：Unicode 字符核心属性体系**  
-  字符名称规范；通用分类（General Category）；方向性与双向算法类别；连写与镜像属性；数字值与标识符规范；解读 Unicode 数据表（UCD）。
-* **第四章：规范化分解、双向排版算法与东亚表意字符处理**  
+* **[第三章：Unicode 字符核心属性体系](./chapter-3)**  
+  字符名称规范；通用分类（General Category）；方向性与双向算法类别；连写与镜像属性；数字值与标识符规范；深入解读 Unicode 字符数据库（UCD）。
+* **[第四章：规范化分解、双向排版算法与东亚表意文字处理](./chapter-4)**  
   Unicode 规范等价与兼容等价；四种规范化形式（NFC、NFD、NFKC、NFKD）；Unicode 双向排版算法（Bidi Algorithm）解析；CJK 统一汉字（Unihan）编码历史源流、字形统合规则（Han Unification）与康熙字典部首索引。
-* **第五章：Unicode 实践与系统支持**  
-  编程语言中的 Unicode 处理；数据库、操作系统 API 与多语言输入法；国际化组件（ICU）框架。
-* **第六章：Unicode 传输与压缩编码**  
-  UTF-EBCDIC、BOCU-1 与 SCSU 压缩算法详解；网络标准中的字符集识别与协商机制。
-* **第七章：Web 环境下的字体与排版**  
-  CSS 字体模块发展；Web 字体格式演进；网页中文本排印的高级控制与跨浏览器渲染差异。
+* **[第五章：Unicode 的实践与字符录入工具](./chapter-5)**  
+  操作系统多语言字符映射工具（Character Palette、Character Map、BabelMap、Gucharmap）；键盘布局定制器（MSKLC、Keyman Developer）；ICU 国际化组件。
 
-### 第二编：数字字体（Part II: Fonts）
-* **第八章：从字符到字形：文本渲染管线**  
-  字形映射逻辑；复杂文本布局引擎（HarfBuzz、DirectWrite、CoreText）架构；文本整形（Text Shaping）核心流程。
-* **第九章：字体解剖学与度量度**  
-  字形外框边界盒（Bounding Box）；水平与垂直排版度量系统；EM 方块与缩放矩阵；光学大小与字重梯队。
-* **第十章：字体的元设计（Metadesign）**  
-  高德纳 METAFONT 哲学：用数学方程描述字母之魂；笔刷行进方程与参数化设计；从代码生成字形。
-* **第十一章：字体历史演进与分类学**  
-  从古希腊罗马碑铭体、黑色卡罗林小草体到威尼斯人文主义体、加拉蒙德老明朝体、迪多现代体与现代无衬线体；Vox-ATypI 分类法与 Panose 视觉度量编码体系。
-* **第十二章：点阵字体与栅格化原理**  
-  早期的 BDF、PCF 与 X11 字模；光栅转换算法（Bresenham）；抗锯齿（Anti-aliasing）与亚像素渲染（Subpixel Rendering / ClearType）。
-* **第十三章：PostScript Type 1 字体**  
-  Type 1 字体的内部结构；字形轮廓运算符；CharStrings 字节码；提示指令（Hints：Stem Hints, Blue Zones）与栅格优化。
-* **第十四章：TrueType 与 OpenType 字体**  
-  二次与三次样条曲线对比；TrueType 表结构（`head`, `hhea`, `maxp`, `cmap`, `glyf`, `loca`）；TrueType 虚拟机指令集；OpenType 架构全解。
-* **第十五章：字体高级排版特性（OpenType & AAT）**  
-  替换表（GSUB）与定位表（GPOS）；上下文合字与位置变体；有限状态自动机驱动的苹果 AAT 引擎；多主控（Multiple Master）与可变字体（Variable Fonts）原理。
+### 第二编：操作系统字体管理（Part II: Font Management）
+* **[第六章：Macintosh 操作系统的字体管理](./chapter-6)**  
+  Classic Mac OS 资源分支（Resource Fork）与数据分支；Suitcase 字体箱架构；Mac OS X 字体簿（Font Book）与字体域（Domains）；Core Graphics 文本渲染。
+* **[第七章：Windows 操作系统的字体管理](./chapter-7)**  
+  Windows 字体控制面板与注册表架构；GDI 逻辑字体（LOGFONT）度量；ClearType 亚像素液晶渲染原理；OpenType 原生驱动支持。
+* **[第八章：X Window 与 Unix 字体管理](./chapter-8)**  
+  X11 逻辑字体描述符（XLFD）；X 字体服务器（XFS）与核心字体协议；现代 FreeType、Fontconfig 与 Xft 客户端渲染流水线；GNU 字体工具箱。
 
-### 第三编：排版软件与工业标准（Part III: Typographic Software）
-* **第十六章：TeX 与 Metafont 系统**  
-  Knuth 的算法世界：断行折行最优规划算法（Dynamic Programming Line Breaking）；数学公式排版规则；TFM、VF 与 DVI 文件格式深度剖析。
-* **第十七章：PostScript 页面描述语言**  
-  逆波兰记号与堆栈机模型；路径绘制、裁剪与坐标变换矩阵；字体字典与嵌入式资源。
-* **第十八章：PDF 便携式文档格式**  
-  PDF 对象体系（交叉引用表、字典、流）；字体子集化嵌入（Subsetting）；ToUnicode 映射表与文本提取困境。
-* **第十九章：桌面排版（DTP）系统与现代出版**  
-  QuarkXPress、InDesign 与现代专业出版排版工作流；高保真色彩管理与印前制版。
+### 第三编：排版引擎与技术生态（Part III: Typographic Software & Web）
+* **[第九章：TeX 与 Omega 系统的字体技术](./chapter-9)**  
+  高德纳批处理编译器架构；TFM 字体度量与 DVI 设备无关文件；虚拟字体（VF）与 PK 点阵压缩；哈拉兰布斯开创的 16/32 位 Omega 系统与 OTPs 有限状态文本变换流。
+* **[第十章：Web 网页字体与排版技术](./chapter-10)**  
+  万维网排版演化史；HTML/CSS 字体模块规范；ont-size-adjust 几何归一化算法与 x-height 视觉对齐；早期网络字体技术（Bitstream TrueDoc、Microsoft WEFT/EOT）；SVG 矢量字体规范。
 
-### 第四编：技术附录（Part IV: Appendices）
-* **附录 A：TeX 与 $\Omega$ 的字体格式规范**  
-* **附录 B：PostScript 语言深入参考**  
-* **附录 C：TrueType、OpenType 与 AAT 底层表结构全景速查**  
-* **附录 D：TrueType 虚拟机指令集汇编全书**  
-* **附录 E：METAFONT 语言与衍生系统（METATYPE1 / MetaFog）**  
-* **附录 F：现代字体设计与编辑软件实操指南（FontLab / FontForge）**  
-* **附录 G：Bézier 曲线与排印数学严密证明导引**  
+### 第四编：字体艺术、设计与高级排版（Part IV: Typeface Art, Design & Typography）
+* **[第十一章：拉丁字体的历史演进与分类学](./chapter-11)**  
+  十五世纪金属活字排版大爆炸；卡罗林小草书体演进；加拉蒙德、巴斯克维尔、博多尼与迪多；无衬线体的工业崛起；Vox-ATypI 分类法全系解析；Panose-1 十维视觉特征度量编码体系。
+* **[第十二章：字体设计与编辑实操](./chapter-12)**  
+  现代字体设计工作流；FontLab 与 FontForge 深度实操；PostScript 三次与 TrueType 二次贝塞尔曲线几何转换；轮廓遍历方向与非零环绕数规则；字形度量与基于类的字距微调（Class-based Kerning）。
+* **[第十三章：栅格化渲染优化与字形微调](./chapter-13)**  
+  屏幕低分辨率下的排印困境；PostScript 声明式微调（BlueValues 对齐区、标准笔宽 StdHW/StdVW、主干提示 hstem/vstem）；TrueType 图灵完备指令集虚拟机；CVT 控制值表；微点 Delta 指令实操。
+* **[第十四章：丰富字体表达：高级排版特性](./chapter-14)**  
+  智能字体技术全景；OpenType 布局架构（GSUB/GPOS/GDEF 三大支柱）；Adobe 特性定义语言；微软 VOLT 可视化工程实操；苹果 AAT 有限状态自动机流派深度对比。
+
+### 第五编：技术附录（Part V: Appendices）
+* **[附录全编：底层格式、虚拟机与数学原理手册](./appendices)**  
+  涵盖原著附录 A 至 G 全卷精要：点阵字库（BDF/PCF/PK）；TeX/Omega 度量体系（TFM/OFM/VF）；PostScript 页面描述语言与 Type 1/CFF；TrueType/OpenType/AAT 底层表结构汇编（head/cmap/loca/glyf/morx 等）；METAFONT 衍生系统；贝塞尔曲线数学定理严密推导。

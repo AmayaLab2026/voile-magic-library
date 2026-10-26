@@ -1,3 +1,4 @@
+import type { Buffer } from 'node:buffer'
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -189,6 +190,21 @@ export function resolvePageMeta(relPath: string): PageMeta {
   }
 }
 
+async function writeWithRetry(targetPath: string, buffer: Buffer, maxRetries = 4): Promise<void> {
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      fs.writeFileSync(targetPath, buffer)
+      return
+    }
+    catch (err) {
+      if (attempt === maxRetries) {
+        throw err
+      }
+      await new Promise(resolve => setTimeout(resolve, 100 * (attempt + 1)))
+    }
+  }
+}
+
 export async function buildAllOGImages(options: { force?: boolean } = {}) {
   const { force = false } = options
   fs.mkdirSync(publicOgDir, { recursive: true })
@@ -224,13 +240,22 @@ export async function buildAllOGImages(options: { force?: boolean } = {}) {
         author: meta.author,
         lang: meta.lang,
       })
-      fs.writeFileSync(destPath, pngBuffer)
-      fs.writeFileSync(docsDestPath, pngBuffer)
+      await writeWithRetry(destPath, pngBuffer)
+      await writeWithRetry(docsDestPath, pngBuffer)
       generatedCount++
     }
     catch (err) {
       console.error(`[OG-Generator] Error generating OG for ${meta.urlPath}:`, err)
     }
+  }
+
+  // Also copy index.png as default /og.png fallback
+  const defaultIndexOg = path.join(publicOgDir, 'index.png')
+  if (fs.existsSync(defaultIndexOg)) {
+    const defaultRootOg = path.resolve(__dirname, '../public/og.png')
+    const defaultDocsRootOg = path.resolve(__dirname, '../docs/public/og.png')
+    await writeWithRetry(defaultRootOg, fs.readFileSync(defaultIndexOg))
+    await writeWithRetry(defaultDocsRootOg, fs.readFileSync(defaultIndexOg))
   }
 
   // Also write the mapping JSON for VitePress transformHead or SSR runtime

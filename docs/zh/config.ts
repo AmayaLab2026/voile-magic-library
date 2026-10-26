@@ -90,12 +90,55 @@ export default defineConfig({
       ],
       '/fonts-encodings/': [
         {
-          text: '字体与编码：从 Unicode 到高级排版',
+          text: '卷首与总论',
           items: [
             { text: '典籍概述与全书目录', link: '/fonts-encodings/' },
             { text: '导言 · 探索篇：字母部件与排版', link: '/fonts-encodings/introduction' },
+          ],
+        },
+        {
+          text: '第一编：编码与字符集（Part I）',
+          collapsed: false,
+          items: [
             { text: '第一章：前 Unicode 时代编码体系', link: '/fonts-encodings/chapter-1' },
             { text: '第二章：字符字形与字节（Unicode 导论）', link: '/fonts-encodings/chapter-2' },
+            { text: '第三章：Unicode 字符核心属性体系', link: '/fonts-encodings/chapter-3' },
+            { text: '第四章：规范化、双向算法与东亚文字', link: '/fonts-encodings/chapter-4' },
+            { text: '第五章：Unicode 实践与字符录入工具', link: '/fonts-encodings/chapter-5' },
+          ],
+        },
+        {
+          text: '第二编：操作系统字体管理（Part II）',
+          collapsed: false,
+          items: [
+            { text: '第六章：Macintosh 操作系统的字体管理', link: '/fonts-encodings/chapter-6' },
+            { text: '第七章：Windows 操作系统的字体管理', link: '/fonts-encodings/chapter-7' },
+            { text: '第八章：X Window 与 Unix 字体管理', link: '/fonts-encodings/chapter-8' },
+          ],
+        },
+        {
+          text: '第三编：排版引擎与技术生态（Part III）',
+          collapsed: false,
+          items: [
+            { text: '第九章：TeX 与 Omega 系统的字体技术', link: '/fonts-encodings/chapter-9' },
+            { text: '第十章：Web 网页字体与排版技术', link: '/fonts-encodings/chapter-10' },
+          ],
+        },
+        {
+          text: '第四编：字体艺术、设计与高级排版（Part IV）',
+          collapsed: false,
+          items: [
+            { text: '第十一章：拉丁字体的历史演进与分类学', link: '/fonts-encodings/chapter-11' },
+            { text: '第十二章：字体设计与编辑实操', link: '/fonts-encodings/chapter-12' },
+            { text: '第十三章：栅格化渲染优化与字形微调', link: '/fonts-encodings/chapter-13' },
+            { text: '第十四章：丰富字体表达：高级排版特性', link: '/fonts-encodings/chapter-14' },
+          ],
+        },
+        {
+          text: '第五编：技术附录（Part V）',
+          collapsed: false,
+          items: [
+            { text: '附录全编：底层格式与数学原理手册', link: '/fonts-encodings/appendices' },
           ],
         },
       ],

@@ -253,19 +253,26 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 * **[导言 · 探索篇：字母部件、印刷排版、数字模型与全书图谱](/fonts-encodings/introduction)**
   * 字符与字形的哲学二元性；字母解剖学各部位术语与 Figure 0-1 图版；字母“E”的六大数学几何描述（帕乔利、丢勒、托里、若戎委员会与现代 FontLab，Figure 0-2）；十八世纪凸版活字拼版机制（狄德罗百科全书字盘、手合子与拼版行，Figure 0-3 至 0-5）；数字排版基线、进深矢量与字号点制；全书章节体系知识图谱（Figure 0-6）。
-* **[第一编：编码与 Unicode（Part I: Encodings & Unicode）](/fonts-encodings/)**
+* **第一编：编码与字符集（Part I: Encodings & Unicode）**
   * **[第一章：前 Unicode 时代的编码体系](/fonts-encodings/chapter-1)**：FIELDATA、7 位 ASCII 与终端硬件控制码；EBCDIC 穿孔卡片机械渊源；ISO 2022 转义序列框架；ISO 8859 家族（Latin-1 至 Latin-16）地理割据；远东 CJK 汉字双字节标准（GB 2312、Shift-JIS、Big5）；微软与苹果代码页；早期互联网 MIME 与 HTTP 编码协商。
   * **[第二章：字符、字形与字节：Unicode 导论](/fonts-encodings/chapter-2)**：文字学哲学命题；Unicode 核心原则；UTF-8、UTF-16、UTF-32、CESU-8 比特流；基本多语言平面（BMP）与各辅助平面分布。
-  * **第三章：Unicode 字符核心属性体系**：字符名称、通用类别、双向排版类别、标点与数字属性、Unicode 字符数据库（UCD）。
-  * **第四章：规范化分解、双向排版算法与东亚表意字符处理**：NFC/NFD/NFKC/NFKD 四大规范化形式；Unicode 双向排版算法（Bidi）；CJK 统一汉字（Unihan）统合原则。
-  * **第五至七章：Unicode 实践、压缩传输与 Web 排印**：SCSU/BOCU-1 压缩；CSS 字体模块与现代网页排版。
-* **第二编：数字字体（Part II: Fonts）**
-  * **第八至十一章：渲染管线、字体度量、元设计与演进史**：字形映射、EM 方块、METAFONT 方程、Vox-ATypI 分类学与 Panose 度量。
-  * **第十二至十五章：点阵字体、PostScript Type 1、TrueType、OpenType 与 AAT**：Hinting 提示指令、OpenType 布局表（GSUB/GPOS）、AAT 状态机、可变字体。
-* **第三编：排版软件与工业标准（Part III: Typographic Software）**
-  * **第十六至十九章：TeX/Omega、PostScript、PDF 与桌面出版系统**：Knuth 最优折行算法、PostScript 堆栈机、PDF 字体子集化。
-* **第四编：技术附录（Part IV: Appendices）**
-  * **附录 A–G**：TeX 字体规范、PostScript 语言参考、OpenType 表速查、TrueType 虚拟机微码汇编全书、METAFONT 衍生系统、字体设计实操与 Bézier 曲线数学严密证明。
+  * **[第三章：Unicode 字符核心属性体系](/fonts-encodings/chapter-3)**：字符名称、通用类别、双向排版类别、标点与数字属性、Unicode 字符数据库（UCD）。
+  * **[第四章：规范化分解、双向排版算法与东亚表意文字处理](/fonts-encodings/chapter-4)**：NFC/NFD/NFKC/NFKD 四大规范化形式；Unicode 双向排版算法（Bidi）；CJK 统一汉字（Unihan）统合原则。
+  * **[第五章：Unicode 的实践与字符录入工具](/fonts-encodings/chapter-5)**：操作系统多语言字符映射工具（Character Palette、Character Map、BabelMap、Gucharmap）；键盘布局定制器（MSKLC、Keyman Developer）；ICU 国际化组件。
+* **第二编：操作系统字体管理（Part II: Font Management）**
+  * **[第六章：Macintosh 操作系统的字体管理](/fonts-encodings/chapter-6)**：Classic Mac OS 资源分支与数据分支；Suitcase 字体箱架构；Mac OS X 字体簿（Font Book）与字体域（Domains）。
+  * **[第七章：Windows 操作系统的字体管理](/fonts-encodings/chapter-7)**：Windows 字体控制面板与注册表架构；GDI 逻辑字体（LOGFONT）度量；ClearType 亚像素液晶渲染原理。
+  * **[第八章：X Window 与 Unix 字体管理](/fonts-encodings/chapter-8)**：X11 逻辑字体描述符（XLFD）；X 字体服务器（XFS）；FreeType、Fontconfig 与 Xft 客户端渲染流水线。
+* **第三编：排版引擎与技术生态（Part III: Typographic Software & Web）**
+  * **[第九章：TeX 与 Omega 系统的字体技术](/fonts-encodings/chapter-9)**：高德纳批处理编译器架构；TFM 字体度量与 DVI 设备无关文件；虚拟字体（VF）与 PK 点阵压缩；Omega 系统与 OTPs 状态机。
+  * **[第十章：Web 网页字体与排版技术](/fonts-encodings/chapter-10)**：万维网排版演化史；HTML/CSS 字体模块规范；font-size-adjust 几何归一化算法与 x-height 视觉对齐；早期动态网络字体（TrueDoc、WEFT/EOT）；SVG 矢量字体规范。
+* **第四编：字体艺术、设计与高级排版（Part IV: Typeface Art, Design & Typography）**
+  * **[第十一章：拉丁字体的历史演进与分类学](/fonts-encodings/chapter-11)**：十五世纪活字排版大爆炸；加拉蒙德、巴斯克维尔、博多尼与迪多；无衬线体崛起；Vox-ATypI 分类法；Panose-1 十维度量编码体系。
+  * **[第十二章：字体设计与编辑实操](/fonts-encodings/chapter-12)**：FontLab 与 FontForge 深度实操；三次与二次贝塞尔曲线几何转换；轮廓方向与非零环绕数规则；基于类的字距微调（Class-based Kerning）。
+  * **[第十三章：栅格化渲染优化与字形微调](/fonts-encodings/chapter-13)**：屏幕低分辨率排印困境；PostScript 声明式微调（BlueValues 蓝区、标准笔宽 StdHW/StdVW、主干提示）；TrueType 虚拟机指令集；CVT 控制值表；微点 Delta 指令。
+  * **[第十四章：丰富字体表达：高级排版特性](/fonts-encodings/chapter-14)**：智能字体技术；OpenType 布局架构（GSUB/GPOS/GDEF 三大支柱）；Adobe 特性定义语言；微软 VOLT 可视化工程；苹果 AAT 状态机流派对比。
+* **第五编：技术附录（Part V: Appendices）**
+  * **[附录全编：底层格式、虚拟机与数学原理手册](/fonts-encodings/appendices)**：点阵字库（BDF/PCF/PK）；TeX/Omega 度量体系（TFM/OFM/VF）；PostScript 页面描述语言与 Type 1/CFF；TrueType/OpenType/AAT 底层表结构汇编；METAFONT 衍生系统；贝塞尔曲线数学定理严密推导。
 
 ---
 

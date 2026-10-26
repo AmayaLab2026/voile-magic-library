@@ -43,31 +43,59 @@ function escapeXml(unsafe: string): string {
     .replace(/'/g, '&apos;')
 }
 
+function measureVisualUnits(text: string): number {
+  return Array.from(text).reduce((acc, c) => acc + (c.charCodeAt(0) > 255 ? 1 : 0.55), 0)
+}
+
+function computeTypography(title: string) {
+  const totalUnits = measureVisualUnits(title)
+  let titleFontSize = 54
+  let lineHeight = 70
+  let maxUnits = 18
+
+  if (totalUnits > 60) {
+    titleFontSize = 32
+    lineHeight = 42
+    maxUnits = 29
+  }
+  else if (totalUnits > 40) {
+    titleFontSize = 38
+    lineHeight = 50
+    maxUnits = 25
+  }
+  else if (totalUnits > 22) {
+    titleFontSize = 46
+    lineHeight = 60
+    maxUnits = 20
+  }
+
+  return { titleFontSize, lineHeight, maxUnits }
+}
+
 /**
  * Intelligent line breaker supporting English word boundaries and CJK natural breaks.
  * Directly mirrors the English Nolebase typesetting standard.
  */
-function splitLines(text: string, maxCharactersPerLine = 22): string[] {
+function splitLines(text: string, maxUnitsPerLine: number): string[] {
   const raw = text.replace(/[\r\n]+/g, ' ').trim()
   if (!raw)
     return ['']
 
   // If text contains mostly Latin words (English)
-  const isLatin = /^[a-z0-9\s.,'":;()\-·]+$/i.test(raw)
+  const isLatin = /^[a-z0-9\s.,'":;()\-·/]+$/i.test(raw)
   if (isLatin) {
     const words = raw.split(/\s+/)
     const lines: string[] = []
     let current = ''
 
     for (const word of words) {
-      if (!current) {
-        current = word
-      }
-      else if (`${current} ${word}`.length <= maxCharactersPerLine) {
-        current += ` ${word}`
+      const test = current ? `${current} ${word}` : word
+      if (measureVisualUnits(test) <= maxUnitsPerLine) {
+        current = test
       }
       else {
-        lines.push(current)
+        if (current)
+          lines.push(current)
         current = word
       }
     }
@@ -84,13 +112,18 @@ function splitLines(text: string, maxCharactersPerLine = 22): string[] {
   // CJK & Mixed text breaking
   const lines: string[] = []
   let current = ''
+  let currentUnits = 0
   for (let i = 0; i < raw.length; i++) {
     const char = raw[i]
-    current += char
-    const visualLen = Array.from(current).reduce((acc, c) => acc + (c.charCodeAt(0) > 255 ? 1 : 0.55), 0)
-    if (visualLen >= maxCharactersPerLine && i < raw.length - 1) {
+    const u = char.charCodeAt(0) > 255 ? 1 : 0.55
+    if (currentUnits + u > maxUnitsPerLine && current.length > 0) {
       lines.push(current.trim())
-      current = ''
+      current = char
+      currentUnits = u
+    }
+    else {
+      current += char
+      currentUnits += u
     }
   }
   if (current.trim())
@@ -116,18 +149,13 @@ export function generateOGSvg(options: OGCardOptions): string {
   const isJa = lang === 'ja'
 
   // Dynamic max characters & font size based on language and title length
-  const maxChars = isEn ? 28 : 20
-  const lines = splitLines(title, maxChars)
+  const { titleFontSize, lineHeight, maxUnits } = computeTypography(title)
+  const lines = splitLines(title, maxUnits)
 
   // Typesetting parameters aligned with the English standard layout
-  let titleFontSize = 62
-  let lineHeight = 78
   let startY = 280
-
-  if (lines.length >= 3 || (isEn && title.length > 50)) {
-    titleFontSize = 52
-    lineHeight = 68
-    startY = 265
+  if (lines.length >= 3) {
+    startY = 260
   }
 
   const titleSvgLines = lines.map((line, idx) => {
@@ -147,10 +175,15 @@ export function generateOGSvg(options: OGCardOptions): string {
     : ''
 
   const authorY = startY + lines.length * lineHeight + (lines.length === 1 ? 25 : 15)
+  const authorLabel = isEn ? 'Author' : isJa ? '著者' : '著者'
+  const authorText = author ? `${authorLabel} · ${author}` : ''
+  const authorUnits = measureVisualUnits(authorText)
+  const authorFontSize = authorUnits > 35 ? 18 : 22
+
   const authorSvg = author
     ? `
-      <text x="60" y="${authorY}" font-family="Source Han Sans SC, sans-serif" font-size="22" font-weight="500" fill="#635f59">
-        ${isEn ? 'Author' : isJa ? '著者' : '著者'} · ${escapeXml(author)}
+      <text x="60" y="${authorY}" font-family="Source Han Sans SC, sans-serif" font-size="${authorFontSize}" font-weight="500" fill="#635f59">
+        ${escapeXml(authorLabel)} · ${escapeXml(author)}
       </text>
     `
     : ''
