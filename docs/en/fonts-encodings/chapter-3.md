@@ -9,12 +9,20 @@ description: "Unabridged English text: Character names, blocks, general category
 
 ---
 
-```text
-allow the user to correct errors that may arise from the generalized application of character properties.
-What are these properties, and where are they found? We shall answer both questions
-in the remainder of this chapter.
-Basic properties
-Name
+Our concern in this chapter is the information that Unicode provides for each character. According to our definition, a character is a description of a certain class of glyphs. One of these glyphs, which we have called the representative glyph, is shown in the Unicode charts, both in their hard-copy version [335] and in the PDF files available on the Web ([334]).
+
+Unicode defines the identity of a character as the combination of its description and its representative glyph. On the other hand, the semantics of a character are given by its character identity and its normative properties.
+
+This brings us to character properties. These are data on characters that have been collected over time and that can help us to make better use of Unicode. For example, one normative property of characters is their category. One possible category is "punctuation". A developer can thus know which characters of a given script are punctuation marks—information that will enable him to disregard those characters when sorting text, for example—without knowing anything at all about the script itself. Another property (not a normative one in this instance, and therefore more ambiguous) is the uppercase/lowercase correspondence. Unicode provides a table of these correspondences, which software can apply directly to convert a string from one case to the other (when the concept of case even applies to the writing system in question). Of course, none of these operations (sorting, case conversion, etc.) can be 100 percent automatic. As in all types of language processing, there is always a degree of uncertainty connected to the ambiguity inherent in languages and their grammars. But character properties can nevertheless be used to automate a large part of text processing; the developer should only take care to allow the user to correct errors that may arise from the generalized application of character properties.
+
+What are these properties, and where are they found? We shall answer both questions in the remainder of this chapter.
+
+
+## Basic properties
+
+
+### Name
+
 The name of a character is what we have called its description. The official list of the English names of characters according to their positions within the encoding appears in the
 following file:
 http://www.unicode.org/Public/UNIDATA/UnicodeData.txt
@@ -33,7 +41,9 @@ Character names are not there solely for the benefit of humans; programming lang
 also understand them. In Perl, for example, to obtain the character that represents the
 letter ‘D’ of the Cherokee script, we can write \N{CHEROKEE LETTER A}, which is strictly
 equivalent to \x{13a0}, a reference to the character’s code point.
-Block and script
+
+### Block and script
+
 These properties refer to the distribution of the full set of characters according to the
 script to which they belong or to their functional similarity. Thus we have a block of
 Armenian characters (Armenian), but also a block of pictograms (Dingbats), a block of
@@ -46,7 +56,9 @@ is a snippet of this file:
 ```
 
 ```text
-Basic properties
+
+## Basic properties
+
 0100..017F; Latin Extended-A
 0180..024F; Latin Extended-B
 0250..02AF; IPA Extensions
@@ -76,7 +88,9 @@ been entered in the wrong script. Experience shows that a user who types the two
 the letter ‘О’, because of the need to type the ‘Л’; consequently, the word will contain
 both Latin and Cyrillic letters. We also refer the reader back to the photo on page 57,
 where we see glorious spoofing between the words “ΠΑΡΚΙΝΓΚ” and “PARKING”.
-Age
+
+### Age
+
 This is nothing but the number of the Unicode version in which the character first appeared in the encoding. Let us take this opportunity to observe that Unicode characters
 have one thing in common with our academics: they are immortal, in the sense that a
 Unicode character, once defined, can never be removed from the encoding. The worst
@@ -420,22 +434,30 @@ this section contains the character’s category and its name or, when there are
 characters, the names of the endpoints of the range.
 Of these properties, which number 28 in all, here are the general-purpose ones. We shall
 see the others later when we discuss case, the bidirectional algorithm, etc.
-Spaces
+
+### Spaces
+
 This property applies to 26 Unicode characters, of which some are genuine spaces (category Zs) and others are control characters (category Cc). The line separator and the
 paragraph separator, which are respectively in categories Zl and Zp, also have this property.
-Alphabetic characters
+
+### Alphabetic characters
+
 These are characters of category “letter” (Lu, Ll, Lt, Lm, Lo) or “ alphabetic numbers” (Nl).
 There are 90,989 of them in all. Note that characters have the alphabetic property simply by virtue of belonging to one of these categories; thus extracting the corresponding
 characters from the file UnicodeData.txt yields a complete list of alphabetic characters.
 For that reason, this property is called a “derived” property, and its characters are listed
 not in PropList.txt but in DerivedCoreProperties.txt.
-Noncharacters
+
+### Noncharacters
+
 These characters are the forbidden fruit of Unicode: their code points may not be used.
 The Consortium even created a special term for them: noncharacters (written solid). They
 ```
 
 ```text
-Other general properties
+
+## Other general properties
+
 cover 32 code points in the block of Arabic presentation forms 0xFDD0-0xFDEF and the
 last two positions in each plane, 0x??FFE and 0x??FFF. This is why: Code point 0xFFFE
 must be ruled out as a character so that the pair of bytes 0xFF 0xFE, when read by software, can be interpreted as the character BOM 0xFEFF read in the wrong direction. Only
@@ -449,7 +471,9 @@ appear within a string.
 Why was this decision extended to the other planes? Out of compassion, or perhaps because it was expected that programmers would take algorithms intended for the BMP
 and apply them to the other planes by simply adding an offset. Since these restrictions
 were applied to all the planes, the algorithms remain valid.
-Ignorable characters
+
+### Ignorable characters
+
 The full name is default ignorable code points. If we take this property’s name at face value
 and examine the list of its members, which is a veritable country club of exotic characters
 (the combining grapheme joiner, the Korean syllable fillers, the variation selectors, the
@@ -464,11 +488,15 @@ functionality, it is expected not to display anything in this character’s plac
 To obtain a complete list of the ignorable characters, take the “other, control” characters
 Cc, the “other, format” characters Cf, and the “other, surrogate” characters, blend in certain characters listed under property Other_Default_Ignorable_Code_Point in the file
 PropList.txt, shake well, and serve immediately.
-Deprecated characters
+
+### Deprecated characters
+
 Old lawyers never die; they just lose their appeal. The same goes for characters: the worst
 thing that can happen to them is to be deprecated. There are ten such characters (as of this
 writing), and they are listed in PropList.txt.
-Logical-order exceptions
+
+### Logical-order exceptions
+
 These are characters that are not rendered in their logical order. They represent a blemish
 in Unicode that is due, once again, to the principle of backward compatibility with ex-
 ```
@@ -487,7 +515,9 @@ question are combining characters; therefore, their graphical position is manage
 class of combining characters, which we shall discuss below. In particular, this position,
 whatever it be, is in no way illogical. In the case of Thai and Lao, however, the same vowels were encoded as ordinary characters; thus it was necessary to make some adjustments
 by adding this property.
-Soft-dotted letters
+
+### Soft-dotted letters
+
 These are characters whose glyphs have a dot: ‘i’, ‘j’, and all their derivatives. In exchange
 for the privilege of bearing an accent, these letters must forfeit their dot: thus we have
 ‘î’, not ‘◊’2. The only exception: Lithuanian, which preserves the dot beneath the accent.
@@ -498,7 +528,9 @@ remain the same—because the original dot on the ‘i’ is soft—but its beha
 a subsequent diacritical mark added to this glyph will not suppress the dot. Thus, if for
 some reason we should wish to obtain ‘◊’, we would have to write three characters in a
 row: “i, combining dot above, circumflex accent”.
-Mathematical characters
+
+### Mathematical characters
+
 Or, to be more precise, the Unicode characters with the property “other math”. These
 are the characters in the category Sm (“symbol, math”) plus 1,069 characters listed in
 the file PropList.txt under the property Other_Math. All the punctuation marks that
@@ -515,15 +547,23 @@ The advent of the T1 fonts, whose macros provide for the “soft dot”, elimina
 ```
 
 ```text
-Other general properties
-Quotation marks
+
+## Other general properties
+
+
+### Quotation marks
+
 This property covers all the characters that can be used as quotation marks. They are of
 categories Po, Pi, Pf, Ps, and Pe. There are 29 of them, and they are listed in PropList.txt
 under the property Quotation_Mark.
-Dashes
+
+### Dashes
+
 Everything that looks more or less like a dash and is used as such. There are 20 characters
 that have this property; they are of categories Pd (punctuation, dash) and Sm (mathematical symbol). They are listed in PropList.txt under the property Dash.
-Hyphens
+
+### Hyphens
+
 The existence of this property shows that the Consortium wished to distinguish clearly
 between “hyphens” and “dashes”: the former are placed within words and play a morphological rôle (“merry-go-round”, “two-year-old”); the latter are placed between words
 and play a syntactic rôle (“I’m leaving—do I have to repeat myself?”). Usage varies
@@ -533,7 +573,9 @@ There are 10 characters that have the “hyphen” property; they are in categor
 (punctuation, dash), Pc (punctuation, connector; for the midpoint used in katakana,
 see page 101), and Cf (character, format; for a potential line break). They are listed in
 PropList.txt under the property Hyphen.
-Terminal punctuation
+
+### Terminal punctuation
+
 Folk wisdom says that “birds of a feather flock together”. Well, the characters with this
 property have flocked together from various and sundry blocks, yet they are of quite
 different feathers indeed. What they have in common is that they play the rôle of “terminal” punctuation. This term is rather ill chosen, as these characters also include the
@@ -541,7 +583,9 @@ slash, which does not necessarily end a sentence. For want of a better definitio
 say intuitively that these are characters that play the same rôle as our various stops (the
 period, exclamation point, semicolon, colon), and also the slash.
 There are 78 characters with the “hyphen” property; they are all of category Po (punctuation, other). They are listed in PropList.txt under the property Terminal_Punctuation.
-Diacritics
+
+### Diacritics
+
 When we described the category of “marks”, we called them “diacritical marks”. That
 might sow confusion, as Unicode also defines a property called diacritics. It covers both
 the “real” (non-spacing) diacritical marks and the “inert” (spacing) diacritical marks of
@@ -553,7 +597,9 @@ this rôle.
 ```text
 There are 482 characters with the “diacritic” property. They are listed in PropList.txt
 under the property Diacritic.
-Extenders
+
+### Extenders
+
 These are characters whose rôle is to extend or repeat the preceding character. Thus,
 for example, we have ‘ゝ’ 0x309D hiragana iteration mark, which works as follows:
 Suppose that we have two identical hiragana syllables in a row, such as “きき” (kiki). It is
@@ -562,13 +608,17 @@ syllable is voiced, as in “きぎ” (kigi), we can use the iteration mark wit
 There is the same type of iteration mark for katakana and for ideographs.
 There are 19 characters with the “extender” property. They are listed in PropList.txt
 under the property Extender.
-Join control
+
+### Join control
+
 There are two characters that manage joining and non-joining between glyphs: zero
 width joiner 0x200D, or ZWJ, and its opposite: zero width non-joiner 0x200C, or
 ZWNJ. We have discussed these on page 104.
 These are the only two characters with the Join_Control property. They are listed in the
 file PropList.txt.
-The Unicode 1 name and ISO’s comments
+
+### The Unicode 1.0 Name and ISO Comments
+
 Recall that Unicode 1 dates from the antediluvian era before it was merged with
 ISO 10646, i.e., the era when each of them did pretty much what it pleased (whereas
 today Unicode and ISO do what they please together). In UnicodeData.txt there is a
@@ -747,10 +797,17 @@ in its four forms, “   	”, and reh in its two forms, “
 ”. Here are our eight hypothetical
 words in the Arabic alphabet: BBB , BBR
 , BRB
-, RBB , BRR
+, RBB 
+, BRR
 , RBR
-,
-RRB 	, RRR .
+
+,
+RRB 	
+
+, RRR 
+
+
+.
 Letters with only a single form have the same behavior as letters that are not Arabic or
 Syriac: they form a string in themselves and therefore cause the preceding string to end
 and a new string to begin.
@@ -800,7 +857,9 @@ characters. And when we have cut constructs up into characters, there is no way 
 letter will be joined to other letters.
 
 ```text
-Rendering properties
+
+## Rendering properties
+
 them back together again to rebuild larger characters. For example, Catalan has the ligature ‘l·l’. This ligature is encoded as two Unicode characters: an ‘l·’ 0x0140 latin small
 letter l with middle dot and an ordinary ‘l’. But this division may not always be what
 we want. Suppose that we wish to place a circumflex accent over this ligature, as we might
@@ -859,7 +918,9 @@ ligature. The difference will become visible when we apply a combining character
 followed by the combining circumflex accent will yield ‘fî’; however, ‘f’ CGJ ‘i’ followed
 by the same accent will yield ‘‚’, which illustrates that “f CGJ i” is henceforth considered
 to be connected by grapheme links in the eyes of Unicode.
-Numeric properties
+
+## Numeric properties
+
 Some characters may be used as digits, a trivial example being ‘3’ 0x0033 digit three,
 which is part of the curriculum about halfway through nursery school. For a young
 reader of Tamil, this digit is written ‘„’ 0x0BE9 tamil digit three, but the semantics
@@ -881,7 +942,9 @@ The difference between “digit” and “number” is clearer: if the numeric v
 ```
 
 ```text
-Identifiers
+
+## Identifiers
+
 “number”. There are many examples of “numbers” in the various writing systems: “Â”
 is the number 1,000 in Tamil, ‘ÁD’ is 1,000 in Roman numerals, ‘Ê’ is 10,000 in Amharic.
 There are also Unicode characters that represent fractions: “4, 2” are also “numbers”,
@@ -893,7 +956,9 @@ can be used in this system of numeration. There are 44 of them, and they are lis
 PropList.txt under the property Hex_Digit. And for purists who live on a strict diet of
 pure, organic, fat-free ASCII, there is a subset of these: the “ASCII hexadecimal digits”.
 There are 22 (0–9, A–F, a–f), and they are listed under the property ASCII_Hex_Digit.
-Identifiers
+
+## Identifiers
+
 In Chapter 10, which discusses fonts and the Web, we shall give a quick introduction
 to XML (pages 345–349), and we shall discuss tags for elements and entities. The reader
 will notice that we have carefully refrained from defining the way in which this markup
@@ -931,6 +996,9 @@ The page that illustrates the block’s layout needs no explanation: under each 
 representative glyphs are set in the same Times-style font as the body text. In this table,
 we find four characters that are familiar to us for having been omitted from ISO 8859-1:
 ‘Œ and ‘œ’ (0x0152 and 0x0153), ‘Ÿ’ (0x0178), and ‘f ’ (0x017F) (the long “s”).
+
+![Plate 3-1: The Unicode Standard 5.0 — Latin Extended-A Code Chart (p. 121)](/images/fonts-encodings/plate3-1.png)
+
 Let us now examine the list of character descriptions, page 122. The title “European
 Latin” in bold Helvetica is a subdivision of the table according to the characters’ purpose;
 in this case, it is the only subdivision.
@@ -949,201 +1017,10 @@ Besides the annotations, we also have alternative names. An alternative name is 
 the equals sign. There are no alternative names in the example presented here, but two
 pages later in the Unicode book we find:
 setlength
-extrarowheight0dd
-œ
-LATIN SMALL LIGATURE OE
-= ethel (from Old English eðel)
-• French, IPA, Old Icelandic, Old English, ...
-→00E6 æ latin small letter ae
-→0276 œ latin letter small capital oe
 
-The Unicode Standard 5.0, Copyright © 1991-2006 Unicode, Inc. All rights reserved. 017F Latin Extended-A Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď   Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ Ġ ġ Ģ ģ Ĥ ĥ ( ) Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ Ĺ ĺ Ļ ļ Ľ ľ   Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ŝ ŝ Ş ş Š š Ţ ţ Ť ť _ ` Ũ ũ Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž ſ 010A 010B 010C 010D 010E 010F 011A 011B 011C 011D 011E 011F 012A 012B 012C 012D 012E 012F 013A 013B 013C 013D 013E 013F 014A 014B 014C 014D 014E 014F 015A 015B 015C 015D 015E 015F 016A 016B 016C 016D 016E 016F 017A 017B 017C 017D 017E 017F A B C D E F
+![Plate 3-2: The Unicode Standard 5.0 — Latin Extended-A Character Names List (p. 122)](/images/fonts-encodings/plate3-2.png)
 
-The Unicode Standard 5.0, Copyright © 1991-2006 Unicode, Inc. All rights reserved.
-012D
-Latin Extended-A
-ĕ
-LATIN SMALL LETTER E WITH BREVE
-• Malay, Latin, ...
-≡ 0065 e  0306 
-Ė
-LATIN CAPITAL LETTER E WITH DOT ABOVE
-≡ 0045 E  0307 
-ė
-LATIN SMALL LETTER E WITH DOT ABOVE
-• Lithuanian
-≡ 0065 e  0307 
-Ę
-LATIN CAPITAL LETTER E WITH OGONEK
-≡ 0045 E  0328 
-ę
-LATIN SMALL LETTER E WITH OGONEK
-• Polish, Lithuanian, ...
-≡ 0065 e  0328 
-011A
-Ě
-LATIN CAPITAL LETTER E WITH CARON
-≡ 0045 E  030C 
-011B
-ě
-LATIN SMALL LETTER E WITH CARON
-• Czech, ...
-≡ 0065 e  030C 
-011C
-Ĝ
-LATIN CAPITAL LETTER G WITH CIRCUMFLEX
-≡ 0047 G  0302 
-011D
-ĝ
-LATIN SMALL LETTER G WITH CIRCUMFLEX
-• Esperanto
-≡ 0067 g  0302 
-011E
-Ğ
-LATIN CAPITAL LETTER G WITH BREVE
-≡ 0047 G  0306 
-011F
-ğ
-LATIN SMALL LETTER G WITH BREVE
-• Turkish, Azerbaijani
-→ 01E7 ǧ  latin small letter g with caron
-≡ 0067 g  0306 
-Ġ
-LATIN CAPITAL LETTER G WITH DOT ABOVE
-≡ 0047 G  0307 
-ġ
-LATIN SMALL LETTER G WITH DOT ABOVE
-• Maltese, Irish Gaelic (old orthography)
-≡ 0067 g  0307 
-Ģ
-LATIN CAPITAL LETTER G WITH CEDILLA
-≡ 0047 G  0327 
-ģ
-LATIN SMALL LETTER G WITH CEDILLA
-• Latvian
-• there are three major glyph variants
-≡ 0067 g  0327 
-Ĥ
-LATIN CAPITAL LETTER H WITH CIRCUMFLEX
-≡ 0048 H  0302 
-ĥ
-LATIN SMALL LETTER H WITH CIRCUMFLEX
-• Esperanto
-≡ 0068 h  0302 
-LATIN CAPITAL LETTER H WITH STROKE
-LATIN SMALL LETTER H WITH STROKE
-• Maltese, IPA, ...
-→ 045B ћ  cyrillic small letter tshe
-→ 210F   planck constant over two pi
-Ĩ
-LATIN CAPITAL LETTER I WITH TILDE
-≡ 0049 I  0303 !
-ĩ
-LATIN SMALL LETTER I WITH TILDE
-• Greenlandic (old orthography)
-≡ 0069 i  0303 !
-012A
-Ī
-LATIN CAPITAL LETTER I WITH MACRON
-≡ 0049 I  0304 \$
-012B
-ī
-LATIN SMALL LETTER I WITH MACRON
-• Latvian, Latin, ...
-≡ 0069 i  0304 \$
-012C
-Ĭ
-LATIN CAPITAL LETTER I WITH BREVE
-≡ 0049 I  0306 
-012D
-ĭ
-LATIN SMALL LETTER I WITH BREVE
-• Latin, ...
-≡ 0069 i  0306 
-European Latin
-Ā
-LATIN CAPITAL LETTER A WITH MACRON
-≡ 0041 A  0304 \$
-ā
-LATIN SMALL LETTER A WITH MACRON
-• Latvian, Latin, ...
-≡ 0061 a  0304 \$
-Ă
-LATIN CAPITAL LETTER A WITH BREVE
-≡ 0041 A  0306 
-ă
-LATIN SMALL LETTER A WITH BREVE
-• Romanian, Vietnamese, Latin, ...
-≡ 0061 a  0306 
-Ą
-LATIN CAPITAL LETTER A WITH OGONEK
-≡ 0041 A  0328 
-ą
-LATIN SMALL LETTER A WITH OGONEK
-• Polish, Lithuanian, ...
-≡ 0061 a  0328 
-Ć
-LATIN CAPITAL LETTER C WITH ACUTE
-≡ 0043 C  0301 /
-ć
-LATIN SMALL LETTER C WITH ACUTE
-• Polish, Croatian, ...
-→ 045B ћ  cyrillic small letter tshe
-≡ 0063 c  0301 /
-Ĉ
-LATIN CAPITAL LETTER C WITH CIRCUMFLEX
-≡ 0043 C  0302 
-ĉ
-LATIN SMALL LETTER C WITH CIRCUMFLEX
-• Esperanto
-≡ 0063 c  0302 
-010A
-Ċ
-LATIN CAPITAL LETTER C WITH DOT ABOVE
-≡ 0043 C  0307 
-010B
-ċ
-LATIN SMALL LETTER C WITH DOT ABOVE
-• Maltese, Irish Gaelic (old orthography)
-≡ 0063 c  0307 
-010C
-Č
-LATIN CAPITAL LETTER C WITH CARON
-≡ 0043 C  030C 
-010D
-č
-LATIN SMALL LETTER C WITH CARON
-• Czech, Slovak, Slovenian, and many other
-languages
-≡ 0063 c  030C 
-010E
-Ď
-LATIN CAPITAL LETTER D WITH CARON
-• the form using caron/hacek is preferred in all
-contexts
-≡ 0044 D  030C 
-010F
-ď
-LATIN SMALL LETTER D WITH CARON
-• Czech, Slovak
-• the form using apostrophe is preferred in
-typesetting
-≡ 0064 d  030C 
-LATIN CAPITAL LETTER D WITH STROKE
-→ 00D0 Ð  latin capital letter eth
-→ 0111 :  latin small letter d with stroke
-→ 0189 Đ  latin capital letter african d
-:
-LATIN SMALL LETTER D WITH STROKE
-• Croatian, Vietnamese, Sami
-• an alternate glyph with the stroke through the
-bowl is used in Americanist orthographies
-→ 0110 9  latin capital letter d with stroke
-→ 0452 ђ  cyrillic small letter dje
-Ē
-LATIN CAPITAL LETTER E WITH MACRON
-≡ 0045 E  0304 \$
-ē
+
 LATIN SMALL LETTER E WITH MACRON
 • Latvian, Latin, ...
 ≡ 0065 e  0304 \$
@@ -1205,30 +1082,3 @@ we have a presentation form; thus we secure the glyph’s vertical orientation.
 • &lt;wide&gt;: the full-width versions of certain ASCII characters (like
 this).
 • &lt;narrow&gt;: the half-width katakana syllables and ideographic punctuation marks ｢ｺﾒ
-･ｾｼ｣.
-• &lt;small&gt;: small forms. Used only in the mysterious CNS-compatibility block 0xFE500xFE6B.
-• &lt;square&gt;: placed within an ideographic square. Thus the compatibility decomposition of ‘㎦’ is “≈&lt;square&gt; 006B k 006D m 00B3 3”.
-• &lt;fraction&gt;: fractions. For example, the compatibility decomposition of ‘4’ is “≈
-&lt;fraction&gt; 0031 1 2044 / 0032 2”, in which the character 0x2044 is the “fraction
-slash”, not to be confused with the ASCII slash.
-• &lt;compat&gt;: all other cases. We use this tag in UnicodeData.txt to distinguish compatibility decompositions from canonical decompositions.
-
-```text
-Normalization, Bidirectionality,
-and East Asian Characters
-In this chapter we shall examine three aspects of Unicode that have nothing in common
-other than requiring a certain amount of technical background and being of interest
-more to the specialist than to the average Unicode user. They are the procedures for
-decomposition and normalization (of interest to those who develop Unicode applications for the Web), the bidirectional algorithm (of interest to users of the Arabic, Syriac,
-and Hebrew scripts), and the handling of ideographs and hangul syllables (of interest to
-readers of Chinese, Japanese, or Korean).
-Decompositions and Normalizations
-Combining Characters
-We have already discussed the block of combining characters, as well as the category of
-“marks” and, in particular, the nonspacing marks. But how do these characters work?
-The glyph of a combining character interacts with the glyph of a base character. This interaction may take a variety of forms: an acute accent goes over a letter, the cedilla goes
-underneath, the Hebrew dagesh goes inside the letter, etc.
-Some of these diacritical marks are independent of each other: placing a cedilla underneath a letter in no way prevents a circumflex accent from being added as well. Other
-marks are placed in the same location and thus must appear in a specific order. For example, the Vietnamese language has an ‘Ë’ with a circumflex accent and a tilde, in that
-order; it would be incorrect to place them the other way around.
-```
