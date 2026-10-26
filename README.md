@@ -41,6 +41,7 @@
 | **馆藏总目** | [《馆藏典籍索引 · 索书与著者信息》](docs/zh/catalogue.md) (*Catalogue & Biographical Registry*) | ヴワル魔法図書館 编订 | 统一索书编码（VMLC 对照 LCC / DDC / NASA）、著者名人堂与解密档案（TsGAOR / ARAN）考证。 |
 | **Vol. 01**<br>`VML-KF3890.S58-1992` | [《管制物质：联邦药物法的化学与法律指南》](docs/zh/controlled-substances/) (*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws*) | Alexander T. Shulgin, Ph.D.（第二版，1992） | 436 页经典巨著全书编译整理，完整收录 7 大核心章节、引言序言、33 幅母核图版与附录。 |
 | **Vol. 02**<br>`VML-TL781.P56-1965` | [《火箭技术先驱：选集》](docs/zh/rocket-pioneers/) (*Pioneers of Rocket Technology: Selected Works*) | 苏联科学院自然科学与技术史研究所 编纂，NASA TT F-9285 | 完整收录基巴利契奇 1881 死囚牢手稿、孔德拉秋克《致读此书以建造者》（1918–1919）与《征服星际空间》（1929）、索科尔斯基历史纲要全译，配齐全部 42 幅高清工程原理图版。 |
+| **Vol. 03**<br>VML-Z250.8.H37-2007 | [《字体与编码：从 Unicode 到高级排版及其中一切》](docs/zh/fonts-encodings/) (*Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between*) | Yannis Haralambous 著，P. Scott Horne 英译，O'Reilly Media（2007） | 1040 页现代数字字体学、字符编码与高级排版技术百科全书式巨著，系统解析 Unicode 5.0、TrueType 虚拟机指令、OpenType/AAT 布局表、TeX 与贝塞尔曲线轮廓数学。 |
 
 ---
 

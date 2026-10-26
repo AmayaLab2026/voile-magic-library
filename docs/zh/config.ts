@@ -88,6 +88,16 @@ export default defineConfig({
           ],
         },
       ],
+      '/fonts-encodings/': [
+        {
+          text: '字体与编码：从 Unicode 到高级排版',
+          items: [
+            { text: '典籍概述与全书目录', link: '/fonts-encodings/' },
+            { text: '导言 · 探索篇：字母部件与排版', link: '/fonts-encodings/introduction' },
+            { text: '第一章：前 Unicode 时代编码体系', link: '/fonts-encodings/chapter-1' },
+          ],
+        },
+      ],
       '/': [
         {
           text: '本馆导览',
@@ -101,6 +111,7 @@ export default defineConfig({
           items: [
             { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
             { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
+            { text: 'Vol. 03 字体与编码：Unicode 与高级排版', link: '/fonts-encodings/' },
           ],
         },
         {
@@ -163,6 +174,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
         { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
+        { text: 'Vol. 03 字体与编码：Unicode 与高级排版', link: '/fonts-encodings/' },
       ],
     },
     {

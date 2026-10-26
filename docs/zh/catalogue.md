@@ -40,6 +40,22 @@ description: ヴ瓦尔魔法图书馆数字化馆藏书目、索书编码、著�
 * **快速入口**：**[立即前往翻阅本书总目录与章节](/rocket-pioneers/)**
 :::
 
+::: info 馆藏第三号典籍 · 索书与著者信息
+* **著者**：Yannis Haralambous, Ph.D.（雅尼斯·哈拉兰布斯 博士）
+* **英译审订**：P. Scott Horne 博士
+* **馆藏索书号**：`VML-Z250.8.H37-2007`
+* **国会图书馆分类号（LCC）**：`Z250.8`（电子数据处理与字体排版）/ `QA76.9.T48`（文本处理与编码）
+* **杜威分类号（DDC）**：`005.72`（字符数据格式与编码）/ `686.22544`（电子排印系统）
+* **ISBN**：978-0-596-10242-5 / 0-596-10242-9
+* **典籍原名**：Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between (1st Edition, 2007)
+* **中文典藏名**：字体与编码：从 Unicode 到高级排版及其中一切
+* **出版机构**：O'Reilly Media, Inc. (Sebastopol, CA)
+* **法文初版原著**：*Fontes & codages*（O'Reilly France, 2004）
+* **馆藏库位**：ヴワル魔法図書館 · 特藏文献室（计算机科学与现代排印学典籍）
+* **借阅状态**：特藏开放 · 全卷在线阅读（含全彩高清图版、字母解剖学及贝塞尔控制点图解）
+* **快速入口**：**[立即前往翻阅本书总目录与章节](/fonts-encodings/)**
+:::
+
 ---
 
 ## 馆藏分类与索书体系说明
@@ -58,6 +74,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 * **KF3890.S58**：美国联邦受控物质法律与法庭化学物质规制（Alexander T. Shulgin）
 * **TL781.P56**：火箭动力学理论史与早期航天科学论著选集（Pioneers of Rocket Technology）
+* **Z250.8.H37**：现代数字字体学、国际化字符编码（Unicode 5.0）与排版系统工程（Yannis Haralambous）
 
 ---
 
@@ -208,6 +225,50 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 ---
 
+## 馆藏第三号典籍（Vol. 03）
+
+### 典籍著录总档
+
+* **著者**：Yannis Haralambous, Ph.D.（雅尼斯·哈拉兰布斯 博士）
+* **英译审订**：P. Scott Horne 博士
+* **馆藏索书号**：`VML-Z250.8.H37-2007`
+* **国会图书馆分类号（LCC）**：`Z250.8` / `QA76.9.T48`
+* **杜威分类号（DDC）**：`005.72` / `686.22544`
+* **ISBN**：978-0-596-10242-5 / 0-596-10242-9
+* **典籍原名**：Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between (1st Edition, 2007)
+* **中文典藏译名**：字体与编码：从 Unicode 到高级排版及其中一切
+* **出版机构**：O'Reilly Media, Inc. (Sebastopol, CA)
+* **学术贡献者与审校专家**：Jacques André、Donald E. Knuth、Patrick Andries、Luc Devroye、Pierre Dumesnil、John Plaice、François Yergeau
+* **数字化形态**：全书 19 大完整章节、7 大技术附录、字母解剖学高清图版全集与排印数学推导
+* **学术主题标目**：字符编码；Unicode 5.0；数字字体工程；PostScript Type 1；TrueType 虚拟机指令；OpenType 高级特性；苹果高级排版（AAT）；Bézier 曲线；TeX 与 Omega 系统
+
+### 责任著者考略
+
+#### 责任著者：雅尼斯·哈拉兰布斯 博士（Yannis Haralambous, Ph.D.）
+* **学术身份**：法国国立布列塔尼高等电信学院（ENST Bretagne，现 IMT Atlantique）计算机科学系终身教授、国际著名排印学者与应用数学家。
+* **学术背景与成就**：哈拉兰布斯生于希腊，在法国里尔第一大学获得纯粹数学博士学位。凭借在微分几何与拓扑学上的精深造诣，他将数学方法引入文字轮廓与字形光栅化领域，与英国学者 John Plaice 联合开创了支持 16/32 位 Unicode 的 **$\Omega$（Omega）多语言排版系统**。哈拉兰布斯长期担任 Unicode 联盟顾问与国际排版协会（ATypI）理事，是全球非拉丁复杂文种（阿拉伯文、叙利亚文、梵文、古希腊文）数字排印算法的开拓者。
+* **本书学术定位**：全书原著逾千页，被公认为计算机字符编码与现代字体底层技术的百科全书式集大成之作。它首次将纯粹数学几何（贝塞尔曲线）、底层操作系统字符编码（ASCII 至 Unicode 5.0）、数字字体文件微码（TrueType 虚拟机、OpenType 布局表、AAT 自动机）与高级排印软件（TeX / PostScript / DTP）熔铸为一个完整的学科工程体系。
+
+### 馆藏数字化全书卷架构
+
+* **[导言 · 探索篇：字母部件、印刷排版、数字模型与全书图谱](/fonts-encodings/introduction)**
+  * 字符与字形的哲学二元性；字母解剖学各部位术语与 Figure 0-1 图版；字母“E”的六大数学几何描述（帕乔利、丢勒、托里、若戎委员会与现代 FontLab，Figure 0-2）；十八世纪凸版活字拼版机制（狄德罗百科全书字盘、手合子与拼版行，Figure 0-3 至 0-5）；数字排版基线、进深矢量与字号点制；全书章节体系知识图谱（Figure 0-6）。
+* **[第一编：编码与 Unicode（Part I: Encodings & Unicode）](/fonts-encodings/)**
+  * **[第一章：前 Unicode 时代的编码体系](/fonts-encodings/chapter-1)**：FIELDATA、7 位 ASCII 与终端硬件控制码；EBCDIC 穿孔卡片机械渊源；ISO 2022 转义序列框架；ISO 8859 家族（Latin-1 至 Latin-16）地理割据；远东 CJK 汉字双字节标准（GB 2312、Shift-JIS、Big5）；微软与苹果代码页；早期互联网 MIME 与 HTTP 编码协商。
+  * **第二章：字符、字形与字节：Unicode 导论**：文字学哲学命题；Unicode 核心原则；UTF-8、UTF-16、UTF-32、CESU-8 比特流；基本多语言平面（BMP）与各辅助平面分布。
+  * **第三章：Unicode 字符核心属性体系**：字符名称、通用类别、双向排版类别、标点与数字属性、Unicode 字符数据库（UCD）。
+  * **第四章：规范化分解、双向排版算法与东亚表意字符处理**：NFC/NFD/NFKC/NFKD 四大规范化形式；Unicode 双向排版算法（Bidi）；CJK 统一汉字（Unihan）统合原则。
+  * **第五至七章：Unicode 实践、压缩传输与 Web 排印**：SCSU/BOCU-1 压缩；CSS 字体模块与现代网页排版。
+* **第二编：数字字体（Part II: Fonts）**
+  * **第八至十一章：渲染管线、字体度量、元设计与演进史**：字形映射、EM 方块、METAFONT 方程、Vox-ATypI 分类学与 Panose 度量。
+  * **第十二至十五章：点阵字体、PostScript Type 1、TrueType、OpenType 与 AAT**：Hinting 提示指令、OpenType 布局表（GSUB/GPOS）、AAT 状态机、可变字体。
+* **第三编：排版软件与工业标准（Part III: Typographic Software）**
+  * **第十六至十九章：TeX/Omega、PostScript、PDF 与桌面出版系统**：Knuth 最优折行算法、PostScript 堆栈机、PDF 字体子集化。
+* **第四编：技术附录（Part IV: Appendices）**
+  * **附录 A–G**：TeX 字体规范、PostScript 语言参考、OpenType 表速查、TrueType 虚拟机微码汇编全书、METAFONT 衍生系统、字体设计实操与 Bézier 曲线数学严密证明。
+
+---
+
 ## 学科主题标目与交叉检索矩阵
 
 为方便研究人员按学术方向跨卷索引，下表列出了本馆当前特藏的核心概念、对应理论与所涉章节：
@@ -222,6 +283,11 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 | **天体引力助推（引力弹弓）** | 借力双曲线飞越、行星引力场能量转移 | Vol. 02 火箭技术先驱 | [第二编·第六章：引力弹弓](/rocket-pioneers/kondratyuk-build/section-6) |
 | **大气滑翔再入与防热气动** | 钝头体激波阻力、升力控制再入走廊 | Vol. 02 火箭技术先驱 | [第三编·第 9 章：再入大气减速](/rocket-pioneers/kondratyuk-space/chapter-9) |
 | **航天科技档案版本学** | TsGAOR 卷宗 112、ARAN 基金原始手稿考订 | Vol. 02 火箭技术先驱 | [主编序言](/rocket-pioneers/preface) 与 [文献全景索引](/rocket-pioneers/bibliography) |
+| **字符与字形二元论** | 抽象编码与具体视觉图元的解耦及芭蕾映射 | Vol. 03 字体与编码 | [导言 · 探索篇](/fonts-encodings/introduction) |
+| **字母解剖学与印刷史** | 字母部件、凸版字盘手合子与光学视错觉修正 | Vol. 03 字体与编码 | [导言 · 探索篇](/fonts-encodings/introduction) |
+| **字符编码史与 Unicode** | 从 ASCII、ISO 8859、CJK 到 Universal Character Set | Vol. 03 字体与编码 | [第一章：前 Unicode 时代编码体系](/fonts-encodings/chapter-1) |
+| **数字字体工程与虚拟机** | TrueType 虚拟机字节码、OpenType 与 AAT 自动机 | Vol. 03 字体与编码 | [典籍概述与卷目大纲](/fonts-encodings/) |
+| **排印几何与多项式样条** | Pierre Bézier 三次参数曲线与 Bernstein 基函数证明 | Vol. 03 字体与编码 | [典籍概述与卷目大纲](/fonts-encodings/) |
 
 ---
 
@@ -252,6 +318,20 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
        publisher={National Aeronautics and Space Administration},
        address={Washington, D.C.},
        note={Voile Magic Library Call Number: VML-TL781.P56-1965}
+     }
+     ```
+   * **Vol. 03**:
+     ```bibtex
+     @book{haralambous2007fonts,
+       title={Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between},
+       author={Haralambous, Yannis},
+       translator={Horne, P. Scott},
+       edition={1st},
+       year={2007},
+       publisher={O'Reilly Media, Inc.},
+       address={Sebastopol, CA},
+       isbn={978-0-596-10242-5},
+       note={Voile Magic Library Call Number: VML-Z250.8.H37-2007}
      }
      ```
 2. **开放存取与版权政策**：
