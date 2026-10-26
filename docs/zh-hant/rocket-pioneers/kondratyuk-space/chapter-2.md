@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 2 章�
 ---
 
 # 第 2 章 · 飛行軌道的加速段與推進劑載荷公式
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section II. Formula for the Load Rating & Theory of Multistage Staging
 **尤里·瓦西裏耶維奇·孔德拉秋克**  

@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第6章 · 空間飛行軌道の形態と所要ロケット速度
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VI. Types of Trajectories and Rocket Velocities Required
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  

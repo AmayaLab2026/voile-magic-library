@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星际空间》（1929）第 5 章�
 ---
 
 # 第 5 章 · 火箭结构死重占比与级数优化
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section V. The Proportional Passive Weight of the Rocket
 **尤里·瓦西里耶维奇·孔德拉秋克**  

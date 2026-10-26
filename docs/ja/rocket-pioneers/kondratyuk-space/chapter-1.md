@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第1章 · 惑星間飛行の前提条件とロケット運行法則
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section I. Facts Concerning the Rocket & Flight Fundamentals
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  

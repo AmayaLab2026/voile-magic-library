@@ -7,6 +7,7 @@ description: ヤニス・ハラランブス『Fonts & Encodings』第3章全文�
 ### Chapter 3: Properties of Unicode characters
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
 *『フォントとエンコーディング』（Fonts & Encodings）原著第 95–126 頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

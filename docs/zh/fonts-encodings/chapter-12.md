@@ -6,6 +6,7 @@ description: "完整无删节中文译本：现代数字字体制作软件全景
 # 第 12 章：字体的设计、编辑与制作技术
 **雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著**
 *选自《Fonts & Encodings》第 445–506 页*
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

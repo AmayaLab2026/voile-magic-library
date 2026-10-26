@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克 1929 年經典鉅著《征服星際空間�
 ---
 
 # 第三編 · 征服星際空間（孔德拉秋克 1929）
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Conquest of Interplanetary Space (Zavoyevaniye mezhplanetnykh prostranstv)
 **尤里·瓦西裏耶維奇·孔德拉秋克（Yu. V. Kondratyuk）著**  

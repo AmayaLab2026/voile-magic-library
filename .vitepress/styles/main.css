@@ -130,12 +130,32 @@ html, body {
   justify-content: center;
 }
 
-/* 4. 代码块圆润化 */
+/* 4. 代码块圆润化与嵌套消除 */
 div[class*='language-'],
 .vp-doc div[class*='language-'] {
   border-radius: 16px !important;
   border: 1px solid var(--vp-c-border);
   box-shadow: 0 4px 18px -4px rgba(0, 0, 0, 0.04);
+}
+
+/* 消除任何意外嵌套代码块的外框与重复按钮 */
+div[class*='language-'] div[class*='language-'],
+.vp-doc div[class*='language-'] div[class*='language-'] {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+div[class*='language-'] div[class*='language-'] > button.copy,
+div[class*='language-'] div[class*='language-'] > span.lang {
+  display: none !important;
+}
+
+/* 消除侧边悬浮高亮边框条（Spotlight Aside 边线） */
+.VPNolebaseEnhancedReadabilitiesSpotlightHoverBlock.VPNolebaseEnhancedReadabilitiesSpotlightHoverBlockAside::before {
+  display: none !important;
 }
 
 :not(pre) > code {

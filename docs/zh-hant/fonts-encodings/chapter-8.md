@@ -10,6 +10,7 @@ head:
 # 第 8 章：X Window 系統下的字體管理
 **雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）著**  
 *選自《Fonts & Encodings》第 221–236 頁*  
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

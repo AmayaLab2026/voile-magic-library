@@ -12,6 +12,7 @@ head:
 
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第235〜314頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

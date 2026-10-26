@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュクの1929年の記念碑的名著『
 ---
 
 # 第三編 · 惑星間空間の征服（コンドラチュク 1929）
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Conquest of Interplanetary Space (Zavoyevaniye mezhplanetnykh prostranstv)
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  

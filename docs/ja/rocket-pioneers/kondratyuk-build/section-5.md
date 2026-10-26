@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第5章 · 滑空再突入、大気制動と熱防護
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Hypersonic Gliding, Aerodynamic Braking & Thermal Shielding
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  

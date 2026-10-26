@@ -4,6 +4,7 @@ description: V. N. 索科利斯基教授《俄罗斯火箭技术先驱（历史�
 ---
 
 # 第一节：梅谢尔斯基的变质量力学与齐奥尔科夫斯基的航天理论
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、伊·弗·梅谢尔斯基与变质量质点动力学基础

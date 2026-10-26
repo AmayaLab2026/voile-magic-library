@@ -10,6 +10,7 @@ head:
 # 館藏第二號典籍 ·《火箭技術先驅：選集》
 ### Pioneers of Rocket Technology: Selected Works
 **蘇聯科學院自然科學與技術史研究所 編纂**  
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 *美國國家航空航天局（NASA）技術翻譯文獻 NASA TT F-9285*
 

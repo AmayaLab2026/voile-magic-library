@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 3 章�
 ---
 
 # 第 3 章 · 排氣速度與推進劑化學能熱值分析
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section III. Exhaust Velocity & The Thermochemistry of Propellants
 **尤里·瓦西裏耶維奇·孔德拉秋克**  

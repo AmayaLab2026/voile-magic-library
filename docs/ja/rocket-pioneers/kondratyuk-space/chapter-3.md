@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第3章 · 排気速度と推進剤の化学反応発熱量
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section III. Exhaust Velocity & The Thermochemistry of Propellants
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  

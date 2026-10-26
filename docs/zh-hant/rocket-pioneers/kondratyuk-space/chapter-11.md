@@ -4,6 +4,7 @@ description: 孔德拉秋克《征服星際空間》第十一章全譯：閉環�
 ---
 
 # 第十一章：火箭的控制、測量與定向導航儀表
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 爲了實現火箭的主動飛行控制、狀態測量與空間定向導航（navigation），飛船必須配備以下專用測量與控制儀表：

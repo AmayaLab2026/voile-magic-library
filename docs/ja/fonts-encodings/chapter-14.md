@@ -13,6 +13,7 @@ head:
 **ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）著**  
 **英訳および補訂：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
 *『Fonts & Encodings』原著第549〜598頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

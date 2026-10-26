@@ -4,6 +4,7 @@ description: 尤·瓦·孔德拉秋克《誰讀此書即爲建造》（1918–19
 ---
 
 # 第三節：火箭結構、多級分體與陀螺穩定
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ### Rocket Architecture, Staging & Gyroscopic Stabilization

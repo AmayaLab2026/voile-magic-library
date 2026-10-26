@@ -4,6 +4,7 @@ description: 尤·瓦·孔德拉秋克《谁读此书即为建造》（1918–19
 ---
 
 # 第六节：太阳能反射镜、空间站、引力助推与电磁线圈炮
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ### Solar Mirrors, Orbital Stations, Gravitational Slingshot & Mass Drivers

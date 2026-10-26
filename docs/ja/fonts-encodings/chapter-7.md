@@ -10,6 +10,7 @@ head:
 # 第7章：Windowsにおけるフォント管理
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第209〜220頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

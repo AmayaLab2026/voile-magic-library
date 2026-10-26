@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』第 10 章全訳
 ---
 
 # 第 10 章 · 惑星間基地とロケット-火砲発射装置
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section X. Interplanetary Bases. Rocket-Artillery Device
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  

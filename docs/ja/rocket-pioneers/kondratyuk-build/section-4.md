@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第4章 · ノズル設計、天体方位測定と大気減速の発見
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Nozzle Mechanics, Celestial Sighting & The Aerodynamic "Eureka"
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  

@@ -10,6 +10,7 @@ head:
 # 蔵書第二号典籍 ·『ロケット技術の先駆者たち：選集』
 ### Pioneers of Rocket Technology: Selected Works
 **ソ連科学アカデミー自然科学・技術史研究所 編纂**  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 *アメリカ航空宇宙局（NASA）技術翻訳資料 NASA TT F-9285*
 

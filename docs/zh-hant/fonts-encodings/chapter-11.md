@@ -6,6 +6,7 @@ description: "完整無刪節中文譯本：從谷登堡與讓松到加拉蒙、
 # 第 11 章：拉丁字體的歷史演進與排印分類體系
 **雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）著**
 *選自《Fonts & Encodings》第 367–444 頁*
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

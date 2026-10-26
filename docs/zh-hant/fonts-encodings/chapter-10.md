@@ -6,6 +6,7 @@ description: "完整無刪節中文譯本：(X)HTML 與 CSS 字體規範體系�
 # 第 10 章：字體與萬維網頁面
 **雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）著**
 *選自《Fonts & Encodings》第 315–366 頁*
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

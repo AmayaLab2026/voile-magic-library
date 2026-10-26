@@ -8,6 +8,7 @@ description: ヤニス・ハラランブス『Fonts & Encodings』第1章全文�
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
 **英訳・増補：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
 *『フォントとエンコーディング』（Fonts & Encodings）原著第 27–52 頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

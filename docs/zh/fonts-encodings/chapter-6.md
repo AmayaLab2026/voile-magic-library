@@ -10,6 +10,7 @@ head:
 # 第 6 章：Macintosh 平台上的字体管理
 **雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著**  
 *选自《Fonts & Encodings》第 187–208 页*  
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

@@ -10,6 +10,7 @@ head:
 # 第13章：ラスタライズ最適化とヒンティング技術（Hinting）
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第507〜550頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

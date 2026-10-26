@@ -8,6 +8,7 @@ description: "權威全譯本：TeX 編譯流水線、Computer Modern 家族、N
 
 **著者：雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）**  
 *選自《Fonts & Encodings》第 235–314 頁*  
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

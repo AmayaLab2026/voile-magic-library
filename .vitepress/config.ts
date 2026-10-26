@@ -185,6 +185,19 @@ export default defineConfig({
     config: (md) => {
       md.use(MarkdownItFootnote as any)
 
+      // Fix race condition in VitePress causing duplicate/nested code block wrappers
+      const origFence = md.renderer.rules.fence
+      if (origFence) {
+        md.renderer.rules.fence = function (...args: [any, any, any, any, any]) {
+          let html = origFence.apply(this, args)
+          const doubleWrapperRegex = /<div class="language-([^"]+)"><button title="[^"]*" data-copied="[^"]*" class="copy"><\/button><span class="lang">[^<]*<\/span><div class="language-\1">([\s\S]*?)<\/div><\/div>/g
+          while (doubleWrapperRegex.test(html)) {
+            html = html.replace(doubleWrapperRegex, '<div class="language-$1">$2</div>')
+          }
+          return html
+        }
+      }
+
       // Strip MathJax styles; VitePress already adds v-pre and block tabindex.
       const origMathInline = md.renderer.rules.math_inline
       if (origMathInline) {

@@ -6,6 +6,7 @@ description: "完整無刪節中文譯本：低分辨率屏幕渲染困境與物
 # 第 13 章：光柵化優化與字形微調技術（Hinting）
 **雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）著**
 *選自《Fonts & Encodings》第 507–550 頁*
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

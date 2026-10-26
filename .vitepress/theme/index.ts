@@ -27,7 +27,7 @@ const nolebase = presetClient<{
         defaultMode: 4,
       },
       spotlight: {
-        defaultToggle: true,
+        defaultToggle: false,
         hoverBlockColor: 'rgb(240 197 52 / 7%)',
       },
     },

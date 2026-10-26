@@ -4,6 +4,7 @@ description: 『建設を志して本書を読む者へ』（1918–1919）に�
 ---
 
 # 編纂委員会による文献考証と技術註記
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Commentary by the USSR Academy of Sciences
 *(NASA TT F-9285 第52–59頁 / ロシア語版 第639–654頁より)*

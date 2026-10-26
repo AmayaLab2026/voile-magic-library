@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《致讀此書以建造者》（1918–1919
 ---
 
 # 第五章 · 滑翔再入、大氣制動與熱防護
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Hypersonic Gliding, Aerodynamic Braking & Thermal Shielding
 **尤里·瓦西裏耶維奇·孔德拉秋克**  

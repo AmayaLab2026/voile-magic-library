@@ -4,6 +4,7 @@ description: 孔德拉秋克《征服星際空間》附錄全譯：茹科夫斯�
 ---
 
 # 《征服星際空間》附錄：學術評論與編者註釋全譯
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、文獻出版歷史背景說明

@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第7章 · 月面着陸と月軌道ランデブー（LOR）
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VII. Peak Acceleration & The Lunar Orbit Rendezvous Architecture
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  

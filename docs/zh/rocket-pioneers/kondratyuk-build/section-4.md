@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《致读此书以建造者》（1918–1919
 ---
 
 # 第四章 · 喷管设计、天体定向与返回发现
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Nozzle Mechanics, Celestial Sighting & The Aerodynamic "Eureka"
 **尤里·瓦西里耶维奇·孔德拉秋克**  

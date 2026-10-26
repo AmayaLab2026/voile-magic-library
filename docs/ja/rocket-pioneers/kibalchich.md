@@ -4,6 +4,7 @@ description: "ニコライ・キバリチッチ 1881年3月23日死刑囚牢手�
 ---
 
 # 第一編 · 航空機械の構想
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### A Concept for an Aeronautical Machine
 **N・I・キバリチッチ（N. I. Kibal'chich）**  

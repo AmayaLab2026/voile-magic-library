@@ -4,6 +4,7 @@ description: 孔德拉秋克《征服星际空间》第十一章全译：闭环�
 ---
 
 # 第十一章：火箭的控制、测量与定向导航仪表
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 为了实现火箭的主动飞行控制、状态测量与空间定向导航（navigation），飞船必须配备以下专用测量与控制仪表：

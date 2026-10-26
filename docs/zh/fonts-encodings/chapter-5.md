@@ -8,6 +8,7 @@ description: "权威全译本：字符调色板交互录入（Mac OS X、Windows
 
 **著者：雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）**  
 *选自《Fonts & Encodings》第 159–188 页*  
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

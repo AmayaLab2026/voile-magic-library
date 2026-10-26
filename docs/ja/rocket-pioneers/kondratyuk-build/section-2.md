@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第2章 · 軌道上昇方式、耐G保護と高活性推進薬
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Orbital Ascent, Physiological Protection & Advanced Propellants
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  

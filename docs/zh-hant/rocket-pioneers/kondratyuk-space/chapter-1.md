@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 1 章�
 ---
 
 # 第 1 章 · 星際飛行的基本前提與火箭運行規律
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section I. Facts Concerning the Rocket & Flight Fundamentals
 **尤里·瓦西裏耶維奇·孔德拉秋克**  

@@ -4,6 +4,7 @@ description: V. N. 索科利斯基教授《俄羅斯火箭技術先驅（歷史�
 ---
 
 # 第一節：梅謝爾斯基的變質量力學與齊奧爾科夫斯基的航天理論
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、伊·弗·梅謝爾斯基與變質量質點動力學基礎

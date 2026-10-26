@@ -7,6 +7,7 @@ description: ヤニス・ハラランブス『Fonts & Encodings』導入部全�
 ### Introduction: Explorations
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
 *『フォントとエンコーディング』（Fonts & Encodings）原著第 1–26 頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

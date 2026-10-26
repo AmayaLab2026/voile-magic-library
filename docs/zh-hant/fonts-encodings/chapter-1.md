@@ -8,6 +8,7 @@ description: 雅尼斯·哈拉蘭布斯《Fonts & Encodings》第一章全文深
 **著者：雅尼斯·哈拉蘭布斯 博士（Yannis Haralambous, Ph.D.）**  
 **英譯與增訂：P. 斯科特·霍恩 博士（P. Scott Horne, Ph.D.）**  
 *選自《字體與編碼》（Fonts & Encodings）原著第 27–52 頁*
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

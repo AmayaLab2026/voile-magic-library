@@ -10,6 +10,7 @@ head:
 # 第10章：フォントとワールドワイドウェブ（Web）
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第315〜366頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

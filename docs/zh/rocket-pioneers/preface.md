@@ -4,6 +4,7 @@ description: 《火箭技术先驱：选集》苏联科学院自然科学与技�
 ---
 
 # 主编序言：火箭技术的先驱与征服太空之路
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Editor's Preface by T. M. Mel'kumov
 

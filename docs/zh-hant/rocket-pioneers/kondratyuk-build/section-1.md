@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《致讀此書以建造者》（1918–1919
 ---
 
 # 第一章 · 噴氣推進基本原理與理想速度方程
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### The Fundamental Principles of Reactive Propulsion & Theoretical Equations
 **尤里·瓦西裏耶維奇·孔德拉秋克**  

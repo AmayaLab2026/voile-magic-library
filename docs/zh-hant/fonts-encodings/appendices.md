@@ -11,6 +11,7 @@ description: 雅尼斯·哈拉蘭布斯《Fonts & Encodings》附錄 A–G 全�
 ---
 
 # 附錄 A：點陣位圖字體格式（Bitmap Font Formats）
+
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 在輪廓向量字體（Outline Vector Fonts）統治數字排印世界之前，計算機屏幕與點陣打印機完全依賴離散的點陣位圖（Bitmap）呈現文字。瞭解這些古老的二進制位圖格式，是洞悉操作系統字體子系統進化史的鑰匙。

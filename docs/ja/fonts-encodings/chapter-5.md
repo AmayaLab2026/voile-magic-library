@@ -7,6 +7,7 @@ description: ヤニス・ハラランブス『Fonts & Encodings』第5章全文�
 ### Chapter 5: Using Unicode
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
 *『フォントとエンコーディング』（Fonts & Encodings）原著第 159–188 頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

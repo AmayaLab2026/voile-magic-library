@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第5章 · 構造自重比と最適多段化理論
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section V. The Proportional Passive Weight of the Rocket
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  

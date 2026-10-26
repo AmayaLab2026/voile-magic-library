@@ -10,6 +10,7 @@ head:
 # 第12章：フォントの設計・編集と制作技術
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第445〜506頁より*  
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---

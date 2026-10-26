@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』第 12 章全訳
 ---
 
 # 第 12 章 · 総括的展望と工学的経済性評価
+
 *訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section XII. General Perspectives
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  

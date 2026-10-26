@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星际空间》（1929）第 4 章�
 ---
 
 # 第 4 章 · 火箭结构与轻量化工程设计
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section IV. The Combustion Process, Construction of Chamber and Nozzle
 **尤里·瓦西里耶维奇·孔德拉秋克**  
