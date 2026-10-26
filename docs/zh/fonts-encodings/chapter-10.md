@@ -1,147 +1,343 @@
 ---
-title: 第十章 · Web 网页字体与排版技术
-description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》第十章全文深度学术汉译：万维网排版演化史、HTML/CSS 字体模块规范、font-size-adjust 与 x-height 视觉对齐、早期动态网络字体技术（Bitstream TrueDoc、Microsoft WEFT/EOT）、以及 SVG 矢量字体规范。
+title: "第 10 章：字体与万维网页面"
+description: "完整无删节中文译本：(X)HTML 与 CSS 字体规范体系、font-size-adjust 与 x-高度宽高比调节、可下载字体 (@font-face)、网络字体嵌入技术（Bitstream TrueDoc/PFR、微软 WEFT/EOT）、SVG 矢量字体体系与字形路径解析。"
 ---
 
-# 第十章 · Web 网页字体与排版技术
-### Chapter 10: Fonts and Web Pages
-**著者：雅尼斯·哈拉兰布斯 博士（Yannis Haralambous, Ph.D.）**  
-*选自《字体与编码》（Fonts & Encodings）原著第 315–366 页*
-
----
-
-当蒂姆·伯纳斯-李（Tim Berners-Lee）在二十世纪八十年代末构想超文本传输协议（HTTP, Hypertext Transfer Protocol）与超文本标记语言（HTML, Hypertext Markup Language）时，他绝未料到短短二十年后，全世界的文明信息都将依托这套轻量级协议与标签网络流转。万维网的爆发式普及，无疑是二十世纪末全人类信息科学最宏伟的奇迹之一。
-
-然而，在排印学者与图形艺术家的眼中，早期的 Web 却经历了一段近乎野蛮的排版黑暗时代。HTML 最初是作为一种基于 SGML（标准通用标记语言）的**结构化标记系统（Structural Markup System）**诞生的，其初衷是标注文档逻辑角色（如段落 `<p>`、标题 `<h1>`、列表 `<ul>`），刻意抹平物理设备的显示差异。但随着商业世界的涌入，设计师迫切渴望掌控像素级的视觉呈现——字体家族、字号梯队、字距调整与版式色彩。这种结构与样式的撕裂，催生了 HTML 与排版技术的激烈博弈，并最终孕育出层叠样式表（CSS, Cascading Style Sheets）与现代网络字体技术（Web Fonts）。
+# 第 10 章：字体与万维网页面
+**雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著**
+*选自《Fonts & Encodings》第 315–366 页*
 
 ---
 
-## (X)HTML、CSS 与字体规范的演化
+当蒂姆·伯纳斯-李（Tim Berners-Lee）最初定义 HTTP 协议（Hypertext Transfer Protocol）与 HTML 标记系统（Hypertext Markup Language）时，他绝不可能预料到，短短二十年后，全世界都会把“.com”挂在嘴边。万维网（World Wide Web）的爆发性普及，毫无疑问是二十世纪末人类信息科技史上最辉煌的里程碑之一。
 
-### 1. 早期 HTML 的粗糙尝试与 `<font>` 标签的罪与罚
-在 HTML 1.0 至 3.2 时代，W3C 与浏览器厂商（特别是 Netscape 与 Microsoft）为了迎合设计需求，引入了臭名昭著的 `<font>` 标签：
-```html
-<font face="Verdana, Arial, Helvetica" size="+1" color="#333333">
-  Typography on the Web
-</font>
-```
-这种设计带来了灾难性的架构退化：
-* **结构与表现极度耦合**：每一个视觉样式的变更都必须直接污染 HTML DOM 节点，导致文档代码极度冗余且无法维护；
-* **离散而模糊的字号阶梯**：`size` 属性仅支持 `1` 到 `7` 的相对整数值，无法提供严肃排版所必需的绝对磅值（Points）或精确物理度量；
-* **客户端字库依赖困境**：`face` 属性仅仅是向操作系统字体注册表发起的“祈求”；若终端用户的机器上未预装指定的商业字体，浏览器便只能降级回退至粗劣的系统默认字体（如 Times New Roman），导致设计师精雕细琢的版面瞬间坍塌。
+HTML 是一种标记系统——一套规定标签结构与语义的规则集合。它脱胎于 SGML（标准通用标记语言，Standard Generalized Markup Language）——这里的“通用”（Generalized）是指它本身不包含固有语义，而只提供一套形式化书写语法。一份 SGML 文档由若干**元素**（Elements）构成。每个元素通常由一对标签表示：起始标签（形如 `<name>`）与闭合标签（形如 `</name>`）。在这对标签之间是元素的内容（Content），其中可以嵌套其他标签或文本。一个元素还可以携带任意数量的元数据，称为**属性**（Attributes）。属性以“键–值”（key–value）对的形式书写在起始标签内部，其数量与排列顺序原则上是任意的。
 
-### 2. CSS 字体模块的优雅分层
-为了将内容语义与视觉呈现彻底解耦，W3C 确立了三层分离架构：**HTML 专精文档结构，JavaScript 专精动态交互，CSS（Cascading Style Sheets）专精排版与视觉样式**。在 CSS 字体规范（CSS Fonts Module）中，排印属性被抽象为一套严谨的继承与层叠系统：
+一份 SGML 文档通常附带一份**文档类型定义**（Document Type Definition, DTD），该定义既可直接嵌入在文档文件内部，也可保存在独立的外部文件中。DTD 包含两类关键数据：其一，是该 SGML 文档中允许出现的所有元素清单，连同它们所能携带的属性以及各属性所允许的数据类型；其二，是规定元素之间嵌套与组合行为的语法规则。例如，我们可以在 DTD 中明确规定：某个特定元素内部只能包含另一特定元素若干次，或者该元素必须为空（Empty Element），或者它可以容纳任意内容等等。
 
-* **`font-family`（字体家族回退机制）**：允许指定优先字体链表，并以泛型通用族（Generic Family：`serif`、`sans-serif`、`monospace`、`cursive`、`fantasy`）作为终极安全兜底；
-* **`font-weight`（字重阶梯）**：定义了从 `100`（Thin/Hairline）至 `900`（Black/Heavy）的九级量化刻度；
-* **`font-style`（字形姿态）**：严格区分真正的意大利斜体（`italic`，具有独立连笔书写形态的设计）与算法倾斜的伪斜体（`oblique`）；
-* **`font-stretch`（字宽伸缩）**：定义从超紧缩（`ultra-condensed`）到超宽展（`ultra-expanded`）的九档宽度变体；
-* **`font-size`（字号系统）**：支持绝对度量（`pt`、`px`、`cm`）、相对父级度量（`em`、`%`）以及视口相对度量。
+HTML 本质上是一套特定的 SGML DTD，同时也是一套具体的标记语法。这意味着：HTML 文档中可以使用的标签集合是一次性预先严格定义好的；各标签之间的相互嵌套与交互规则也是固定的；并且存在一份详尽的“用户手册”，明确阐述每一个标签在排版呈现与文档语义上的具体含义及适用场景。
+
+然而，与 LATEX 这种每一个命令的底层执行语义都无比清晰严谨的排版语言不同（在 LATEX 中，每个命令都是一道严格的程序指令，我们能够一路追踪其执行流程直至深入 TEX 引擎的底层机理；换言之，LATEX 命令是一种后验定义的“标签”，其语义完全由 TEX 或 $\Omega$ 编译时的实际效果所决定），HTML 为其标签所赋予的往往只是一种极其模糊、近似的语义，甚至放任各大浏览器厂商按照各自的意图进行随意诠释。HTML 在其诞生初期饱受这种围绕标签的“艺术性模糊”（artistic fuzziness）之苦。举例而言，早期的各大主流浏览器厂商都认为自己有权甚至有义务向基础语法系统中随意添加私有专有标签，这导致 HTML 标准频繁经历碎片化混乱更新，且多数更新只是被动迁就那些市场份额最大的浏览器的既成事实。
+
+尽管存在上述缺陷，我们依然必须客观看待历史：在那个 Macintosh、Windows PC 与各类 Unix 工作站之间跨平台通信如同恶梦般的时代，HTML（连同 TEX 以及稍后出现的 Adobe Acrobat PDF）是首个真正实现跨越所有主流操作系统的通用“文档格式”（Document Format）。为了在不彻底撕裂 HTML 标准框架的前提下化解层出不穷的新需求，W3C 与工业界先后在底层标记之上叠加了两层全新的信息维度：其一是 **JavaScript**，这是由网景公司（Netscape）最初开发、随后由 ECMA 组织以 ECMAScript 规范标准化的一种轻量级编程语言，其核心目标是处理 HTML 页面的动态交互逻辑；其二是**级联样式表**（Cascading Style Sheets, CSS，W3C 标准），这是一种专门用于精确解耦并描述 HTML 页面视觉表现与排版外观的样式语言。
+
+这三层信息（HTML 结构、JavaScript 交互、CSS 样式）在同一份文档中彼此协同、和谐共存。不仅如此，得益于被称为**文档对象模型**（Document Object Model, DOM，同为 W3C 标准）的通用对象树接口，JavaScript 脚本能够自如地访问、遍历并动态修改上述三个层面的所有数据节点。
+
+然而，时代的技术演进并未就此止步。若干年前，作为 SGML 的正统现代化继承者，**XML**（可扩展标记语言，Extensible Markup Language，W3C 标准）横空出世并迅速横扫整个计算机软件工业。XML 是对传统 SGML 体系的一种更严格、更干净的裁剪与升华——而在软件工程中，“对人类书写更严格”恰恰意味着“机器解析与自动化处理更加轻量且高效”。事实上，在传统 SGML 时代，全球仅有一两款极其晦涩、庞大且普通开发者根本无法企及的昂贵专用工具才能处理 SGML 文档；而如今，在 XML 领域，工业级、消费级以及开源免费的高性能解析处理工具浩如烟海。通过对 SGML 过于宽泛松散的标记自由度施加适度的语法约束（SGML 与 XML 之间的核心差异实际上可以用五条极其精炼的严格规则予以概括），XML 成功扫清了公众过去对 SGML 所抱有的“迷宫般庞杂”、“笨重迟缓”等负面刻板印象，从而奠定了一套真正能够跨越计算机科学一切应用领域的普适数据交换通用规范。
+
+面对日新月异、蓬勃发展的 XML 生态与日益显露老态的传统 HTML 规范，W3C 最终推出了历史性的解决方案：将 HTML 彻底置于 XML 语法规范下重构，由此诞生了 **XHTML**。此外，XML 还完整继承了 HTML 时代沉淀的成熟技术资产：JavaScript、CSS，并引入了一项 XML 体系所独有的关键技术——**命名空间**（Namespaces）。命名空间提供了一种优雅的机制，使得多套不同的 DTD（或 XML Schema）能够在一个复合文档中无缝共存。换言之，开发者可以创建由来自五湖四海、各自在独立语境中拥有预定义语义的标签所混编而成的多功能文档。例如，在 XHTML 规范本身中，并未定义任何用于排版高等数学公式的标签；然而，W3C 早已制定了专门用于数学公式表达的 XML 标准——**MathML**。通过将一个命名空间指派给“XHTML”，另一个命名空间指派给“MathML”，我们便能在同一份文档中同时使用这两套标准的标签，而绝不会引发任何名称冲突。通过这种方式，任何新兴的 XML 专业子标准都可以立即融入 XHTML 文档体系，只要客户端具备相应的解析渲染模块即可。
+
+在本章中，我们的核心焦点将完全聚焦于：**如何借助现代万维网的技术体系，实现字体的管理、调用与高保真排版呈现**。
+
+毋庸讳言，字体排印历来是万维网设计中最棘手、矛盾最尖锐的核心领域之一。其根本原因极其质朴：**与文档中的普通文本和插图截然不同，字体是数字文档中唯一一种所有权通常并不属于文档创作者本人的核心资源**。之所以不属于文档创作者，是因为字体受知识产权与商业软件许可协议（License）的严格约束，作者绝无权力将其随意向全球网络公开发布与分发。
+
+在万维网页面上渲染排版文本时，传统做法通常只能局限于使用客户端本地操作系统上已预先安装的现有字体；但如此一来，设计者要么必须提前预知各操作系统的字体命名规则，要么只能退而求其次地使用宽泛的泛用通用字体名称（Generic Family Names）。如果网页设计者出于排版美感、企业品牌视觉识别，或是为了正确显示某些尚未被主流操作系统原生支持的罕见民族文字与古代文字而**必须**使用某款特定字体，那么服务器端就必须具备将字体资源安全推送到客户端的技术通道——而这正是无数棘手技术瓶颈与严苛版权法律纠纷的交汇暴风眼。
+
+纵观万维网字体技术的发展脉络，工业界主要从三个截然不同的技术维度切入探索，这也构成了本章的三大核心主体架构：
+
+1. **结构与样式层面的规范标准**：HTML 标准本身提供了一组基础的文本样式标签；而作为排版中枢的 CSS（级联样式表）规范，则建立了一整套精密的字体属性声明与匹配算法体系，用以详尽描述 (X)HTML 页面中所调用的字体特性——无论这些字体是客户端本地预装的，还是通过网络即时下载的可下载字体（Downloadable Fonts，前提是浏览器宿主具备解析与渲染网络字体的能力）。
+2. **商业网络字体嵌入工具与运行时插件**：历史上有两家核心技术巨头针对跨平台字体网络动态分发开发了专有插件系统，使浏览器能够通过网络即时获取渲染网页所需的字体资产。其一是 **Bitstream** 公司的 **TrueDoc** 动态字体技术；其二是**微软公司**（Microsoft）基于 OpenType 架构推出的 **Web 字体嵌入技术**（Font Embedding / EOT）。Bitstream 在早期获得了部分浏览器的支持，如 Netscape Communicator 4.x（但后续的 6.x 与 7.x 放弃了支持）、Windows 平台下的 IE 以及 Mac 平台上的 iCab；而微软的 EOT 字体嵌入技术虽然在相当长一段时间内仅被 Windows 平台下的 Internet Explorer 所独占，但其突出优势在于向全球开发者免费开放了极其完善的专用字体打包嵌入工具集。此外，瑞典的一家名为 em2 Solutions 的软件公司还曾推出过名为 GlyphGate 的服务器端动态字形网关中间件，该软件能够根据客户端浏览器的实际渲染能力，动态采用多种混合策略交付高精度的字体字形服务。
+3. **基于矢量图形标准的自包含字体体系**：**SVG**（可伸缩矢量图形，Scalable Vector Graphics，W3C 标准）。作为一种原生的 XML 矢量图形描述语言，SVG 不仅能够通过常规 CSS 机制调用外部字体，更在标准内部直接开辟了 **SVG 字体规范**（SVG Fonts）——允许将每一个字符的贝塞尔轮廓矢量路径直接以 XML 标签的形式完整内嵌在图形文档内部，从而彻底绕过操作系统底层的字体光栅化引擎，实现真正意义上跨平台绝对一致的矢宽高保真渲染。
 
 ---
 
-## 视觉平衡的核心：字高与 `font-size-adjust`
+## 标准 HTML 标签体系
 
-在跨平台多字体混排与字体回退（Fallback）过程中，网页排印面临着一个致命的视觉痛点：**不同字体在相同标称字号（`font-size`）下，其实际视觉大小与阅读可读性截然不同！**
+在 CSS 样式表全面普及之前，早期 HTML 规范为了满足文档起草者的基础视觉诉求，陆续引入了一组直接作用于文字外观的物理与逻辑样式标签：
 
-这一现象的物理根源在于不同西文字体设计的**字心比例（Aspect Value, 即 x 字高与标称字号的比值 $c = \frac{x\text{-height}}{\text{font-size}}$）**存在巨大差异，如 **Figure 10-1** 所示：
+* `<b>` 与 `</b>`：将内部文本以**粗体**（Boldface）呈现。
+* `<i>` 与 `</i>`：将内部文本以**斜体**（Italics）呈现。
+* `<tt>` 与 `</tt>`：将内部文本以**等宽打字机字体**（Teletype / Monospace）呈现。
+* `<em>` 与 `</em>`：逻辑强调（Emphasis），在主流浏览器中默认通常渲染为斜体。
+* `<strong>` 与 `</strong>`：强逻辑强调（Strong Emphasis），在主流浏览器中默认通常渲染为粗体。
+* `<code>` 与 `</code>`：行内计算机程序源代码片段（Code），默认渲染为等宽字体。
+* `<samp>` 与 `</samp>`：计算机程序样本输出（Sample Output），默认渲染为等宽字体。
+* `<kbd>` 与 `</kbd>`：用户键盘输入（Keyboard Input），默认渲染为等宽字体。
+* `<var>` 与 `</var>`：程序变量或数学变量（Variable），默认渲染为斜体。
+* `<dfn>` 与 `</dfn>`：术语定义项（Defining Instance），通常渲染为斜体。
+* `<cite>` 与 `</cite>`：作品引用或文献出处（Citation），通常渲染为斜体。
+* `<small>` 与 `</small>`：缩小一档字号显示（Smaller Font）。
+* `<big>` 与 `</big>`：放大一档字号显示（Bigger Font）。
+* `<sub>` 与 `</sub>`：下标（Subscript），字号缩小并向基线下方偏移。
+* `<sup>` 与 `</sup>`：上标（Superscript），字号缩小并向基线上方偏移。
+* `<font>` 与 `</font>`：在 HTML 3.2 中引入、随后在 HTML 4.01 Strict 及 XHTML 1.0 中被彻底废弃的物理排版标签。该标签支持 `face`（指定字体名称列表，如 `face="Arial, Helvetica, sans-serif"`）、`size`（取值范围 1 至 7，或带有相对符号如 `+1`、`-2`）以及 `color`（以十六进制颜色码如 `#FF0000` 或预定义颜色名指定文字色彩）等属性。
 
-![不同西文字体在相同字号下的 x 字高与可读性对比（Figure 10-1）](/images/fonts-encodings/fig10-1-web-x-heights.png)
+随着万维网设计哲学的成熟，依靠 `<font>` 等物理表现标签混杂在文档正文中的做法带来了维护成本失控、代码冗余膨胀以及视觉与结构严重耦合等灾难性后果。W3C 确立了“结构（HTML）与表现（CSS）彻底分离”的黄金设计准则，所有涉及字体族选择、字重、字形倾斜、大小比例等排版控制权，全面移交由 CSS 规范统一接管。
 
-*图 10-1：六款经典字体在同一 11pt 标称字号下的排印实测（选自原著 Figure 10-1）。自上至下依次为：(1) ITC Berkeley Oldstyle ($c=0.38$)；(2) Times ($c=0.45$)；(3) Minion ($c=0.46$)；(4) Georgia ($c=0.48$)；(5) Myriad ($c=0.48$)；(6) Verdana ($c=0.55$)。各段文本右侧清晰标注了基线（Baseline）、下伸线（Descender line）与 x 字高线（x-height line）。*
+---
 
-### 1. 字心比值（Aspect Value）与阅读可读性
-观察图 10-1 可以清楚发现：
-* 专门为屏幕低分辨率显示设计的字体（如马修·卡特设计的 **Georgia** 和 **Verdana**），拥有极其宽大的 x 字高（Verdana 的比值高达 $c = 0.55$），因此在小字号下极为清晰醒目；
-* 古典书刊排版字体（如 **ITC Berkeley Oldstyle**，$c = 0.38$），其小写字母身材修长，x 字高极低，在屏幕上小字号渲染时会显得孱弱模糊。
+## CSS 字体模块规范（CSS Fonts Module）
 
-如果设计师在样式表中声明：
+从 CSS Level 1 到 CSS Level 2，乃至现代的 CSS Fonts Module，样式表语言建立了一套极其完备且符合传统字体排印学规范的属性体系。
+
+### 指定活动字体的 CSS 核心属性声明
+
+在 CSS 中，用于精确描述文本所应采纳的字体视觉特征的核心属性包括以下七个方面：
+
+#### 1. `font-family`（字体族）
+该属性用于指定优先采用的字体名称列表。其声明值可以由两类标识符混合构成：
+* **具体字体族名称**（Family Names）：如 `"Times New Roman"`, `"Helvetica"`, `"Palatino Linotype"`, `"Georgia"`。当字体名称中包含空格或特殊标点时，必须使用引号包裹。
+* **通用泛用字体族**（Generic Font Families）：这是万维网字体体系最后的“安全气囊”，当用户本地系统不存在前面声明的具体字体时，浏览器将自动映射到操作系统内符合该泛用大类的预设字体上。CSS 规定了五种标准通用族：
+  * `serif`：带有衬线装饰的字形家族（如 Times, Georgia, Minion, Palatino）。
+  * `sans-serif`：无衬线字形家族，端点平直，具有极佳的屏幕显示清晰度（如 Arial, Helvetica, Verdana, Trebuchet MS）。
+  * `monospace`：每个字符具有绝对相同水平步进宽度的等宽字体家族（如 Courier New, Consolas, Monaco, Lucida Console）。
+  * `cursive`：模拟手写笔触、连笔或具有书法装饰倾向的书写体家族（如 Comic Sans MS, Zapf Chancery, Brush Script）。
+  * `fantasy`：具有高度艺术夸张、剧场舞台风格或特殊视觉图案的奇幻装饰字体家族（如 Impact, Western）。
+
+#### 2. `font-style`（字形样式）
+控制字体的倾斜状态：
+* `normal`：常规直立正体（Roman / Upright）。
+* `italic`：真正由字体设计师专为斜体设计的草体/意大利斜体字形（True Italic），其字符骨架与衬线结构往往具有手写体特征。
+* `oblique`：机械倾斜体（Slanted / Oblique），通常通过将常规正体在几何上向右剪切倾斜一定角度生成。
+
+#### 3. `font-variant`（字形变体）
+控制小型大写字母（Small Capitals）的呈现：
+* `normal`：标准常规大小写字形。
+* `small-caps`：将小写字母替换为高度近似于小写字母 x-高度（x-height）的小型大写字母。如果所选字体本身内置了真正的小型大写字母字形，浏览器将优先调用专业设计字形；若没有，浏览器可能会通过机械缩放大写字母来合成仿真（Synthetic Small Caps）。
+
+#### 4. `font-weight`（字重 / 笔画粗细）
+控制字体笔画的粗细密度。CSS 支持以下枚举值与九档绝对数值体系：
+* `normal`：常规字重，在数值上等价于 `400`。
+* `bold`：粗体字重，在数值上等价于 `700`。
+* `bolder`：相对于父元素的计算字重，递进提升一级粗细。
+* `lighter`：相对于父元素的计算字重，递减降低一级粗细。
+* `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`：对应从超细（Thin / Ultralight）到超黑（Black / Ultrabold）的精细等级阶梯。
+
+#### 5. `font-stretch`（字形伸缩 / 宽高比）
+控制字体的水平冷凝与延展程度。支持以下等级：
+* `normal`：常规未伸缩字形。
+* `ultra-condensed`, `extra-condensed`, `condensed`, `semi-condensed`：四档不同程度的字形紧缩。
+* `semi-expanded`, `expanded`, `extra-expanded`, `ultra-expanded`：四档不同程度的字形扩展拉伸。
+* `wider`, `narrower`：相对于父元素当前伸缩状态的相对调整值。
+
+#### 6. `font-size`（字号大小）
+决定字体的全身身长尺寸。CSS 提供了极度灵活的取值机制：
+* **绝对尺寸关键字**（Absolute Size）：`xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`。W3C 规范建议各相邻级别之间采用约 1.2 至 1.5 倍的缩放比例阶梯，其中 `medium` 通常默认为用户浏览器的基准阅读字号（通常为 16px）。
+* **相对尺寸关键字**（Relative Size）：`larger`, `smaller`。相对于继承自父元素的字号，沿绝对尺寸阶梯向上或向下挪动一档。
+* **物理与屏幕长度单位**（Length Units）：
+  * `pt`（磅/点，1/72 英寸，排版领域的经典绝对单位）。
+  * `px`（像素，在屏幕显示中通常指代参考像素，受屏幕分辨率与设备缩放影响）。
+  * `em`（相对于当前元素的计算字号大小；1em 即等于当前字体全身尺寸）。
+  * `ex`（相对于当前字体的 x-高度；若字体未包含该度量，通常按 0.5em 估算）。
+* **百分比值**（Percentage）：如 `120%`，其行为与 `em` 单位完全类似，精确基于父元素的计算字号进行缩放。
+
+#### 7. `font-size-adjust`（字号长宽比微调）与 x-高度的几何定律
+
+在屏幕阅读与排版美学中，一个经常被非专业人士忽视的核心秘密在于：**决定一段文本在屏幕上视觉可读性与明晰度的，并非全身字号（font-size）本身，而是其小写字母的实际高度——即所谓的 x-高度（x-height）**！
+
+不同字体家族虽然在技术上设定了完全相同的全身字号（例如 100 pt），但由于设计风格与历史流派的迥异，其小写字母的实际高度往往天差地别。我们定义字体的**长宽比值**（Aspect Value，记作 $a$）为：
+$$a = \frac{	ext{x-height}}{	ext{font-size}}$$
+
+当设计者在 `font-family` 中指定了一串字体回退候选列表时（例如首选字体为 Verdana，备用字体为 Times New Roman），如果用户的系统缺失首选字体，浏览器被迫切换到备选字体。然而，Verdana 拥有巨大的 x-高度（其 $a \approx 0.58$），而 Times New Roman 的 x-高度相对狭小（其 $a \approx 0.45$）。一旦发生回退，同样字号下的 Times New Roman 会在视觉上骤然显得极其微小、暗淡且难以辨识，从而彻底破坏原有的排版平衡与可读性。
+
+为了化解这一顽疾，CSS 引入了革命性的 `font-size-adjust` 属性。该属性允许设计者显式声明首选字体的基准长宽比值 $a$。当浏览器由于缺少首选字体而不得不采用某种备选字体时（设该备选字体自身固有的实际长宽比值为 $a'$），浏览器将自动调整实际渲染时的全身字号尺寸（记为调整后字号 $c$），其计算公式为：
+$$c = \left(\frac{a}{a'}
+ight) 	imes s$$
+其中 $s$ 为原始声明的 `font-size`。通过这一动态补偿机制，备选字体在实际屏幕呈现时的小写字母高度将恒定保持在 $c 	imes a' = a 	imes s$ 的预设尺寸上，从而奇迹般地维系了跨平台、跨字体回退时的视觉清晰度与阅读舒适感！
+
+![图 10-1：多种传统经典字体的 x-高度（短字母高度与全身身长的比率）对比](/images/fonts-encodings/fig10-1.png)
+*图 10-1：多种传统经典字体的 x-高度（短字母高度与全身身长的比率）对比。图中自上而下展示了各主流字体在相同全身尺寸下小写字母实际高度的巨大差异。*
+
+#### 8. `font` 简写复合属性与系统字体关键字
+
+CSS 提供了强大的单行复合简写属性 `font`，允许按以下严格语法次序一次性声明多个字体属性：
 ```css
-p {
-  font-family: "Berkeley Oldstyle", Verdana, sans-serif;
-  font-size: 14px;
+font: [font-style || font-variant || font-weight || font-stretch]? font-size [/ line-height]? font-family;
+```
+此外，`font` 属性还破例允许使用特定的**系统字体关键字**（System Fonts），以便使 Web 页面中的 UI 元素能够完美融入用户宿主操作系统的原生桌面窗口部件外观：
+* `caption`：用于带有标题的控件（如按钮、下拉框）。
+* `icon`：用于桌面图标标签。
+* `menu`：用于系统下拉菜单。
+* `message-box`：用于系统模态对话框与消息提示框。
+* `small-caption`：用于小型控件的辅助标头。
+* `status-bar`：用于窗口底部系统状态栏。
+
+---
+
+### CSS 字体匹配算法（Font Matching Algorithm）
+
+当一段 HTML 元素被赋予了一套 CSS 字体声明时，浏览器底层绝非盲目尝试，而是必须严格执行一套由 W3C 规范固化的、高度确定的六步匹配算法：
+
+1. **建立本地字体数据库**：用户代理（浏览器）首先遍历当前操作系统及可下载字体资源库，提取所有可用字体的全套排版度量元数据，包括字体族名称、字重等级、倾斜状态、伸缩属性以及 Unicode 字符覆盖范围表。
+2. **字体族名称匹配**：浏览器沿 `font-family` 声明从左至右依次寻找匹配项。如果在具体名称中未命中，且声明末尾提供了通用泛用族名称（如 `serif`），则从本地数据库中挑选预设的通用族字体替代。
+3. **字形样式匹配**：优先寻找 `italic` 匹配；若所选字体未提供专用斜体，但在数据库中存在 `oblique`，则采用倾斜体替代；反之亦然。若两者皆无，则由光栅化引擎对正体施加算法剪切合成仿斜体。
+4. **字形变体匹配**：优先寻找原生提供小型大写字母（`small-caps`）的字形；若无，则进入仿真合成流程。
+5. **字重阶梯匹配**：若请求的字重数值未完全精准命中，浏览器遵循以下既定启发式阶梯寻找最接近的替代字重：
+   * 若请求字重为 `500`，优先向下寻找 `400`；若无，再向上寻找 `600` 及以上。
+   * 若请求字重小于 `400`，严格按数值递减方向向下寻找更细的字形；若无，再向上寻找。
+   * 若请求字重大于 `500`，严格按数值递增方向向上寻找更粗的字形；若无，再向下寻找。
+6. **字号光栅化缩放**：对于现代可缩放矢量字体（TrueType / OpenType / Type 1），直接按照计算所得的目标字号尺寸缩放贝塞尔轮廓曲线并执行网格对齐微调；对于极少数老旧点阵点阵位图字体，则寻找最接近的预渲染字号点阵，必要时施加二次抽样。
+
+---
+
+### 可下载网络字体规范（@font-face）
+
+早在 CSS Level 2（1998年）规范中，W3C 便极具前瞻性地提出了通过 `@font-face` 规则从网络动态加载专有字体资源的标准化构想。一个标准的 `@font-face` 规则由一系列**字体描述符**（Font Descriptors）构成：
+
+```css
+@font-face {
+  font-family: "RoboScript";
+  src: url("https://example.com/fonts/roboscript.otf") format("opentype"),
+       url("https://example.com/fonts/roboscript.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+0000-007F, U+0100-017F;
 }
 ```
-当用户的计算机未安装 Berkeley Oldstyle 时，浏览器回退到 Verdana，整个段落的视觉体量将瞬间暴增近 $45\%$，彻底撑破原有的版面布局！
 
-### 2. `font-size-adjust` 几何归一化算法
-为了从根本上消除字体降级回退带来的版面震颤，CSS 规范引入了精妙的 `font-size-adjust` 属性。排印师可以直接指定首选字体的黄金字心比值 $c$：
-```css
-p {
-  font-family: "Berkeley Oldstyle", Verdana, sans-serif;
-  font-size: 14px;
-  font-size-adjust: 0.38;
-}
-```
-当浏览器被迫降级使用 Verdana 时，它会根据目标字体的固有比值 $c_{\text{actual}} = 0.55$，自动重新计算并缩放实际渲染字号 $z'$：
-$$z' = z \times \frac{c_{\text{target}}}{c_{\text{actual}}} = 14\text{px} \times \frac{0.38}{0.55} \approx 9.67\text{px}$$
-经过此番动态几何矫正，回退后的 Verdana 小写字母的实际物理 x 字高将与原设计的 Berkeley Oldstyle 严丝合缝完全一致，守住了版面的视觉韵律！
-
----
-
-## 动态网络字体技术的先驱探索
-
-在当代 WOFF / WOFF2 格式与无限制 `@font-face` 普及之前，业界曾掀起长达十余年的“网络字体格式战争”。核心矛盾在于：**字体设计厂商（Foundries）极度恐惧商业字库文件直接暴露在 Web 上会被任何人随手盗取；而网页开发者与浏览器厂商则迫切需要跨平台的动态下载能力。**
-
-### 1. Bitstream TrueDoc 与 PFR 格式
-早在 1996 年，著名的字体铸造厂 Bitstream 便推出了划时代的 **TrueDoc** 体系：
-* **核心格式**：便携式字体资源（PFR, Portable Font Resource）；
-* **字形捕捉器（Character Shape Recorder, CSR）**：在 Web 开发者机器上运行，从系统安装的 TrueType 或 PostScript Type 1 字体中提取矢量字形曲线，并将其压缩为私有的微型 PFR 轮廓格式；
-* **字形渲染器（Character Shape Player, CSP）**：嵌入至浏览器内部（曾被 Netscape Communicator 4.0 原生集成）。当网页加载时，动态下载 `.pfr` 文件并在客户端瞬时绘制高质量字形；
-* **防盗链安全机制**：PFR 首次支持将字体绑定到特定的域名（Domain Locking），如果其他网站试图盗用该 `.pfr` 链接，字形播放器将直接拒绝渲染！
-
-### 2. 微软 WEFT 与 EOT（Embedded OpenType）
-作为对 TrueDoc 的正面反击，微软在 Internet Explorer 4.0 中推出了 **WEFT（Web Embedding Fonts Tool）** 实用工具与 **EOT（Embedded OpenType, `.eot`）** 格式：
-* **智能子集化（Subsetting）**：WEFT 能够深度分析网站的所有 HTML 页面，统计出全站实际用到的汉字或特殊标点，从庞大的数兆字节中文字库中剥离出一个仅数十 KB 的微型子集；
-* **微型压缩引擎（MicroType Express）**：采用高效的有损/无损自适应几何压缩算法，将 TrueType 表格压缩至原体积的 $30\%$ 以下；
-* **根域名加密绑定（Root-String Binding）**：EOT 规范在文件头部严密嵌入了授权网站的完整 URL 签名，若签名与当前加载上下文不符，Windows GDI 引擎将禁止激活该字体。
-
-尽管 TrueDoc 与 EOT 拥有非凡的前瞻性，但由于厂商之间的专利壁垒与浏览器大战（Netscape 押注 TrueDoc，IE 押注 EOT，互不兼容），早期动态网络字体最终遗憾沉沦，直至 W3C 牵头确立开放通用的 WOFF 工业标准。
+CSS2 规范中定义的详尽字体描述符清单包括：
+* `font-family`：为网络字体在当前样式表作用域内所定义的引用标识符。
+* `src`：字体的外部 URI 定位符及格式提示（`format(...)`）。
+* `font-style`, `font-variant`, `font-weight`, `font-stretch`：定义该网络字体在样式表匹配树中所对应的具体样式槽位。
+* `unicode-range`：声明该网络字体中所包含字形所覆盖的 Unicode 码点区间。这一机制具有决定性的网络优化意义：浏览器在解析文本时，若发现当前页面完全未出现该区间内的字符，便可智能跳过该大体积字体文件的网络下载！
+* `units-per-em`：字体的设计全身身长网格单位（如 1000 或 2048）。
+* `panose-1`：该字体的 10 字节 PANOSE 分类编码，用于高级相似性降级替代。
+* `stemv`, `stemh`：字形主要竖笔划（Vertical Stem）与横笔划（Horizontal Stem）的粗细度量。
+* `slope`：斜体字形的垂直倾斜偏角角度。
+* `cap-height`：大写字母顶部至基线的大写高度。
+* `x-height`：小写字母顶部至基线的 x-高度。
+* `ascent`, `descent`：字体的上行部最高升幅与下行部最低降幅。
+* `widths`：各字形水平步进宽度的紧凑编码表。
+* `bbox`：所有字形轮廓在设计坐标系下所构成的全局外接边界矩形框（Bounding Box）。
+* `definition-src`：指向包含该字体更深层排版元数据的外部定义文件地址。
 
 ---
 
-## SVG 字体与矢量排印新范式
+## 网络字体下载与嵌入工具
 
-在万维网向多媒体与响应式矢量图形跨越的进程中，W3C 制定的 **SVG（Scalable Vector Graphics, 可缩放矢量图形）** 规范为字体排印开辟了一条完全基于 XML 文本描述的全新道路。
+在万维网字体历史的拓荒阶段，浏览器原生支持直连 TTF/OTF 的时代尚未到来。为了在防范盗版滥用与提供定制排版之间取得商业妥协，两大具有划时代意义的技术解决方案应运而生：
 
-### 1. SVG 文本与排印容器
-在 SVG 视口中，文本是原生的一等公民矢量对象：
+### 1. Bitstream 公司的 TrueDoc 动态字体技术
+
+Bitstream 公司推出的 **TrueDoc** 体系由两个互为表里的核心组件构成：
+* **字符轮廓记录器**（Character Shape Recorder, CSR）：安装于服务器端或设计者工作站，负责截获、解析系统中的矢量字体（TrueType 或 PostScript Type 1），将其笔画骨架与轮廓数据经过高强度压缩与加密，封装为极其小巧紧凑的**便携式字体资源**（Portable Font Resource, 扩展名为 `.pfr`）。
+* **字符轮廓播放器**（Character Shape Player, CSP）：嵌入在客户端浏览器中的微型渲染引擎。它可以作为原生浏览器模块（如 Netscape 4.x 内置），或作为 ActiveX 控件与 Java Applet 运行于客户端，负责在页面绘制时动态解密 PFR 并在内存中将字形光栅化。
+
+为了方便广大网站设计者制作 PFR 资产，Bitstream 发布了著名的可视化制作套件——**WebFont Wizard**。
+
+![图 10-2：WebFont Wizard 软件操作界面截图](/images/fonts-encodings/fig10-2.png)
+*图 10-2：WebFont Wizard 软件操作界面截图：[a] 字体选择向导；[b] 字符集子集化选择（英数、西欧拉丁、自定义区间）；[c] 字体字形全貌预览表；[d] 目标绑定的万维网 URL 域名安全锁定。*
+
+通过 WebFont Wizard，开发者可以对字体实施极其严密的**字符子集化**（Subsetting）——仅提取目标网页所真实用到的字符，从而将数百 KB 甚至数 MB 的字体文件急剧缩减至数 KB 的超微型尺寸。此外，软件强制要求设计者指定该字体允许被调用的 Web 域名地址，任何第三方如果试图跨站盗链该 PFR 文件，播放器在校验当前页面 URL 与授权域名不匹配后将断然拒绝渲染。
+
+![图 10-6：WebFont Wizard 在服务器端生成的可用字体列表在浏览器中的展示截屏](/images/fonts-encodings/fig10-6.png)
+*图 10-6：WebFont Wizard 在服务器端生成的可用字体列表在浏览器中的展示截屏。*
+
+![图 10-7：浏览器端展示 Palatino Linotype 字体在 Unicode 基本拉丁字符块中的字形细节截屏](/images/fonts-encodings/fig10-7.png)
+*图 10-7：浏览器端展示 Palatino Linotype 字体在 Unicode 基本拉丁字符块（Basic Latin）中的字形细节截屏。*
+
+---
+
+### 2. 微软公司的字体嵌入技术与 WEFT / EOT
+
+微软公司面对网络字体的挑战，采取了深度依托其操作系统技术底蕴的策略：于 1997 年推出了**嵌入式 OpenType**（Embedded OpenType, 扩展名为 `.eot`）格式，并向全球免费推出了**网络嵌入字体工具**（Web Embedding Fonts Tool, **WEFT**）。
+
+EOT 格式本质上是对标准 TrueType / OpenType 字体文件施加深度精简与专有封装的产物：
+1. **RootString 根域安全防护**：EOT 在文件头部写入了授权站点的域名字符串列表（RootStrings）。Internet Explorer 在加载 EOT 时，会严格核验发起请求的当前页面 URL 是否属于这些根域或其合法子域。若不匹配，则拒绝装载。这一设计打消了商业字文字体厂商对字体文件被全网无底线随意下载盗用的致命担忧。
+2. **微提示与高级字形压缩**：WEFT 支持利用 Agfa 公司的 MicroType 压缩算法，对字形轮廓数据施加惊人的无损压制，同时完整保留原字体的 TrueType Hinting（微调指令），确保在 Windows ClearType 或低分辨率点阵显示下依然保持无可挑剔的清晰刀锋边缘。
+3. **严格遵从 OS/2 表的嵌入许可标志**：WEFT 展现出对知识产权的严苛捍卫——在分析字体时，它会严格检查字体内部 `OS/2` 表中的 `fsType` 许可比特位。凡是被标记为“禁止嵌入”（Restricted License Embedding）的商业字体，WEFT 将在界面中直接标记为红色禁用状态，拒绝将其转换为网络字体！
+
+![图 10-3：WEFT 的系统字体检测与许可数据库界面](/images/fonts-encodings/fig10-3.png)
+*图 10-3：WEFT 的系统字体检测与许可数据库界面。清晰列出了系统中各款字体的 Windows 名称、字体族、版本号以及严格的版权许可嵌入级别。*
+
+WEFT 拥有完备的工作流向导，能够自动化分析目标网站全部 HTML 页面中实际出现的字符频次，自动生成精准剔除冗余字形的超轻量级 EOT 字体文件，并自动输出配套的 CSS `@font-face` 声明片段。
+
+![图 10-4：WEFT 制作 EOT 网络字体的核心步骤界面](/images/fonts-encodings/fig10-4.png)
+*图 10-4：WEFT 制作 EOT 网络字体的核心步骤界面：[a] 添加目标 Web 页面；[b] 待嵌入字体检测汇总列表；[c] Unicode 字符子集挑选编辑器；[d] 最终生成与 EOT 打包向导。*
+
+![图 10-5：WEFT 中生成 EOT 字体与配套 CSS 声明代码的窗口](/images/fonts-encodings/fig10-5.png)
+*图 10-5：WEFT 中生成 EOT 字体与配套 CSS 声明代码的窗口（左侧为待编译字体列表，右侧为自动生成的标准样式代码预览）。*
+
+---
+
+## SVG 格式与原生矢量字体体系
+
+当 W3C 推出 **SVG**（可伸缩矢量图形，Scalable Vector Graphics）时，万维网的视觉表现能力迎来了翻天覆地的技术飞跃。作为一个百分之百基于纯 XML 语法规范的开放矢量图形标准，SVG 彻底打破了位图图像与静态文字之间的传统鸿沟。
+
+### SVG 中的文本与字体选择机制
+
+在 SVG 文档中，文本不再是死板的光栅像素，而是由 `<text>` 元素统领的一等矢量图形对象：
 ```xml
 <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
-  <text x="50" y="100" font-family="Georgia" font-size="48" fill="#8b0000" letter-spacing="2">
-    Voile <tspan fill="#4169e1" font-weight="bold">Magic</tspan> Library
+  <text x="50" y="100" 
+        font-family="Georgia, serif" 
+        font-size="48" 
+        fill="#336699" 
+        font-style="italic">
+    Typography on the Web
   </text>
 </svg>
 ```
-SVG 具备普通 HTML 无法比拟的高级排印控制特性：
-* **`text-anchor`**：原生支持 `start`、`middle`、`end` 的几何锚点对齐；
-* **`<textPath>`**：允许文本沿着任意复杂的三次贝塞尔样条路径流动弯曲；
-* **字形级精确定位**：通过 `dx` 与 `dy` 属性数组，可以对单词内的每一个字符逐一实施二维微移。
+SVG 完整继承并支持所有核心 CSS 字体属性。不仅如此，通过 `<tspan>`（实现行内局部的坐标微调与独立样式覆盖）以及 `<textPath>`（允许文本沿着由贝塞尔曲线定义的任意数学路径平滑弯曲排列），SVG 赋予了 Web 设计师前所未有的前卫排版自由度。
 
-### 2. 纯 XML 描述的 SVG Font 规范
-在 SVG 1.1 规范中，W3C 甚至直接在 XML 内部定义了完整的字体格式——**SVG Fonts**：
+---
+
+### 原生 SVG 字体架构（SVG Fonts）
+
+然而，SVG 最具开创性乃至令传统排版界为之震撼的特性，莫过于它所建立的**原生 SVG 字体规范**（SVG Fonts）。
+
+在传统计算环境中，文字的渲染高度依赖于底层操作系统复杂的字体子系统（Windows GDI/DirectWrite、Mac Quartz 2D、Linux FreeType）。而在 SVG 规范中，**字体本身可以直接由一套纯 XML 标签完整描述并内嵌于文档之中**！
+
+一个完整的 SVG 字体定义封装在 `<font>` 元素内部，其典型结构如下：
+
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <font id="VoileFont" horiz-adv-x="1000">
-      <font-face font-family="Voile" units-per-em="1000" ascent="800" descent="-200" />
-      <missing-glyph horiz-adv-x="500" d="M0,0 h500 v800 h-500 z" />
-      
-      <!-- 字符 'A' 的矢量路径定义 -->
-      <glyph unicode="A" horiz-adv-x="680" 
-             d="M 50,0 L 290,700 L 390,700 L 630,0 L 510,0 L 450,180 L 230,180 L 170,0 Z 
-                M 270,300 L 410,300 L 340,510 Z" />
-      
-      <!-- 字母间字距微调（Kerning Pair） -->
-      <hkern u1="A" u2="V" k="-80" />
-    </font>
-  </defs>
-</svg>
+<font id="MyCustomFont" horiz-adv-x="1000">
+  <font-face font-family="MyCustomFont"
+             units-per-em="1000"
+             ascent="800"
+             descent="-200"
+             cap-height="700"
+             x-height="500" />
+  <missing-glyph horiz-adv-x="500" d="M0,0 L500,0 L500,800 L0,800 Z" />
+  <glyph unicode="A" horiz-adv-x="650" d="M100,0 L300,700 L350,700 L550,0 ... Z" />
+  <hkern u1="A" u2="V" k="-80" />
+</font>
 ```
-在 SVG Font 中：
-* 每一个字形（`<glyph>`）的轮廓完全由标准的 SVG 路径数据命令（`d="..."`，包含 `M` 移动、`L` 连线、`C` 三次贝塞尔、`Q` 二次样条）直接绘制；
-* 原生支持 `<hkern>` 与 `<vkern>` 水平与垂直字距微调对；
-* 配合 `<altGlyph>` 标签，排印师甚至可以在特定的语境下指定替换为花体字（Swash）或上下文变体！
 
-尽管 SVG Fonts 由于缺乏类似 TrueType 的字节码 Hinting 渲染优化机制而在主流桌面浏览器中逐渐退役，但它开创的“将字体深度集成进通用图形标记语言”的思想，彻底启发了当代 OpenType-SVG（彩色与表情符号字体）标准的诞生。
+#### SVG 字体度量与 font-face 属性
+在 `<font-face>` 元素中，设计者可以显式精确定义字体的各项排版几何基准度量：
+
+![图 10-8：SVG font-face 元素的关键几何度量属性示意图](/images/fonts-encodings/fig10-8.png)
+*图 10-8：SVG font-face 元素的关键几何度量属性示意图。左图展示垂直度量：(1) 上行升幅 ascent；(2) 下行降幅 descent；(3) 大写高度 cap-height；(4) x-高度 x-height。右图展示基准对齐线：(5) 基线 baseline；(6) 中心线 center line；(7) 上划线 overline；(8) 删除线 strikethrough；(9) 下划线 underline。*
+
+#### 水平与垂直排版原点与进距
+SVG 不仅支持西方经典的从左至右水平排版，更原生支持东亚传统的自上而下垂直排版体系：
+* 水平排版时，字形从**水平原点**（Horizontal Origin，坐标通常为 $(0,0)$）开始绘制，绘制完成后沿 X 轴推进其水平步进宽度（$dx$, 属性为 `horiz-adv-x`）。
+* 垂直排版时，字形从**垂直原点**（Vertical Origin，由 `vert-origin-x` 与 `vert-origin-y` 指定）开始绘制，绘制完成后沿 Y 轴向下推进其垂直步进高度（$dy$, 属性为 `vert-adv-y`）。
+
+![图 10-9：水平排版与垂直排版几何原点与前进向量对比示意图](/images/fonts-encodings/fig10-9.png)
+*图 10-9：水平排版与垂直排版几何原点与前进向量对比示意图：(1) 箭头分别始自“水平原点”（左）与“垂直原点”（右）；(2) 步进位移向量 dx 与 dy。*
+
+---
+
+### 深入剖析：将经典字体字形转换为纯 SVG 矢量路径
+
+为了彻底揭开矢量字形在 XML 内部的数学运作机理，本书作者以法国当代顶级字体设计大师让·弗朗索瓦·波谢（Jean François Porchez）的名作——《Le Monde Livre》字体中的大写字母 **‘R’** 为例，展开了一场极为详尽的微观解构。
+
+![图 10-10：来自 Le Monde Livre 字体的字母 ‘R’ 转换为 SVG 贝塞尔矢量轮廓路径的几何剖析](/images/fonts-encodings/fig10-10.png)
+*图 10-10：来自 Le Monde Livre 字体的字母 ‘R’ 转换为 SVG 贝塞尔矢量轮廓路径的几何剖析。图中清晰标注了字母轮廓每一段三次贝塞尔曲线的控制点与起止锚点序列。*
+
+在 `<glyph>` 元素的 `d` 属性中，字形的轮廓通过一套紧凑高效的单字母绘图指令与连续坐标序列加以描述：
+* `M x,y`（Move To）：将绘图游标抬起并瞬移至新的起始坐标点 $(x, y)$。
+* `L x,y`（Line To）：从当前位置绘制一条至目标点 $(x, y)$ 的直线段。
+* `H x`（Horizontal Line To）：绘制水平线至横坐标 $x$。
+* `V y`（Vertical Line To）：绘制垂直线至纵坐标 $y$。
+* `C x1,y1 x2,y2 x,y`（Cubic Bézier Curve）：以 $(x_1, y_1)$ 与 $(x_2, y_2)$ 为控制点，绘制一条平滑的三次贝塞尔曲线至终点 $(x, y)$。
+* `Z`（Close Path）：从当前点引出一条直线自动闭合回本轮廓的起始点，形成一个封闭填充环（Contour）。
+
+通过跟随图 10-10 中标注的精细数字坐标轨迹，我们能够清晰看到：
+1. 绘图指令首先自大写字母 ‘R’ 主干竖笔的左下角基底开始，利用 `M` 指令确立起点；
+2. 随后向上绘制主干竖笔的左侧边缘，平滑过渡至上部衬线（Serif）；
+3. 接着借助一连串优美连续的 `C`（三次贝塞尔）曲线绘制出 ‘R’ 上部饱满外凸的圆弧环部（Bowl）；
+4. 顺势向下勾勒出该字形最为标志性、富于书法张力的优雅右下斜腿（Leg）及其精致的翘尾末端；
+5. 最后折返向上闭合外轮廓，并开启第二个内部子路径（Inner Contour）将内腔闭合孔洞（Counter）精确挖空！
+
+这种将高精度曲线完全剥离自专有二进制容器、以明文纯文本形式直接呈现在 Web 标准规范之中的构想，在排版技术史上具有无与伦比的先驱启示意义。尽管 SVG 字体规范由于缺乏专业的全屏栅格微调（Hinting）机制以及解析大体积极端字体时的性能短板，在后来逐渐被更适合全场景的 WOFF/WOFF2（Web Open Font Format）所替代，但它所确立的字符数学矢量化表征逻辑，至今依然是所有现代数字字体与网页图形引擎的灵魂基石。
+
+---
+
+# 结语
+
+回顾万维网早期的字体演进史，我们看到的是一部充满妥协、碰撞与智慧闪光的宏大技术史诗。一方面，网页作者渴望摆脱单调苍白的默认系统字体枷锁，追求具备高度艺术表现力与学术精确度的个性化排版；另一方面，商业字体厂商对版权保护的合法顾虑、操作系统霸主之间的私有标准倾轧，以及带宽极其受限的早期网络基础设施，共同筑起了一道道看似难以逾越的壁垒。
+
+从 Netscape/Bitstream 的 TrueDoc 到微软的 WEFT/EOT，从早期的 CSS 字体描述符探索到自包含的 SVG 原生字体构想，正是这一代先驱者们不懈的技术试错与标准演进，最终为万维网迎向全矢量、全平台无障碍流通的现代通用开放字体时代（WOFF/WOFF2 及现代 CSS Typography），铺平了坚实而宽广的基石！
