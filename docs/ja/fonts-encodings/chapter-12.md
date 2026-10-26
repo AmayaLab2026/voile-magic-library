@@ -222,7 +222,8 @@ fl.UpdateFont()
 
 * **多層レイヤー構造（図 12-12）**：前景（Foreground）、背景（Background）、ガイド層（Guide Layer）を明確に分離。3次ベジェと2次スプラインの双方をサポート。
 * **付随メトリクスの一括生成**：フォント出力時、AFM、PFM、さらには TeX/LaTeX 用の TFM および ENC ファイルを同時に自動生成可能。
-* **アフィン変換行列**：行列演算による正確な回転、拡大縮小、シアー、鏡像反転を直接実行。
+* **アフィン変換行列（Affine Transformation Matrix）**：行列演算による正確な回転、拡大縮小、シアー、鏡像反転を直接実行：
+  $$ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} a & c \\ b & d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} t_x \\ t_y \end{bmatrix} $$
 * **縦組（Vertical Typesetting）の完全サポート**：上部サイドベアリング（TSB）、垂直送り量（Vertical Advance）を個別に設定し、`vhea`、`vmtx` テーブルおよび OpenType `vert` 特性を自動構築。
 * **CID フォントとフラット化**：数万文字の東アジア文字体系に対応する CIDFont 構造を扱い、`CID > Flatten` 命令によって単一のフラットな Unicode フォントへと瞬時に展開可能。
 

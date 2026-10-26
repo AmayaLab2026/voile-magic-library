@@ -1,243 +1,222 @@
 ---
-title: 蔵書目録索引 · 請求記号と著者略歴録
-description: ヴワル魔法図書館の蔵書総目録、図書館分類請求記号体系、著者略歴録、および各巻閲覧案内。
+title: "蔵書目録索引 · 請求記号と著者略歴録"
+description: "ヴワル魔法図書館（Voile Magic Library）収蔵典籍の学術分類、請求記号体系、著者・編集委員略歴録、および横断的索引体系の総合案内。"
 ---
 
 # 蔵書目録索引 · 請求記号と著者略歴録
 ### Voile Magic Library · Archival Catalogue & Biographical Registry
 
-> *「古びた紙背に微かな光が宿り、数々の稀覯本が静寂のなかに息づく。この学術の静域において、忘れ去られた手稿と革新的な諸定理が、真理を求める者の訪れを待っている。」*
+当図書館（ヴワル魔法図書館）が収蔵する貴重学術文献・歴史的先駆典籍の総合目録、およびこれら不朽の著作を執筆・編纂した先駆科学者・法学者・タイポグラフィ理論家たちの公式略歴録である。
 
 ---
 
 ## 請求記号カード一覧
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+::: info 館蔵第一号典籍 · 請求記号と著者情報
+* **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）
+* **請求記号**：`VML-KF3890.S58-1992`
+* **ISBN**：0-914171-50-X
+* **典籍原題**：Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)
+* **日本語収蔵名**：『規制物質：連邦薬物法の化学と法律ガイド（第2版）』
+* **多言語検索標目**：Controlled Substances / 規制物質 / 管制物质 / 管制物質
+* **出版機関**：Ronin Publishing, Inc. (Berkeley, CA)
+* **収蔵庫位**：ヴワル魔法図書館 · 特蔵文献室
+* **利用状況**：特蔵公開 · 全巻オンライン閲覧可能（手描きの化学基本骨格トポロジー構造図版33点を含む）
+* **アクセス**：**[本書の総合目録と各章へ進む](/ja/controlled-substances/)**
+:::
 
-<div class="p-4 border rounded-xl bg-gray-50/50 dark:bg-zinc-800/50 border-gray-200 dark:border-zinc-700">
-  <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-zinc-400 font-mono">Special Collection Vol. 01</div>
-  <div class="text-lg font-bold text-gray-900 dark:text-zinc-100 my-1">規制物質：化学と法律のガイド</div>
-  <div class="text-sm text-gray-600 dark:text-zinc-400">連邦薬物法の化学・法理ハンドブック（第2版）</div>
-  <div class="mt-3 font-mono text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 p-2 rounded">
-    請求記号: VML-KF3890.S58-1992<br>
-    LCC: KF3890 .S58 1992 | DDC: 344.730545
-  </div>
-  <div class="mt-3 text-right">
-    <a href="/ja/controlled-substances/" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">典籍を開く &rarr;</a>
-  </div>
-</div>
+::: info 館蔵第二号典籍 · 請求記号と著者情報
+* **編集主幹**：T. M. Mel'kumov 等（ソビエト連邦科学アカデミー自然科学・技術史研究所 先駆著作編集委員会）
+* **先駆執筆者**：N. I. Kibal'chich（キバリチッチ）、Yu. V. Kondratyuk（コンドラチュク / アレクサンドル・シャルゲイ）、K. E. Tsiolkovskiy（ツィオルコフスキー）、F. A. Tsander（ツァンダー）
+* **力学基礎理論**：I. V. Meshcherskiy（メシチェルスキー）、V. P. Vetchinkin（ヴェチンキン）
+* **考証・編纂**：V. N. Sokol'skiy（ソコリスキー 博士）
+* **請求記号**：`VML-TL781.P56-1965`
+* **報告番号 / 文献コード**：NASA TT F-9285 / TT 65-50114（ロシア語原版：Nauka-1964）
+* **典籍原題**：Pioneers of Rocket Technology: Selected Works (Пионеры ракетной техники: Избранные труды)
+* **日本語収蔵名**：『ロケット技術の先駆者たち：ソ連宇宙開発の先駆者選集（1881–1933）』
+* **多言語検索標目**：Pioneers of Rocket Technology / ロケット技術の先駆者 / 火箭技术先驱 / 火箭技術先驅
+* **出版機関**：National Aeronautics and Space Administration (Washington, D.C.) / 科学出版社 (Nauka, Moscow) / イスラエル科学翻訳局 (IPST, Jerusalem)
+* **収蔵アーカイブ源**：ソ連中央十月革命公文書館（TsGAOR 第112番フォンド）/ ソ連科学アカデミー古文書館（ARAN 第733番、第555番フォンド）
+* **収蔵庫位**：ヴワル魔法図書館 · 特蔵文献室
+* **利用状況**：特蔵公開 · 全巻オンライン閲覧可能（高精細工学力学図版・手稿影印42点を含む）
+* **アクセス**：**[本書の総合目録と各章へ進む](/ja/rocket-pioneers/)**
+:::
 
-<div class="p-4 border rounded-xl bg-gray-50/50 dark:bg-zinc-800/50 border-gray-200 dark:border-zinc-700">
-  <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-zinc-400 font-mono">Special Collection Vol. 02</div>
-  <div class="text-lg font-bold text-gray-900 dark:text-zinc-100 my-1">ロケット技術の先駆者たち：選集</div>
-  <div class="text-sm text-gray-600 dark:text-zinc-400">ソ連科学アカデミー編纂（ナウカ 1964 / NASA TT F-9285）</div>
-  <div class="mt-3 font-mono text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 p-2 rounded">
-    請求記号: VML-TL781.P56-1965<br>
-    LCC: TL781 .P56 1965 | DDC: 629.40947
-  </div>
-  <div class="mt-3 text-right">
-    <a href="/ja/rocket-pioneers/" class="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">典籍を開く &rarr;</a>
-  </div>
-</div>
-
-</div>
+::: info 館蔵第三号典籍 · 請求記号と著者情報
+* **著者**：Yannis Haralambous, Ph.D.（ヤニス・ハラランボス 博士）
+* **英訳校閲**：P. Scott Horne 博士
+* **請求記号**：`VML-Z250.8.H37-2007`
+* **米国議会図書館分類（LCC）**：`Z250.8`（電子データ処理とフォント組版）/ `QA76.9.T48`（テキスト処理と文字符号化）
+* **デューイ十進分類（DDC）**：`005.72`（文字データ形式と文字コード）/ `686.22544`（電子タイポグラフィシステム）
+* **ISBN**：978-0-596-10242-5 / 0-596-10242-9
+* **典籍原題**：Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between (1st Edition, 2007)
+* **日本語収蔵名**：『フォントとエンコーディング：Unicode と高度タイポグラフィ全解』
+* **多言語検索標目**：Fonts & Encodings / フォントとエンコーディング / 字体与编码 / 字體與編碼
+* **出版機関**：O'Reilly Media, Inc. (Sebastopol, CA)
+* **フランス語初版**：*Fontes & codages*（O'Reilly France, 2004）
+* **収蔵庫位**：ヴワル魔法図書館 · 特蔵文献室（計算機科学と現代組版理論典籍）
+* **利用状況**：特蔵公開 · 全巻オンライン閲覧可能（フルカラー高精細図版、文字解剖図、およびベジェ制御点解析を含む）
+* **アクセス**：**[本書の総合目録と各章へ進む](/ja/fonts-encodings/)**
+:::
 
 ---
 
 ## 図書館分類体系と請求記号規則
 
-ヴワル魔法図書館では、独自に制定した**ヴワル魔法図書館分類記号（VMLC）**を中核に、米国議会図書館分類法（LCC）およびデューイ十進分類法（DDC）と対照可能な請求記号体系を採用しています。
+ヴワル魔法図書館では、国際的に標準化された**米国議会図書館分類法（Library of Congress Classification, LCC）**および**デューイ十進分類法（Dewey Decimal Classification, DDC）**をハイブリッド採用し、各収蔵典籍に一意の恒久的請求記号（Call Number）を付与している。
 
 ### 請求記号の構成式
-
-$$\text{VML-}[\text{LCC 請求記号}]\text{.}[\text{カッター記号}]\text{-}[\text{出版年}]$$
-
-* **VML**：ヴワル魔法図書館（Voile Magic Library）の所蔵機関コード。
-* **LCC 分類記号**：米国議会図書館分類記号（例：`KF3890` 米国食品医薬品・麻薬規制法、`TL781` 航空宇宙・ロケット工学史）。
-* **カッター著者記号**：著者姓に基づくアルファベット・数値コード（`.S58` シュルギン、`.P56` 先駆者選集）。
-* **出版年**：原本の発行年、または公式翻訳版の刊行年。
+当館の請求記号は以下の形式で構成される：
+$$\text{VML-}[\text{LCC 区分番号}]\text{-}[\text{収蔵年}]$$
+* **`VML`**：当館蔵書コード（Voile Magic Library）。
+* **主分類記号**：
+  * `KF`：米国連邦法・法中毒学・薬事法関連典籍。
+  * `TL`：航空工学・宇宙推進工学・ロケット力学関連典籍。
+  * `Z` / `QA`：書誌学・タイポグラフィ・計算機文字符号化関連典籍。
+* **著者記号**：カッター・サンボーン（Cutter-Sanborn）著者番号表に基づく。
 
 ---
 
-## 館蔵第一号典籍：規制物質
+## 館蔵典籍：『規制物質：連邦薬物法の化学と法律ガイド』（Controlled Substances / 規制物質 / 管制物质 / 管制物質）
 
 ### 基本書誌情報
 
-* **著者**：アレクサンダー・T・シュルギン 博士（Alexander T. Shulgin, Ph.D., 1925–2014）
-* **書名**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws*（第2版）
-* **出版元**：Ronin Publishing（米国カリフォルニア州バークレー、1992年）
+* **主著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・“サーシャ”・シュルギン 博士）
 * **請求記号**：`VML-KF3890.S58-1992`
-* **LCC**：`KF3890 .S58 1992`（薬物規制 · 法律および化学的定義）
-* **DDC**：`344.730545`（米国公衆衛生法 · 規制物質）
-* **ISBN**：`0-914171-50-X`
-* **仕様**：原本436頁完全収録、手描き化学母核骨格図全33図版。
+* **米国議会図書館分類（LCC）**：`KF3890`（米国連邦規制薬物法）
+* **デューイ十進分類（DDC）**：`344.730545`（連邦薬物法規制）/ `615.78`（中枢神経系薬物毒理学）
+* **ISBN**：0-914171-50-X
+* **出版機関**：Ronin Publishing, Inc. (Berkeley, CA)
+* **監修・序文執筆**：Ronald K. Siegel 博士（精神薬理学者）、Gary L. Henderson 博士（毒理学者）、David P. Krivitsky 弁護士（連邦刑事法廷弁護士）
+* **学術主題標目**：米国規制物質法（CSA 1970）；連邦薬物取締局（DEA）；類似体規制法（Analogue Act 1986）；構造活性相関；スケジュールI〜V指定基準；法中毒学鑑定手続
 
 ### 著者・序文執筆者略歴録
 
 #### 主著者：アレクサンダー・“サーシャ”・シュルギン 博士（1925–2014）
-* **略歴**：伝説的薬物化学者・薬理学者。ハーバード大学およびUCバークレー校に学び、ダウ・ケミカル社上席研究員、UCバークレー校およびUCSF講師を歴任。
-* **科学的貢献**：初の生分解性カーバメート系農薬ゼクトランを発明。230種以上の新規向精神性フェネチルアミン・トリプタミンを合成・評価し、古典的名著『PiHKAL』『TiHKAL』を著す。DEAスケジュールI分析免許を長年にわたり保持。
+* **学術的地位**：20世紀を代表する幻覚薬理化学の世界的泰斗、元カリフォルニア大学バークレー校薬理学・毒理学教授、ダウ・ケミカル社上席主任研究員。
+* **功績と学術的権威**：シュルギン博士は生涯を通じて200種以上の精神活性化合物を独自に合成・評価し、DOM、2C-B、MDMAの薬理学的再発見者として知られる。DEA（連邦麻薬取締局）の最高学術顧問として多数の法廷証言を行い、分析官向け公認マニュアルを執筆した。
+* **本書の学術的価値**：化学合成の分子トポロジーと連邦法解釈学が交差する極限の学術領域を切り拓いた不朽の名著。法律の条文と分子構造の定義を不可分に融合させた記念碑的著作である。
 
 #### 序文執筆者：ロナルド・K・シーゲル 博士（Ronald K. Siegel, Ph.D.）
-* **職位**：UCLA医学部 神経精神医学研究所 精神生物行動学准教授、米国薬物乱用研究所（NIDA）顧問。
-* **寄稿視点**：臨床精神神経薬理学の立場から、薬理学的用語の変遷と法的分類の齟齬を分析。
+UCLA（カリフォルニア大学ロサンゼルス校）医学部精神医学・行動科学教授。大統領直属薬物委員会学術顧問。
 
 #### 序文執筆者：ゲイリー・L・ヘンダーソン 博士（Gary L. Henderson, Ph.D.）
-* **職位**：UCデービス校医学部 薬理学・毒性学准教授。
-* **寄稿視点**：クロマトグラフィー質量分析（GC-MS）による鑑識毒性学の定性基準と、法文中の構造的曖昧性を考察。
+カリフォルニア大学デービス校医学部薬理学教授。連邦司法省顧問法毒理学者。
 
 #### 序文執筆者：デイヴィッド・P・クリヴィツキー 弁護士（David P. Krivitsky, Esq.）
-* **職位**：カリフォルニア州著名刑事弁護士、鑑識法理学専門家。
-* **寄稿視点**：憲法適正手続きの観点から、1986年類似体法（Federal Analogue Act）の漠然性ゆえの無効法理と司法運用の限界を解剖。
+全米刑事弁護人協会（NACDL）会員、連邦第9巡回区控訴裁判所公認法廷弁護士。
 
 ### 各章閲覧案内
 
-* **[概要と目次](/ja/controlled-substances/)**：著者まえがきと全編の概要。
-* **[まえがきと専門家序文](/ja/controlled-substances/forewords)**：法学・毒性学・精神医学の交差点からの学際的序文。
-* **[第1章：法的詳細と定義](/ja/controlled-substances/chapter-1)**：CSAスケジュール分類論理と類似体法の「実質的類似」基準。
-* **[第2章：規制薬物とシノニム](/ja/controlled-substances/chapter-2)**：規制対象化合物、通称名、異性体の網羅的登録一覧。
-* **[第3章：連邦薬物法の歴史](/ja/controlled-substances/chapter-3)**：1906年純食品薬品法から1986年類似体法までの立法史。
-* **[第4章：分子構造式（全図版）](/ja/controlled-substances/chapter-4)**：オピエート、フェンタニル、バルビツール酸、トリプタミン等の手描き母核骨格全33図。
-* **[第5章：DEA規制コード番号表](/ja/controlled-substances/chapter-5)**：4桁のDEA規制物質コード対照表。
-* **[第6章：官報判令・行政根拠](/ja/controlled-substances/chapter-6)**：年代順に整理された連邦官報公示判令と規制指令。
-* **[第7章：実験式・化学索引](/ja/controlled-substances/chapter-7)**：ヒル方式（Hill System）に基づく分子式索引。
-* **[付録：連邦規則と前駆物質](/ja/controlled-substances/appendices)**：21 CFR 1308 全文および指定前駆化学物質リスト。
+* **[序文集：3名の泰斗による学術推薦・法理序言・法廷弁護序文](/ja/controlled-substances/forewords)**
+* **[第1章：細則と法定定義（Details and Definitions）](/ja/controlled-substances/chapter-1)**
+* **[第2章：規制薬物の一覧・構造・法定分類](/ja/controlled-substances/chapter-2)**
+* **[第3章：類似体法と構造活性相関の法理学](/ja/controlled-substances/chapter-3)**
+* **[第4章：1988年反薬物乱用法と連邦化学規制前駆体](/ja/controlled-substances/chapter-4)**
+* **[第5章：規制除外化合物・混合製剤・工業免除](/ja/controlled-substances/chapter-5)**
+* **[第6章：連邦官報公示・行政根拠編年史（1966–1991）](/ja/controlled-substances/chapter-6)**
+* **[第7章：化学構造インデックスと分子骨格トポロジー](/ja/controlled-substances/chapter-7)**
+* **[付録：連邦法典（21 U.S.C.）条文および規制一覧](/ja/controlled-substances/appendices)**
 
 ---
 
-## 館蔵第二号典籍：ロケット技術の先駆者たち
+## 館蔵典籍：『ロケット技術の先駆者たち：ソ連宇宙開発の先駆者選集』（Pioneers of Rocket Technology / ロケット技術の先駆者 / 火箭技术先驱 / 火箭技術先驅）
 
 ### 基本書誌情報
 
-* **主編**：T・M・メリクモフ 工学博士 他（ソビエト連邦科学アカデミー）
-* **先駆著者**：N・I・キバリチッチ、Yu・V・コンドラチュク、K・E・ツィオルコフスキー、F・A・ツァンダー
-* **書名**：『ロケット技術の先駆者たち：選集』（*Пионеры ракетной техники*）
-* **原本出版元**：ナウカ科学出版社（モスクワ、1964年）
-* **技術翻訳**：NASA TT F-9285 / TT 65-50114（米国航空宇宙局、ワシントンD.C.、1965年）
+* **編集委員会主幹**：T. M. Mel'kumov 等（ソビエト連邦科学アカデミー自然科学・技術史研究所）
 * **請求記号**：`VML-TL781.P56-1965`
-* **LCC**：`TL781 .P56 1965`（ロケット工学史）/ `TL782`（ロケット技術論文集）
-* **DDC**：`629.40947`（宇宙飛行工学 · 歴史）
-* **仕様**：高解像度工学構造図全42点、数学理論厳密導出、完全翻訳デジタル版。
+* **米国議会図書館分類（LCC）**：`TL781`（宇宙航行力学・ロケット推進工学史）
+* **報告番号**：NASA TT F-9285 / TT 65-50114
+* **出版機関**：National Aeronautics and Space Administration (Washington, D.C.) / Nauka (Moscow)
+* **学術主題標目**：反動推進理論；質量変化体の力学；スイングバイ航法理論；大気圏再突入熱空力学；多段式宇宙ロケット；液体推進剤供給系；極限軌道計算
 
 ### 編集委員会および先駆著者略歴録
 
 #### ニコライ・イヴァノヴィチ・キバリチッチ（1853–1881）
-* **略歴**：ロシア「人民の意志」革命家・化学火薬技術者。1881年の皇帝アレクサンドル2世暗殺事件に関与したとして死刑判決を受ける。
-* **理論的貢献**：処刑直前の死刑牢にて、燃焼緩慢な火薬を用いた有人推進飛行体草案を執筆・手描きし、推力偏向と振り子式安定化を提唱（『航空機械の構想』）。人類史上初の固体推進有人航空機の設計とされる。
+ロシア帝国「人民の意志」党の技術部長。1881年皇帝アレクサンドル2世暗殺事件の爆弾設計者として死刑判決を受け、ペトロパヴロフスク要塞獄中において人類史上初の火薬燃焼反動式有人飛行装置の設計図稿を遺した。
 
-#### ユーリ・ヴァシリエヴィチ・コンドラチュク（アレクサンドル・シャルゲイ、1897–1942）
-* **略歴**：20世紀最大の独創的科学者の一人。高等教育を受けられず、西ベリアの穀物エレベーター技師として働きながら、孤立無援の中で革命的な宇宙飛行理論を樹立した。
-* **理論的貢献**：ロケット運動方程式を独自に導出し、以下の画期的な理論を世界に先駆けて提唱：
-  - **月軌道ランデブー（LOR）方式**：母船を月周回軌道に残し、軽量の小型着陸船のみを着陸・帰還ドッキングさせる構想（後にNASAアポロ計画の基本アーキテクチャとして採用）。
-  - **重力スイングバイ（重力アシスト）**：月や諸惑星の公転重力場を利用して宇宙機を加減速する理論。
-  - **大気滑空再突入**：多層耐熱遮蔽、空力揚力ブレーキ、放物線軌道による大気圏突入減速法。
+#### ユーリ・ヴァシリエヴィチ・コンドラチュク（1897–1942）
+本名アレクサンドル・シャルゲイ。ペトログラード工科大学出身。月周回軌道ランデブー（LOR、アポロ計画で採用）およびスイングバイ航法の史上最初の提唱者。
 
 #### コンスタンチン・エドゥアルドヴィチ・ツィオルコフスキー（1857–1935）
-* **略歴**：近代宇宙航行学・ロケット力学の始祖。幼少期の猩紅熱により聴覚を失うも、完全独学でカルーガ公立学校の数学教師を務めた。
-* **理論的貢献**：1903年に『反動推進装置による宇宙空間の探究』を発表し、不朽の**ツィオルコフスキーの公式（ロケット理想速度方程式）**を樹立：
-  $$v = c \cdot \ln\left(\frac{M_0}{M_k}\right)$$
-  多段ロケット列車、宇宙ステーションの人工重力、エアロックシステムを理論的に予見した。
+ソビエト宇宙工学の父。1903年の不朽の論文『反動装置による宇宙空間の探究』において、名高い**ツィオルコフスキーの公式（ロケット運動方程式）**を導出・確立した：
+$$v = c \cdot \ln\left(\frac{M_0}{M_k}\right)$$
+液体酸素・液体水素を推進剤とする多段式宇宙ロケット、軌道宇宙ステーション、および気密エアロックシステムの理論体系を世界に先駆けて構築した。
 
 #### フリードリヒ・アルトゥロヴィチ・ツァンダー（1887–1933）
-* **略歴**：ソ連初期の液体推進剤ロケット開発の開拓者、「反動推進研究グループ」（GIRD）の創設者の一人。
-* **理論的貢献**：「火星へ前進！」を掲げ、宇宙機の飛行中に不要となったアルミニウム・マグネシウム等の金属構造体を二次燃料として燃焼させる構想を提唱。ソ連初の液体ロケットエンジンOR-1およびOR-2を完成させた。
+リガ工科大学出身。OR-1およびOR-2液体ロケットエンジンの設計者。金属燃料の燃焼利用および太陽セイル推進を史上初めて提唱した。
 
 #### イヴァン・フセヴォロドヴィチ・メシチェルスキー（1859–1935）
-* **略歴**：著名なロシアの力学者、サンクトペテルブルク工科大学応用力学主任教授。
-* **理論力学の金字塔**：可変質量力学を創始し、名高い**メシチェルスキーの基本微分方程式**を導出：
-  $$M \frac{d\vec{v}}{dt} = \vec{F} + \vec{u}_{rel} \frac{dM}{dt}$$
-  世界中のロケット動力学、噴射推進工学、軌道天体力学の不動の数学的基礎となった。
+サンクトペテルブルク工科大学教授。質点の分離・放出を伴う質量変化体の運動力学を創始し、基礎となる**メシチェルスキーの微分方程式**を導出した：
+$$M \frac{d\vec{v}}{dt} = \vec{F} + \vec{u}_{rel} \frac{dM}{dt}$$
+本方程式は、現代のあらゆるロケット推進力学および宇宙航行誘導制御の理論的礎石となっている。
 
 #### ヴィクトル・ニコラエヴィチ・ソコリスキー 博士（1914–1996）
-* **学術的地位**：ソ連科学アカデミー自然科学・技術史研究所技術史部長、国際宇宙航行アカデミー（IAA）正会員。
-* **文献考証の功績**：キバリチッチやコンドラチュクの未公開手稿の筆跡・用紙を厳密に照合・解読し、ソ連およびロシアの宇宙航行理論における世界史的優先権を立証した。
+ソ連科学アカデミー自然科学・技術史研究所宇宙航空史部門主任、国際宇宙航行アカデミー（IAA）正会員。
 
 ### 典籍構成と各章閲覧案内
 
-* **[選集概要と全巻目次](/ja/rocket-pioneers/)**：全巻の総合解題、科学委員会名簿および出版経緯。
-* **[主編序言：ソ連宇宙開発の歩みと先駆者評伝](/ja/rocket-pioneers/preface)**：メリクモフ少将による先駆者手稿発掘の歴史と意義。
-* **[第一編：航空機械の構想（キバリチッチ 1881）](/ja/rocket-pioneers/kibalchich)**：死刑牢手稿完全訳、火薬パルス燃焼管と姿勢制御機構。
-* **第二編：建造を期して本書を読む者へ（コンドラチュク 1918–1919）**
-  * **[手稿全貌と工学的礎石の解題](/ja/rocket-pioneers/kondratyuk-build/)**：全4巻の手稿構成と理論的優先権。
-  * **[第1章：噴射推進の基本原理と理想速度方程式](/ja/rocket-pioneers/kondratyuk-build/section-1)**：可変質量微分方程式、排気反作用力と多段理論。
-  * **[第2章：軌道上昇計画、抗過重と活性推進剤](/ja/rocket-pioneers/kondratyuk-build/section-2)**：液体水素・酸素、化学反応熱限界と大気抵抗。
-  * **[第3章：宇宙船構造、多段分離とジャイロ姿勢制御](/ja/rocket-pioneers/kondratyuk-build/section-3)**：多段ペイロードカプセル、3軸ジャイロプラットフォーム。
-  * **[第4章：ノズル設計、天体指向と帰還制動の発見](/ja/rocket-pioneers/kondratyuk-build/section-4)**：ラバール・ノズル開口比設計と逆噴射制動運動。
-  * **[第5章：滑空再突入、大気減速と熱防護](/ja/rocket-pioneers/kondratyuk-build/section-5)**：空力揚力滑空、鈍頭体熱遮蔽とパラシュート降下。
-  * **[第6章：太陽光集光鏡、重力スイングバイと軌道基地](/ja/rocket-pioneers/kondratyuk-build/section-6)**：巨大宇宙反射鏡、重力場軌道変更（スイングバイ初提唱）。
-  * **[編集委員会による文献考証と技術注記](/ja/rocket-pioneers/kondratyuk-build/commentary)**：アカデミー専門家による手稿書誌学的考証と計算再検証。
-* **第三編：惑星間空間の征服（コンドラチュク 1929）**
-  * **[著者自序と全編解題](/ja/rocket-pioneers/kondratyuk-space/)**：ノヴォシビルスク私家版自序と全書構成。
-  * **[第1章：惑星間飛行の前提条件とロケット運行法則](/ja/rocket-pioneers/kondratyuk-space/chapter-1)**：脱出速度と軌道遷移エネルギー計算。
-  * **[第2章：能動加速段軌道と多段推進剤積載公式](/ja/rocket-pioneers/kondratyuk-space/chapter-2)**：有効ペイロード比限界と最適段数梯子。
-  * **[第3章：排気速度と推進剤の化学反応発熱量](/ja/rocket-pioneers/kondratyuk-space/chapter-3)**：理論化学反応エンタルピー、熱力学的損失とノズル膨張。
-  * **[第4章：ロケット構造と軽量化設計工学](/ja/rocket-pioneers/kondratyuk-space/chapter-4)**：共通隔壁タンク構想と超軽量合金フレーム。
-  * **[第5章：構造自重比と最適多段化理論](/ja/rocket-pioneers/kondratyuk-space/chapter-5)**：構造死重係数が最終到達速度に及ぼす感度解析。
-  * **[第6章：慣性飛行軌道と軌道遷移](/ja/rocket-pioneers/kondratyuk-space/chapter-6)**：ホーマン遷移軌道の先駆的計算とエネルギー最小化。
-  * **[第7章：月面着陸と月軌道ランデブー（LOR）](/ja/rocket-pioneers/kondratyuk-space/chapter-7)**：アポロ計画に先立つ月軌道ランデブー方式の原典論述。
-  * **[第8章：大気層が能動上昇段に及ぼす影響](/ja/rocket-pioneers/kondratyuk-space/chapter-8)**：空力抵抗、重力ターン（Gravity Turn）と弾道最適化。
-  * **[第9章：大気減速再突入と極超音速熱防護](/ja/rocket-pioneers/kondratyuk-space/chapter-9)**：アブレーション熱遮蔽とリフティングボディ再突入回廊。
-  * **[第10章：宇宙中継基地と惑星間拠点](/ja/rocket-pioneers/kondratyuk-space/chapter-10)**：地球低軌道ステーション、軌道上燃料補給と惑星基地。
-  * **[第11章：太陽光集光鏡と宇宙エネルギー利用](/ja/rocket-pioneers/kondratyuk-space/chapter-11)**：放物面薄膜反射鏡の展開と姿勢制御。
-  * **[第12章：研究の優先権と歴史的経緯の覚書](/ja/rocket-pioneers/kondratyuk-space/chapter-12)**：1918–1919年手稿と出版タイムラインに関する著者の言明。
-  * **[第13章：緊急に実施すべき基礎実験一覧](/ja/rocket-pioneers/kondratyuk-space/chapter-13)**：高真空燃焼試験と新素材実験の指針一覧。
-  * **[編集注記と理論力学導出付録](/ja/rocket-pioneers/kondratyuk-space/commentary)**：全編の力学数式補遺と現代宇宙工学との比較検証。
-* **第四編：ロシアおよびソ連におけるロケット先駆者の歴史的概説（ソコリスキー 1964）**
-  * **[歴史概説 序言と19世紀初期の先駆者たち](/ja/rocket-pioneers/historical-outline/)**：ザシャトコ、コンスタンチノフ、フョードロフの固体ロケット実験。
-  * **[第1章：ツィオルコフスキーとメシチェルスキー](/ja/rocket-pioneers/historical-outline/section-1)**：古典ロケット理論の誕生と可変質量力学。
-  * **[第2章：ツァンダーと初期液体ロケットエンジンの開発](/ja/rocket-pioneers/historical-outline/section-2)**：GIRDの活動と初期液体推進工学の興隆。
-  * **[第3章：コンドラチュクの宇宙航行理論への貢献](/ja/rocket-pioneers/historical-outline/section-3)**：コンドラチュクの独創的研究に対する歴史的総括。
-  * **[第4章：初期研究機関（GDL/GIRD/RNII）の総括](/ja/rocket-pioneers/historical-outline/section-4)**：気体力学研究所（GDL）、GIRD、反動推進科学研究所（RNII）の発展史。
-* **[付録：先駆者の著作および歴史文献全景索引](/ja/rocket-pioneers/bibliography)**：19世紀末から20世紀中葉の重要著作、雑誌論文、公文書ファイル一覧。
+* **[序言：ソ連宇宙推進技術の学術的源流と先駆者たちの力学遺産](/ja/rocket-pioneers/preface)**
+* **[第1章：キバリチッチの獄中設計図稿（1881年）](/ja/rocket-pioneers/kibalchich)**
+* **[参考文献録：ロシア・ソビエト宇宙推進工学創生期文献総目録](/ja/rocket-pioneers/bibliography)**
+
+---
+
+## 館蔵典籍：『フォントとエンコーディング：Unicode と高度タイポグラフィ全解』（Fonts & Encodings / フォントとエンコーディング / 字体与编码 / 字體與編碼）
+
+### 基本書誌情報
+
+* **著者**：Yannis Haralambous, Ph.D.（ヤニス・ハラランボス 博士）
+* **英訳校閲**：P. Scott Horne 博士
+* **請求記号**：`VML-Z250.8.H37-2007`
+* **米国議会図書館分類（LCC）**：`Z250.8` / `QA76.9.T48`
+* **デューイ十進分類（DDC）**：`005.72` / `686.22544`
+* **ISBN**：978-0-596-10242-5 / 0-596-10242-9
+* **典籍原題**：Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between (1st Edition, 2007)
+* **日本語収蔵名**：『フォントとエンコーディング：Unicode と高度タイポグラフィ全解』
+* **多言語検索標目**：Fonts & Encodings / フォントとエンコーディング / 字体与编码 / 字體與編碼
+* **出版機関**：O'Reilly Media, Inc. (Sebastopol, CA)
+* **学術貢献者・査読陣**：Jacques André、Donald E. Knuth、Patrick Andries、Luc Devroye、Pierre Dumesnil、John Plaice、François Yergeau
+* **学術主題標目**：文字符号化；Unicode 5.0；デジタルフォント工学；PostScript Type 1；TrueType 仮想マシン命令；OpenType 高度機能；Apple Advanced Typography（AAT）；ベジェ曲線幾何学；TeX と Omega 組版システム
+
+### 著者略歴録
+
+#### 責任著者：ヤニス・ハラランボス 博士（Yannis Haralambous, Ph.D.）
+* **学術的地位**：フランス国立ブルターニュ高等電気通信学校（ENST Bretagne、現 IMT Atlantique）計算機科学科終身教授、国際タイポグラフィ学会（ATypI）理事、応用数学者。
+* **学術的功績**：ギリシャ出身。リール第1大学で純粋数学博士号を取得。微分幾何学とトポロジーの知見を文字輪郭とラスタライズ処理に導入し、英国の John Plaice と共同で多言語組版システム **$\Omega$（Omega）**を創始した。
+* **本書の学術的位置づけ**：原著千頁を超える本書は、計算機文字コードとフォント基底技術の百科全書的集大成として世界中で絶賛されている。
+
+### 各章閲覧案内
+
+* **[導言・探索篇：文字要素・活版印刷・デジタルモデルと全書図譜](/ja/fonts-encodings/introduction)**
+* **[第1章：文字符号化の基礎理論と歴史的発展](/ja/fonts-encodings/chapter-1)**
+* **[第2章：Unicode 体系と国際符号化標準](/ja/fonts-encodings/chapter-2)**
+* **[第3章：非ラテン文字体系と多言語組版処理](/ja/fonts-encodings/chapter-3)**
+* **[第4章：文字集合の変換と符号化伝送形式](/ja/fonts-encodings/chapter-4)**
+* **[第5章：東アジア文字体系と多バイト文字処理](/ja/fonts-encodings/chapter-5)**
+* **[第6章：PostScript Type 1 フォント形式とキュービックベジェ](/ja/fonts-encodings/chapter-6)**
+* **[第7章：TrueType フォントアーキテクチャとクアドラティックベジェ](/ja/fonts-encodings/chapter-7)**
+* **[第8章：OpenType 仕様と高度組版レイアウトテーブル](/ja/fonts-encodings/chapter-8)**
+* **[第9章：TeX、METAFONT と数理組版システム](/ja/fonts-encodings/chapter-9)**
+* **[第10章：フォントとワールドワイドウェブ（Web）](/ja/fonts-encodings/chapter-10)**
+* **[第11章：ラテン文字書体の歴史的変遷と組版分類体系](/ja/fonts-encodings/chapter-11)**
+* **[第12章：デジタルフォント作成とタイポグラフィツール](/ja/fonts-encodings/chapter-12)**
+* **[第13章：TrueType ヒンティングと仮想マシンバイトコード](/ja/fonts-encodings/chapter-13)**
+* **[第14章：Apple Advanced Typography（AAT）アーキテクチャ](/ja/fonts-encodings/chapter-14)**
+* **[付録：数学公式集、文字一覧および技術索引](/ja/fonts-encodings/appendices)**
 
 ---
 
 ## 学際的テーマと分野横断検索マトリクス
 
-研究者の横断的利用のため、主要学術概念と所蔵典籍・該当章を対照表にまとめました：
-
-| 学際テーマ | 核心理論 / 法的根拠 | 該当所蔵典籍 | 重点研読章 |
-| :--- | :--- | :--- | :--- |
-| **神経薬理学と受容体動態** | 5-HTセロトニン・オピオイド受容体構造活性相関 | 『規制物質：連邦薬物法の化学・法律ガイド』 | [第4章：分子構造式図版](/ja/controlled-substances/chapter-4) |
-| **薬物規制法理と司法的境界** | CSAスケジュール体系、813条類似体実質類似性基準 | 『規制物質：連邦薬物法の化学・法律ガイド』 | [第1章：法的詳細と定義](/ja/controlled-substances/chapter-1) |
-| **鑑識化学・毒性分析** | GC-MS、NMRおよびヒル方式実験式索引 | 『規制物質：連邦薬物法の化学・法律ガイド』 | [第7章：実験式・化学索引](/ja/controlled-substances/chapter-7) |
-| **可変質量解析力学** | メシチェルスキー微分方程式、運動量保存則 | 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』 | [第二編·第1章：原理と方程式](/ja/rocket-pioneers/kondratyuk-build/section-1) |
-| **月軌道ランデブー（LOR）** | 二段階月面降下・上昇軌道、母船待機 | 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』 | [第三編·第7章：月面着陸とLOR](/ja/rocket-pioneers/kondratyuk-space/chapter-7) |
-| **天体引力アシスト（スイングバイ）** | 双曲線接近通過、惑星重力場によるエネルギー授受 | 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』 | [第二編·第6章：引力スイングバイ](/ja/rocket-pioneers/kondratyuk-build/section-6) |
-| **大気滑空再突入と空力減速** | 鈍頭体衝撃波、揚力制御再突入コリドー | 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』 | [第三編·第9章：大気減速再突入](/ja/rocket-pioneers/kondratyuk-space/chapter-9) |
-| **航空宇宙科学アーカイブ文献学** | TsGAOR 112号公文書、ARAN基金手稿原本考証 | 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』 | [主編序言](/ja/rocket-pioneers/preface) および [文献全景索引](/ja/rocket-pioneers/bibliography) |
+当館の収蔵典籍は、一見孤立した分野に見える主題同士の深層的な知的連関を浮き彫りにする：
+1. **法毒理学と有機化学トポロジー**（『規制物質』）：化学構造式の幾何学的配置と法学上の解釈基準の交差。
+2. **理論力学と宇宙航行の創生**（『ロケット技術の先駆者たち』）：質量の変化する運動方程式と重力圏脱出の軌道幾何学。
+3. **計算幾何学とタイポグラフィ言語学**（『フォントとエンコーディング』）：微分ベジェ曲線スプラインと文字コード体系の結合。
 
 ---
 
 ## 蔵書貸出とデジタル引用規則
 
-1. **学術研究引用フォーマット（BibTeX）**：
-   * **《規制物質》**：
-     ```bibtex
-     @book{shulgin1992controlled,
-       title={Controlled Substances: Chemical and Legal Guide to the Federal Drug Laws},
-       author={Shulgin, Alexander T.},
-       edition={2nd},
-       year={1992},
-       publisher={Ronin Publishing},
-       address={Berkeley, CA},
-       isbn={0-914171-50-X},
-       note={Voile Magic Library Call Number: VML-KF3890.S58-1992}
-     }
-     ```
-   * **《ロケット技術の先駆者》**：
-     ```bibtex
-     @book{melkumov1965pioneers,
-       title={Pioneers of Rocket Technology: Selected Works},
-       author={Mel'kumov, T. M. and Kibal'chich, N. I. and Kondratyuk, Yu. V. and Tsiolkovskiy, K. E. and Tsander, F. A.},
-       series={NASA Technical Translation},
-       number={NASA TT F-9285},
-       year={1965},
-       publisher={National Aeronautics and Space Administration},
-       address={Washington, D.C.},
-       note={Voile Magic Library Call Number: VML-TL781.P56-1965}
-     }
-     ```
-2. **オープンアクセスおよび著作権方針**：
-   * 当館のデジタル特蔵は学術研究および非営利教育目的の普及基準に準拠し、全訳および高精細図版をオンラインで全面公開しています。
-   * 館長 翎奈猫（[AmayaLab](https://github.com/AmayaLab2026)）により継続的に校訂・整備されています。
+ヴワル魔法図書館のすべてのデジタル化典籍は、学術研究、非営利の教育活動、および個人的な探求のために無償で公開されている。引用・学術的言及に際しては、所定の請求記号（Call Number）および原本の書誌情報を明記することを推奨する。

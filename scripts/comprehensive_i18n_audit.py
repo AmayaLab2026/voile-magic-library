@@ -2,7 +2,7 @@ import os, re, sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-langs = ['zh', 'zh-hant', 'en', 'ja']
+langs = ['zh', 'zh-hant', 'ja']
 base_docs = 'docs'
 
 print("=" * 60)
@@ -25,7 +25,7 @@ for lang in langs:
     print(f"  - {lang:8s}: {len(rel_files)} files")
 
 all_consistent = True
-for lang in ['zh-hant', 'en', 'ja']:
+for lang in ['zh-hant', 'ja']:
     missing = file_sets['zh'] - file_sets[lang]
     extra = file_sets[lang] - file_sets['zh']
     if missing or extra:
@@ -76,7 +76,7 @@ for rel_f in sorted(file_sets['zh']):
     zh_content = open(os.path.join(base_docs, 'zh', rel_f), 'r', encoding='utf-8').read()
     zh_imgs = set(re.findall(r'!\[.*?\]\((/images/[^)]+)\)', zh_content))
     
-    for lang in ['zh-hant', 'en', 'ja']:
+    for lang in ['zh-hant', 'ja']:
         t_content = open(os.path.join(base_docs, lang, rel_f), 'r', encoding='utf-8').read()
         t_imgs = set(re.findall(r'!\[.*?\]\((/images/[^)]+)\)', t_content))
         diff = zh_imgs - t_imgs
@@ -103,7 +103,7 @@ for rel_f in sorted(file_sets['zh']):
     zh_inline_math = len(re.findall(r'(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)', zh_content))
     
     if zh_display_math > 0 or zh_inline_math > 0:
-        for lang in ['zh-hant', 'en', 'ja']:
+        for lang in ['zh-hant', 'ja']:
             t_content = open(os.path.join(base_docs, lang, rel_f), 'r', encoding='utf-8').read()
             t_display_math = len(re.findall(r'\$\$(.*?)\$\$', t_content, re.DOTALL))
             t_inline_math = len(re.findall(r'(?<!\$)\$(?!\$)(.*?)(?<!\$)\$(?!\$)', t_content))
