@@ -31,27 +31,17 @@ What we shall examine in this chapter are the three ways to obtain text in Unico
 • Through the use of a virtual keyboard.
 • By converting data that exist in other encodings.
 
-Figure 5-1: The Character Palette of Mac OS X.
-Interactive Tools for Entering Unicode Characters
-Under Mac OS X
-Character Palette
-On the menu of keyboards, denoted by a little flag corresponding to the system’s active
-language, we find the entry Show Character Palette. This entry will open a separate
-window, independent of all other software, that will remain in the foreground. In Figure 5-1 we have a screenshot of the Character Palette. When we select Code Tables in the
-little menu on the top, the middle section of the window is divided into two parts. On the
-top is a list of all the blocks in Unicode v.4. When a block is selected, the corresponding
-characters are displayed underneath.
-When the user selects a character, its glyph is displayed in the area which opens through
-the little triangle next to Character Info. Clicking on the button Insert will insert it
-into the current document in the active application (which is why the Character Palette
-does not affect the operation of the other windows in any way).
-Once we have selected a Unicode character, we can read its number and its description.
-In certain cases, the Character Palette gives us “related characters”, which are the various canonical equivalents and compatibility equivalents that may exist. The result is
-astounding: out of love for the fair sex, we have selected the character for the ideographic
+Figure 5-1: The Character Palette of Mac OS X. Interactive Tools for Entering Unicode Characters Under Mac OS X Character Palette On the menu of keyboards, denoted by a little flag corresponding to the system’s active language, we find the entry Show Character Palette. This entry will open a separate window, independent of all other software, that will remain in the foreground. In Figure 5-1 we have a screenshot of the Character Palette. When we select Code Tables in the little menu on the top, the middle section of the window is divided into two parts. On the top is a list of all the blocks in Unicode v.4. When a block is selected, the corresponding characters are displayed underneath. When the user selects a character, its glyph is displayed in the area which opens through the little triangle next to Character Info. Clicking on the button Insert will insert it into the current document in the active application (which is why the Character Palette does not affect the operation of the other windows in any way). Once we have selected a Unicode character, we can read its number and its description. In certain cases, the Character Palette gives us “related characters”, which are the various canonical equivalents and compatibility equivalents that may exist. The result is astounding: out of love for the fair sex, we have selected the character for the ideographic
+
+::: tip Typographical Specimen Plate (Figure 5-1)
+![Figure 5-1: The Mac OS X Character Palette](/images/fonts-encodings/fig5-1-mac-character-palette.png)
+*Figure 5-1: The Mac OS X Character Palette.*
+:::
 
 ![Figure 5-1: The Mac OS X Character Palette](/images/fonts-encodings/fig5-1-mac-character-palette.png)
 *Figure 5-1: The Mac OS X Character Palette.*
 
+```text
 Interactive Tools for Entering Unicode Characters
 radical “woman” 0x2F25 女. This radical has a compatibility equivalent with the actual
 ideographic character 0x5973 女, which, in turn, has its own compatibility equivalent
@@ -89,6 +79,17 @@ BabelMap, by Andrew West [346], is a very sophisticated free software package fo
 characters that he wants, the buttons in the middle area of BabelMap display the characters in that block, and the user may click characters to enter them into the Edit Buffer
 at the bottom of the window. While text is being composed in the Edit Buffer, BabelMap
 applies the relevant contextual rules appropriately. Thus, as shown in Figure 5-4, Arabic
+```
+
+::: tip Typographical Specimen Plate (Figure 5-3)
+![Figure 5-3: The Windows Character Map](/images/fonts-encodings/fig5-3-windows-character-map.png)
+*Figure 5-3: The Windows Character Map.*
+:::
+
+::: tip Typographical Specimen Plate (Figure 5-4)
+![Figure 5-4: BabelMap main window](/images/fonts-encodings/fig5-4-babelmap-main-window.png)
+*Figure 5-4: BabelMap main window.*
+:::
 
 ![Figure 5-4: BabelMap main window](/images/fonts-encodings/fig5-4-babelmap-main-window.png)
 *Figure 5-4: BabelMap main window.*
@@ -96,6 +97,7 @@ applies the relevant contextual rules appropriately. Thus, as shown in Figure 5-
 ![Figure 5-3: The Windows Character Map](/images/fonts-encodings/fig5-3-windows-character-map.png)
 *Figure 5-3: The Windows Character Map.*
 
+```text
 Figure 5-2: The UniDict software under the Classic environment
 is displayed correctly, the Indian ligatures (included in the font specified for display) are
 correctly produced, the jamo are combined into hangul syllables, and so on.
@@ -105,7 +107,9 @@ Like UniDict, BabelMap also provides a window for selecting ideographs. Its adva
 it applies not only to Japanese ideographs but to the entire range of Unicode characters
 (provided, as always, that a font containing the required glyphs is available1). Its disadvantage: the method is not so elegant as that of UniDict. In fact, as shown in Figure 5-5,
 we select a radical from a complete list (only their standard forms are displayed; a cer1 The reader will find at http://www.alanwood.net/unicode/fontsbyrange.html a list of freely distributed Unicode-compatible fonts.
+```
 
+```text
 Interactive Tools for Entering Unicode Characters
 Figure 5-3: The Character Map of Windows XP.
 tain amount of training is required to recognize a radical in a nonstandard form), then
@@ -127,10 +131,17 @@ blocks on the left and the contents of each block in tabular form on the right. 
 click on a glyph in the table, it is inserted into the Edit Buffer at the lower left. A second
 tab provides information on the selected character that is drawn directly from the online
 files of the Unicode Consortium.
+```
+
+::: tip Typographical Specimen Plate (Figure 5-7)
+![Figure 5-7: Gucharmap on Linux](/images/fonts-encodings/fig5-7-gucharmap-linux.png)
+*Figure 5-7: Gucharmap on Linux.*
+:::
 
 ![Figure 5-7: Gucharmap on Linux](/images/fonts-encodings/fig5-7-gucharmap-linux.png)
 *Figure 5-7: Gucharmap on Linux.*
 
+```text
 Figure 5-4: The main window of the program BabelMap.
 Virtual Keyboards
 The interactive tools of the previous section enable us to enter a handful of Unicode
@@ -148,7 +159,9 @@ been part of the process of localization for each language. Thus a user of the E
 at any time.
 But there are at least two problems. First, these virtual keyboards do not necessarily cover
 all writing systems (although Windows provides a rich set of virtual keyboards); in par-
+```
 
+```text
 Virtual Keyboards
 Figure 5-5: The BabelMap for selecting a Chinese ideograph through the use of radicals.
 ticular, they do not cover ancient languages. To be sure, we can always find a supplier
@@ -170,7 +183,9 @@ to find the Russian ‘A’ where the English ‘A’ would be and vice versa.
 It can be even worse: for almost 20 years, the author has been using “Greeklish,” an
 ASCII transliteration of Greek that is very useful for writing in Greek where the protocol
 does not support the script (email on a non-Unicode machine, filenames, etc.). There
+```
 
+```text
 Figure 5-6: The BabelMap window for selecting an Yi ideograph through the use of radicals.
 is nothing unusual about that: transliteration is a habit for everyone who works in an
 environment with a non-Latin script. In this Greek transliteration, which happens to be
@@ -195,6 +210,7 @@ small differences conspire to irritate those who travel and find themselves usin
 the letter ‘M’ is at the end of the home row; the brackets and braces—punctuation marks that programmers
 frequently use—require combinations of keystrokes that can only be typed with both hands at a time (unless
 one has the hands of Sergey Rachmaninoffor Clara Haskil); etc.
+```
 
 Virtual Keyboards
 Figure 5-7: The main window of gucharmap under Linux
@@ -439,6 +455,7 @@ state when no state is explicitly specified.
 But what will happen if we change our minds after pressing the circumflex key and press
 a key other than ‘e’? Nothing. The new character is produced, and no trace of the circumflex accent remains. That is one solution, but it is not the best. Ordinarily the system
 
+```text
 produces the circumflex accent (as an isolated character) and then the new character. To
 achieve this sort of behavior, we have another subelement of keyboard, the terminators
 element.
@@ -479,7 +496,9 @@ Now we must define the following four actions:
 &lt;action id="dot"&gt;
 &lt;when state="none" next="d"/&gt;
 &lt;when state="c" next="cd"/&gt;
+```
 
+```text
 Virtual Keyboards
 &lt;when state="ca" next="cad"/&gt;
 &lt;when state="a" next="ad"/&gt;
@@ -520,7 +539,9 @@ so that the period will appear”. Thus we are well advised to choose other keys
 “combining dot” and the “combining acute accent”.
 Under Windows
 Microsoft recently released a program for creating virtual keyboards, the Microsoft Keyboard Layout Creator (MSKLC). This software is certainly robust and easy to use, but
+```
 
+```text
 Figure 5-8: The main window of the Microsoft Keyboard Layout Creator. The keyboard displayed is the one for “polytonic Greek”.
 certain functionality, such as multiple dead keys, is missing. We shall describe it all the
 same because it is free of charge and because some users may not need advanced functionality.
@@ -540,10 +561,17 @@ dialog box contains a button All that expands the dialog box to show the mapping
 the key when combined with modifiers (Shift, Control+Alt, Shift+Control+Alt). That is
 4 Please be aware of the fact that this software needs .Net framework 1.1 to be installed (it will not work
 with .Net version 2).
+```
+
+::: tip Typographical Specimen Plate (Figure 5-8)
+![Figure 5-8: Microsoft Keyboard Layout Creator](/images/fonts-encodings/fig5-8-microsoft-keyboard-layout-creator.png)
+*Figure 5-8: Microsoft Keyboard Layout Creator.*
+:::
 
 ![Figure 5-8: Microsoft Keyboard Layout Creator](/images/fonts-encodings/fig5-8-microsoft-keyboard-layout-creator.png)
 *Figure 5-8: Microsoft Keyboard Layout Creator.*
 
+```text
 Virtual Keyboards
 Figure 5-9: The main window of Tavultesoft Keyman Developer, with the debugger and the
 character map.
@@ -561,6 +589,12 @@ Tavultesoft Keyman Developer dates from 1993. It was developed by Marc Durdin, w
 company, Tavulte, is based in Tasmania. This program adopts an approach totally different from that of MSKLC, with its own advantages and disadvantages.
 5 Here we are indeed speaking of Unicode characters, not of keys. But before we can enter Unicode characters, we have to have defined keys that generate the characters in question; otherwise, the software would be
 unable to make the (reverse) connection between characters and keys.
+```
+
+::: tip Typographical Specimen Plate (Figure 5-9)
+![Figure 5-9: Tavultesoft Keyman Developer](/images/fonts-encodings/fig5-9-tavultesoft-keyman-developer.png)
+*Figure 5-9: Tavultesoft Keyman Developer.*
+:::
 
 ![Figure 5-9: Tavultesoft Keyman Developer](/images/fonts-encodings/fig5-9-tavultesoft-keyman-developer.png)
 *Figure 5-9: Tavultesoft Keyman Developer.*
@@ -603,6 +637,7 @@ indicates that the first “group” of rules is the one named Main.
 we shall use the current character. The absence of these keywords would mean that
 this group of rules performed contextual analysis only. Later we shall see an example.
 
+```text
 Virtual Keyboards
 As with Apple’s XML files, this header will usually remain the same; we can therefore
 copy it from one file to another.
@@ -640,78 +675,13 @@ We can experiment a little to gain a better understanding of how Keyman works. F
 example, if we type xxx'xxx and then insert an ‘e’ after the apostrophe, it will indeed be
 replaced by an ‘é’. On the other hand, if we type an apostrophe followed by a space and
 an ‘e’, then delete the space, the replacement will not occur.
+```
 
-Let us return now to KMN’s syntax. We may use any number of characters in the rules,
-both for the context and for the result. Thus we can imagine three Unicode characters
-(the context) followed by a fourth (the current character) that yield seven other characters (the result).
-Now suppose that we wish to write a rule that will change the case of the 20 consonants of
-the Latin alphabet. Must we write 20 rules? Not at all. Three keywords—store, any, and
-index—allow us to define lists of characters and perform iterative operations on them.
-Thus we begin by defining two lists of characters, called uppercase and lowercase:
-store(uppercase) "BCDFGHJKLMNPQRSTVWXZ"
-store(lowercase) "bcdfghjklmnpqrstvwxz"
-Next we write a rule in which we consider the 20 elements of the uppercase list one by
-one and convert them to elements of the lowercase list in the same position:
-+ any(uppercase) > index(lowercase, 1)
-The 1 indicates that the any to which we have referred is character number 1 of the expression at the left. We can imagine another rule that would reverse the order of two
-letters:
-any(lowercase) + any(lowercase) > index(lowercase, 2)
-index(lowercase, 1)
-(all on one line).
-Up to now we have not used any dead keys, yet we have modified an ‘e’ preceded by an
-apostrophe. We have less need for dead keys, since combinations can easily be built up
-without them. But in case we should like to use them, here is how to do so. A rule can
-produce an invisible “character” written in the form deadkey(foo), in which foo is a
-keyword.
-Nothing will be displayed for the time being. Next, we shall write other rules that will
-serve as a context or a portion of a context for deadkey(foo).
-Other interesting keywords: context, nul, and beep. The first of these, context, is used
-as a right-hand component. It will be replaced by the context of the left-hand part. It can
-be followed by the index of the character that we wish to produce:
-"raou" + "l" > context(4)
-will produce a ‘u’. The keyword nul is also used on the right-hand side. It indicates that
-there will be no output. Finally, with the keyword beep, the machine generates a beep.
-This device can be used to punish the typist for trying to enter a bad combination of
-characters.
+Let us return now to KMN’s syntax. We may use any number of characters in the rules, both for the context and for the result. Thus we can imagine three Unicode characters (the context) followed by a fourth (the current character) that yield seven other characters (the result). Now suppose that we wish to write a rule that will change the case of the 20 consonants of the Latin alphabet. Must we write 20 rules? Not at all. Three keywords—store, any, and index—allow us to define lists of characters and perform iterative operations on them. Thus we begin by defining two lists of characters, called uppercase and lowercase: store(uppercase) "BCDFGHJKLMNPQRSTVWXZ" store(lowercase) "bcdfghjklmnpqrstvwxz" Next we write a rule in which we consider the 20 elements of the uppercase list one by one and convert them to elements of the lowercase list in the same position: + any(uppercase) > index(lowercase, 1) The 1 indicates that the any to which we have referred is character number 1 of the expression at the left. We can imagine another rule that would reverse the order of two letters: any(lowercase) + any(lowercase) > index(lowercase, 2) index(lowercase, 1) (all on one line). Up to now we have not used any dead keys, yet we have modified an ‘e’ preceded by an apostrophe. We have less need for dead keys, since combinations can easily be built up without them. But in case we should like to use them, here is how to do so. A rule can produce an invisible “character” written in the form deadkey(foo), in which foo is a keyword. Nothing will be displayed for the time being. Next, we shall write other rules that will serve as a context or a portion of a context for deadkey(foo). Other interesting keywords: context, nul, and beep. The first of these, context, is used as a right-hand component. It will be replaced by the context of the left-hand part. It can be followed by the index of the character that we wish to produce: "raou" + "l" > context(4) will produce a ‘u’. The keyword nul is also used on the right-hand side. It indicates that there will be no output. Finally, with the keyword beep, the machine generates a beep. This device can be used to punish the typist for trying to enter a bad combination of characters.
 
-Virtual Keyboards
-All the code that we have written has been “mnemonic” because we have used Unicode
-characters, not the identifiers of keys. To use the latter, we can write [NAME], in which
-NAME is the name of a key. To obtain the name of a given key, we can use the feature
-Tools>Virtual Key Identifier. The window that appears will display the name of any key
-that we press.
-Finally, the best aspect of KMN’s syntax: groups. These play the role of states in finite
-automata: a rule can invoke a group (i.e., activate a state), and each group contains rules
-that are specific to it.
-Let us take an example. Suppose that we want a keyboard that will prevent a Cyrillic
-letter from immediately following a Latin letter (to prevent the problems that result
-from mixing scripts):
-begin Unicode > use(prelim)
-store(latin) "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-store(cyrillic) "АБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧЪЮ"
-group(prelim)
-any(latin) > context use(latinstate)
-nomatch > use(nostate)
-group(latinstate) using keys
-+ any(cyrillic) > beep
-nomatch > use(nostate)
-group(nostate) using keys
-Explanation: At the beginning (as soon as we have typed a character), we ask Keyman to
-go into the prelim group. There we ask: is the letter that has just been entered a Latin
-letter? If so, we store this letter as a context for the following rule and switch to the group
-latinstate. In this group there is only one rule: if the following character is Cyrillic, we
-sound a beep and stop the process. In both groups, if the letter that is entered does not
-comply with the rule, we switch to the group nostate, which does not have any rules.6
-Under X Window
-Under X Window, we have two fundamental concepts [299, p. 401]: the keycode (which
-is the number of each physical key) and the keysym (the symbolic name associated with
-each key). To configure a virtual keyboard is to write a table of mappings between
-the two.
-6 A word of warning to the reader who may be trying to play around with the code above under his copy
-of Keyman Developer: there is a bug in the debugger’s input area that requires the user to release the shift key
-and press it again for each capital letter. There is also a separate testing window (validate it first with Tools>
-Options>Debugger, then press F9 to open it), which does not suffer from this flaw.
+Virtual Keyboards All the code that we have written has been “mnemonic” because we have used Unicode characters, not the identifiers of keys. To use the latter, we can write [NAME], in which NAME is the name of a key. To obtain the name of a given key, we can use the feature Tools>Virtual Key Identifier. The window that appears will display the name of any key that we press. Finally, the best aspect of KMN’s syntax: groups. These play the role of states in finite automata: a rule can invoke a group (i.e., activate a state), and each group contains rules that are specific to it. Let us take an example. Suppose that we want a keyboard that will prevent a Cyrillic letter from immediately following a Latin letter (to prevent the problems that result from mixing scripts): begin Unicode > use(prelim) store(latin) "ABCDEFGHIJKLMNOPQRSTUVWXYZ" store(cyrillic) "АБЦДЕФГХИЙКЛМНОПЯРСТУЖВЬЫЗШЭЩЧЪЮ" group(prelim) any(latin) > context use(latinstate) nomatch > use(nostate) group(latinstate) using keys + any(cyrillic) > beep nomatch > use(nostate) group(nostate) using keys Explanation: At the beginning (as soon as we have typed a character), we ask Keyman to go into the prelim group. There we ask: is the letter that has just been entered a Latin letter? If so, we store this letter as a context for the following rule and switch to the group latinstate. In this group there is only one rule: if the following character is Cyrillic, we sound a beep and stop the process. In both groups, if the letter that is entered does not comply with the rule, we switch to the group nostate, which does not have any rules.6 Under X Window Under X Window, we have two fundamental concepts [299, p. 401]: the keycode (which is the number of each physical key) and the keysym (the symbolic name associated with each key). To configure a virtual keyboard is to write a table of mappings between the two. 6 A word of warning to the reader who may be trying to play around with the code above under his copy of Keyman Developer: there is a bug in the debugger’s input area that requires the user to release the shift key and press it again for each capital letter. There is also a separate testing window (validate it first with Tools> Options>Debugger, then press F9 to open it), which does not suffer from this flaw.
 
+```text
 xmodmap
 The basic tool for manipulating virtual keyboards is xmodmap, a utility as old as X itself.
 By entering xmodmap -pke, we obtain a list of mappings between keycode and keysym that
@@ -764,63 +734,11 @@ root 0x38, subw 0x0, time 1568428051, (129,44), root:(244,364),
 state 0x0, keycode 20 (keysym 0x61, a), same_screen YES,
 XLookupString gives 1 bytes:
 "a"
+```
 
-Conversion of Text from One Encoding to Another
-KeyRelease event, serial 24, synthetic NO, window 0x1000001,
-root 0x38, subw 0x0, time 1568428130, (129,44), root:(244,364),
-state 0x0, keycode 20 (keysym 0x61, a), same_screen YES,
-XLookupString gives 1 bytes:
-"a"
-Thus there are two events: the pressing of the key and its release. The keycode of this key
-is 20, and the keysym is a. If we press ‘é’ on a French keyboard, we obtain:
-KeyPress event, serial 24, synthetic NO, window 0x1000001,
-root 0x38, subw 0x0, time 1568533302, (110,40), root:(225,360),
-state 0x0, keycode 27 (keysym 0xe9, eacute), same_screen YES,
-XLookupString gives 1 bytes:
-"é"
-KeyRelease event, serial 24, synthetic NO, window 0x1000001,
-root 0x38, subw 0x0, time 1568533382, (110,40), root:(225,360),
-state 0x0, keycode 27 (keysym 0xe9, eacute), same_screen YES,
-XLookupString gives 1 bytes:
-"é"
-in which we see the keycode (27), the keysym (eacute), and even an interpretation of the
-keysym as a Unicode character: ‘é’.
-Another interesting feature of xmodmap: instead of defining the behavior of the keys, we
-can reallocate the characters. Thus, if we write:
-keysym bracketleft = 0x005b 0x007b 0272 0260
-keysym bracketright = 0x005d 0x007d 0305 comma
-keysym a = a A 0277 0304
-keysym s = s S 0313 0246
-keysym d = d D 0241 0257
-it is the keysym values that will change, according to the modifiers that are activated. This
-style of writing is independent of the physical keyboard.
-There is also XKeyCaps (see Figure 5-10), a graphical interface for xmodmap that was developed by Jamie Zawinski. This interface allows us to select the keysym for each keycode
-from a list of available keysym values. Unfortunately, the development of this program
-was halted in 1999.
-Conversion of Text from One Encoding to Another
-There are few tools for converting text, no doubt because text editors (such as BBEdit
-and Ultra-Edit) and word-processing packages (such as MS Word and Corel WordPerfect)
-handle this process internally. There is a free library of subroutines devoted to converting
-between encodings: libiconv, developed by Bruno Haible. The GNU software provided
-with this library that performs conversions is called iconv.
+Conversion of Text from One Encoding to Another KeyRelease event, serial 24, synthetic NO, window 0x1000001, root 0x38, subw 0x0, time 1568428130, (129,44), root:(244,364), state 0x0, keycode 20 (keysym 0x61, a), same_screen YES, XLookupString gives 1 bytes: "a" Thus there are two events: the pressing of the key and its release. The keycode of this key is 20, and the keysym is a. If we press ‘é’ on a French keyboard, we obtain: KeyPress event, serial 24, synthetic NO, window 0x1000001, root 0x38, subw 0x0, time 1568533302, (110,40), root:(225,360), state 0x0, keycode 27 (keysym 0xe9, eacute), same_screen YES, XLookupString gives 1 bytes: "é" KeyRelease event, serial 24, synthetic NO, window 0x1000001, root 0x38, subw 0x0, time 1568533382, (110,40), root:(225,360), state 0x0, keycode 27 (keysym 0xe9, eacute), same_screen YES, XLookupString gives 1 bytes: "é" in which we see the keycode (27), the keysym (eacute), and even an interpretation of the keysym as a Unicode character: ‘é’. Another interesting feature of xmodmap: instead of defining the behavior of the keys, we can reallocate the characters. Thus, if we write: keysym bracketleft = 0x005b 0x007b 0272 0260 keysym bracketright = 0x005d 0x007d 0305 comma keysym a = a A 0277 0304 keysym s = s S 0313 0246 keysym d = d D 0241 0257 it is the keysym values that will change, according to the modifiers that are activated. This style of writing is independent of the physical keyboard. There is also XKeyCaps (see Figure 5-10), a graphical interface for xmodmap that was developed by Jamie Zawinski. This interface allows us to select the keysym for each keycode from a list of available keysym values. Unfortunately, the development of this program was halted in 1999. Conversion of Text from One Encoding to Another There are few tools for converting text, no doubt because text editors (such as BBEdit and Ultra-Edit) and word-processing packages (such as MS Word and Corel WordPerfect) handle this process internally. There is a free library of subroutines devoted to converting between encodings: libiconv, developed by Bruno Haible. The GNU software provided with this library that performs conversions is called iconv.
 
-Figure 5-10: The main window of XKeyCaps
-The recode Utility
-In this section we shall describe a program with a long history (its origins, under a different name, go back to the 1970s) that today is based on libiconv: recode, by the Québécois
-François Pinard [293].
-To convert a file foo.txt, all that we need is to find the source encoding A and the target
-encoding B on the list of encodings supported by recode and write:
-recode A..B foo.txt
-The file foo.txt will be overwritten. We can also write:
-recode A..B < foo.txt > foo-converted.txt
-In fact, we can go through multiple steps:
-recode A..B..C..D..E foo.txt
-What is even more interesting is that recode refers to surface, which is roughly the equivalent of Unicode’s serialization mechanisms (see page 62)—a technique for transmitting
-data without changing the encoding. If S is a serialization mechanism, we can write:
-recode A..B/S foo.txt
-and, in addition to the conversion, this mechanism will also be applied. For example, we
-can convert data to hexadecimal, or base 64, or quoted-printable (page 48). Here are the
-serialization mechanisms provided by recode:
+Figure 5-10: The main window of XKeyCaps The recode Utility In this section we shall describe a program with a long history (its origins, under a different name, go back to the 1970s) that today is based on libiconv: recode, by the Québécois François Pinard [293]. To convert a file foo.txt, all that we need is to find the source encoding A and the target encoding B on the list of encodings supported by recode and write: recode A..B foo.txt The file foo.txt will be overwritten. We can also write: recode A..B < foo.txt > foo-converted.txt In fact, we can go through multiple steps: recode A..B..C..D..E foo.txt What is even more interesting is that recode refers to surface, which is roughly the equivalent of Unicode’s serialization mechanisms (see page 62)—a technique for transmitting data without changing the encoding. If S is a serialization mechanism, we can write: recode A..B/S foo.txt and, in addition to the conversion, this mechanism will also be applied. For example, we can convert data to hexadecimal, or base 64, or quoted-printable (page 48). Here are the serialization mechanisms provided by recode:
 
 Conversion of Text from One Encoding to Another
 • b64:7 base 64.
@@ -883,6 +801,7 @@ created specially for French (e'le'ment, apre`s, de'ja`).
 The reader may consult the list of all the encodings that recode supports by typing
 recode -l.
 
+```text
 Font Management on the
 Macintosh
 Our concern in this chapter will be the installation and management of fonts under
@@ -905,3 +824,4 @@ applications (which systematically analyze the fonts contained in the system fol
 slightest system crash. A corrupted font loaded by the system will cause a fatal system
 crash. Such crashes are often fraught with consequences, and this type of corrupt file is
 also difficult to detect.
+```

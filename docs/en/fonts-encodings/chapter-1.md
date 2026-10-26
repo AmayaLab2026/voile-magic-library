@@ -9,71 +9,43 @@ description: "Unabridged English text: FIELDATA, ASCII, EBCDIC, ISO 2022, ISO 88
 
 ---
 
-The Structure of the Book and Ways to Use It
-actually buys is a license to use it. According to the foundry, this license may or may not
-specify the number of machines and/or printers on which the font may be installed and
-used. But no foundry will allow someone who has bought a license for one of its fonts
-to distribute that font publicly. How, then, can one display the glyphs of a document in
-a particular font if one does not have the right to distribute it?
-Electronic documents are caught between the past (typography, glyphs and their arrangement, fonts) and the future (the Web, characters, information that can be indexed
-at will and made available to everyone). In saying that, we have taken only two axes of
-our digital space for writing into account: the system approach (characters/glyphs) and
-historicity. There remain the geographic axis (East/West, with all the surprises that the
-writing systems of other cultures have in store for us) and the industrial axis (problems
-of file format, platform, etc.).
-In this book, we aim to offer the reader a certain number of tools to confront these problems. We do not concern ourselves with all aspects of the electronic document, just those
-pertaining to characters and glyphs, aspects that directly and inevitably affect encodings
-and fonts.
-The Structure of the Book and Ways to Use It
-This book contains 14 chapters grouped into 4 units and 7 appendices. We have repeatedly said that fonts and encodings interact like yin and yang. Here we use this metaphor
-to give a graphical illustration of the book’s structure with the yin–yang symbol (Figure 0-6) in the background. On the left, in the gray-shaded area: encodings. On the right,
-in the white part: fonts.
-At the top of the circle is the introduction that the reader is currently reading.
-The first box, the one on the left, contains the five chapters on encodings, in particular
-Unicode.
-In the first chapter, entitled “Before Unicode”, we present a history of codes and encodings, starting in antiquity. After a few words on systems of encoding used in telecommunication before the advent of the computer, we proceed immediately to the most
-well-known encoding of all, ASCII, and its staunch competitor, EBCDIC. Then follows
-the ISO 8859 series of encodings, the most recent of which was released in 2001. At the
-same time, we discuss the problems of the countries of the Far East and the different
-solutions offered by ISO, Microsoft, and the UNIX world. Finally, we end with a few
-words on electronic mail and the Web.
-The second chapter, “Characters, Glyphs, Bytes”, is an introduction to Unicode. In it,
-we develop the underlying concepts of Unicode, the principles on which it is based, its
-philosophy, and the technical choices that it has made. We finish the chapter with a quick
-look at the different tables of Unicode, including a preview of the tables that are still at
-the stage of consideration that precedes inclusion in the encoding.
-Next comes the chapter “Unicode Character Properties”, which leads us into the morass
-of the data that accompanies the characters. Often this data indicates that the character
+The Structure of the Book and Ways to Use It actually buys is a license to use it. According to the foundry, this license may or may not specify the number of machines and/or printers on which the font may be installed and used. But no foundry will allow someone who has bought a license for one of its fonts to distribute that font publicly. How, then, can one display the glyphs of a document in a particular font if one does not have the right to distribute it? Electronic documents are caught between the past (typography, glyphs and their arrangement, fonts) and the future (the Web, characters, information that can be indexed at will and made available to everyone). In saying that, we have taken only two axes of our digital space for writing into account: the system approach (characters/glyphs) and historicity. There remain the geographic axis (East/West, with all the surprises that the writing systems of other cultures have in store for us) and the industrial axis (problems of file format, platform, etc.). In this book, we aim to offer the reader a certain number of tools to confront these problems. We do not concern ourselves with all aspects of the electronic document, just those pertaining to characters and glyphs, aspects that directly and inevitably affect encodings and fonts. The Structure of the Book and Ways to Use It This book contains 14 chapters grouped into 4 units and 7 appendices. We have repeatedly said that fonts and encodings interact like yin and yang. Here we use this metaphor to give a graphical illustration of the book’s structure with the yin–yang symbol (Figure 0-6) in the background. On the left, in the gray-shaded area: encodings. On the right, in the white part: fonts. At the top of the circle is the introduction that the reader is currently reading. The first box, the one on the left, contains the five chapters on encodings, in particular Unicode. In the first chapter, entitled “Before Unicode”, we present a history of codes and encodings, starting in antiquity. After a few words on systems of encoding used in telecommunication before the advent of the computer, we proceed immediately to the most well-known encoding of all, ASCII, and its staunch competitor, EBCDIC. Then follows the ISO 8859 series of encodings, the most recent of which was released in 2001. At the same time, we discuss the problems of the countries of the Far East and the different solutions offered by ISO, Microsoft, and the UNIX world. Finally, we end with a few words on electronic mail and the Web. The second chapter, “Characters, Glyphs, Bytes”, is an introduction to Unicode. In it, we develop the underlying concepts of Unicode, the principles on which it is based, its philosophy, and the technical choices that it has made. We finish the chapter with a quick look at the different tables of Unicode, including a preview of the tables that are still at the stage of consideration that precedes inclusion in the encoding. Next comes the chapter “Unicode Character Properties”, which leads us into the morass of the data that accompanies the characters. Often this data indicates that the character
 
+::: tip Typographical Specimen Plate (Figure 0-6)
+![Figure 0-6: The general structure of this book](/images/fonts-encodings/fig0-6-book-structure.png)
+*Figure 0-6: The general structure of this book.*
+:::
+
+```text
 Introduction
 A. Bitmap fonts
 B. TEX et Ω fonts
 C. PostScript fonts
-D. TrueType, OpenType 
-     and AAT fonts
+D. TrueType, OpenType
+and AAT fonts
 E. TrueType instructions
 G. Bézier curves
 2. Characters,
-   glyphs, bytes
+glyphs, bytes
 3. Unicode character
-   properties
-   bidirectionality, 
-   CJK characters
+properties
+bidirectionality,
+CJK characters
 6. Font management
-    on the Macintosh
+on the Macintosh
 7. Font management
-    under Windows
+under Windows
 8. Font management
-    under X Window
-9.  Fonts under 
-    TEX and Ω
-    classifications
-    fonts
+under X Window
+9.  Fonts under
+TEX and Ω
+classifications
+fonts
 13. Optimizing the rendering
 14. Advanced typographical
-     features
-F.  METAFONT and 
-    its derivatives
+features
+F.  METAFONT and
+its derivatives
 Introduction
 Bibliographic
 references
@@ -87,8 +59,8 @@ d
 i
 n
 g
-s 
-/ 
+s
+/
 c
 h
 a
@@ -101,8 +73,7 @@ f
 o
 n
 ts
- /
- 
+/
 g
 l
 y
@@ -111,7 +82,9 @@ h
 s
 Appendices
 Figure 0-6: Structure of the chapters of this book.
+```
 
+```text
 The Structure of the Book and Ways to Use It
 in question plays a certain role. We explain this role by showing the reader some of the
 internal workings of the encoding.
@@ -153,7 +126,9 @@ hand, if the reader uses only the fonts that come standard on his operating syst
 has no need to read these chapters.
 The third unit (Chapters 9 and 10) gets more technical. It deals with the use of fonts in
 two specific cases: the TEX typesetting system (and its successor, Ω, of which the author is
+```
 
+```text
 Introduction
 co-developer) and Web pages. TEX is a software system and a programming language devoted to typesetting. It is also used today to produce electronic documents. Its approach
 to managing fonts is unique and totally independent of the operating system being used.
@@ -193,7 +168,9 @@ standard make use of this classification system to select substitute fonts by ch
 available font whose Panose-1 distance from the missing font is the smallest. Despite the
 fame of the Panose-1 system, a precise description of it is very difficult to find. This book
 provides one, thanks to the generosity of Benjamin Bauermeister, the creator of Panose1, who was kind enough to supply us with the necessary information.
+```
 
+```text
 The Structure of the Book and Ways to Use It
 Chapters 12 to 14 describe the existing tools for creating (or modifying) fonts. We have
 chosen two basic tools, FontLab and FontForge (formerly PfaEdit), and we describe their
@@ -234,46 +211,11 @@ and character is broken. Furthermore, these bitmap fonts depend on the character
 of a given printer; thus there can be no “universal” METAFONT font that is compatible
 with every printer—whereas PostScript and TrueType fonts are based on that principle of
 universality. Nonetheless, we have described METAFONT in this book for three reasons:
+```
 
-Introduction
-for nostalgia and out of respect for Donald Knuth, for METAFONT’s intrinsic value as a
-tool for designing fonts, and, finally, because some recent software attempts to make up
-for the shortcomings of METAFONT by generating PostScript or TrueType fonts from the
-same source code used for METAFONT or from a similar type of source. We describe two
-attempts of this kind: METATYPE1 and MetaFog.
-Without a doubt, this book distinguishes itself by the uncommonly large size of its appendices. We have aimed to compile and present the main font formats in our own
-way—an undertaking that has consumed a great deal of time and energy, not to mention
-pages.
-Appendix A can be considered a sort of history of font formats, as it discusses a type of
-fonts—bitmap fonts—that has virtually disappeared.
-Appendix B discusses the “real” and virtual fonts of TEX.
-Appendix C aims to discuss all of the PostScript font formats, from Type 1 (released
-in 1985) to CFF, which is a part of the OpenType standard, with a brief mention of the
-obsolete formats (Type 3 and Multiple Masters) and the special formats for Far Eastern
-scripts. So that we can understand the PostScript code for these fonts, we have also provided an introduction to this very specialized programming language.
-In Appendix D, we take on the challenge of describing in detail all the TrueType, OpenType, and AAT tables. So as not to bore the reader with low-level technical details on the
-numbers of bytes in each field, the pointers between the tables, the number of bytes of
-padding—in short, the horror of editing raw binary data—we describe these tables in an
-XML syntax used by the tool TTX. This tool, developed in Python by Just van Rossum,
-the brother of Guido van Rossum (who invented Python), makes it possible to convert
-TrueType, OpenType, and AAT binary data into XML and vice versa. Thus we can consider the TTX representation of these fonts to be equivalent to their binary form, and
-we shall take advantage of this convenience to describe the tables as XML structures.
-That approach will not make their complexity disappear as if by waving a magic wand,
-but it will at least spare the reader needless complexity that pertains only to aspects of
-the binary format of the files themselves. Thus we shall be able to focus on the essence
-of each table. We shall systematically illustrate the definition of the tables by means of
-practical examples.
-This appendix will be of interest to more people than just computer scientists. Large
-consumers of OpenType fonts will also find it valuable for the simple reason that current
-software products that are compatible with the OpenType font format use only a tiny
-percentage of its possibilities. Readers eager to know what OpenType has under the hood
-will find out in this appendix.
-Appendix E is the logical continuation of Appendix D and the ideal complement to
-Chapter 13 on optimizing the rendering of fonts. In it, we describe the instructions of the
-TrueType assembly language. TrueType instructions have a reputation for being arcane
-and incomprehensible—a reputation due as much to their representation (in assembly
-language) as to their purpose (modifying the outline of a glyph to obtain a better rendering) and to some implied concepts (notably the concepts of projection vector, freedom
+Introduction for nostalgia and out of respect for Donald Knuth, for METAFONT’s intrinsic value as a tool for designing fonts, and, finally, because some recent software attempts to make up for the shortcomings of METAFONT by generating PostScript or TrueType fonts from the same source code used for METAFONT or from a similar type of source. We describe two attempts of this kind: METATYPE1 and MetaFog. Without a doubt, this book distinguishes itself by the uncommonly large size of its appendices. We have aimed to compile and present the main font formats in our own way—an undertaking that has consumed a great deal of time and energy, not to mention pages. Appendix A can be considered a sort of history of font formats, as it discusses a type of fonts—bitmap fonts—that has virtually disappeared. Appendix B discusses the “real” and virtual fonts of TEX. Appendix C aims to discuss all of the PostScript font formats, from Type 1 (released in 1985) to CFF, which is a part of the OpenType standard, with a brief mention of the obsolete formats (Type 3 and Multiple Masters) and the special formats for Far Eastern scripts. So that we can understand the PostScript code for these fonts, we have also provided an introduction to this very specialized programming language. In Appendix D, we take on the challenge of describing in detail all the TrueType, OpenType, and AAT tables. So as not to bore the reader with low-level technical details on the numbers of bytes in each field, the pointers between the tables, the number of bytes of padding—in short, the horror of editing raw binary data—we describe these tables in an XML syntax used by the tool TTX. This tool, developed in Python by Just van Rossum, the brother of Guido van Rossum (who invented Python), makes it possible to convert TrueType, OpenType, and AAT binary data into XML and vice versa. Thus we can consider the TTX representation of these fonts to be equivalent to their binary form, and we shall take advantage of this convenience to describe the tables as XML structures. That approach will not make their complexity disappear as if by waving a magic wand, but it will at least spare the reader needless complexity that pertains only to aspects of the binary format of the files themselves. Thus we shall be able to focus on the essence of each table. We shall systematically illustrate the definition of the tables by means of practical examples. This appendix will be of interest to more people than just computer scientists. Large consumers of OpenType fonts will also find it valuable for the simple reason that current software products that are compatible with the OpenType font format use only a tiny percentage of its possibilities. Readers eager to know what OpenType has under the hood will find out in this appendix. Appendix E is the logical continuation of Appendix D and the ideal complement to Chapter 13 on optimizing the rendering of fonts. In it, we describe the instructions of the TrueType assembly language. TrueType instructions have a reputation for being arcane and incomprehensible—a reputation due as much to their representation (in assembly language) as to their purpose (modifying the outline of a glyph to obtain a better rendering) and to some implied concepts (notably the concepts of projection vector, freedom
 
+```text
 The Structure of the Book and Ways to Use It
 vector, twilight zones, etc.). And it is due most of all to the poor quality of the documentation supplied by Microsoft, which is enough to discourage even the most motivated
 programmer. We hope that this appendix will be easier to understand than the document that it cites and that it will be a helpful adjunct to Chapter 13.
@@ -310,7 +252,9 @@ For the former, he will want to prepare documents in Unicode and typeset them wi
 may want to create fonts for use with TEX; thus he may benefit from Chapters 12 and 14,
 which discuss the creation of PostScript and TrueType fonts, or perhaps Appendix F, on
 the use of METAFONT.
+```
 
+```text
 Introduction
 For the reader who simply wants to produce beautiful documents
 A beautiful document is, first and foremost, a well-coded document; it is useful, therefore, to know the workings of Unicode in order to use it to greatest advantage. Reading
@@ -349,38 +293,9 @@ such as FontLab or FontForge. If he is a user of FontLab, he may also try his ha
 Python language and learn in Chapter 11 how to control the FontLab software through
 programming. If he already knows font design, instruction, and advanced typographical
 features, Appendices C and D will show him some of OpenType’s possibilities that will
+```
 
-How to Contact Us
-surprise him because, for the time being, they are not exploited by OpenType-compatible
-software. Finally, reading the description of the Panose standard in Chapter 11 will enable him to classify his fonts correctly and thus facilitate their use.
-For the developer of applications
-Chapters 2 to 4 will teach her what she needs to know to make her applications compatible with Unicode. Next, Appendices C, D, and E will show her how to make them
-compatible with PostScript or OpenType fonts. Appendix G may prove useful in the
-writing of algorithms that make calculations from the Bézier curves that describe the
-outlines of glyphs.
-For the reader who doesn’t match any of the preceding profiles
-The outline presented in this introduction, together with the table of contents, may suggest a path to the information that interests him. If this information is very specific, the
-index may also come in handy. If necessary, the reader may also contact us at the address
-given below.
-How to Contact Us
-We have done our best to reread and verify all the information in this book, but we
-may nonetheless have failed to catch some errors in the course of production.3 Please
-point out any errors that you notice and share with us your suggestions for future editions of this book by writing to:
-O’Reilly Media Inc.
-1005 Gravenstein Highway North
-Sebastopol, CA 95472
-You may also send us email. To join our mailing list or request a catalog, send a message
-to:
-info@oreilly.com
-To ask a technical question or send us your comments on the book, write to:
-somebody@oreilly.com
-This book has its own web site, where you will find all the code fragments that appear in
-the book, a list of errata, and plans for future editions. Please visit the following URL:
-http://www.oreilly.com/somewhere/fonts-and-encodings.html
-For more information on this book and its author, visit O’Reilly’s web site:
-http://www.oreilly.com
-3 On this subject, we recommend a hilarious book: An Embarrassment of Misprints: Comical and Disastrous
-Typos of the Centuries, by Max Hall (1995) [154].
+How to Contact Us surprise him because, for the time being, they are not exploited by OpenType-compatible software. Finally, reading the description of the Panose standard in Chapter 11 will enable him to classify his fonts correctly and thus facilitate their use. For the developer of applications Chapters 2 to 4 will teach her what she needs to know to make her applications compatible with Unicode. Next, Appendices C, D, and E will show her how to make them compatible with PostScript or OpenType fonts. Appendix G may prove useful in the writing of algorithms that make calculations from the Bézier curves that describe the outlines of glyphs. For the reader who doesn’t match any of the preceding profiles The outline presented in this introduction, together with the table of contents, may suggest a path to the information that interests him. If this information is very specific, the index may also come in handy. If necessary, the reader may also contact us at the address given below. How to Contact Us We have done our best to reread and verify all the information in this book, but we may nonetheless have failed to catch some errors in the course of production.3 Please point out any errors that you notice and share with us your suggestions for future editions of this book by writing to: O’Reilly Media Inc. 1005 Gravenstein Highway North Sebastopol, CA 95472 You may also send us email. To join our mailing list or request a catalog, send a message to: info@oreilly.com To ask a technical question or send us your comments on the book, write to: somebody@oreilly.com This book has its own web site, where you will find all the code fragments that appear in the book, a list of errata, and plans for future editions. Please visit the following URL: http://www.oreilly.com/somewhere/fonts-and-encodings.html For more information on this book and its author, visit O’Reilly’s web site: http://www.oreilly.com 3 On this subject, we recommend a hilarious book: An Embarrassment of Misprints: Comical and Disastrous Typos of the Centuries, by Max Hall (1995) [154].
 
 Before Unicode
 When we need precise definitions of computer-related concepts that seem a little fuzzy
@@ -1021,9 +936,15 @@ lest they be torn. Therefore he invented a system by which one could encode lett
 numbers without ever using more than two holes per column. The system is called the
 Hollerith code:
 
+::: tip Typographical Specimen Plate (Figure 1-1)
+![Figure 1-1: An ISO 1681 80-column punch card](/images/fonts-encodings/fig1-1-punch-card-iso-1681.png)
+*Figure 1-1: An ISO 1681 80-column punch card.*
+:::
+
 ![Figure 1-1: An ISO 1681 80-column punch card](/images/fonts-encodings/fig1-1-punch-card-iso-1681.png)
 *Figure 1-1: An ISO 1681 80-column punch card.*
 
+```text
 ISO 2022
 Figure 1-1: A punch card (ISO 1681 standard).
 Holes
@@ -1072,6 +993,7 @@ In the early 1970s, the industry was well aware of the fact that the “localize
 ASCII were an impediment. People had to use multiple encodings that were really quite
 different, and sooner or later they had to switch from one encoding to another in the
 middle of a document or a transmission. But how to indicate this change of encoding?
+```
 
 0x
 1x
@@ -1131,9 +1053,15 @@ n = 2, we will obtain encodings with 962 = 9,216 positions.
 There is only one small constraint: encoding G0 must necessarily be of type 94 or 94n.
 A first series of escape sequences allows us to specify encodings G0, G1, G2, G3. These sequences depend on the type of the encoding. Thus, for example, the sequences ‘esc 0x2D
 
+::: tip Typographical Specimen Plate (Figure 1-2)
+![Figure 1-2: Subdivisions of an 8-bit space in ISO 2022](/images/fonts-encodings/fig1-2-iso-2022-subdivisions.png)
+*Figure 1-2: Subdivisions of an 8-bit space in ISO 2022.*
+:::
+
 ![Figure 1-2: Subdivisions of an 8-bit space in ISO 2022](/images/fonts-encodings/fig1-2-iso-2022-subdivisions.png)
 *Figure 1-2: Subdivisions of an 8-bit space in ISO 2022.*
 
+```text
 ISO 8859
 F’, ‘esc 0x2E F’, ‘esc 0x2F F’, in which ‘F’ is an identifier for an encoding with 96 positions,
 declares that the encoding designated by ‘F’ is assigned to G1, G2, or G3, respectively.
@@ -1171,6 +1099,7 @@ data flow, ISO started to define encodings with 96 positions that would suppleme
 ASCII. This became the ISO 8859 family of encodings, a family characterized by its
 longevity—and its awkwardness.
 1 This Web site is a gold mine for historians of computer science, as it offers a PDF version of the description of each registered encoding!
+```
 
 ISO 8859-1 (Latin-1) and ISO 8859-15 (Latin-9)
 The new standard’s flagship, ISO 8859-1, was launched in 1987. By 1990, Bernard Marti
@@ -1998,7 +1927,6 @@ l¸ B6
 ∂BD
 ž BE
 n BF
- 
 C0
 Á
 C1
@@ -2132,7 +2060,7 @@ l¸ B8
 ž BC —BD
 ) BE
 n BF
- C0
+C0
 Á C1
 Â C2
 Ã C3
@@ -2256,189 +2184,9 @@ covers Thai, a Southeast Asian script that is a simplified version of the Khmer 
 encoding is rather thorough: it contains practically all of the consonants, initial vowels,
 diacritical marks, and special punctuation marks, as well as the numerals.
 
-ISO 8859-14 (Latin-8)
-ISO 8859-14 (or “Latin-8”) is dedicated to the Celtic languages: Irish Gaelic (which is ordinarily written in its own alphabet), Scottish, and Welsh. Only Breton, with its famous
-‘c’h’ ligature, is absent. It is a variant of ISO 8859-1 with 31 modified characters that we
-have shown here in black:
-nbspA0
-˙B A1
-˙b A2
-£ A3
-˙C A4
-˙c A5
-˙D A6
-§ A7
-`WA8
-© A9
-´WAA
-˙d AB
-`Y AC
-shyAD
-® AE
-Ÿ AF
-˙F B0
-˙f B1
-˙G B2
-˙g B3
-˙M B4
-˙m B5
-¶ B6
-˙P B7
-`w B8
-˙p B9
-´w BA
-˙S BB
-`y BC
-¨WBD
-¨w BE
-˙s BF
-ˆWD0
-Ñ D1
-Ò D2
-Ó D3
-Ô D4
-Õ D5
-Ö D6
-˙T D7
-Ø D8
-Ù D9
-Ú DA
-Û DB
-Ü DC
-Ý DD
-ˆY DE
-ß DF
-ˆw F0
-ñ F1
-ò F2
-ó F3
-ô F4
-õ F5
-ö F6
-˙t F7
-ø F8
-ù F9
-ú FA
-û FB
-ü FC
-ý FD
-ˆy FE
-ÿ FF
-The Far East
-The first telegraph systems in the Far East were imported from the West and therefore
-used the Latin alphabet. How could the thousands, even tens of thousands, of ideographic characters of the Chinese writing system have been encoded, with either Morse
-code or anything similar? Transliteration into the Latin alphabet was not an option
-either, as the phonetics of the Chinese language are very ill suited to that approach.
-Japanese is simpler phonetically, but another problem impeded transliteration: the enormous number of homophones that are distinguished only in writing.
-Only computer science could enable the countries of the Far East to communicate conveniently over large distances. The country the best equipped for this task was, of course,
-Japan. In 1976, three years after the release of ISO 2022, the Japanese prepared the first
-GR-type encoding—that is, a 94-character supplement to ASCII: JIS C 6220 (which was
-rechristened as JIS X 0201-1976 in 1987). The ASCII used in Japan was already localized:
-a yen sign ‘¥’ replaced the backslash2 and the tilde was replaced by an overbar (for writing the Japanese long vowels in Latin script). JIS C 6220, based on the JISCII released
-in 1969, contains only katakana and a few ideographic punctuation marks (the period,
-the quotation marks, the comma, the raised dot), all in half-width characters:
-nbsp
-A0
-｡
-A1
-｢
-A2
-｣
-A3
-､
-A4
-･
-A5
-ｦ
-A6
-ｧ
-A7
-ｨ
-A8
-ｩ
-A9
-ｪ
-AA
-ｫ
-AB
-ｬ
-AC
-ｭ
-AD
-ｮ
-AE
-ｯ
-AF
-ｰB0
-ｱB1
-ｲB2
-ｳB3
-ｴB4
-ｵB5
-ｶB6
-ｷB7
-ｸB8
-ｹB9
-ｺBA
-ｻBB
-ｼBC
-ｽBD
-ｾBE
-ｿBF
-ﾀ
-C0
-ﾁ
-C1
-ﾂ
-C2
-ﾃ
-C3
-ﾄ
-C4
-ﾅ
-C5
-ﾆ
-C6
-ﾇ
-C7
-ﾈ
-C8
-ﾉ
-C9
-ﾊ
-CA
-ﾋ
-CB
-ﾌ
-CC
-ﾍ
-CD
-ﾎ
-CE
-ﾏ
-CF
-ﾐD0
-ﾑD1
-ﾒD2
-ﾓD3
-ﾔD4
-ﾕD5
-ﾖD6
-ﾗD7
-ﾘD8
-ﾙD9
-ﾚDA
-ﾛDB
-ﾜDC
-ﾝDD
-ﾞDE
-ﾟDF
-The phonetic modifiers were supplied as independent characters even though there was
-enough space to encode all of their combinations with letters. The syllable ‘ペ’ was thus
-obtained from the character ‘ヘ’ followed by a modifier character ‘°’.
-2 As a result of which right up to this day, thirty years later, TEX commands in Japanese handbooks always
-start with a yen sign rather than a backslash.. . .
+ISO 8859-14 (Latin-8) ISO 8859-14 (or “Latin-8”) is dedicated to the Celtic languages: Irish Gaelic (which is ordinarily written in its own alphabet), Scottish, and Welsh. Only Breton, with its famous ‘c’h’ ligature, is absent. It is a variant of ISO 8859-1 with 31 modified characters that we have shown here in black: nbspA0 ˙B A1 ˙b A2 £ A3 ˙C A4 ˙c A5 ˙D A6 § A7 `WA8 © A9 ´WAA ˙d AB `Y AC shyAD ® AE Ÿ AF ˙F B0 ˙f B1 ˙G B2 ˙g B3 ˙M B4 ˙m B5 ¶ B6 ˙P B7 `w B8 ˙p B9 ´w BA ˙S BB `y BC ¨WBD ¨w BE ˙s BF ˆWD0 Ñ D1 Ò D2 Ó D3 Ô D4 Õ D5 Ö D6 ˙T D7 Ø D8 Ù D9 Ú DA Û DB Ü DC Ý DD ˆY DE ß DF ˆw F0 ñ F1 ò F2 ó F3 ô F4 õ F5 ö F6 ˙t F7 ø F8 ù F9 ú FA û FB ü FC ý FD ˆy FE ÿ FF The Far East The first telegraph systems in the Far East were imported from the West and therefore used the Latin alphabet. How could the thousands, even tens of thousands, of ideographic characters of the Chinese writing system have been encoded, with either Morse code or anything similar? Transliteration into the Latin alphabet was not an option either, as the phonetics of the Chinese language are very ill suited to that approach. Japanese is simpler phonetically, but another problem impeded transliteration: the enormous number of homophones that are distinguished only in writing. Only computer science could enable the countries of the Far East to communicate conveniently over large distances. The country the best equipped for this task was, of course, Japan. In 1976, three years after the release of ISO 2022, the Japanese prepared the first GR-type encoding—that is, a 94-character supplement to ASCII: JIS C 6220 (which was rechristened as JIS X 0201-1976 in 1987). The ASCII used in Japan was already localized: a yen sign ‘¥’ replaced the backslash2 and the tilde was replaced by an overbar (for writing the Japanese long vowels in Latin script). JIS C 6220, based on the JISCII released in 1969, contains only katakana and a few ideographic punctuation marks (the period, the quotation marks, the comma, the raised dot), all in half-width characters: nbsp A0 ｡ A1 ｢ A2 ｣ A3 ､ A4 ･ A5 ｦ A6 ｧ A7 ｨ A8 ｩ A9 ｪ AA ｫ AB ｬ AC ｭ AD ｮ AE ｯ AF ｰB0 ｱB1 ｲB2 ｳB3 ｴB4 ｵB5 ｶB6 ｷB7 ｸB8 ｹB9 ｺBA ｻBB ｼBC ｽBD ｾBE ｿBF ﾀ C0 ﾁ C1 ﾂ C2 ﾃ C3 ﾄ C4 ﾅ C5 ﾆ C6 ﾇ C7 ﾈ C8 ﾉ C9 ﾊ CA ﾋ CB ﾌ CC ﾍ CD ﾎ CE ﾏ CF ﾐD0 ﾑD1 ﾒD2 ﾓD3 ﾔD4 ﾕD5 ﾖD6 ﾗD7 ﾘD8 ﾙD9 ﾚDA ﾛDB ﾜDC ﾝDD ﾞDE ﾟDF The phonetic modifiers were supplied as independent characters even though there was enough space to encode all of their combinations with letters. The syllable ‘ペ’ was thus obtained from the character ‘ヘ’ followed by a modifier character ‘°’. 2 As a result of which right up to this day, thirty years later, TEX commands in Japanese handbooks always start with a yen sign rather than a backslash.. . .
 
+```text
 The Far East
 On January 1, 1978, after nine years of hard effort, the first true Japanese encoding,
 JIS C 6226-1978, known today as “old JIS”, officially came into effect. It contains 6,694
@@ -2478,7 +2226,9 @@ strictly in imitation of the Japanese encoding JIS X 0208-1997.
 North Korea is said to have abolished the ideographic characters, yet the first North
 Korean encoding, KPS 9566-97 of 1997, contained 4,653 ideographic characters as well
 as 2,679 hangul characters and 927 other characters. This encoding was inspired by
+```
 
+```text
 the South Korean one but presents certain incompatibilities. In addition, positions
 0x0448 to 0x044D fulfill an important state purpose: they contain the names of honorable
 party president Kim Il-sung and his son and successor Kim Jong-il ... a funny way to
@@ -2515,6 +2265,7 @@ While Shift-JIS is peculiar to Japan, EUC has also been used in other countries:
 the encodings EUC-CN (mainland China), EUC-TW (Taiwan), EUC-KR (South Korea).
 The interested reader will find a very detailed description of these encodings and a host
 of other information in Ken Lunde’s book CJKV Information Processing [240].
+```
 
 Microsoft’s code pages
 Microsoft’s code pages
@@ -3445,6 +3196,7 @@ where name is the IANA name of the encoding, * is either Q (= quoted-printable) 
 =?iso--?B?dm9pbA4A=?=
 Alas, neither of them is really legible...
 
+```text
 The Web
 The Web
 The Web is the exchange of HTML data under the protocol HTTP (“Hypertext Transfer
@@ -3481,9 +3233,12 @@ their weights with respect to quality, the server will decide which encoding to 
 send data. If none of the requested encodings is available, the server will reply with an
 error message: “406: not acceptable”.
 The same is true for compression:
+```
 
+```text
 Accept-Encoding: gzip;q=1.0, identity;q=0.5, *;q=0
 where the asterisk is the “wildcard”. The line shown above should be interpreted as follows: the document may be compressed with gzip (top quality) or not compressed at all
 (50% quality), and every other type of compression is of “0% quality”, which means unacceptable.
 One details that may lend itself to confusion: here “charset” is used to designate the character encoding and “coding”, or even “encoding” in the “accept” commands, is used for
 compression.
+```

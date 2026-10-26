@@ -75,6 +75,7 @@ the script itself reads from left to right. Another problem of the same type: io
 accent (G). Here Unicode stipulates that the diaeresis comes first, doubtless because there is also a diaeresis/tilde
 combination ‘I’, in which the tilde clearly lies outside the diaeresis. But perhaps we are nitpicking here?
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 0x0061 latin small letter a
 0x0323 combining dot below
@@ -110,7 +111,9 @@ Example: The Vietnamese character ‘©’ is decomposed into “ê, acute accen
 indeed the canonical order, because it arranges the diacritical marks from the inside out.
 The other type of decomposition is compatibility decomposition. Its purpose may be to
 help software to generate a glyph for a character that it does not recognize or to facilitate
+```
 
+```text
 Decompositions and Normalizations
 searches in a document. The typical example of compatibility decomposition is that of
 the Japanese character ‘㎦’, which is decomposed into a ‘k’, an ‘m’, and a ‘3’. This ‘3’ in turn
@@ -147,6 +150,7 @@ to perform searches or sorting and that relegates the precise semantics of chara
 secondary importance.
 When we decompose all characters, the size of the document goes up. A Vietnamese
 document, for example, will almost double in size. Decomposition is also a burden to
+```
 
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 software because it must not only look up a glyph corresponding to a character but actually place an accent over a glyph or look up in a table the information that shows that
@@ -186,6 +190,7 @@ a primary precomposed character whose canonical decomposition is BC.
 This is how we shall carry out NFC on the basis of these three definitions. We start with a
 string S and apply NFD to it. Next, we take each characterC in the document in the order
 
+```text
 The Bidirectional Algorithm
 in which it appears. IfC is a combining character and B is the last base character beforeC,
 then: (a) if C is not isolated from B and (b) if B can be primary combined with C, we
@@ -226,7 +231,9 @@ start writing in the opposite direction, since the space is already occupied. Th
 to move, but where should we go? The less daring among us will change paragraphs at
 this point: that is a way to start from scratch. In the new paragraph, we start at the right,
 with the usual indention, and everything is perfect.
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 But suppose that the nature of the text does not permit a change of paragraph. Ideally
 we would set aside the space needed to write the few words of Arabic and begin at that
@@ -261,7 +268,9 @@ passage will be radically different in the two cases.
 The second important concept is that of the global or local aspect of a script. The global
 aspect pertains to the occupation of space, irrespective of the order in which the words
 are arranged. Thus a passage in an English book might look like this:
+```
 
+```text
 The Bidirectional Algorithm
 À
 Á
@@ -291,7 +300,9 @@ namely, the left-to-right context:
 Â
 Ã
 Ä
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 What is astonishing about the figure shown above is that nothing shows that blocks
  and  are set in a different direction. The figure would have been exactly the same
@@ -331,83 +342,17 @@ because at least the paths traced by the eyes do not cross:
 Ä
 Let us exercise our eyes, then. Here is a paragraph containing just the ordinal numbers
 from 1 to 17, with those from 5 to 13 set from right to left:
+```
 
-The Bidirectional Algorithm
-First second third fourth hthgie htneves htxis htffi
-htneetriht htflewt htnevele htnet htnin fourteenth
-fifteenth sixteenth seventeenth.
-We can see that embedding has occurred, since the end of the right-to-left passage in the
-third line appears at the left.
-Let us take the same example with sequential (not embedded) text:
-First second third fourth hthgie htneves htxis htffi
-fourteenth htneetriht htflewt htnevele htnet htnin
-fifteenth sixteenth seventeenth.
-And here, by way of illustration, are the same examples in Arabic script. First, the embedded passage:
-First second third fourth  
+The Bidirectional Algorithm First second third fourth hthgie htneves htxis htffi htneetriht htflewt htnevele htnet htnin fourteenth fifteenth sixteenth seventeenth. We can see that embedding has occurred, since the end of the right-to-left passage in the third line appears at the left. Let us take the same example with sequential (not embedded) text: First second third fourth hthgie htneves htxis htffi fourteenth htneetriht htflewt htnevele htnet htnin fifteenth sixteenth seventeenth. And here, by way of illustration, are the same examples in Arabic script. First, the embedded passage: First second third fourth  
 
-  ! 
- "# 
- \$ %! \$
+ !  "#  \$ %! \$
 
- &'! fourteenth fifteenth sixteenth
-seventeenth.
-And then the sequential passages:
-First second third fourth  
+ &'! fourteenth fifteenth sixteenth seventeenth. And then the sequential passages: First second third fourth  
 
-  ! 
- "# 
- \$ %! \$
-fourteenth fifteenth sixteenth 
- &'!
-seventeenth.
-Another problem compounds the difficulties of mixing scripts: the use of numbers. In
-Arabic, Hebrew, Syriac, and Thaana alike, numbers are written from left to right.
-Thus the author’s birthday is written 1962 ,16 yraurbeF ,yadirF, which in Arabic looks
-like this: ()*+ 
-,-
-. (* /012'- 34, (or 565 78 55, meaning 11 Ramadan 1381 ah
-[337]). That means that each number is treated as an embedded “left-to-right” block.
-And we must not forget the characters that appear within numbers: the decimal point,
-for example, which is a period in the United States but a comma in France and a small
-damma in the Arab countries of the Mashreq.
-Now that we have seen the methods that typography uses to solve the problems of bidirectionality, let us move on to the heart of this section: the description of the algorithm
-that the Consortium recommends for implementing these methods.
+ !  "#  \$ %! \$ fourteenth fifteenth sixteenth  &'! seventeenth. Another problem compounds the difficulties of mixing scripts: the use of numbers. In Arabic, Hebrew, Syriac, and Thaana alike, numbers are written from left to right. Thus the author’s birthday is written 1962 ,16 yraurbeF ,yadirF, which in Arabic looks like this: ()*+ ,- . (* /012'- 34, (or 565 78 55, meaning 11 Ramadan 1381 ah [337]). That means that each number is treated as an embedded “left-to-right” block. And we must not forget the characters that appear within numbers: the decimal point, for example, which is a period in the United States but a comma in France and a small damma in the Arab countries of the Mashreq. Now that we have seen the methods that typography uses to solve the problems of bidirectionality, let us move on to the heart of this section: the description of the algorithm that the Consortium recommends for implementing these methods.
 
-Chapter 4 : Normalization, bidirectionality, and East Asian characters
-Unicode and Bidirectionality
-Here is the problem: we have a string of Unicode characters of which some belong to leftto-right scripts, others to right-to-left scripts, and still others to all scripts (the space, the
-period, etc.). This string will eventually be displayed or printed. And if it is long enough,
-it will be broken into lines when it is rendered. Thus we face the same problem that typographers face: how to distribute the glyphs among lines so as to represent the structure
-of the document as faithfully as possible while respecting the typographic conventions?
-The reader may be surprised: why is Unicode suddenly concerned with the presentation
-of the text? We are told over and over again that characters are superior to glyphs and
-that Unicode, being interested only in abstract concepts, would never dirty its hands with
-printer’s ink, even if that ink is virtual.
-There is a kernel of truth to that. But at the same time, Unicode always strives to give
-as much information as possible about its characters. We have seen, for example, that it
-describes the contextual behavior of the Arabic characters so that software can perform a
-contextual analysis on the sole basis of the information that Unicode has supplied. Thus
-Unicode aims to provide software with the necessary information, even though it is not
-going to talk typography or serve as a handbook for multilingual typesetting.
-But there is an important reason for which Unicode concerns itself with presentation in
-this way. In the previous section, we saw that presentation depends on the structure of the
-document. But as long as there is no direct connection (wireless or otherwise) between
-the computer and the human brain, no software will be able to detect the structure of
-a document automatically and without error. We need a way to indicate this structure.
-And that is why Unicode’s involvement is necessary: to give the user a way to specify
-whether the text contains embedding or sequential blocks.
-Unicode could have included one or two special characters to indicate embedding (with
-sequential as the default choice) and leave it at that. But it preferred to address the problem fully—and that is a good thing, because otherwise what guarantee would there be
-that a text rendered by this or that commercial or public-domain software package would
-have the same structure?
-Let us therefore explore this algorithm, which consists of six steps, each of them with
-substeps:
-1. Determine the default direction of the paragraph.
-2. Process the Unicode characters that explicitly mark direction.
-3. Process numbers and the surrounding characters.
-4. Process neutral characters (spaces, quotation marks, etc.).
-5. Make use of the inherent directionality of characters.
-6. Reverse substrings as necessary.
+Chapter 4 : Normalization, bidirectionality, and East Asian characters Unicode and Bidirectionality Here is the problem: we have a string of Unicode characters of which some belong to leftto-right scripts, others to right-to-left scripts, and still others to all scripts (the space, the period, etc.). This string will eventually be displayed or printed. And if it is long enough, it will be broken into lines when it is rendered. Thus we face the same problem that typographers face: how to distribute the glyphs among lines so as to represent the structure of the document as faithfully as possible while respecting the typographic conventions? The reader may be surprised: why is Unicode suddenly concerned with the presentation of the text? We are told over and over again that characters are superior to glyphs and that Unicode, being interested only in abstract concepts, would never dirty its hands with printer’s ink, even if that ink is virtual. There is a kernel of truth to that. But at the same time, Unicode always strives to give as much information as possible about its characters. We have seen, for example, that it describes the contextual behavior of the Arabic characters so that software can perform a contextual analysis on the sole basis of the information that Unicode has supplied. Thus Unicode aims to provide software with the necessary information, even though it is not going to talk typography or serve as a handbook for multilingual typesetting. But there is an important reason for which Unicode concerns itself with presentation in this way. In the previous section, we saw that presentation depends on the structure of the document. But as long as there is no direct connection (wireless or otherwise) between the computer and the human brain, no software will be able to detect the structure of a document automatically and without error. We need a way to indicate this structure. And that is why Unicode’s involvement is necessary: to give the user a way to specify whether the text contains embedding or sequential blocks. Unicode could have included one or two special characters to indicate embedding (with sequential as the default choice) and leave it at that. But it preferred to address the problem fully—and that is a good thing, because otherwise what guarantee would there be that a text rendered by this or that commercial or public-domain software package would have the same structure? Let us therefore explore this algorithm, which consists of six steps, each of them with substeps: 1. Determine the default direction of the paragraph. 2. Process the Unicode characters that explicitly mark direction. 3. Process numbers and the surrounding characters. 4. Process neutral characters (spaces, quotation marks, etc.). 5. Make use of the inherent directionality of characters. 6. Reverse substrings as necessary.
 
 The Bidirectional Algorithm
 Before attacking the first step, we should see how Unicode categorizes characters according to their bidirectional behavior.
@@ -507,6 +452,7 @@ below:
 005B; 005D # LEFT SQUARE BRACKET
 005D; 005B # RIGHT SQUARE BRACKET
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 As we can see, for each original character at the left, Unicode provides a character whose
 glyph is the mirror image of the original. There are 320 pairs of characters of this kind in
@@ -541,7 +487,9 @@ In this step, we shall collect and use the data provided by the various characte
 LRO, RLO, and PDF that may be found in the document. We shall examine characters
 one by one and calculate for each character the embedding-level value ˚ and the explicit
 direction.
+```
 
+```text
 The Bidirectional Algorithm
 We begin with the first character by taking ˚1 = ¸ as the initial value and not specifying any explicit direction. If we come upon the character RLE, then the value ˚ for the
 following characters will be increased by one or two units so as to yield an odd number.
@@ -578,7 +526,9 @@ In this section, we shall process numbers. There are two categories of numbers: 
 not be taken literally, as the categories serve only to indicate a certain type of behavior.
 Suppose we find ourselves in a run S with embedding level ˚. We shall begin a ballet of
 changing categories.
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 First of all, every NSM character (combining character) assumes the category of its base
 character; if there is none (so that the character is necessarily at the beginning of the run),
@@ -616,6 +566,7 @@ use this category (L or R) as the basis of our decision to set the text from rig
 from left to right. Now is the time to take the category of the characters into account.
 But nor should we forget what has been done in the preceding procedures, even if they
 are less common and deal primarily with exceptional cases. Here is where we see the
+```
 
 The Bidirectional Algorithm
 strength of the algorithm: all that we have to do is increment ˚ in a certain way, and we
@@ -659,6 +610,7 @@ merely reading “He said that ‘yes ... ”, the algorithm cannot know that th
 is part of a right-to-left quotation. Thus we shall use a pair of characters, ˝ and ˇ, to
 indicate the quotation’s boundaries:
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 [0He said that “˝[1[2yes]2 means yes]1ˇ”.]0
 The first reversal to carry out is at level 2:
@@ -692,7 +644,9 @@ East Asian Scripts
 The three great nations of East Asia (China, Japan, Korea) have writing systems that pose
 challenges to computer science. In this section, we shall discuss two of these writing systems: the ideographs of Chinese origin that were also adopted by the Japanese and the
 Koreans, and the Korean syllabic hangul script.
+```
 
+```text
 East Asian Scripts
 Ideographs of Chinese Origin
 Westerners must put forth an enormous effort to learn Chinese ideographs: there are
@@ -729,7 +683,9 @@ These encodings were adequate as long as data remained within each country. But 
 we began to exchange information across borders, if only by creating web pages, a new
 sort of problem arose: compatibility among Chinese, Japanese, and Korean ideographs.
 2 In order: “a hotchpotch”, “relating to the liver”, “covered with leaves”.
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 The Greeks borrowed the writing system of the Phoenicians; then the Romans borrowed
 theirs from the Greeks. The writing system changed each time, although the similarities are astonishing. The same phenomenon appeared among the Chinese, Japanese,
@@ -766,6 +722,7 @@ The third principle is where things really go wrong. The concept of an abstract 
 unfortunately, not clear in the slightest and depends primarily on the individual’s intuition.
 The Unicode book gives a certain number of examples of unified and nonunified
 ideographs. In these examples, the pairs of nonunified ideographs clearly consist of
+```
 
 East Asian Scripts
 two different characters, but the pairs of unified ideographs are very interesting because
@@ -841,6 +798,7 @@ running the risk of being a laughing stock. The ideographic variation indicator 
 the following meanings at the same time: “don’t be surprised if what you are reading
 doesn’t make any sense”, “I know that this is not the right character, but I haven’t found
 
+```text
 East Asian Scripts
 anything better”, “this is what the missing character looks like; unless you are extremely
 stupid, context should enable you to figure it out”.
@@ -876,7 +834,9 @@ A few simple examples:
 ’宀女(roof + woman) yields安(tranquillity)
 3 There is only one restriction: the entire string of ideographs and description characters must not exceed
 16 Unicode characters and must not contain more than six consecutive ideographs.
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 ÿ囗大(box + large) yields因(cause)
 fi辶巛(walking + river) yields 巡(patrol)
@@ -906,7 +866,9 @@ describe in Chapter 12—provided, of course, that our license to use the font a
 do so.
 But let us move on to the second attempt to describe ideographs, the CDL markup
 system.
+```
 
+```text
 East Asian Scripts
 CDL, or how to describe ideographs in XML
 In the 1980s, Tom Bishop, a Chinese-speaking American, developed some software for
@@ -944,6 +906,7 @@ attribute refers the rendering engine to this sort of description, which in turn
 it to other descriptions, and so on, until nothing but basic strokes remain.
 The basic strokes number 39. Here is the full list. (The abbreviations are the codes used
 as values of the type attribute of element stroke.)
+```
 
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 #
@@ -1065,6 +1028,7 @@ héng-xié-gHu
 hxg
 •
 
+```text
 East Asian Scripts
 ß
 shù-zhé-zhé
@@ -1131,96 +1095,11 @@ from an alloy composed primarily of copper and tin. But the main reason for whic
 Sejong lives on in history is that he initiated the invention of hangul. He appointed a
 commission of eight scholars and asked them to create a new writing system that would
 be both simple and precise.
+```
 
-Chapter 4 : Normalization, bidirectionality, and East Asian characters
-After four years of work, the commission presented to the king a writing system made up
-of 11 vowels and 17 consonants that was perfectly suited to the needs of the Korean language. It was officially ratified in 1446. In the beginning, it was called “vulgar script”,
-“the script that can be learned in one morning”, and “women’s writing”. Only in the
-nineteenth century did it receive the name hangul (“large script”). In other words, the
-upper classes in Korean society looked down upon this script for centuries.
-While Gutenberg was getting ready to print his Bibles, the first book in hangul appeared:
-Songs of the Dragons Flying to Heaven, by Jeong Inji (1447), typeset on wooden boards. It
-was followed by Songs of the Moon Shining on a Thousand Rivers, which was written by the
-king himself, and then by a Buddhist sutra in 1449. Thus begins the story of the script
-that many linguists consider to be the most perfectly conceived script in the history of
-the world.4
-The shapes of the hangul consonants were established according to the positions of the
-vocal organs. They are distributed among five phonetic categories built up by adding one
-or more strokes to indicate phonetic features:
-ᄀ
-g
-ᄂ
-n
-ᄉ
-s
-ᄆ
-m
-ᄋ
-(ng)
-ᄃ
-d
-ᄌ
-j
-ᄇ
-b
-ᄏ
-k
-ᄐ
-t
-ᄎ
-c
-ᄑ
-p
-ᄒ
-h
-ᄁ
-gg
-ᄄ
-dd
-ᄊ
-ss
-ᄈ
-bb
-ᄍ
-jj
-ᄅ
-r
-Among the consonants, ‘ᄋ’ plays the role of a placeholder for an independent vowel, or
-produces an ‘ng’ sound at the end of a syllable.
-The vowels are based on the four elements of East Asian philosophy: heaven (a short
-stroke), earth (a horizontal stroke), man (a vertical line), and the yin–yang circle (in
-evidence from the cyclical pattern that the forms of the vowels follow):
-ᅳ
-eu
-ᅩ
-o
-ᅭ
-yo
-ᅵ
-i
-ᅥ
-eo
-ᅧ
-yeo
-(ᅳ)
-ᅮ
-u
-ᅲ
-yu
-(ᅵ)
-ᅡ
-a
-ᅣ
-ya
-The reader will note that we have chosen to entitle this section “The Syllabic Korean
-Hangul Script”, whereas here we can see nothing but letters (consonants and vowels). Indeed, the signs that we have just described, which are called jamo, are merely the building
-blocks of the hangul system. By combining jamo within an ideographic square, we obtain
-the hangul syllables.
-A hangul syllable consists of one or more initial consonants (choseong), one or more
-vowels (jungseong), and possibly one or more final consonants (jongseong). There are
-19 possible initial consonants, 21 possible vowels or combinations of vowels, and 26 possible final consonants or combinations of final consonants.
-4 For more information on its history, please consult [287].
+Chapter 4 : Normalization, bidirectionality, and East Asian characters After four years of work, the commission presented to the king a writing system made up of 11 vowels and 17 consonants that was perfectly suited to the needs of the Korean language. It was officially ratified in 1446. In the beginning, it was called “vulgar script”, “the script that can be learned in one morning”, and “women’s writing”. Only in the nineteenth century did it receive the name hangul (“large script”). In other words, the upper classes in Korean society looked down upon this script for centuries. While Gutenberg was getting ready to print his Bibles, the first book in hangul appeared: Songs of the Dragons Flying to Heaven, by Jeong Inji (1447), typeset on wooden boards. It was followed by Songs of the Moon Shining on a Thousand Rivers, which was written by the king himself, and then by a Buddhist sutra in 1449. Thus begins the story of the script that many linguists consider to be the most perfectly conceived script in the history of the world.4 The shapes of the hangul consonants were established according to the positions of the vocal organs. They are distributed among five phonetic categories built up by adding one or more strokes to indicate phonetic features: ᄀ g ᄂ n ᄉ s ᄆ m ᄋ (ng) ᄃ d ᄌ j ᄇ b ᄏ k ᄐ t ᄎ c ᄑ p ᄒ h ᄁ gg ᄄ dd ᄊ ss ᄈ bb ᄍ jj ᄅ r Among the consonants, ‘ᄋ’ plays the role of a placeholder for an independent vowel, or produces an ‘ng’ sound at the end of a syllable. The vowels are based on the four elements of East Asian philosophy: heaven (a short stroke), earth (a horizontal stroke), man (a vertical line), and the yin–yang circle (in evidence from the cyclical pattern that the forms of the vowels follow): ᅳ eu ᅩ o ᅭ yo ᅵ i ᅥ eo ᅧ yeo (ᅳ) ᅮ u ᅲ yu (ᅵ) ᅡ a ᅣ ya The reader will note that we have chosen to entitle this section “The Syllabic Korean Hangul Script”, whereas here we can see nothing but letters (consonants and vowels). Indeed, the signs that we have just described, which are called jamo, are merely the building blocks of the hangul system. By combining jamo within an ideographic square, we obtain the hangul syllables. A hangul syllable consists of one or more initial consonants (choseong), one or more vowels (jungseong), and possibly one or more final consonants (jongseong). There are 19 possible initial consonants, 21 possible vowels or combinations of vowels, and 26 possible final consonants or combinations of final consonants. 4 For more information on its history, please consult [287].
 
+```text
 East Asian Scripts
 If we use I for initial consonants, V for vowels, and F for final consonants, we have as the
 general form of a hangul syllable the expression I+V +F∗(in which we employ the notation for regular expressions: + for “one or more times” and ∗for “zero or more times”).
@@ -1259,7 +1138,9 @@ we shall distinguish the horizontal vowels (Ih) from the vertical ones (Iv):
 IVv &, IVh ', IVhVv (, IVvF ), IVhF *, IVhVvF +.
 Here is an example: the jamo sequence 한is of the shape IVvF; therefore, we take
 the combination ) and get 한. Similarly, the sequence 글is of the shape IVhF;
+```
 
+```text
 Chapter 4 : Normalization, bidirectionality, and East Asian characters
 therefore, we take the combination * and get 글. We have here the form of the word
 “hangul”: 한글.
@@ -1301,3 +1182,4 @@ method involves using the character ZWNJ between the jamo. The inferior method u
 is nonexistent: they have no desire whatsoever to mate with their neighbors. As always,
 characters flagged as “compatibility” are the skeletons in Unicode’s closet: we are discouraged from using them, and Unicode goes to great lengths to lead us to forget that they
 even exist.
+```

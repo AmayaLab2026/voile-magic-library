@@ -9,6 +9,7 @@ description: "Unabridged English text from Yannis Haralambous, Fonts & Encodings
 
 ---
 
+```text
 Introduction
 Homo sapiens is a species that writes. And among the large number of tools used for
 writing, the most recent and the most complex is the computer—a tool for reading and
@@ -40,7 +41,9 @@ glyph). This phenomenon, which is called a ligature, can be orthographically sig
 In any case, these phenomena are marginal in our very cut-and-dried Western world.
 In the writing systems of the East, however, the conflict between characters and glyphs
 becomes an integral part of daily life. In Arabic, the letters are connected and assume
+```
 
+```text
 Introduction
 different forms according to their position in the word. In the languages of India and
 Southeast Asia, they combine to form more and more complex graphical amalgamations. In the Far East, the ideographs live in a sort of parallel universe, where they are
@@ -78,6 +81,7 @@ slightly better place and this book would be several hundred pages shorter.
 In this regard, the reader should be aware of the fact that everything pertaining to encodings, and to fonts in particular, is considered to be industrial knowledge and therefore
 cannot be disseminated, at least not completely. It is hard to imagine how badly the
 “specifications” of certain technologies are written, whether because of negligence or
+```
 
 Explorations
 out of a conscious desire to prevent the full use of the technologies. Some of the appendices of this book were written for the very purpose of describing certain technologies
@@ -114,6 +118,11 @@ and ‘v’. If the letter is lower-case, or small, two possibilities may occur:
 – the stem extends upward to the same height as the capitals or even higher, as in
 the letters ‘b’, ‘d’, ‘h’, etc. This upper part of the stem is called an ascender.
 
+::: tip Typographical Specimen Plate (Figure 0-1)
+![Figure 0-1: The parts of a letter](/images/fonts-encodings/fig0-1-parts-of-a-letter.png)
+*Figure 0-1: The parts of a letter.*
+:::
+
 ![Figure 0-1: The parts of a letter](/images/fonts-encodings/fig0-1-parts-of-a-letter.png)
 *Figure 0-1: The parts of a letter.*
 
@@ -136,7 +145,7 @@ Counter
 Tail
 Ear,
 spur
-Bulb, 
+Bulb,
 pear-shaped
 terminal
 Diagonal,
@@ -206,59 +215,29 @@ humanist to whom we also owe the use of the accents and the cedilla in the Frenc
 1 Readers who wish to know more about the history of the mathematical description of letterforms are
 encouraged to consult Donald Knuth [221, p. 48] and Jacques André [35].
 
+::: tip Typographical Specimen Plate (Figure 0-2)
+![Figure 0-2: Six mathematical descriptions of the letter 'E'](/images/fonts-encodings/fig0-2-mathematical-descriptions-letter-e.png)
+*Figure 0-2: Six mathematical descriptions of the letter 'E'.*
+:::
+
 ![Figure 0-2: Six mathematical descriptions of the letter 'E'](/images/fonts-encodings/fig0-2-mathematical-descriptions-letter-e.png)
 *Figure 0-2: Six mathematical descriptions of the letter 'E'.*
 
-Introduction
-Figure 0-2: Six mathematical descriptions of the letter ‘E’: Luca de Pacioli (1509), Albrecht
-Dürer (1535), Geofroy Tory (1524), the Jaugeon Commission (1716), and two screenshots from
-the software package FontLab (today).
+Introduction Figure 0-2: Six mathematical descriptions of the letter ‘E’: Luca de Pacioli (1509), Albrecht Dürer (1535), Geofroy Tory (1524), the Jaugeon Commission (1716), and two screenshots from the software package FontLab (today).
 
-Explorations
-contayned the Arte & Scyence of the iufte and true Proporcion of Atticke Letters”) [332].
-Finally, in 1716, as a result of an undertaking by Louis XIV, the Jaugeon Commission
-drafted the design for a royal script, entirely geometrical in nature, called the Romain du
-Roi [276] (“the King’s roman”).
-Many things strike us from an examination of these four examples. First of all, we notice
-that, in all four instances, the artists wished to place their letters within perfect squares,
-in the same way as the characters of the Far East. We also notice that they use finer and
-finer Cartesian grids in order to obtain more precise mathematical descriptions. While
-Tory uses a grid of 10×10 squares, the Jaugeon Commission resorts to 6×6 small squares
-within 8 × 8 large ones, for a total of 48 × 48—2,304 squares in all, which was an enormous degree of precision for the time.
-While the challenge was originally of a humanist nature (in the fifteenth century, when
-perspective was invented, Europeans began to wonder about the relationship between
-beauty and mathematics), it became one of power (Louis XIV took control of everything
-in his kingdom, right down to the microscopic level) and, finally, in the twentieth century, one of technology.
-Why? Because these mathematical descriptions of letters are the precursors of the digital
-fonts of today, defined on a grid of 1,024×1,024 (PostScript) or 4,096×4,096 (TrueType)
-squares, or even more. There is only a difference of mathematical scale: whereas the letters in the first four examples are described by circles and lines in the manner of Euclid
-(“with straightedge and compass”), today’s fonts use curves defined by third-degree polynomials that were introduced by the French engineer Pierre Bézier (see Appendix G). In
-the last two examples in Figure 0-2, we see two contemporary approaches to the design
-of glyphs: they are screenshots from the software system FontLab.
-What is the situation today? Have Bézier curves extinguished the little flame that is the
-genius of the master engraver? Quite the opposite. We use Bézier curves today because
-we have interactive tools that allow modern designers to create fonts worthy of their
-predecessors. We have devoted Chapters 12 to 14 and Appendix F to the description of
-the best available tools for creating fonts.
-Letterpress Typesetting
-In the previous section, we discussed the individuals that populate the digital space for
-writing: letters. But this space would be quite sad if each letter lived all by itself in its
-own little bubble. Far from being so isolated, letters, and more generally glyphs of all
-kinds, are highly social creatures. They love to form little groups (words), which in turn
-form larger and larger groups (lines, paragraphs, pages, books). We call this process typesetting. And the human who weaves the fates of the letters together to form structures
-on a higher level is a typesetter.
-Having come to this point, we can no longer content ourselves with the abstraction in
-which the previous section indulged. The way in which we put letters together depends
-on the technology that we use. It is therefore time to abandon the realm of the abstract
+Explorations contayned the Arte & Scyence of the iufte and true Proporcion of Atticke Letters”) [332]. Finally, in 1716, as a result of an undertaking by Louis XIV, the Jaugeon Commission drafted the design for a royal script, entirely geometrical in nature, called the Romain du Roi [276] (“the King’s roman”). Many things strike us from an examination of these four examples. First of all, we notice that, in all four instances, the artists wished to place their letters within perfect squares, in the same way as the characters of the Far East. We also notice that they use finer and finer Cartesian grids in order to obtain more precise mathematical descriptions. While Tory uses a grid of 10×10 squares, the Jaugeon Commission resorts to 6×6 small squares within 8 × 8 large ones, for a total of 48 × 48—2,304 squares in all, which was an enormous degree of precision for the time. While the challenge was originally of a humanist nature (in the fifteenth century, when perspective was invented, Europeans began to wonder about the relationship between beauty and mathematics), it became one of power (Louis XIV took control of everything in his kingdom, right down to the microscopic level) and, finally, in the twentieth century, one of technology. Why? Because these mathematical descriptions of letters are the precursors of the digital fonts of today, defined on a grid of 1,024×1,024 (PostScript) or 4,096×4,096 (TrueType) squares, or even more. There is only a difference of mathematical scale: whereas the letters in the first four examples are described by circles and lines in the manner of Euclid (“with straightedge and compass”), today’s fonts use curves defined by third-degree polynomials that were introduced by the French engineer Pierre Bézier (see Appendix G). In the last two examples in Figure 0-2, we see two contemporary approaches to the design of glyphs: they are screenshots from the software system FontLab. What is the situation today? Have Bézier curves extinguished the little flame that is the genius of the master engraver? Quite the opposite. We use Bézier curves today because we have interactive tools that allow modern designers to create fonts worthy of their predecessors. We have devoted Chapters 12 to 14 and Appendix F to the description of the best available tools for creating fonts. Letterpress Typesetting In the previous section, we discussed the individuals that populate the digital space for writing: letters. But this space would be quite sad if each letter lived all by itself in its own little bubble. Far from being so isolated, letters, and more generally glyphs of all kinds, are highly social creatures. They love to form little groups (words), which in turn form larger and larger groups (lines, paragraphs, pages, books). We call this process typesetting. And the human who weaves the fates of the letters together to form structures on a higher level is a typesetter. Having come to this point, we can no longer content ourselves with the abstraction in which the previous section indulged. The way in which we put letters together depends on the technology that we use. It is therefore time to abandon the realm of the abstract
 
-Introduction
-Figure 0-3:
-An eighteenth-century type case (from the Encyclopédie of Diderot and
-d’Alembert).
+Introduction Figure 0-3: An eighteenth-century type case (from the Encyclopédie of Diderot and d’Alembert).
+
+::: tip Typographical Specimen Plate (Figure 0-3)
+![Figure 0-3: An 18th-century French type case](/images/fonts-encodings/fig0-3-eighteenth-century-type-case.png)
+*Figure 0-3: An 18th-century French type case.*
+:::
 
 ![Figure 0-3: An 18th-century French type case](/images/fonts-encodings/fig0-3-eighteenth-century-type-case.png)
 *Figure 0-3: An 18th-century French type case.*
 
+```text
 Explorations
 beauty of letters and to come down to earth to describe the mechanical process of typesetting. For computerized typesetting is based on mechanical typesetting, and the terms
 that we use today were invented by those people whose hands were indelibly blackened,
@@ -292,6 +271,17 @@ Honneur au ROI.
 Salut aux Armes.
 In this example, we can notice several tricks that enable us to overlap the faces of letters.
 First, the face of the italic ‘H’ in the second line extends beyond the body of the type sort
+```
+
+::: tip Typographical Specimen Plate (Figure 0-4)
+![Figure 0-4: A composing stick](/images/fonts-encodings/fig0-4-composing-stick.png)
+*Figure 0-4: A composing stick.*
+:::
+
+::: tip Typographical Specimen Plate (Figure 0-5)
+![Figure 0-5: Three lines of movable type in a composing stick](/images/fonts-encodings/fig0-5-three-typeset-lines.png)
+*Figure 0-5: Three lines of movable type in a composing stick.*
+:::
 
 ![Figure 0-5: Three lines of movable type in a composing stick](/images/fonts-encodings/fig0-5-three-typeset-lines.png)
 *Figure 0-5: Three lines of movable type in a composing stick.*
@@ -299,6 +289,7 @@ First, the face of the italic ‘H’ in the second line extends beyond the body
 ![Figure 0-4: A composing stick](/images/fonts-encodings/fig0-4-composing-stick.png)
 *Figure 0-4: A composing stick.*
 
+```text
 Introduction
 Figure 0-5: Three typeset lines (from the Encyclopédie of Diderot and d’Alembert).
 and reaches over the ‘o’ that follows. This overlapping, called kerning, is indispensable,
@@ -328,81 +319,13 @@ We use the term x-height for the height of the faces (and, therefore, the area a
 printed) of lowercase letters such as ‘x’. We say that a character has a “large x-height”
 or a “small x-height” when the ratio of the height of its face to the body size is large or
 small.
+```
 
-Explorations
-Likewise, the set-width is theoretically independent of the width of the face of the letter,
-since the latter may be smaller than the former. In that case, we say that the there are
-right and/or left bearings between the face and the edge of the type sort. Conversely, the
-face may extend beyond the type sort, if it has a kern.
-Digital Typesetting
-Since the 1950s, phototypesetting has gradually conquered the world of printing. It is
-based on removing the typesetting process from its material roots. This departure from
-the physical grew more acute with the move towards computerization in the 1970s and
-1980s. Now that we have no metal type sorts to measure, what should we make of the
-terms “body size”, “set-width”, and “x-height”?
-Have they lost their relevance? Far from it. They are more useful than ever because they
-ensure continuity between the results of traditional typesetting and those of phototypesetting or digital typesetting. This continuity is essential, since the quality of the final
-product, the book, must not be adversely affected because of a change in technology. In
-order to produce books of quality equal to, or better than, that of traditional printing,
-we must preserve its points of reference, its conventions, and its visual approaches.
-Therefore, we have to redefine these terms to adapt them to the reality of digital typesetting, which is divorced from physical references. To understand how that has been done,
-let us investigate the model of digital typesetting:
-Glyphs (i.e., the visual forms of typographic symbols) are placed in abstract rectangles
-whose heights are initially undetermined and whose width is equal to the set-width.
-We need to introduce another new concept, that of the baseline, which is the imaginary
-line on which all the glyphs with a flat base, such as ‘f’, rest. Those with a round base,
-such as ‘c’, dip slightly below the baseline as a result of overhang. The intersection of the
-baseline and the leftmost edge of the glyph’s box is called the origin of the glyph. We
-describe a glyph mathematically on a system of coordinates with this point as its origin.
-The set-width can be thought of as a vector connecting the origin of one glyph to that of
-the following glyph. This vector is called the advance vector (or escapement vector). Digital
-typesetting consists of nothing more than drawing a glyph, moving as indicated by the
-advance vector, and preparing to draw the glyph that follows.
-A glyph “floats” in its imaginary box. The width of the space that will eventually fall
-between the glyph and the edge of the box is known as the bearing (right or left, as the
-case may be). In certain cases, the glyph may be located partly or completely outside its
-box—proof of the relative independence of container and contents, or box and glyph.
+Explorations Likewise, the set-width is theoretically independent of the width of the face of the letter, since the latter may be smaller than the former. In that case, we say that the there are right and/or left bearings between the face and the edge of the type sort. Conversely, the face may extend beyond the type sort, if it has a kern. Digital Typesetting Since the 1950s, phototypesetting has gradually conquered the world of printing. It is based on removing the typesetting process from its material roots. This departure from the physical grew more acute with the move towards computerization in the 1970s and 1980s. Now that we have no metal type sorts to measure, what should we make of the terms “body size”, “set-width”, and “x-height”? Have they lost their relevance? Far from it. They are more useful than ever because they ensure continuity between the results of traditional typesetting and those of phototypesetting or digital typesetting. This continuity is essential, since the quality of the final product, the book, must not be adversely affected because of a change in technology. In order to produce books of quality equal to, or better than, that of traditional printing, we must preserve its points of reference, its conventions, and its visual approaches. Therefore, we have to redefine these terms to adapt them to the reality of digital typesetting, which is divorced from physical references. To understand how that has been done, let us investigate the model of digital typesetting: Glyphs (i.e., the visual forms of typographic symbols) are placed in abstract rectangles whose heights are initially undetermined and whose width is equal to the set-width. We need to introduce another new concept, that of the baseline, which is the imaginary line on which all the glyphs with a flat base, such as ‘f’, rest. Those with a round base, such as ‘c’, dip slightly below the baseline as a result of overhang. The intersection of the baseline and the leftmost edge of the glyph’s box is called the origin of the glyph. We describe a glyph mathematically on a system of coordinates with this point as its origin. The set-width can be thought of as a vector connecting the origin of one glyph to that of the following glyph. This vector is called the advance vector (or escapement vector). Digital typesetting consists of nothing more than drawing a glyph, moving as indicated by the advance vector, and preparing to draw the glyph that follows. A glyph “floats” in its imaginary box. The width of the space that will eventually fall between the glyph and the edge of the box is known as the bearing (right or left, as the case may be). In certain cases, the glyph may be located partly or completely outside its box—proof of the relative independence of container and contents, or box and glyph.
 
-Introduction
-While it was relatively easy to adapt the concept of set-width to the digital realm, the
-same is not true of the body size. Indeed, we mentioned above that the box containing
-the glyph is of “undetermined” height. Of all the various typesetting systems, only TEX
-concerns itself with the height and depth of these boxes, and that is why we have shown
-the boxes’ upper and lower boundaries, albeit with dotted lines, in the figure.
-The other systems employ set-width almost exclusively, and PostScript and TrueType
-fonts contain no information about the height or depth of the box other than the dimensions of the glyph itself.
-There are also scripts that are written vertically (such as ideographic scripts and Mongolian), in which the advance vector points downward. We say in such cases that there is
-a vertical set-width. The heights of the spaces that will appear between the glyph and the
-horizontal edges of the box are thus called upper and lower bearings, as the case may be.
-But let us return to the concept of “body size”. We continue to speak of setting type “with
-a body size of 10 points” (or, more professionally, at “10/12”, where the first figure is the
-type size and the second is the body, which includes leading). But what is a point, and
-how is this information managed in software?
-The point is a typographic unit invented by Father Sébastien Truchet in 1699 to describe
-the arithmetic progression of type sizes [276]. This unit, related to the Paris foot (pied
-du roi, the actual length of the king’s foot), was redefined by Pierre-Simon Fournier
-in 1664 and later by François-Ambroise Didot in 1783. Since the end of the nineteenth
-century, the Anglo-Saxons have used the pica point [87]. The PostScript language sought
-to simplify calculations by defining the point to be exactly 1
-72 of an inch. Today we have
-points of three different sizes: the pica point (approximately 0.351 mm), the Didot point2
-(approximately 0.376 mm), and the PostScript point (approx. 0.353 mm).
-As for body size, its precise definition depends on the system being used (PostScript, TrueType, TEX), but in general the idea is as follows: glyphs are described with a system of
-Cartesian coordinates based on an abstract unit of length. There is a relationship between these units and the “body size” of the font. Thus a PostScript font uses a grid
-of 1,024 units, which means, for example, that an ‘a’ designed with a height of exactly
-512 units, when typeset at a font size of 10 points, will appear on paper with a real height
-of half of the body size, namely 5 points.
-The user is still free to magnify or reduce the letter as much as he likes. In this book, we
-use the term actual size for the size of the letter as it appears on paper, after any magnification or reduction performed according to the principle explained below.
-In the days of the letterpress, there was no way to magnify or reduce a shape arbitrarily.
-The different body sizes of a given typographic character were engraved separately. And
-typesetters took advantage of this necessity to improve the legibility of each size: the
-small sizes had letters that were relatively wider and more spacious than those of the
-large ones, which were drawn with more details, more contrast between thick and thin
-strokes, and so on.
-2 The Didot point is still used in Greece, where letterpress typesetters complain that text set with the pica
-point “comes out too small”.
+Introduction While it was relatively easy to adapt the concept of set-width to the digital realm, the same is not true of the body size. Indeed, we mentioned above that the box containing the glyph is of “undetermined” height. Of all the various typesetting systems, only TEX concerns itself with the height and depth of these boxes, and that is why we have shown the boxes’ upper and lower boundaries, albeit with dotted lines, in the figure. The other systems employ set-width almost exclusively, and PostScript and TrueType fonts contain no information about the height or depth of the box other than the dimensions of the glyph itself. There are also scripts that are written vertically (such as ideographic scripts and Mongolian), in which the advance vector points downward. We say in such cases that there is a vertical set-width. The heights of the spaces that will appear between the glyph and the horizontal edges of the box are thus called upper and lower bearings, as the case may be. But let us return to the concept of “body size”. We continue to speak of setting type “with a body size of 10 points” (or, more professionally, at “10/12”, where the first figure is the type size and the second is the body, which includes leading). But what is a point, and how is this information managed in software? The point is a typographic unit invented by Father Sébastien Truchet in 1699 to describe the arithmetic progression of type sizes [276]. This unit, related to the Paris foot (pied du roi, the actual length of the king’s foot), was redefined by Pierre-Simon Fournier in 1664 and later by François-Ambroise Didot in 1783. Since the end of the nineteenth century, the Anglo-Saxons have used the pica point [87]. The PostScript language sought to simplify calculations by defining the point to be exactly 1 72 of an inch. Today we have points of three different sizes: the pica point (approximately 0.351 mm), the Didot point2 (approximately 0.376 mm), and the PostScript point (approx. 0.353 mm). As for body size, its precise definition depends on the system being used (PostScript, TrueType, TEX), but in general the idea is as follows: glyphs are described with a system of Cartesian coordinates based on an abstract unit of length. There is a relationship between these units and the “body size” of the font. Thus a PostScript font uses a grid of 1,024 units, which means, for example, that an ‘a’ designed with a height of exactly 512 units, when typeset at a font size of 10 points, will appear on paper with a real height of half of the body size, namely 5 points. The user is still free to magnify or reduce the letter as much as he likes. In this book, we use the term actual size for the size of the letter as it appears on paper, after any magnification or reduction performed according to the principle explained below. In the days of the letterpress, there was no way to magnify or reduce a shape arbitrarily. The different body sizes of a given typographic character were engraved separately. And typesetters took advantage of this necessity to improve the legibility of each size: the small sizes had letters that were relatively wider and more spacious than those of the large ones, which were drawn with more details, more contrast between thick and thin strokes, and so on. 2 The Didot point is still used in Greece, where letterpress typesetters complain that text set with the pica point “comes out too small”.
 
+```text
 Explorations
 By way of illustration, here are a 72-point font and a 6-point font, scaled to the same
 actual size:
@@ -432,80 +355,13 @@ the greater the x-height is. Fonts such as Courier and Clarendon have a large x-
 such as Centaur and Nicolas Cochin have a small one:
 The term kerning also takes on a different meaning. In digital typesetting, kerning is a
 second advance vector that is added to the first. Thus, to set the word “AVATAR”:
+```
 
-Introduction
-the system first draws the ‘A’, then moves ahead by an amount equal to the set-width of
-an ‘A’, then moves back slightly before drawing the ‘V’, and so on.
-Because kerning refers to pairs of letters, this information is stored in the fonts as kerning
-pairs. These values are negative when letters are drawn closer together (for example,
-‘A’ and ‘V’) and positive when they are pushed farther apart (for example, a ‘D’ and
-an ‘O’). Kerning may be good or bad, according to the skills of the font designer, but
-one thing is certain: fonts that have no kerning pairs should not be trusted, and unfortunately there are more of these than there should be.
-Font Formats
-We have mentioned PostScript and TrueType fonts several times. What are they, exactly?
-A font is a container for glyphs. To set a sequence of glyphs, the software calls up a font
-through the operating system and asks for the glyphs that it needs. The way in which
-the glyphs are described depends on the font format: PostScript, TrueType, or any of a
-number of others, all of them quite different.
-The earliest fonts were bitmaps: the glyphs were described by white and black pixels (see
-Appendix A). Although we can easily describe a bitmap font for use on a screen, in which
-each glyph contains at most a few dozen pixels, it would be cumbersome to do the same
-for high-resolution printers, for which a single glyph may require thousands of pixels.
-Two solutions emerged: compress the bitmapped glyphs or switch to a different type of
-font. Donald Knuth adopted the first solution to the TEX system in 1978: he designed
-a program with the pretty name of METAFONT that generated compressed bitmap
-fonts from a description in a very powerful programming language (Appendix A). The
-method of compression (§A.5.3) was designed so that the size of the glyphs would only
-slightly affect the size of the files produced.
-The second solution was notably adopted by John Warnock, founder of Adobe, in 1985.
-He developed a programming language named PostScript (§C.1) that describes the entire
-printed page with mathematical constructs. In particular, the PostScript language possesses a font format that even today is one of the most common in the world: Type 1 fonts
-(§C.3). These fonts, which describe glyphs with mathematical constructs, are called vector
-fonts.
-The companies Bitstream and Hewlett-Packard also proposed their own vector font formats, Speedo [188] and Intellifont [101], which did not last long, despite the originality of
-their ideas.
-Adobe began to grow thanks to PostScript and the Type 1 fonts, and certain other companies (Apple and Microsoft, without mentioning any names) decided that it was time
-to break Adobe’s monopoly. Therefore they jointly and hastily developed a competitor
-to Type 1 fonts, called TrueType (Appendix D). TrueType fonts are not necessarily better
-or worse than Type 1 fonts, but they present considerable technical differences, which
-are described in this book.
+Introduction the system first draws the ‘A’, then moves ahead by an amount equal to the set-width of an ‘A’, then moves back slightly before drawing the ‘V’, and so on. Because kerning refers to pairs of letters, this information is stored in the fonts as kerning pairs. These values are negative when letters are drawn closer together (for example, ‘A’ and ‘V’) and positive when they are pushed farther apart (for example, a ‘D’ and an ‘O’). Kerning may be good or bad, according to the skills of the font designer, but one thing is certain: fonts that have no kerning pairs should not be trusted, and unfortunately there are more of these than there should be. Font Formats We have mentioned PostScript and TrueType fonts several times. What are they, exactly? A font is a container for glyphs. To set a sequence of glyphs, the software calls up a font through the operating system and asks for the glyphs that it needs. The way in which the glyphs are described depends on the font format: PostScript, TrueType, or any of a number of others, all of them quite different. The earliest fonts were bitmaps: the glyphs were described by white and black pixels (see Appendix A). Although we can easily describe a bitmap font for use on a screen, in which each glyph contains at most a few dozen pixels, it would be cumbersome to do the same for high-resolution printers, for which a single glyph may require thousands of pixels. Two solutions emerged: compress the bitmapped glyphs or switch to a different type of font. Donald Knuth adopted the first solution to the TEX system in 1978: he designed a program with the pretty name of METAFONT that generated compressed bitmap fonts from a description in a very powerful programming language (Appendix A). The method of compression (§A.5.3) was designed so that the size of the glyphs would only slightly affect the size of the files produced. The second solution was notably adopted by John Warnock, founder of Adobe, in 1985. He developed a programming language named PostScript (§C.1) that describes the entire printed page with mathematical constructs. In particular, the PostScript language possesses a font format that even today is one of the most common in the world: Type 1 fonts (§C.3). These fonts, which describe glyphs with mathematical constructs, are called vector fonts. The companies Bitstream and Hewlett-Packard also proposed their own vector font formats, Speedo [188] and Intellifont [101], which did not last long, despite the originality of their ideas. Adobe began to grow thanks to PostScript and the Type 1 fonts, and certain other companies (Apple and Microsoft, without mentioning any names) decided that it was time to break Adobe’s monopoly. Therefore they jointly and hastily developed a competitor to Type 1 fonts, called TrueType (Appendix D). TrueType fonts are not necessarily better or worse than Type 1 fonts, but they present considerable technical differences, which are described in this book.
 
-Explorations
-The first outgrowth from Type 1 were the Multiple Master fonts, the shapes of whose
-glyphs could vary under the user’s control. Multiple Master fonts were never a screaming
-success, no doubt because of the difficulty of developing them.
-At the same time, the countries of the Far East were struggling to find a way to typeset
-their ideographic and syllabic writing systems. Adobe offered them another offshoot of
-Type 1, the CID fonts (§C.1). The fact that the TrueType format was already compatible
-with ideographic writing systems gave it a head start in this area.
-Apple and Microsoft separately began to work on improving the TrueType fonts. Apple
-invested in an extension of TrueType called TrueType GX and later rechristened AAT (“Apple Advanced Typography”, §D.11). Microsoft sought help from its former adversary,
-Adobe, and together they brought out a competitor to TrueType GX: OpenType (§D.9).
-OpenType is both an extension to TrueType and an outgrowth of Type 1. In addition,
-there are two varieties of OpenType fonts: OpenType-TTF (which are TrueType with a few
-extra features) and OpenType-CFF (which are Type 1 fonts extended and integrated into
-TrueType structures).
-Both AAT and OpenType attempt to solve two kinds of problems: those of high-quality
-Latin typography (with ligatures, old-style [not ranging] figures, correctly spaced punctuation, etc.) and those of the Asian languages (Arabic, Hebrew, Indian languages, Southeast Asian languages, etc.). A large part of Appendix D is devoted to the exploration of
-these two font formats, which still have surprises in store for us.
-Between Characters and Glyphs: the Problems
-of the Electronic Document
-We have outlined the digital model of typesetting and also the font formats that exist. To
-continue our exploration of digital writing, we must address another important concept,
-that of the electronic document.
-That is the name that we give to a digital entity containing text (and often images, sound,
-animation, and fonts as well). We find electronic documents everywhere: on hard disks,
-on CD-ROMs, on the Web. They can be freely accessible or protected. At the heart of our
-digital space for writing, electronic documents have problems of their own.
-At the beginning of this introduction, we spoke of the “unending ballet between characters and glyphs”. But the previous two sections did not even speak of characters. On the
-contrary, the reader may have been left with the impression that the computer transforms characters into glyphs and typesets documents with the use of fonts, leaving the
-user with nothing to do but display the output on a screen or print it out.
-That was true some 15 years ago, before the advent of the Web, CD-ROMs, and other
-means for distributing information in the form of electronic documents. An electronic
-document takes the appearance of a paper document when it is displayed or printed out,
-but it has a number of features that hardcopy lacks.
-It is a file that can be used directly—i.e., without any particular processing or modification—on most computer platforms. But what is involved in using a file of this sort?
+Explorations The first outgrowth from Type 1 were the Multiple Master fonts, the shapes of whose glyphs could vary under the user’s control. Multiple Master fonts were never a screaming success, no doubt because of the difficulty of developing them. At the same time, the countries of the Far East were struggling to find a way to typeset their ideographic and syllabic writing systems. Adobe offered them another offshoot of Type 1, the CID fonts (§C.1). The fact that the TrueType format was already compatible with ideographic writing systems gave it a head start in this area. Apple and Microsoft separately began to work on improving the TrueType fonts. Apple invested in an extension of TrueType called TrueType GX and later rechristened AAT (“Apple Advanced Typography”, §D.11). Microsoft sought help from its former adversary, Adobe, and together they brought out a competitor to TrueType GX: OpenType (§D.9). OpenType is both an extension to TrueType and an outgrowth of Type 1. In addition, there are two varieties of OpenType fonts: OpenType-TTF (which are TrueType with a few extra features) and OpenType-CFF (which are Type 1 fonts extended and integrated into TrueType structures). Both AAT and OpenType attempt to solve two kinds of problems: those of high-quality Latin typography (with ligatures, old-style [not ranging] figures, correctly spaced punctuation, etc.) and those of the Asian languages (Arabic, Hebrew, Indian languages, Southeast Asian languages, etc.). A large part of Appendix D is devoted to the exploration of these two font formats, which still have surprises in store for us. Between Characters and Glyphs: the Problems of the Electronic Document We have outlined the digital model of typesetting and also the font formats that exist. To continue our exploration of digital writing, we must address another important concept, that of the electronic document. That is the name that we give to a digital entity containing text (and often images, sound, animation, and fonts as well). We find electronic documents everywhere: on hard disks, on CD-ROMs, on the Web. They can be freely accessible or protected. At the heart of our digital space for writing, electronic documents have problems of their own. At the beginning of this introduction, we spoke of the “unending ballet between characters and glyphs”. But the previous two sections did not even speak of characters. On the contrary, the reader may have been left with the impression that the computer transforms characters into glyphs and typesets documents with the use of fonts, leaving the user with nothing to do but display the output on a screen or print it out. That was true some 15 years ago, before the advent of the Web, CD-ROMs, and other means for distributing information in the form of electronic documents. An electronic document takes the appearance of a paper document when it is displayed or printed out, but it has a number of features that hardcopy lacks. It is a file that can be used directly—i.e., without any particular processing or modification—on most computer platforms. But what is involved in using a file of this sort?
 
+```text
 Introduction
 An electronic document is read or consulted. When reading, we need features that facilitate our task: a table of contents with hypertext links to structural units, the display of a
 two-page spread, enlargement or reduction of characters according to the quality of the
@@ -541,3 +397,4 @@ or multiple glyphs with one character, or, to cite the most complex possibility,
 multiple glyphs are associated with multiple characters in a different order.
 Another major problem: the copyright on the various constituents of an electronic document. While we have the right to make our own text and images freely available, the
 same is not necessarily true of the fonts that we use. When one “buys” a font, what one
+```

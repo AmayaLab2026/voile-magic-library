@@ -9,6 +9,7 @@ description: "Unabridged English text: Movable type evolution from Gutenberg to 
 
 ---
 
+```text
 History and Classifications
 In this chapter, we present a history of Latin typefaces,1 illustrated by computer-based
 fonts. The description of the classification of typefaces by Maximilien Vox and the Association Typographique Internationale (ATypI), which is based more on historical and
@@ -30,7 +31,9 @@ The typeface used for these Bibles is no longer very legible to us readers of th
 typeface was the one that was needed to satisfy his customers and make them believe
 1 In this chapter, we shall use the term “character” in the sense of “typeface”, not in the sense of “Unicode
 character”. A font, on the other hand, is still the computerized implementation of a typeface.
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 that the copy had been written by hand. The fact that the versals and the illustrations
 were still drawn by hand contributed to the illusion. Thus the history of typography in
@@ -55,7 +58,9 @@ years of austere Aristotelianism under the Roman Catholic church, the humanists 
 understood that “the medium is part of the message”, they wished to read these books
 not in Gothic, which reminded them of the barbarian peoples to the north, but in a script
 closer to that of the original manuscripts.
+```
 
+```text
 History of Latin Typefaces
 Their view, still somewhat hazy, of the ancient world led them to err by some eight
 centuries in their choice of an “ancient script”. Instead of selecting a script from ancient
@@ -81,7 +86,9 @@ caught wind of it and sent one of his engravers, Nicolas Jenson, to Gutenberg in
 “acquyre knowledge of the new arte and the execution thereof for the sayde Kingdom of
 France”. Jenson was the “James Bond” of the fifteenth century: this remarkable man was
 always in the right place at the right time. After working at the first German printing
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 house and cofounding the first Italian printing house at Subiaco, he moved to Venice,
 where the two brothers Johann and Wendelin von Speyer had obtained from the duke of
@@ -108,7 +115,9 @@ because it was used to print in English a mediaeval book, The Golden Legend), a 
 special typeface that is heavier than Jenson’s. The oblique serifs of the ascenders are more
 exaggerated than those of Jenson, as Morris wished to highlight the “humanist” aspects
 of his typeface. Here is the digital version by the Font Company:
+```
 
+```text
 History of Latin Typefaces
 In 1893, Joseph Warren Phinney designed Jenson Old Style, inspired by Golden Type but
 lighter and with even more pronounced oblique serifs. Even the dot on the ‘i’ is diamondshaped. Here is the digital version by the foundry Lanston:
@@ -136,73 +145,15 @@ From Venice to Paris, by Way of Rome
 Aldus Manutius established himself in Venice in 1490. He set up a publishing house
 and even an “academy” that attracted intellectuals who had fled Byzantium (which
 was occupied by the Turks in 1453). His favorite punchcutter, Francesco da Bologna,
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-known as Griffo, cut a new typeface for the printing of De Ætna, an account of a trip to
-Mount Ætna, written by Cardinal Pierre Bembo and printed in 1495. Here is an extract:
-This typeface, more elegant than that of Jenson, has more contrast between the downstrokes and the upstrokes, and—surprise!—the cross stroke of the ‘e’ is not oblique. It
-is horizontal and is placed very high, leaving only a very small eye in the ‘e’, with a
-counter that can hardly be distinguished. Vox called this category of typefaces garaldes
-(from “Garamond” and “Aldus”). In the garaldes, the axis of the ‘o’ tilts to the left, the
-serifs on the ascenders are oblique, and the serifs on the arms of the ‘T’ are asymmetrical,
-but all to a smaller degree than in the humanist typefaces:
-De Ætna would come to influence typeface designers right up to the present, from the
-contemporaries of Manutius, such as Garamond and Augereau, to Stanley Morrison,
-who in 1929 issued Bembo as part of Monotype’s historical program:
-Among all the books printed by Aldus Manutius, the most interesting was certainly the
-Hypnerotomachia Polyphili of 1499, translated in France a few years later under the title
-Le Songe de Poliphile. It is an adventure novel that is at the same time an essay on architecture, sculpture, and poetry, as well as a pamphlet on the emancipation of female sexuality2. This book [231, 100], written by François Colonna but published anonymously,
-employs a typeface by Griffo that many consider to be the most beautiful Venetian typeface. Here is an extract of the book:
-2 In 2004, American authors Ian Caldwell and Dustin Thomason wrote an action novel based on this
-book: The Rule of Four [93].
+Chapter 11 : The History and Classifications of Latin Typefaces known as Griffo, cut a new typeface for the printing of De Ætna, an account of a trip to Mount Ætna, written by Cardinal Pierre Bembo and printed in 1495. Here is an extract: This typeface, more elegant than that of Jenson, has more contrast between the downstrokes and the upstrokes, and—surprise!—the cross stroke of the ‘e’ is not oblique. It is horizontal and is placed very high, leaving only a very small eye in the ‘e’, with a counter that can hardly be distinguished. Vox called this category of typefaces garaldes (from “Garamond” and “Aldus”). In the garaldes, the axis of the ‘o’ tilts to the left, the serifs on the ascenders are oblique, and the serifs on the arms of the ‘T’ are asymmetrical, but all to a smaller degree than in the humanist typefaces: De Ætna would come to influence typeface designers right up to the present, from the contemporaries of Manutius, such as Garamond and Augereau, to Stanley Morrison, who in 1929 issued Bembo as part of Monotype’s historical program: Among all the books printed by Aldus Manutius, the most interesting was certainly the Hypnerotomachia Polyphili of 1499, translated in France a few years later under the title Le Songe de Poliphile. It is an adventure novel that is at the same time an essay on architecture, sculpture, and poetry, as well as a pamphlet on the emancipation of female sexuality2. This book [231, 100], written by François Colonna but published anonymously, employs a typeface by Griffo that many consider to be the most beautiful Venetian typeface. Here is an extract of the book: 2 In 2004, American authors Ian Caldwell and Dustin Thomason wrote an action novel based on this book: The Rule of Four [93].
 
-History of Latin Typefaces
-This typeface inspired Poliphilus, by Stanley Morrison, which was issued in 1923:
-Much later, in 1998, designer Franck Jalleau attempted another interpretation of the
-typeface of Hypnerotomachia Polyphili by including the effect of the bleeding of ink. He
-called it Francesco in honor of François Colonna:
-Aldus Manutius explored the uses of handwriting in order to extend his repertoire of
-typefaces. He noticed that the students at the University of Venice took their notes in
-little notebooks using a very regular slanted script, probably inspired by the handwriting
-of the great humanist Niccolò Niccoli. On the basis of this observation, he invented, at
-the same time, the pocket-sized book (the size of the students’ notebooks) and the italic
-typeface. Here is a specimen of a pocket-sized book produced by Aldus Manutius with
-italic type cut by Griffo:
-This is the italic typeface that inspired Alfred Fairbank of Monotype in 1929 for the italic
-version of Bembo:
-Griffo did not have much luck. During a quarrel he mortally wounded his son-in-law
-with an iron bar and disappeared, doubtless for having been found guilty and hanged.
-Cold comfort though it may be, his name was immortalized in the Spanish language, in
-which italic letters are called letra grifa.
-Manutius’s output was enormous. Humanism owes him much, as he was the most important publisher of Greek and Latin texts. He died at the age of 65 in a wretched state
+History of Latin Typefaces This typeface inspired Poliphilus, by Stanley Morrison, which was issued in 1923: Much later, in 1998, designer Franck Jalleau attempted another interpretation of the typeface of Hypnerotomachia Polyphili by including the effect of the bleeding of ink. He called it Francesco in honor of François Colonna: Aldus Manutius explored the uses of handwriting in order to extend his repertoire of typefaces. He noticed that the students at the University of Venice took their notes in little notebooks using a very regular slanted script, probably inspired by the handwriting of the great humanist Niccolò Niccoli. On the basis of this observation, he invented, at the same time, the pocket-sized book (the size of the students’ notebooks) and the italic typeface. Here is a specimen of a pocket-sized book produced by Aldus Manutius with italic type cut by Griffo: This is the italic typeface that inspired Alfred Fairbank of Monotype in 1929 for the italic version of Bembo: Griffo did not have much luck. During a quarrel he mortally wounded his son-in-law with an iron bar and disappeared, doubtless for having been found guilty and hanged. Cold comfort though it may be, his name was immortalized in the Spanish language, in which italic letters are called letra grifa. Manutius’s output was enormous. Humanism owes him much, as he was the most important publisher of Greek and Latin texts. He died at the age of 65 in a wretched state
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-of health. His books, including his magnificent logo of a dolphin with an anchor, were
-promptly reproduced, forged, pirated, and copied.
-Other type designers took an interest in more calligraphic scripts. In Rome, Ludovico
-degli Arrighi, a calligrapher to the chancery, successfully undertook a very risky experiment: he cut a typeface that imitated his own handwriting with no loss of quality. Here
-is a specimen of this typeface, digitized by the foundry IHOF (the font is called Operina,
-after the name of Arrighi’s calligraphy textbook: Operina da imparare di scrivere littera
-cancellarescha, of 1522 [283]):
-Antoine Blado bought Arrighi’s equipment in 1526 and further developed it. In 1532 he
-printed books as famous as Machiavelli’s The Prince. The italic faces of the period were
-used on a par with roman faces for setting text. Indeed, it is said that in the sixteenth
-century there were as many Italian books printed in roman as in italic.
-Arrighi’s typeface also inspired Blado, by Stanley Morrison (1923), which was destined to
-accompany Poliphilus:
-In it we see the narrowness and vivacity of Arrighi’s handwriting, although Blado is not
-a calligraphic typeface but rather a very dynamic italic.
-Here is Arrighi, by Frederic Warde (1926), which Bruce Rogers considered the perfect
-complement to Centaur:
-contains several calligraphic glyphs, but the dynamism of Blado has been lost.
-In 1963 Ladislas Mandel designed a typeface much closer to Arrighi’s original for the
-Lumitype phototypesetter, his Cancelleresca, simultaneously proving that the machine
-was capable of kerning glyphs [245].
-Let us return to the fifteenth century. How was printing established in France?
-Five centuries before May 1968, the Sorbonne was at the heart of everything. In 1470 two
-professors from this venerable institution, Johann Heynlin (called “de la Pierre”, from a
-literal translation of the name of his hometown, Stein) and Guillaume Fichet decided
+Chapter 11 : The History and Classifications of Latin Typefaces of health. His books, including his magnificent logo of a dolphin with an anchor, were promptly reproduced, forged, pirated, and copied. Other type designers took an interest in more calligraphic scripts. In Rome, Ludovico degli Arrighi, a calligrapher to the chancery, successfully undertook a very risky experiment: he cut a typeface that imitated his own handwriting with no loss of quality. Here is a specimen of this typeface, digitized by the foundry IHOF (the font is called Operina, after the name of Arrighi’s calligraphy textbook: Operina da imparare di scrivere littera cancellarescha, of 1522 [283]): Antoine Blado bought Arrighi’s equipment in 1526 and further developed it. In 1532 he printed books as famous as Machiavelli’s The Prince. The italic faces of the period were used on a par with roman faces for setting text. Indeed, it is said that in the sixteenth century there were as many Italian books printed in roman as in italic. Arrighi’s typeface also inspired Blado, by Stanley Morrison (1923), which was destined to accompany Poliphilus: In it we see the narrowness and vivacity of Arrighi’s handwriting, although Blado is not a calligraphic typeface but rather a very dynamic italic. Here is Arrighi, by Frederic Warde (1926), which Bruce Rogers considered the perfect complement to Centaur: contains several calligraphic glyphs, but the dynamism of Blado has been lost. In 1963 Ladislas Mandel designed a typeface much closer to Arrighi’s original for the Lumitype phototypesetter, his Cancelleresca, simultaneously proving that the machine was capable of kerning glyphs [245]. Let us return to the fifteenth century. How was printing established in France? Five centuries before May 1968, the Sorbonne was at the heart of everything. In 1470 two professors from this venerable institution, Johann Heynlin (called “de la Pierre”, from a literal translation of the name of his hometown, Stein) and Guillaume Fichet decided
 
+```text
 History of Latin Typefaces
 to solicit the help of German printers to establish a printing house within the university. They invited Michael Friburger, Ulrich Gering, and Martin Kranz, all of them from
 Mainz, who built the equipment and set about cutting typefaces.
@@ -223,7 +174,9 @@ another Parisian, Pasquier Bonhomme. Here is an extract:
 Bonhomme drew his inspiration from another script that was very popular in France,
 bastarda. Here is a sample of bastarda as digitized by Rainer Will in 1996 (as the font
 MA Bastarda):
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 And here is another bastarda, designed in 1995 by Thierry Gouttenègre for the region of
 Burgundy, Bâtarde bourguignonne:
@@ -254,7 +207,9 @@ are unknown today to the general public: millions of people use fonts bearing Ga
 Garamond designed roman and italic typefaces but also Greek ones, the famous Grecs du
 roi. His roman face is of exceptional balance and stability; his italic is lively and elegant.
 The first book using his roman type was a Paraphrase of Erasmus that was printed in 1530.
+```
 
+```text
 History of Latin Typefaces
 Today we know that Garamond was inspired by Manutius’ De Ætna; specifically, in this
 book, and in it alone, the type cut by Griffo has eight variants of certain letters, and seven
@@ -283,7 +238,9 @@ Jannon’s typeface. As for the Imprimerie Nationale, it claims [98, p. 34] that
 Cramoisy, its director, had entered into a legitimate contract in 1641 with Jean Jannon
 for the updating of Garamond’s fonts. According to this version, nothing was ever confiscated from anyone, and no misunderstanding ever occurred.
 Whatever the case may be, Monotype Garamond, which is used, for example, in the prestigious series Collection de la Pléiade, is always called “Garamond” instead of “Jannon”.
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 This discovery inspired type designers to seek inspiration more from Benner’s catalog
 than from the Caractères d’université.
@@ -310,119 +267,17 @@ sizes; and it is to this rendition that Garamond owes its current fame. Apple ev
 a version condensed by 80 percent as its official typeface.
 In 1989, Robert Slimbach, of Adobe, designed a very elegant interpretation of Garamond, Adobe Garamond, which is an excellent compromise between fidelity to the original and ease of use in modern-day documents:
 3 This typeface is used, among other places, on the covers of books by O’Reilly, such as this one.
+```
 
-History of Latin Typefaces
-In 1994, Ross Mills, of the foundry Tiro Typeworks, designed 1530 Garamond, which has
-the peculiarity of being strictly faithful to the original:
-This font was used4 for the book Le Maître de Garamond, by Anne Cuneo [105], a historical novel on Antoine Augereau. Anne Cuneo acknowledges in the book that she drew
-her inspiration from an email exchange with Ross Mills, who attributed the typeface to
-Augereau.
-In 2002, Jean François Porchez returned to Tschichold’s Sabon, which was intended for
-the Linotype and Monotype machines, and took some of the proportions of Garamond’s
-original in order to adapt them to the computer. The result is Sabon Next:
-Finally, in 2005, when Lanston was bought by P22, another revival of Garamond was
-released: Lanston Garamont, designed by Frederic Goudy in 1920 and digitized by Jim
-Rimmer in 2001. The font is available in two weights: “display” and “text”. This is the
-“display” version:
-After this long excursion that has taken us up to 2002, let us return to the sixteenth century. Garamond worked for the great Estienne family of publishers and printers (from
-which the École Estienne in Paris takes its name). The sire of this family was Henri Estienne (1528–1598), whose widow married the other master of the era, Simon de Colines.
-His son, Robert Estienne, took over the enterprise and created a number of masterpieces,
-thanks in particular to an enlightened king and great lover of typography, Francis I.
-Robert Estienne was named “printer and bookseller of Hebrew and Latin literature”.
-But Francis I died in 1547, and Robert Estienne, a Protestant, hurriedly left for Geneva,
-where his children Henry II and François continued the production of outstanding
-books. The Parisian printing office was taken over by Robert Estienne’s brother Charles
-Estienne, an avowed Catholic and therefore out of danger. But Charles died in prison
-for his debts and left the company to his nephew, Robert II. In Geneva, Paul Estienne,
-son of Henri II, decided to return to France. Once “converted back” to Catholicism
-in Paris, he succeeded so much that his son, Antoine, great-grandson of the “traitor”
-Robert, became the new printer to the king and “guardian of Greek matrices”. The
-death of Antoine Estienne in 1674 brought to a close the story of this illustrious family
-of printers.
-4 Unfortunately, this book is a glaring example of what not to do: using a typeface designed for gros canon
-(48 points) at 12 points. The result is that the typeface seems too narrow and poorly spaced, making reading a
-bit unpleasant. That is a pity, as the text itself is gripping!
+History of Latin Typefaces In 1994, Ross Mills, of the foundry Tiro Typeworks, designed 1530 Garamond, which has the peculiarity of being strictly faithful to the original: This font was used4 for the book Le Maître de Garamond, by Anne Cuneo [105], a historical novel on Antoine Augereau. Anne Cuneo acknowledges in the book that she drew her inspiration from an email exchange with Ross Mills, who attributed the typeface to Augereau. In 2002, Jean François Porchez returned to Tschichold’s Sabon, which was intended for the Linotype and Monotype machines, and took some of the proportions of Garamond’s original in order to adapt them to the computer. The result is Sabon Next: Finally, in 2005, when Lanston was bought by P22, another revival of Garamond was released: Lanston Garamont, designed by Frederic Goudy in 1920 and digitized by Jim Rimmer in 2001. The font is available in two weights: “display” and “text”. This is the “display” version: After this long excursion that has taken us up to 2002, let us return to the sixteenth century. Garamond worked for the great Estienne family of publishers and printers (from which the École Estienne in Paris takes its name). The sire of this family was Henri Estienne (1528–1598), whose widow married the other master of the era, Simon de Colines. His son, Robert Estienne, took over the enterprise and created a number of masterpieces, thanks in particular to an enlightened king and great lover of typography, Francis I. Robert Estienne was named “printer and bookseller of Hebrew and Latin literature”. But Francis I died in 1547, and Robert Estienne, a Protestant, hurriedly left for Geneva, where his children Henry II and François continued the production of outstanding books. The Parisian printing office was taken over by Robert Estienne’s brother Charles Estienne, an avowed Catholic and therefore out of danger. But Charles died in prison for his debts and left the company to his nephew, Robert II. In Geneva, Paul Estienne, son of Henri II, decided to return to France. Once “converted back” to Catholicism in Paris, he succeeded so much that his son, Antoine, great-grandson of the “traitor” Robert, became the new printer to the king and “guardian of Greek matrices”. The death of Antoine Estienne in 1674 brought to a close the story of this illustrious family of printers. 4 Unfortunately, this book is a glaring example of what not to do: using a typeface designed for gros canon (48 points) at 12 points. The result is that the typeface seems too narrow and poorly spaced, making reading a bit unpleasant. That is a pity, as the text itself is gripping!
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-The other French printer and type designer of the sixteenth century, Robert Granjon
-of Lyon, born in 1513 (not to be confused with Philippe Grandjean, who lived in the
-seventeenth century), who designed typefaces for the publisher Plantin and for the Vatican, wished to grace France with a typeface of her own. (In his opinion, Garamond’s
-typefaces had an Italian appearance.) Robert Granjon thus sought inspiration from a
-rounded gothic script used in children’s books, and in particular in the translation of a
-work by Erasmus, Civilité Puérile (On Civility in Children). He called this typeface Civilité.
-But it was not well received and was almost never used. Here is the digital version by
-Jonathan Hoefler in his collection of historic fonts (the font is called St Augustin Civilité):
-In 1913, Frank Hinman Pierpont of Monotype designed a typeface inspired by Granjon’s
-gros cicéro that he nonetheless named Plantin (after Granjon’s most important client):
-Then, in 1978, Matthew Carter, son of historian of printing Harry Carter, designed for
-Linotype a font inspired by an 8-point font that Granjon called “galliard” (the “gaillarde”
-was a very popular dance of the Renaissance):
-Galliard was one of the first fonts to be designed on the Ikarus system of Peter Karow.
-Granjon had poor luck: his Civilité was a flop, and the typefaces that he inspired do not
-bear his name, whereas the one that does bear his name was inspired not by him but by
-Garamond.
-Another controversy concerns the source of “Janson”. In 1922, the foundry Stempel released a typeface named “Janson”, named for a Dutch type designer, Antoine Janson,
-whose matrices were in Stempel’s possession. In 1937, the foundries Monotype and Linotype each released a Janson without giving much historical information about them.
-Here is the typeface by Linotype, distributed today under the name Janson Text:
-And here is the one by Monotype:
-Monotype used a 1739 catalog of the Ehrhardt foundry in Leipzig that contains the typefaces still called “Janson” as the basis of its design of Ehrhardt, which was also released
-commercially in 1937:
+Chapter 11 : The History and Classifications of Latin Typefaces The other French printer and type designer of the sixteenth century, Robert Granjon of Lyon, born in 1513 (not to be confused with Philippe Grandjean, who lived in the seventeenth century), who designed typefaces for the publisher Plantin and for the Vatican, wished to grace France with a typeface of her own. (In his opinion, Garamond’s typefaces had an Italian appearance.) Robert Granjon thus sought inspiration from a rounded gothic script used in children’s books, and in particular in the translation of a work by Erasmus, Civilité Puérile (On Civility in Children). He called this typeface Civilité. But it was not well received and was almost never used. Here is the digital version by Jonathan Hoefler in his collection of historic fonts (the font is called St Augustin Civilité): In 1913, Frank Hinman Pierpont of Monotype designed a typeface inspired by Granjon’s gros cicéro that he nonetheless named Plantin (after Granjon’s most important client): Then, in 1978, Matthew Carter, son of historian of printing Harry Carter, designed for Linotype a font inspired by an 8-point font that Granjon called “galliard” (the “gaillarde” was a very popular dance of the Renaissance): Galliard was one of the first fonts to be designed on the Ikarus system of Peter Karow. Granjon had poor luck: his Civilité was a flop, and the typefaces that he inspired do not bear his name, whereas the one that does bear his name was inspired not by him but by Garamond. Another controversy concerns the source of “Janson”. In 1922, the foundry Stempel released a typeface named “Janson”, named for a Dutch type designer, Antoine Janson, whose matrices were in Stempel’s possession. In 1937, the foundries Monotype and Linotype each released a Janson without giving much historical information about them. Here is the typeface by Linotype, distributed today under the name Janson Text: And here is the one by Monotype: Monotype used a 1739 catalog of the Ehrhardt foundry in Leipzig that contains the typefaces still called “Janson” as the basis of its design of Ehrhardt, which was also released commercially in 1937:
 
-History of Latin Typefaces
-This typeface was destined primarily for the German market. According to a manager at
-Monotype, “this typeface was to appeal to those who have a weakness for Fraktur”.
-But scandal broke out in 1954. A historian of printing, Harry Carter, with the help of a
-Hungarian colleague named George Buday, revealed the origin of these typefaces called
-“Janson”: they were cut by the more famous Hungarian printer Miklós Tótfalusi Kis (pronounced “quiche”). Kis, born in 1650, was a monk. Sent to the Netherlands in 1680 to
-learn printing, he quickly achieved international fame. He turned down the offer of an
-ideal position in Tuscany, preferring instead to return to Hungary to print Bibles. But
-when he was able to return to Hungary, in 1690, he found nothing but misery, jealous compatriots, and an abominable political climate. He died before his time, in 1702.
-Thus it was he who designed the first garaldes, which Blanchard called “germanized
-Garamonds” [84, p. 172] and which already foreshadowed the typefaces of Fournier and
-Caslon.
-New Scripts Emerge in Germany
-Now let us see what was happening in Germany in the sixteenth century. Printing houses
-were set up all over the place and turned out books in textura, rotunda, and even roman.
-In Germany, just as in Italy, typefaces were ennobled: a splendid example is the Diurnale
-of Jean Schönsperger, printed at Nuremberg in 1514, of which a digitized version by
-Walden Font is shown here. (The font is called Gebetbuch, or “prayer book”.)
-The evolution of typefaces in Germany is connected to the wishes of an emperor.
-In 1517, the emperor Maximilian commissioned Schönsperger to print the chivalric
-poem Theuerdanck of Melchior Pfinzing. This was the first manifestation of a new type
-of gothic script, Fraktur—a script that was to become the German national script, right
-up until 1943! Here is the typeface of Theurdanck, as recently digitized:
-Also in this era emerged a script rounder than Fraktur, called Schwabacher. Its name apparently comes from the title of Eyn Gespräch von dem gemainen Schwabacher Kasten, by
-Friedrich Creuszner and Hieronymus Höltzel, which was set in this typeface. Here is an
-example of Schwabacher, digitized by Walden Font (the font is called Alte Schwabacher):
-Schwabacher can be recognized from its ‘g’. Although at first there were whole books set
-in Schwabacher, it came to play more an alternative role, similar to that of italics relative
-to roman.
+History of Latin Typefaces This typeface was destined primarily for the German market. According to a manager at Monotype, “this typeface was to appeal to those who have a weakness for Fraktur”. But scandal broke out in 1954. A historian of printing, Harry Carter, with the help of a Hungarian colleague named George Buday, revealed the origin of these typefaces called “Janson”: they were cut by the more famous Hungarian printer Miklós Tótfalusi Kis (pronounced “quiche”). Kis, born in 1650, was a monk. Sent to the Netherlands in 1680 to learn printing, he quickly achieved international fame. He turned down the offer of an ideal position in Tuscany, preferring instead to return to Hungary to print Bibles. But when he was able to return to Hungary, in 1690, he found nothing but misery, jealous compatriots, and an abominable political climate. He died before his time, in 1702. Thus it was he who designed the first garaldes, which Blanchard called “germanized Garamonds” [84, p. 172] and which already foreshadowed the typefaces of Fournier and Caslon. New Scripts Emerge in Germany Now let us see what was happening in Germany in the sixteenth century. Printing houses were set up all over the place and turned out books in textura, rotunda, and even roman. In Germany, just as in Italy, typefaces were ennobled: a splendid example is the Diurnale of Jean Schönsperger, printed at Nuremberg in 1514, of which a digitized version by Walden Font is shown here. (The font is called Gebetbuch, or “prayer book”.) The evolution of typefaces in Germany is connected to the wishes of an emperor. In 1517, the emperor Maximilian commissioned Schönsperger to print the chivalric poem Theuerdanck of Melchior Pfinzing. This was the first manifestation of a new type of gothic script, Fraktur—a script that was to become the German national script, right up until 1943! Here is the typeface of Theurdanck, as recently digitized: Also in this era emerged a script rounder than Fraktur, called Schwabacher. Its name apparently comes from the title of Eyn Gespräch von dem gemainen Schwabacher Kasten, by Friedrich Creuszner and Hieronymus Höltzel, which was set in this typeface. Here is an example of Schwabacher, digitized by Walden Font (the font is called Alte Schwabacher): Schwabacher can be recognized from its ‘g’. Although at first there were whole books set in Schwabacher, it came to play more an alternative role, similar to that of italics relative to roman.
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-These scripts were also used in the countries that were culturally dependent on Germany,
-although printers always tried to set Latin, Italian, and French words in roman script.
-The Wild Adventure of Textura in England
-The story of printing in England begins with a merchant born in Kent around 1420,
-named William Caxton. He lived in Brugge and undertook the translation into English
-of the Recueil des histoires de Troye, which he wished to offer to his benefactress, a sister of
-Edward IV. But in order to make the gift worthy of its recipient, he decided to print it.
-And to that end he studied printing with Ulrich Zell in Cologne in the 1470s. In 1475,
-at Brugge, he succeeded in printing his translation, which thus became the first printed
-book in the English language. Here is an extract:
-The type used in this book, which never made its way to England, is quite peculiar, being heavily influenced by Flemish handwriting. Caxton next set up shop in Westminster
-in 1476. Most of the books that he printed were in English, and he used a bastarda that
-practically became the English national script until the middle of the sixteenth century,
-when roman definitively took hold in England.
-In 1892, William Morris designed a typeface called Troy to set his new edition of the
-henceforth famous Recuyell of the Historyes of Troye. Here it is as digitized by P22 (an
-American foundry [284] specializing in historical and artistic fonts):
-One of the typefaces used by Caxton (which the experts call “number 3”) was a textura.
-Here is an extract of a book printed in 1477 at Westminster:
-And here is the digitized version of this typeface by Jonathan Hoefler, in his collection
-of historic typefaces (the font is called English Textura):
-In 1490, Caxton bought a very beautiful textura from the Frenchman Antoine Vérard
-and imported it to England.
+Chapter 11 : The History and Classifications of Latin Typefaces These scripts were also used in the countries that were culturally dependent on Germany, although printers always tried to set Latin, Italian, and French words in roman script. The Wild Adventure of Textura in England The story of printing in England begins with a merchant born in Kent around 1420, named William Caxton. He lived in Brugge and undertook the translation into English of the Recueil des histoires de Troye, which he wished to offer to his benefactress, a sister of Edward IV. But in order to make the gift worthy of its recipient, he decided to print it. And to that end he studied printing with Ulrich Zell in Cologne in the 1470s. In 1475, at Brugge, he succeeded in printing his translation, which thus became the first printed book in the English language. Here is an extract: The type used in this book, which never made its way to England, is quite peculiar, being heavily influenced by Flemish handwriting. Caxton next set up shop in Westminster in 1476. Most of the books that he printed were in English, and he used a bastarda that practically became the English national script until the middle of the sixteenth century, when roman definitively took hold in England. In 1892, William Morris designed a typeface called Troy to set his new edition of the henceforth famous Recuyell of the Historyes of Troye. Here it is as digitized by P22 (an American foundry [284] specializing in historical and artistic fonts): One of the typefaces used by Caxton (which the experts call “number 3”) was a textura. Here is an extract of a book printed in 1477 at Westminster: And here is the digitized version of this typeface by Jonathan Hoefler, in his collection of historic typefaces (the font is called English Textura): In 1490, Caxton bought a very beautiful textura from the Frenchman Antoine Vérard and imported it to England.
 
+```text
 History of Latin Typefaces
 While textura was rapidly being abandoned elsewhere, England, thanks to its unparalleled conservatism, kept it alive for centuries! In 1611, the King James Bible was printed
 in textura; so was the first English-language typography textbook, Mechanick Exercises, by
@@ -445,126 +300,24 @@ Perhaps contrary to expectations, the name of this font does not come from any g
 mythological or historical personage but from that of the brother of the patron of printing Klingspor, Wilhelm, who died in 1925 as a result of a war injury.
 In 1928, the Americans showed the world that they were also capable of designing beautiful texturas. Frederic Goudy produced a textura for Monotype, Goudy Text, that is in no
 way inferior to those of Koch:
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Textura, through its plasticity, also lent itself to experimentation. Here is Ganz Grobe
-Gotisch, by Friedrich Hermann Ernst Schneidler, one of the heaviest texturas of the twentieth century, dating to 1930:
-Finally, here is the gothic typeface of Emil Rudolf Weiss, designed in the difficult year
-of 1936. It is of remarkable sobriety.
-An after-war experiment, the typeface Kühne Schrift, by Emil Hand Kühne (one of Koch’s
-students), was designed in 1954 for the Klingspor printing company and digitized by
-Klaus Burkhardt:
-This typeface is a curious hodgepodge of elements of textura, Fraktur, and roman. Incidentally, there is a pun in the name of the script: “Kühne” is, of course, the name of the
-designer, but it also means “daring, audacious”, a name that suits this script well.
-The Sun King Makes Waves
-Let us back up. Starting in the sixteenth century, the trade in typefaces became a
-monopoly. Printers who no longer had the means to cut dies or even to cast type
-made recourse to specialized enterprises. The political and cultural circumstances were
-such that the two main European type foundries, Plantin and Elsevier, turned out to
-be located in the Netherlands. Thus all of Europe was using “Dutch typefaces” that
-had nothing particularly Dutch about them but were often derived from the work of
-Nicolas Jenson, Aldus Manutius, Claude Garamond, etc. Plantin and Elsevier may have
-revolutionized the book trade in Europe, but they did not revolutionize typefaces.
-In the seventeenth century, the prevailing rationalism of the “Age of Reason”, together
-with the magnificence of Louis XIV’s reign, also influenced typography.
-In 1692, a commission of the Académie des Sciences sought to define a purely geometric
-typeface, which it designed by means of what one might call the ancestor of pixels: a
-grid of 64 × 36 squares. The commission, headed by an abbot named Nicolas Jaugeon,
-entrusted the cutting of this typeface to Philippe Grandjean (1666–1714), whose talent
-humanized the cold geometry of the commission’s designs. This typeface, called the Romain du Roi (“king’s roman”), was cut in 21 sizes, the last of them not finished until 1745,
-more than 50 years after the project was launched.
+Chapter 11 : The History and Classifications of Latin Typefaces Textura, through its plasticity, also lent itself to experimentation. Here is Ganz Grobe Gotisch, by Friedrich Hermann Ernst Schneidler, one of the heaviest texturas of the twentieth century, dating to 1930: Finally, here is the gothic typeface of Emil Rudolf Weiss, designed in the difficult year of 1936. It is of remarkable sobriety. An after-war experiment, the typeface Kühne Schrift, by Emil Hand Kühne (one of Koch’s students), was designed in 1954 for the Klingspor printing company and digitized by Klaus Burkhardt: This typeface is a curious hodgepodge of elements of textura, Fraktur, and roman. Incidentally, there is a pun in the name of the script: “Kühne” is, of course, the name of the designer, but it also means “daring, audacious”, a name that suits this script well. The Sun King Makes Waves Let us back up. Starting in the sixteenth century, the trade in typefaces became a monopoly. Printers who no longer had the means to cut dies or even to cast type made recourse to specialized enterprises. The political and cultural circumstances were such that the two main European type foundries, Plantin and Elsevier, turned out to be located in the Netherlands. Thus all of Europe was using “Dutch typefaces” that had nothing particularly Dutch about them but were often derived from the work of Nicolas Jenson, Aldus Manutius, Claude Garamond, etc. Plantin and Elsevier may have revolutionized the book trade in Europe, but they did not revolutionize typefaces. In the seventeenth century, the prevailing rationalism of the “Age of Reason”, together with the magnificence of Louis XIV’s reign, also influenced typography. In 1692, a commission of the Académie des Sciences sought to define a purely geometric typeface, which it designed by means of what one might call the ancestor of pixels: a grid of 64 × 36 squares. The commission, headed by an abbot named Nicolas Jaugeon, entrusted the cutting of this typeface to Philippe Grandjean (1666–1714), whose talent humanized the cold geometry of the commission’s designs. This typeface, called the Romain du Roi (“king’s roman”), was cut in 21 sizes, the last of them not finished until 1745, more than 50 years after the project was launched.
 
-History of Latin Typefaces
-The dies of the Romain du Roi, or Grandjean, are preserved by the Imprimerie Nationale,
-which has exclusive rights to its use. Here is a specimen:
-This font can be recognized immediately from the small appendage to the downstroke
-of the ‘l’, which serves to distinguish that letter from the ‘I’. The Romain du Roi is very far
-removed from the garaldes and the humanist typefaces. The upper and lower serifs of
-the ‘l’ are so symmetrical that one almost reads the letter as an ‘I’. Similarly, the ascender
-of the ‘d’ has a genuine double serif that makes the ‘d’ resemble an upside-down ‘p’. The
-symmetry expresses the regal perfection of the Romain du Roi.
-In 1903, Arthur Christian, the director of the Imprimerie Nationale, asked an experienced typecutter, Jules Hénaffe, to cut a typeface strictly consistent with the recommendations of the Jaugeon Commission. The result was quite surprising:
-Jaugeon may be used only by the Imprimerie Nationale. It was used, for example, to set
-the sublime De plomb, d’encre & de lumière [97], published by the Imprimerie Nationale
-in 1982.
-Finally, between 1995 and 1997, Frank Jalleau digitized Grandjean’s typeface:
-This font, Grandjean-IN, was used in the catalogue of the exhibit “Le Romain du Roi”
-[276], which was held in Lyon in 2002.
-Even though the Romain du Roi was little used in the seventeenth century, it influenced
-the typographers of the era, in particular Pierre-Simon Fournier (1712–1768), called “the
-Younger”, who cut a simple yet elegant typeface that combined rationality and beauty.
-An employee of his father’s printing house, which was run by his brother, he had the
-luxury to be able to create new typefaces and to write as well. He published a Manuel
-typographique utile aux gens de lettres & à ceux qui exercent les différentes parties de l’Art de
-l’Imprimerie (Handbook of Typography: Intended for men of letters & for those engaged in the
-different aspects of the Art of Printing), in which he explains printing equipment but also
-a few principles of cutting type. The typefaces that he cut are resolutely modern, simple,
-and functional. He was the first to design the same typeface with different x-heights:
-the large x-height is less beautiful but useful for running text, especially in small sizes—
-he called it “Dutch-style” and criticized its “excessively material feel”—while the more
-elegant one with the small x-height yields an airier text—Pierre-Simon Fournier called
-it “poetic”. Here is a specimen of the poetic type, from a 1742 catalog:
+History of Latin Typefaces The dies of the Romain du Roi, or Grandjean, are preserved by the Imprimerie Nationale, which has exclusive rights to its use. Here is a specimen: This font can be recognized immediately from the small appendage to the downstroke of the ‘l’, which serves to distinguish that letter from the ‘I’. The Romain du Roi is very far removed from the garaldes and the humanist typefaces. The upper and lower serifs of the ‘l’ are so symmetrical that one almost reads the letter as an ‘I’. Similarly, the ascender of the ‘d’ has a genuine double serif that makes the ‘d’ resemble an upside-down ‘p’. The symmetry expresses the regal perfection of the Romain du Roi. In 1903, Arthur Christian, the director of the Imprimerie Nationale, asked an experienced typecutter, Jules Hénaffe, to cut a typeface strictly consistent with the recommendations of the Jaugeon Commission. The result was quite surprising: Jaugeon may be used only by the Imprimerie Nationale. It was used, for example, to set the sublime De plomb, d’encre & de lumière [97], published by the Imprimerie Nationale in 1982. Finally, between 1995 and 1997, Frank Jalleau digitized Grandjean’s typeface: This font, Grandjean-IN, was used in the catalogue of the exhibit “Le Romain du Roi” [276], which was held in Lyon in 2002. Even though the Romain du Roi was little used in the seventeenth century, it influenced the typographers of the era, in particular Pierre-Simon Fournier (1712–1768), called “the Younger”, who cut a simple yet elegant typeface that combined rationality and beauty. An employee of his father’s printing house, which was run by his brother, he had the luxury to be able to create new typefaces and to write as well. He published a Manuel typographique utile aux gens de lettres & à ceux qui exercent les différentes parties de l’Art de l’Imprimerie (Handbook of Typography: Intended for men of letters & for those engaged in the different aspects of the Art of Printing), in which he explains printing equipment but also a few principles of cutting type. The typefaces that he cut are resolutely modern, simple, and functional. He was the first to design the same typeface with different x-heights: the large x-height is less beautiful but useful for running text, especially in small sizes— he called it “Dutch-style” and criticized its “excessively material feel”—while the more elegant one with the small x-height yields an airier text—Pierre-Simon Fournier called it “poetic”. Here is a specimen of the poetic type, from a 1742 catalog:
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-In 1925, Monotype issued a typeface named Fournier. To achieve the Dutch/poetic duality
-without completely redesigning the typeface, it altered the height of the capitals without
-changing the lowercase letters. Thus we have an ordinary Fournier (which is in fact the
-Dutch version):
-and a Fournier Tall Caps, which is the poetic version:
-Fournier’s typeface belongs to a new category in Vox’s classification: transitional. They
-are so called because they are transitional between the garaldes and the typefaces of the
-nineteenth century that Vox called “didones”. In most transitional typefaces, the eye of
-the ‘e’ is still quite small (smaller than half the height of the letter, at any rate), the ‘o’ is
-absolutely symmetrical about its vertical axis, the ascender of the ‘d’ has less oblique serif
-than its predecessors, and the serifs of the ‘T’ do not extend upward but are symmetric
-relative to the letter’s vertical axis of symmetry:
-Pierre-Simon Fournier died 30 years before the French Revolution. But before we discuss
-the Didots, which will move us into the Industrial Age, let us see what was happening
-on the other side of the English Channel.
-England Takes the Lead in Typographic Innovation
-In England in 1692, while the Jaugeon Commission was meeting for the first time,
-the man who was to become the uncontested master of English typography was born:
-William Caslon. (In fact, we should say “William Caslon I”, as his son was also named
-William, together with his grandson and his great-grandson, as English tradition would
-have it.)
-Caslon was a child prodigy. Setting himself up in London at the age of 18, he was commissioned to design an Arabic font for the needs of missionaries, which he cut at 12 points
-together with his name, as a “signature” for the font. Greatly impressed by this single cut
-word, the publishers and booksellers of London encouraged him to go into the design of
+Chapter 11 : The History and Classifications of Latin Typefaces In 1925, Monotype issued a typeface named Fournier. To achieve the Dutch/poetic duality without completely redesigning the typeface, it altered the height of the capitals without changing the lowercase letters. Thus we have an ordinary Fournier (which is in fact the Dutch version): and a Fournier Tall Caps, which is the poetic version: Fournier’s typeface belongs to a new category in Vox’s classification: transitional. They are so called because they are transitional between the garaldes and the typefaces of the nineteenth century that Vox called “didones”. In most transitional typefaces, the eye of the ‘e’ is still quite small (smaller than half the height of the letter, at any rate), the ‘o’ is absolutely symmetrical about its vertical axis, the ascender of the ‘d’ has less oblique serif than its predecessors, and the serifs of the ‘T’ do not extend upward but are symmetric relative to the letter’s vertical axis of symmetry: Pierre-Simon Fournier died 30 years before the French Revolution. But before we discuss the Didots, which will move us into the Industrial Age, let us see what was happening on the other side of the English Channel. England Takes the Lead in Typographic Innovation In England in 1692, while the Jaugeon Commission was meeting for the first time, the man who was to become the uncontested master of English typography was born: William Caslon. (In fact, we should say “William Caslon I”, as his son was also named William, together with his grandson and his great-grandson, as English tradition would have it.) Caslon was a child prodigy. Setting himself up in London at the age of 18, he was commissioned to design an Arabic font for the needs of missionaries, which he cut at 12 points together with his name, as a “signature” for the font. Greatly impressed by this single cut word, the publishers and booksellers of London encouraged him to go into the design of
 
-History of Latin Typefaces
-typefaces and sponsored him by purchasing the required equipment. He issued his first
-catalog of fonts in 1734.
-Immediately he won great praise and admiration all over Europe, and also in the Americas, where a certain Benjamin Franklin—who practiced two professions at the same time,
-printer and US politician—so admired him that he insisted that the United States’ Declaration of Independence be printed in his typeface.
-Caslon followed in the footsteps of Manutius and Garamond, modernizing their typefaces and adapting them to the tastes of his time. He died in 1766, but his foundry remained in business until the death of the last male in the Caslon line, William Caslon IV,
-in 1869.
-Caslon’s typefaces were uncontestably inspired by the Dutch typefaces common in England at the time, which were in turn inspired by the typefaces of Aldus Manutius and
-Claude Garamond. They are therefore transitional faces with features borrowed from
-the garaldes: Caslon’s italic, narrow and dynamic, still shows much of the character of
-handwriting.
-Caslon’s typeface was so successful that it has practically never ceased to be used, from
-the seventeenth century to the present. Printers in the English-speaking countries still
-say “When in doubt, use Caslon”.
-A tremendous number of interpretations and digitized versions exist. Among the most
-important are Caslon Old Face (digitized by Bitstream), which dates to 1902:
-Here are ATF Caslon 471, now distributed by Berthold, and ATF Caslon 540, which is a 471
-with shortened descenders:
-Carol Twombly of Adobe designed an Adobe Caslon in 1990 that is a good compromise
-between modernity and fidelity to the original:
-But the most beautiful computer implementation of Caslon is without a doubt that of
-Justin Howes (1996). In Figure 11-1 we show his font HW Caslon at 14 optical sizes, from 8
-to 96 points. It is a monumental effort containing all the magic of multiple optical sizes,
-with all the imperfections and idiosyncrasies of the originals.
-Finally, a typeface with an element of deception: in the 1890s (!) a Chicago foundry,
-Barnhart Brothers, issued a typeface called Fifteenth Century that simulated the bleeding
-of ink:5
-5 Which was revolutionary at the time and showed that typographers had achieved a technical level at
-which bleeding could be perceived as intentional, not as an error in printing.
+History of Latin Typefaces typefaces and sponsored him by purchasing the required equipment. He issued his first catalog of fonts in 1734. Immediately he won great praise and admiration all over Europe, and also in the Americas, where a certain Benjamin Franklin—who practiced two professions at the same time, printer and US politician—so admired him that he insisted that the United States’ Declaration of Independence be printed in his typeface. Caslon followed in the footsteps of Manutius and Garamond, modernizing their typefaces and adapting them to the tastes of his time. He died in 1766, but his foundry remained in business until the death of the last male in the Caslon line, William Caslon IV, in 1869. Caslon’s typefaces were uncontestably inspired by the Dutch typefaces common in England at the time, which were in turn inspired by the typefaces of Aldus Manutius and Claude Garamond. They are therefore transitional faces with features borrowed from the garaldes: Caslon’s italic, narrow and dynamic, still shows much of the character of handwriting. Caslon’s typeface was so successful that it has practically never ceased to be used, from the seventeenth century to the present. Printers in the English-speaking countries still say “When in doubt, use Caslon”. A tremendous number of interpretations and digitized versions exist. Among the most important are Caslon Old Face (digitized by Bitstream), which dates to 1902: Here are ATF Caslon 471, now distributed by Berthold, and ATF Caslon 540, which is a 471 with shortened descenders: Carol Twombly of Adobe designed an Adobe Caslon in 1990 that is a good compromise between modernity and fidelity to the original: But the most beautiful computer implementation of Caslon is without a doubt that of Justin Howes (1996). In Figure 11-1 we show his font HW Caslon at 14 optical sizes, from 8 to 96 points. It is a monumental effort containing all the magic of multiple optical sizes, with all the imperfections and idiosyncrasies of the originals. Finally, a typeface with an element of deception: in the 1890s (!) a Chicago foundry, Barnhart Brothers, issued a typeface called Fifteenth Century that simulated the bleeding of ink:5 5 Which was revolutionary at the time and showed that typographers had achieved a technical level at which bleeding could be perceived as intentional, not as an error in printing.
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Figure 11-1: Caslon’s typeface, digitized by Justin Howes. The sizes are 8, 10, 12, 14, 18, 22,
-24, 30, 36, 42, 48, 60, 72, and 96 points.
+::: tip Typographical Specimen Plate (Figure 11-1)
+![Figure 11-1: Caslon's typeface at 14 optical sizes](/images/fonts-encodings/fig11-1-caslon-optical-sizes.png)
+*Figure 11-1: Caslon's typeface at 14 optical sizes, digitized by Justin Howes.*
+:::
 
+Chapter 11 : The History and Classifications of Latin Typefaces Figure 11-1: Caslon’s typeface, digitized by Justin Howes. The sizes are 8, 10, 12, 14, 18, 22, 24, 30, 36, 42, 48, 60, 72, and 96 points.
+
+```text
 History of Latin Typefaces
 But it was a commercial flop, as American printers were not interested in a font with
 the mysterious and pallid name “Fifteenth Century”. The company decided therefore to
@@ -597,35 +350,11 @@ town just across the border from Strasbourg, by paying bribes that were also qui
 who did all those things but rather the “Literary and Typographic Society” of which he was the only member.
 To raise the needed funds, he organized lotteries for the jet set of his day and placed himself under the kind
 protection of Catherine the Great, Empress of Russia. The French Revolution broke out in 1789, and Beaumar-
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Or at least they did until 1917, when Bruce Rogers discovered a book by Baskerville
-in a Cambridge library and launched a campaign to rehabilitate his typeface. In 1923,
-Lanston Monotype issued what today we call Monotype Baskerville:
-Linotype continued, and soon there were many very similar typefaces on the market.
-In 1978, Matthew Carter modernized the typeface a bit through the release of his ITC
-New Baskerville:
-The production of computerized versions of Baskerville continued. In 1996, the Swede
-Lars Bergquist designed a Baskerville quite close to the original and named this typeface
-Baskerville 1757:
-Finally, there was also an early forgery: a type designer named Isaac Moore, of Edmund
-Fry’s printing house in Bristol, copied Baskerville’s typefaces in 1768, when Baskerville
-was still alive. It is this copy that is sold today under the name of Fry Baskerville:
-Didot and Bodoni Revolutionize Typefaces
-With the American and French revolutions, the world was plunged into modernity.
-Typefaces no longer had any connection with handwriting. The most important representatives of this new style in France were the members of the Didot family. Just like
-the Estiennes, the Didots were type designers, printers, and publishers for several generations. François Didot (1689–1758) passed his company down to François-Ambroise
-Didot (1730–1804), who in turn bequeathed it to Firmin Didot (1764–1836), a great
-philhellene who offered the new Greek nation its first printing house, in 1828.
-The Didots’ typeface is geometric and dramatically exploits the contrast between downstrokes and fine strokes. Typography was a symbol of power in this pre-industrial era,
-and power must be clear, precise, inflexible, and determined. While Didot does have
-serifs, they serve to assert its identity, and one asserts one’s identity through contrast. Vox
-called these typefaces didones (from “Didot” and “Bodoni”). The didones are very easy to
-recognize from their thin, flat serifs. Our four representative letters illustrate this point
-clearly:
-chais was one of its instigators, but at the same time he destroyed his relations with the empress. Beaumarchais
-died the following year.
+Chapter 11 : The History and Classifications of Latin Typefaces Or at least they did until 1917, when Bruce Rogers discovered a book by Baskerville in a Cambridge library and launched a campaign to rehabilitate his typeface. In 1923, Lanston Monotype issued what today we call Monotype Baskerville: Linotype continued, and soon there were many very similar typefaces on the market. In 1978, Matthew Carter modernized the typeface a bit through the release of his ITC New Baskerville: The production of computerized versions of Baskerville continued. In 1996, the Swede Lars Bergquist designed a Baskerville quite close to the original and named this typeface Baskerville 1757: Finally, there was also an early forgery: a type designer named Isaac Moore, of Edmund Fry’s printing house in Bristol, copied Baskerville’s typefaces in 1768, when Baskerville was still alive. It is this copy that is sold today under the name of Fry Baskerville: Didot and Bodoni Revolutionize Typefaces With the American and French revolutions, the world was plunged into modernity. Typefaces no longer had any connection with handwriting. The most important representatives of this new style in France were the members of the Didot family. Just like the Estiennes, the Didots were type designers, printers, and publishers for several generations. François Didot (1689–1758) passed his company down to François-Ambroise Didot (1730–1804), who in turn bequeathed it to Firmin Didot (1764–1836), a great philhellene who offered the new Greek nation its first printing house, in 1828. The Didots’ typeface is geometric and dramatically exploits the contrast between downstrokes and fine strokes. Typography was a symbol of power in this pre-industrial era, and power must be clear, precise, inflexible, and determined. While Didot does have serifs, they serve to assert its identity, and one asserts one’s identity through contrast. Vox called these typefaces didones (from “Didot” and “Bodoni”). The didones are very easy to recognize from their thin, flat serifs. Our four representative letters illustrate this point clearly: chais was one of its instigators, but at the same time he destroyed his relations with the empress. Beaumarchais died the following year.
 
+```text
 History of Latin Typefaces
 The cross stroke of the ‘e’ is horizontal and quite low, the axis of the ‘o’ is vertical, the
 serif on the ‘d’ is horizontal, and those of the ‘T’ are vertical and do not extend upward.
@@ -653,92 +382,27 @@ declined the offer and died in poverty in his homeland; Bodoni accepted, and bec
 in his own words, “printer to kings and king of printers”.
 But Bodoni never did meet Baskerville. At the beginning of his career in Parma, he ordered the typefaces of Fournier, then copied them, and finally created his own typefaces.
 His typography was thus heavy and pompous. He took up the Didots’ geometric principles but pushed them to extremes.
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Figure 11-2: Didot’s typeface, digitized by Jonathan Hoefler, HTF foundry. The sizes are 6, 11,
-16, 24, 42, 64, and 96 points.
-He created his typefaces in huge numbers of different sizes and versions: after his death,
-some 25,000 dies and 51,000 (!) matrices of his creation were found. His most important
-work was his Manuale tipografico, an annotated catalog of his typefaces. Its second edition,
-bearing a preface written by his widow, came out five years after his death.
-Among the twentieth-century interpretations of Bodoni are that of Morris Fuller Benton, completed for Monotype in 1907 and known today by the name of Monotype Bodoni:
-and that of Heinrich Jost for Bauer, 1926, which is closer to the original. It is sold today
-under the name of Bauer Bodoni:
+::: tip Typographical Specimen Plate (Figure 11-2)
+![Figure 11-2: Didot's modern typeface](/images/fonts-encodings/fig11-2-didot-typeface-hoefler.png)
+*Figure 11-2: Didot's modern typeface, digitized by Jonathan Hoefler.*
+:::
 
-History of Latin Typefaces
-Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone. The sizes shown are 6, 12, and
-72 points.
-Next, from 1991 to 1994, Holly Goldsmith and Jim Parkinson, working under the supervision of Sumner Stone, designed a very refined version of Bodoni that is close to the
-original, ITC Bodoni:
-As with the Caslon of Justin Howes and the Didot of Jonathan Hoefler, we show the three
-optical sizes of ITC Bodoni at actual size in Figure 11-3.
-The German “Sturm und Drang”
-Meanwhile, German typography was also turning towards rationalism, but in a less dramatic way than in France or England.
-Johann Gottlob Imannuel Breitkopf (1719–1794), a great Leipzig publisher and founder
-of the prestigious Breitkopf & Härtel publishing house, which published the greatest
-works of music, was using a quite well developed Fraktur, shown here as digitized by
-Ralph Unger of the foundry URW:
-A little later, Johann Friedrich Unger (1750–1804) brought new ideas to the design of
-Fraktur type and tried to bring it closer to Didot’s roman. Unger went so far as to ask
-Firmin Didot to cut gothic type, which unfortunately turned out to be rather mediocre.
-Here, as a curiosity, is a sample of the gothic cut by Didot, which dates to 1793:
+Chapter 11 : The History and Classifications of Latin Typefaces Figure 11-2: Didot’s typeface, digitized by Jonathan Hoefler, HTF foundry. The sizes are 6, 11, 16, 24, 42, 64, and 96 points. He created his typefaces in huge numbers of different sizes and versions: after his death, some 25,000 dies and 51,000 (!) matrices of his creation were found. His most important work was his Manuale tipografico, an annotated catalog of his typefaces. Its second edition, bearing a preface written by his widow, came out five years after his death. Among the twentieth-century interpretations of Bodoni are that of Morris Fuller Benton, completed for Monotype in 1907 and known today by the name of Monotype Bodoni: and that of Heinrich Jost for Bauer, 1926, which is closer to the original. It is sold today under the name of Bauer Bodoni:
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Note that he could not resist using a perfectly roman ‘S’ and that his ‘F’ is an ‘S’ with
-slightly different terminals and a bar across the middle. One wonders why this script has
-never been digitized.
-And here is Unger’s Fraktur, digitized by Gerda Delbanco:
-Within the scope of a Fraktur typeface, the influence of the Didots’ classicist geometricity
-is discernible. For example, the reader can see that the thickest strokes are often vertical,
-as in the main curve of the ‘D’, while the same curve in traditional Frakturs is heavily
-slanted to the left.
-The concern for homogeneity between Unger’s Fraktur and Didot’s roman is not merely
-a question of taste. It should be remembered that words in a Romance language within
-a German document set in Fraktur have always been set in roman type. Thus the two
-typefaces had to be compatible so as not to shatter the harmony of the page.
-Other typographers cut a Fraktur and a roman at the same time. For instance, Justus
-Erich Walbaum (1768–1837), another noted German of the eighteenth century, created
-the perfect typeface for that era of “Sturm und Drang” and German romanticism. Walbaum drew his inspiration from Bodoni for the design of his roman type, shown here in
-the digitized version by Monotype:
-Walbaum also created a Fraktur typeface that is very well balanced and less “romanized”
-than Unger’s, with the exception of the ball terminals under the capital letters:
-The Nineteenth Century, Era of Industrialization
-The nineteenth century was the century of great technical progress: stereotypy, the metal
-press, the steam-driven press, the rotary press, photoengraving, lithography, photolithography and photography, and finally Linotype and Monotype. The economic situation
-was such that the quality of typefaces was far from being the top priority of printers. Their
-products were destined for the broad masses of consumers, and advertising turned out
-uglier and uglier typefaces for the delivery of its messages.
-The influence of Didot and Bodoni still prevailed, but its mixture with other, more ancient, influences kept the typefaces from being as radically “modern”.
-Among the typefaces that distinguished themselves from the general mediocrity are
-those designed in London by Richard Austin at the beginning of the nineteenth century.
-Austin also worked in Scotland. His typeface was widely used in the United States under
-the name of Scotch Type. It was later issued by Monotype under the name of Monotype
-Scotch:
+History of Latin Typefaces Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone. The sizes shown are 6, 12, and 72 points. Next, from 1991 to 1994, Holly Goldsmith and Jim Parkinson, working under the supervision of Sumner Stone, designed a very refined version of Bodoni that is close to the original, ITC Bodoni: As with the Caslon of Justin Howes and the Didot of Jonathan Hoefler, we show the three optical sizes of ITC Bodoni at actual size in Figure 11-3. The German “Sturm und Drang” Meanwhile, German typography was also turning towards rationalism, but in a less dramatic way than in France or England. Johann Gottlob Imannuel Breitkopf (1719–1794), a great Leipzig publisher and founder of the prestigious Breitkopf & Härtel publishing house, which published the greatest works of music, was using a quite well developed Fraktur, shown here as digitized by Ralph Unger of the foundry URW: A little later, Johann Friedrich Unger (1750–1804) brought new ideas to the design of Fraktur type and tried to bring it closer to Didot’s roman. Unger went so far as to ask Firmin Didot to cut gothic type, which unfortunately turned out to be rather mediocre. Here, as a curiosity, is a sample of the gothic cut by Didot, which dates to 1793:
 
-History of Latin Typefaces
-Printers at the beginning of the twentieth century felt that the capitals of Scotch were
-too heavy. Linotype therefore asked William Addison Dwiggings (a student of Goudy) to
-refurbish the typeface. He drew his inspiration from Bulmer in designing the typefaces
-that Linotype called Caledonia:
-Towards the end of the nineteenth century, publishers showed more and more concern
-for legibility and required new typefaces to satisfy this criterion. For instance, in 1894,
-Linn Boyd Benton (the father of Morris Fuller Benton) and Theodore de Vinne (another
-great theoretician of printing) designed Century, known today as Century Old Style, for a
-magazine of that name:
-Morris Fuller Benton designed variants of this typeface, including Century Expanded:
-and Century Schoolbook, which corresponded to the prevailing notion of a good typeface
-for textbooks in that day:
-In 1896, Bertram Grosvenor Goodhue, an American architect with an interest in the
-graphic arts, designed a new typeface for a small printing house named Cheltenham
-Press. This typeface, Cheltenham, became the most popular typeface in America. In 1902,
-Morris Fuller Benton designed a dozen variants of it, which Linotype marketed, followed
-immediately by Monotype. Here is Cheltenham Old Style, which is close to the original:
-In 1975, Tony Stan (designer of the ignoble ITC Garamond) issued a new version of Cheltenham with a larger x-height—ITC Cheltenham, which is the most popular version today:
-The nineteenth century was also the century of sans serif and Egyptian typefaces. In 1816,
-William Caslon IV cut the first sans serif typefaces, in capitals only:
-He was followed by a German foundry in 1825 and by three British foundries in 1832—
-one of which, Thorowgood, invented the label “grotesque”, which is still used in the
+::: tip Typographical Specimen Plate (Figure 11-3)
+![Figure 11-3: ITC Bodoni typeface](/images/fonts-encodings/fig11-3-itc-bodoni.png)
+*Figure 11-3: ITC Bodoni, by Goldsmith, Parkinson, and Stone.*
+:::
 
+Chapter 11 : The History and Classifications of Latin Typefaces Note that he could not resist using a perfectly roman ‘S’ and that his ‘F’ is an ‘S’ with slightly different terminals and a bar across the middle. One wonders why this script has never been digitized. And here is Unger’s Fraktur, digitized by Gerda Delbanco: Within the scope of a Fraktur typeface, the influence of the Didots’ classicist geometricity is discernible. For example, the reader can see that the thickest strokes are often vertical, as in the main curve of the ‘D’, while the same curve in traditional Frakturs is heavily slanted to the left. The concern for homogeneity between Unger’s Fraktur and Didot’s roman is not merely a question of taste. It should be remembered that words in a Romance language within a German document set in Fraktur have always been set in roman type. Thus the two typefaces had to be compatible so as not to shatter the harmony of the page. Other typographers cut a Fraktur and a roman at the same time. For instance, Justus Erich Walbaum (1768–1837), another noted German of the eighteenth century, created the perfect typeface for that era of “Sturm und Drang” and German romanticism. Walbaum drew his inspiration from Bodoni for the design of his roman type, shown here in the digitized version by Monotype: Walbaum also created a Fraktur typeface that is very well balanced and less “romanized” than Unger’s, with the exception of the ball terminals under the capital letters: The Nineteenth Century, Era of Industrialization The nineteenth century was the century of great technical progress: stereotypy, the metal press, the steam-driven press, the rotary press, photoengraving, lithography, photolithography and photography, and finally Linotype and Monotype. The economic situation was such that the quality of typefaces was far from being the top priority of printers. Their products were destined for the broad masses of consumers, and advertising turned out uglier and uglier typefaces for the delivery of its messages. The influence of Didot and Bodoni still prevailed, but its mixture with other, more ancient, influences kept the typefaces from being as radically “modern”. Among the typefaces that distinguished themselves from the general mediocrity are those designed in London by Richard Austin at the beginning of the nineteenth century. Austin also worked in Scotland. His typeface was widely used in the United States under the name of Scotch Type. It was later issued by Monotype under the name of Monotype Scotch:
+
+History of Latin Typefaces Printers at the beginning of the twentieth century felt that the capitals of Scotch were too heavy. Linotype therefore asked William Addison Dwiggings (a student of Goudy) to refurbish the typeface. He drew his inspiration from Bulmer in designing the typefaces that Linotype called Caledonia: Towards the end of the nineteenth century, publishers showed more and more concern for legibility and required new typefaces to satisfy this criterion. For instance, in 1894, Linn Boyd Benton (the father of Morris Fuller Benton) and Theodore de Vinne (another great theoretician of printing) designed Century, known today as Century Old Style, for a magazine of that name: Morris Fuller Benton designed variants of this typeface, including Century Expanded: and Century Schoolbook, which corresponded to the prevailing notion of a good typeface for textbooks in that day: In 1896, Bertram Grosvenor Goodhue, an American architect with an interest in the graphic arts, designed a new typeface for a small printing house named Cheltenham Press. This typeface, Cheltenham, became the most popular typeface in America. In 1902, Morris Fuller Benton designed a dozen variants of it, which Linotype marketed, followed immediately by Monotype. Here is Cheltenham Old Style, which is close to the original: In 1975, Tony Stan (designer of the ignoble ITC Garamond) issued a new version of Cheltenham with a larger x-height—ITC Cheltenham, which is the most popular version today: The nineteenth century was also the century of sans serif and Egyptian typefaces. In 1816, William Caslon IV cut the first sans serif typefaces, in capitals only: He was followed by a German foundry in 1825 and by three British foundries in 1832— one of which, Thorowgood, invented the label “grotesque”, which is still used in the
+
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 English-speaking countries to denote sans serif type. Then followed more and more sans
 serif typefaces of little interest, until the German foundry Stempel issued in 1898 its typeface Akzidenz Grotesk:
@@ -765,58 +429,13 @@ Berlow, of the foundry Font Bureau, under the name of Giza. Here is the font Giz
 Three from this collection:
 Vox called the Egyptian typefaces mechanistic. Here are our four representative characters
 in a mechanistic typeface:
+```
 
-History of Latin Typefaces
-A new mechanistic typeface issued in 1845, Clarendon, has enjoyed success right up to
-the present. It was designed by a certain Robert Besley for the London printing house of
-William Thorowgood. Clarendon was also the first typeface in history to be protected by
-copyright, for a period of three years. But in view of the immense success of this typeface,
-the protection was simply ignored by the entire profession. Later, in England, the term
-“clarendon” came to be a synonym of “bold”. Here is the Clarendon of Berthold, a font
-quite close to the original of 1845:
-Another example of a tendency typical of the nineteenth century is that of the “fat
-faces”. The first person to design typefaces of this sort was the British Robert Thorne,
-in the 1800s. But these typefaces are better known to us under the name of William
-Thorowgood, the same person who introduced Clarendon. In fact, it was he who bought
-Thorne’s printing house after his death, in 1820, and then began to sell his typefaces.
-Here is one of Thorne’s typefaces, distributed today under the name of Thorowgood:
-The “fatness” of these typefaces can go to such extremes that the thickness of a downstroke can be half the height of the letter! Seen next to such extravagance, Bodoni seems
-to be the most modest of designers.
-The Pre-war Period: Experimentation and a Return to Roots
-At the beginning of the twentieth century, we witnessed an interesting phenomenon in
-England that would liberate us from the stagnant typography of the nineteenth century:
-the establishment of small-scale presses. People like William Morris, Emery Walker, Edward Prince, and Thomas Cobben-Sanderson created masterpieces on their small presses
-and cut very special typefaces (we have already mentioned Golden Type and Troy) inspired
-by the pre-Raphaelites, their fascination with the Middle Ages, etc.
-In France, it was the era of Toulouse-Lautrec and Hector Guimard. Already in 1895,
-Georges Peignot was collaboring with Eugène Grasset to create a typeface close to
-art nouveau. The result was Grasset, which enjoyed great success:
-Ten years later, during the belle époque, Peignot collaborated with another graphic
-artist, George Auriol, who designed the typeface that bears his name, a typeface influenced by Japanese painting and calligraphy:
+History of Latin Typefaces A new mechanistic typeface issued in 1845, Clarendon, has enjoyed success right up to the present. It was designed by a certain Robert Besley for the London printing house of William Thorowgood. Clarendon was also the first typeface in history to be protected by copyright, for a period of three years. But in view of the immense success of this typeface, the protection was simply ignored by the entire profession. Later, in England, the term “clarendon” came to be a synonym of “bold”. Here is the Clarendon of Berthold, a font quite close to the original of 1845: Another example of a tendency typical of the nineteenth century is that of the “fat faces”. The first person to design typefaces of this sort was the British Robert Thorne, in the 1800s. But these typefaces are better known to us under the name of William Thorowgood, the same person who introduced Clarendon. In fact, it was he who bought Thorne’s printing house after his death, in 1820, and then began to sell his typefaces. Here is one of Thorne’s typefaces, distributed today under the name of Thorowgood: The “fatness” of these typefaces can go to such extremes that the thickness of a downstroke can be half the height of the letter! Seen next to such extravagance, Bodoni seems to be the most modest of designers. The Pre-war Period: Experimentation and a Return to Roots At the beginning of the twentieth century, we witnessed an interesting phenomenon in England that would liberate us from the stagnant typography of the nineteenth century: the establishment of small-scale presses. People like William Morris, Emery Walker, Edward Prince, and Thomas Cobben-Sanderson created masterpieces on their small presses and cut very special typefaces (we have already mentioned Golden Type and Troy) inspired by the pre-Raphaelites, their fascination with the Middle Ages, etc. In France, it was the era of Toulouse-Lautrec and Hector Guimard. Already in 1895, Georges Peignot was collaboring with Eugène Grasset to create a typeface close to art nouveau. The result was Grasset, which enjoyed great success: Ten years later, during the belle époque, Peignot collaborated with another graphic artist, George Auriol, who designed the typeface that bears his name, a typeface influenced by Japanese painting and calligraphy:
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Moreover, during the years 1912 and 1913, Jérôme Peignot cut two typefaces that, according to him, “were to many foreigners the very definition of French taste”: Cochin
-and Nicolas Cochin. The former is a text face:
-The latter is more decorative:
-At the same time, in Vienna, the Wiener Werkstätte was producing typefaces influenced
-by art nouveau and Jugenstil. The most famous of them is without a doubt that of Otto
-Eckmann, shown here as digitized by Gerda Delbanco:
-The 1910s saw the rise of futurism, which used typography as a means of expression. In
-their typographical layouts, the futurists mainly used ordinary typefaces. At the same
-time, the Dutch de Stijl group designed entirely geometric typefaces. Here is one of them,
-as digitized by the foundry P22:
-In addition, the Italian futurists designed typefaces that rejected harmony and uniformity. Here is a font inspired by this movement, produced by the foundry P22:
-Finally, the dadaists were mixing everything together in every possible way in order to shatter preconceived notions and make a definitive break with the past. The
-foundry P22, which specializes in reconstructions of historic typefaces, offers a font that
-simulates the Dada aesthetic, P22 Dada:
-In the midst of this whirpool of new ideas, the English, who, like the Americans, held a
-near monopoly over the printing of books and newspapers, were more conservative than
-ever. Among the few exceptions to this rule was Edward Johnston, who in 1916 designed
-a typeface called Underground for the London Underground. He attempted not to allow
-himself to be influenced by the sans serif typefaces of the nineteenth century and instead
-applied simple geometric rules. The result was impressive for its freshness. Here is the
-digitized version of this typefaces by the foundry P22:
+Chapter 11 : The History and Classifications of Latin Typefaces Moreover, during the years 1912 and 1913, Jérôme Peignot cut two typefaces that, according to him, “were to many foreigners the very definition of French taste”: Cochin and Nicolas Cochin. The former is a text face: The latter is more decorative: At the same time, in Vienna, the Wiener Werkstätte was producing typefaces influenced by art nouveau and Jugenstil. The most famous of them is without a doubt that of Otto Eckmann, shown here as digitized by Gerda Delbanco: The 1910s saw the rise of futurism, which used typography as a means of expression. In their typographical layouts, the futurists mainly used ordinary typefaces. At the same time, the Dutch de Stijl group designed entirely geometric typefaces. Here is one of them, as digitized by the foundry P22: In addition, the Italian futurists designed typefaces that rejected harmony and uniformity. Here is a font inspired by this movement, produced by the foundry P22: Finally, the dadaists were mixing everything together in every possible way in order to shatter preconceived notions and make a definitive break with the past. The foundry P22, which specializes in reconstructions of historic typefaces, offers a font that simulates the Dada aesthetic, P22 Dada: In the midst of this whirpool of new ideas, the English, who, like the Americans, held a near monopoly over the printing of books and newspapers, were more conservative than ever. Among the few exceptions to this rule was Edward Johnston, who in 1916 designed a typeface called Underground for the London Underground. He attempted not to allow himself to be influenced by the sans serif typefaces of the nineteenth century and instead applied simple geometric rules. The result was impressive for its freshness. Here is the digitized version of this typefaces by the foundry P22:
 
+```text
 History of Latin Typefaces
 This typeface greatly influenced Erik Gill, who designed Gill Sans in 1928 for Monotype:
 Let us return to the Continent. The 1920s were marked by the work of the Bauhaus
@@ -842,28 +461,11 @@ In 1924 he produced a typeface that was half gothic (the lowercase letters) and 
 (the capitals), Peter Jessen:
 And this same Rudolf Koch designed a sans serif typeface worthy of those of the Bauhaus,
 Kabel, issued in 1928:
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Another German designer, Rudolf Wolf, produced Memphis, a very successful mechanistic typeface, in 1929:
-Note that the name “Memphis” refers not to the American city but to the city in ancient
-Egypt.
-Another great German type designer, Friedrich Hermann Ernst Schneidler, designed for
-the Bauer foundry in 1936 a humanistic typeface that was named after him, Stempel
-Schneidler:
-and a Fraktur, often considered the most beautiful Fraktur ever, Zentenar-Fraktur, on the
-occasion of the foundry’s anniversary:
-At this time, art deco reigned in France. Bifur, the first typeface designed by Adolphe
-Mouron Cassandre at Deberny & Peignot, was also influenced by cubism:
-Meanwhile, in England, Erik Gill was designing his best fonts, such as the very special
-Perpetua (1925):
-In Germany in the 1930s, political and social tensions came to a head and were felt in
-the typefaces of the day. In 1931, for instance, Heinrich Jost designed Beton for the Bauer
-foundry, a “Betonesque” mechanistic typeface worthy of those of Figgins:
-Similarly heavy, but with a consistent appendage at the upper left that gives the illusion
-of speed, is Dynamo, designed by Karl Sommer in 1930:
-Very early on, the Germans had the idea of standardized typefaces, which were used in
-particular for the license plates for cars. For example, the font that was used for German
+Chapter 11 : The History and Classifications of Latin Typefaces Another German designer, Rudolf Wolf, produced Memphis, a very successful mechanistic typeface, in 1929: Note that the name “Memphis” refers not to the American city but to the city in ancient Egypt. Another great German type designer, Friedrich Hermann Ernst Schneidler, designed for the Bauer foundry in 1936 a humanistic typeface that was named after him, Stempel Schneidler: and a Fraktur, often considered the most beautiful Fraktur ever, Zentenar-Fraktur, on the occasion of the foundry’s anniversary: At this time, art deco reigned in France. Bifur, the first typeface designed by Adolphe Mouron Cassandre at Deberny & Peignot, was also influenced by cubism: Meanwhile, in England, Erik Gill was designing his best fonts, such as the very special Perpetua (1925): In Germany in the 1930s, political and social tensions came to a head and were felt in the typefaces of the day. In 1931, for instance, Heinrich Jost designed Beton for the Bauer foundry, a “Betonesque” mechanistic typeface worthy of those of Figgins: Similarly heavy, but with a consistent appendage at the upper left that gives the illusion of speed, is Dynamo, designed by Karl Sommer in 1930: Very early on, the Germans had the idea of standardized typefaces, which were used in particular for the license plates for cars. For example, the font that was used for German
 
+```text
 History of Latin Typefaces
 license places for 64 years (from 1936 to 2000) bears the unpoetic name DIN 1451 (for
 “German Industrial Standard number 1451”):
@@ -884,7 +486,9 @@ As shown by the representative letters, this typeface is more an incised-didone 
 incised-transitional; it is hard to make the distinction between a didone and a transitional typeface when there are no serifs.
 Meanwhile, in France, despite the warnings of Giraudoux (The Trojan War Will Not Take
 Place), people did not see the clouds of war forming on the horizon. In 1937, it was the
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 era of Léon Blum, and Cassandre designed Peignot, a typeface that long remained the
 symbol of the French look:
@@ -915,63 +519,13 @@ issued Ionic:
 Within one year of its release, this typeface was used by more than 3,000 newspapers
 around the world! To solve the technical problem of the filling in of counters in Ionic,
 Linotype revised it and issued Excelsior, which was put into circulation in 1931:
+```
 
-History of Latin Typefaces
-War broke out, and in Germany, on January 3, 1941, right in the middle of the collective
-folly that was Nazism, a circular from the Führer revealed to the Germans that
-... to call the so-called gothic script a German script is incorrect. Schwabacher
-is in fact a Jewish script. As printing spread, the Jews appropriated Schwabacher
-and imposed it on Germany. After discussing the matter with Herr Adolf Müller,
-owner of a printing house, the Führer decided that the gothic script is henceforth
-banned and that the roman script will be standard in the Reich...
-Hitler had doubtless been eager to get rid of the gothic script for some time. Herr
-Müller—if he really existed, for the name “Müller” is as common as our “Smith”—
-gave him the excuse that he needed. It was an argument that held great sway during the
-Nazi era: to get rid of a neighbor or a competitor, it was enough to denounce him as
-being a Jew. Hitler applied the same method to Germany’s cultural heritage.
-At that time, a young designer named Hermann Zapf was working on Gilgengart (named
-for the book that Jean Schönsperger prepared for the emperor Maximilian in 1519), a
-very beautiful Fraktur typeface that, owing to the ban on Fraktur, was not released until
-after the war:
-When the author asked Hermann Zapf, 60 years later, what he had felt when he learned
-that gothic type had been banned, he replied: “I wanted to laugh, but laughing was forbidden.”
-Nonetheless, it is easy to blame everything on Nazism. Hitler was not the only culprit
-who contributed to the disappearance of the gothic scripts, and probably the situation
-today would have been similar if he had not banned them. Indeed, the American occupying army banned their use because of their alleged Nazi connotations. And after the
-American troops left, the new German federal government was not concerned with the
-reintroduction of the gothic scripts.
-The Post-war Period
-No doubt the most famous designer of the 1950s was Hermann Zapf. Three of the typefaces that he produced between 1950 and 1958 brought him international fame: Palatino,
-Melior, and Optima.
-Palatino is a garalde with strong calligraphic tendencies:
-Melior, on the other hand, is a transitional typeface intended for the press and characterized by the flatness of its curves: one has the impression of seeing squares with rounded
-corners in the place of arcs:
+History of Latin Typefaces War broke out, and in Germany, on January 3, 1941, right in the middle of the collective folly that was Nazism, a circular from the Führer revealed to the Germans that ... to call the so-called gothic script a German script is incorrect. Schwabacher is in fact a Jewish script. As printing spread, the Jews appropriated Schwabacher and imposed it on Germany. After discussing the matter with Herr Adolf Müller, owner of a printing house, the Führer decided that the gothic script is henceforth banned and that the roman script will be standard in the Reich... Hitler had doubtless been eager to get rid of the gothic script for some time. Herr Müller—if he really existed, for the name “Müller” is as common as our “Smith”— gave him the excuse that he needed. It was an argument that held great sway during the Nazi era: to get rid of a neighbor or a competitor, it was enough to denounce him as being a Jew. Hitler applied the same method to Germany’s cultural heritage. At that time, a young designer named Hermann Zapf was working on Gilgengart (named for the book that Jean Schönsperger prepared for the emperor Maximilian in 1519), a very beautiful Fraktur typeface that, owing to the ban on Fraktur, was not released until after the war: When the author asked Hermann Zapf, 60 years later, what he had felt when he learned that gothic type had been banned, he replied: “I wanted to laugh, but laughing was forbidden.” Nonetheless, it is easy to blame everything on Nazism. Hitler was not the only culprit who contributed to the disappearance of the gothic scripts, and probably the situation today would have been similar if he had not banned them. Indeed, the American occupying army banned their use because of their alleged Nazi connotations. And after the American troops left, the new German federal government was not concerned with the reintroduction of the gothic scripts. The Post-war Period No doubt the most famous designer of the 1950s was Hermann Zapf. Three of the typefaces that he produced between 1950 and 1958 brought him international fame: Palatino, Melior, and Optima. Palatino is a garalde with strong calligraphic tendencies: Melior, on the other hand, is a transitional typeface intended for the press and characterized by the flatness of its curves: one has the impression of seeing squares with rounded corners in the place of arcs:
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Finally, Optima was a brilliant idea. At first glance it is a sans serif typeface, but when we
-take a closer look we see that it is an incised typeface (some would call it “lineal-incised”
-or “incised-humanistic”):
-In France, the 1950s were marked by a typeface that is the epitome of French nobility,
-Vendôme:
-Slightly slanted, this creation of François Ganeau and Roger Excoffon for the Olive
-foundry pushed the characteristics of the garaldes to an extreme: the serifs are pointed
-and irregular, the counter of the ‘a’ is tiny, the italic breaks with Griffo’s tradition and
-looks more like a slanted roman.
-Roger Excoffon is most famous for his script typefaces, such as Mistral, which is still very
-popular today:
-In 1951, Ilse Schüler, a student and collaborator of Schneidler, proved that we can still
-create innovative and brilliant gothic typefaces. She created Rhapsodie, which is halfway
-between Fraktur and bastarda:
-Meanwhile, in Switzerland, Max Miedinger and Édouard Hoffman were designing Helvetica, mentioned earlier. But another great sans serif face was already in the works:
-Univers, by Adrien Frutiger7 for the foundry Deberny & Peignot:
-Frutiger released this typefaces in 1954. Its great innovation was that it was issued simultaneously in 21 (!) different versions, with varying weights and set-widths.
-The next development in sans serif faces was Antique Olive, by Roger Excoffon (1962).
-This typeface, with its enormous x-height, parts ways with the neutrality of Helvetica and
-even rediscovers the characteristics of the garaldes:
-Adrien Frutiger also collaborated with the engineers of ECMA to create a monospaced
-font optimized for optical character recognition, OCR-B, which was issued in 1968:
-7 Which led Nicholas Fabian to call Adrien Frutiger the créateur de l’univers—“creator of [the] Univers[e]”.
+Chapter 11 : The History and Classifications of Latin Typefaces Finally, Optima was a brilliant idea. At first glance it is a sans serif typeface, but when we take a closer look we see that it is an incised typeface (some would call it “lineal-incised” or “incised-humanistic”): In France, the 1950s were marked by a typeface that is the epitome of French nobility, Vendôme: Slightly slanted, this creation of François Ganeau and Roger Excoffon for the Olive foundry pushed the characteristics of the garaldes to an extreme: the serifs are pointed and irregular, the counter of the ‘a’ is tiny, the italic breaks with Griffo’s tradition and looks more like a slanted roman. Roger Excoffon is most famous for his script typefaces, such as Mistral, which is still very popular today: In 1951, Ilse Schüler, a student and collaborator of Schneidler, proved that we can still create innovative and brilliant gothic typefaces. She created Rhapsodie, which is halfway between Fraktur and bastarda: Meanwhile, in Switzerland, Max Miedinger and Édouard Hoffman were designing Helvetica, mentioned earlier. But another great sans serif face was already in the works: Univers, by Adrien Frutiger7 for the foundry Deberny & Peignot: Frutiger released this typefaces in 1954. Its great innovation was that it was issued simultaneously in 21 (!) different versions, with varying weights and set-widths. The next development in sans serif faces was Antique Olive, by Roger Excoffon (1962). This typeface, with its enormous x-height, parts ways with the neutrality of Helvetica and even rediscovers the characteristics of the garaldes: Adrien Frutiger also collaborated with the engineers of ECMA to create a monospaced font optimized for optical character recognition, OCR-B, which was issued in 1968: 7 Which led Nicholas Fabian to call Adrien Frutiger the créateur de l’univers—“creator of [the] Univers[e]”.
 
+```text
 History of Latin Typefaces
 This typeface influenced other cold, mechanical designs such as Eurostile, designed by
 Aldo Novarèse in 1962, a typeface that was widely used in the 1960s to symbolize stateof-the-art technology:
@@ -998,28 +552,11 @@ large that the letter cannot be transformed into a ‘T’; the ‘9’ has a sl
 is invited to try to tamper with this alphabet; it cannot be done! Make a ‘P’ into an ‘R’ by adding a slanted
 stroke? Impossible, as the ‘P’ has a serif. Make an ‘O’ into a ‘Q’? Impossible, as the ‘O’ is round, while the ‘Q’
 is practically square. Make an ‘F’ into an ‘E’? Impossible, as the crossbar is too low. And so on.
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-thing about this typeface contributes to accentuating the differences among the glyphs,
-and the result is surprising:
-Intended for use on license plates, this typeface supplies only the capital letters. The
-Swedish designer Martin Fredrikson (Fountain Type) added lowercase letters to it and
-called his font Sauerkrauto:
-In the 1980s, more and more designers created “families” of fonts—fonts available both
-with and without serifs. The first was Donald Knuth, who, in 1978, with the help of
-Richard Southall and Hermann Zapf, used the METAFONT programming language to
-produce Computer Modern (see §F.2), which was released simultaneously in roman, sans
-serif, “typewriter”, and other versions:
-Sumner Stone, of Adobe, also designed in 1987 the Stone family, which included a garalde
-(Serif), a lineal (Sans), and a transitional typeface (Informal):
-In 1992, Chuck Bigelow and Kris Holmes designed Lucida Fax, a typeface designed specifically for faxes and a member of the great Lucida font family:
-Its very thick serifs situate it between the didones and the mechanistic faces.
-In 1994, Jean François Porchez designed the new typeface for the newspaper Le Monde.
-This typeface was issued in several variants, including one for the newspaper (Le Monde
-Journal):
-and another, called Le Monde Livre, that is used in all recent books published by the
-French branch of O’Reilly (including this book):
+Chapter 11 : The History and Classifications of Latin Typefaces thing about this typeface contributes to accentuating the differences among the glyphs, and the result is surprising: Intended for use on license plates, this typeface supplies only the capital letters. The Swedish designer Martin Fredrikson (Fountain Type) added lowercase letters to it and called his font Sauerkrauto: In the 1980s, more and more designers created “families” of fonts—fonts available both with and without serifs. The first was Donald Knuth, who, in 1978, with the help of Richard Southall and Hermann Zapf, used the METAFONT programming language to produce Computer Modern (see §F.2), which was released simultaneously in roman, sans serif, “typewriter”, and other versions: Sumner Stone, of Adobe, also designed in 1987 the Stone family, which included a garalde (Serif), a lineal (Sans), and a transitional typeface (Informal): In 1992, Chuck Bigelow and Kris Holmes designed Lucida Fax, a typeface designed specifically for faxes and a member of the great Lucida font family: Its very thick serifs situate it between the didones and the mechanistic faces. In 1994, Jean François Porchez designed the new typeface for the newspaper Le Monde. This typeface was issued in several variants, including one for the newspaper (Le Monde Journal): and another, called Le Monde Livre, that is used in all recent books published by the French branch of O’Reilly (including this book):
 
+```text
 History of Latin Typefaces
 and a sans serif version, Le Monde Sans:
 In 1996, Matthew Carter designed two typefaces for Microsoft that were specially adapted
@@ -1050,7 +587,9 @@ A book devoted to typefaces, with one chapter for each: Anatomy of a Typeface, b
 derivatives, and its ramifications.
 In the French language, the indispensable works are by Gérard Blanchard: Aide au choix de la
 typo-graphie [84], an analysis of typefaces from all possible and imaginable aspects, written in Blanchard’s characteristic style, which is to say with a profusion of illustrations and examples. A little
+```
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 less difficult to find, but equally stimulating, is the set of plates from his dissertation,9 Pour une
 sémiologie de la typographie [85], published in Belgium.
@@ -1089,14 +628,19 @@ The Vox/ATypI Classification of Typefaces
 Let us review the Vox classification, which we described throughout our history of typefaces. Vox distinguised nine categories of typefaces:
 9 His dissertation [83] can be consulted at the library of the Sorbonne or obtained through interlibrary
 loan. It is a very interesting work, and the ideal complement to the plates, but reading it requires some background knowledge in semiology and linguistics.
+```
 
-The Vox/ATypI Classification of Typefaces
-Figure 11-4: The schematic classification of Maximilien Vox, according to [342]. We have set
-each name in the typeface in question.
+The Vox/ATypI Classification of Typefaces Figure 11-4: The schematic classification of Maximilien Vox, according to [342]. We have set each name in the typeface in question.
+
+::: tip Typographical Specimen Plate (Figure 11-4)
+![Figure 11-4: The Vox/ATypI classification of typefaces](/images/fonts-encodings/fig11-4-vox-classification.png)
+*Figure 11-4: The Vox/ATypI classification of typefaces.*
+:::
 
 ![Figure 11-4: The Vox/ATypI classification of typefaces](/images/fonts-encodings/fig11-4-vox-classification.png)
 *Figure 11-4: The Vox/ATypI classification of typefaces.*
 
+```text
 Chapter 11 : The History and Classifications of Latin Typefaces
 Humanistic faces, which hark back to the typeface of Nicolas Jenson and its derivatives: Golden Type, by William Morris; Eusebius,
 by Ernst Detterer. They are inspired either by the original Jenson
@@ -1131,7 +675,9 @@ tapering downstrokes (as in Optima).
 Scripts imitate rapid handwriting, be it calligraphic or ordinary, executed with the wrist raised. They range from the sublime Zapfino or
 the chancery italic of Arrighi to rapid scripts such as Mistral. Note:
 the letters must be connected; otherwise the typeface is a manual!
+```
 
+```text
 La classification Alessandrini des caractères: le Codex 80
 Manuals are “typefaces based on slow handwriting, with the wrist
 resting on the table, or typefaces in which design is more important
@@ -1165,42 +711,16 @@ for all the gothic typefaces, from Gutenberg to Ilse Schüler, and—the height 
 all the other writing systems of the world! It would have been better to designate three categories for the three
 main kinds of gothic typefaces (textura, Fraktur, Schwabacher) and to omit from the classification the other
 writing systems, which do, after all, have their own classifications, instead of lumping them all together.
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Simplice
-Emparecte
-Emparecte
-à congés
-Filextre
-Filextre
-à congés
-Romaine
-Gestuelle
-calligraphique
-Gestuelle
-brossée
-Onciale
-Germane
-Clavienne
-Deltapode
-Deltapode
-à congés
-Deux graisses d’une transfuge
-clavienne-emparecte
-Figure 11-5: Alessandrini’s dénominations préliminaires.
-2. Emparectes
-The word emparectes is derived from the words empattement (“serif”) and rectangulaire (“rectangular”). These are the Egyptian typefaces that Vox called “mechanistic”,
-with only one difference: Alessandrini specifies that these are typefaces with strictly
-rectangular serifs.
-3. Emparectes à congés
-The term à congés (“with congés”) is borrowed from architecture. It means that there
-is an effect of rounding between the downstroke and the serif (see Figure 11-5).
-4. Deltapodes
-To be deltapode is to have delta-shaped feet. This is a kind of typeface not foreseen by
-Vox that has strictly triangular serifs (see Figure 11-5).
-5. Deltapodes à congés
-The serifs of these deltapodes are rounded (see Figure 11-5). It is difficult to distinguish this category from the filextres à congés or the romaines.
+Chapter 11 : The History and Classifications of Latin Typefaces Simplice Emparecte Emparecte à congés Filextre Filextre à congés Romaine Gestuelle calligraphique Gestuelle brossée Onciale Germane Clavienne Deltapode Deltapode à congés Deux graisses d’une transfuge clavienne-emparecte Figure 11-5: Alessandrini’s dénominations préliminaires. 2. Emparectes The word emparectes is derived from the words empattement (“serif”) and rectangulaire (“rectangular”). These are the Egyptian typefaces that Vox called “mechanistic”, with only one difference: Alessandrini specifies that these are typefaces with strictly rectangular serifs. 3. Emparectes à congés The term à congés (“with congés”) is borrowed from architecture. It means that there is an effect of rounding between the downstroke and the serif (see Figure 11-5). 4. Deltapodes To be deltapode is to have delta-shaped feet. This is a kind of typeface not foreseen by Vox that has strictly triangular serifs (see Figure 11-5). 5. Deltapodes à congés The serifs of these deltapodes are rounded (see Figure 11-5). It is difficult to distinguish this category from the filextres à congés or the romaines.
 
+::: tip Typographical Specimen Plate (Figure 11-5)
+![Figure 11-5: Alessandrini's Codex 80 classification](/images/fonts-encodings/fig11-5-alessandrini-codex80.png)
+*Figure 11-5: Alessandrini's Codex 80 classification.*
+:::
+
+```text
 La classification Alessandrini des caractères: le Codex 80
 6. Filextres
 The word “filextre” comes from “extrémité en forme de fil” (“threadlike extremities”).
@@ -1236,62 +756,11 @@ succumbs to the influence of cultural stereotypes and calls gothic typefaces ger
 14. Aliennes
 Any non-Latin script is an alienne. Just as Latinocentric as ATypI a few years before
 him, Alessandrini also assigns all the other scripts of the world to a single category.
+```
 
-Chapter 11 : The History and Classifications of Latin Typefaces
-Figure 11-6:
-Examples of typefaces according to Alessandrini’s classification: a Devanagari exotype (Samarkan, from the Titivillus foundry), a square Hebrew exotype (SeferAH, Andreas Höfeld), a Japanese exotype (Faux Japanese, Roger Vershen), a machinale
-(ComputerFont, anonymous), an hybride (simplice-emparecte, Dynamo, Karl Sommer), and a
-ludique (Caricature, Caricature Zone).
-15. Exotypes
-An exotype is a Latin typeface that simulates a non-Latin script, usually an East Asian
-one. This very amusing sort of typeface is often used in advertising to create a certain
-atmosphere and make the reader believe that he is able to read the simulated script
-(see Figure 11-6).
-16. Machinales
-These are typefaces typical of the 1970s that are inspired by the typefaces intended for
-optical character recognition that are used on checks and administrative documents.
-These typefaces thus symbolize computer science, science fiction, robotics—in short,
-all the technological fantasies of that decade (see Figure 11-6). Fortunately, they did
-not survive.
-17. Ludiques
-A ludique is a typeface meant for “entertainment”—any typeface designed to amuse
-more than to be read (see Figure 11-6).
-18. Hybrides
-A typeface is an hybride if it has the characteristics of more than one category. Alessandrini’s categories are defined in such a way that an hybride can only be the result of
-a deliberate choice by the designer. For example, Dynamo is an hybride combining
-elements of simplices and emparectes (see Figure 11-6).
+Chapter 11 : The History and Classifications of Latin Typefaces Figure 11-6: Examples of typefaces according to Alessandrini’s classification: a Devanagari exotype (Samarkan, from the Titivillus foundry), a square Hebrew exotype (SeferAH, Andreas Höfeld), a Japanese exotype (Faux Japanese, Roger Vershen), a machinale (ComputerFont, anonymous), an hybride (simplice-emparecte, Dynamo, Karl Sommer), and a ludique (Caricature, Caricature Zone). 15. Exotypes An exotype is a Latin typeface that simulates a non-Latin script, usually an East Asian one. This very amusing sort of typeface is often used in advertising to create a certain atmosphere and make the reader believe that he is able to read the simulated script (see Figure 11-6). 16. Machinales These are typefaces typical of the 1970s that are inspired by the typefaces intended for optical character recognition that are used on checks and administrative documents. These typefaces thus symbolize computer science, science fiction, robotics—in short, all the technological fantasies of that decade (see Figure 11-6). Fortunately, they did not survive. 17. Ludiques A ludique is a typeface meant for “entertainment”—any typeface designed to amuse more than to be read (see Figure 11-6). 18. Hybrides A typeface is an hybride if it has the characteristics of more than one category. Alessandrini’s categories are defined in such a way that an hybride can only be the result of a deliberate choice by the designer. For example, Dynamo is an hybride combining elements of simplices and emparectes (see Figure 11-6).
 
-La classification Alessandrini des caractères: le Codex 80
-19. Transfuges
-The transfuges (defectors) are another kind of typeface that spans several categories,
-but this time the different weights of the typefaces are what cause them to switch
-from one class to another. The example given is that of Korinna, whose light weight
-is a clavienne whereas its bold weight is an emparecte. We would thus say that Korinna
-is a clavienne-emparecte transfuge (see Figure 11-5).
-Orthogonally to these 19 categories, we can also employ two qualifications that Alessandrini calls éventualités:
-1. Diagones
-This is the term given to italics and, more generally, to slanted typefaces. We can
-speak of mini-diagones, maxi-diagones, or even anti-diagones, according to the degree
-of the slope.
-2. Stenciliennes
-These are stenciled letters, which were also very popular in the 1970s.
-Finally, he offers five ways to supplement the information given by the name of the category. These are five lists of qualifiers, called listes de renseignements d’appoint:
-1. Liste des considérations formelles objectives (“list of objective formal considerations”).
-Light, semi-bold, bold, extra-bold, black, tachidé, extended, wide, à section horizontale, à section verticale, beveled, à section emboulée, éclairée, shadowed, in relief,
-intaglio, three-dimensional, in perspective, layered, lapidary, à filetage, à circuit, connected, inscribed, for display, woven, shattered, broken, interrupted, juxtaposable,
-overlapping, combining, dotted, decorated, illustrative, spiral, swash.
-2. Liste des répères historiques (“list of historical reference points”).
-Archaic, antique, Merovingian, Carolingian, mediaeval, Renaissance, grand-siècle,
-Encyclopedist, consular, imperial, romantic, republican, modern, contemporary,
-futuristic.
-3. Liste des considérations esthétiques et de style (“list of aesthetic and stylistic considerations”).
-Classical, baroque, metropolitan, modern style, cubist, surrealist, informal, optical,
-pop, Moorish, Chinese-style, Byzantine, iconic.
-4. Liste des considérations formelles subjectives (“list of subjective formal considerations”).
-Monotone, mechanical, regular, systematic, laborious, restrained, severe, distinct,
-emphatic, heterogeneous, convoluted, busy, overwrought, excessive, expressive,
-dramatized, experimental, forward-looking, affected, sophisticated, rhythmical, etc.
-This list can be extended as much as one pleases.
+La classification Alessandrini des caractères: le Codex 80 19. Transfuges The transfuges (defectors) are another kind of typeface that spans several categories, but this time the different weights of the typefaces are what cause them to switch from one class to another. The example given is that of Korinna, whose light weight is a clavienne whereas its bold weight is an emparecte. We would thus say that Korinna is a clavienne-emparecte transfuge (see Figure 11-5). Orthogonally to these 19 categories, we can also employ two qualifications that Alessandrini calls éventualités: 1. Diagones This is the term given to italics and, more generally, to slanted typefaces. We can speak of mini-diagones, maxi-diagones, or even anti-diagones, according to the degree of the slope. 2. Stenciliennes These are stenciled letters, which were also very popular in the 1970s. Finally, he offers five ways to supplement the information given by the name of the category. These are five lists of qualifiers, called listes de renseignements d’appoint: 1. Liste des considérations formelles objectives (“list of objective formal considerations”). Light, semi-bold, bold, extra-bold, black, tachidé, extended, wide, à section horizontale, à section verticale, beveled, à section emboulée, éclairée, shadowed, in relief, intaglio, three-dimensional, in perspective, layered, lapidary, à filetage, à circuit, connected, inscribed, for display, woven, shattered, broken, interrupted, juxtaposable, overlapping, combining, dotted, decorated, illustrative, spiral, swash. 2. Liste des répères historiques (“list of historical reference points”). Archaic, antique, Merovingian, Carolingian, mediaeval, Renaissance, grand-siècle, Encyclopedist, consular, imperial, romantic, republican, modern, contemporary, futuristic. 3. Liste des considérations esthétiques et de style (“list of aesthetic and stylistic considerations”). Classical, baroque, metropolitan, modern style, cubist, surrealist, informal, optical, pop, Moorish, Chinese-style, Byzantine, iconic. 4. Liste des considérations formelles subjectives (“list of subjective formal considerations”). Monotone, mechanical, regular, systematic, laborious, restrained, severe, distinct, emphatic, heterogeneous, convoluted, busy, overwrought, excessive, expressive, dramatized, experimental, forward-looking, affected, sophisticated, rhythmical, etc. This list can be extended as much as one pleases.
 
 Chapter 11 : The History and Classifications of Latin Typefaces
 5. Localisations géographiques et précisions originelles (“geographic areas and original aspects”).
@@ -1583,7 +1052,6 @@ parameter:
 .,/
 
 
-	
 Once we have selected the type from the list above, we must decide whether the font’s
 serifs are or are not obtuse. First, however, we must decide whether the font has serifs or
 not. That determination is clear for most fonts, but we need a way to make a decision
@@ -2010,10 +1478,4 @@ Otherwise, it is standard.
 always considered Panose-1 as applying only to vector fonts, whose glyphs are sufficiently well described that
 they can be classified.
 
-The Panose-1 Classification
-As for the possibility of “ducking” letters, we calculate the height A of the letter ‘A’ without an accent (measuring the height from the baseline to the top of the apex) and compare it with a, which is the height of the same letter with a ring above it. If the ring is
-stuck to the letter, then a will be the height of the lowest point of the inner wall of the
-ring. If a
-A ⩽0.93, we say that the letter is a “ducking” letter.
-
-
+The Panose-1 Classification As for the possibility of “ducking” letters, we calculate the height A of the letter ‘A’ without an accent (measuring the height from the baseline to the top of the apex) and compare it with a, which is the height of the same letter with a ring above it. If the ring is stuck to the letter, then a will be the height of the lowest point of the inner wall of the ring. If a A ⩽0.93, we say that the letter is a “ducking” letter.

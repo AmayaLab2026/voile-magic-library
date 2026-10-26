@@ -9,67 +9,9 @@ description: "Unabridged English text: Philosophical issues, character encoding 
 
 ---
 
-Characters, glyphs, bytes:
-An introduction to Unicode
-In the previous chapter, we saw the long journey that encodings took on their way to
-covering as many languages and writing systems as possible. In Orwell’s year, 1984, an
-ISO committee was formed with the goal of developing a universal multi-byte encoding.
-In its first (experimental) version, this encoding, known as ISO 10646 (to show that it was
-an extension of ISO 646, i.e., ASCII), sought to remain compatible with the ISO 2022
-standard and offered room for approximately 644 million characters (!), divided into
-94 groups (G0) of 190 planes (G0 + G1) of 190 rows (G0 + G1) of 190 cells (G0 + G1).
-The ideographic characters were distributed over four planes: traditional Chinese, simplified Chinese, Japanese, and Korean. When this encoding came up for a vote, it was not
-adopted.
-At the same time, engineers from Apple and Xerox were working on the development
-of Unicode, starting with an encoding called XCCS that Xerox had developed. The Unicode Consortium was established, and discussions between the ISO 10646 committee
-and Unicode began. Unicode’s fundamental idea was to break free of the methods of
-ISO 2022, with its mixture of one- and two-byte encodings, by systematically using two
-bytes throughout. To that end, it was necessary to save space by unifying the ideographic
-characters.
-Instead of becoming fierce competitors, Unicode and ISO 10646 influenced each other,
-to the point that ISO 10646 systematically aligned itself with Unicode after 1993.
-Unicode was released in 1993 and has not stopped growing and evolving since. Its latest
-version, as of the writing of the book, bears the number 5 and was released in 2006.
-Most operating systems (Windows XP, MacOS X, Linux) are currently based on Unicode,
-although not all software is yet compatible with it. The Web is also moving more and
+Characters, glyphs, bytes: An introduction to Unicode In the previous chapter, we saw the long journey that encodings took on their way to covering as many languages and writing systems as possible. In Orwell’s year, 1984, an ISO committee was formed with the goal of developing a universal multi-byte encoding. In its first (experimental) version, this encoding, known as ISO 10646 (to show that it was an extension of ISO 646, i.e., ASCII), sought to remain compatible with the ISO 2022 standard and offered room for approximately 644 million characters (!), divided into 94 groups (G0) of 190 planes (G0 + G1) of 190 rows (G0 + G1) of 190 cells (G0 + G1). The ideographic characters were distributed over four planes: traditional Chinese, simplified Chinese, Japanese, and Korean. When this encoding came up for a vote, it was not adopted. At the same time, engineers from Apple and Xerox were working on the development of Unicode, starting with an encoding called XCCS that Xerox had developed. The Unicode Consortium was established, and discussions between the ISO 10646 committee and Unicode began. Unicode’s fundamental idea was to break free of the methods of ISO 2022, with its mixture of one- and two-byte encodings, by systematically using two bytes throughout. To that end, it was necessary to save space by unifying the ideographic characters. Instead of becoming fierce competitors, Unicode and ISO 10646 influenced each other, to the point that ISO 10646 systematically aligned itself with Unicode after 1993. Unicode was released in 1993 and has not stopped growing and evolving since. Its latest version, as of the writing of the book, bears the number 5 and was released in 2006. Most operating systems (Windows XP, MacOS X, Linux) are currently based on Unicode, although not all software is yet compatible with it. The Web is also moving more and
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-more towards adopting Unicode, especially in regard to East Asian languages and writing
-systems.
-But there is a price to pay for being open to the writing systems, and therefore also
-the cultures, of other peoples: computers and their operating systems must be more
-powerful, software must be more advanced, fonts must be much larger (and necessarily
-more cumbersome). And we have not even spoken of the different rendering techniques
-needed to display East Asian languages correctly—techniques employed in part by the
-operating system and in part by OpenType or AAT fonts.
-In this chapter, which aims to be an introduction to Unicode, we shall discuss its overall
-structure and a number of technical and philosophical questions: what is the difference
-between characters and glyphs? how do we move from abstract characters to the very
-concrete bytes used in the computer?
-In the following chapters, we shall examine the individuals that populate Unicode: characters and their properties. We shall discuss a few special situations that call for advanced
-techniques (normalization, bidirectionality, East Asian characters). Finally, we shall see
-how Unicode is used in operating systems and, more specifically, how we can enter Unicode characters into a document, whether by using special software or by designing
-virtual keyboards ad hoc.
-What we shall not do in this book—so as not to double its already considerable size—
-is describe one by one the different writing systems covered by Unicode. Our approach
-will be to describe only those cases that present problems and that are worth discussing
-in detail. We shall refer the reader to other works that discuss the world’s writing systems
-very thoroughly, from either the linguistic ([106, 309, 345, 136, 96]) or the typographic
-([133, 89, 148, 163]) point of view.
-Philosophical issues: characters and glyphs
-Unicode is an encoding of characters, and it is the first encoding that really takes the
-trouble of defining what a character is.
-Let’s be frank: computer specialists are not in the habit of worrying about philosophical
-issues (“who am I?”, “what comes after death?”, “what is a character?”). But that issue
-arose quite naturally in Unicode when the Asian languages were touched upon. Unicode
-purports to be an encoding based on principles, and one of these principles is precisely
-the fact that it contains characters exclusively. This fact forces us to give serious consideration to the question of what constitutes a character and what does not.
-We can compare the relationship between characters and glyphs to the relationship between signifier and signified in linguistics. After all, Ferdinand de Saussure, the founder
-of linguistics, said himself: “Whether I write in black or white, in incised characters or
-in relief, with a pen or a chisel—none of that is of any importance for the meaning”
-[310, p. 118]. What he called “meaning” corresponds very well to what we intend to call
-“character”, namely, the meaning that the author of the document wished to impart by
-means of the glyph that he used.
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode more towards adopting Unicode, especially in regard to East Asian languages and writing systems. But there is a price to pay for being open to the writing systems, and therefore also the cultures, of other peoples: computers and their operating systems must be more powerful, software must be more advanced, fonts must be much larger (and necessarily more cumbersome). And we have not even spoken of the different rendering techniques needed to display East Asian languages correctly—techniques employed in part by the operating system and in part by OpenType or AAT fonts. In this chapter, which aims to be an introduction to Unicode, we shall discuss its overall structure and a number of technical and philosophical questions: what is the difference between characters and glyphs? how do we move from abstract characters to the very concrete bytes used in the computer? In the following chapters, we shall examine the individuals that populate Unicode: characters and their properties. We shall discuss a few special situations that call for advanced techniques (normalization, bidirectionality, East Asian characters). Finally, we shall see how Unicode is used in operating systems and, more specifically, how we can enter Unicode characters into a document, whether by using special software or by designing virtual keyboards ad hoc. What we shall not do in this book—so as not to double its already considerable size— is describe one by one the different writing systems covered by Unicode. Our approach will be to describe only those cases that present problems and that are worth discussing in detail. We shall refer the reader to other works that discuss the world’s writing systems very thoroughly, from either the linguistic ([106, 309, 345, 136, 96]) or the typographic ([133, 89, 148, 163]) point of view. Philosophical issues: characters and glyphs Unicode is an encoding of characters, and it is the first encoding that really takes the trouble of defining what a character is. Let’s be frank: computer specialists are not in the habit of worrying about philosophical issues (“who am I?”, “what comes after death?”, “what is a character?”). But that issue arose quite naturally in Unicode when the Asian languages were touched upon. Unicode purports to be an encoding based on principles, and one of these principles is precisely the fact that it contains characters exclusively. This fact forces us to give serious consideration to the question of what constitutes a character and what does not. We can compare the relationship between characters and glyphs to the relationship between signifier and signified in linguistics. After all, Ferdinand de Saussure, the founder of linguistics, said himself: “Whether I write in black or white, in incised characters or in relief, with a pen or a chisel—none of that is of any importance for the meaning” [310, p. 118]. What he called “meaning” corresponds very well to what we intend to call “character”, namely, the meaning that the author of the document wished to impart by means of the glyph that he used.
 
 Philosophical issues: characters and glyphs
 But things are a bit more complicated than that: there are characters with no glyphs,
@@ -108,6 +50,7 @@ high-reversed-9 quotation mark”. The “high-reversed-9” part of the descrip
 linguistic nor logical but rather crudely graphical, even awkward. To describe this character, whose glyph is ‘ ’, it would have been easier to call it the “second-level Greek opening
 quotation mark”, because that is its most common use.
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 Fortunately the Unicode book and the PDF files that can be found at the Consortium’s
 Web site (http://www.unicode.org/charts/) always supply with the description of each
@@ -148,7 +91,9 @@ of properties thanks to which Unicode-compatible software is better equipped to 
 strings of characters visually or to process them. Let us take an example: in a document
 written in French and Khmer, the year 2006 may appear as “2006” or “æºº¬”. To keep
 us from having to search for two different strings, an intelligent text editor would only
+```
 
+```text
 Philosophical issues: characters and glyphs
 Figure 2-1: When scripts are mixed.... [Photo taken in Athens by the author.]
 have to look up the properties of the characters ‘æ’, ‘º’, and ‘¬’ to learn that they are
@@ -176,10 +121,17 @@ letter djé (lower-case ‘Æ’). The glyph ‘!’ may represent either greek 
 with tonos or greek small letter alpha with acute: in the first instance, the acute
 accent is regarded as the single accent of the “monotonic” system; in the second instance,
 it is an ordinary acute accent. Even worse, there are Unicode characters belonging to the
+```
+
+::: tip Typographical Specimen Plate (Figure 2-1)
+![Figure 2-1: Mixed scripts on an Athens street sign](/images/fonts-encodings/fig2-1-mixed-scripts-athens.png)
+*Figure 2-1: Mixed scripts on an Athens street sign.*
+:::
 
 ![Figure 2-1: Mixed scripts on an Athens street sign](/images/fonts-encodings/fig2-1-mixed-scripts-athens.png)
 *Figure 2-1: Mixed scripts on an Athens street sign.*
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 same writing system that have the same glyphs and the same semantics: the ideographic
 characters in the “CJK compatibility” block. These are characters that the Koreans encoded twice because those characters have two distinct pronunciations in their language.
@@ -214,6 +166,7 @@ Principle #1: universality
 Unicode concerns itself with all living writing systems and with most historic ones. That
 aim, expressed in those terms, sounds inordinately ambitious; but if we weight writing
 systems by the number of documents actually available in electronic format, then Unicode is not far from achieving its goal.
+```
 
 Philosophical issues: characters and glyphs
 Principle #2: efficiency
@@ -287,6 +240,7 @@ Principle #8: dynamic composition
 Some Unicode characters possess special powers: when placed after another character,
 they modify its glyph. This modification usually involves placing an accent or a diacritical mark somewhere around the glyph of the base character. We call these characters
 
+```text
 Philosophical issues: characters and glyphs
 combining characters. The most interesting feature of these characters is that they can
 combine with each other and form glyphs with multiple accents, with no limit to the
@@ -324,7 +278,9 @@ as is often the case with word-processing software documents (such as those prod
 with MS Word, not to name any names). Unlike the ten official principles, this one is
 so scrupulously respected that Unicode has come to contain a large number of characters whose use is deprecated by Unicode itself. Even more shocking is that the name of
 character 0x1D0C5 contains an obvious typo (fhtora instead of fthora = φθορ!); rather
+```
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 than correcting it, the Consortium has decided to let it stand and to insert a little note
 along the lines of “yes, we know that there’s an error here; don’t bother to tell us”. We
@@ -362,6 +318,7 @@ UTF-16BE and a UTF16LE. Only the encoding form UTF-8 avoids this problem: since
 it represents the characters in byte format from the outset, there is no need to encode
 2 We beg the reader’s forbearance for the proliferation of jargon in this section. The terms used here are
 official terms taken directly from a Unicode technical report.
+```
 
 Technical issues: characters and bytes
 the data as a sequence of bytes. Also note that steps (1) to (4) taken collectively are
@@ -401,42 +358,9 @@ that does not accept binary-coded data, such as electronic mail.
 In a conventional 8-bit encoding, steps (2) and (3) do not arise: there is no need to fill out
 our units of storage or to worry about big-endian or little-endian systems because we are
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-already at the byte level. Things are not so trivial for the East Asian encodings that we
-have seen on page 48. In the case of Japanese, JIS X 0201-1976 is both an abstract character
-repertoire and a coded character set. It becomes an encoding form when we use 16 bits
-to represent its 94 × 94 tables. Finally, ISO 2022-JP, Shift-JIS, and EUC-JP are encoding
-schemes. And when we use them for electronic mail, we employ a transfer encoding
-syntax such as “quoted-printable” or “base 64”.
-Character encoding forms
-Now a bit of history. In the beginning, Unicode was encoded with 16 bits, with little concern about endianness. At an early date, UTF-8 was put forward (under different names)
-to resolve a certain number of problems, such as the issue of endianness. At the same
-time, Unicode’s bigger cousin, ISO 10646, proposed two encoding forms: UCS-4, which
-used 31 bits of a 32-bit number (thus avoiding the issue of how to know whether the
-number was signed or not), and UCS-2, which took the first wyde of this number and
-ignored the rest.
-UTF-16 and surrogates
-When the Consortium realized that 16 bits were insufficient, a trick was suggested: instead of extending Unicode by adding bits, we could reserve two areas for surrogates: the
-high and low surrogate areas. We would then take a surrogate pair consisting of two
-wydes: the first from the high area, the second from the low area. This approach would
-enable us to encode far more characters.
-These areas are 0xD800-0xDBFF (the high surrogate area) and 0xDC00-0xDFFF (the low
-surrogate area). They give us 1,0242 = 1,048,576 supplementary characters encoded with
-two wydes. Thanks to surrogate pairs, we can obtain any character between 0x10000 and
-0x10FFFF (Unicode’s current limits). This is how we proceed: Let A be the code point of
-a character. We subtract 0x10000 from A to obtain a number between 0x00 and 0xFFFFF,
-which is therefore a 20-bit number. We divide these 20 bits into two groups:
-xxxxxxxxxxyyyyyyyyyy
-and we use these groups to form the first and the second wydes of the surrogate pair, as
-follows:
-110110xxxxxxxxxx 110111yyyyyyyyyy
-Detection of endianness
-Consider a 16-bit number whose numerical value is 1. If this number is encoded in bigendian order, we will write to the disk 0x00 0x01, which corresponds to our intuition. On
-the other hand, if it is encoded in little-endian order, we will write 0x01 0x00. Unicode
-devised a very clever way to indicate the endianness of a block of text. The approach uses
-a character called the byte order mark, or “BOM”. This character is 0xFEFF. This method
-works because the “inverse” of this character, namely 0xFFFE, is an invalid character. If at
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode already at the byte level. Things are not so trivial for the East Asian encodings that we have seen on page 48. In the case of Japanese, JIS X 0201-1976 is both an abstract character repertoire and a coded character set. It becomes an encoding form when we use 16 bits to represent its 94 × 94 tables. Finally, ISO 2022-JP, Shift-JIS, and EUC-JP are encoding schemes. And when we use them for electronic mail, we employ a transfer encoding syntax such as “quoted-printable” or “base 64”. Character encoding forms Now a bit of history. In the beginning, Unicode was encoded with 16 bits, with little concern about endianness. At an early date, UTF-8 was put forward (under different names) to resolve a certain number of problems, such as the issue of endianness. At the same time, Unicode’s bigger cousin, ISO 10646, proposed two encoding forms: UCS-4, which used 31 bits of a 32-bit number (thus avoiding the issue of how to know whether the number was signed or not), and UCS-2, which took the first wyde of this number and ignored the rest. UTF-16 and surrogates When the Consortium realized that 16 bits were insufficient, a trick was suggested: instead of extending Unicode by adding bits, we could reserve two areas for surrogates: the high and low surrogate areas. We would then take a surrogate pair consisting of two wydes: the first from the high area, the second from the low area. This approach would enable us to encode far more characters. These areas are 0xD800-0xDBFF (the high surrogate area) and 0xDC00-0xDFFF (the low surrogate area). They give us 1,0242 = 1,048,576 supplementary characters encoded with two wydes. Thanks to surrogate pairs, we can obtain any character between 0x10000 and 0x10FFFF (Unicode’s current limits). This is how we proceed: Let A be the code point of a character. We subtract 0x10000 from A to obtain a number between 0x00 and 0xFFFFF, which is therefore a 20-bit number. We divide these 20 bits into two groups: xxxxxxxxxxyyyyyyyyyy and we use these groups to form the first and the second wydes of the surrogate pair, as follows: 110110xxxxxxxxxx 110111yyyyyyyyyy Detection of endianness Consider a 16-bit number whose numerical value is 1. If this number is encoded in bigendian order, we will write to the disk 0x00 0x01, which corresponds to our intuition. On the other hand, if it is encoded in little-endian order, we will write 0x01 0x00. Unicode devised a very clever way to indicate the endianness of a block of text. The approach uses a character called the byte order mark, or “BOM”. This character is 0xFEFF. This method works because the “inverse” of this character, namely 0xFFFE, is an invalid character. If at
 
+```text
 Technical issues: characters and bytes
 the beginning of a document the software encounters 0xFFFE, it will know that it must
 be reading the bytes in the wrong order.
@@ -488,6 +412,7 @@ The problem with this name is the “no-break” property. Before Unicode 3.2, t
 if BOM happened to fall between two syllables of a word, the word could not be broken at that point. But later
 another character was defined for that purpose, character 0x2060 word joiner; and now the BOM is used only
 to detect byte order.
+```
 
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 CESU-8 (Compatibility Encoding Scheme for UTF-16: 8-bit, [292]) is a curious blend of UTF16 and UTF-8. In CESU-8, we start by converting our document into UTF-16, using
@@ -630,33 +555,12 @@ such as MPEG, is of great interest because it starts from the notion that a docu
 may know N languages, which use M writing systems altogether (often M < N). There
 is a good chance that the user’s documents are distributed across these writing systems,
 
-General organization of Unicode: planes and blocks
-Plane 1 (SMP)
-Plane 2 (SIP)
-(11 non-occupied planes)
-Plane 14 (SSP)
-Plane 15
-Plane 16
-Allocated Codepoints
-Surrogate pairs
-Private zone
-0x0000
-0x10000
-0x20000
-0xE0000
-0xF0000
-0x100000
-0xFFFD
-0x1FFFD
-0x2FFFD
-0xEFFFD
-0xFFFFD
-0x10FFFD
-Plane 0 (BMP)
-Figure 2-2: The six currently “populated” planes of Unicode (version 4).
-which greatly reduces the range of characters used and ensures the success of a means of
-compression that is based on the proximity of characters.
-We hope to see BOCU-1 compression used more and more in the years to come.
+General organization of Unicode: planes and blocks Plane 1 (SMP) Plane 2 (SIP) (11 non-occupied planes) Plane 14 (SSP) Plane 15 Plane 16 Allocated Codepoints Surrogate pairs Private zone 0x0000 0x10000 0x20000 0xE0000 0xF0000 0x100000 0xFFFD 0x1FFFD 0x2FFFD 0xEFFFD 0xFFFFD 0x10FFFD Plane 0 (BMP) Figure 2-2: The six currently “populated” planes of Unicode (version 4). which greatly reduces the range of characters used and ensures the success of a means of compression that is based on the proximity of characters. We hope to see BOCU-1 compression used more and more in the years to come.
+
+::: tip Typographical Specimen Plate (Figure 2-2)
+![Figure 2-2: Populated planes of Unicode](/images/fonts-encodings/fig2-2-populated-planes-unicode.png)
+*Figure 2-2: Populated planes of Unicode.*
+:::
 
 ![Figure 2-2: Populated planes of Unicode](/images/fonts-encodings/fig2-2-populated-planes-unicode.png)
 *Figure 2-2: Populated planes of Unicode.*
@@ -696,52 +600,9 @@ dictionaries to show where word division is permitted.
 [ %˘a ˛a5ˆc˙cˇcd’Æ& ] Still in the Latin alphabet, the Latin Extended-A block (0x01000x017F) which contains the characters of Central Europe, the Baltic countries,
 Maltese, Esperanto, etc.
 
-General organization of Unicode: planes and blocks
-x0
-x1
-x2
-x3
-x4
-x5
-x6
-x7
-x8
-x9
-xA
-xB
-xC
-xD
-xE
-xF
-0x
-1x
-2x
-3x
-4x
-5x
-6x
-7x
-8x
-9x
-Ax
-Bx
-Cx
-Dx
-Ex
-Fx
-
-
-
-
-
-
- 
-x
-	
+General organization of Unicode: planes and blocks x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF 0x 1x 2x 3x 4x 5x 6x 7x 8x 9x Ax Bx Cx Dx Ex Fx       x
 
-z
-y
-
+z y
 
 
 
@@ -754,8 +615,7 @@ y
 
 
 
-  
-
+
 {
 !
 "
@@ -786,12 +646,12 @@ Private Zone
 Figure 2-3: The roadmap of Unicode’s Basic Multilingual Plane (BMP):  ASCII and Latin 1,  Latin Extended-A
 and -B,  phonetic alphabet and modifiers,  diacritical marks,  Greek (crippled by the monotonic reform) and Coptic,
  Cyrillic,  Armenian,  Hebrew,  Arabic,  Syriac, Thaana and N’ko, . Thai and Lao, / Tibetan,  Myanmar and
-Georgian,  elements for forming hangul syllables, 	 Amharic, 
- Cherokee,  Canadian aboriginal scripts,  runes,
+Georgian,  elements for forming hangul syllables, 	 Amharic,
+Cherokee,  Canadian aboriginal scripts,  runes,
 0 scripts of the Philippines, 1 Khmer,  Mongolian,  Limbu, Tai Le, etc.,  Balinese,  phonetic extensions, ! Latin
 Extended Additional, # Greek with accents and breathings (as it should be),  general punctuation, superscripts and
-subscripts, currency symbols, diacritical marks for symbols,  letterlike symbols, Roman numerals 
- arrows, mathematical and technical symbols,  graphic pictures for control codes, OCR,  enclosed alphanumerics,  geometric shapes, 
+subscripts, currency symbols, diacritical marks for symbols,  letterlike symbols, Roman numerals
+arrows, mathematical and technical symbols,  graphic pictures for control codes, OCR,  enclosed alphanumerics,  geometric shapes, 
 miscellaneous symbols,  “Zapf dingbats”,  braille,  supplemental arrows and mathematical symbols,  Glagolitic
 and Latin Extended-C,  Coptic disunified from Greek,  Khutsuri, Tifinagh and Ethiopic Extended,  Supplemental
 Punctuation, " ideographic radicals, \$ ideographic description characters,  ideographic punctuation, x kana, e
@@ -799,9 +659,15 @@ bopomofo, hangul supplement, kanbun and CJK strokes, z enclosed ideographs and a
 writing systems, { Yijing hexagrams, | modified tone letters and Latin Extended-D, } Syloti Nagri, ~ Phags-pa, ³ highhalf zone for surrogates, Á low zone, ´ compatibility ideographs, Ç presentation forms A (Latin, Armenian, Hebrew,
 Arabic), µ variation selectors and other oddities, È presentation forms B (Arabic), ¶ full-width Latin letters and halfwidth katakana, specials.
 
+::: tip Typographical Specimen Plate (Figure 2-3)
+![Figure 2-3: The BMP roadmap](/images/fonts-encodings/fig2-3-bmp-roadmap.png)
+*Figure 2-3: The BMP roadmap.*
+:::
+
 ![Figure 2-3: The BMP roadmap](/images/fonts-encodings/fig2-3-bmp-roadmap.png)
 *Figure 2-3: The BMP roadmap.*
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 [ !"#\$%&'() ] Wrapping up the series of Latin characters, the Latin ExtendedB block (0x0180-0x024F), home to numerous rare and strange characters as well as
 some that Western linguists cobbled together for the African languages. Also in this
@@ -840,7 +706,9 @@ or used in transcriptions.
 [ абвгдежзий ] Next comes the block for the Cyrillic alphabet (17 columns,
 0x0400-0x0513), which covers three categories of symbols: the letters used for Russian and the other European languages written in the Cyrillic alphabet (Serbian,
 Macedonian, Bulgarian, Byelorussian, Ukrainian, etc.); the letters, diacritical marks,
+```
 
+```text
 General organization of Unicode: planes and blocks
 and numeric symbols of Old Cyrillic (an ancient script still used for liturgical documents); and finally the letters of the Asian languages written in the Cyrillic alphabet
 (Abkhaz, Azerbaijani, Bashkir, Uzbek, Tajik, etc.). The special Asian letters are no
@@ -850,8 +718,8 @@ languages that do not occur in Russian, and the results are sometimes startling.
 [ abgdezôœïì ] Between East and West, the Armenian alphabet (6 columns,
 0x0530-0x058A), in which the ‘ú’ ligature is considered a character because it is used
 almost exclusively to represent the word “and” in Armenian.
-[ 	
- ] And now for the Semitic languages. First, Hebrew (7 columns,
+[ 
+] And now for the Semitic languages. First, Hebrew (7 columns,
 0x0591-0x05F4), in which there are four types of symbols: the Masoretic cantillation
 signs (musical notation for the chanting of the Bible), the short vowels and semivowels, the Hebrew letters (with the final forms of the letters separately encoded), and
 finally the three ligatures used in Yiddish. Of these four categories, the first two are
@@ -879,78 +747,13 @@ are in use: a set of dots and a set of signs derived from the Greek vowels.
 be written.
 [ !"#\$%&'() ] Between the Semitic and the Indic languages, Unicode v. 5 has
 managed to squeeze the very exotic script N’Ko (4 columns, 0x07C0-0x07FA). This
+```
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-is another artificial script, created by an African leader, Sulemana Kante, in 1948. It
-is used in Guinea, Côte d’Ivoire, and southern Mali.
-[ nopqrstuvw ] Now we come to the long list of writing systems of India.
-These have all been encoded according to a single phonetic principle. Accordingly,
-characters of the same pronunciation appear in the same location in the tables for
-the respective scripts. In addition, the writing systems are encoded in geographic
-order, from north to south. Thus the first script is Devanagari (8 columns, 0x09010x097F), which is still used for Hindi but also for Sanskrit. Since Sanskrit has a rich
-variety of phonemes, it comes as no surprise that the table for Devanagari is almost
-full whereas those for the languages of southern India become sparser as we go. We
-can also see that the letters’ strokes are pointed in the north but rounder and rounder
-as we move southward, where most writing was done on palm leaves.
-[ xyz{|}~ÄÅ ] Second is Bengali (8 columns, 0x0981-0x09FA), used principally
-in Bangladesh.
-[ ÇÉÑÖÜáàâäã ] Next comes Gurmukhi (8 columns, 0x0A01-0x0A74), which is
-used to write the Punjabi language, spoken in northern India.
-[ åçéèêëíìîï ] Gujarati (8 columns, 0x0A81-0x0AF1), which looks like Devanagari without the characteristic horizontal bar.
-[ ñóòôöõúùûü ] Oriya (8 columns, 0x0B01-0x0B71), a script noticeably
-rounder than the previous ones.
-[ †°¢£§•¶ß®© ] Tamil (8 columns, 0x0B82-0x0BFA), without a doubt
-the best-known script in southern India. It is simpler than the scripts of the north,
-as can be seen at a glance from the Unicode table for Tamil, which contains only 69
-characters, whereas the table for Devanagari contains 105.
-[ ™´¨≠ÆØ∞±≤≥] Telugu (8 columns, 0x0C01-0x0C6F), a script rounder
-than that of Tamil that is used in the state of Andhra Pradesh.
-[ ¥μ∂∑∏π∫ªºΩ ] Kannada, or Kanarese (8 columns, 0x0C82-0x0CF2),
-a script very similar to the previous one, used in the state of Karnataka.
-[ æø¿¡¬√ƒ≈Δ« ] Malayalam (8 columns, 0x0D020x0D6F), a script used in the state of Kerala.
-[ »… ÀÃÕŒœ–— ] Finally, because south of the island of Sri Lanka
-there is nothing but the Indian Ocean, we have Sinhala, or Sin(g)halese (8 columns,
-0x0D82-0x0DF4), a script composed almost entirely of curves, with a strong contrast
-between downstrokes and upstrokes.
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode is another artificial script, created by an African leader, Sulemana Kante, in 1948. It is used in Guinea, Côte d’Ivoire, and southern Mali. [ nopqrstuvw ] Now we come to the long list of writing systems of India. These have all been encoded according to a single phonetic principle. Accordingly, characters of the same pronunciation appear in the same location in the tables for the respective scripts. In addition, the writing systems are encoded in geographic order, from north to south. Thus the first script is Devanagari (8 columns, 0x09010x097F), which is still used for Hindi but also for Sanskrit. Since Sanskrit has a rich variety of phonemes, it comes as no surprise that the table for Devanagari is almost full whereas those for the languages of southern India become sparser as we go. We can also see that the letters’ strokes are pointed in the north but rounder and rounder as we move southward, where most writing was done on palm leaves. [ xyz{|}~ÄÅ ] Second is Bengali (8 columns, 0x0981-0x09FA), used principally in Bangladesh. [ ÇÉÑÖÜáàâäã ] Next comes Gurmukhi (8 columns, 0x0A01-0x0A74), which is used to write the Punjabi language, spoken in northern India. [ åçéèêëíìîï ] Gujarati (8 columns, 0x0A81-0x0AF1), which looks like Devanagari without the characteristic horizontal bar. [ ñóòôöõúùûü ] Oriya (8 columns, 0x0B01-0x0B71), a script noticeably rounder than the previous ones. [ †°¢£§•¶ß®© ] Tamil (8 columns, 0x0B82-0x0BFA), without a doubt the best-known script in southern India. It is simpler than the scripts of the north, as can be seen at a glance from the Unicode table for Tamil, which contains only 69 characters, whereas the table for Devanagari contains 105. [ ™´¨≠ÆØ∞±≤≥] Telugu (8 columns, 0x0C01-0x0C6F), a script rounder than that of Tamil that is used in the state of Andhra Pradesh. [ ¥μ∂∑∏π∫ªºΩ ] Kannada, or Kanarese (8 columns, 0x0C82-0x0CF2), a script very similar to the previous one, used in the state of Karnataka. [ æø¿¡¬√ƒ≈Δ« ] Malayalam (8 columns, 0x0D020x0D6F), a script used in the state of Kerala. [ »… ÀÃÕŒœ–— ] Finally, because south of the island of Sri Lanka there is nothing but the Indian Ocean, we have Sinhala, or Sin(g)halese (8 columns, 0x0D82-0x0DF4), a script composed almost entirely of curves, with a strong contrast between downstrokes and upstrokes.
 
-General organization of Unicode: planes and blocks
-[ “”‘’÷◊ÿŸ⁄€ ] Having finished the languages of India, we continue to those
-of Southeast Asia. We shall begin with the Thai script (8 columns, 0x0E01-0x0E5B),
-which was doubtless encoded first because of its flourishing computer market. Thai
-has diacritics for vowels and tone marks.
-[ ‹›fifl‡·‚„‰Â ] Geographically and graphically close to Thai is Lao (8 columns, 0x0E81-0x0EDD). This script is simpler and rounder than Thai and also contains fewer characters.
-[ ÊÁËÈÍÎÏÌÓÔ ] We might have expected to find Khmer here, but that is
-not the case. We shall take a geographic leap and move from the tropical heat of
-the Mekong River to the cold peaks of the Himalaya, where Tibetan (16 columns,
-0x0F00-0x0FD1) is spoken and written. This angular script operates according to the
-same principle as Khmer: when a consonant with no vowel is followed by a second
-consonant, the latter is written beneath the former. Unlike Khmer, Tibetan has
-codes for the subjoined consonants in its block.
-[ ÒÚÛÙıˆ˜¯˘˙ ] Next comes Burmese (or Myanmar) (10 columns,
-0x1000-0x1059), the script of Burma, similar to the scripts of India as well as those
-of Southeast Asia.
-[ !"#\$%&'() ] Another geographic leap: we head offto the Caucasus to encode
-the Georgian script (6 columns, 0x10A0-0x10FC), which ordinarily should have been
-placed near Armenian. There have been several misunderstandings with regard to
-Georgian. The Unicode table speaks of “capital” Georgian letters (for example, georgian capital letter an) and of caseless letters (georgian letter an). In fact, the
-modern Georgian script is unicameral. Two issues gave rise to the confusion. First,
-the fact that there are two types of Georgian fonts: those for running text and those
-for titles. The former have glyphs with ascenders and descenders (see the sample
-above), whereas in the latter the glyphs are all of the same height and no depth:
-fifl‡·‚„‰ÂÊÁ. Second, in the ancient Georgian script, khutsuri, there were indeed two
-cases. Thus we find in the Unicode table the capitals of khutsuri (*+,-./0123)
-and the caseless letters of modern Georgian.
-[ >?@ABCDEFG ] After Georgian comes a block of 16 columns
-(0x1100-0x11F9) containing the basic elements of the Korean syllabic script hangul.
-As we shall see later (page 155), these elements combine graphically within an
-ideographic square to form hangul syllables. Unicode also has a rather large area
-for precomposed hangul syllables.
-[ HIJKLMNOPQ ] We continue to leap about. From Korea we leave for
-Ethiopia, since the following block is dedicated to the Amharic (or Ethiopic) script.
-This block is rather large (24 columns, 0x1200-0x137C with a supplement of another
-2 columns 0x1380-0x1399) because the script is syllabic and all of the possible
-syllables (combinations of a consonant and a vowel) have been encoded. The block
+General organization of Unicode: planes and blocks [ “”‘’÷◊ÿŸ⁄€ ] Having finished the languages of India, we continue to those of Southeast Asia. We shall begin with the Thai script (8 columns, 0x0E01-0x0E5B), which was doubtless encoded first because of its flourishing computer market. Thai has diacritics for vowels and tone marks. [ ‹›fifl‡·‚„‰Â ] Geographically and graphically close to Thai is Lao (8 columns, 0x0E81-0x0EDD). This script is simpler and rounder than Thai and also contains fewer characters. [ ÊÁËÈÍÎÏÌÓÔ ] We might have expected to find Khmer here, but that is not the case. We shall take a geographic leap and move from the tropical heat of the Mekong River to the cold peaks of the Himalaya, where Tibetan (16 columns, 0x0F00-0x0FD1) is spoken and written. This angular script operates according to the same principle as Khmer: when a consonant with no vowel is followed by a second consonant, the latter is written beneath the former. Unlike Khmer, Tibetan has codes for the subjoined consonants in its block. [ ÒÚÛÙıˆ˜¯˘˙ ] Next comes Burmese (or Myanmar) (10 columns, 0x1000-0x1059), the script of Burma, similar to the scripts of India as well as those of Southeast Asia. [ !"#\$%&'() ] Another geographic leap: we head offto the Caucasus to encode the Georgian script (6 columns, 0x10A0-0x10FC), which ordinarily should have been placed near Armenian. There have been several misunderstandings with regard to Georgian. The Unicode table speaks of “capital” Georgian letters (for example, georgian capital letter an) and of caseless letters (georgian letter an). In fact, the modern Georgian script is unicameral. Two issues gave rise to the confusion. First, the fact that there are two types of Georgian fonts: those for running text and those for titles. The former have glyphs with ascenders and descenders (see the sample above), whereas in the latter the glyphs are all of the same height and no depth: fifl‡·‚„‰ÂÊÁ. Second, in the ancient Georgian script, khutsuri, there were indeed two cases. Thus we find in the Unicode table the capitals of khutsuri (*+,-./0123) and the caseless letters of modern Georgian. [ >?@ABCDEFG ] After Georgian comes a block of 16 columns (0x1100-0x11F9) containing the basic elements of the Korean syllabic script hangul. As we shall see later (page 155), these elements combine graphically within an ideographic square to form hangul syllables. Unicode also has a rather large area for precomposed hangul syllables. [ HIJKLMNOPQ ] We continue to leap about. From Korea we leave for Ethiopia, since the following block is dedicated to the Amharic (or Ethiopic) script. This block is rather large (24 columns, 0x1200-0x137C with a supplement of another 2 columns 0x1380-0x1399) because the script is syllabic and all of the possible syllables (combinations of a consonant and a vowel) have been encoded. The block
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 also contains punctuation, digits, and some signs used in numeration. Amharic is
 the only Semitic script written from left to right.
@@ -984,7 +787,9 @@ points for the subscript consonants. Not even the presence of a Cambodian govern
 encoding that exists to serve the speakers of a language, not the blind pride of a consortium. Let us hope that
 this incident will be resolved by the next version of Unicode, before the Cambodian government turns to the
 United Nations or the International Court of Justice in The Hague.. . .
+```
 
+```text
 General organization of Unicode: planes and blocks
 but, unlike Syriac, it is written from top to bottom. Contextuality in Mongolian is
 so complex that Unicode has provided four characters whose purpose is to modify
@@ -1018,38 +823,11 @@ calls it tonos (= ‘accent’); in the second block, oxia.
 [ –—‘’‚Ã“”„Õ ] We have reached a turning point in the BMP: the block for general
 punctuation (7 columns, 0x2000-0x206F). This table contains punctuation marks that
 were not included in ASCII and ISO 8859-1 (the true apostrophe ‘ ’ ’, the English
+```
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-double quotation marks ‘ “” ’, the German quotation marks ‘„’, the dagger and double dagger ‘†’ ‘‡’, the en dash ‘–’, the em dash ‘—’, etc.), some proofreading symbols,
-and other similar characters. There is also a set of typographic spaces: the em quad,
-en quad, three-per-em space, four-per-em space, six-per-em space, thin space, hair
-space, zero-width space (a space that ordinarily has no width but may result in increased spacing during justification). There are also a certain number of control characters: zero-width joiners and non-joiners, together with indicators of the direction
-of the text, which we shall see on page 142. Finally, for use in entering mathematical formulae, an invisible character placed between a function and its argument,
-another that indicates multiplication, and a third that acts as a comma in a list of
-symbols.
-[ 0i456789+- ] The digits and parentheses as superscripts and subscripts (3 columns,
-0x2070-0x2094.
-[ ‘’÷◊ÿŸ⁄€‹› ] The currency symbols (3 columns, 0x20A0-0x20B5), where we
-find the euro sign and also a number of symbols that have never been used, such as
-those for the ecu ‘«’, the drachma ‘»’, and even the French franc ‘Δ’.
-[ ËÈÍÎÏÌÓÔÒ ] Diacritical marks for symbols (3 columns, 0x20D00x20EF). These include various ways to modify a symbol: striking through it,
-encircling it, enclosing it in a triangle in the manner of European road signs, etc.
-[ ÚÛÙıˆ˜¯˘˙˚ ] The letterlike symbols (5 columns, 0x2100-0x214E). These
-are letters of the alphabet, sometimes rendered in a specific font, alone or in groups,
-that acquire a special meaning in a given context. Thus we have the signs for degrees
-Celsius ‘°C’, the rational numbers ‘Q’, the real part of a complex number ‘R’, the first
-transfinite cardinal number ‘ℵ’, and many other symbols of this kind, which become
-more exotic and eccentric as one proceeds down the chart.
-[ !"#\$I II III IV V ] Fractions and Roman numerals (4 columns, 0x21530x2184). A slight Eurocentric faux pas in Unicode: of all the numeration systems
-based on letters (the Greek, the Hebrew, the Arabic, etc.), only Roman numerals are
-provided in Unicode.
-[ %&'()*+,-. ] All kinds of arrows (7 columns, 0x2190-0x21FF), pointing in every direction.
-[ ∀∁∂∃∄/0Δ∇∈] Mathematical symbols (16 columns, 0x2200-0x22FF).
-[ /012345678 ] Technical symbols (16 columns, 0x2300-0x23E7), which
-is a catchall for the symbols of numerous disciplines: drafting, industrial design, keys
-on the keyboard, chemistry, the APL programming language, electrical engineering,
-dentistry, etc.
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode double quotation marks ‘ “” ’, the German quotation marks ‘„’, the dagger and double dagger ‘†’ ‘‡’, the en dash ‘–’, the em dash ‘—’, etc.), some proofreading symbols, and other similar characters. There is also a set of typographic spaces: the em quad, en quad, three-per-em space, four-per-em space, six-per-em space, thin space, hair space, zero-width space (a space that ordinarily has no width but may result in increased spacing during justification). There are also a certain number of control characters: zero-width joiners and non-joiners, together with indicators of the direction of the text, which we shall see on page 142. Finally, for use in entering mathematical formulae, an invisible character placed between a function and its argument, another that indicates multiplication, and a third that acts as a comma in a list of symbols. [ 0i456789+- ] The digits and parentheses as superscripts and subscripts (3 columns, 0x2070-0x2094. [ ‘’÷◊ÿŸ⁄€‹› ] The currency symbols (3 columns, 0x20A0-0x20B5), where we find the euro sign and also a number of symbols that have never been used, such as those for the ecu ‘«’, the drachma ‘»’, and even the French franc ‘Δ’. [ ËÈÍÎÏÌÓÔÒ ] Diacritical marks for symbols (3 columns, 0x20D00x20EF). These include various ways to modify a symbol: striking through it, encircling it, enclosing it in a triangle in the manner of European road signs, etc. [ ÚÛÙıˆ˜¯˘˙˚ ] The letterlike symbols (5 columns, 0x2100-0x214E). These are letters of the alphabet, sometimes rendered in a specific font, alone or in groups, that acquire a special meaning in a given context. Thus we have the signs for degrees Celsius ‘°C’, the rational numbers ‘Q’, the real part of a complex number ‘R’, the first transfinite cardinal number ‘ℵ’, and many other symbols of this kind, which become more exotic and eccentric as one proceeds down the chart. [ !"#\$I II III IV V ] Fractions and Roman numerals (4 columns, 0x21530x2184). A slight Eurocentric faux pas in Unicode: of all the numeration systems based on letters (the Greek, the Hebrew, the Arabic, etc.), only Roman numerals are provided in Unicode. [ %&'()*+,-. ] All kinds of arrows (7 columns, 0x2190-0x21FF), pointing in every direction. [ ∀∁∂∃∄/0Δ∇∈] Mathematical symbols (16 columns, 0x2200-0x22FF). [ /012345678 ] Technical symbols (16 columns, 0x2300-0x23E7), which is a catchall for the symbols of numerous disciplines: drafting, industrial design, keys on the keyboard, chemistry, the APL programming language, electrical engineering, dentistry, etc.
 
+```text
 General organization of Unicode: planes and blocks
 [ 9:;<=>?@AB ] Some graphic pictures for control codes, the space, the carriage return, etc. (4 columns, 0x2400-0x2426).
 [ CDEFGHIJKL ] Characters specially designed for the optical recognition of
@@ -1082,7 +860,9 @@ retained.
 called Latin Extended-C (2 columns, 0x2C60-0x2C77).
 [ ‘’÷◊ÿŸ⁄€‹› ] Coptic, which is finally completely disunified from Greek
 (8 columns, 0x2C80-0x2CFF).
+```
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 [ 456789:;<= ] Followed by Nuskhuri (3 columns, 0x2D00-0x2D25), the
 lower-case version of the Georgian liturgical khutshuri letters, the upper-case ones
@@ -1117,40 +897,11 @@ syllabary. Two hiragana used before World War II are also listed here.
 [ ±≤≥¥μ∂∑∏π∫] Katakana (6 columns, 0x30A0-0x30FF), another
 Japanese syllabary, used for foreign words. Two katakana used before World War II
 and a number of dialectal signs also appear in this block.
+```
 
-General organization of Unicode: planes and blocks
-[ ªºΩæø¿¡¬√ƒ ] Bopomofo (3 columns, 0x3105-0x312C) is an attempt at an alphabetic script for Chinese that is used to represent ideographs
-phonetically. The influence of the Japanese kana is obvious.
-—— Next is a “compatibility” block, i.e., a table of useless characters added only for the
-sake of compatibility with an existing encoding. This particular block contains the
-basic elements Korean syllabic hangul script (6 columns, 0x3131-0x318E). Whereas the
-basic elements of block 0x1100-0x11F9 combine to form syllables, those in this block
-do not (see p. 155 for more explanation).
-[ ≈Δ«»… ÀÃÕŒ ] A small block of ideographs written as superscripts, the
-kanbun (1 column, 0x3190-0x319F). These characters are very interesting because
-they show how the cultures of East Asia are connected through the ideographic writing system. A Chinese poem is automatically a poem in Japanese as well, with one
-difference: the order of the ideographs may not be correct. The kanbun serve to indicate a reading order appropriate to the Japanese reader to understand the poem.
-—— A supplementary set of phonetic bopomofo, CJK strokes and katakana (4 columns,
-0x31A0-0x31FF).
-[ œ–—“”‘’÷◊ÿ ] Next comes a block of encircled ideographs, of
-katakana and hangul in circles or parentheses, of numbers (either Chinese or Arabic)
-in circles or parentheses, and of symbols for months (16 columns, 0x3200-0x32FE).
-[ ’÷◊ÿŸ⁄€‹›fi] And a block of ideographic abbreviations (16 columns, 0x3300-0x33FF). These are groups of 4 to 6 katakana within an ideographic
-square or Latin abbreviations for such things as units of measure, also within that
-type of square.
-—— After the abbreviations, we step right into the vast pool of ideographic characters.
-Before starting on the basic characters, we have the CJK Unified Ideographs Extension A:
-432 columns, 0x3400-0x4DB5 (6,582 ideographs).
-[ „‰ÂÊÁËÈÍÎÏ ] A short interlude before the big section of ideographic characters: the hexagrams from the Yijing (4 columns, 0x4DC0-0x4DFF), a
-Chinese book of divination.
-[ ÌÓÔÒÚÛÙıˆ ] Then come the unified ideographs: 1306 columns, 0x4E00-0x9FBB (20,924 ideographs).
-[ !"#\$%&'() ] After the ideographs and before the hangul syllables come the
-syllables of Yi, a writing system from southern China. Yi, a rather young writing
-system (only five centuries old), is in fact ideographic. There are between 8 and 10
-thousand Yi ideographs, but they are not yet encoded in Unicode. On the other hand,
-a syllabary was invented in the 1970s to facilitate the learning of this language, and
-it is this syllabary that Unicode includes (84 columns, 0xA000-0xA4C6).
+General organization of Unicode: planes and blocks [ ªºΩæø¿¡¬√ƒ ] Bopomofo (3 columns, 0x3105-0x312C) is an attempt at an alphabetic script for Chinese that is used to represent ideographs phonetically. The influence of the Japanese kana is obvious. —— Next is a “compatibility” block, i.e., a table of useless characters added only for the sake of compatibility with an existing encoding. This particular block contains the basic elements Korean syllabic hangul script (6 columns, 0x3131-0x318E). Whereas the basic elements of block 0x1100-0x11F9 combine to form syllables, those in this block do not (see p. 155 for more explanation). [ ≈Δ«»… ÀÃÕŒ ] A small block of ideographs written as superscripts, the kanbun (1 column, 0x3190-0x319F). These characters are very interesting because they show how the cultures of East Asia are connected through the ideographic writing system. A Chinese poem is automatically a poem in Japanese as well, with one difference: the order of the ideographs may not be correct. The kanbun serve to indicate a reading order appropriate to the Japanese reader to understand the poem. —— A supplementary set of phonetic bopomofo, CJK strokes and katakana (4 columns, 0x31A0-0x31FF). [ œ–—“”‘’÷◊ÿ ] Next comes a block of encircled ideographs, of katakana and hangul in circles or parentheses, of numbers (either Chinese or Arabic) in circles or parentheses, and of symbols for months (16 columns, 0x3200-0x32FE). [ ’÷◊ÿŸ⁄€‹›fi] And a block of ideographic abbreviations (16 columns, 0x3300-0x33FF). These are groups of 4 to 6 katakana within an ideographic square or Latin abbreviations for such things as units of measure, also within that type of square. —— After the abbreviations, we step right into the vast pool of ideographic characters. Before starting on the basic characters, we have the CJK Unified Ideographs Extension A: 432 columns, 0x3400-0x4DB5 (6,582 ideographs). [ „‰ÂÊÁËÈÍÎÏ ] A short interlude before the big section of ideographic characters: the hexagrams from the Yijing (4 columns, 0x4DC0-0x4DFF), a Chinese book of divination. [ ÌÓÔÒÚÛÙıˆ ] Then come the unified ideographs: 1306 columns, 0x4E00-0x9FBB (20,924 ideographs). [ !"#\$%&'() ] After the ideographs and before the hangul syllables come the syllables of Yi, a writing system from southern China. Yi, a rather young writing system (only five centuries old), is in fact ideographic. There are between 8 and 10 thousand Yi ideographs, but they are not yet encoded in Unicode. On the other hand, a syllabary was invented in the 1970s to facilitate the learning of this language, and it is this syllabary that Unicode includes (84 columns, 0xA000-0xA4C6).
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 —— A block with modifier tone marks for Chinese: 2 columns, 0xA700-0xA71A.
 —— Did you think that there were enough Latin letters in this encoding? Well, the Unicode Consortium did not agree with you. Here comes another supplemental block
@@ -1185,7 +936,9 @@ Unicode Consortium discourages the use of these presentation forms.
 a glyphic variant of the preceding character. There are 16 characters of this kind; thus
 16 different variants of the same glyph can be used in a single document. Another
 240 characters of the same kind are found in Plane 14.
+```
 
+```text
 General organization of Unicode: planes and blocks
 —— A one-column block with variants of Latin and CJK punctuation for vertical typesetting: 0xFE10-0xFE19.
 —— The two halves of a horizontal parenthesis and a horizontal tilde (1 column,
@@ -1218,7 +971,9 @@ in Eighty Days, let us continue with Unicode’s other planes, which are not yet
 populated, at least for the time being.
 Plane 1 is called the SMP (Supplementary Multilingual Plane). It consists of historic or
 unusual scripts:
+```
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 x0
 x1
@@ -1240,76 +995,25 @@ xF
 .
 /
 
- 	
+
+```
 
-
-
-  
-
-
-
-
-
-10x
-11x
-12x
-1Dx
-1Ex
-Figure 2-4:
-The roadmap of Unicode’s Supplementary Multilingual Plane:  Linear B,
- Aegean and ancient Greek numbers,  Old Italic and Gothic,  Ugaritic and Persian
-cuneiform,  Deseret,  Shavian,  Osmanya,  the Cypriot syllabary,  Phœnician, 
-Kharoshthi, . cuneiform, / cuneiform numbers and punctuation,  Byzantine musical notation,  Western musical notation, 	 ancient Greek musical notation, 
- monograms, digrams,
-and tetragrams of the Yijing,  counting rod numerals,  Latin, Fraktur, and Greek letters used
-in mathematical formulae.
-x0
-x1
-x2
-x3
-x4
-x5
-x6
-x7
-x8
-x9
-xA
-xB
-xC
-xD
-xE
-xF
-
-CJK Unified Ideographs Extension B
-20x
-21x
-2Ax
-2Bx
-2Fx
-Figure 2-5: The roadmap of Unicode’s Supplementary Ideographic Plane (SIP):  supplementary compatibility ideographs.
-x0
-x1
-x2
-x3
-x4
-x5
-x6
-x7
-x8
-x9
-xA
-xB
-xC
-xD
-xE
-xF
-À
-Á
-E0x
-E1x
-E2x
-Figure 2-6: The roadmap of Unicode’s Supplementary Special-Purpose Plane (SSP):  language
-tags,  supplementary variation selectors.
+          10x 11x 12x 1Dx 1Ex Figure 2-4: The roadmap of Unicode’s Supplementary Multilingual Plane:  Linear B,  Aegean and ancient Greek numbers,  Old Italic and Gothic,  Ugaritic and Persian cuneiform,  Deseret,  Shavian,  Osmanya,  the Cypriot syllabary,  Phœnician,  Kharoshthi, . cuneiform, / cuneiform numbers and punctuation,  Byzantine musical notation,  Western musical notation, ancient Greek musical notation, monograms, digrams, and tetragrams of the Yijing,  counting rod numerals,  Latin, Fraktur, and Greek letters used in mathematical formulae. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF  CJK Unified Ideographs Extension B 20x 21x 2Ax 2Bx 2Fx Figure 2-5: The roadmap of Unicode’s Supplementary Ideographic Plane (SIP):  supplementary compatibility ideographs. x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 xA xB xC xD xE xF À Á E0x E1x E2x Figure 2-6: The roadmap of Unicode’s Supplementary Special-Purpose Plane (SSP):  language tags,  supplementary variation selectors.
+
+::: tip Typographical Specimen Plate (Figure 2-4)
+![Figure 2-4: The SMP roadmap](/images/fonts-encodings/fig2-4-smp-roadmap.png)
+*Figure 2-4: The SMP roadmap.*
+:::
+
+::: tip Typographical Specimen Plate (Figure 2-5)
+![Figure 2-5: The SIP roadmap](/images/fonts-encodings/fig2-5-sip-roadmap.png)
+*Figure 2-5: The SIP roadmap.*
+:::
+
+::: tip Typographical Specimen Plate (Figure 2-6)
+![Figure 2-6: The SSP roadmap](/images/fonts-encodings/fig2-6-ssp-roadmap.png)
+*Figure 2-6: The SSP roadmap.*
+:::
 
 ![Figure 2-6: The SSP roadmap](/images/fonts-encodings/fig2-6-ssp-roadmap.png)
 *Figure 2-6: The SSP roadmap.*
@@ -1320,38 +1024,9 @@ tags,  supplementary variation selectors.
 ![Figure 2-4: The SMP roadmap](/images/fonts-encodings/fig2-4-smp-roadmap.png)
 *Figure 2-4: The SMP roadmap.*
 
-General organization of Unicode: planes and blocks
-[ HIJKLMNOPQ ] Linear B (16 columns, 0x10000-0x100FA), a Cretan writing system from the time of King Minos and his labyrinth for containing the Minotaur
-(2000 bc), which was deciphered by architect and amateur archæologist Michael
-Ventris in 1952. It is called “B” because there is a script known as “Linear A” that has
-not yet been deciphered. Linear A is not yet encoded in Unicode, doubtless because
-the Consortium is waiting for its decipherment so that sensible descriptions can be
-given to the signs.
-[ RSTUVWXYZ[ ] The Aegean numbers (4 columns, 0x10100-0x1013F) are symbols derived from Linear A and identified as being numbers or units of measure.
-[  ÀÃÕŒœ–—“” ] They are followed by the Greek numbers (5 columns, 0x101400x1018A), which have been used over the centuries in quite a few systems of numeration. The numbers in the first two columns are called acrophonic because they are
-the first letters (akron = ‘tip’) of the names of the numbers. For example, ‘Õ’ = pi is
-the first letter of π0ντε = ‘five’.
-[ \]^_`abcde ] The Old Italic block (3 columns, 0x10300-0x10323) contains the letters used by a certain number of ancient languages of the Italian peninsula, such as
-Etruscan, Oscan, Umbrian, etc. We can clearly discern the influence of Greek, but
-the nascent Latin alphabet is also recognizable.
-[ fghijklmno ] Gothic5 (2 columns, 0x10330-0x1034A) is the writing system of
-the Goths, Vandals, Burgundians, and Lombards used by the archbishop Wulfila in
-his Bible in ad 350. It greatly resembles the uncial script but also contains a number
-of Greek letters: psi, lambda, pi, theta, etc.
-[ pqrstuvwxy ] Ugaritic (2 columns, 0x10380-0x1039F) is one of the languages written in cuneiform. The cuneiform characters that it uses are letters of an
-alphabet. Incidentally, their names seem familiar to us: alpa, beta, gamla, delta, etc.
-[ ÚÛÙıˆ˜¯˘˙˚ ] They are followed directly by another cuneiform
-writing system, Old Persian (4 columns, 0x103A0-0x103D5). The cuneiform scripts of
-Akkadian and Elamite have yet to be encoded in Unicode.
-[ z{|}~ÄÅÇÉ ] The following two blocks are controversial: they contain two
-artificial alphabets from the nineteenth century and the beginning of the twentieth century. The first is Deseret (5 columns, 0x10400-0x1044F), or the “Mormon alphabet”, which was used for English-language texts (altogether four books and one
-tombstone!) between 1847 and 1869 and can be regarded as an attempt to isolate
-5 There seem to be multiple uses of the term “Gothic” in various languages. In US English it is used for
-the script of Wulfila, but also, more commonly, for sans-serif fonts. In French, Wulfila’s script is called “gotique” (without the ‘h’), and “gothique” is used for German broken scripts. Germans call the latter “German
-scripts” (“Deutsche Schrift”). The result of this linguistic imbroglio is that in the well-known comics “Asterix
-and the Goths”, the words spoken by the Goths are written in a ... broken script, which allows the author, Réné
-Goscinny, to compare the Goths with the pre-WWI Germans.
+General organization of Unicode: planes and blocks [ HIJKLMNOPQ ] Linear B (16 columns, 0x10000-0x100FA), a Cretan writing system from the time of King Minos and his labyrinth for containing the Minotaur (2000 bc), which was deciphered by architect and amateur archæologist Michael Ventris in 1952. It is called “B” because there is a script known as “Linear A” that has not yet been deciphered. Linear A is not yet encoded in Unicode, doubtless because the Consortium is waiting for its decipherment so that sensible descriptions can be given to the signs. [ RSTUVWXYZ[ ] The Aegean numbers (4 columns, 0x10100-0x1013F) are symbols derived from Linear A and identified as being numbers or units of measure. [ ÀÃÕŒœ–—“” ] They are followed by the Greek numbers (5 columns, 0x101400x1018A), which have been used over the centuries in quite a few systems of numeration. The numbers in the first two columns are called acrophonic because they are the first letters (akron = ‘tip’) of the names of the numbers. For example, ‘Õ’ = pi is the first letter of π0ντε = ‘five’. [ \]^_`abcde ] The Old Italic block (3 columns, 0x10300-0x10323) contains the letters used by a certain number of ancient languages of the Italian peninsula, such as Etruscan, Oscan, Umbrian, etc. We can clearly discern the influence of Greek, but the nascent Latin alphabet is also recognizable. [ fghijklmno ] Gothic5 (2 columns, 0x10330-0x1034A) is the writing system of the Goths, Vandals, Burgundians, and Lombards used by the archbishop Wulfila in his Bible in ad 350. It greatly resembles the uncial script but also contains a number of Greek letters: psi, lambda, pi, theta, etc. [ pqrstuvwxy ] Ugaritic (2 columns, 0x10380-0x1039F) is one of the languages written in cuneiform. The cuneiform characters that it uses are letters of an alphabet. Incidentally, their names seem familiar to us: alpa, beta, gamla, delta, etc. [ ÚÛÙıˆ˜¯˘˙˚ ] They are followed directly by another cuneiform writing system, Old Persian (4 columns, 0x103A0-0x103D5). The cuneiform scripts of Akkadian and Elamite have yet to be encoded in Unicode. [ z{|}~ÄÅÇÉ ] The following two blocks are controversial: they contain two artificial alphabets from the nineteenth century and the beginning of the twentieth century. The first is Deseret (5 columns, 0x10400-0x1044F), or the “Mormon alphabet”, which was used for English-language texts (altogether four books and one tombstone!) between 1847 and 1869 and can be regarded as an attempt to isolate 5 There seem to be multiple uses of the term “Gothic” in various languages. In US English it is used for the script of Wulfila, but also, more commonly, for sans-serif fonts. In French, Wulfila’s script is called “gotique” (without the ‘h’), and “gothique” is used for German broken scripts. Germans call the latter “German scripts” (“Deutsche Schrift”). The result of this linguistic imbroglio is that in the well-known comics “Asterix and the Goths”, the words spoken by the Goths are written in a ... broken script, which allows the author, Réné Goscinny, to compare the Goths with the pre-WWI Germans.
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 the Mormons culturally from the rest of the United States. Let us hope that other
 religions will not create their own new scripts, lest Unicode end up full of useless,
@@ -1390,45 +1065,11 @@ following hilarious comment after the character’s description: “misspelling 
 known defect”.. . . The author knows of one other case of this sort of behavior: errors in the Hebrew Bible are
 also preserved, to the point that today there is a list of broken letters, upside-down letters, etc., that have been
 “institutionalized” to prevent the copyist from “correcting” the sacred text. Will Unicode be the new Bible?
+```
 
-General organization of Unicode: planes and blocks
-(16 columns, 0x1D000-0x1D0F5), a system still widely used in Greece and in other
-Eastern Orthodox countries.
-[ ¨≠ÆØ∞±≤≥¥μ ] The next block is for the Western system of musical notation
-(16 columns, 0x1D100-0x1D1DD, which includes both the modern notation (written
-on the five-line staff) and the notation used for Gregorian chant (written on the
-four-line staff). Everything is present: notes, clefs, measure lines, dynamics, ties and
-slurs, crescendo and decrescendo hairpins, glissandi, fermatas, etc. All that we need is
-the creativity of Stockhausen, Berio, Crumb, and Boulez of the twenty-first century
-to make this block explode with a profusion of new symbols.
-[ ‘’÷◊ÿŸ⁄€‹› ] And since we are right in the midst of all this musical notation, why not encode the symbols used to notate music in antiquity? No sooner said
-than done: here is the block for ancient Greek musical notation (6 columns, 0x1D2000x1D245).
-[ ∂∑∏π∫ªºΩæø ] We have already mentioned the block of Yijing hexagrams, which is located on the BMP, squeezed between two blocks of ideographs.
-Here we have monograms, digrams, and tetragrams from this book (6 columns,
-0x1D300-0x1D356).
-[ >?@ABCDEFG ] Next comes a small block for counting rods (2
-columns, 0x1D360-Ox1D371). “Counting rods” are small sticks, several centimeters
-long, used in East Asia for counting. These characters contain the basic patterns of
-this numbering system.
-[ abcdefghiS ] Finally, a block that was also controversial but that is more likely
-to be useful to the reader than many other Unicode blocks: the mathematical alphanumeric symbols (48 columns, 0x1D400-0x0x1D7FF). The idea behind these is very
-simple. It is well known that “mathematicians are like Frenchmen: whenever you
-say something to them, they translate it into their own language, and at once it is
-something entirely different” (in the words of Goethe). Well, in this case it is the
-notion of a Unicode character that has been “translated”: the bold, italic, and bold
-italic forms of a letter are regarded here as distinct Unicode characters because they
-take on different meanings in mathematical formulae. Thus this block contains the
-styles mentioned above and also script, blackletter, blackboard-bold, sans-serif, and
-typewriter type—all of it for both Latin and Greek.
-Plane 2 is called the “Supplementary Ideographic Plane” (SIP). Its structure is extremely
-simple. Between 0x20000 and 0x2A6D6 there is a contiguous block of 42,711 ideographs
-called “Ideographs Extension B”. The ideographic character with the greatest number of
-strokes is found there: it is 0x2A6A5 À, which is written with 64 (!) strokes. Its structure is
-quite simple: it contains four copies of the radical   ‘dragon’. As for the meaning of À,
-the reader will have guessed it: ‘four dragons’ (or ‘several dragons’). Perhaps the ease
-with which today’s font-design software can be used will soon give rise to characters with
-n2 dragons, for a total of 24n2 strokes....
+General organization of Unicode: planes and blocks (16 columns, 0x1D000-0x1D0F5), a system still widely used in Greece and in other Eastern Orthodox countries. [ ¨≠ÆØ∞±≤≥¥μ ] The next block is for the Western system of musical notation (16 columns, 0x1D100-0x1D1DD, which includes both the modern notation (written on the five-line staff) and the notation used for Gregorian chant (written on the four-line staff). Everything is present: notes, clefs, measure lines, dynamics, ties and slurs, crescendo and decrescendo hairpins, glissandi, fermatas, etc. All that we need is the creativity of Stockhausen, Berio, Crumb, and Boulez of the twenty-first century to make this block explode with a profusion of new symbols. [ ‘’÷◊ÿŸ⁄€‹› ] And since we are right in the midst of all this musical notation, why not encode the symbols used to notate music in antiquity? No sooner said than done: here is the block for ancient Greek musical notation (6 columns, 0x1D2000x1D245). [ ∂∑∏π∫ªºΩæø ] We have already mentioned the block of Yijing hexagrams, which is located on the BMP, squeezed between two blocks of ideographs. Here we have monograms, digrams, and tetragrams from this book (6 columns, 0x1D300-0x1D356). [ >?@ABCDEFG ] Next comes a small block for counting rods (2 columns, 0x1D360-Ox1D371). “Counting rods” are small sticks, several centimeters long, used in East Asia for counting. These characters contain the basic patterns of this numbering system. [ abcdefghiS ] Finally, a block that was also controversial but that is more likely to be useful to the reader than many other Unicode blocks: the mathematical alphanumeric symbols (48 columns, 0x1D400-0x0x1D7FF). The idea behind these is very simple. It is well known that “mathematicians are like Frenchmen: whenever you say something to them, they translate it into their own language, and at once it is something entirely different” (in the words of Goethe). Well, in this case it is the notion of a Unicode character that has been “translated”: the bold, italic, and bold italic forms of a letter are regarded here as distinct Unicode characters because they take on different meanings in mathematical formulae. Thus this block contains the styles mentioned above and also script, blackletter, blackboard-bold, sans-serif, and typewriter type—all of it for both Latin and Greek. Plane 2 is called the “Supplementary Ideographic Plane” (SIP). Its structure is extremely simple. Between 0x20000 and 0x2A6D6 there is a contiguous block of 42,711 ideographs called “Ideographs Extension B”. The ideographic character with the greatest number of strokes is found there: it is 0x2A6A5 À, which is written with 64 (!) strokes. Its structure is quite simple: it contains four copies of the radical ‘dragon’. As for the meaning of À, the reader will have guessed it: ‘four dragons’ (or ‘several dragons’). Perhaps the ease with which today’s font-design software can be used will soon give rise to characters with n2 dragons, for a total of 24n2 strokes....
 
+```text
 Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
 At the end of the plane, there is a relatively small block (34 columns, 0x2F800-0x2FA1D)
 of compatibility ideographs, all of them from the encoding CNS 11643-1992.
@@ -1466,69 +1107,13 @@ whereas embedded blocks are new branches of the tree. Unlike XML’s markup, Uni
 language tags are unable to “structure” a document.
 The Unicode Consortium admits that it committed a blunder by adopting these characters. It now strongly encourages users not to use these characters, at least when another
 means of indicating the language is available....
+```
 
-General organization of Unicode: planes and blocks
-The last block of the last inhabited plane is for variation selectors. In the BMP there are
-already 16 selectors of this type that enable us to indicate as many variants of a single
-character. In the event that more than 16 variants occur, have no fear: Plane 14 contains
-240 more (15 columns, 0xE0100-0xE01EF), bringing the total to 256.
-Scripts proposed for addition
-When going from the BMP to the higher planes, we have the impression of moving
-from the overpopulated Gangetic Plain to the empty steppes of Siberia. The vast majority of these planes’ code points are still unassigned, and, unless in the near future
-we come upon an extraterrestrial civilization with a writing system that uses a million
-characters, that situation is likely to persist for some time.
-Which scripts are planned for addition to Unicode in the near future?
-There are at least three stages for a script to be included in Unicode. In the following we
-describe the pipeline of scripts submitted for inclusion, as of August 2006.
-Approved proposals in balloting
-These scripts have been approved by the Unicode Technical Committee and the WG2.
-They are in the process of being approved by ISO for inclusion in 10646.
-[ ÑÖÜáàâäãåç ] Kayah Li, used to write Eastern and Western Kayah Li languages, spoken by about half a million people in Myanmar and Thailand.
-[ fghijklmno ] Lepcha is the script of Sikkim, a formerly independent
-country that since 1975 has been a state of India, located between Nepal and Bhutan.
-[ éèêëíìîïñó ] Ol Chiki, invented by Pandit Raghunath Murmu in the first half
-of the 20th century to write the southern dialect of Santali, a language of India, as
-spoken in the Orissan Mayurbhañi district.
-[ z{|}~ÄÅÇÉ ] Vai, an African script used in Liberia and Sierra Leone.
-[ pqrstuvwxy ] Rejang, the script of the language by the same name, spoken by
-about 200,000 people in Indonesia, on the island of Sumatra.
-[ fghijklmno ] Sauvashtra, the script of an Indian language related to Gujarati and spoken by about 300,000 people in southern India (actually a IndoEuropean language in the midst of several Dravidian languages).
-[ \]^_`abcde ] Sundanese, one of the scripts of the language Sundanese,
-spoken by about 27 million people on the island of Java in Indonesia.
-[ ‘’÷◊ÿŸ⁄€‹› ] Carian, as well as
-[ HIJKLMNOPQ ] Lycian, and
+General organization of Unicode: planes and blocks The last block of the last inhabited plane is for variation selectors. In the BMP there are already 16 selectors of this type that enable us to indicate as many variants of a single character. In the event that more than 16 variants occur, have no fear: Plane 14 contains 240 more (15 columns, 0xE0100-0xE01EF), bringing the total to 256. Scripts proposed for addition When going from the BMP to the higher planes, we have the impression of moving from the overpopulated Gangetic Plain to the empty steppes of Siberia. The vast majority of these planes’ code points are still unassigned, and, unless in the near future we come upon an extraterrestrial civilization with a writing system that uses a million characters, that situation is likely to persist for some time. Which scripts are planned for addition to Unicode in the near future? There are at least three stages for a script to be included in Unicode. In the following we describe the pipeline of scripts submitted for inclusion, as of August 2006. Approved proposals in balloting These scripts have been approved by the Unicode Technical Committee and the WG2. They are in the process of being approved by ISO for inclusion in 10646. [ ÑÖÜáàâäãåç ] Kayah Li, used to write Eastern and Western Kayah Li languages, spoken by about half a million people in Myanmar and Thailand. [ fghijklmno ] Lepcha is the script of Sikkim, a formerly independent country that since 1975 has been a state of India, located between Nepal and Bhutan. [ éèêëíìîïñó ] Ol Chiki, invented by Pandit Raghunath Murmu in the first half of the 20th century to write the southern dialect of Santali, a language of India, as spoken in the Orissan Mayurbhañi district. [ z{|}~ÄÅÇÉ ] Vai, an African script used in Liberia and Sierra Leone. [ pqrstuvwxy ] Rejang, the script of the language by the same name, spoken by about 200,000 people in Indonesia, on the island of Sumatra. [ fghijklmno ] Sauvashtra, the script of an Indian language related to Gujarati and spoken by about 300,000 people in southern India (actually a IndoEuropean language in the midst of several Dravidian languages). [ \]^_`abcde ] Sundanese, one of the scripts of the language Sundanese, spoken by about 27 million people on the island of Java in Indonesia. [ ‘’÷◊ÿŸ⁄€‹› ] Carian, as well as [ HIJKLMNOPQ ] Lycian, and
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-[ RSTUVWXYZ[ ] Lydian: the three ancient Greek “Anatolian” scripts, used in Asia
-Minor until the 3rd century bce.
-Proposals in early committee review
-These scripts have complete formal proposals and are waiting for approval or rejection
-by the UTC.
-[ HIJKLMNOPQ ] Avestan is a pre-Islamic Persian script invented to
-record Zoroastrian texts in the 3d century ce.
-[ fifl‡·‚„‰ÂÊÁ ] Batak.
-—— Manipuri, a recently extinct script for writing the Meithei language of Manipur
-State in India.
-[ pqrstuvwxy ] Hieroglyphic Egyptian, whose (future) Unicode
-block is based on the font of the Centre for Computer-Aided Egyptological Research
-in Utrecht, in the Netherlands. The proposal distributes the hieroglyphs over two
-blocks: the basic block (761 characters) and the extended block (4,548 characters that
-come primarily from the inscriptions in the temple of Edfu). To place hieroglyphs
-inside cartouches, one uses the control characters egyptian hieroglyphic begin
-cartouche, etc.
-[ òôöõúùûü†° ] Brahmi, the ancient pan-Indian script, ancestral to the scripts of
-India and Southeast Asia.
-[ òôöõúùûü†° ] Manichaean, the script of the texts of Manichaeism, a religion founded by Mani (216–274 ce). The Manichaean script was inspired by the
-Syriac Estrangelo.
-[ ÑÖÜáàâäãåç ] Tengwar, a script invented by Tolkien for The Lord of the
-Rings.
-Proposals in the initial and exploratory stages
-[ ËÈÍÎÏÌÓÔÒ ] Chakma is the script of Chakmas, the largest ethnic group in Bangladesh. Nowadays the Chakma language is mostly written in the
-Bengali script.
-[ !"#\$%&'() ] Cham, a Southeast Asian script used by minorities
-in Cambodia and Vietnam, which bears a vague resemblance to Khmer.
-[ \]^_`abcde ] Javanese, another Southeast Asian script, an Indonesian derivative of Brahmi.
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode [ RSTUVWXYZ[ ] Lydian: the three ancient Greek “Anatolian” scripts, used in Asia Minor until the 3rd century bce. Proposals in early committee review These scripts have complete formal proposals and are waiting for approval or rejection by the UTC. [ HIJKLMNOPQ ] Avestan is a pre-Islamic Persian script invented to record Zoroastrian texts in the 3d century ce. [ fifl‡·‚„‰ÂÊÁ ] Batak. —— Manipuri, a recently extinct script for writing the Meithei language of Manipur State in India. [ pqrstuvwxy ] Hieroglyphic Egyptian, whose (future) Unicode block is based on the font of the Centre for Computer-Aided Egyptological Research in Utrecht, in the Netherlands. The proposal distributes the hieroglyphs over two blocks: the basic block (761 characters) and the extended block (4,548 characters that come primarily from the inscriptions in the temple of Edfu). To place hieroglyphs inside cartouches, one uses the control characters egyptian hieroglyphic begin cartouche, etc. [ òôöõúùûü†° ] Brahmi, the ancient pan-Indian script, ancestral to the scripts of India and Southeast Asia. [ òôöõúùûü†° ] Manichaean, the script of the texts of Manichaeism, a religion founded by Mani (216–274 ce). The Manichaean script was inspired by the Syriac Estrangelo. [ ÑÖÜáàâäãåç ] Tengwar, a script invented by Tolkien for The Lord of the Rings. Proposals in the initial and exploratory stages [ ËÈÍÎÏÌÓÔÒ ] Chakma is the script of Chakmas, the largest ethnic group in Bangladesh. Nowadays the Chakma language is mostly written in the Bengali script. [ !"#\$%&'() ] Cham, a Southeast Asian script used by minorities in Cambodia and Vietnam, which bears a vague resemblance to Khmer. [ \]^_`abcde ] Javanese, another Southeast Asian script, an Indonesian derivative of Brahmi.
 
+```text
 General organization of Unicode: planes and blocks
 —— Lanna.
 [ ¢£§•¶ß®©™´ ] Mandaic is another Semitic alphabet, derived from the Aramaic script.
@@ -1562,43 +1147,11 @@ Arabic, and other scripts.
 —— Balti, the script of the language of Baltistan, in northern Kashmir. This script was
 apparently introduced around the 15th century ce, when the people converted to
 Islam. It is related to Arabic.
+```
 
-Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode
-[ ∂∑∏π∫ªºΩæø ] Bassa Vah is a script used by the Bassa people on the central
-coast of Liberia and Sierra Leone. In the 1900s, a chemist, Flo Darvin Lewis, discovered that descendants of slaves in Brazil and the West Indies were still using it. He
-then tried to revive this alphabet in Liberia.
-[ \]^_`abcde ] Blissymbolics is an ideographic writing system used primarily by
-people with physical and cognitive handicaps. It was developed by Charles Bliss in
-the 1950s as a “universal language” that could cut across national boundaries and
-facilitate international communication and peace. It contains 2384 characters in
-149 columns.
-[ éèêëíìîïñó ] Cirth, another script invented by Tolkien for The Lord of the Rings.
-[ ¿¡¬√ƒ≈Δ«»… ] Hittite is the language of the Hitties, a people living
-in north-central Anatolia. It was spoken between 1600 and 1100 bc. It was written
-in cuneiform characters with syllabic and logographic meanings.
-[ fghijklmno ] The Indus Valley script is still undeciphered. It
-was used between 2500 and 1700 bce. The proposal includes 386 characters.
-—— Kaithi, a script used widely throughout northern India, primarily in the former
-North-West Provinces (present-day Uttar Pradesh) and Bihar. It was used to write
-legal, administrative, and private records.
-[ pqrstuvwxy ] Khamti, or Lik-Tai, used to write the Khamti language in
-India and Myanmar.
-—— The Kirat, or Limbu, script, used among the Limbu of Sikkim and Darjeeling (the
-place with the delicious tea).
-—— Linear-A, an undeciphered script—unlike Linear B, which was deciphered by
-Michael Ventris—used in ancient Crete around 1400 bce.
-[ z{|}~	ÄÅÇÉ ] Meroitic is a very interesting case of the alternative use of
-a writing system. The Meroites lived in the Sudan during the time of the pharaohs.
-To write their language, they used 23 Egyptian hieroglyphs (or demotic characters),
-each with a very precise phonetic value.
-[  ÀÃÕŒœ–—“” ] Naxi-Geba: Geba is one of the three scripts of the Naxi
-language (together with Dongba and the Latin alphabet). The language is spoken
-by about 300,000 people in Yunnan, Sichuan, Tibet, and Myanmar.
-[ ¢£§•¶ß®©™´ ] Old Permic is the script invented by the missionary Étienne
-de Perme in the 14th century to write the Komi and Permyak languages, which are
-spoken in the Ural Mountains in Russia.
-—— Palmyrene.
+Chapter 2 : Characters, glyphs, bytes: An introduction to Unicode [ ∂∑∏π∫ªºΩæø ] Bassa Vah is a script used by the Bassa people on the central coast of Liberia and Sierra Leone. In the 1900s, a chemist, Flo Darvin Lewis, discovered that descendants of slaves in Brazil and the West Indies were still using it. He then tried to revive this alphabet in Liberia. [ \]^_`abcde ] Blissymbolics is an ideographic writing system used primarily by people with physical and cognitive handicaps. It was developed by Charles Bliss in the 1950s as a “universal language” that could cut across national boundaries and facilitate international communication and peace. It contains 2384 characters in 149 columns. [ éèêëíìîïñó ] Cirth, another script invented by Tolkien for The Lord of the Rings. [ ¿¡¬√ƒ≈Δ«»… ] Hittite is the language of the Hitties, a people living in north-central Anatolia. It was spoken between 1600 and 1100 bc. It was written in cuneiform characters with syllabic and logographic meanings. [ fghijklmno ] The Indus Valley script is still undeciphered. It was used between 2500 and 1700 bce. The proposal includes 386 characters. —— Kaithi, a script used widely throughout northern India, primarily in the former North-West Provinces (present-day Uttar Pradesh) and Bihar. It was used to write legal, administrative, and private records. [ pqrstuvwxy ] Khamti, or Lik-Tai, used to write the Khamti language in India and Myanmar. —— The Kirat, or Limbu, script, used among the Limbu of Sikkim and Darjeeling (the place with the delicious tea). —— Linear-A, an undeciphered script—unlike Linear B, which was deciphered by Michael Ventris—used in ancient Crete around 1400 bce. [ z{|}~	ÄÅÇÉ ] Meroitic is a very interesting case of the alternative use of a writing system. The Meroites lived in the Sudan during the time of the pharaohs. To write their language, they used 23 Egyptian hieroglyphs (or demotic characters), each with a very precise phonetic value. [ ÀÃÕŒœ–—“” ] Naxi-Geba: Geba is one of the three scripts of the Naxi language (together with Dongba and the Latin alphabet). The language is spoken by about 300,000 people in Yunnan, Sichuan, Tibet, and Myanmar. [ ¢£§•¶ß®©™´ ] Old Permic is the script invented by the missionary Étienne de Perme in the 14th century to write the Komi and Permyak languages, which are spoken in the Ural Mountains in Russia. —— Palmyrene.
 
+```text
 General organization of Unicode: planes and blocks
 [ ∂∑∏π∫ªºΩæø ] The Pollard script. Samuel Pollard was a British missionary who
 lived in China at the beginning of the 20th century. He invented a writing system
@@ -1620,7 +1173,9 @@ about 60 scripts, and another 50 are waiting in the pipeline for inclusion. Does
 that Unicode has managed to encompass most of the world’s scripts? One thing is certain:
 both the Consortium and the designers of “Unicode-compatible” fonts will have their
 hands full for some decades to come.
+```
 
+```text
 Properties of
 Unicode characters
 Our concern in this chapter is the information that Unicode provides for each character.
@@ -1641,3 +1196,4 @@ operations (sorting, case conversion, etc.) can be 100 percent automatic. As in 
 language processing, there is always a degree of uncertainty connected to the ambiguity
 inherent in languages and their grammars. But character properties can nevertheless be
 used to automate a large part of text processing; the developer should only take care to
+```

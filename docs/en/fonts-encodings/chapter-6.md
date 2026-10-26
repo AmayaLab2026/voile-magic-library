@@ -9,44 +9,12 @@ description: "Unabridged English text: Macintosh resource forks and data forks, 
 
 ---
 
-For all of these reasons, therefore, we are wise to use tools to manage our fonts, install
-and uninstall them on the fly, check their integrity and correct any problems that may
-arise, and so forth. The third part of this chapter will be devoted to describing these tools.
-The Situation under Mac OS 9
-Before discussing fonts, one quick word on managing files on the Macintosh. One of the
-Mac’s idiosyncrasies is the dual nature of its files: every Macintosh file may have a part
-containing data and a part containing resources [49, p. I-103]. A resource is a set of data
-associated with a type (a string of four characters), a number, and possibly a name. As its
-name suggests, the data part usually contains data, whereas the resource part contains
-executable code, components of a user interface (menus, dialog windows, etc.), and all
-sorts of other “resources”.
-The two parts, data and resources, are connected in a transparent manner, and the Macintosh windowing manager, called the Finder, displays only one object, represented by
-an icon. A Macintosh file may lack a data part (as do some executable files, for example)
-or a resource part. In the latter case, it is often represented by a “generic” icon in the
-Finder.
-This phenomenon occurs because the icons used to represent files are selected by the
-Finder from two pieces of information contained not in the file itself but in the directory
-of files on the disk’s partition: this information is also stored as strings of four characters
-called the creator and the type of the file. Thanks to the “creator”, the Finder can launch
-the correct application when we double-click on a file’s icon, wherever the application
-may be stored on the disk(s). Thanks to the “type”, the application in question knows
-what type of data we are providing. Owing to this approach, the Macintosh has never
-needed to make recourse to filename extensions, which, however, are indispensable under
-Windows and quite helpful under Unix.
-Let us now move on to the special family of files that is of particular concern to us:
-font files. In Figure 6-1 we see a certain number of Mac OS 9 icons that represent fonts.
-Monaco and Optima are icons for “font suitcases”. These “suitcases” contain bitmap or
-TrueType fonts. When we double-click on a suitcase (see Monaco in the figure), it opens
-like any other file and displays a list of the fonts that it contains, which we can move at
-will. Monaco-ISO-8859-1 9 and Charcoal are icons of bitmap and TrueType fonts
-extracted from font suitcases. Conversely, TT0003C_.TTF is a Windows TrueType font
-that is recognized as a TrueType font even though it comes from the Windows world
-and is used as it is by Mac OS 9. Zapfino.dfont is a font of type dfont, which is specific to
-Mac OS X: it is not recognized by Mac OS 9, which explains the lack of an icon particular
-to it. FREESans.otf is an OpenType font.
-The other files in the figure are all for PostScript Type 1 fonts. The first three (DidotLHIta, TotoRom, FreeSan) were produced by three major font-design software packages:
-Macromedia Fontographer, Letraset FontStudio, and FontLab. All the others come from
-different founderies: Adobe, Monotype, P22, Bitstream, ITC, Hoefler, Paratype, Font-
+For all of these reasons, therefore, we are wise to use tools to manage our fonts, install and uninstall them on the fly, check their integrity and correct any problems that may arise, and so forth. The third part of this chapter will be devoted to describing these tools. The Situation under Mac OS 9 Before discussing fonts, one quick word on managing files on the Macintosh. One of the Mac’s idiosyncrasies is the dual nature of its files: every Macintosh file may have a part containing data and a part containing resources [49, p. I-103]. A resource is a set of data associated with a type (a string of four characters), a number, and possibly a name. As its name suggests, the data part usually contains data, whereas the resource part contains executable code, components of a user interface (menus, dialog windows, etc.), and all sorts of other “resources”. The two parts, data and resources, are connected in a transparent manner, and the Macintosh windowing manager, called the Finder, displays only one object, represented by an icon. A Macintosh file may lack a data part (as do some executable files, for example) or a resource part. In the latter case, it is often represented by a “generic” icon in the Finder. This phenomenon occurs because the icons used to represent files are selected by the Finder from two pieces of information contained not in the file itself but in the directory of files on the disk’s partition: this information is also stored as strings of four characters called the creator and the type of the file. Thanks to the “creator”, the Finder can launch the correct application when we double-click on a file’s icon, wherever the application may be stored on the disk(s). Thanks to the “type”, the application in question knows what type of data we are providing. Owing to this approach, the Macintosh has never needed to make recourse to filename extensions, which, however, are indispensable under Windows and quite helpful under Unix. Let us now move on to the special family of files that is of particular concern to us: font files. In Figure 6-1 we see a certain number of Mac OS 9 icons that represent fonts. Monaco and Optima are icons for “font suitcases”. These “suitcases” contain bitmap or TrueType fonts. When we double-click on a suitcase (see Monaco in the figure), it opens like any other file and displays a list of the fonts that it contains, which we can move at will. Monaco-ISO-8859-1 9 and Charcoal are icons of bitmap and TrueType fonts extracted from font suitcases. Conversely, TT0003C_.TTF is a Windows TrueType font that is recognized as a TrueType font even though it comes from the Windows world and is used as it is by Mac OS 9. Zapfino.dfont is a font of type dfont, which is specific to Mac OS X: it is not recognized by Mac OS 9, which explains the lack of an icon particular to it. FREESans.otf is an OpenType font. The other files in the figure are all for PostScript Type 1 fonts. The first three (DidotLHIta, TotoRom, FreeSan) were produced by three major font-design software packages: Macromedia Fontographer, Letraset FontStudio, and FontLab. All the others come from different founderies: Adobe, Monotype, P22, Bitstream, ITC, Hoefler, Paratype, Font-
+
+::: tip Typographical Specimen Plate (Figure 6-1)
+![Figure 6-1: Mac OS 9 font files and suitcases](/images/fonts-encodings/fig6-1-macos9-font-files.png)
+*Figure 6-1: Mac OS 9 font files and suitcases.*
+:::
 
 ![Figure 6-1: Mac OS 9 font files and suitcases](/images/fonts-encodings/fig6-1-macos9-font-files.png)
 *Figure 6-1: Mac OS 9 font files and suitcases.*
@@ -125,6 +93,7 @@ called Optima Oblique. Both of them may be associated with the same PostScript
 font Optima-Oblique and may yield the same result. But that outcome depends completely on the configuration of the font family in question. We have no a priori way
 to know whether the foundry has supplied distinct Macintosh styles or distinct FOND
 
+```text
 The situation under Mac OS X
 resources. And what happens if we inadvertently select the “italic” style of the font
 Optima Oblique? Some software will go as far as to give the oblique version of Optima
@@ -163,31 +132,11 @@ various releases of Mac OS since 1984. Fonts were also affected: we saw in the p
 1 The rule is as follows: Assume that the PostScript name is made of words in lowercase letters beginning
 with a capital. We retain the first five letters of the first word and the first three letters of each of the following
 words. Thus, for example, Miracle-BoldItalic becomes MiracBolIta.
+```
 
-Figure 6-2: The same file that is shown in Figure 6-1, as seen under Mac OS X.
-section the variety of file types in use (“font suitcases”, bitmaps, TrueType, PostScript,
-OpenType, etc.). Obviously Mac OS X had to accept all these file formats, for reasons of
-compatibility. But Mac OS X also aimed to simplify the existing order.
-And simplify it did! In Figure 6-2 we see the same window shown in Figure 6-1, as it
-appears under Mac OS X. What a surprise to see that all of the files described in the
-preceding section, even though they are of very different natures, are represented by the
-same icon (a letter ‘A’ on a white background)! Even the file Zapfino.dfont uses this
-icon, as it will henceforth be recognized by the operating system.2
-Thus the system is capable of transparently recognizing and using all types of fonts (or
-at least all those that were recognized3 by Mac OS 9) and furnishes a replacement for
-“font suitcases”—a replacement that is essential so that Unix applications can make use
-of the data.
-2 Now is the time to remove the mystery that enshrouds this “new format”, which is not really a format
-at all, as it is merely a “font suitcase” in which all the information that had been in the resource section has
-been transferred unchanged to the data section. Thus it is a file that can be used by Unix applications but that
-is functionally equivalent to the “font suitcases” that we have known since the release of the first Mac in 1984.
-3 With only one exception: the FONT resources still are not recognized by Mac OS X, which considers
-them too old for its taste. Tools (such as FONT→NFNT [203] or fondu [351], for example) exist to replace
-resources with NFNTs systematically. Another important detail: while “carbonized” applications continue to
-work as before and to use bitmap fonts if they please, applications using the new Quartz graphical library will
-be incompatible with bitmap fonts from now on. Those of us who have painstakingly created bitmap fonts to
-resolve various practical problems now find ourselves forced to vectorize them.
+Figure 6-2: The same file that is shown in Figure 6-1, as seen under Mac OS X. section the variety of file types in use (“font suitcases”, bitmaps, TrueType, PostScript, OpenType, etc.). Obviously Mac OS X had to accept all these file formats, for reasons of compatibility. But Mac OS X also aimed to simplify the existing order. And simplify it did! In Figure 6-2 we see the same window shown in Figure 6-1, as it appears under Mac OS X. What a surprise to see that all of the files described in the preceding section, even though they are of very different natures, are represented by the same icon (a letter ‘A’ on a white background)! Even the file Zapfino.dfont uses this icon, as it will henceforth be recognized by the operating system.2 Thus the system is capable of transparently recognizing and using all types of fonts (or at least all those that were recognized3 by Mac OS 9) and furnishes a replacement for “font suitcases”—a replacement that is essential so that Unix applications can make use of the data. 2 Now is the time to remove the mystery that enshrouds this “new format”, which is not really a format at all, as it is merely a “font suitcase” in which all the information that had been in the resource section has been transferred unchanged to the data section. Thus it is a file that can be used by Unix applications but that is functionally equivalent to the “font suitcases” that we have known since the release of the first Mac in 1984. 3 With only one exception: the FONT resources still are not recognized by Mac OS X, which considers them too old for its taste. Tools (such as FONT→NFNT [203] or fondu [351], for example) exist to replace resources with NFNTs systematically. Another important detail: while “carbonized” applications continue to work as before and to use bitmap fonts if they please, applications using the new Quartz graphical library will be incompatible with bitmap fonts from now on. Those of us who have painstakingly created bitmap fonts to resolve various practical problems now find ourselves forced to vectorize them.
 
+```text
 The situation under Mac OS X
 Now let us move on to the installation of fonts. Where should we place font files so that
 they can be used by the system? Since Unix is a multiuser system, we need to manage
@@ -225,6 +174,7 @@ external to the system in order to display PostScript fonts. But have the proble
 the simplistic classification into styles, and the disparity of data files—been resolved?
 Not at all. The identification number is still with us, the styles are all the same (because
 the new dfont are only ordinary “font suitcases” stored in a different way on the disk),
+```
 
 and the disparity among files is the same (we still need two files for a single PostScript
 font). The problems are all the same; they have just been hidden from the view of the end
@@ -274,28 +224,7 @@ by re-creating the missing links.
 Apple’s specifications. Font Doctor takes advantage of the procedure to replace old
 FONT resources (which are no longer recognized by Mac OS X) with NFNT resources.
 
-Note that Font Doctor will not usually correct a defective font when a major problem
-arises but will rather warn you that a problem has been found. Thus you must use more
-powerful font-editing tools to set the situation straight. For example, in the case of an
-“orphaned PostScript font” for which no corresponding FOND can be found, only fontdesign software such as FontLab can create the missing resource. We shall discuss this
-sort of software in Chapter 12.
-Other tools for verifying and maintaining fonts exist, but they are less efficient and less
-stable than Font Doctor. We may mention, by way of example, FontAgent, by Insider Software [189], which has the benefit of having a Windows version that is identical in every
-detail to the Mac OS version.
-ATM: the “Smoother” of Fonts
-We have already mentioned ATM [18], a tool that is indispensable when we work with
-PostScript fonts under Mac OS 9 or earlier. Its role is to read PostScript fonts pointed to
-by FOND resources and to use the contours described therein to display glyphs at all sizes.
-This operation, which seems trivial for TrueType fonts because Mac OS handles the display of TrueType glyphs at all sizes (using the contours contained in the resource sfnt), is
-a little more difficult for ATM, which has to find the files containing PostScript data with
-no other clue than the PostScript name of the font being sought (which rarely coincides
-with the name of the file containing that font).
-To facilitate the task of detecting files, Adobe also equipped ATM with features for managing font files. Finally, ATM was released in two versions: ATM Light, the free version,
-which only “smooths” glyphs, and the commercial version ATM Deluxe [17], which also
-serves as a font manager and a tool for checking the integrity of fonts. Before delving
-into font managers, we should say a few words about the “smoother”.
-Figure 6-4: The configuration interface of ATM.
-The configuration interface of this program (Figure 6-4) is quite simple:
+Note that Font Doctor will not usually correct a defective font when a major problem arises but will rather warn you that a problem has been found. Thus you must use more powerful font-editing tools to set the situation straight. For example, in the case of an “orphaned PostScript font” for which no corresponding FOND can be found, only fontdesign software such as FontLab can create the missing resource. We shall discuss this sort of software in Chapter 12. Other tools for verifying and maintaining fonts exist, but they are less efficient and less stable than Font Doctor. We may mention, by way of example, FontAgent, by Insider Software [189], which has the benefit of having a Windows version that is identical in every detail to the Mac OS version. ATM: the “Smoother” of Fonts We have already mentioned ATM [18], a tool that is indispensable when we work with PostScript fonts under Mac OS 9 or earlier. Its role is to read PostScript fonts pointed to by FOND resources and to use the contours described therein to display glyphs at all sizes. This operation, which seems trivial for TrueType fonts because Mac OS handles the display of TrueType glyphs at all sizes (using the contours contained in the resource sfnt), is a little more difficult for ATM, which has to find the files containing PostScript data with no other clue than the PostScript name of the font being sought (which rarely coincides with the name of the file containing that font). To facilitate the task of detecting files, Adobe also equipped ATM with features for managing font files. Finally, ATM was released in two versions: ATM Light, the free version, which only “smooths” glyphs, and the commercial version ATM Deluxe [17], which also serves as a font manager and a tool for checking the integrity of fonts. Before delving into font managers, we should say a few words about the “smoother”. Figure 6-4: The configuration interface of ATM. The configuration interface of this program (Figure 6-4) is quite simple:
 
 Font-Management Tools
 Figure 6-5: The letters ‘Aa’ in Agfa’s splendid font Throhand, at 128 points. From the left: display without ATM; display with ATM but without glyph smoothing; and display with ATM and
@@ -352,106 +281,21 @@ interface for creating Multiple Master instances. In this case, we can modify th
 to adapt it to the graphical context. ATM’s built-in interface will suffice for applications that have no interface
 of their own.
 
-Font-Management Tools
-sion of ATM Light (version 4.6.2) was developed with the intention that it be used under
-Classic.
-ATR: classification of fonts by family
-We have already mentioned the crude nature of the Macintosh’s classification of fonts
-by style. According to this classification, only four possible style variants, called “regular”, “bold”, “italic”, and “bold italic”, are possible in a FOND resource. To associate other
-variants with the same font, one must create a new FOND resource that is also supplied
-with these same four predefined styles.
-Let us take an example. Suppose that we have at our disposal the Optima PostScript
-fonts (by the great font designer Hermann Zapf) in the following styles: light, semi-bold,
-bold, and extra-bold, each of them in vertical and oblique versions. To arrange them on
-the Macintosh, one possibility would be to create two FOND resources called Optima and
-Optima bold, respectively, and to create links to the PostScript fonts according to the
-following correspondences:
-Name of FOND resource
-Macintosh style
-PostScript font
-Optima
-“regular”
-Optima
-“bold”
-Optima semi-bold
-“italic”
-Optima oblique
-“bold italic”
-Optima semi-bold oblique
-Optima gras
-“regular”
-Optima bold
-“bold”
-Optima extra-bold
-“italic”
-Optima bold oblique
-“bold italic”
-Optima extra-bold oblique
-When using a font, we would have to know that the choice of “Optima” in the “bold”
-style is lighter than “Optima bold” in the “regular” style, which in turn is lighter than
-“Optima bold” in the “bold” style. Another possibility (the more common choice) is to
-create one family of Macintosh fonts with the light and (true) bold weights, and a second
-family with semi-bold and extra-bold. This combination is less logical but corresponds
-more closely to commercial needs: specifically, the foundry can produce two separate
-products, of which the second is a sort of extension of the first. Indeed, this is the approach followed by Linotype, which sells the font Optima in two sets of style variants,
-with two overlapping pairs of bold weights.
-The program Adobe Type Reunion (ATR) [19] frees us from these restrictions and affords
-us the possibility of choosing style variants in a more natural manner, using submenus.
-But its most important benefit is the possibility of specifying that a given PostScript font
-belongs to a certain Macintosh font family, and even giving the name under which the
-font will be displayed by the various applications. In Figure 6-7, we see the interface for
-classifying font families and personalizing the names of the fonts. The same tool also
+Font-Management Tools sion of ATM Light (version 4.6.2) was developed with the intention that it be used under Classic. ATR: classification of fonts by family We have already mentioned the crude nature of the Macintosh’s classification of fonts by style. According to this classification, only four possible style variants, called “regular”, “bold”, “italic”, and “bold italic”, are possible in a FOND resource. To associate other variants with the same font, one must create a new FOND resource that is also supplied with these same four predefined styles. Let us take an example. Suppose that we have at our disposal the Optima PostScript fonts (by the great font designer Hermann Zapf) in the following styles: light, semi-bold, bold, and extra-bold, each of them in vertical and oblique versions. To arrange them on the Macintosh, one possibility would be to create two FOND resources called Optima and Optima bold, respectively, and to create links to the PostScript fonts according to the following correspondences: Name of FOND resource Macintosh style PostScript font Optima “regular” Optima “bold” Optima semi-bold “italic” Optima oblique “bold italic” Optima semi-bold oblique Optima gras “regular” Optima bold “bold” Optima extra-bold “italic” Optima bold oblique “bold italic” Optima extra-bold oblique When using a font, we would have to know that the choice of “Optima” in the “bold” style is lighter than “Optima bold” in the “regular” style, which in turn is lighter than “Optima bold” in the “bold” style. Another possibility (the more common choice) is to create one family of Macintosh fonts with the light and (true) bold weights, and a second family with semi-bold and extra-bold. This combination is less logical but corresponds more closely to commercial needs: specifically, the foundry can produce two separate products, of which the second is a sort of extension of the first. Indeed, this is the approach followed by Linotype, which sells the font Optima in two sets of style variants, with two overlapping pairs of bold weights. The program Adobe Type Reunion (ATR) [19] frees us from these restrictions and affords us the possibility of choosing style variants in a more natural manner, using submenus. But its most important benefit is the possibility of specifying that a given PostScript font belongs to a certain Macintosh font family, and even giving the name under which the font will be displayed by the various applications. In Figure 6-7, we see the interface for classifying font families and personalizing the names of the fonts. The same tool also
 
-Figure 6-7: The interface for classifying font families and personalizing font names in Adobe
-Type Reunion.
-allows us to define groups of font families by adding a third level of classification to the
-font-selection menus.
-Font Managers
-What do we need in order to manage fonts efficiently? Imagine that we have thousands
-of fonts—not an unrealistic proposition, if we work in a graphic-design studio. The following are the most frequent operations that we will have to perform:
-1. Choosing the correct font for our project. At this time, software is not yet able to recommend a font according to the characteristics of the project that we have in mind,
-but it can help us to create catalogues of type specimens from which our professional
-experience will allow us to make the right choice.
-2. Finding the font among the thousands in our possession. This operation may be
-quite delicate because, as we have seen, we often have multiple copies of the same
-font (or fonts with the same name), in different formats, coming from different
-foundries, etc. Later in this book, we shall see the differences among font formats
-and learn which are the most appropriate for each project. For now, what we can
-expect of a font manager is to present the available choices in a convenient fashion
-and to give us all the information that we need in order to make the decision.
-3. Enabling the font, and thus allowing our software to make use of it, preferably without having to restart the software or the computer.
-4. Disabling the font once our work is finished and re-enabling it automatically when
-we open a file in which it is used.
+Figure 6-7: The interface for classifying font families and personalizing font names in Adobe Type Reunion. allows us to define groups of font families by adding a third level of classification to the font-selection menus. Font Managers What do we need in order to manage fonts efficiently? Imagine that we have thousands of fonts—not an unrealistic proposition, if we work in a graphic-design studio. The following are the most frequent operations that we will have to perform: 1. Choosing the correct font for our project. At this time, software is not yet able to recommend a font according to the characteristics of the project that we have in mind, but it can help us to create catalogues of type specimens from which our professional experience will allow us to make the right choice. 2. Finding the font among the thousands in our possession. This operation may be quite delicate because, as we have seen, we often have multiple copies of the same font (or fonts with the same name), in different formats, coming from different foundries, etc. Later in this book, we shall see the differences among font formats and learn which are the most appropriate for each project. For now, what we can expect of a font manager is to present the available choices in a convenient fashion and to give us all the information that we need in order to make the decision. 3. Enabling the font, and thus allowing our software to make use of it, preferably without having to restart the software or the computer. 4. Disabling the font once our work is finished and re-enabling it automatically when we open a file in which it is used.
 
-Font-Management Tools
-5. Rapidly assembling all of the fonts used in a file and copying them into a folder near
-the file, if the file is to be sent to a colleague.
-These are precisely the tasks performed by the four most popular font managers: Apple’s Font Book (which is part of Mac OS X 10.3+), FontAgent Pro by Insider Software, Font
-Reserve (formerly by DiamondSoft [119], currently by Extensis), and Suitcase [132], also
-by Extensis. Font Reserve was discontinued when DiamondSoft was bought by Extensis,
-and its functionality was added to the latest version of Suitcase: Suitcase Fusion. A fifth
-competitor, ATM Deluxe [17], has unfortunately withdrawn from the race because it is not
-compatible with Mac OS X. Adobe has announced that it has no intention to continue
-its development. The abandonment of the “glyph smoother”, ATM, on the grounds that
-it was no longer needed on Mac OS X also sounded the death knell for the font-manager
-component of ATM Deluxe, which was nevertheless greatly appreciated by its users.
-Figure 6-8: Font Book v.1.0 (which comes standard with Mac OS X 10.3+).
-Font Book (see Figure 6-8), not to be confused with FontBook (by Lehmke Software), is
-a relatively recent piece of software: its first version came out only in System 10.3 (Panther). It is quite easy to use: it presents a list of fonts that can be enabled or disabled by
-double-clicking. Single-clicking on a font gives us a specimen of its glyphs in the window
-to the right. We can group fonts into “collections” (list at left), which allows us to enable
-or disable all the fonts in a collection at the same time. These features stop here: there is
-no cataloging, printing, or automatic enabling. Those features will doubtless be added
-in future versions.
-But there is one thing that Font Book does indirectly: when we use the Character Palette,
-a utility for selecting Unicode characters that is launched through the entry with this
-name on the keyboard menu (the keyboard menu is the one represented by a little flag
-corresponding to the active keyboard), an extra section at the bottom of the Character
-Palette shows us all of the glyphs representing the selected character:
+Font-Management Tools 5. Rapidly assembling all of the fonts used in a file and copying them into a folder near the file, if the file is to be sent to a colleague. These are precisely the tasks performed by the four most popular font managers: Apple’s Font Book (which is part of Mac OS X 10.3+), FontAgent Pro by Insider Software, Font Reserve (formerly by DiamondSoft [119], currently by Extensis), and Suitcase [132], also by Extensis. Font Reserve was discontinued when DiamondSoft was bought by Extensis, and its functionality was added to the latest version of Suitcase: Suitcase Fusion. A fifth competitor, ATM Deluxe [17], has unfortunately withdrawn from the race because it is not compatible with Mac OS X. Adobe has announced that it has no intention to continue its development. The abandonment of the “glyph smoother”, ATM, on the grounds that it was no longer needed on Mac OS X also sounded the death knell for the font-manager component of ATM Deluxe, which was nevertheless greatly appreciated by its users. Figure 6-8: Font Book v.1.0 (which comes standard with Mac OS X 10.3+). Font Book (see Figure 6-8), not to be confused with FontBook (by Lehmke Software), is a relatively recent piece of software: its first version came out only in System 10.3 (Panther). It is quite easy to use: it presents a list of fonts that can be enabled or disabled by double-clicking. Single-clicking on a font gives us a specimen of its glyphs in the window to the right. We can group fonts into “collections” (list at left), which allows us to enable or disable all the fonts in a collection at the same time. These features stop here: there is no cataloging, printing, or automatic enabling. Those features will doubtless be added in future versions. But there is one thing that Font Book does indirectly: when we use the Character Palette, a utility for selecting Unicode characters that is launched through the entry with this name on the keyboard menu (the keyboard menu is the one represented by a little flag corresponding to the active keyboard), an extra section at the bottom of the Character Palette shows us all of the glyphs representing the selected character:
+
+::: tip Typographical Specimen Plate (Figure 6-8)
+![Figure 6-8: Mac OS X Font Book](/images/fonts-encodings/fig6-8-macos-font-book.png)
+*Figure 6-8: Mac OS X Font Book.*
+:::
 
 ![Figure 6-8: Mac OS X Font Book](/images/fonts-encodings/fig6-8-macos-font-book.png)
 *Figure 6-8: Mac OS X Font Book.*
 
+```text
 It is quite impressive. We even see the variants of glyphs, and we can select them by
 clicking on them.
 Let us move on to the leading software competitors: Suitcase Fusion (Figure 6-9) and
@@ -482,11 +326,11 @@ but only for enabled fonts—a limitation that hampers the creation of a catalog
 very large collection. In Figure 6-11 we see two examples of specimens created by Font
 Book. There is a multitude of other “catalogers” of fonts, all with more or less similar
 functionality.
+```
 
-Font-Management Tools
-Figure 6-9: Suitcase Fusion.
-Figure 6-10: FontAgent Pro.
+Font-Management Tools Figure 6-9: Suitcase Fusion. Figure 6-10: FontAgent Pro.
 
+```text
 Figure 6-11: Two specimens created by FontBook v.4.4. The fonts shown here are among the
 most admirable reconstructions of historic fonts, with a simulated effect of the bleeding of ink:
 Historical Fell Type and Historical English Textura, by Jonathan Hoefler.
@@ -506,7 +350,9 @@ and to manage the software from any station, an ideal solution for small workgro
 which users take turns serving as the administrator.
 A feature of Suitcase Server that is very attractive to foundries is control over licenses.
 Simply specify to Suitcase Server the type of rights that have been purchased for each
+```
 
+```text
 Tools for Font Conversion
 font5(e.g., the number of simultaneous user stations), and the software will alert the
 administrator if the maximum number of users is exceeded. The documentation does
@@ -546,60 +392,13 @@ PostScript Type 1, Multiple Master and OpenType/CFF fonts—from Mac to Mac, or 
 5 Unfortunately, this is not handled automatically for PostScript fonts because there is no standard way
 to provide the information within each font. The problem has, however, been corrected in TrueType fonts, in
 which the table OS/2 contains these data (§D.4.7).
+```
 
-Figure 6-12: The main window of TransType Pro.
-Mac to PC, or from PC to Mac, or from PC to PC. When the target is a Macintosh font
-suitcase, the program automatically assembles the fonts of the same family. When it
-converts a Multiple Master font to an ordinary font, it can create any desired instance.
-When it converts an OpenType or an AAT font between the Macintosh and Windows, it
-preserves the advanced typographic tables.
-The most interesting feature of TransType Pro is indisputably its batch processing of
-fonts. You have a CD-ROM full of fonts in PFB format that you would like to use under
-Mac OS X? All that you need to do is drag the disk’s image and drop it onto the left-hand
-zone of TransType Pro’s window. The fonts will then appear, and, at the same time, on the
-right-hand side of the window, we shall see the list of Macintosh font suitcases that the
-software is planning to create. We can modify our font-conversion preferences separately
-for each font or for several, even all of them, at a time. The names of Macintosh families
-can be manually edited. When we click on the button with the spiral-shaped icon, all
-of the fonts will be converted, with no other action on our part than the choice of the
-target folder. A real godsend when we have thousands of fonts to convert.
-dfontifier
-This little utility [121] fulfills a role that TransType overlooked: converting a Macintosh
-font suitcase to a dfont file and vice versa. We drag and drop fonts onto the window in
-order to convert from one format to the other: it is simple, useful, and, moreover, free.
+Figure 6-12: The main window of TransType Pro. Mac to PC, or from PC to Mac, or from PC to PC. When the target is a Macintosh font suitcase, the program automatically assembles the fonts of the same family. When it converts a Multiple Master font to an ordinary font, it can create any desired instance. When it converts an OpenType or an AAT font between the Macintosh and Windows, it preserves the advanced typographic tables. The most interesting feature of TransType Pro is indisputably its batch processing of fonts. You have a CD-ROM full of fonts in PFB format that you would like to use under Mac OS X? All that you need to do is drag the disk’s image and drop it onto the left-hand zone of TransType Pro’s window. The fonts will then appear, and, at the same time, on the right-hand side of the window, we shall see the list of Macintosh font suitcases that the software is planning to create. We can modify our font-conversion preferences separately for each font or for several, even all of them, at a time. The names of Macintosh families can be manually edited. When we click on the button with the spiral-shaped icon, all of the fonts will be converted, with no other action on our part than the choice of the target folder. A real godsend when we have thousands of fonts to convert. dfontifier This little utility [121] fulfills a role that TransType overlooked: converting a Macintosh font suitcase to a dfont file and vice versa. We drag and drop fonts onto the window in order to convert from one format to the other: it is simple, useful, and, moreover, free.
 
-Tools for Font Conversion
-FontFlasher, the “Kobayashi Maru” of Fonts
-According to the company FontLab, the purpose of this software, which in fact is a plugin for FontLab, is to produce bitmap fonts that can be displayed under Macromedia Flash
-without anti-aliasing. The intention is praiseworthy: it is true that bitmap fonts at small
-sizes are more legible when they are displayed with simple black-and-white pixels rather
-than with levels of gray.
-But how can we control the display on a given machine? How can we be sure that antialiasing will not be performed? It is, a priori, impossible to be sure. The computer always
-has the last word.
-The reader must surely be wondering why we have called this software a “kobayashi
-maru”. The story [128] has it that Captain James Kirk had to take a final test in a flight
-simulator in order to obtain his diploma. On this test, the Enterprise received a call for
-help from a vessel called Kobayashi Maru (the word “maru”, in fact, is used after ship
-names in Japanese) in the Klingon territories. The captain was morally obliged to go to
-the aid of the vessel. But the request was a trap. The Klingons attacked the Enterprise and
-destroyed it. End of test. And an inevitable outcome, because refusing to assist a vessel
-in distress would have been an equally bad solution.
-That is why “kobayashi maru” has come to denote, in hacker jargon, a no-win situation.
-What, then, did our Captain Kirk do? The night before the test, he broke into the computer room and modified the program. The Kobayashi Maru was not a trap any longer. In
-a word, he cheated. But one has the right to cheat when a vessel and its crew are at risk.
-What does that have to do with FontFlasher? Well, here we find ourselves in a kobayashi
-maru: how on earth can we force the operating system not to anti-alias a font?
-By cheating. If the operating system anti-aliases all fonts, let us give it a font that it will
-not have to anti-alias. And the only font that it will not anti-alias is a font that already
-has the precise shape of the pixels. If the pixels on the screen correspond with absolute
-precision to the font’s vector contours, there will be nothing to anti-alias.
-This is precisely what FontFlasher does. It generates a vector contour that is identical to
-the pixels. At the given size, this contour yields a perfect “bitmap” font—which, at any
-other size, is a catastrophe.
-Given so many ways to obtain bitmap fonts once again, as in the good old days of Macintosh System 4.3, we may well ask the question:
-The image above is a screenshot of text in 11-point Futura and in Futura processed by
-FontFlasher. Here is what we get at high resolution:
+Tools for Font Conversion FontFlasher, the “Kobayashi Maru” of Fonts According to the company FontLab, the purpose of this software, which in fact is a plugin for FontLab, is to produce bitmap fonts that can be displayed under Macromedia Flash without anti-aliasing. The intention is praiseworthy: it is true that bitmap fonts at small sizes are more legible when they are displayed with simple black-and-white pixels rather than with levels of gray. But how can we control the display on a given machine? How can we be sure that antialiasing will not be performed? It is, a priori, impossible to be sure. The computer always has the last word. The reader must surely be wondering why we have called this software a “kobayashi maru”. The story [128] has it that Captain James Kirk had to take a final test in a flight simulator in order to obtain his diploma. On this test, the Enterprise received a call for help from a vessel called Kobayashi Maru (the word “maru”, in fact, is used after ship names in Japanese) in the Klingon territories. The captain was morally obliged to go to the aid of the vessel. But the request was a trap. The Klingons attacked the Enterprise and destroyed it. End of test. And an inevitable outcome, because refusing to assist a vessel in distress would have been an equally bad solution. That is why “kobayashi maru” has come to denote, in hacker jargon, a no-win situation. What, then, did our Captain Kirk do? The night before the test, he broke into the computer room and modified the program. The Kobayashi Maru was not a trap any longer. In a word, he cheated. But one has the right to cheat when a vessel and its crew are at risk. What does that have to do with FontFlasher? Well, here we find ourselves in a kobayashi maru: how on earth can we force the operating system not to anti-alias a font? By cheating. If the operating system anti-aliases all fonts, let us give it a font that it will not have to anti-alias. And the only font that it will not anti-alias is a font that already has the precise shape of the pixels. If the pixels on the screen correspond with absolute precision to the font’s vector contours, there will be nothing to anti-alias. This is precisely what FontFlasher does. It generates a vector contour that is identical to the pixels. At the given size, this contour yields a perfect “bitmap” font—which, at any other size, is a catastrophe. Given so many ways to obtain bitmap fonts once again, as in the good old days of Macintosh System 4.3, we may well ask the question: The image above is a screenshot of text in 11-point Futura and in Futura processed by FontFlasher. Here is what we get at high resolution:
 
+```text
 What is more readible, this vector font with anti-aliasing
 or this simulation  of bitmap font with pixels given by outlines?
 (Note that we have not manually retouched the glyphs of the processed font; we have
@@ -607,7 +406,9 @@ shown the raw rendering.) And here, under FontLab, is the raw output of FontFlas
 in which each pixel is a vector-drawn square; at right, the same glyph after retouching
 and merger of the squares:
 In the background, we can see the vector contour of the glyph in the original font.
+```
 
+```text
 Font Management
 under Windows
 Our concern in this chapter will be the installation and management of fonts under
@@ -620,3 +421,10 @@ same not apply to ancillary resources—in particular, fonts?
 Figure 7-1: The Fonts directory in Windows XP.
 Installing fonts under Windows is as easy as installing them under Mac OS: one need
 only go into the Control Panel and open the shortcut to the Fonts directory, which,
+```
+
+::: tip Typographical Specimen Plate (Figure 7-1)
+![Figure 7-1: Windows Fonts folder](/images/fonts-encodings/fig7-1-windows-fonts-folder.png)
+*Figure 7-1: Windows Fonts folder.*
+:::
+

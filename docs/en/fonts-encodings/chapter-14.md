@@ -216,6 +216,7 @@ of four letters (such as liga, c2sc, etc.). In §D.10.2 of this book, there is a
 predefined features, illustrated with examples.
 In the window in Figure 14-1, we have selected the liga feature. In the upper right section, we see a description of this feature in a syntax developed by Adobe and known as
 
+```text
 “feature definition language”. In the lower section, this syntax is used again to define
 glyph classes, which are used in all of the font’s features.
 Thus it is clear that we must know the syntax of this famous “feature definition language”
@@ -247,7 +248,9 @@ enough to be keywords in the feature definition language must be preceded by a b
 gizmo).
 4 The language’s specification provides for names of the type \123 for CIDs, but FontLab seems not to
 recognize this form.
+```
 
+```text
 Managing OpenType Tables in FontLab
 As glyphs often have the same behavior, we are wise to group them into classes and then
 to use these classes, rather than individual glyphs, in our expressions. A class is simply a
@@ -279,7 +282,9 @@ languagesystem latn ENG ;
 One word on the behavior of the language keyword: rules defined for the “default” language are added to those defined for a specific language. In other words, when we define a
 rule for the “default” language, we cannot eliminate it: it will apply to all other languages
 that use the same script. We can get around that with the excludeDFLT keyword:
+```
 
+```text
 feature foo {
 script latn ;
 language DFLT ;
@@ -318,6 +323,7 @@ loookup bar {
 ... rules B ...
 lookup bar ;
 } foo ;
+```
 
 Managing OpenType Tables in FontLab
 the result will be a feature foo with two lookups: the first one, which is implicit, will contain
@@ -386,6 +392,7 @@ thousands of glyphs.
 The keyword ignore allows us to work in the opposite direction by first defining the
 excluded cases. For example, by writing:
 
+```text
 Managing OpenType Tables in FontLab
 ignore sub [ A-Z Eacute ] T' E' X' [ A-Z Eacute ] ;
 sub T' E' X' by T_e_X ;
@@ -422,6 +429,7 @@ numbers, the syntax for the value record is < a b c d >. In the figure below:
 <-400 -400 -400 0> <-400 -400 -400 -400>
 we see the effect of five simple displacements applied to the letter ‘E’ with different value
 records: in the first case, the two vectors are zero; in the second case, the origin is moved to
+```
 
 the left without changing the glyph’s width, i.e., the endpoint of the glyph’s displacement
 vector; in the third case, we move this endpoint to the left, but its distance from the ‘X’
@@ -541,6 +549,7 @@ feature smcp ;
 feature ornm ;
 } aalt ;
 
+```text
 Managing OpenType Tables in FontLab
 The size aims to make up for an enormous shortcoming in PostScript (other than Multiple Master, with their “optical size” axis) and TrueType fonts, which is that they completely
 disregard the optical size: there are, in fact, fonts named Times New Roman Seven, Times Ten,
@@ -565,7 +574,9 @@ To add a feature, we click on the button
 and automatically obtain the following code:
 5 Again, take, for example, the font Linotype Old Style 7: is it indeed meant to be used at the optical size
 of 7, or does the “7” indicate something else?
+```
 
+```text
 feature xxxx {
 sub by ;
 } xxxx ;
@@ -595,7 +606,9 @@ FontLab offers us a very pretty interface for testing our features. Clicking on
 opens
 the window shown in Figure 14-3. This window contains three tabs. The one of interest
 to us here is the first: OpenType Features. We see at the left a list of the font’s features,
+```
 
+```text
 Managing OpenType Tables in FontLab
 equipped with checkboxes. We select the feature(s) that we wish to test. We also select
 the script and the language from pull-down menus, and we type a string (using a slash to
@@ -626,7 +639,9 @@ In this tab, we can define glyph classes just as in the OpenType window (button
 ) and
 flesh them out by writing names glyphs or dragging and dropping glyphs’ boxes from
 the font window.
+```
 
+```text
 The glyph classes so defined are used for kerning by class but also for writing OpenType
 features. We need only check Add all glyph classes to OpenType feature definition
 code in FontLab Studio>Preferences>General Options>Unicode and OpenType
@@ -664,6 +679,7 @@ glyphs and diacritical marks.
 Thus we are eagerly looking forward to the integration of OpenType anchors into FontLab’s user interface and, above all, into the code for OpenType features! As we shall see
 under VOLT and FontForge, the interactive manipulation of anchors is a must for any
 graphical interface for the management of OpenType positioning.
+```
 
 Managing OpenType Tables in VOLT
 Figure 14-5: The Preview panel window in FontLab.
@@ -679,6 +695,11 @@ The “project” window in VOLT (see Figure 14-6) includes, from top to bottom,
 menus, a row of buttons, three graphical areas, and another row of buttons. The three
 graphical areas will contain:
 • The hierarchy of scripts, languages, features, and lookups in the font
+
+::: tip Typographical Specimen Plate (Figure 14-6)
+![Figure 14-6: The project window in VOLT](/images/fonts-encodings/fig14-6-volt-project-window.png)
+*Figure 14-6: The project window in VOLT.*
+:::
 
 ![Figure 14-6: The project window in VOLT](/images/fonts-encodings/fig14-6-volt-project-window.png)
 *Figure 14-6: The project window in VOLT.*
@@ -878,6 +899,7 @@ again from the beginning.
 Finally, in the case of a lookup for alternate substitution, we can test the different versions of a glyph by entering the corresponding numerical values in the Alternate input area.
 7 FontForge, for instance, operates this way; see page 577.
 
+```text
 Figure 14-9: The proofing window in VOLT.
 Managing OpenType Tables in FontForge
 Once again, FontForge offers us a perspective rather
@@ -899,7 +921,14 @@ manage.
 Nevertheless, we can get a synthetic view of the OpenType and AAT features through
 View>Show ATT (see figure opposite). But this window allows us only to inspect the
 data, not to modify them.
+```
 
+::: tip Typographical Specimen Plate (Figure 14-9)
+![Figure 14-9: The proofing window in VOLT](/images/fonts-encodings/fig14-9-volt-proofing-window.png)
+*Figure 14-9: The proofing window in VOLT.*
+:::
+
+```text
 Managing OpenType Tables in FontForge
 Another peculiarity of FontForge is that anchors are managed in a way very different
 from that of VOLT (and one closer to what we hope to have one day in FontLab): we
@@ -926,6 +955,7 @@ is well aware that we can create any features we wish but that, at the end of th
 only certain features recognized by the major software packages have any chance of ever
 being used. That is why FontForge offers us six predefined features (see page 577 for more
 information):
+```
 
 • “Above-base mark positioning” (abvm), i.e., automatic positioning of diacritics that
 appear above a letter. This feature is enabled by default.
@@ -1075,13 +1105,9 @@ positionings, whether chained or not?
 We begin with a match—the string of n glyphs that the rendering engine will recognize
 in order to launch the transformation. Let this string be denoted M = M0,... ,Mn−1. A
 
-Managing OpenType Tables in FontForge
-(a)
-(b)
-(c)
-(d)
-Figure 14-13: The first four steps for defining a chained contextual substitution.
+Managing OpenType Tables in FontForge (a) (b) (c) (d) Figure 14-13: The first four steps for defining a chained contextual substitution.
 
+```text
 substitution consists of replacing some of the glyphs in M; a positioning consists of moving them. Suppose that we have a substitution (the logic for positionings is exactly the
 same) and that we wish to replace the glyphs Mi and M j. Only these two glyphs will be
 modified; all the others are there to “set the scene”, forming the context. The indexes of
@@ -1120,7 +1146,9 @@ and “[h]”.
 For the first of these classes, we shall enter in the first input area:
 9 That may cause a problem, since we transform not only “1st” and “1th” but also “1sh” and “1tt”. But who
 would ever write those? They do not exist in English.
+```
 
+```text
 Managing OpenType Tables in FontForge
 one
 s t
@@ -1158,7 +1186,9 @@ hypothetical match ended with ‘f’ and were followed by ‘i’, these letter
 the ligature “fi”. If, however, the ‘f’ is part of the lookahead, this problem will not occur,
 since the lookahead “belongs to the future”: it has not yet been “read” when the transformation takes place. After the transformation, the lookahead will be read as if nothing
 had happened.
+```
 
+```text
 Thus chained contextual transformations allow us to reduce the match to a minimum
 number of glyphs, often only those that are actually substituted or positioned, and to
 leave the remained to the backtrack and the lookahead.
@@ -1194,7 +1224,9 @@ parallel with the work by Microsoft and Adobe on TrueType Open and OpenType, App
 developed the TrueType GX format, which was latter rechristened AAT. Currently AAT
 fonts can be used only under Mac OS X, but they are no less interesting for that. The
 magnificent font Zapfino
+```
 
+```text
 Managing AAT Tables in FontForge
 itself is reason enough for us to examine the possibilities of AAT fonts. The contextual
 character of the Arabic and Indian fonts of the Mac OS X operating system is also managed entirely by AAT.
@@ -1223,7 +1255,9 @@ tables in the generated font, we must check the first box. If we do, we are wise
 the second box, thanks to certain possible incompatibilities.
 10 Doubtless because VOLT comes directly from Microsoft, a company with no interest in promoting AAT,
 and because FontLab will probably first cover the OpenType features completely before addressing AAT.
+```
 
+```text
 (a)
 (b)
 (c)
@@ -1250,46 +1284,11 @@ see the names of the selectors, in French. Using the windows shown in Figure 14-
 and (c), we can modify existing translations or add new ones.
 It is important to understand that only the names are defined at this step. No information
 about the features or selectors is given, with one exception: when we modify a selector
+```
 
-Managing AAT Tables in FontForge
-(window 14-14 [b]), we can check the box Enabled so that the selector will be enabled
-by default when the font is selected.
-How, then, can we define the properties of these features and selectors, with such beautifully defined names? In fact, the crucial data in the three windows in Figure 14-14 are
-the small numbers that appear in the Feature _Id and Setting Id input areas. These are
-the numbers that we shall later use to identify the pair (feature, selector).
-One last detail about feature names before we move on to AAT’s finite automata. In
-File>Preferences>Mac we have a tab allowing us to modify the default names of Apple’s predefined features (see §D.11.5.1 for a detailed description) and a table of mappings between AAT features and their OpenType counterparts. This table will be used
-when FontForge has to convert an AAT font to OpenType or vice versa.
-Managing AAT’s Finite Automata in FontForge
-To the reader who is not familiar with the concept of finite automata, we highly recommend reading section §D.13.1 of this book. She will find a plethora of examples using
-the same conventions and notations as the AAT tables.
-Let us summarize the contents of that section. A finite automaton consists of three tables:
-a table of states, a table of inputs, and a table of classes. States are the different situations in
-which the automaton may find itself. Classes are the different categories of glyphs that we
-use. Inputs are pairs (“new state”, “action”). Actions are the operations that we perform
-on glyphs.
-For instance, we start from a default state (there are even two of them in AAT: state 0
-is called “beginning of document”, and state 1 is called “beginning of line”). We remain
-in the initial state as long as we have only glyphs that do not cause a state change. One
-fine day we encounter a glyph from another class. We then check the table of inputs
-to see what we are to do in the current state, in the presence of this new glyph. The
-table of inputs tells us that, for the given state and the given glyph class, we must move
-to a certain other state and, possibly, perform a certain action. The actions depend on
-the contextual table. For a morx table, there are five types of actions: rearrangements of
-glyphs, contextual substitutions, ligatures, simple substitutions, and insertions of glyphs.
-In the kern, for kerning, there is another action: contextual kerning.
-Let us take a real-world example so as to give a better illustration of the technique of
-finite automata in AAT: the example of most ordinal numerals in English (4th, 5th,
-etc.). We begin by defining three states: the “INITIAL” state, the “DIGITS” state and the
-“T_FOUND” state. We start in the “INITIAL” state. When we write a digit, we switch to
-the “DIGITS” state. When the following glyph is also a digit, we remain in the “DIGITS”
-state. When the following glyph is a ‘t’, we go into the “T_FOUND” state. If the next
-glyph is an ‘h’, we replace ‘th’ with ‘th’ and return to the initial state. If the next glyph is
-not an ‘h’, we leave both the ‘t’ and that glyph as they are and return to INITIAL state.
-For a human, the best way to describe a finite automaton is to reach for a good old
-pencil and a sheet of paper, with which to draw arrows and bubbles—which is what we
-have done below:
+Managing AAT Tables in FontForge (window 14-14 [b]), we can check the box Enabled so that the selector will be enabled by default when the font is selected. How, then, can we define the properties of these features and selectors, with such beautifully defined names? In fact, the crucial data in the three windows in Figure 14-14 are the small numbers that appear in the Feature _Id and Setting Id input areas. These are the numbers that we shall later use to identify the pair (feature, selector). One last detail about feature names before we move on to AAT’s finite automata. In File>Preferences>Mac we have a tab allowing us to modify the default names of Apple’s predefined features (see §D.11.5.1 for a detailed description) and a table of mappings between AAT features and their OpenType counterparts. This table will be used when FontForge has to convert an AAT font to OpenType or vice versa. Managing AAT’s Finite Automata in FontForge To the reader who is not familiar with the concept of finite automata, we highly recommend reading section §D.13.1 of this book. She will find a plethora of examples using the same conventions and notations as the AAT tables. Let us summarize the contents of that section. A finite automaton consists of three tables: a table of states, a table of inputs, and a table of classes. States are the different situations in which the automaton may find itself. Classes are the different categories of glyphs that we use. Inputs are pairs (“new state”, “action”). Actions are the operations that we perform on glyphs. For instance, we start from a default state (there are even two of them in AAT: state 0 is called “beginning of document”, and state 1 is called “beginning of line”). We remain in the initial state as long as we have only glyphs that do not cause a state change. One fine day we encounter a glyph from another class. We then check the table of inputs to see what we are to do in the current state, in the presence of this new glyph. The table of inputs tells us that, for the given state and the given glyph class, we must move to a certain other state and, possibly, perform a certain action. The actions depend on the contextual table. For a morx table, there are five types of actions: rearrangements of glyphs, contextual substitutions, ligatures, simple substitutions, and insertions of glyphs. In the kern, for kerning, there is another action: contextual kerning. Let us take a real-world example so as to give a better illustration of the technique of finite automata in AAT: the example of most ordinal numerals in English (4th, 5th, etc.). We begin by defining three states: the “INITIAL” state, the “DIGITS” state and the “T_FOUND” state. We start in the “INITIAL” state. When we write a digit, we switch to the “DIGITS” state. When the following glyph is also a digit, we remain in the “DIGITS” state. When the following glyph is a ‘t’, we go into the “T_FOUND” state. If the next glyph is an ‘h’, we replace ‘th’ with ‘th’ and return to the initial state. If the next glyph is not an ‘h’, we leave both the ‘t’ and that glyph as they are and return to INITIAL state. For a human, the best way to describe a finite automaton is to reach for a good old pencil and a sheet of paper, with which to draw arrows and bubbles—which is what we have done below:
 
+```text
 Then, when the diagram is complete, all the bubbles and arrows have been drawn, and
 we have run through all the possibles paths, we must transcribe the diagram into the
 three tables that we have mentioned (states, inputs, and classes). And that is where FontForge comes in: it gives us an interface for entering the three tables.
@@ -1316,59 +1315,11 @@ simulates a transformation that is found in almost all the scripts of India: whe
 sequence of consonants without vowels that is followed by an ‘r’, the glyph for the ‘r’ will
 11 Note that one operation is missing from the morx table: ligatures. They are converted to OpenType
 contextual ligatures when an AAT font is opened and converted back to AAT ligatures upon saving.
+```
 
-Managing AAT Tables in FontForge
-be placed at the beginning of the string of consonant glyphs. For instance, the Unicode
-characters “KGPTHr” will produce a series “rKGPTH” of glyphs. Here, then, is what we
-want: that an ‘r’ that appears after any number of occurrences of the letters ‘K’, ‘G’, ‘P’,
-‘T’, and ‘H’ be moved to the beginning of that group of letters.
-Let us attempt to think in terms of finite automata. The initial state is that of “beginning
-of document” or “beginning of line”. As long as we are reading characters other than
-consonants, we remain in the initial state. But as soon as we read a consonant, we know
-that an ‘r’ may eventually appear and force a permutation. Thus we go to the “waiting
-for an ‘r”’ state, which we can also call the “consonants” state. Once we are in the “consonants” state, we remain there as long as we keep reading consonants. But that state is
-left as soon as anything other than a consonant or an ‘r’ occurs: we then move back to
-the initial state. Finally, if an ‘r’ appears, we also return to the initial state, but this time
-we first launch the permutation. One question arises: how can we know exactly where
-to place the ‘r’? Because we took care to mark the location when we moved from the
-initial state to the “consonants” state. Thus we shall say that the ‘r’ will go just after the
-last mark in the text. That’s right: the “last” one, since each consonant in the text will
-cause a transition to the “consonants” state and will thus make a mark, but only the last
-mark is of interest to us.
-Let us summarize what we have seen. We have three classes: consonants (‘K’, ‘G’, ‘P’,
-‘T’, etc.), the letter ‘r’, and everything else. We have two states: the initial state and the
-“consonants” state. We have two ways to leave the initial state: when we read a consonant
-(and thus move to the “consonants” state after marking the location), and when we read
-any other glyph (and thus remain in the initial state). We have three ways to leave the
-“consonants” state: when we read a consonant (and thus remain in the same state), when
-we read an ‘r’ (in which case we return to the initial state after permuting the glyphs),
-and when we read a glyph of another type (and thus return to the initial state).
-Graphically, the procedure can be shown as two bubbles (for the two states), two arrows
-going out of the first bubble, and three arrows going out of the second. Here is the diagram in question:
-if non-letter
-if ‘K’, ‘G’, ...
-if other glyph
-if ‘r’
-if ‘K’, ‘G’, ...
-keep,
-mark
-keep
-keep, permute
-keep
-keep
-initial state
-consonant
-K, G, P, etc.
-➀ 
-➁ 
-➂ 
-➃
-➄
-Now let us convert the diagram for use with FontForge’s interface. First of all, we must
-create an AAT feature. To do so, we go to Element>Font Info>Mac Features and click
-on New. In the window that appears, we enter the number of the feature and its name,
-in at least one language (it is politically correct to enter the name in multiple languages).
+Managing AAT Tables in FontForge be placed at the beginning of the string of consonant glyphs. For instance, the Unicode characters “KGPTHr” will produce a series “rKGPTH” of glyphs. Here, then, is what we want: that an ‘r’ that appears after any number of occurrences of the letters ‘K’, ‘G’, ‘P’, ‘T’, and ‘H’ be moved to the beginning of that group of letters. Let us attempt to think in terms of finite automata. The initial state is that of “beginning of document” or “beginning of line”. As long as we are reading characters other than consonants, we remain in the initial state. But as soon as we read a consonant, we know that an ‘r’ may eventually appear and force a permutation. Thus we go to the “waiting for an ‘r”’ state, which we can also call the “consonants” state. Once we are in the “consonants” state, we remain there as long as we keep reading consonants. But that state is left as soon as anything other than a consonant or an ‘r’ occurs: we then move back to the initial state. Finally, if an ‘r’ appears, we also return to the initial state, but this time we first launch the permutation. One question arises: how can we know exactly where to place the ‘r’? Because we took care to mark the location when we moved from the initial state to the “consonants” state. Thus we shall say that the ‘r’ will go just after the last mark in the text. That’s right: the “last” one, since each consonant in the text will cause a transition to the “consonants” state and will thus make a mark, but only the last mark is of interest to us. Let us summarize what we have seen. We have three classes: consonants (‘K’, ‘G’, ‘P’, ‘T’, etc.), the letter ‘r’, and everything else. We have two states: the initial state and the “consonants” state. We have two ways to leave the initial state: when we read a consonant (and thus move to the “consonants” state after marking the location), and when we read any other glyph (and thus remain in the initial state). We have three ways to leave the “consonants” state: when we read a consonant (and thus remain in the same state), when we read an ‘r’ (in which case we return to the initial state after permuting the glyphs), and when we read a glyph of another type (and thus return to the initial state). Graphically, the procedure can be shown as two bubbles (for the two states), two arrows going out of the first bubble, and three arrows going out of the second. Here is the diagram in question: if non-letter if ‘K’, ‘G’, ... if other glyph if ‘r’ if ‘K’, ‘G’, ... keep, mark keep keep, permute keep keep initial state consonant K, G, P, etc. ➀ ➁ ➂ ➃ ➄ Now let us convert the diagram for use with FontForge’s interface. First of all, we must create an AAT feature. To do so, we go to Element>Font Info>Mac Features and click on New. In the window that appears, we enter the number of the feature and its name, in at least one language (it is politically correct to enter the name in multiple languages).
 
+```text
 Likewise for the selector: we enter the number and, in at least one language, the name.
 We can also check the Enabled box. After this step, the feature exists—but it does not yet
 do anything. Make note of the numbers assigned to the feature and the selector: 5 and 1.
@@ -1391,7 +1342,14 @@ state, for the state that we have called “consonants”. How do we reach that 
 the automaton reads an element in the class “K P T G H”, i.e., class 4. Thus it is from the
 box “class 4, state 0” that we shall move to the new state, which does not yet exist. Let us
 click on this box!
+```
 
+::: tip Typographical Specimen Plate (Figure 14-15)
+![Figure 14-15: AAT class and state tables for glyph rearrangement](/images/fonts-encodings/fig14-15-aat-state-table.png)
+*Figure 14-15: AAT class and state tables for glyph rearrangement.*
+:::
+
+```text
 Managing AAT Tables in FontForge
 A window for editing the state transition (see §14-15 [b]), i.e., the shift from one state to
 another, appears. In this window, we must enter the number of the target state, which
@@ -1429,6 +1387,7 @@ Then, as soon as we detect a slash, we switch to the “denominator” state, an
 there as long as we keep reading digits. Finally, after the last digit, we return to the initial
 state. In addition, if in the “numerator” state we read a glyph that is neither a digit nor
 a slash, we also return to the initial state:
+```
 
 if non-digit
 if slash
@@ -1485,6 +1444,7 @@ the digit with its superscript version. Let us then click on the box (state 0, c
 window that appears, we indicate that the new state is 2 and that the substitution that
 applies to the current glyph is G001.
 
+```text
 Managing AAT Tables in FontForge
 In this window, we also see a box to check (Mark Current Glyph) and an input area
 for the feature tag, entitled Mark Subs. What is the purpose of these? Let us digress
@@ -1526,7 +1486,9 @@ letters. The result is inferior typography, but often there is no better solutio
 true long strokes that connect Arabic letters must be curves, and that is already beyond
 the capabilities of most typesetting systems. In any event, the kashida has one peculiarity:
 it is not a letter in its own right but a deformation of a letter. If we obtain kashidas by
+```
 
+```text
 adding glyphs, that fact should not be evident to the user. In particular, the user should
 not be able to select a kashida with the cursor.
 The example on the right, by contrast, is that of the Cambodian script, in which vowels
@@ -1561,21 +1523,6 @@ always be enabled by default. Likewise, for Apple, there is only one way to perf
 What do we do, then? We fill in the glyph classes, as usual. The state-transition window
 allows us to enter four pieces of data, including the two classic ones: what is the next
 state? and should we process the current glyph immediately or wait until we reach the
+```
 
-Managing AAT Tables in FontForge
-new state? The checkbox Push Current Glyph allows us to store a series of glyphs (up to
-eight). These glyphs are retained in memory so that they can be “popped”. When n glyphs
-are popped, n−1 kerning values are applied to them simultaneously. The kerning values
-are entered in the input area at the bottom.
-Each of these kerning values is therefore a path on which we
-have gone through as many states as there are glyphs in the
-string to be kerned: to kern A.V, we have the classes A (and
-Agrave, Lambda, etc.), period (and comma, etc.), and V (and W,
-etc.). When we read an A, we leave the initial state for state 2,
-and we place an A on the stack. When we read a period, we
-leave state 2 for state 3 and place period on the stack. When
-we read a V, we leave state 3 to return to the fold by popping
-the three glyphs and applying to them the kerning values 0 -
-400.
-
-
+Managing AAT Tables in FontForge new state? The checkbox Push Current Glyph allows us to store a series of glyphs (up to eight). These glyphs are retained in memory so that they can be “popped”. When n glyphs are popped, n−1 kerning values are applied to them simultaneously. The kerning values are entered in the input area at the bottom. Each of these kerning values is therefore a path on which we have gone through as many states as there are glyphs in the string to be kerned: to kern A.V, we have the classes A (and Agrave, Lambda, etc.), period (and comma, etc.), and V (and W, etc.). When we read an A, we leave the initial state for state 2, and we place an A on the stack. When we read a period, we leave state 2 for state 3 and place period on the stack. When we read a V, we leave state 3 to return to the fold by popping the three glyphs and applying to them the kerning values 0 - 400.

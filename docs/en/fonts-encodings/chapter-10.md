@@ -9,6 +9,7 @@ description: "Unabridged English text: HTML and CSS font specifications, font-si
 
 ---
 
+```text
 Fonts and Web Pages
 When Tim Berners-Lee defined the HTTP protocol and the HTML markup system, he
 could hardly have expected that the whole world would be talking “.com” 20 years later.
@@ -32,38 +33,9 @@ HTML is an SGML DTD, and, at the same time, a markup syntax. That means that the
 tags that may be used in an HTML document are well defined once and for all, that their
 interaction with one another is also defined, and that we have a sort of “user’s manual”
 that shows us the meaning and applicability of each tag.
+```
 
-But unlike LATEX, in which the meaning of each tag is as clear as can be,1HTML assigns
-only an approximate meaning, and each browser may interpret that meaning as it
-chooses.
-HTML has suffered greatly from the artistic fuzziness that surrounds its tags. For example, each browser has felt itself obliged to add its own tags to the basic system, which has
-led to frequent updates of HTML, many of them based on the initiatives of some of the
-browsers with the largest market share. Despite that fact, however, it must be understood
-that during the era when the Macintosh, the Windows PC, and Unix stations had a terrible time communicating with each other, HTML was (together with TEX and, a little
-later, Acrobat) the first “document format” common to all operating systems.
-To solve a number of problems without completely tearing the HTML standard apart,
-two new layers of information were added: JavaScript, a programming language developed by Netscape (and later to become an ECMA standard under the name of
-ECMAScript), whose purpose is to manage the interactivity of HTML pages, and Cascading Style Sheets (CSS, a W3C standard), a language for describing the appearance of
-HTML pages. These three layers of information (HTML, JavaScript, CSS) live together
-in harmony within a single document. Furthermore, JavaScript has access to the information in all three levels, thanks to a syntax called Document Object Model (DOM, also a
-W3C standard).
-But let us leave history aside and move on to the situation that exists today. Several
-years ago, a successor to SGML arrived on the scene and literally conquered the market: XML (Extensible Markup Language, a W3C standard). XML, which we shall discuss
-in greater detail on page 345, is a stricter version of SGML—and “stricter (for the human)” means “easier to manage (by machine)”. Indeed, whereas there were only one or
-two very specialized tools for processing SGML that were quite inaccessible to the ordinary mortal, today we have an enormous number of tools—industrial, mass-market, or
-free—for working with XML. By slightly constraining the freedom of markup that SGML
-affords (the differences between SGML and XML can be summed up with five simple
-rules), XML has succeeded in wiping out the unfavorable impression that the public had
-of SGML (“labyrinth”, “juggernaut”, etc.) and in establishing a genuine format for data
-exchange that can be used in all areas of computer science.
-Between the fantastically expanding XML and the aging HTML, we eventually find ourselves faced with a sharp contradiction. The World Wide Web Consortium (W3C) has
-suggested a solution: an XML-ized version of HTML, known as XHTML. In addition,
-XML inherits technologies from the HTML era: JavaScript, CSS, and a technique specific to XML that is called namespaces. Namespaces are a means of combining several
-DTDs, i.e., of creating documents with tags coming from various and sundry sources,
-with predefined semantics in different contexts. Since XHTML has been defined and codified, we know that it does not have any tags that support the creation of mathematical
-formulae. But a standard exists that does make it possible to create them: MathML. By
-1 This is true because LATEX is a programming language and we can follow the execution of a LATEX command right down into the bowels of TEX. A LATEX command is therefore a “tag” whose semantics are defined
-a posteriori by its effects when we compile a document using that tag with TEX or Ω.
+But unlike LATEX, in which the meaning of each tag is as clear as can be,1HTML assigns only an approximate meaning, and each browser may interpret that meaning as it chooses. HTML has suffered greatly from the artistic fuzziness that surrounds its tags. For example, each browser has felt itself obliged to add its own tags to the basic system, which has led to frequent updates of HTML, many of them based on the initiatives of some of the browsers with the largest market share. Despite that fact, however, it must be understood that during the era when the Macintosh, the Windows PC, and Unix stations had a terrible time communicating with each other, HTML was (together with TEX and, a little later, Acrobat) the first “document format” common to all operating systems. To solve a number of problems without completely tearing the HTML standard apart, two new layers of information were added: JavaScript, a programming language developed by Netscape (and later to become an ECMA standard under the name of ECMAScript), whose purpose is to manage the interactivity of HTML pages, and Cascading Style Sheets (CSS, a W3C standard), a language for describing the appearance of HTML pages. These three layers of information (HTML, JavaScript, CSS) live together in harmony within a single document. Furthermore, JavaScript has access to the information in all three levels, thanks to a syntax called Document Object Model (DOM, also a W3C standard). But let us leave history aside and move on to the situation that exists today. Several years ago, a successor to SGML arrived on the scene and literally conquered the market: XML (Extensible Markup Language, a W3C standard). XML, which we shall discuss in greater detail on page 345, is a stricter version of SGML—and “stricter (for the human)” means “easier to manage (by machine)”. Indeed, whereas there were only one or two very specialized tools for processing SGML that were quite inaccessible to the ordinary mortal, today we have an enormous number of tools—industrial, mass-market, or free—for working with XML. By slightly constraining the freedom of markup that SGML affords (the differences between SGML and XML can be summed up with five simple rules), XML has succeeded in wiping out the unfavorable impression that the public had of SGML (“labyrinth”, “juggernaut”, etc.) and in establishing a genuine format for data exchange that can be used in all areas of computer science. Between the fantastically expanding XML and the aging HTML, we eventually find ourselves faced with a sharp contradiction. The World Wide Web Consortium (W3C) has suggested a solution: an XML-ized version of HTML, known as XHTML. In addition, XML inherits technologies from the HTML era: JavaScript, CSS, and a technique specific to XML that is called namespaces. Namespaces are a means of combining several DTDs, i.e., of creating documents with tags coming from various and sundry sources, with predefined semantics in different contexts. Since XHTML has been defined and codified, we know that it does not have any tags that support the creation of mathematical formulae. But a standard exists that does make it possible to create them: MathML. By 1 This is true because LATEX is a programming language and we can follow the execution of a LATEX command right down into the bowels of TEX. A LATEX command is therefore a “tag” whose semantics are defined a posteriori by its effects when we compile a document using that tag with TEX or Ω.
 
 using a namespace for “XHTML” and another for “MathML”, we can simultaneously use
 tags belonging to both standards without causing any conflicts. In this way, every new
@@ -153,6 +125,7 @@ variable, it follows that the approach used here is far from infallible. To comp
 are made up from the foundry’s name, the family name, and the primary and secondary indicators of the encoding
 (in the sense of XLFD; see page 222):
 
+```text
 (X)HTML, CSS, and Fonts
 these problems, the standard provides five “generic” font-family names, to be added to
 the end of the list: serif, sans-serif, cursive, fantasy, monospace. Each browser is free
@@ -190,6 +163,7 @@ applies to em elements, but this time only to those that are direct children of 
 they must be set in red and at 24 points.
 We can see here that Mozilla chooses to omit all the other fields of the XLFD name so as to make the choice
 easier and to retain better control over the properties of the selected fonts.
+```
 
 This example may seem absurd at first glance, but what it is intended to illustrate is that
 when an element appears in all these categories, the rules of the CSS standard specify
@@ -360,9 +334,15 @@ the short letters and those with an ascender.
 the “tall” glyphs (alef, lam, etc.) and the “short” glyphs (beh, seen, sad, etc.). Here again, we can consider the
 x-height to be the ratio between the tall letters and the short letters.
 
+::: tip Typographical Specimen Plate (Figure 10-1)
+![Figure 10-1: Web x-heights comparison](/images/fonts-encodings/fig10-1-web-x-heights.png)
+*Figure 10-1: Web x-heights comparison.*
+:::
+
 ![Figure 10-1: Web x-heights comparison](/images/fonts-encodings/fig10-1-web-x-heights.png)
 *Figure 10-1: Web x-heights comparison.*
 
+```text
 
 
 
@@ -390,6 +370,7 @@ As the reader will have guessed, the role of font-size-adjust is to effect this 
 information, known as the x-height, that is specified in this declaration is the ratio
 between the height of the short letters (those that have neither an ascender nor a
 descender: ‘a’, ‘c’, ‘e’, etc.) and the body size of the selected font. To return to CSS, if
+```
 
 (X)HTML, CSS, and Fonts
 we wish to request Centaur in the stylesheet as the font to use for some text, we can
@@ -660,6 +641,7 @@ set-widths are in an optimized and compressed binary format, whereas in CSS they
 12 And here we run into a glaring inconsistency of this approach: what will happen if we use a font that
 contains multiple glyphs for a single Unicode character, such as, for instance, even the humblest Arabic font?
 
+```text
 delays in the downloading and rendering of a page.13 We can get around this problem by
 only including in the stylesheet the set-widths of the glyphs that are actually used in the
 XML/(X)HTML document, but that also means that we cannot separate the stylesheet
@@ -696,6 +678,7 @@ they contain tens of thousands of signs, but these signs are all extremely disci
 same space: a square, symbol of balance and harmony. Thus giving the set-widths of the ideographic glyphs
 presents no problem; after all, they all have the same set-width (with a single exception: the few dozen halfwidth Japanese kana, a twentieth-century invention whose inclusion in Unicode led to the spilling of a great
 deal of ink).
+```
 
 Tools for Downloading Fonts from the Web
 the fonts used for rendering text also come from the operating system. But here we are
@@ -794,29 +777,7 @@ yes
 —
 where the asterisk denotes the need to download a plug-in.
 
-Figure 10-3: WEFT’s font database.
-In the absence of a product to generate PFR files and with no support from Netscape
-Navigator beyond version 6 or from Internet Explorer for the Macintosh, the survival
-of TrueDoc technology is in jeopardy, to say the least. In discussions with employees at
-Bitstream, the author has noticed a certain bitterness resulting from the abandonment
-of this technology, especially with regard to Netscape, which supported it very well from
-the beginning. It is typical that Bitstream has launched a call for help on its web site
-to Internet citizens who care about beautiful fonts: “Bitstream suggests you contact Microsoft and AOL and encourage them to support dynamic fonts in the new releases of
-their browsers.” Let us hope that this distress call will be answered!
-Font Embedding, by Microsoft
-Microsoft launched the first version of its WEFT (for “Web Embedding Fonts Tools”)
-software [269] in 1997, at the same time as version 4 of Internet Explorer. This software
-works only under Windows, and the technology in question is called Font Embedding (a
-name that—let’s face it—is not very imaginative). The font format used by this technology is Embeddable OpenType (EOT). Once again, this format is undocumented, and
-Microsoft is not inclined to provide its specifications, even under cover of a nondisclosure agreement. Our contacts at Microsoft have told us that it is an OpenType format
-compressed with an Agfa technology called Microtype Express that contains only a subset
-of the glyphs and that is inextricably linked to one or more URLs.
-Since we cannot say anything more about EOT, let us move on to WEFT. How does
-it work?
-First of all, it is important to know that WEFT maintains a database of all the fonts installed on the system. By selecting View>Available Fonts, one obtains a table with a list
-of all the fonts (Figure 10-3), showing for each one its Windows name, its “family” (in the
-Windows sense), its font format, an indication of whether it is installed on the system or
-not, its location on the disk, and, most important of all, the right to include this font in
+Figure 10-3: WEFT’s font database. In the absence of a product to generate PFR files and with no support from Netscape Navigator beyond version 6 or from Internet Explorer for the Macintosh, the survival of TrueDoc technology is in jeopardy, to say the least. In discussions with employees at Bitstream, the author has noticed a certain bitterness resulting from the abandonment of this technology, especially with regard to Netscape, which supported it very well from the beginning. It is typical that Bitstream has launched a call for help on its web site to Internet citizens who care about beautiful fonts: “Bitstream suggests you contact Microsoft and AOL and encourage them to support dynamic fonts in the new releases of their browsers.” Let us hope that this distress call will be answered! Font Embedding, by Microsoft Microsoft launched the first version of its WEFT (for “Web Embedding Fonts Tools”) software [269] in 1997, at the same time as version 4 of Internet Explorer. This software works only under Windows, and the technology in question is called Font Embedding (a name that—let’s face it—is not very imaginative). The font format used by this technology is Embeddable OpenType (EOT). Once again, this format is undocumented, and Microsoft is not inclined to provide its specifications, even under cover of a nondisclosure agreement. Our contacts at Microsoft have told us that it is an OpenType format compressed with an Agfa technology called Microtype Express that contains only a subset of the glyphs and that is inextricably linked to one or more URLs. Since we cannot say anything more about EOT, let us move on to WEFT. How does it work? First of all, it is important to know that WEFT maintains a database of all the fonts installed on the system. By selecting View>Available Fonts, one obtains a table with a list of all the fonts (Figure 10-3), showing for each one its Windows name, its “family” (in the Windows sense), its font format, an indication of whether it is installed on the system or not, its location on the disk, and, most important of all, the right to include this font in
 
 Tools for Downloading Fonts from the Web
 a web page. Thus a font can be Editable or Installable (or downloadable, even for pages
@@ -899,33 +860,7 @@ pages. Selecting Tools>Expert Create Fonts will do the job. The window that appe
 glyphs to include (a manual choice, with the option of saving and reusing a set of glyphs),
 the authorized URLs, and a location for the generated fonts. In short, all the functionality outlined above—except, of course, the intelligent selection of glyphs to include from
 
-Figure 10-5: The window for generating EOT fonts in WEFT.
-an analysis of the characters used on web pages, since there are no web pages to analyze
-this time. And since there are no web pages yet, the CSS declarations are written in a
-window (Figure 10-5, right) from which one can copy and paste them into (X)HTML or
-CSS files.
-In conclusion, WEFT seems, at first blush, to be the solution for downloading fonts from
-the Web: it is efficient, Unicode-compatible, and completely free. It would indeed be
-the ideal solution if all of humanity used Windows and surfed the Web with Internet
-Explorer. But that is (un)fortunately not so, and with the exception of Internet Explorer
-under Windows, no browser is compatible with EOT fonts (Internet Explorer under Macintosh was compatible at one time, but it no longer is).
-GlyphGate, by em2 Solutions
-One thing that we have noticed about the two tools for downloading fonts that were
-described above: however wonderful the technologies are, their success depends on their
-compatibility with browsers, and neither of the two technologies has managed to prevail
-in this area. We can amuse ourselves by creating PFR or EOT fonts and including them
-in our web pages, but we have no guarantee that the Internet user who visits those pages
-will be using a compatible browser. And we all know how annoying it is to read on a web
-page: “This page can be displayed only with X version Y.”
-But is there a way to know which browser the cybernaut who connects to our server is
-using?
-We all know that the Web is anonymous: when we connect to a server, the server knows
-very little about our identity. That is part of the Web’s code of ethics. But, at the same
-time, this principle has its limits. It is quite helpful, for example, for the server to know
-the type of browser that we are using, so that it can improve the configuration of the
-pages that it sends us. That is indeed done, using information transmitted through the
-HTTP protocol [152]: the User-Agent declaration, which is an integral part of every
-HTTP request that the client sends to the server.
+Figure 10-5: The window for generating EOT fonts in WEFT. an analysis of the characters used on web pages, since there are no web pages to analyze this time. And since there are no web pages yet, the CSS declarations are written in a window (Figure 10-5, right) from which one can copy and paste them into (X)HTML or CSS files. In conclusion, WEFT seems, at first blush, to be the solution for downloading fonts from the Web: it is efficient, Unicode-compatible, and completely free. It would indeed be the ideal solution if all of humanity used Windows and surfed the Web with Internet Explorer. But that is (un)fortunately not so, and with the exception of Internet Explorer under Windows, no browser is compatible with EOT fonts (Internet Explorer under Macintosh was compatible at one time, but it no longer is). GlyphGate, by em2 Solutions One thing that we have noticed about the two tools for downloading fonts that were described above: however wonderful the technologies are, their success depends on their compatibility with browsers, and neither of the two technologies has managed to prevail in this area. We can amuse ourselves by creating PFR or EOT fonts and including them in our web pages, but we have no guarantee that the Internet user who visits those pages will be using a compatible browser. And we all know how annoying it is to read on a web page: “This page can be displayed only with X version Y.” But is there a way to know which browser the cybernaut who connects to our server is using? We all know that the Web is anonymous: when we connect to a server, the server knows very little about our identity. That is part of the Web’s code of ethics. But, at the same time, this principle has its limits. It is quite helpful, for example, for the server to know the type of browser that we are using, so that it can improve the configuration of the pages that it sends us. That is indeed done, using information transmitted through the HTTP protocol [152]: the User-Agent declaration, which is an integral part of every HTTP request that the client sends to the server.
 
 Tools for Downloading Fonts from the Web
 But there turns out to be a problem of diversity. First of all, each browser is free to
@@ -964,26 +899,9 @@ least HTML 2.0, even on platforms without a graphical user interface.
 • Last but not least, GlyphGate offers a development kit containing modules for the
 rearrangement, replacement, and repositioning of glyphs. One can thus construct
 
-Figure 10-6: Extract from the browser’s window: a list of fonts available on the server that was
-generated by GlyphGate.
-one’s own rules for contextual analysis, replacement of certain strings with glyphs
-for ligatures, placement of diacritical marks, etc.
-Now let us see how to use GlyphGate.
-Suppose that GlyphGate has been installed on the server. The fonts to be used have to
-be installed somewhere on the server.
-Under http://our_web_site:8024/gg-fonts, GlyphGate shows us a list of all the fonts
-available for web pages (Figure 10-6). By clicking on a font, we gain access to a series
-of pages displaying all the font’s glyphs, including the glyphs generated by GlyphGate,
-such as, for example, the accented letters that do not exist in the original font but whose
-components (the base letter and the accent) are present. These glyphs are arranged by
-Unicode table (Figure 10-7), and only the tables that contain at least one glyph are displayed. Note that these are not imported images but true Unicode characters that we
-can copy and paste, print out, or search for if the operating system allows. What comes
-close to being a miracle is that these characters are represented by glyphs in the font in
-question, though that font is not installed on the client system.
+Figure 10-6: Extract from the browser’s window: a list of fonts available on the server that was generated by GlyphGate. one’s own rules for contextual analysis, replacement of certain strings with glyphs for ligatures, placement of diacritical marks, etc. Now let us see how to use GlyphGate. Suppose that GlyphGate has been installed on the server. The fonts to be used have to be installed somewhere on the server. Under http://our_web_site:8024/gg-fonts, GlyphGate shows us a list of all the fonts available for web pages (Figure 10-6). By clicking on a font, we gain access to a series of pages displaying all the font’s glyphs, including the glyphs generated by GlyphGate, such as, for example, the accented letters that do not exist in the original font but whose components (the base letter and the accent) are present. These glyphs are arranged by Unicode table (Figure 10-7), and only the tables that contain at least one glyph are displayed. Note that these are not imported images but true Unicode characters that we can copy and paste, print out, or search for if the operating system allows. What comes close to being a miracle is that these characters are represented by glyphs in the font in question, though that font is not installed on the client system.
 
-Tools for Downloading Fonts from the Web
-Figure 10-7: Extract from the browser’s window: glyphs from the font Palatino Linotype in the
-Unicode table Latin Extended-1, displayed by GlyphGate.
+Tools for Downloading Fonts from the Web Figure 10-7: Extract from the browser’s window: glyphs from the font Palatino Linotype in the Unicode table Latin Extended-1, displayed by GlyphGate.
 
 Once we have checked that the fonts that we want are correctly recognized and displayed
 by GlyphGate, we may go ahead and use them in our pages. No surprise: we can use
@@ -1058,6 +976,7 @@ Fundamental Concepts of XML
 In the exact sciences, and mathematics in particular, there are two possible pedagogical
 approaches: the one that goes from the general to the specific and from the abstract to
 
+```text
 the concrete—which is the “Bourbakist” approach, named after the prestigious French
 association of mathematicians—and the one that goes from the specific to the general,
 from a set of concrete cases to an abstraction—which is the “American” approach. To
@@ -1093,7 +1012,7 @@ book
 chapter 1
 chapter 2
 chapter 3
-section 1 
+section 1
 section 2
 section 1
 section 2
@@ -1105,16 +1024,18 @@ when it was checked by a violent gust of wind which swept up the streets (for it
 lies), rattling along the house-tops, and fiercely agitating the scanty flame of the lamps that struggled against
 the darkness”, from Bulwer-Lytton’s Paul Clifford (1830), is widely held to be the worst opening sentence in any
 English novel. The author would like to thank Scott Horne for suggesting it.
+```
 
+```text
 The SVG Format
 book
 chapter
-section 
+section
 chapter
-section 
+section
 chapter
-section 
-section 
+section
+section
 It was a dark and stormy night...
 Surprising though this may be, the approach leads to a very important mathematical
 concept, that of the tree. The parts of an XML document, symbolised by boxes in the
@@ -1150,7 +1071,9 @@ the end. For example: &lt;img/&gt;.
 Another fundamental notion: attributes. Suppose that we would like to attach certain
 information to certain elements without incorporating this information into the text;
 for example, the identification number of a section, the language of a paragraph, a short
+```
 
+```text
 text describing an image for the benefit of visually impaired web users. This sort of information is placed within attributes, which are key–value pairs that are placed inside
 opening tags or empty tags in the following manner:
 &lt;p xml:lang="en-us" id="p137"&gt;It was a dark and stormy night ...
@@ -1187,7 +1110,9 @@ Blah-blah.... &lt;foo/&gt;...
 &lt;/section&gt;
 The string xhtml is the alias associated with the namespace. In this example, only the tags
 preceded by the alias belong to the namespace in question. Thus div and p are indeed
+```
 
+```text
 The SVG Format
 the XHTML tags that we know and love; however, foo does not belong to this namespace
 (simply because no foo tag appears in the XHTML standard). It is also possible to have
@@ -1229,6 +1154,7 @@ of an XHTML document, one can insert an SVG figure without surprising anyone: it
 is sufficient to specify the namespace of each tag used. The tools that process the XML
 document will then know, unambiguously, whether or not they are able to process the
 standards used therein.
+```
 
 And what about SVG?
 It is said that a picture is worth a thousand words. Well, to describe the picture below:
@@ -1261,6 +1187,7 @@ of a path to draw.
 The reader is invited to compare the code above with that of the same image under
 Illustrator or Corel Draw: no vector format is so simple and logical. Each contour has
 
+```text
 The SVG Format
 its own path element, and the order of these elements is important, since it is the order
 in which the figure will be drawn. Proof: the images slightly overlap, and each younger
@@ -1302,7 +1229,9 @@ elements and properties that strike her as being compatible, and the viewing sof
 will decide whether the combinations in question are meaningful or not; in the worst
 case, they will be ignored, as they are expected to be, since software of the kind must be
 tolerant, as web browsers are.
+```
 
+```text
 The element that makes it possible to include text in an SVG image is text. This element
 can contain text directly or tref elements (which are links to blocks of text defined in
 advance) or tspan elements (which, like the span elements of XHTML, have no meaning
@@ -1335,7 +1264,9 @@ xml:space="preserve" font-family="Times" font-size="24pt">
 &lt;text x="100" y="30" kerning="auto"&gt;AVATAR&lt;/text&gt;
 &lt;/svg&gt;
 produces the following image:
+```
 
+```text
 The SVG Format
 AVATAR
 AVATAR
@@ -1366,7 +1297,9 @@ the inventors of SVG: one traditionally does not kern letters that represent var
 17 These are SVG’s current units of length, a concept borrowed from the PostScript language, where there
 is a basic unit of length—1/72 of an inch—but where the current transformation matrix can alter the size of the
 units at any time.
+```
 
+```text
 Which means, perhaps surprisingly, that we can use glyphs whose descriptions are found
 anywhere on the Web. Unlike the methods for downloading fonts that we saw above,
 here it is the glyph in question, and only that glyph, that will be obtained from the
@@ -1407,7 +1340,9 @@ best solution according to the available glyphs?
 between Netscape and Explorer forces the two companies to continue to improve their products, the near
 monopoly that Adobe has on SVG products results in a lack of verification of the compatibility of SVGViewer
 with the SVG standard and no guarantee that this compatibility will ever be achieved.
+```
 
+```text
 The SVG Format
 For this purpose, there is the element altGlyphItem. This element, placed within an
 altGlyphDef, informs the reader that its contents are only one possible choice among
@@ -1447,7 +1382,9 @@ SVG Fonts
 We have already said, in the previous section, that the SVG standard allows for the complete description of a font within an SVG document, so as to make totally independent
 documents possible. What a pleasant surprise, when on the Web we are always obliged
 to download fonts—in formats locked three times over so as not to infringe copyright!
+```
 
+```text
 But what about copyright, exactly? An SVG font, like everything else prepared in SVG, is
 written in plain text, with no encryption whatsoever. This is a veritable revolution, on a
 par with that of October: free distribution of fonts to the proletarians of the world! And
@@ -1487,6 +1424,7 @@ glyph-name="... name of the glyph ..."
 lang="... language ..."
 ... font-metric attributes ...
 d="... description of the glyph's contours ..."/>
+```
 
 The SVG Format
 &lt;glyph .../&gt;
@@ -1592,6 +1530,7 @@ Thus our CSS example:
 font-style: italic;
 unicode-range: U+0020-, U+0300-E, U+1E??, U+2000-F;
 
+```text
 src: url("http://omega.enstb.org/fonts/omsela.otf")
 format("opentype");
 local("Omega Serif Italic");
@@ -1632,6 +1571,7 @@ graphical variants pure and simple, these glyphs must have identifiers so that t
 be selected through the use of altGlyph.
 Let us continue. The description of a glyph is completely contained in a glyph element—
 or perhaps in a missing-glyph element, which indicates the glyph to be used when the
+```
 
 The SVG Format
 
@@ -1691,6 +1631,7 @@ in [134, section 8.3]), we shall take apart a concrete example: the description 
 font that we are currently using, Le Monde Livre, by Jean François Porchez (see Figure 10-10). Note
 that the two programs (batik-ttf2svg and FontForge) produced exactly the same code, shown here:
 
+```text
 The SVG Format
 &lt;glyph unicode="R" glyph-name="R" horiz-adv-x="689"
 d="M 520 -,
@@ -1739,7 +1680,9 @@ can become a single glyph! Up to now that was possible only for PostScript Type 
 (whose death knell was sounded the day that Acrobat was released) and the virtual fonts
 of TEX, in which both DVI commands and PostScript code can be included. The power
 gained in this way boggles the imagination: a glyph can be colored in, contain a bitmap,
+```
 
+```text
 520,-1
 459,76
 382,173
@@ -1859,7 +1802,9 @@ in the world, there is a one-to-one correspondence between character and glyph�
 is not always possible. If necessary, we can always use the internal names of the glyphs
 (those of the glyph-name attribute of glyph).
 Thus we can write:
+```
 
+```text
 Conclusion
 &lt;hkern u1="A,À,Â,Á,Å,Ã,&#x100;,&#x104;" g1="A.pretty,A.bizarre"
 u2="T,&#x162;,&#x164;,&#x166;" g2="T.shirt"
@@ -1897,11 +1842,6 @@ Bitstream, Microsoft, and em2 Solutions are bending over backwards to provide fo
 19 Ordinarily the ideographic languages are written vertically. But tradition demands that each glyph occupy a perfect square (the ideographic square) and that typesetting consist of the juxtaposition of these squares,
 which is why kerning is denied. Some Japanese typographers, however, violate this tradition by recommending
 kerning between ideographs whose shape calls for it. [208, p. 七五(75)], [240, p. 364]
+```
 
-to web users—without actually providing them. That is the reason for which the best
-intentions of CSS and SVG may go unheeded.
-Let us hope that in the future we shall emerge from this tunnel, either by a miracle
-solution to the problem of rights or by a decision from the large foundries to offer even
-part of their fonts to the users of the Web so as to bring a little beauty to this virtual
-space that is nothing less than the first space for communication on a planetary scale in
-human history.
+to web users—without actually providing them. That is the reason for which the best intentions of CSS and SVG may go unheeded. Let us hope that in the future we shall emerge from this tunnel, either by a miracle solution to the problem of rights or by a decision from the large foundries to offer even part of their fonts to the users of the Web so as to bring a little beauty to this virtual space that is nothing less than the first space for communication on a planetary scale in human history.

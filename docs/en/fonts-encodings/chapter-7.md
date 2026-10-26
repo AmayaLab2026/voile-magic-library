@@ -9,6 +9,7 @@ description: "Unabridged English text: Windows Fonts folder, GDI logical fonts (
 
 ---
 
+```text
 in fact, points to the directory c:\winnt\fonts, where all the fonts are stored. In Figure 7-1,
 we see a screenshot of this directory under Windows XP. It is a very special type of directory, as the names of the icons are not filenames but rather the names of fonts in
 Windows.
@@ -48,10 +49,17 @@ a reference to the existing files. In the latter case, only a link to the font i
 1 In addition, this “style” of the font is stored in a variable in the table head that is called macStyle. But
 in the table OS/2 there is another variable: fsSelection, which may also take the values “underscored”, “negative” (white on black), “contour”, “strikethrough”, and all their combinations. The specification gives rules for
 compatibility between macStyle and fsSelection.
+```
+
+::: tip Typographical Specimen Plate (Figure 7-1)
+![Figure 7-1: Windows Fonts folder](/images/fonts-encodings/fig7-1-windows-fonts-folder.png)
+*Figure 7-1: Windows Fonts folder.*
+:::
 
 ![Figure 7-1: Windows Fonts folder](/images/fonts-encodings/fig7-1-windows-fonts-folder.png)
 *Figure 7-1: Windows Fonts folder.*
 
+```text
 Figure 7-2: Dialog box for installing fonts.
 created; these are the icons that have a little arrow at the lower left. Note that this link
 is not an ordinary file: if we run dir at the Windows command prompt, these “links” do
@@ -69,6 +77,7 @@ and the font itself. Conversely, Times New Roman is merely “fairly similar” 
 Palatino, and Arial is “not similar”. Nonetheless, the Panose-1 classification may be very
 useful on the Web, as we shall see in the chapter dedicated to this subject (page 327). The
 CSS specification incorporates the Panose description; thus the developer of a Web site
+```
 
 can add Panose characteristics to the explicit names of the fonts. The client’s system will
 then be able to display the text in the font that is the most similar to the one requested.
@@ -147,28 +156,9 @@ in the Fonts system folder.
 because we have even more chances to end up with duplicates.
 • Removing corrupted files or duplicates by placing them in a special folder.
 
-Tools for Managing Fonts
-It is strongly recommended that the user save backups of all fonts before using FontAgent, since improper handling cannot be ruled out.
-ATM: the “Smoother” of Fonts
-Since Windows 2000, the smoothing of PostScript Type 1 glyphs has been performed
-by the operating system, and Adobe Type Manager (ATM, whose Macintosh version we
-described on page 196) is, in principle, no longer necessary. Indeed, when we install it under Windows 2000 or XP, its configuration interface offers the choice of only two folders
-containing PostScript font files: one folder for .pfb and .otf files containing PostScript
-code for Type 1 fonts and OpenType-CFF fonts, and one folder for .pfm and .mmm files containing Windows font metrics for Type 1 and Multiple Master fonts. (It should be noted
-that Vista is not compatible with Adobe Type Manager.)
-Figure 7-6: The interface for creating instances of Multiple Master fonts.
-There is, however, a valid reason to install ATM under Windows 2000 or XP: it allows us
-to create Multiple Master instances. The procedure is as follows (see Figure 7-6). When
-we select a Multiple Master font, the different axes of variation are displayed in the form
-of sliders. We can thus choose one value for each axis with the use of a little sample of text
-that is transformed on the fly. Once we have chosen the values that we desire, we click
-on Add, and a .pfm file representing this instance of the Multiple Master font is created
-in the folder c:\psfonts\pfm, which is used by ATM only. At the same time, a link to this
-file is created in the Fonts system folder.
-Once the new instances have been created under ATM, they are available for use by all
-applications. We can recognize them by the underscore character that separates the name
-of the file from the values of the parameters. Thus in Figure 7-7 we are using the instance
+Tools for Managing Fonts It is strongly recommended that the user save backups of all fonts before using FontAgent, since improper handling cannot be ruled out. ATM: the “Smoother” of Fonts Since Windows 2000, the smoothing of PostScript Type 1 glyphs has been performed by the operating system, and Adobe Type Manager (ATM, whose Macintosh version we described on page 196) is, in principle, no longer necessary. Indeed, when we install it under Windows 2000 or XP, its configuration interface offers the choice of only two folders containing PostScript font files: one folder for .pfb and .otf files containing PostScript code for Type 1 fonts and OpenType-CFF fonts, and one folder for .pfm and .mmm files containing Windows font metrics for Type 1 and Multiple Master fonts. (It should be noted that Vista is not compatible with Adobe Type Manager.) Figure 7-6: The interface for creating instances of Multiple Master fonts. There is, however, a valid reason to install ATM under Windows 2000 or XP: it allows us to create Multiple Master instances. The procedure is as follows (see Figure 7-6). When we select a Multiple Master font, the different axes of variation are displayed in the form of sliders. We can thus choose one value for each axis with the use of a little sample of text that is transformed on the fly. Once we have chosen the values that we desire, we click on Add, and a .pfm file representing this instance of the Multiple Master font is created in the folder c:\psfonts\pfm, which is used by ATM only. At the same time, a link to this file is created in the Fonts system folder. Once the new instances have been created under ATM, they are available for use by all applications. We can recognize them by the underscore character that separates the name of the file from the values of the parameters. Thus in Figure 7-7 we are using the instance
 
+```text
 Figure 7-7: Using Multiple Master font instances under WordPad.
 bold 435, width 350, optical size 68 of the font Kepler MM Swash in the application
 WordPad.
@@ -195,7 +185,9 @@ in the top part of the window and add fonts to those sets by dragging them up fr
 the bottom part of the window or directly from a disk. We can thus enable or disable
 individual fonts or families or sets of fonts by clicking on the button in the leftmost column. There are three possible states: disabled, temporarily enabled (until the computer
 is rebooted or another font with the same name is enabled), and permanently enabled.
+```
 
+```text
 Tools for Managing Fonts
 Figure 7-8: Font Reserve v.2.6.5.
 For displaying font specimens, Suitcase has a vertical area that is permanently left open
@@ -216,40 +208,15 @@ these fonts. It has a database that we can build up by searching through directo
 even entire CD-ROMs.
 For each font, it presents an impressive range of information. We can read a very detailed description of the TrueType tables (Figure 7-11), view all the kerning pairs in the
 font (using the font’s own glyphs), compare a certain number of fonts by viewing their
+```
 
-Figure 7-9: Suitcase v.9.2.2.
-Figure 7-10: The font-search interface in Font Reserve v.2.6.5.
-properties side by side, and print out specimens of one or more fonts by using any of a
-dozen different models, whose text can be customized. It also supports classification of
-fonts and searching for fonts according to their Panose data or their “IBM class”.
-Font Servers
-Suitcase Server, described in the section on Mac OS (page 204), also runs under Windows NT, 2000, and XP. Font servers can be very useful for fonts in the case of, for example, a team that has a large collection of fonts. They provide rapid searching through
-the collection, immediate access to the selected font, and verification of compliance with
-the law, if the number of licenses purchased for each font is specified. Their only disadvantage is that their prices are often prohibitive.
+Figure 7-9: Suitcase v.9.2.2. Figure 7-10: The font-search interface in Font Reserve v.2.6.5. properties side by side, and print out specimens of one or more fonts by using any of a dozen different models, whose text can be customized. It also supports classification of fonts and searching for fonts according to their Panose data or their “IBM class”. Font Servers Suitcase Server, described in the section on Mac OS (page 204), also runs under Windows NT, 2000, and XP. Font servers can be very useful for fonts in the case of, for example, a team that has a large collection of fonts. They provide rapid searching through the collection, immediate access to the selected font, and verification of compliance with the law, if the number of licenses purchased for each font is specified. Their only disadvantage is that their prices are often prohibitive.
 
-Tools for Font Conversion
-Figure 7-11: The main interface and window for the properties of the font Arial, in Typograf
-v.4.8f.
-Tools for Font Conversion
-We have already described several tools for font conversion in the chapter on Mac OS.
-Among them, TransType Pro and FontFlasher also exist in Windows versions that are identical to their Macintosh versions in every detail. The reader is therefore referred back to
-their descriptions under Mac OS X on pages 205 through 208 of this book.
-There is, however, a competitor to TransType Pro: CrossFont, by the American company
-Acute Systems, whose specialty is the conversion of data between the PC and the Macintosh.
-CrossFont (Figure 7-13) offers almost the same features as TransType Pro for a fraction of
-the price. It even goes further than TransType Pro, as it can also manage the dfont format
-of the Macintosh and can generate missing files, such as the PFM file, when a font comes
-from a Unix environment, or the AFM file, when we need kerning pairs for TEX, etc. One
-very interesting property: it collects the kerning pairs from any available AFM files and
-integrates them into the fonts generated during conversion.
-But it also has its drawbacks: we cannot view the glyphs in a font to confirm that no glyph
-was overlooked or incorrectly encoded, and Multiple Master fonts are not supported.
-Both programs (TransType and CrossFont) are available in a demo version that is restricted only in the number of days for which it can be used. Thus one can test out their
-full functionality before deciding which one to buy.
+Tools for Font Conversion Figure 7-11: The main interface and window for the properties of the font Arial, in Typograf v.4.8f. Tools for Font Conversion We have already described several tools for font conversion in the chapter on Mac OS. Among them, TransType Pro and FontFlasher also exist in Windows versions that are identical to their Macintosh versions in every detail. The reader is therefore referred back to their descriptions under Mac OS X on pages 205 through 208 of this book. There is, however, a competitor to TransType Pro: CrossFont, by the American company Acute Systems, whose specialty is the conversion of data between the PC and the Macintosh. CrossFont (Figure 7-13) offers almost the same features as TransType Pro for a fraction of the price. It even goes further than TransType Pro, as it can also manage the dfont format of the Macintosh and can generate missing files, such as the PFM file, when a font comes from a Unix environment, or the AFM file, when we need kerning pairs for TEX, etc. One very interesting property: it collects the kerning pairs from any available AFM files and integrates them into the fonts generated during conversion. But it also has its drawbacks: we cannot view the glyphs in a font to confirm that no glyph was overlooked or incorrectly encoded, and Multiple Master fonts are not supported. Both programs (TransType and CrossFont) are available in a demo version that is restricted only in the number of days for which it can be used. Thus one can test out their full functionality before deciding which one to buy.
 
-Figure 7-12: The interface of TransType Pro under Windows XP.
-Figure 7-13: The interface of CrossFont v.4.1 under Windows XP.
+Figure 7-12: The interface of TransType Pro under Windows XP. Figure 7-13: The interface of CrossFont v.4.1 under Windows XP.
 
+```text
 Font Management
 under X Window
 Now that we have examined Mac OS and Windows (which are strikingly similar in the
@@ -270,3 +237,4 @@ our good old-fashioned bitmap fonts (in the formats PSF, BDF, and PCF, etc.; see
 are quite adequate for the terminal’s needs and that font management under X is based
 almost entirely on bitmap fonts—at least until recent times, when vector fonts finally
 made their debut under X.
+```

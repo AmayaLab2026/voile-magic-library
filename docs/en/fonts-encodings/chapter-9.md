@@ -9,6 +9,7 @@ description: "Unabridged English text: TeX compilation pipeline, TFM metric file
 
 ---
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 There is no shortage of word processors or desktop publishing software. How does TEX
 differ from the pack, to the point of deserving two whole chapters in this book?
@@ -50,7 +51,9 @@ and, yes, modern Greek. In English, TEX rhymes with “blecchhh”, as explained
 2 So much so that the software package considered the crème de la crème of mass-market typesetting
 software, Adobe InDesign, adopted TEX’s techniques for setting paragraphs—techniques that Adobe advertises
 as being revolutionary. . .
+```
 
+```text
 Using Fonts in TEX
 result that is nothing more than the most natural thing in the world: typography worthy
 of the name.
@@ -88,33 +91,17 @@ What is special about TEX is the physical separation between the TEX document (w
 we have called the “manuscript”; in computer jargon, the “source”) and the typeset document (the “proofs”; in computer jargon, the “compiled file”). The latter, for historical
 reasons, is a file with a format particular to TEX that is known as DVI (acronym of deviceindependent). This file format, compared with formats such as PDF, PostScript, and DOC
 (the file format of MS Word), is an extremely simple and abstract page description.
+```
+
+::: tip Typographical Specimen Plate (Figure 9-1)
+![Figure 9-1: The TeX production process](/images/fonts-encodings/fig9-1-tex-production-process.png)
+*Figure 9-1: The TeX production process.*
+:::
 
 ![Figure 9-1: The TeX production process](/images/fonts-encodings/fig9-1-tex-production-process.png)
 *Figure 9-1: The TeX production process.*
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-Figure 9-1: The process of producing documents with TEX.
-Why are simplicity and abstraction so important? Because when TEX was created (in the
-1970s), each screen and each printer had its own computer codes. Rather than making
-as many versions of TEX as there were models of screens and printers, Knuth decided to
-create a sort of “pivot” format, the DVI format. Users had only to write their own screen
-and printer “drivers” customized for their systems.
-The same goes for fonts. So as not to make life complicated, TEX uses stand-ins called
-TEX Font Metrics. Unlike all other fonts, these are empty, in the sense that they do not
-contain any glyphs. Instead, they contain font-metric data for each glyph: its height, its
-set-width, its depth, etc. Instead of setting glyphs themselves, TEX sets type using imaginary boxes whose dimensions are taken from the TFM files. Once again, the DVI drivers
-mentioned above have to “dirty their hands” and replace these imaginary boxes with
-glyphs. The logic is the same as for the DVI format: since each printer and each screen
-has its own font formats, we may as well use a simple, generic font format and convert
-it to the format used by the peripheral. Thus TEX would produce a document with an
-abstract, unreal beauty, and its obedient servants, the device drivers, would bring this
-masterpiece down to earth by replacing the imaginary boxes with genuine glyphs and
-working its magic to render the data comprehensible to all the various output devices.
-Since this situation was quite tedious, we awaited, as if for a messiah, the arrival of a
-universal language that would work on all screens and all printers. And it came in 1982:
-it is the PostScript programming language.
-From that time on, we would need only one driver—a driver to convert DVI files into
-PostScript code. Several attempts were made to write that driver—attempts that ran into
+Chapter 9 : Fonts in TEX and Ω, their installation and use Figure 9-1: The process of producing documents with TEX. Why are simplicity and abstraction so important? Because when TEX was created (in the 1970s), each screen and each printer had its own computer codes. Rather than making as many versions of TEX as there were models of screens and printers, Knuth decided to create a sort of “pivot” format, the DVI format. Users had only to write their own screen and printer “drivers” customized for their systems. The same goes for fonts. So as not to make life complicated, TEX uses stand-ins called TEX Font Metrics. Unlike all other fonts, these are empty, in the sense that they do not contain any glyphs. Instead, they contain font-metric data for each glyph: its height, its set-width, its depth, etc. Instead of setting glyphs themselves, TEX sets type using imaginary boxes whose dimensions are taken from the TFM files. Once again, the DVI drivers mentioned above have to “dirty their hands” and replace these imaginary boxes with glyphs. The logic is the same as for the DVI format: since each printer and each screen has its own font formats, we may as well use a simple, generic font format and convert it to the format used by the peripheral. Thus TEX would produce a document with an abstract, unreal beauty, and its obedient servants, the device drivers, would bring this masterpiece down to earth by replacing the imaginary boxes with genuine glyphs and working its magic to render the data comprehensible to all the various output devices. Since this situation was quite tedious, we awaited, as if for a messiah, the arrival of a universal language that would work on all screens and all printers. And it came in 1982: it is the PostScript programming language. From that time on, we would need only one driver—a driver to convert DVI files into PostScript code. Several attempts were made to write that driver—attempts that ran into
 
 Using Fonts in TEX
 major technical problems. Finally, Tom Rokicki, one of Knuth’s doctoral students, wrote
@@ -147,6 +134,7 @@ into the world deprived of fonts. On the contrary, after developing TEX, Knuth s
 not good that TEX should be alone; I will make him a help meet for him and therefore created
 a companion for it. This lawful companion of the TEX language is a programming lan-
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 The Computer Modern fonts, shown here, are among
 the most commonly used fonts in the world and
@@ -183,53 +171,11 @@ the computer, which not only has hands and feet but even drinks coffee. . .
 guardians of libraries in the United States because there is a statue of a lion in front of the entrance of each
 large library there. Guardian of libraries, guardian of the Book—is that not indeed what TEX ultimately aspires
 to be?
+```
 
-Using Fonts in TEX
-(see Figure 9-2), designed by Knuth on the model of Monotype Modern 8A [219]. But
-in fact everything depends on the LATEX stylesheet that we are using. A stylesheet is a LATEX
-file that specifies the details of the document’s appearance. These specifications can be
-more or less general: LATEX comes with some generic stylesheets of its own, and there are
-stylesheets on the Web for all the scientific journals, collections of works, dissertations
-at each university, and many other purposes. The text font, the font for mathematical
-formulae, the font for computer code, etc., are part of each stylesheet’s specifications.
-To specify the active font, the user can operate at any of a number of levels, according to
-the nature of the choice and his own technical expertise. Let us begin with the simplest
-case and proceed deeper and deeper into the workings of LATEX.
-Choosing fonts in LATEX: basic commands
-Owing to its origins in the computer, LATEX considers that there are three big categories
-of fonts that can coexist in a document: “serif”, “sans serif”, and “typewriter”, the last
-of these being used to set computer code. The following three commands set the text
-provided in the argument in one of these three types of fonts:
-\textrm{...}
-serif
-\textsf{...}
-sans serif
-\texttt{...}
-typewriter
-In the absence of any other indication, text is set by default in a light upright font that
-has a lower case. We can change the weight (one other possibility) and the style:
-\textbf{...}
-bold
-\textit{...}
-italic
-\textsl{...}
-slanted
-\textsc{...}
-small capitals
-where “slanted” is an invention of Knuth that involves artificially slanting the letters. It
-is tolerable for sans serif fonts, but it quickly becomes annoying in serif fonts, so please
-avoid it! In the list above, bold can be combined with the three styles “italic”, “slanted”,
-and “small capitals”, but those three styles cannot be combined with one another (a regrettable fact, since it leaves us with no way to obtain italic small capitals). To return to
-the normal state (light, upright, with a lower case), we have the following commands:
-\textmd{...}
-light (in fact medium)
-\textup{...}
-upright, with a lower case
-\textnormal{...}
-light and upright, with a lower case
-The second command cancels the effect of italics, slanted type, and small capitals. The
-third is the most powerful: it restores the default font of the document, with no ornamentation.
+Using Fonts in TEX (see Figure 9-2), designed by Knuth on the model of Monotype Modern 8A [219]. But in fact everything depends on the LATEX stylesheet that we are using. A stylesheet is a LATEX file that specifies the details of the document’s appearance. These specifications can be more or less general: LATEX comes with some generic stylesheets of its own, and there are stylesheets on the Web for all the scientific journals, collections of works, dissertations at each university, and many other purposes. The text font, the font for mathematical formulae, the font for computer code, etc., are part of each stylesheet’s specifications. To specify the active font, the user can operate at any of a number of levels, according to the nature of the choice and his own technical expertise. Let us begin with the simplest case and proceed deeper and deeper into the workings of LATEX. Choosing fonts in LATEX: basic commands Owing to its origins in the computer, LATEX considers that there are three big categories of fonts that can coexist in a document: “serif”, “sans serif”, and “typewriter”, the last of these being used to set computer code. The following three commands set the text provided in the argument in one of these three types of fonts: \textrm{...} serif \textsf{...} sans serif \texttt{...} typewriter In the absence of any other indication, text is set by default in a light upright font that has a lower case. We can change the weight (one other possibility) and the style: \textbf{...} bold \textit{...} italic \textsl{...} slanted \textsc{...} small capitals where “slanted” is an invention of Knuth that involves artificially slanting the letters. It is tolerable for sans serif fonts, but it quickly becomes annoying in serif fonts, so please avoid it! In the list above, bold can be combined with the three styles “italic”, “slanted”, and “small capitals”, but those three styles cannot be combined with one another (a regrettable fact, since it leaves us with no way to obtain italic small capitals). To return to the normal state (light, upright, with a lower case), we have the following commands: \textmd{...} light (in fact medium) \textup{...} upright, with a lower case \textnormal{...} light and upright, with a lower case The second command cancels the effect of italics, slanted type, and small capitals. The third is the most powerful: it restores the default font of the document, with no ornamentation.
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 All of the commands described above affect the text that is given to them as an argument.
 As a safety measure, this text cannot be very long; more specifically, it cannot contain
@@ -286,6 +232,7 @@ enormous
 The exact sizes depend on the stylesheet. For example, in the case of the most common
 stylesheet (book class, 10 points), they are 5/6, 7/8, 8/9.5, 9/11, 10/12, 12/14, 14/18, 17/22,
 20/25, 25/30 (in American printer’s points).
+```
 
 Using Fonts in TEX
 We must mention here that the system covers most of the cases that the author of a LATEX
@@ -426,19 +373,13 @@ available will never be replaced by the same font in a different encoding.
 of leading. Some other units are also available: Didot points, dd (still in use in some
 European countries, such as Greece); PostScript points, bp (‘b’ for big, since they are
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-Figure 9-4: Glyph encodings: T1, or the “Cork encoding”, named for the city of Cork, Ireland,
-where it was defined in 1990 (for the European languages that use the Latin script), and its
-“catchall” companion, named TS1 [211].
+Chapter 9 : Fonts in TEX and Ω, their installation and use Figure 9-4: Glyph encodings: T1, or the “Cork encoding”, named for the city of Cork, Ireland, where it was defined in 1990 (for the European languages that use the Latin script), and its “catchall” companion, named TS1 [211].
 
-Using Fonts in TEX
-Figure 9-5: The T2A and T2B glyph encodings (for European and Asian languages that use the
-Cyrillic alphabet) [73].
+Using Fonts in TEX Figure 9-5: The T2A and T2B glyph encodings (for European and Asian languages that use the Cyrillic alphabet) [73].
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-Figure 9-6: The T2C (Asian languages that use the Cyrillic script) and T2D (Old Cyrillic) glyph
-encodings.
+Chapter 9 : Fonts in TEX and Ω, their installation and use Figure 9-6: The T2C (Asian languages that use the Cyrillic script) and T2D (Old Cyrillic) glyph encodings.
 
+```text
 Using Fonts in TEX
 slightly larger than American printer’s points); millimeters, mm; etc. Note that leading, like the encoding, is ignored by the substitution mechanism.
 One small detail of some importance: in TEX, a change of leading has effect only if there is at
@@ -474,10 +415,9 @@ properties that the user specifies. For example, \fontseries{bx}\selectfont will
 extended bold in an upright context and extended bold italic in an italic context; the
 family, the body size, the leading, and the encoding of the font remain unchanged in
 both cases.
+```
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-Figure 9-7: The T3 (IPA) [302] and T4 glyph encodings (for African languages that use the Latin
-script) [211].
+Chapter 9 : Fonts in TEX and Ω, their installation and use Figure 9-7: The T3 (IPA) [302] and T4 glyph encodings (for African languages that use the Latin script) [211].
 
 Using Fonts in TEX
 Configuring NFSS
@@ -515,6 +455,7 @@ according to the precision desired. On the other hand, we often think not in ter
 specific sizes but rather in terms of intervals; for example, we may use one “physical”
 font for sizes between 9 (inclusive) and 10 (noninclusive), another font for the interval
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 between 10 (inclusive) and 11.754 (noninclusive), and so on. It is clear that the description of constraints on body size calls for a syntax more complex than the simple list of
 keywords that is used for the other NFSS parameters.
@@ -556,7 +497,9 @@ It is time for some concrete illustrations. Here is an extract of code from a .f
 \DeclareFontShape{T1}{palatino}{bx}{it}{<-> palatinobi}{}
 The first command states that in this file we are describing the family Palatino in
 the T1 font encoding. It follows that this code necessarily appears in a file named
+```
 
+```text
 Using Fonts in TEX
 t1palatino.fd. The four commands that follow specify that there are four combinations
 of weight (m for medium, bx for bold extended) and style (n for neutral, it for italic).
@@ -599,52 +542,13 @@ we can imagine an FD file like the preceding one, with intervals for the actual 
 appears in a document; thus, if we took the font names literally, fonts “6” and “72” would practically never
 be used. We have “cheated” slightly in order to improve these three fonts’ chances of being used together in a
 document.
+```
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-Figure 9-8: Some specimens of the font Adobe Kepler MM at optical sizes between 5 and
-24 points.
+Chapter 9 : Fonts in TEX and Ω, their installation and use Figure 9-8: Some specimens of the font Adobe Kepler MM at optical sizes between 5 and 24 points.
 
-Using Fonts in TEX
-\DeclareFontFamily{T1}{kepler}{}
-\DeclareFontShape{T1}{kepler}{m}{n}{
-<-.5> kepler5
-<5.5-.5> kepler6
-<6.5-.5> kepler7
-...
-<22.5-.5> kepler23
-<23.5-> kepler24
-}{}
-That means that any difference, however small, between two actual sizes of these fonts
-will always be valid (requesting 5 points or 5.1 points gives two different fonts, the second
-one a tenth of a point larger) and that the difference between optical sizes and actual sizes
-will never be greater than 1 point.
-All very well. But is this attitude really sound? If we are already fortunate enough to
-have different optical sizes spaced one point apart (a luxury indeed), do we really need to
-indulge in the perverse, unhealthy pleasures of half-points or even tenths or hundredths
-of a point? Would it not be more elegant to use the pristine optical sizes themselves, as
-their designer intended, at their true dimensions?
-That can be done. Simply specify exact actual sizes:
-\DeclareFontFamily{T1}{kepler}{}
-\DeclareFontShape{T1}{kepler}{m}{n}{
-<5> kepler5
-<6> kepler6
-<7> kepler7
-...
-<23> kepler23
-<24> <25> <26> <27> <28> <29> <30> kepler24
-}{}
-With the configuration shown above, NFSS will only set type at actual sizes that are
-whole numbers between 5 and 30. If these sizes are less than or equal to 24, the optical size will coincide with the actual size. Beyond that level, the optical size of 24 will
-be magnified, but only so as to form the integer-valued actual sizes of 25,26,... ,30. If
-LATEX—for whatever reason, be it an explicit request from the user or the calculations
-made by the stylesheet—calls for an actual size other than those explicitly indicated, the
-nearest size on the list will be substituted. Thus whether one calls for 9.33, 9.25, or 9.17,
-the result will be the same: the size of 9 points.
-To simplify the task of writing a font descriptor, LATEX provides the keyword gen *:
-\DeclareFontFamily{T1}{kepler}{}
-\DeclareFontShape{T1}{kepler}{m}{n}{
-<5> <6> <7> <8> <9> <10> <11> <12> <13> <14>
+Using Fonts in TEX \DeclareFontFamily{T1}{kepler}{} \DeclareFontShape{T1}{kepler}{m}{n}{ <-.5> kepler5 <5.5-.5> kepler6 <6.5-.5> kepler7 ... <22.5-.5> kepler23 <23.5-> kepler24 }{} That means that any difference, however small, between two actual sizes of these fonts will always be valid (requesting 5 points or 5.1 points gives two different fonts, the second one a tenth of a point larger) and that the difference between optical sizes and actual sizes will never be greater than 1 point. All very well. But is this attitude really sound? If we are already fortunate enough to have different optical sizes spaced one point apart (a luxury indeed), do we really need to indulge in the perverse, unhealthy pleasures of half-points or even tenths or hundredths of a point? Would it not be more elegant to use the pristine optical sizes themselves, as their designer intended, at their true dimensions? That can be done. Simply specify exact actual sizes: \DeclareFontFamily{T1}{kepler}{} \DeclareFontShape{T1}{kepler}{m}{n}{ <5> kepler5 <6> kepler6 <7> kepler7 ... <23> kepler23 <24> <25> <26> <27> <28> <29> <30> kepler24 }{} With the configuration shown above, NFSS will only set type at actual sizes that are whole numbers between 5 and 30. If these sizes are less than or equal to 24, the optical size will coincide with the actual size. Beyond that level, the optical size of 24 will be magnified, but only so as to form the integer-valued actual sizes of 25,26,... ,30. If LATEX—for whatever reason, be it an explicit request from the user or the calculations made by the stylesheet—calls for an actual size other than those explicitly indicated, the nearest size on the list will be substituted. Thus whether one calls for 9.33, 9.25, or 9.17, the result will be the same: the size of 9 points. To simplify the task of writing a font descriptor, LATEX provides the keyword gen *: \DeclareFontFamily{T1}{kepler}{} \DeclareFontShape{T1}{kepler}{m}{n}{ <5> <6> <7> <8> <9> <10> <11> <12> <13> <14>
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 <15> <16> <17> <18> <19> <20> <21> <22> <23>
 <24> gen * kepler
@@ -686,7 +590,9 @@ something possible in theory for Multiple Master fonts, but no one has taken the
 8 Of course, and as we shall see below, we can always slant a PostScript font by including a little PostScript
 command in the configuration file for dvips. But is that aesthetically acceptable? It might work for sans serif
 fonts in some instances, but for serif fonts—especially those based on classical models, such as Monotype Garamond in the example shown above—that borders on sacrilege!
+```
 
+```text
 Using Fonts in TEX
 But beware! As is the case for most “miracle solutions”, there is a catch. A font contains
 different types of glyphs, and when we attempt to regularize the sizes of some glyphs, we
@@ -728,6 +634,7 @@ as “Marxism-Leninism” or “physico-mathematical”. By using another glyph 
 hyphen.
 9 Some people define x-height as the ration of the height of the lowercase letters to the height of the
 uppercase letters [34, 206]. We shall employ the first definition.
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 Another possibility: by writing \hyphenchar=-1, we can completely disable hyphenation. That
@@ -883,6 +790,7 @@ and rounding is unavoidable. But how, then, can we be sure that the vertical bar
 correctly with the one in the line above it? To ensure correct alignment, dvips analyzes the file and tracks down
 alignments of this type (an approach much like that of hinting fonts), then adjusts the rounding for consistency.
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 &lt;right dim="167112"/&gt;
 &lt;set&gt;te&lt;/set&gt;
@@ -926,7 +834,9 @@ TEX sets type.
 What can we conclude from this section? That the DVI file contains, all in all, very little
 information on the fonts that it uses: a TFM filename, an actual size, and an optical size.
 And the software that will process the DVI file is not even required to consult the TFM
+```
 
+```text
 Using Fonts in TEX
 file, because even the kerning pairs have already been explicitly applied in the DVI file.12
 All that remains is to replace the &lt;set&gt; commands with actual glyphs.
@@ -964,6 +874,7 @@ one wishes to generate one or another font not supplied by Knuth, simply by stat
 that font’s name.
 12 Nevertheless, in the case of sophisticated DVI drivers access to TFM files is necessary, not because of
 kerning pairs, but to obtain the dimensions of glyph boxes (which are not included in the DVI file).
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 In addition to Sauter’s system, most TEX and Ω distributions are equipped with a manager of searches and file generation that is called kpathsea (= Karl [Berry]’s Path Search
@@ -1038,6 +949,7 @@ right. This file is called mktex.opt and is usually kept in the configuration di
 the TEX distribution (/&lt;somewhere&gt;/TeX/texmf/web2c under Unix). Here are the lines
 of this file that concern us:
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 : \${MODE=ljfour}
 : \${BDPI=600}
@@ -1076,7 +988,9 @@ When re-encoding is employed, the PostScript font will be used with an encoding 
 than its original one. Thus any accented glyphs that exist in the font will appear in the
 encoding, and in the positions in which TEX expects to find them (so as to simulate, for
 example, the T1 font encoding).
+```
 
+```text
 Using Fonts in TEX
 The technique of virtual fonts goes further than that. It involves saying to dvips: “If you
 find a glyph from this font in a DVI file, replace it with the handful of DVI commands
@@ -1116,7 +1030,9 @@ is no need to incorporate it again into the PostScript file generated by dvips.
 Another example:
 15 Warning: do not mistake the PostScript name, which is an internal name for the PostScript font, and the
 PostScript filename, which is the name of the file containing the PostScript font (cf. §C.3.2).
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 TimesTenRomSC TimesTen-RomanSC
 &lt;TimesTenRomSC.pfa
@@ -1158,7 +1074,9 @@ the environment variable T1FONTS.
 17 The bracket in <[8r.enc indicates to dvips that the file that it has encountered is not yet the font file
 but rather an auxiliary file, in this case a file containing an encoding. This bracket is not required, but it can
 be useful in some cases for removing ambiguities.
+```
 
+```text
 Using Fonts in TEX
 contains the font’s PostScript data. This time we have a PFB file, thus a binary file. It will
 be converted by dvips to PFA format so that it can be embedded in the PostScript code
@@ -1196,6 +1114,7 @@ In this section we have examined the possibilities for configuring dvips for use
 PostScript fonts. While the procedure that dvips uses to find fonts may appear very
 complex, there is no reason for us to feel discouraged: configuring dvips is itself quite
 18 The location of these files is governed by the environment variable TEXCONFIG of the global configuration file of the TEX distribution, texmf.cnf.
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 simple. In broad strokes, it involves inserting into a configuration file as many lines as
@@ -1268,6 +1187,7 @@ such as by coloring them or subjecting them to rotations, translations, or scali
 virtual font will contain PostScript code for each glyph.
 • And many other situations can be imagined.
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 The astute reader may make the following observation: everything described above can
 also be done at the level of TEX through the use of commands; after all, TEX is a programming language, thus we can do anything with it. Why, then, should we resort to a
@@ -1308,6 +1228,7 @@ features: the ability to select blocks of text and copy them onto the clipboard,
 to search for strings in a PDF document, full-text indexing of PDF documents, Unicode
 support. But how can we identify an accented letter if in reality it consists of nothing but
 an “accent” character placed over the glyph for a “letter” character?
+```
 
 Using Fonts in TEX
 Recall that the method (cf. C.3.3) used by Acrobat Distiller to associate Unicode characters with the glyphs that it finds in PostScript files is as follows: it examines the PostScript
@@ -1379,6 +1300,7 @@ disposal some PFB/PFA files (PostScript Type 1) and AFM files (PostScript Type 1
 metrics) files, that we would like to adapt for use with TEX or Ω. Thus we must produce
 FD, TFM, and VF files and update the configuration file for dvips.
 
+```text
 Installing Fonts for TEX
 We shall consider two tools that will enable us to carry out these operations. The first of
 them, afm2tfm, is a simple and rapid executable tool suitable for use in ordinary cases. Its
@@ -1415,7 +1337,9 @@ The Tool afm2tfm
 The program afm2tfm comes with the dvips distribution. Its purpose is to read an AFM
 file and possibly one or two font encoding files, and then to generate a TFM file and
 possibly a VPL file (the human-readable version of a VF file; see Appendix B).
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 Suppose that we have the AFM file CentaurMT.afm and wish to produce from it a virtual
 font named t1centaurmn.vpl, in the T1 encoding. To do so, we need only write:
@@ -1449,7 +1373,9 @@ CentaurMT-Italic CentaurMT-Italic " ECEncoding ReEncodeFont " &lt;EC.enc
 CentaurMT-Bold CentaurMT-Bold " ECEncoding ReEncodeFont " &lt;EC.enc
 CentaurMT-BoldItalic CentaurMT-BoldItalic " ECEncoding ReEncodeFont "
 &lt;EC.enc
+```
 
+```text
 Installing Fonts for TEX
 to which we will add instructions to include the PFB files, as follows:
 CentaurMT CentaurMT " ECEncoding ReEncodeFont " <[EC.enc
@@ -1486,6 +1412,7 @@ fontinst is written in TEX, which means that it comes with a TEX file that “dr
 procedure and that TEX, when it reads this file, will begin to read the required AFM files
 and some auxiliary files of fontinst so that it can eventually write out the required PL,
 VPL, and FD files.
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 In this section, we shall consider only the basic commands of fontinst, since our aim is
@@ -1522,6 +1449,7 @@ At the end of the file, the corresponding closing commands are used:
 \endinstallfonts
 \end
 
+```text
 Installing Fonts for TEX
 According to the principles of NFSS, we need an FD file for each family of fonts that we
 are to create. Here is the command that creates this file; it is written in the file that drives
@@ -1560,6 +1488,7 @@ CentaurMT-BoldItalicT1 TimesNewBoldItalic " ECEncoding ReEncodeFont "
 Having obtained fonts in the desired encoding, we can now move on to the heart of the
 matter and install the NFSS fonts. To do so, we shall use the command \installfont,
 which takes the following arguments:
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 • The name of the VPL file generated
@@ -2084,6 +2013,7 @@ The “encoding commands” will be in this form:
 \comment{This is the glyph foo}
 \endsetslot
 
+```text
 Customizing TEX Fonts for the User’s Needs
 This command associates the glyph foo with the current position. The current position
 is 0 by default and increases by 1 every time \setslot appears. We can also be explicit
@@ -2123,7 +2053,9 @@ Finally, two “gadgets” from TEX’s mathematical fonts: the sequence of exte
 and composition (see Appendix B.1.4). Here is how to tell TEX which is the glyph larger
 than the current glyph that must be used when a mathematical expression requests a
 delimiter of a larger size:
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 \setslot{foo}
 \nextlarger{foo2}
@@ -2160,6 +2092,7 @@ latinsc}{T1c}{T1}{centaur}{m}{sc}{}
 There is a fundamental difference between the two files CentaurMTT1.mtx and CentaurExpertMT.mtx and the file latinsc.mtx: the former are generated on the fly from AFM
 files of the same name; the latter is painstakingly prepared by the developer. Thus the
 former contain, in the ideal case, nothing but the information contained in the AFM
+```
 
 Customizing TEX Fonts for the User’s Needs
 files. It is latinsc.mtx that will take advantage of the information to do more interesting
@@ -2269,6 +2202,7 @@ define kerning behavior equivalences. For example, it is quite natural to suppos
 ligature ‘Œ’ will behave, with respect to other glyphs, like an ‘O’ on the left and like an ‘E’
 on the right. That fact can be expressed with the following commands:
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 \setleftkerning{OE}{O}{1000}
 \setrightkerning{OE}{E}{1000}
@@ -2302,7 +2236,9 @@ of the command \lc{A}{a}, followed by the string small. Thus, instead of a, we f
 Asmall. Thus we can reuse the code in the t1.etx file by simply adapting this convention
 of Adobe for naming glyphs, which affects the names of the small capitals.
 Other tricks of this kind are used for ligatures, old-style figures, etc.
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 What do we find right now in the MTX file latin.mtx? Since it consists of programming,
 the authors of this file (Alan Jeffrey and Ulrik Vieth) first define a number of commands
@@ -2336,6 +2272,7 @@ definition:
 in some fonts sold in France by a company that shall go unnamed, the Icelandic glyph thorn (þ) was replaced
 by ‘pb’, i.e., a ‘p’ and a ‘b’ superimposed! If it were not for the legendary sangfroid of the Scandinavian peoples,
 this construction could have driven Icelandic readers to the point of suicide. . .
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 \moveup{\max{0}{\sub{\height{#1&#125;&#125;{\int{xheight&#125;&#125;&#125;&#125;
@@ -2382,6 +2319,7 @@ In the latter case, it is much more effective to use the glyphs’ bounding boxe
 of the day, when we know the exact dimensions of a glyph’s contour, no matter how it
 may be placed in its abstract box, we can always center it with respect to another glyph.
 
+```text
 Customizing TEX Fonts for the User’s Needs
 Why, then, is fontinst based on set-widths rather than on bounding boxes? Because
 the concept of bounding box is peculiar to TEX. The TEX font-metric files, be they real
@@ -2416,45 +2354,11 @@ Adding ligatures to a font
 A “mademoiselle” for the font Zapfino
 Suppose that we wish to adapt the delightful font Zapfino (a creation of a great master
 who shall go nameless here) for use with TEX—or rather with Ω, since the latter supports
+```
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-far more than 256 glyphs. One step in the process of adaptation will be to write the code
-for the ligatures. Thanks to this code, some strings in the input will automatically produce ligatures. Being a great patriot and defender of la francophonie, I have chosen, from
-the multitude of ligatures provided in Zapfino, one that is as French as can be: ‘t’ (for
-“mademoiselle”, the French equivalent of the title “Miss”), from which I have removed
-the period that Zapf unfortunately added. How can we obtain a ligature automatically
-from the string Mlle?
-The reason that we chose this example (rather than the bland ‘fi’ ligature) is that there
-is a catch. Specifically, in TEX, unlike in OpenType or AAT, we cannot define ligatures of
-more than two glyphs at a time. Thus, to produce the four-glyph ligature ‘t’, we will
-have to have positions in the font’s table for each of the intermediate ligatures: ‘u’, ‘uv’,
-and ‘uw’. Thus we shall have the following in the ETX file:
-\setslot{M}
-\ligature{LIG}{l}{M_l}
-\comment{Letter M}
-\endsetslot
-\setslot{M_l}
-\ligature{LIG}{l}{M_l_l}
-\comment{(False) ligature Ml}
-\endsetslot
-\setslot{M_l_l}
-\ligature{LIG}{l}{M_l_l_e}
-\comment{(False) ligature Mll}
-\endsetslot
-\setslot{M_l_l_e}
-\comment{Original ligature Mlle}
-\endsetslot
-We are therefore taking up four positions in the font’s table, while only two of them will
-actually be used. Moreover, these two positions (‘u’ and ‘t’) are the only ones that will
-actually appear in the font. The other two are really nothing but jury-rigging.
-What will appear in the MTX file? For the “real” glyphs, we will have the customary code:
-\setglyph{M}
-\glyph{M}{1000}
-\endsetglyph
-\setglyph{M_l_l_e}
-\glyph{M_l_l_e}{1000}
-\endsetglyph
+Chapter 9 : Fonts in TEX and Ω, their installation and use far more than 256 glyphs. One step in the process of adaptation will be to write the code for the ligatures. Thanks to this code, some strings in the input will automatically produce ligatures. Being a great patriot and defender of la francophonie, I have chosen, from the multitude of ligatures provided in Zapfino, one that is as French as can be: ‘t’ (for “mademoiselle”, the French equivalent of the title “Miss”), from which I have removed the period that Zapf unfortunately added. How can we obtain a ligature automatically from the string Mlle? The reason that we chose this example (rather than the bland ‘fi’ ligature) is that there is a catch. Specifically, in TEX, unlike in OpenType or AAT, we cannot define ligatures of more than two glyphs at a time. Thus, to produce the four-glyph ligature ‘t’, we will have to have positions in the font’s table for each of the intermediate ligatures: ‘u’, ‘uv’, and ‘uw’. Thus we shall have the following in the ETX file: \setslot{M} \ligature{LIG}{l}{M_l} \comment{Letter M} \endsetslot \setslot{M_l} \ligature{LIG}{l}{M_l_l} \comment{(False) ligature Ml} \endsetslot \setslot{M_l_l} \ligature{LIG}{l}{M_l_l_e} \comment{(False) ligature Mll} \endsetslot \setslot{M_l_l_e} \comment{Original ligature Mlle} \endsetslot We are therefore taking up four positions in the font’s table, while only two of them will actually be used. Moreover, these two positions (‘u’ and ‘t’) are the only ones that will actually appear in the font. The other two are really nothing but jury-rigging. What will appear in the MTX file? For the “real” glyphs, we will have the customary code: \setglyph{M} \glyph{M}{1000} \endsetglyph \setglyph{M_l_l_e} \glyph{M_l_l_e}{1000} \endsetglyph
 
+```text
 Customizing TEX Fonts for the User’s Needs
 \setleftkerning{M_l_l_e}{M}{1000}
 \setrightkerning{M_l_l_e}{e}{1000}
@@ -2491,7 +2395,9 @@ As for the false ligatures, they will be replaced by the corresponding DVI code 
 devirtualization. For example, M_l will be replaced by the glyphs M and l, and M_l_l will
 be replaced by the pair of glyphs M and l_l, the second of these being a true ligature,
 equivalent to the string ll. Thus all is well, in the best of worlds.
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 Contextual analysis in Arabic
 Another example of the use of ligatures: the contextual analysis of the Arabic script. For
@@ -2533,7 +2439,9 @@ this special glyph were present. Thus we can assign it to ligatures or to kernin
 fontinst, we use a special command, \setleftboundary, in the following manner:
 \setleftboundary{percent}
 \ligature{/LIG}{ghayn.medi}{ghayn.init}
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 \ligature{/LIG}{dal.fina}{dal.isol}
 \endsetslot
@@ -2571,6 +2479,7 @@ Thus we write:
 \setrightboundary{percent}
 The percent sign thus serves two purposes: it is the left-hand and the right-hand delimiter.
 The entry for medial ghayn might thus be:
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 \setslot{ghayn.medi}
@@ -2651,6 +2560,7 @@ head on the ‘f ’ and a line of fontinst code.
 role of a non-Arabic letter. Since they have zero width, these glyphs allow us to force Arabic letters to assume
 a certain form.
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 Placing a diacritical mark
 In the section “ETX and MTX Files for a Simple Virtual Font” (page 292), we considered
@@ -2683,7 +2593,9 @@ Making an ‘h’ believe that it is an ‘l’
 Kaj nun, ankora˘u pli interesa ekzemplo: la litero ‘h’ uzata en Esperanto, lingvo tiel idealisma kaj ˆcarma en sia strangeco. (Now for a more interesting example: the letter ‘h’ used
 23 For simplicity’s sake, we shall assume that the accent is centered; thus it lacks the third parameter of
 \topaccent, which we shall assume to have the value of 500.
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 in Esperanto,24 a language so idealistic and charming in its awkwardness.) It is obvious
 that centering the accent (like this: ‘ˆh’) would yield a horribly ugly result. Therefore, we
@@ -2719,7 +2631,9 @@ Old Cyrillic (or “Slavonic”) script, used for liturgical documents in the co
 and Germanic languages. Its main use was as a pivot language during the Cold War: since the West was hesitant
 to learn Russian or Chinese and the Eastern Bloc was equally hesitant to learn English or French, Esperanto
 served as a common language for communication between people from the two rival blocs.
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 use the Cyrillic script. This alphabet includes a letter named yus: ‘k’ (Unicode 0x0467
 cyrillic small letter little yus). Like all the vowels in this alphabet, yus can bear
@@ -2753,7 +2667,9 @@ The code is hardly more complex than the preceding example; there are only a few
 Second, we have added the line \movert{\bbright{#1&#125;&#125;, which moves to the rightmost
 extremity of the glyph. Finally, the alignment of the base glyph and the accent is performed from right to left; thus we have inserted a \neg into the code, to force movement
 towards the left.
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 Making a letter forget that it has a horn
 But letters are not the only characters that are replaced with (more respectable) letters.
@@ -2786,6 +2702,7 @@ Putting breathing marks in the margin
 Finally, one more interesting example that is nonetheless too often spurned by incompetent Greek typesetters: when an uppercase Greek vowel appears at the beginning of a
 paragraph or a line of verse, the breathing mark and any accent that it bears are set in
 the margin:
+```
 
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 Note that in the case of the letters alpha and omicron, we are also required to kern the
@@ -2818,6 +2735,7 @@ The very purpose of this maneuver is to align the uppercase vowels. Thus we shou
 move the breathing mark closer to the letter not by moving the letter to the left but
 rather by moving the breathing mark to the right and leaving the letter right where it
 
+```text
 Customizing TEX Fonts for the User’s Needs
 is. Unfortunately, TEX has made no provision for this procedure: in a kerning pair, it is
 always the second term that is moved, never the first.
@@ -2852,7 +2770,9 @@ of zero height. But this solution is neither elegant nor compatible with the ver
 properties of kerning and hyphenation. A more elegant solution is therefore needed,
 and here it is: we can force the abstract boxes of the accented capitals to have the same
 dimensions as those of the letters without accents. Here is an example:
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 \setglyph{Eacute}
 \topaccent{E}{acute}{500}
@@ -2879,7 +2799,9 @@ with \frenchdieresis defined in the following manner:
 \push
 \moveup{\neg{\height{dieresis&#125;&#125;}
 \moveup{\height{i&#125;&#125;
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 Figure 9-10: The utility LTR Bleifrei LayerPlayer of Letterror.
 \movert{\add{\sub{\scale{\width{#1&#125;&#125;{500&#125;&#125;{%
@@ -2907,7 +2829,9 @@ A utility by the name of LTR Bleifrei LayerPlayer (for Mac OS 9 only), which is 
 in Figure 9-10, allows one to enter text in this font and select colors to produce special
 effects. We enter a few words in this utility’s window and save the result in EPS format;
 then it can be used in any vector-based image software.
+```
 
+```text
 Chapter 9 : Fonts in TEX and Ω, their installation and use
 But how does it work? In fact, there are three superimposed fonts. These three fonts
 can be of different colors, for producing special effects. The first font, Bodoni BleifreiImprint, reproduces the impressions of the type—i.e., the glyphs as they are usually seen.
@@ -2929,7 +2853,9 @@ files associated with the three base fonts. A glyph in our virtual font will com
 corresponding glyphs from these three fonts. For example, the F of the virtual font will
 superimpose the F of BodonBleImp.afm with the F of BodonBleLea.afm and that of BodonBleSlu.afm.
 The first hurdle: if we wish to refer to these three letters F in a single fontinst glyph definition, they must have different names.
+```
 
+```text
 Customizing TEX Fonts for the User’s Needs
 Thus we must rename the glyphs in at least two of these fonts. Does that mean that we
 have to open the PostScript code for the font and edit it? Not at all; in any event, our
@@ -2966,74 +2892,8 @@ Here, then, is the fontinst code to obtain the letter ‘F’ in our virtual fon
 \push
 \glyphspecial{color push cmyk .42 .42 .19 .10}
 25 The reader who feels ill at ease with the PostScript language may consult our introduction to this language in Appendix C.1 on page 635 of this book.
+```
 
-Chapter 9 : Fonts in TEX and Ω, their installation and use
-\glyph{F.slug}
-\glyphspecial{color pop}
-\pop
-\push
-\glyph{F.lead}
-\pop
-\glyph{F}
-\endsetglyph
-We start with the lowest layer so that we can superimpose the other two upon it. What
-is incredible is that this font is perfectly ordinary to TEX, which will perform kerning,
-hyphenation, etc., as usual without being aware that the font exists under several layers
-with different colors.
-Conclusions and Glimpses at the Future
-In this chapter we have seen, without going too deeply into the details, various aspects of
-font management in TEX and Ω. Its apparent complexity is related to the clash of cultures
-that occurred between the initial philosophy of TEX (TFM metrics, on the one hand, and
-GF or PK bitmaps on the other) and the chaotic real world of the fonts of the past two
-decades. How can we get the most benefits from TEX font metrics—and from virtual
-fonts in particular? At the same time, how can we adapt fonts (PostScript, TrueType,
-OpenType, etc.) for use with TEX when they are a priori foreign to it?
-We have seen that most of the problems stem from the incompatibility between these
-two philosophies and from the fact that we cannot provide more information to TEX than
-what exists within the concept of a virtual font. For instance, PostScript and TrueType
-fonts contain the notion of a bounding box, whereas virtual fonts know nothing about
-it. We are therefore obliged to perform all the operations involving a bounding box (e.g.,
-precise placement of diacritical marks) while we still have access to this information—
-namely, at the time that the virtual font is created by fontinst, when it has just read the
-AFM files and accumulated the data for the bounding boxes. After that, it will be too
-late: TEX will never again have access to the information.
-Another example, going in the opposite direction: ligatures. We have seen that when
-ligatures appear in PostScript fonts adapted for use with TEX, it is certainly not because
-they were already indicated in the AFM files. In reality, AFM usually disregard ligatures
-altogether. If we have ligatures at our disposal, it is because they were systematically inserted, thanks to the file latin.mtx. But what about OpenType or AAT files, which specify with great precision which ligatures should be made and under which conditions?
-Furthermore, it must be admitted that the mechanisms for using ligatures provided by
-OpenType and AAT are more powerful than those of TEX or Ω. By what convoluted
-means can we convert an AAT finite automaton for ligatures into a series of ligatures in
-a virtual font? The idea of writing a generic algorithm to convert AAT finite automata
-into ligatures in a virtual font could be the inspiration for a horror movie by Stephen
-King...
+Chapter 9 : Fonts in TEX and Ω, their installation and use \glyph{F.slug} \glyphspecial{color pop} \pop \push \glyph{F.lead} \pop \glyph{F} \endsetglyph We start with the lowest layer so that we can superimpose the other two upon it. What is incredible is that this font is perfectly ordinary to TEX, which will perform kerning, hyphenation, etc., as usual without being aware that the font exists under several layers with different colors. Conclusions and Glimpses at the Future In this chapter we have seen, without going too deeply into the details, various aspects of font management in TEX and Ω. Its apparent complexity is related to the clash of cultures that occurred between the initial philosophy of TEX (TFM metrics, on the one hand, and GF or PK bitmaps on the other) and the chaotic real world of the fonts of the past two decades. How can we get the most benefits from TEX font metrics—and from virtual fonts in particular? At the same time, how can we adapt fonts (PostScript, TrueType, OpenType, etc.) for use with TEX when they are a priori foreign to it? We have seen that most of the problems stem from the incompatibility between these two philosophies and from the fact that we cannot provide more information to TEX than what exists within the concept of a virtual font. For instance, PostScript and TrueType fonts contain the notion of a bounding box, whereas virtual fonts know nothing about it. We are therefore obliged to perform all the operations involving a bounding box (e.g., precise placement of diacritical marks) while we still have access to this information— namely, at the time that the virtual font is created by fontinst, when it has just read the AFM files and accumulated the data for the bounding boxes. After that, it will be too late: TEX will never again have access to the information. Another example, going in the opposite direction: ligatures. We have seen that when ligatures appear in PostScript fonts adapted for use with TEX, it is certainly not because they were already indicated in the AFM files. In reality, AFM usually disregard ligatures altogether. If we have ligatures at our disposal, it is because they were systematically inserted, thanks to the file latin.mtx. But what about OpenType or AAT files, which specify with great precision which ligatures should be made and under which conditions? Furthermore, it must be admitted that the mechanisms for using ligatures provided by OpenType and AAT are more powerful than those of TEX or Ω. By what convoluted means can we convert an AAT finite automaton for ligatures into a series of ligatures in a virtual font? The idea of writing a generic algorithm to convert AAT finite automata into ligatures in a virtual font could be the inspiration for a horror movie by Stephen King...
 
-Conclusions and Glimpses at the Future
-Thus only one possible solution can be imagined: opening the doors to the perspective of
-TEX, or rather Ω (since TEX is enjoying eternal rest in the heavenly kingdom of deceased
-software), for those who come into direct contact with OpenType, AAT, and all the other
-kinds of fonts that the future holds in store for us. It is time, then, to toll the knell of
-TFM, VF, OFM, OVF, and other font-metric file formats that are not up to the standard
-of today’s fonts.
-The author’s research team at ENST Bretagne is working on version 2 of Ω, based on
-textemes [167, 168, 71]. A texteme is a data structure containing, all in one: a character,
-one or more glyphs, and, potentially, a set of key-value pairs called properties (Arabic
-form, color, hyphenation, font, Semitic root, Chinese ideographic radical and/or decomposition, language, horizontal and vertical offset of the glyph, and whatever else the user
-may need). The goal of textemes is to replace characters by becoming the atomic units of
-text, so that information which is missing from characters in the current Unicode-based
-model of text, can be injected at a level other than mark up. Using textemes in the Ω
-input document, the typesetting process becomes an accumulation of texteme properties
-so that Ω output contains essentially the same textemes as the input document, but with
-many more properties.
-How does Ω v2 deal with OpenType fonts? During processing by Ω, texteme string are filtered by external engines. One of these engines corresponds roughly to Uniscribe/παν語
-and will segment text, apply contextual analysis for Arabic, re-order Indic glyphs, etc.
-Two other external engines correspond to the two basic OpenType tables GSUB and GPOS.
-These engines will read the font data and will apply OpenType transformations to the
-flow of textemes (in fact: to the glyphs contained in the textemes). This approach has
-the advantage that one keeps absolute control on the way the text is transformed, since
-one can act on the texteme flow at any moment, even after the GPOS engine or between
-engines. Ω v2 is still an experimental project, a heavy-duty approach to the problem of
-marrying the TEX principles of versatile high-level typography and the OpenType way of
-processing international text.
-
-
+Conclusions and Glimpses at the Future Thus only one possible solution can be imagined: opening the doors to the perspective of TEX, or rather Ω (since TEX is enjoying eternal rest in the heavenly kingdom of deceased software), for those who come into direct contact with OpenType, AAT, and all the other kinds of fonts that the future holds in store for us. It is time, then, to toll the knell of TFM, VF, OFM, OVF, and other font-metric file formats that are not up to the standard of today’s fonts. The author’s research team at ENST Bretagne is working on version 2 of Ω, based on textemes [167, 168, 71]. A texteme is a data structure containing, all in one: a character, one or more glyphs, and, potentially, a set of key-value pairs called properties (Arabic form, color, hyphenation, font, Semitic root, Chinese ideographic radical and/or decomposition, language, horizontal and vertical offset of the glyph, and whatever else the user may need). The goal of textemes is to replace characters by becoming the atomic units of text, so that information which is missing from characters in the current Unicode-based model of text, can be injected at a level other than mark up. Using textemes in the Ω input document, the typesetting process becomes an accumulation of texteme properties so that Ω output contains essentially the same textemes as the input document, but with many more properties. How does Ω v2 deal with OpenType fonts? During processing by Ω, texteme string are filtered by external engines. One of these engines corresponds roughly to Uniscribe/παν語 and will segment text, apply contextual analysis for Arabic, re-order Indic glyphs, etc. Two other external engines correspond to the two basic OpenType tables GSUB and GPOS. These engines will read the font data and will apply OpenType transformations to the flow of textemes (in fact: to the glyphs contained in the textemes). This approach has the advantage that one keeps absolute control on the way the text is transformed, since one can act on the texteme flow at any moment, even after the GPOS engine or between engines. Ω v2 is still an experimental project, a heavy-duty approach to the problem of marrying the TEX principles of versatile high-level typography and the OpenType way of processing international text.

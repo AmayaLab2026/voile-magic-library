@@ -9,6 +9,7 @@ description: "Unabridged English text: FontLab and FontForge workflows, cubic an
 
 ---
 
+```text
 Editing and Creating Fonts
 Now we come to the heart of this book: creating fonts. Need one be a Hermann Zapf or a
 Jean François Porchez nowadays to create fonts? Of course not; otherwise there would be
@@ -34,6 +35,7 @@ of two of the most widely used software tools for editing/creating fonts: FontLa
 FontForge. In Chapter 13 we shall discuss the optimization of the rendering of glyphs
 through the use of PostScript hints or TrueType instructions. Finally, in Chapter 14, we
 shall examine the advanced typographic features of OpenType and AAT.
+```
 
 Software for Editing/Creating Fonts
 Over the past 20 years, at least six large-scale systems for creating fonts1 have been produced:
@@ -71,8 +73,7 @@ based on FontLab.
 1 In 1987 there was a conference on font-design systems [40] at Sophia-Antipolis, France. The reader will
 find in its published proceedings a description of numerous other systems.
 
-Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X.
-Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9.
+Figure 12-1: The font window of Macromedia Fontographer, under Mac OS X. Figure 12-2: The glyph window of Letraset FontStudio, under Mac OS 9.
 
 • FontLab [140], written by Yuri Yarmola and Vadim Suvorov, which today is the most
 widespread system, thanks in particular to its rapid response to new technologies.
@@ -145,6 +146,7 @@ must also be able to determine their social behavior.
 The most fundamental interaction is kerning: the software must allow the user to indicate, whether automatically or manually, the kerning of two glyphs, the similarity of
 glyphs’ behavior with respect to kerning (for example, ‘É’ is kerned just like ‘E’), etc.
 
+```text
 Next, the software must support the introduction of OpenType, and even AAT, features
 into our fonts. That is more easily said than done, and today’s software supports only a
 few of these features, and ofter poorly at that.
@@ -181,6 +183,7 @@ correspondence between numbers and glyph names. In the beginning, in the years
 the code point of the glyph within the table and the glyph’s description; the name was
 merely a vehicle for going from one to the other. But these names took on importance
 when Acrobat was released, as Adobe began to use them to find the Unicode characters
+```
 
 FontLab
 to which the glyphs corresponded. Thus Adobe defined a standard syntax for naming
@@ -267,25 +270,9 @@ order (the order in which they appear in the code), but that order does not affe
 use of the font in any way: in PostScript fonts, we specify glyphs by means of their
 names; in TrueType, we specify them through the loca table—itself used by the cmap
 
-Figure 12-5: The Ranges mode of the FontLab font window.
-table, which acts as a pivot between characters and glyphs. The index mode serves to
-give a general view of all the glyphs in the font, without gaps and without any risk
-that some glyphs may go undetected because their code points are too far away in
-the table.
-Note that the choice of Names mode or Pages mode will affect the PostScript or
-TrueType font that is generated. Things are less clear in Ranges mode or Index mode
-mode, and we advise the reader to check the encoding of the generated font by inspecting
-the AFM file (for PostScript fonts) or through the use of TTX (for TrueType fonts).
-One last comment to conclude the issue of encodings: when we select an encoding in
-Names mode or in Pages mode, we change only the positions of the glyphs in the table.
-In other words, the data for the individual glyphs (contours, names, Unicode correspondences, etc.) do not change one iota.
-But there is also a more radical way to modify the font’s table: “re-encoding”. The name
-of this operation is rather poorly chosen: when we move, for example, from one code
-page to another, we also “re-encode” the font—whereas here the operation is much more
-radical, even brutal.
-When we select Glyphs>Glyph Names>Reencode Glyphs, FontLab will take the
-glyphs in their current positions and regard them from that point on as being glyphs in a
+Figure 12-5: The Ranges mode of the FontLab font window. table, which acts as a pivot between characters and glyphs. The index mode serves to give a general view of all the glyphs in the font, without gaps and without any risk that some glyphs may go undetected because their code points are too far away in the table. Note that the choice of Names mode or Pages mode will affect the PostScript or TrueType font that is generated. Things are less clear in Ranges mode or Index mode mode, and we advise the reader to check the encoding of the generated font by inspecting the AFM file (for PostScript fonts) or through the use of TTX (for TrueType fonts). One last comment to conclude the issue of encodings: when we select an encoding in Names mode or in Pages mode, we change only the positions of the glyphs in the table. In other words, the data for the individual glyphs (contours, names, Unicode correspondences, etc.) do not change one iota. But there is also a more radical way to modify the font’s table: “re-encoding”. The name of this operation is rather poorly chosen: when we move, for example, from one code page to another, we also “re-encode” the font—whereas here the operation is much more radical, even brutal. When we select Glyphs>Glyph Names>Reencode Glyphs, FontLab will take the glyphs in their current positions and regard them from that point on as being glyphs in a
 
+```text
 FontLab
 Figure 12-6: The Index mode of the FontLab font window.
 certain font encoding that we will specify. The glyph names and the Unicode correspondences already established are simply disregaded: everything is flattened, and nothing is
@@ -310,7 +297,9 @@ Regardless of the way in which we have chosen to arrange the glyphs, the font wi
 offers us nine (!) different ways to label them:
 Specifically, by their names (the default choice), by the corresponding Unicode character,
 by their indexes (i.e., the sequential numbers of their glyph descriptions), by their set-
+```
 
+```text
 widths, by their left and right side-bearings, by their code-point numbers (in decimal,
 hexadecimal, or octal), by the corresponding character in the ANSI encoding, and by
 any data generated by a Python macro. We can also color the boxes to facilitate their
@@ -350,7 +339,9 @@ VFB: this is the format in which fonts are saved when we use File>Save or File>S
 To obtain a Unix, Windows, or Mac OS X font, we use Files>Generate Font. Then we
 have the choice of the formats TTF (called Win TrueType/OpenType TT), OTF (called
 through a second dialog window, OpenType PS), PFB (Win Type 1), PFA (ASCII/Unix
+```
 
+```text
 FontLab
 Type 1) and VFB (FontLab native format).2 For each type of font, we again have special
 options. For instance, when generating PostScript fonts, we can choose, through a second
@@ -390,6 +381,7 @@ in the code will render the font useless—so use this option in moderation!
 2 In previous versions of FontLab the type 42 output format (Unix Type 42 (Raw ASCII)) was also
 provided. This is really a pity because type 42 allows us to send TrueType fonts to a PostScript device without
 first converting their outlines and hints to PostScript.
+```
 
 To generate Mac OS 9 fonts (under FontLab Macintosh), we use File>Generate Mac
 Suitcase. Since the Macintosh font suitcases are an endangered species, we shall not go
@@ -429,12 +421,7 @@ Under what conditions? This information comes from the contents of the fsType
 field in the OS/2 table, which, unlike what one would expect from its name, is not
 limited to the OS/2 operating system but also covers Windows (Appendix D.4.7).
 
-FontLab
-(a)
-(b)
-(c)
-Figure 12-7: The tabs Names and Copyright, Additional OpenType names, and
-Copyright information.
+FontLab (a) (b) (c) Figure 12-7: The tabs Names and Copyright, Additional OpenType names, and Copyright information.
 
 • Designer information: entries 9, 12, and 11 from the name table—the designer’s
 name, her URL, and the URL of the foundry.
@@ -468,12 +455,7 @@ ySuperscriptXOffset, and ySuperscriptYOffset).
 • Encoding and Unicode (see Figure 12-8 [b]): depending on the glyphs contained
 in a font, we can choose one or more font encodings from this list. Mac OS 8.5, Windows 95, and more recent versions of these operating systems will pretend to show
 
-FontLab
-(a)
-(b)
-(c)
-Figure 12-8: The tabs Key dimensions, Supported codepages and default character
-set, and Supported Unicode ranges.
+FontLab (a) (b) (c) Figure 12-8: The tabs Key dimensions, Supported codepages and default character set, and Supported Unicode ranges.
 
 the user multiple fonts; in fact, what will be shown is the same font under different encodings. The name of the font will be the font’s usual name followed by the
 name of an encoding in parentheses. The data in question are hidden amongst the
@@ -617,6 +599,7 @@ Once we have specified the major points, the software will take care of the rest
 whether the curves are quadratic, cubic, or conic: the result will be the same (!). And if the curve is not exactly
 what we wanted, we need only add a few more points. . .
 
+```text
 point. If we wish to produce a straight line, we release the mouse button and click a
 second time, while holding down the alt key, to select the ending point. If, however, we
 wish to produce a curve, we drag the mouse while holding the button down: the point
@@ -661,6 +644,7 @@ angle is 90 degrees. This same contextual menu can also operate on the entire co
 making it the first contour; deleting it; subtracting it from the contour that appears
 below; selecting it; or creating a parallel contour at the left, at the right, or on both
 sides, at a given distance.
+```
 
 FontLab
 Drawing shapes is all very well; but if the shapes are simple, having them available for
@@ -694,46 +678,9 @@ automatically calculating the side bearings from an analysis of the glyph’s co
 (Autospacing), or changing the font’s metrics dramatically (Adjust Metrics).
 • The effects are best explained by an illustration:
 
-Here we have tortured the font Le Monde Livre. The last result, in which “Tous les effets”
-(meaning “All the effects”) is barely legible, comes from the application of all the
-effects in the order shown.
-It goes without saying that the only one of these effects that is of interest for the production of fonts worthy of the name is Effects>Bold, which allows us to increase the
-weight of the glyphs. For example, we can simulate the optical correction by adding
-a small amount of weight and slightly increasing the width and the side bearings.
-Another possible application: we can add a slight amount of weight to some fonts
-in order to adapt them better to others (for example, the mathematical symbols of
-Computer Modern, for use with text in Times Roman).
-Just above, we spoke of a “factory of transformations”. But every factory has an assembly
-line. We can perform several transformations sequentially through the window Tools>
-Action Set. There is no limit to the number or the variety of the transformations that
-can appear in a sequence. We can also specify precisely the glyphs to which we wish to
-apply these transformations: the choice can range from a single glyph to the entire font to
-all the open fonts or even to all the fonts in a given directory. And if the user successfully
-makes an ideal transformation, she may save it in a file by using the button
-, which
-appears on the Action Set window.
-On the vertical Tools toolbar, we also find button
-, which surrounds the contour with
-a frame that has handles. By moving these handles with the mouse, we can perform the
-classic transformations: scaling, rotation, and slanting.
-There are several other transformations of contours that must be applied manually: they
-are listed on the Transform toolbar (obtained through the View>Toolbars>Contour
-menu) and should not be confused with the Transformation panel.
-The first two buttons of the Transform toolbar are just shortcuts for horizontal and
-vertical reflection. The third button
-initiates an interpolation procedure. Clicking on
-this button opens the following window:
-As long as this window remains visible, we are in “interpolation mode”. In this mode,
-we can click on any node and make it into a reference point. A reference point can stay in
-its original position or be moved. The principle of interpolation is as follows. All points
-that lie between two reference points are moved proportionally by interpolating the displacement vector of the reference points. All the points that lie before the first reference
-point or after the last one are moved by the same amount as the reference points. These
-calculations are performed individually within each contour. Once we have displaced all
-the reference points to our satisfaction, we click on OK to confirm the operation.
-The button
-launches an operation of simplification. By simplification we mean the
-replacement of a number of Bézier curves by a single one that assumes, as much as
+Here we have tortured the font Le Monde Livre. The last result, in which “Tous les effets” (meaning “All the effects”) is barely legible, comes from the application of all the effects in the order shown. It goes without saying that the only one of these effects that is of interest for the production of fonts worthy of the name is Effects>Bold, which allows us to increase the weight of the glyphs. For example, we can simulate the optical correction by adding a small amount of weight and slightly increasing the width and the side bearings. Another possible application: we can add a slight amount of weight to some fonts in order to adapt them better to others (for example, the mathematical symbols of Computer Modern, for use with text in Times Roman). Just above, we spoke of a “factory of transformations”. But every factory has an assembly line. We can perform several transformations sequentially through the window Tools> Action Set. There is no limit to the number or the variety of the transformations that can appear in a sequence. We can also specify precisely the glyphs to which we wish to apply these transformations: the choice can range from a single glyph to the entire font to all the open fonts or even to all the fonts in a given directory. And if the user successfully makes an ideal transformation, she may save it in a file by using the button , which appears on the Action Set window. On the vertical Tools toolbar, we also find button , which surrounds the contour with a frame that has handles. By moving these handles with the mouse, we can perform the classic transformations: scaling, rotation, and slanting. There are several other transformations of contours that must be applied manually: they are listed on the Transform toolbar (obtained through the View>Toolbars>Contour menu) and should not be confused with the Transformation panel. The first two buttons of the Transform toolbar are just shortcuts for horizontal and vertical reflection. The third button initiates an interpolation procedure. Clicking on this button opens the following window: As long as this window remains visible, we are in “interpolation mode”. In this mode, we can click on any node and make it into a reference point. A reference point can stay in its original position or be moved. The principle of interpolation is as follows. All points that lie between two reference points are moved proportionally by interpolating the displacement vector of the reference points. All the points that lie before the first reference point or after the last one are moved by the same amount as the reference points. These calculations are performed individually within each contour. Once we have displaced all the reference points to our satisfaction, we click on OK to confirm the operation. The button launches an operation of simplification. By simplification we mean the replacement of a number of Bézier curves by a single one that assumes, as much as
 
+```text
 FontLab
 possible, the shape of those curves. Used with discretion, this operation can improve a
 glyph: often a single Bézier curve is infinitely more beautiful than a dozen laboriously
@@ -768,7 +715,9 @@ To facilitate the chore of kerning as much as possible, FontLab puts several too
 user’s disposal.
 All the operations are performed in a special window called the metrics window (menu
 Window>New Metrics Window):
+```
 
+```text
 On the bottom bar of this window, we can enter a line of text (possibly using the \ABCD
 notation for glyphs representing Unicode characters or the /name_of_glyph notation to
 specify a glyph by means of its name). By choosing Panel in the Options pull-down
@@ -801,7 +750,9 @@ By selecting Auto... in the Tools pull-down menu we have the possibility to gene
 new metrics or new kerning pairs (according to the mode) for a single glyph, for the
 glyphs displayed, or even for all of the glyphs in the font. The author can hardly imagine
 that a font in which the set-widths, the side bearings, and the kerning pairs were all calcu-
+```
 
+```text
 FontLab
 lated automatically could really be functional; but we have to admit that that would be a
 good starting point. With kerning pairs, we can avoid excesses by specifying an absolute
@@ -838,7 +789,9 @@ pairs, or we can request Expand Kerning, in which case FontLab will calculate al
 kerning pairs thus produced and add them to the list of kerning pairs that already exist.
 That is how we can obtain, for example, new kerning pairs in an AFM file. But beware:
 once again, the connection is not permanent. If we later change the kerning of the representative glyphs, we must use Expand Kerning again to update all the pairs.
+```
 
+```text
 The classes that we have just described are not used only to define kerning pairs. Through
 the window Tools>Metrics Assistance, we can also change the set-widths or the side
 bearings of all the glyphs in a single class.
@@ -875,7 +828,9 @@ a window with one sliding bar for each axis: as values are specified, the select
 change dynamically. Here is the interface, under Illustrator 10:
 6 That said, the dynamic font technology still exists in the AAT fonts (§D.12). But as yet no tool really
 supports the creation of these fonts.
+```
 
+```text
 FontLab
 Without going into the technical details, we wish to bring one very important constraint
 of the Multiple Master format to the reader’s attention. Although the different master
@@ -908,7 +863,9 @@ mask. Thus we can freely modify the master designs and observe the consequences 
 our modifications on the intermediate glyph.
 7 In fact, knowing that intermediate masters are often the most useful, Adobe has included in the Multiple Master specifications the possibility of using a master not as an extremity of a variation axis but as an
 intermediate value. But this functionality is not supported by FontLab which will not even open such fonts.
+```
 
+```text
 Master
 (1,1,1)
 Master
@@ -928,36 +885,11 @@ practical way to obtain the light and bold master designs. We select a font that
 bold weight. Obviously there is no guarantee that the glyphs in the bold weight will be
 8 Note that in the font Kepler the optical size can be extrapolated downward all the way to the value −28!
 Which raises a truly metaphysical issue: what is a negative optical size?
+```
 
-FontLab
-Figure 12-10: The window for creating
-Multiple Master fonts from two ordinary fonts taken as master designs: the
-fonts Univers 47 (light condensed) and
-Univers 67 (bold condensed).
-“compatible” with those in the light weight, i.e., that they will have the same nodes, of
-the same kind, and in the same places. But here is what FontLab offers us. We select the
-two fonts, together with the name of the new axis of variation, in the window Tools>
-Blend Fonts (see Figure 12-10), and we check the box Build the Multiple Master
-Font. Then FontLab will meticulously compare the two versions of the glyphs and make
-a decision about their compatibility. If, for a given glyph, the light version and the bold
-version are “compatible”, the box for the glyph in the font window will be colored green.
-Then we can apply the action Tools>Multiple Master>Mask to Master, and the bold
-version will become the glyph’s second master design. If, however, the glyphs are not
-compatible, we can move the nodes of the second master design (which is, by default,
-identical to the first) until the contour looks just like the bold version, which is shown
-as a mask. Note that for the example of the fonts in Figure 12-10, 65 percent of the glyphs
-were already characterized by FontLab as “compatible”, and we had nothing more to do
-than to handle the 35 percent that remained in order to obtain a true Multiple Master
-font with one axis (weight). This is not a contrived example, as Univers is the canonical
-example of a “variable” font, and it is but a short step from Adrien Frutiger’s arrangement of Univers in several series [144, pp. 13–25] to the Multiple Master axes.
-The same method of “multimasterization” in FontLab can be applied to versions of a
-font with different set-widths or optical sizes, or indeed any other type of variation.9
-Clearly this sort of practice almost turns the design of Multiple Master fonts into
-child’s play.
-9 For example, the well-known designer Luc[as] de Groot designed a Multiple Master font called MoveMeMM for which the first master design is a very proper sans serif font and the second is a series of awfully
-raunchy images [112]. This font, offlimits to minors, follows in the long tradition of anthropomorphic and
-often erotic typefaces [92].
+FontLab Figure 12-10: The window for creating Multiple Master fonts from two ordinary fonts taken as master designs: the fonts Univers 47 (light condensed) and Univers 67 (bold condensed). “compatible” with those in the light weight, i.e., that they will have the same nodes, of the same kind, and in the same places. But here is what FontLab offers us. We select the two fonts, together with the name of the new axis of variation, in the window Tools> Blend Fonts (see Figure 12-10), and we check the box Build the Multiple Master Font. Then FontLab will meticulously compare the two versions of the glyphs and make a decision about their compatibility. If, for a given glyph, the light version and the bold version are “compatible”, the box for the glyph in the font window will be colored green. Then we can apply the action Tools>Multiple Master>Mask to Master, and the bold version will become the glyph’s second master design. If, however, the glyphs are not compatible, we can move the nodes of the second master design (which is, by default, identical to the first) until the contour looks just like the bold version, which is shown as a mask. Note that for the example of the fonts in Figure 12-10, 65 percent of the glyphs were already characterized by FontLab as “compatible”, and we had nothing more to do than to handle the 35 percent that remained in order to obtain a true Multiple Master font with one axis (weight). This is not a contrived example, as Univers is the canonical example of a “variable” font, and it is but a short step from Adrien Frutiger’s arrangement of Univers in several series [144, pp. 13–25] to the Multiple Master axes. The same method of “multimasterization” in FontLab can be applied to versions of a font with different set-widths or optical sizes, or indeed any other type of variation.9 Clearly this sort of practice almost turns the design of Multiple Master fonts into child’s play. 9 For example, the well-known designer Luc[as] de Groot designed a Multiple Master font called MoveMeMM for which the first master design is a very proper sans serif font and the second is a series of awfully raunchy images [112]. This font, offlimits to minors, follows in the long tradition of anthropomorphic and often erotic typefaces [92].
 
+```text
 Driving FontLab with Python Scripts
 The greatest strength of FontLab over other font-editing software is without doubt the
 fact that it can be driven by a very enjoyable programming language called Python. Even
@@ -996,6 +928,7 @@ unless we have included the following line in the code:
 in which case it is the “more friendly name” that will appear in the menu.
 Let us proceed by exploring some of the Python classes, attributes, and methods that
 FontLab places at our disposal.
+```
 
 FontLab
 The FontLab class
@@ -1053,37 +986,7 @@ will return 2.
 inclusive).
 11 These splendid lines come from Robert Bruce Boswell’s translation (Phaedra) of Racine’s play Phèdre.
 
-FontLab
-A few examples
-To open all files of type .pfa or .pfb (the extensions may be written in uppercase or
-lowercase) in the directory /home/yannis/, we can write:
-import os, re
-r1=re.compile(r'.+\.pf[ab]\$', re.IGNORECASE)
-for file in (os.listdir("/home/yannis/")):
-if r1.match(file):
-fl.Open("/home/yannis/"+file)
-To obtain all the files in a given directory, we can use the listdir method of module os. To select the files with the extension .pfa or .pfb, we first prepare the regular expression12 r1, using the compile method of module re. This method takes as its
-first argument the pattern of the regular expression: r'.+\.pf[ab]\$', which means “any
-character, one or more times, followed by the string .pf, followed by an a or a b, at the
-end of the string”. The second argument to this method (re.IGNORECASE) indicates that
-matching will disregard the case of the specified characters. Next, for each filename file
-that matches the regular expression, we execute FontLab’s Open method.
-To convert all the PFB fonts in a given directory into OpenType-CFF, we can write:
-import os, re
-r1=re.compile(r'(.+)\.pfb\$', re.IGNORECASE)
-for file in (os.listdir("/home/yannis/")):
-if r1.match(file):
-newfile=r1.match(file).group(1)+".otf"
-fl.Open("/home/yannis/"+file)
-fl.GenerateFont(ftOPENTYPE,"/home/yannis/"+newfile)
-fl.Close(fl.ifont)
-Here the regular expression is more complex because we have added parentheses to isolate the filename without the extension: (.+)\.pfb\$. The string in parentheses forms the
-first group of the expression, which we can use by writing:
-newfile=r1.match(file).group(1)+".otf"
-The rest is self-explanatory.
-To find all the glyphs whose name begins with an ‘f’ and display the number in a dialog
-box while also selecting the glyphs, we can write:
-12 For more information on regular expressions in Python, consult [247, p. 145]. But there is also an excellent book on regular expressions in general: [143].
+FontLab A few examples To open all files of type .pfa or .pfb (the extensions may be written in uppercase or lowercase) in the directory /home/yannis/, we can write: import os, re r1=re.compile(r'.+\.pf[ab]\$', re.IGNORECASE) for file in (os.listdir("/home/yannis/")): if r1.match(file): fl.Open("/home/yannis/"+file) To obtain all the files in a given directory, we can use the listdir method of module os. To select the files with the extension .pfa or .pfb, we first prepare the regular expression12 r1, using the compile method of module re. This method takes as its first argument the pattern of the regular expression: r'.+\.pf[ab]\$', which means “any character, one or more times, followed by the string .pf, followed by an a or a b, at the end of the string”. The second argument to this method (re.IGNORECASE) indicates that matching will disregard the case of the specified characters. Next, for each filename file that matches the regular expression, we execute FontLab’s Open method. To convert all the PFB fonts in a given directory into OpenType-CFF, we can write: import os, re r1=re.compile(r'(.+)\.pfb\$', re.IGNORECASE) for file in (os.listdir("/home/yannis/")): if r1.match(file): newfile=r1.match(file).group(1)+".otf" fl.Open("/home/yannis/"+file) fl.GenerateFont(ftOPENTYPE,"/home/yannis/"+newfile) fl.Close(fl.ifont) Here the regular expression is more complex because we have added parentheses to isolate the filename without the extension: (.+)\.pfb\$. The string in parentheses forms the first group of the expression, which we can use by writing: newfile=r1.match(file).group(1)+".otf" The rest is self-explanatory. To find all the glyphs whose name begins with an ‘f’ and display the number in a dialog box while also selecting the glyphs, we can write: 12 For more information on regular expressions in Python, consult [247, p. 145]. But there is also an excellent book on regular expressions in general: [143].
 
 import re
 total=0
@@ -1332,6 +1235,7 @@ became smaller than g). That left a contour of thickness 10.
 • Interpolate(pairs), where “pairs” refers to any number of pairs (i,p), in which i is
 the index of a node and p is a Point object. For example, we can write:
 
+```text
 FontLab
 g=Glyph()
 g=fl[fl.ifont][fl.iglyph]
@@ -1370,7 +1274,9 @@ n=Node(nLINE,Point(r.x,r.y+r.height))
 g.Add(n)
 n=Node(nLINE,r.ur)
 g.Add(n)
+```
 
+```text
 n=Node(nLINE,Point(r.x+r.width,r.y))
 g.Add(n)
 n=Node(nLINE,r.ll)
@@ -1407,6 +1313,7 @@ segment?) and by their alignment (smooth? sharp?). Intuitively we can imagine a 
 as the starting point of a Bézier curve (which, since the curve is closed, is also necessarily
 the ending point of another curve). FontLab’s vision of the concept of a node is different:
 to FontLab, a node is the ending point of a Bézier curve and of the preceding curve as well.
+```
 
 FontLab
 4 nCURVE
@@ -1476,6 +1383,11 @@ side of Figure 12-11 and consider the Bézier curve formed by points 3 (the star
 4′ (the first control point), 4′′ (the second control point), and 4 (the ending point). The
 last three of these points are regarded as forming a node of type nCURVE. It may seem
 
+::: tip Typographical Specimen Plate (Figure 12-11)
+![Figure 12-11: PostScript and TrueType contour directions](/images/fonts-encodings/fig12-11-postscript-truetype-contours.png)
+*Figure 12-11: PostScript and TrueType contour directions.*
+:::
+
 ![Figure 12-11: PostScript and TrueType contour directions](/images/fonts-encodings/fig12-11-postscript-truetype-contours.png)
 *Figure 12-11: PostScript and TrueType contour directions.*
 
@@ -1515,6 +1427,7 @@ n.points=(p1,p2,p3)
 To indicate the alignment type, we have the choice between a binary or at the time of
 construction or the use of the alignment attribute. For instance:
 
+```text
 FontLab
 n=Node(nCURVE|nSMOOTH,p1)
 is equivalent to
@@ -1552,7 +1465,9 @@ g.Add(n)
 g.Add(Node(0x1,Point(139, 30)))
 g.Add(Node(0x1,Point(582, 675)))
 g.Add(Node(0x1,Point(122, 675)))
+```
 
+```text
 g.Add(Node(0x1,Point(58, 488)))
 g.Add(Node(0x1,Point(84, 488)))
 n=Node(0x1023,Point(155, 581))
@@ -1590,6 +1505,7 @@ programmer, compiling the software will entail a small risk: a problem may arise
 configuration is slightly more recent than that of the initial developer. And if a problem arises,
 one is truly stuck. Furthermore, compiling FontForge requires a number of libraries of external
 subroutines that one must download oneself from their respective Web sites and place in the right
+```
 
 FontForge
 locations. Again, the versions of the libraries used by the developer must be compatible with the
@@ -1620,6 +1536,7 @@ The Font-Table Window
 Let us select a font through the opening dialog box. The font-table window opens, which
 also contains the various menus of FontForge:
 
+```text
 The font-table window shows the font’s glyphs within boxes whose size we can specify
 (it may range from 24 to 96 pixels) through the View window. In each box, and above
 each glyph, is displayed the corresponding Unicode character or a red question mark if
@@ -1659,6 +1576,7 @@ we will end up with as many Type 1 fonts. The choice
 in a file without being enveloped in a TrueType structure.
 14 To open fonts in SVG format, it is necessary to ensure in advance that the libxml2 library of subroutines
 has been installed on the system.
+```
 
 FontForge
 The Options button will open a small window in which we may choose the auxiliary
@@ -1738,6 +1656,7 @@ properties, with the exception of the last two (HMetrics and VMetrics), which ar
 to display or hide the horizontal and vertical baseline and set-width.
 15 But its name cannot be read without widening the window.
 
+```text
 FontForge
 When the cursor is moved onto the working plane, its coordinates (in the coordinate
 system of the glyphs) are displayed at the upper left of the window, on the menu bar.
@@ -1782,7 +1701,9 @@ offers several other very useful entries: Edit>Copy Reference allows us to copy 
 the clipboard not the contour itself but a reference to the contour so as to create composite glyphs by pasting references of this type; Edit>Copy Width allows us to copy onto
 the clipboard the set-width of another glyph; Element>Simplify allows us to simplify
 a path by eliminating the selected nodes—the tangents at the endpoints will remain
+```
 
+```text
 unchanged; finally, Edit>Copy Fg to Bg copies the contents of the working plane onto
 the background.
 The knife tool
@@ -1832,7 +1753,9 @@ according to its Unicode position or, conversely, to determine the Unicode posit
 (see page C.3.3).
 The menu option Element>Transformations>Transform opens a transformation
 window that applies to the selected part of the contour. In this window we may select
+```
 
+```text
 FontForge
 from one to three common transformation(s) (translation, rotation, scaling, reflection,
 slanting) by setting the desired values.
@@ -1861,7 +1784,9 @@ The metrics window (Windows>New Metrics Windows) is used to establish and test
 the ways in which glyphs interact with one another: we can enter a string of glyphs and
 check their set-widths and their kerning. The keyboard can be used to enter a string
 of glyphs in the little input area at the upper left. If a glyph cannot be entered from
+```
 
+```text
 the keyboard, it can still be dragged in from the font window in the area for previewing glyphs. Clicking on a cell in the rows Width (set-width), LBearing (left-hand side
 bearing), RBearing (right-hand side bearing) at the bottom of the window causes the
 corresponding glyph to be selected. Once a glyph has been selected, we can make simple substitutions (look-up of OpenType Type 1 substitutions) through View>Substitutions, where we find a list of all the look-up operations of this kind that apply to the
@@ -1897,7 +1822,9 @@ the hexadecimal code for the corresponding Unicode character.
 We can alter the set-width of one or more glyphs by using Metrics>Set Width. It allows
 us to replace the set-widths with a fixed width, to apply a scaling factor to them, or to
 increment them by a fixed amount.
+```
 
+```text
 FontForge
 Finally, it is possible to define kerning classes and to have the kerning of a pair of glyphs
 applied to their respective classes. We shall see how in Chapter 14, when we discuss the
@@ -1931,7 +1858,9 @@ through the application of a given increment or scaling factor;
 Metrics>VKern By Classes adopts the system of kerning-pair
 classes; Metrics>VKern From HKern is useful primarily for vertical typesetting simulated by horizontally setting glyphs rotated 90 degrees: for each horizontal kerning pair,
 we obtain a vertical kerning pain between the rotated glyphs, calculated through a substitution look-up of the vert or vrt2 property.
+```
 
+```text
 To generate the set-widths and vertical kerning for the glyphs, we can also use the metrics
 window. To switch from horizontal to vertical mode, we need only select View>Vertical
 in this window; then the string of glyphs is displayed vertically, and we can move them
@@ -1967,6 +1896,7 @@ window. The others are accessible through the CID menu, where the names of the s
 17 AsiaFont Studio (the “East Asian” version of FontLab) can open the subfonts of a PostScript CID font.
 Both FontLab and its elder brother can open OpenType CID fonts, but only by flattening them—i.e., by discarding their classification into subfonts. Neither software package can save CID fonts—a rather annoying
 limitation, especially in such expensive software.
+```
 
 Autotracing
 This menu has a number of interesting features:
@@ -2037,6 +1967,7 @@ corresponding to their Unicode code points.
 2. Establish a set-width for each glyph and, if necessary, move the mask relative to the
 set-width so that it is correctly centered and at the correct height.
 
+```text
 ScanFont
 3. Select Element>AutoTrace. FontForge then invokes AutoTrace or potrace (according to the choice that the user has indicated in File>Preferences) and autotraces
 the mask.
@@ -2062,37 +1993,13 @@ parameters.
 Next comes the step of autotracing the individual glyphs. When this operation is initiatied, a configuration window opens (Figure 12-13). In this window, we can vary the
 values of three parameters (trace tolerance, curve fit quality, straightness of angles). What
 is extremely interesting is that we see the effect of these parameters on the trace in real
+```
 
-Figure 12-13: Dialog box for the real-time configuration of autotracing under ScanFont.
-time. Thus we can rapidly find the ideal values for each font. These values can be stored
-and used as a set of predefined values.
-Original
-ScanFont
-potrace
-Figure 12-14: Comparing a contour traced by hand and two contours autotraced from the same
-rendering.
-In Figure 12-14, we show the result of autotracing by the two systems described: ScanFont
-and potrace. Obviously we cannot easily compare two software packages when their results depend a great deal on the choices of values for the parameters. We have therefore
-taken the default values of the parameters in both cases and autotraced an image of very
-high quality: the rendering at 3,432 × 3,300 pixels of a glyph from a vector font. Note
-that this image, owing to its size and its “artificial” character, is far better than the best
-scan of printed text that we will ever be able to produce.
-Here are the conclusions that we can draw from these images: At a global level, we cannot see any differences among the three contours. By inspecting the control points, we
-can tell that ScanFont used fewer points to trace the straight lines but far more to trace
-the curves. There is an abnormally heavy cluster of points all along the serifs. Likewise,
+Figure 12-13: Dialog box for the real-time configuration of autotracing under ScanFont. time. Thus we can rapidly find the ideal values for each font. These values can be stored and used as a set of predefined values. Original ScanFont potrace Figure 12-14: Comparing a contour traced by hand and two contours autotraced from the same rendering. In Figure 12-14, we show the result of autotracing by the two systems described: ScanFont and potrace. Obviously we cannot easily compare two software packages when their results depend a great deal on the choices of values for the parameters. We have therefore taken the default values of the parameters in both cases and autotraced an image of very high quality: the rendering at 3,432 × 3,300 pixels of a glyph from a vector font. Note that this image, owing to its size and its “artificial” character, is far better than the best scan of printed text that we will ever be able to produce. Here are the conclusions that we can draw from these images: At a global level, we cannot see any differences among the three contours. By inspecting the control points, we can tell that ScanFont used fewer points to trace the straight lines but far more to trace the curves. There is an abnormally heavy cluster of points all along the serifs. Likewise,
 
-ScanFont
-ScanFont had a few problems with the inside of the apex of the letter ‘A’. For its part,
-potrace added some unneeded points (in the middle of straight line segments, etc.) but
-used fewer points at the serifs.
-We can only advise the reader to try both programs out before undertaking an autotracing project (potrace and AutoTrace are free, and there is a demo version of ScanFont at
-FontLab’s web site) and certainly to repeat the same tests by varying the values of the
-parameters.
-In conclusion, let us compare once again the three versions of the letter ‘A’ in the figure. Is the original not more elegant than the two letters derived from it? The author
-is convinced that those who are used to using vector design tools will spend less time
-vectorizing a letter (by hand, but in an intelligent and methodical way) by following its
-mask than correcting an autotraced contour, however good the tool that produced it.
+ScanFont ScanFont had a few problems with the inside of the apex of the letter ‘A’. For its part, potrace added some unneeded points (in the middle of straight line segments, etc.) but used fewer points at the serifs. We can only advise the reader to try both programs out before undertaking an autotracing project (potrace and AutoTrace are free, and there is a demo version of ScanFont at FontLab’s web site) and certainly to repeat the same tests by varying the values of the parameters. In conclusion, let us compare once again the three versions of the letter ‘A’ in the figure. Is the original not more elegant than the two letters derived from it? The author is convinced that those who are used to using vector design tools will spend less time vectorizing a letter (by hand, but in an intelligent and methodical way) by following its mask than correcting an autotraced contour, however good the tool that produced it.
 
+```text
 Optimizing a Rasterization
 In a world peopled with fonts, we would read in Genesis: “for pixels thou art, and unto
 pixels thou shalt return”. Indeed, we often forget that the ultimate goal of all the mathematical constructions that represent our glyph outlines is to produce images made from
@@ -2112,3 +2019,4 @@ an entire row of pixels suddenly fall within the outline and thus be made black�
 conversely, it may cause them to fall outside the outline and thus be made white. In the
 example below, five versions of the letter ‘H’ with slightly different heights have been
 rasterized using the method of the centers of the pixels.
+```

@@ -1,6 +1,6 @@
 ---
 title: 第十四章 · 丰富字体表达：高级排版特性
-description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》第十四章全文深度学术汉译：智能字体技术全景、OpenType 布局架构（GSUB/GPOS/GDEF）、Adobe 特性定义语言、微软 VOLT 可视化工程实操、以及苹果 AAT 有限状态自动机流派深度对比。
+description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》第十四章全文深度学术汉译：智能字体技术全景、OpenType 布局架构（GSUB/GPOS/GDEF）、Adobe 特性定义语言、微软 VOLT 可视化工程实操（工程窗口与交互式验校室）、以及苹果 AAT 有限状态自动机流派深度对比。
 ---
 
 # 第十四章 · 丰富字体表达：高级排版特性
@@ -109,15 +109,19 @@ feature calt {
 ```
 
 ### 2. 微软 VOLT 可视化工程环境（Visual OpenType Layout Tool）
-对于极其复杂的阿拉伯文、藏文与印度次大陆天城文系字库，纯文本代码往往难以调试成千上万个级联的上下文规则。微软为此开发了传奇的专业图形化工具——**VOLT**，如 **Figure 14-6** 所示：
+对于极其复杂的阿拉伯文、藏文与印度次大陆天城文系字库，纯文本代码往往难以调试成千上万个级联的上下文规则。微软为此开发了传奇的专业图形化工具——**VOLT**：
 
-![微软 VOLT 项目管理与查找规则树窗口（Figure 14-6）](/images/fonts-encodings/fig14-6-volt-project-window.png)
+::: tip 复杂文字排印工程图版（Figure 14-6 & Figure 14-9）
+![Figure 14-6: 微软 VOLT 项目管理与查找规则树窗口](/images/fonts-encodings/fig14-6-volt-project-window.png)
+*图 14-6：Microsoft VOLT 复杂文字排版工程开发主界面（选自原著 Figure 14-6）。左侧树状视图展示了脚本（Scripts: DFLT, arab, latn）、语言系统（Language Systems）、特性项（Features: ccmp, rlig, calt, mark）以及底层的查找定义（Lookups）。*
 
-*图 14-6：Microsoft VOLT 复杂文字排版工程开发主界面（选自原著 Figure 14-6）。左侧树状视图展示了脚本（Scripts: DFLT, arab, latn）、语言系统（Language Systems）、特性项（Features: ccmp, rlig, calt, mark）以及底层的查找定义（Lookups）。右侧直观呈现了字形类的划分与编译状态。*
+![Figure 14-9: 微软 VOLT 交互式验校室](/images/fonts-encodings/fig14-9-volt-proofing-window.png)
+*图 14-9：VOLT 交互式验校室窗口（Proofing Window in VOLT，选自原著 Figure 14-9）。排印工程师可以输入任意长句，单步单帧观察字形是如何从原始码位一步步被拆分、合体、平移和重叠的。*
+:::
 
 在 VOLT 的工作流中：
 * 工程师可以通过树状拓扑清晰编排复杂的规则执行管线（Pipeline Priority）；
-* 内建了所见即所得的“交互式验校室”（Proofing Window），工程师可以键入任意极端复杂的波斯文或梵文长句，单步单帧观察字形是如何从原始码位一步步被拆分、合体、平移和重叠的，排印调试效率成百倍提升。
+* 内建了所见即所得的“交互式验校室”（Proofing Window），极大降低了非拉丁文字字库的工程开发壁垒。
 
 ---
 
@@ -126,6 +130,11 @@ feature calt {
 在与微软携手制定 OpenType 之前，苹果电脑公司（Apple）独立研发了另一套极具数学美感的智能字体引擎——**AAT（Apple Advanced Typography）**。
 
 与 OpenType 基于静态查找表（Lookups）的模式匹配不同，**AAT 的核心是一台严密的有限状态自动机（Finite State Automaton）！**
+
+::: tip 状态自动机排印图版（Figure 14-15）
+![Figure 14-15: AAT 类与状态转移表窗口](/images/fonts-encodings/fig14-15-aat-state-table.png)
+*图 14-15：FontForge 中管理的 AAT 类与状态表（选自原著 Figure 14-15）。状态自动机依据当前输入字符与状态矩阵，执行状态跳转并触发字形重排与替换动作。*
+:::
 
 ### 1. `morx` 变形表与状态机流转
 在 AAT 的扩展字形变形表（`morx`）中：

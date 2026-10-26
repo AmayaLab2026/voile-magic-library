@@ -9,6 +9,7 @@ description: "Unabridged English text: Character names, blocks, general category
 
 ---
 
+```text
 allow the user to correct errors that may arise from the generalized application of character properties.
 What are these properties, and where are they found? We shall answer both questions
 in the remainder of this chapter.
@@ -42,7 +43,9 @@ book but also in the file Blocks.txt (in the same directory as UnicodeData.txt).
 is a snippet of this file:
 0000..007F; Basic Latin
 0080..00FF; Latin- Supplement
+```
 
+```text
 Basic properties
 0100..017F; Latin Extended-A
 0180..024F; Latin Extended-B
@@ -77,6 +80,7 @@ Age
 This is nothing but the number of the Unicode version in which the character first appeared in the encoding. Let us take this opportunity to observe that Unicode characters
 have one thing in common with our academics: they are immortal, in the sense that a
 Unicode character, once defined, can never be removed from the encoding. The worst
+```
 
 thing that can happen to a character is to be “deprecated”, which in Unicode leads to
 hilarious situations à la “the character is here, but act as if it were not, and for heaven’s
@@ -375,6 +379,7 @@ Other general properties
 By scanning over the categories and subcategories described in the previous section, we
 can quickly notice that many properties are omitted from the categorization. Another
 
+```text
 file at the Unicode site, by the name of PropList.txt, makes up for this deficiency by
 introducing a certain number of properties that are orthogonal to the notion of category.
 Here is a snippet of the file, showing the characters that have the property of being
@@ -427,7 +432,9 @@ not in PropList.txt but in DerivedCoreProperties.txt.
 Noncharacters
 These characters are the forbidden fruit of Unicode: their code points may not be used.
 The Consortium even created a special term for them: noncharacters (written solid). They
+```
 
+```text
 Other general properties
 cover 32 code points in the block of Arabic presentation forms 0xFDD0-0xFDEF and the
 last two positions in each plane, 0x??FFE and 0x??FFF. This is why: Code point 0xFFFE
@@ -464,7 +471,9 @@ writing), and they are listed in PropList.txt.
 Logical-order exceptions
 These are characters that are not rendered in their logical order. They represent a blemish
 in Unicode that is due, once again, to the principle of backward compatibility with ex-
+```
 
+```text
 isting encodings. This property applies to 10 Thai and Lao characters, all of them vowels
 placed to the left of the consonant. One example is the consonant ’ 0x0E99 lao letter no. To obtain the sound “nF”, we add the vowel ‘ 0x0EC0 lao vowel sign e after the
 consonant. But graphically this vowel appears before the consonant: ‘’. Its graphical
@@ -503,7 +512,9 @@ of property “mathematical characters”, even though they are essential to mat
 formulae.
 2 For many years a classic mistake of the user who was new to LATEX was to write \^i instead of \^{\i}.
 The advent of the T1 fonts, whose macros provide for the “soft dot”, eliminated this error.
+```
 
+```text
 Other general properties
 Quotation marks
 This property covers all the characters that can be used as quotation marks. They are of
@@ -537,7 +548,9 @@ the “real” (non-spacing) diacritical marks and the “inert” (spacing) dia
 ASCII, as well as a host of other signs. For example, the katakana prolonged sound mark,
 graphically speaking, is not a diacritical mark at all but nonetheless effectively plays
 this rôle.
+```
 
+```text
 There are 482 characters with the “diacritic” property. They are listed in PropList.txt
 under the property Diacritic.
 Extenders
@@ -573,6 +586,7 @@ there is no case in Georgian. But all of that belongs to the past, and we are no
 to dig into these almost 15-year-old documents if the information does not appear in
 UnicodeData.txt.
 In this file we also find a piece of potentially useful information: the comment, associated with certain characters, that appears in ISO 10646. We have already mentioned the
+```
 
 Properties that pertain to case
 fact that ISO 10646-1 and Unicode bring themselves into alignment on a regular basis.
@@ -730,11 +744,11 @@ word. Thus we have R0B1B3.
 The reader may work out the remaining words in the same manner: B1R3R0, R0B1R3,
 R0R0B0, R0R0R0. To illustrate this mechanism, let us take two genuine Arabic letters: beh
 in its four forms, “   	”, and reh in its two forms, “
- ”. Here are our eight hypothetical
-words in the Arabic alphabet: BBB , BBR 
-, BRB 	
-, RBB , BRR 
-, RBR 
+”. Here are our eight hypothetical
+words in the Arabic alphabet: BBB , BBR
+, BRB
+, RBB , BRR
+, RBR
 ,
 RRB 	, RRR .
 Letters with only a single form have the same behavior as letters that are not Arabic or
@@ -769,9 +783,9 @@ The sample of code shown above contains a fourth field, the joining group.4 It i
 classification of the letters. To understand how it works, we need to review the rôle of
 dots in the Arabic script.
 In its earliest form, the Arabic script suffered from acute polysemy of its glyphs. The
-sounds b, t, th (as in the word think), n, and y (the last of these in its initial and medial forms only) were written with the same symbol. How, then, to distinguish 
+sounds b, t, th (as in the word think), n, and y (the last of these in its initial and medial forms only) were written with the same symbol. How, then, to distinguish
  bayt
-(house) and 
+(house) and
  tayb (well)? To alleviate this difficulty, a system of dots was invented:
 one dot below beh, two dots below yeh, one dot above noon, two dots above teh, three dots
 above theh. Thus the words ‘house’ and ‘well’ can finally be distinguished:  and .
@@ -785,6 +799,7 @@ characters. And when we have cut constructs up into characters, there is no way 
 4 A very poor choice of name, as this information has absolutely nothing to do with the way that this
 letter will be joined to other letters.
 
+```text
 Rendering properties
 them back together again to rebuild larger characters. For example, Catalan has the ligature ‘l·l’. This ligature is encoded as two Unicode characters: an ‘l·’ 0x0140 latin small
 letter l with middle dot and an ordinary ‘l’. But this division may not always be what
@@ -824,7 +839,9 @@ that of grapheme joiner. There are only 14 characters of this type; they are lis
 All Unicode characters that are not grapheme extenders or grapheme joiners and that
 are not in any of the categories Cc, Cf, Cs, Co, Cn, Zl, and Zp have the property of
 grapheme base.
+```
 
+```text
 The reader must be wondering: if all the grapheme joiners are from the Indian and
 Southeast Asian scripts, is there nothing left for the West? Did we carry out sexual liberation for naught? Of course not. Unicode provides us with a special character, 0x034F
 combining grapheme joiner, or CGJ. By placing this character between any two Unicode characters, the latter merge into a single grapheme. Of course this union is rather
@@ -861,7 +878,9 @@ By contrast, ‘’ is not a “decimal digit” (the teacher would be rather 
 Roman numeral system is not decimal, in the sense that a1a2a3 cannot be interpreted as
 “a1 hundreds plus a2 tens plus a1 units”), etc.
 The difference between “digit” and “number” is clearer: if the numeric value of the symbol is in the set {0,1,2,3,4,5,6,7,8,9}, then the symbol is a “digit”; otherwise, it is a
+```
 
+```text
 Identifiers
 “number”. There are many examples of “numbers” in the various writing systems: “Â”
 is the number 1,000 in Tamil, ‘ÁD’ is 1,000 in Roman numerals, ‘Ê’ is 10,000 in Amharic.
@@ -899,6 +918,7 @@ There are 90,604 ID_Start characters and 91,815 ID_Continue characters in Unicod
 They are listed in DerivedCoreProperties.txt.
 We shall see in the section on normalization that there are two other properties:
 XID_Start and XID_Continue, which correspond to sets identical to those just mentioned, with the exception of about thirty characters. The advantage of these two
+```
 
 properties is that they are compatible with Unicode’s various normalization formats.
 Thus we will not be in danger of ending up with non-compliant tags after normalization
@@ -937,190 +957,7 @@ LATIN SMALL LIGATURE OE
 →00E6 æ latin small letter ae
 →0276 œ latin letter small capital oe
 
-The Unicode Standard 5.0, Copyright © 1991-2006 Unicode, Inc. All rights reserved.
-017F
-Latin Extended-A
-Ā
-ā
-Ă
-ă
-Ą
-ą
-Ć
-ć
-Ĉ
-ĉ
-Ċ
-ċ
-Č
-č
-Ď
-ď
-
-
-Ē
-ē
-Ĕ
-ĕ
-Ė
-ė
-Ę
-ę
-Ě
-ě
-Ĝ
-ĝ
-Ğ
-ğ
-Ġ
-ġ
-Ģ
-ģ
-Ĥ
-ĥ
-(
-)
-Ĩ
-ĩ
-Ī
-ī
-Ĭ
-ĭ
-Į
-į
-İ
-ı
-Ĳ
-ĳ
-Ĵ
-ĵ
-Ķ
-ķ
-Ĺ
-ĺ
-Ļ
-ļ
-Ľ
-ľ
-
-
-Ł
-ł
-Ń
-ń
-Ņ
-ņ
-Ň
-ň
-ŉ
-Ŋ
-ŋ
-Ō
-ō
-Ŏ
-ŏ
-Ő
-ő
-Œ
-œ
-Ŕ
-ŕ
-Ŗ
-ŗ
-Ř
-ř
-Ś
-ś
-Ŝ
-ŝ
-Ş
-ş
-Š
-š
-Ţ
-ţ
-Ť
-ť
-_
-`
-Ũ
-ũ
-Ū
-ū
-Ŭ
-ŭ
-Ů
-ů
-Ű
-ű
-Ų
-ų
-Ŵ
-ŵ
-Ŷ
-ŷ
-Ÿ
-Ź
-ź
-Ż
-ż
-Ž
-ž
-ſ
-010A
-010B
-010C
-010D
-010E
-010F
-011A
-011B
-011C
-011D
-011E
-011F
-012A
-012B
-012C
-012D
-012E
-012F
-013A
-013B
-013C
-013D
-013E
-013F
-014A
-014B
-014C
-014D
-014E
-014F
-015A
-015B
-015C
-015D
-015E
-015F
-016A
-016B
-016C
-016D
-016E
-016F
-017A
-017B
-017C
-017D
-017E
-017F
-A
-B
-C
-D
-E
-F
+The Unicode Standard 5.0, Copyright © 1991-2006 Unicode, Inc. All rights reserved. 017F Latin Extended-A Ā ā Ă ă Ą ą Ć ć Ĉ ĉ Ċ ċ Č č Ď ď   Ē ē Ĕ ĕ Ė ė Ę ę Ě ě Ĝ ĝ Ğ ğ Ġ ġ Ģ ģ Ĥ ĥ ( ) Ĩ ĩ Ī ī Ĭ ĭ Į į İ ı Ĳ ĳ Ĵ ĵ Ķ ķ Ĺ ĺ Ļ ļ Ľ ľ   Ł ł Ń ń Ņ ņ Ň ň ŉ Ŋ ŋ Ō ō Ŏ ŏ Ő ő Œ œ Ŕ ŕ Ŗ ŗ Ř ř Ś ś Ŝ ŝ Ş ş Š š Ţ ţ Ť ť _ ` Ũ ũ Ū ū Ŭ ŭ Ů ů Ű ű Ų ų Ŵ ŵ Ŷ ŷ Ÿ Ź ź Ż ż Ž ž ſ 010A 010B 010C 010D 010E 010F 011A 011B 011C 011D 011E 011F 012A 012B 012C 012D 012E 012F 013A 013B 013C 013D 013E 013F 014A 014B 014C 014D 014E 014F 015A 015B 015C 015D 015E 015F 016A 016B 016C 016D 016E 016F 017A 017B 017C 017D 017E 017F A B C D E F
 
 The Unicode Standard 5.0, Copyright © 1991-2006 Unicode, Inc. All rights reserved.
 012D
@@ -1128,174 +965,163 @@ Latin Extended-A
 ĕ
 LATIN SMALL LETTER E WITH BREVE
 • Malay, Latin, ...
-≡ 0065 e  0306  
+≡ 0065 e  0306 
 Ė
 LATIN CAPITAL LETTER E WITH DOT ABOVE
-≡ 0045 E  0307  
+≡ 0045 E  0307 
 ė
 LATIN SMALL LETTER E WITH DOT ABOVE
 • Lithuanian
-≡ 0065 e  0307  
+≡ 0065 e  0307 
 Ę
 LATIN CAPITAL LETTER E WITH OGONEK
 ≡ 0045 E  0328 
- 
 ę
 LATIN SMALL LETTER E WITH OGONEK
 • Polish, Lithuanian, ...
 ≡ 0065 e  0328 
- 
 011A
 Ě
 LATIN CAPITAL LETTER E WITH CARON
 ≡ 0045 E  030C 
- 
 011B
 ě
 LATIN SMALL LETTER E WITH CARON
 • Czech, ...
 ≡ 0065 e  030C 
- 
 011C
 Ĝ
 LATIN CAPITAL LETTER G WITH CIRCUMFLEX
-≡ 0047 G  0302  
+≡ 0047 G  0302 
 011D
 ĝ
 LATIN SMALL LETTER G WITH CIRCUMFLEX
 • Esperanto
-≡ 0067 g  0302  
+≡ 0067 g  0302 
 011E
 Ğ
 LATIN CAPITAL LETTER G WITH BREVE
-≡ 0047 G  0306  
+≡ 0047 G  0306 
 011F
 ğ
 LATIN SMALL LETTER G WITH BREVE
 • Turkish, Azerbaijani
 → 01E7 ǧ  latin small letter g with caron
-≡ 0067 g  0306  
+≡ 0067 g  0306 
 Ġ
 LATIN CAPITAL LETTER G WITH DOT ABOVE
-≡ 0047 G  0307  
+≡ 0047 G  0307 
 ġ
 LATIN SMALL LETTER G WITH DOT ABOVE
 • Maltese, Irish Gaelic (old orthography)
-≡ 0067 g  0307  
+≡ 0067 g  0307 
 Ģ
 LATIN CAPITAL LETTER G WITH CEDILLA
-≡ 0047 G  0327  
+≡ 0047 G  0327 
 ģ
 LATIN SMALL LETTER G WITH CEDILLA
 • Latvian
 • there are three major glyph variants
-≡ 0067 g  0327  
+≡ 0067 g  0327 
 Ĥ
 LATIN CAPITAL LETTER H WITH CIRCUMFLEX
-≡ 0048 H  0302  
+≡ 0048 H  0302 
 ĥ
 LATIN SMALL LETTER H WITH CIRCUMFLEX
 • Esperanto
-≡ 0068 h  0302  
-
+≡ 0068 h  0302 
 LATIN CAPITAL LETTER H WITH STROKE
-
 LATIN SMALL LETTER H WITH STROKE
 • Maltese, IPA, ...
 → 045B ћ  cyrillic small letter tshe
 → 210F   planck constant over two pi
 Ĩ
 LATIN CAPITAL LETTER I WITH TILDE
-≡ 0049 I  0303 ! 
+≡ 0049 I  0303 !
 ĩ
 LATIN SMALL LETTER I WITH TILDE
 • Greenlandic (old orthography)
-≡ 0069 i  0303 ! 
+≡ 0069 i  0303 !
 012A
 Ī
 LATIN CAPITAL LETTER I WITH MACRON
-≡ 0049 I  0304 \$ 
+≡ 0049 I  0304 \$
 012B
 ī
 LATIN SMALL LETTER I WITH MACRON
 • Latvian, Latin, ...
-≡ 0069 i  0304 \$ 
+≡ 0069 i  0304 \$
 012C
 Ĭ
 LATIN CAPITAL LETTER I WITH BREVE
-≡ 0049 I  0306  
+≡ 0049 I  0306 
 012D
 ĭ
 LATIN SMALL LETTER I WITH BREVE
 • Latin, ...
-≡ 0069 i  0306  
+≡ 0069 i  0306 
 European Latin
 Ā
 LATIN CAPITAL LETTER A WITH MACRON
-≡ 0041 A  0304 \$ 
+≡ 0041 A  0304 \$
 ā
 LATIN SMALL LETTER A WITH MACRON
 • Latvian, Latin, ...
-≡ 0061 a  0304 \$ 
+≡ 0061 a  0304 \$
 Ă
 LATIN CAPITAL LETTER A WITH BREVE
-≡ 0041 A  0306  
+≡ 0041 A  0306 
 ă
 LATIN SMALL LETTER A WITH BREVE
 • Romanian, Vietnamese, Latin, ...
-≡ 0061 a  0306  
+≡ 0061 a  0306 
 Ą
 LATIN CAPITAL LETTER A WITH OGONEK
 ≡ 0041 A  0328 
- 
 ą
 LATIN SMALL LETTER A WITH OGONEK
 • Polish, Lithuanian, ...
 ≡ 0061 a  0328 
- 
 Ć
 LATIN CAPITAL LETTER C WITH ACUTE
-≡ 0043 C  0301 / 
+≡ 0043 C  0301 /
 ć
 LATIN SMALL LETTER C WITH ACUTE
 • Polish, Croatian, ...
 → 045B ћ  cyrillic small letter tshe
-≡ 0063 c  0301 / 
+≡ 0063 c  0301 /
 Ĉ
 LATIN CAPITAL LETTER C WITH CIRCUMFLEX
-≡ 0043 C  0302  
+≡ 0043 C  0302 
 ĉ
 LATIN SMALL LETTER C WITH CIRCUMFLEX
 • Esperanto
-≡ 0063 c  0302  
+≡ 0063 c  0302 
 010A
 Ċ
 LATIN CAPITAL LETTER C WITH DOT ABOVE
-≡ 0043 C  0307  
+≡ 0043 C  0307 
 010B
 ċ
 LATIN SMALL LETTER C WITH DOT ABOVE
 • Maltese, Irish Gaelic (old orthography)
-≡ 0063 c  0307  
+≡ 0063 c  0307 
 010C
 Č
 LATIN CAPITAL LETTER C WITH CARON
 ≡ 0043 C  030C 
- 
 010D
 č
 LATIN SMALL LETTER C WITH CARON
 • Czech, Slovak, Slovenian, and many other
 languages
 ≡ 0063 c  030C 
- 
 010E
 Ď
 LATIN CAPITAL LETTER D WITH CARON
 • the form using caron/hacek is preferred in all
 contexts
 ≡ 0044 D  030C 
- 
 010F
 ď
 LATIN SMALL LETTER D WITH CARON
@@ -1303,7 +1129,6 @@ LATIN SMALL LETTER D WITH CARON
 • the form using apostrophe is preferred in
 typesetting
 ≡ 0064 d  030C 
- 
 LATIN CAPITAL LETTER D WITH STROKE
 → 00D0 Ð  latin capital letter eth
 → 0111 :  latin small letter d with stroke
@@ -1317,48 +1142,16 @@ bowl is used in Americanist orthographies
 → 0452 ђ  cyrillic small letter dje
 Ē
 LATIN CAPITAL LETTER E WITH MACRON
-≡ 0045 E  0304 \$ 
+≡ 0045 E  0304 \$
 ē
 LATIN SMALL LETTER E WITH MACRON
 • Latvian, Latin, ...
-≡ 0065 e  0304 \$ 
+≡ 0065 e  0304 \$
 Ĕ
 LATIN CAPITAL LETTER E WITH BREVE
 ≡ 0045 E  0306 
 
-Reading a Unicode block
-in which we learn that the ‘œ’ ligature is used not only in French but also in Old English,
-where it had the pretty name eðel, and in Old Icelandic.
-But let us return to our example, which still has plenty of things to teach us.
-The lines that begin with an arrow →are either “explicit inequalities” (which indicate
-likely sources of confusion with other characters whose glyphs are similar) or “linguistic
-relationships” (transliterations or phonetic similarities). In reality, these lines have to be
-understood as comments that show how the character is related to other characters in
-Unicode. Thus we can find the following under the name of the character 0x0110 latin
-capital letter d with stroke:
-→00D0 Ð latin capital letter edh
-→0111 Æ latin small letter d with stroke
-→0189 Ð latin capital letter african d
-Of these three lines, the first and the third are “inequalities”: they warn us not to mistake
-this character for the Icelandic eth or the African “barred D” used in the Ewe language.
-The second line simply refers us to the corresponding lowercase letter, which incidentally
-is the next one in the table.
-And this is what we find under 0x0111 latin small letter d with stroke:
-→0110 Ð latin capital letter d with stroke
-→0452 r cyrillic small letter dje
-The first line is a cross-reference back to the uppercase version. The second line is a
-“linguistic relationship”: we learn that this letter, as used in Croatian, has a Serbian counterpart, the letter ‘r’. This information can be useful when transliterating between the
-two alphabets.
-When a line begins with an “identical to” sign ≡, the character can be decomposed into
-others, and this line shows its canonical decomposition. This decomposition is, by definition, unique and always consists of either one or two characters. When there are two
-characters, the first is a base character and the second is a combining character.
-Thus we see that the canonical decomposition of ‘ ’ is the letter ‘A’ followed by the
-macron. We shall discuss compositions and decompositions in the next chapter.
-Another type of decomposition, which is not illustrated on this page, is the compatibility
-decomposition. This represents a compromise that can be made when the software’s configuration does not allow us to use the original character. Thus, two pages later, we see
-the description of the character 0x0149, which, as shown by its representative glyph, is
-an apostrophe followed by an ‘n’. This letter is used in Afrikaans, the language of the
-colonists of Dutch origin in South Africa. Here is the full description of this letter:
+Reading a Unicode block in which we learn that the ‘œ’ ligature is used not only in French but also in Old English, where it had the pretty name eðel, and in Old Icelandic. But let us return to our example, which still has plenty of things to teach us. The lines that begin with an arrow →are either “explicit inequalities” (which indicate likely sources of confusion with other characters whose glyphs are similar) or “linguistic relationships” (transliterations or phonetic similarities). In reality, these lines have to be understood as comments that show how the character is related to other characters in Unicode. Thus we can find the following under the name of the character 0x0110 latin capital letter d with stroke: →00D0 Ð latin capital letter edh →0111 Æ latin small letter d with stroke →0189 Ð latin capital letter african d Of these three lines, the first and the third are “inequalities”: they warn us not to mistake this character for the Icelandic eth or the African “barred D” used in the Ewe language. The second line simply refers us to the corresponding lowercase letter, which incidentally is the next one in the table. And this is what we find under 0x0111 latin small letter d with stroke: →0110 Ð latin capital letter d with stroke →0452 r cyrillic small letter dje The first line is a cross-reference back to the uppercase version. The second line is a “linguistic relationship”: we learn that this letter, as used in Croatian, has a Serbian counterpart, the letter ‘r’. This information can be useful when transliterating between the two alphabets. When a line begins with an “identical to” sign ≡, the character can be decomposed into others, and this line shows its canonical decomposition. This decomposition is, by definition, unique and always consists of either one or two characters. When there are two characters, the first is a base character and the second is a combining character. Thus we see that the canonical decomposition of ‘ ’ is the letter ‘A’ followed by the macron. We shall discuss compositions and decompositions in the next chapter. Another type of decomposition, which is not illustrated on this page, is the compatibility decomposition. This represents a compromise that can be made when the software’s configuration does not allow us to use the original character. Thus, two pages later, we see the description of the character 0x0149, which, as shown by its representative glyph, is an apostrophe followed by an ‘n’. This letter is used in Afrikaans, the language of the colonists of Dutch origin in South Africa. Here is the full description of this letter:
 
 ’n
 LATIN SMALL LETTER N PRECEDED BY
@@ -1420,6 +1213,7 @@ this).
 slash”, not to be confused with the ASCII slash.
 • &lt;compat&gt;: all other cases. We use this tag in UnicodeData.txt to distinguish compatibility decompositions from canonical decompositions.
 
+```text
 Normalization, Bidirectionality,
 and East Asian Characters
 In this chapter we shall examine three aspects of Unicode that have nothing in common
@@ -1437,3 +1231,4 @@ underneath, the Hebrew dagesh goes inside the letter, etc.
 Some of these diacritical marks are independent of each other: placing a cedilla underneath a letter in no way prevents a circumflex accent from being added as well. Other
 marks are placed in the same location and thus must appear in a specific order. For example, the Vietnamese language has an ‘Ë’ with a circumflex accent and a tilde, in that
 order; it would be incorrect to place them the other way around.
+```
