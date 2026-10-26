@@ -78,7 +78,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 ---
 
-## 馆藏第一号典籍（Vol. 01）
+## 馆藏典籍：《管制物质》（Controlled Substances）
 
 ### 典籍著录总档
 
@@ -130,7 +130,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 ---
 
-## 馆藏第二号典籍（Vol. 02）
+## 馆藏典籍：《火箭技术先驱》（Pioneers of Rocket Technology）
 
 ### 典籍著录总档
 
@@ -225,7 +225,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 ---
 
-## 馆藏第三号典籍（Vol. 03）
+## 馆藏典籍：《字体与编码》（Fonts & Encodings）
 
 ### 典籍著录总档
 
@@ -282,26 +282,26 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
 
 | 跨学科主题标目 | 核心理论 / 法规基石 | 对应馆藏典籍 | 重点研读章节 |
 | :--- | :--- | :--- | :--- |
-| **神经药理与受体动力学** | 5-HT 羟色胺受体与阿片受体构效拓扑 | Vol. 01 管制物质 | [第四章：分子结构式图解](/controlled-substances/chapter-4) |
-| **药物列管法理与司法边界** | CSA 分级体系、813 类似物实质相似性准则 | Vol. 01 管制物质 | [第一章：法规细节与定义](/controlled-substances/chapter-1) |
-| **法庭毒理与定性分析** | GC-MS、NMR 与经验化学式 Hill 索引库 | Vol. 01 管制物质 | [第七章：经验实验式索引](/controlled-substances/chapter-7) |
-| **变质量分析力学** | 梅谢尔斯基微分方程、动量守恒定理 | Vol. 02 火箭技术先驱 | [第二编·第一章：原理与方程](/rocket-pioneers/kondratyuk-build/section-1) |
-| **月球轨道交会（LOR）** | 双阶段登月轨道、轻型着陆器分离与交会 | Vol. 02 火箭技术先驱 | [第三编·第 7 章：登月与 LOR](/rocket-pioneers/kondratyuk-space/chapter-7) |
-| **天体引力助推（引力弹弓）** | 借力双曲线飞越、行星引力场能量转移 | Vol. 02 火箭技术先驱 | [第二编·第六章：引力弹弓](/rocket-pioneers/kondratyuk-build/section-6) |
-| **大气滑翔再入与防热气动** | 钝头体激波阻力、升力控制再入走廊 | Vol. 02 火箭技术先驱 | [第三编·第 9 章：再入大气减速](/rocket-pioneers/kondratyuk-space/chapter-9) |
-| **航天科技档案版本学** | TsGAOR 卷宗 112、ARAN 基金原始手稿考订 | Vol. 02 火箭技术先驱 | [主编序言](/rocket-pioneers/preface) 与 [文献全景索引](/rocket-pioneers/bibliography) |
-| **字符与字形二元论** | 抽象编码与具体视觉图元的解耦及芭蕾映射 | Vol. 03 字体与编码 | [导言 · 探索篇](/fonts-encodings/introduction) |
-| **字母解剖学与印刷史** | 字母部件、凸版字盘手合子与光学视错觉修正 | Vol. 03 字体与编码 | [导言 · 探索篇](/fonts-encodings/introduction) |
-| **字符编码史与 Unicode** | 从 ASCII、ISO 8859、CJK 到 Universal Character Set | Vol. 03 字体与编码 | [第一章：前 Unicode 时代编码体系](/fonts-encodings/chapter-1) |
-| **数字字体工程与虚拟机** | TrueType 虚拟机字节码、OpenType 与 AAT 自动机 | Vol. 03 字体与编码 | [典籍概述与卷目大纲](/fonts-encodings/) |
-| **排印几何与多项式样条** | Pierre Bézier 三次参数曲线与 Bernstein 基函数证明 | Vol. 03 字体与编码 | [典籍概述与卷目大纲](/fonts-encodings/) |
+| **神经药理与受体动力学** | 5-HT 羟色胺受体与阿片受体构效拓扑 | 《管制物质》 | [第四章：分子结构式图解](/controlled-substances/chapter-4) |
+| **药物列管法理与司法边界** | CSA 分级体系、813 类似物实质相似性准则 | 《管制物质》 | [第一章：法规细节与定义](/controlled-substances/chapter-1) |
+| **法庭毒理与定性分析** | GC-MS、NMR 与经验化学式 Hill 索引库 | 《管制物质》 | [第七章：经验实验式索引](/controlled-substances/chapter-7) |
+| **变质量分析力学** | 梅谢尔斯基微分方程、动量守恒定理 | 《火箭技术先驱》 | [第二编·第一章：原理与方程](/rocket-pioneers/kondratyuk-build/section-1) |
+| **月球轨道交会（LOR）** | 双阶段登月轨道、轻型着陆器分离与交会 | 《火箭技术先驱》 | [第三编·第 7 章：登月与 LOR](/rocket-pioneers/kondratyuk-space/chapter-7) |
+| **天体引力助推（引力弹弓）** | 借力双曲线飞越、行星引力场能量转移 | 《火箭技术先驱》 | [第二编·第六章：引力弹弓](/rocket-pioneers/kondratyuk-build/section-6) |
+| **大气滑翔再入与防热气动** | 钝头体激波阻力、升力控制再入走廊 | 《火箭技术先驱》 | [第三编·第 9 章：再入大气减速](/rocket-pioneers/kondratyuk-space/chapter-9) |
+| **航天科技档案版本学** | TsGAOR 卷宗 112、ARAN 基金原始手稿考订 | 《火箭技术先驱》 | [主编序言](/rocket-pioneers/preface) 与 [文献全景索引](/rocket-pioneers/bibliography) |
+| **字符与字形二元论** | 抽象编码与具体视觉图元的解耦及芭蕾映射 | 《字体与编码》 | [导言 · 探索篇](/fonts-encodings/introduction) |
+| **字母解剖学与印刷史** | 字母部件、凸版字盘手合子与光学视错觉修正 | 《字体与编码》 | [导言 · 探索篇](/fonts-encodings/introduction) |
+| **字符编码史与 Unicode** | 从 ASCII、ISO 8859、CJK 到 Universal Character Set | 《字体与编码》 | [第一章：前 Unicode 时代编码体系](/fonts-encodings/chapter-1) |
+| **数字字体工程与虚拟机** | TrueType 虚拟机字节码、OpenType 与 AAT 自动机 | 《字体与编码》 | [典籍概述与卷目大纲](/fonts-encodings/) |
+| **排印几何与多项式样条** | Pierre Bézier 三次参数曲线与 Bernstein 基函数证明 | 《字体与编码》 | [典籍概述与卷目大纲](/fonts-encodings/) |
 
 ---
 
 ## 馆藏典籍借阅与数字化引用规则
 
 1. **学术研究引用格式（BibTeX / APA）**：
-   * **Vol. 01**:
+   * **《管制物质》**：
      ```bibtex
      @book{shulgin1992controlled,
        title={Controlled Substances: Chemical and Legal Guide to the Federal Drug Laws},
@@ -314,7 +314,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
        note={Voile Magic Library Call Number: VML-KF3890.S58-1992}
      }
      ```
-   * **Vol. 02**:
+   * **《火箭技术先驱》**：
      ```bibtex
      @book{melkumov1965pioneers,
        title={Pioneers of Rocket Technology: Selected Works},
@@ -327,7 +327,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
        note={Voile Magic Library Call Number: VML-TL781.P56-1965}
      }
      ```
-   * **Vol. 03**:
+   * **《字体与编码》**：
      ```bibtex
      @book{haralambous2007fonts,
        title={Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between},

@@ -1,89 +1,106 @@
 ---
-title: 馆藏第三号 · 字体与编码：从 Unicode 到高级排版及其中一切
-description: ヴ瓦尔魔法图书馆 馆藏第三号典籍：ヤニス・ハラランブス（Yannis Haralambous）旷世巨著『Fonts & Encodings』全书深度学术汉译与图解典藏。
+title: 蔵書典籍 ·『フォントとエンコーディング：Unicodeから高度な組版技術まで』
+description: ヴワル魔法図書館 蔵書典籍：ヤニス・ハラランブス（Yannis Haralambous）の記念碑的大著『Fonts & Encodings』日本語学術訳・図版完全収録版。
 ---
 
-# 馆藏第三号典籍 ·《字体与编码：从 Unicode 到高级排版及其中一切》
+# 蔵書典籍 ·『フォントとエンコーディング：Unicodeから高度な組版技術まで』
 ### Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
-*英译审订：P. Scott Horne 博士 · 原著由 O'Reilly Media 出版（ISBN 978-0-596-10242-5）*
+*英訳監修：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.） · 原著：O'Reilly Media 刊（ISBN 978-0-596-10242-5）*
 
-> **“智人（*Homo sapiens*）是一种进行书写的物种。在用于书写的形形色色的工具之中，最新近亦最繁复的造物当属计算机——它集阅读工具、书写工具、存储媒介与数据交换手段于一身……在这一数字书写空间内部，编码（encoding）与字体（font）承担着截然不同却密不可分的核心使命：编码源于人类对信息的概念化抽象（abstraction），是纯粹思维的心智构建；而字体则是书写符号的具象视觉呈现，是黑白墨彩的图形实体。两者犹如阴阳、天地、理论与实践，在数字世界永无休止地交织共舞。”**  
-> —— ヤニス・ハラランブス（Yannis Haralambous），『フォントとエンコーディング』导言
-
----
-
-## 典籍题解与学术地位
-
-在计算机科学与现代数字排印学（Digital Typography）交汇的发展史册中，ヤニス・ハラランブス（Yannis Haralambous）的『フォントとエンコーディング』（*Fonts & Encodings*）被公认为**该领域无可替代的百科全书式“圣经”巨著**。
-
-全书原著逾 1,040 页，源自法国国立布列塔尼高等电信学院（ENST Bretagne）哈拉兰布斯教授历时十余载的深厚学术积淀与工程实践。本书以宏大而严谨的视野，打破了传统排印美学、计算机底层操作系统编码、グリフ（Glyph）ラスタライズ（Rasterization）几何数学（Bézier 曲线）与多语言复杂文书組版エンジン（Typesetting Engine）之间的技术壁垒，首次将：
-1. **文字エンコーディング体系（Character Encodings & Unicode）**：从早期电传打字机 FIELDATA、ASCII、EBCDIC、ISO 8859 系列、中日韩（CJK）早期双字节コードページ（Code Page），到现代 Unicode 5.0 核心哲学、平面分布、双向排版算法（Bidi）、规范化分解（Normalization Forms）、复杂文字合字连写规则；
-2. **数字字体工程与底层格式（Digital Font Technologies）**：从早期的点阵字模（Bitmap）、高德纳（Donald E. Knuth）的 METAFONT 曲线方程、Adobe PostScript Type 1 轮廓与 Hinting 提示指令，到 TrueType（TTF）底层虚拟机字节码指令（Twilight Zone、CVT、FDIR）、OpenType 高级排版特性表（GSUB / GPOS / GDEF / BASE / JSTF）与苹果高级排版技术（Apple Advanced Typography, AAT）有限状態オートマトン（Finite State Automaton）引擎（Finite Automata Engine）；
-3. **跨学科排版软件与排印数学（Typographic Software & Mathematics）**：Donald Knuth 创立的 TeX 排版宏系统与 $\Omega$（Omega）多语言組版エンジン（Typesetting Engine）、PostScript 页面描述语言底层流解释器、PDF 规范内部グリフ（Glyph）引用流、以及 Pierre Bézier 三次多项式参数曲线与伯恩斯坦基函数（Bernstein Basis Polynomials）数学严密证明；
-
-融铸为一部逻辑严密、兼备历史源流考据与底层工业规范工程细节的传世经典。
+> **「ホモ・サピエンス（*Homo sapiens*）とは、文字を記す種族である。書字のために人類が生み出してきた無数の道具の中で、最も新しく、かつ最も精緻な創造物がコンピュータにほかならない。それは読書具であり、筆記具であり、記憶媒体であり、データ交換の手段でもある……このデジタル書字空間において、エンコーディング（encoding）とフォント（font）は、本質的に異なりながらも分かち難く結びついた使命を担っている。エンコーディングは人間の概念的抽象（abstraction）から生じる純粋な思考の産物であり、フォントは書字記号の具象的な視覚的顕現、すなわち白黒のインクが織りなす図形的実体である。両者は陰と陽、天と地、理論と実践のごとく、デジタル世界において果てなき輪舞を踊り続けている。」**  
+> —— ヤニス・ハラランブス（Yannis Haralambous）、『フォントとエンコーディング』序論より
 
 ---
 
-## 责任著者与学术源流考略
+## 典籍解題と学術的位置づけ
 
-### 责任著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）
+計算機科学と現代デジタル・タイポグラフィ（Digital Typography）の交錯する歴史において、ヤニス・ハラランブス（Yannis Haralambous）の『フォントとエンコーディング』（*Fonts & Encodings*）は、**当該分野において他の追随を許さない百科全書的「聖典」**として世界的に高く評価されています。
 
-* **学术身份**：著名计算机科学家、应用数学家、数字排印与计算语言学泰斗，法国国立布列塔尼高等电信学院（École Nationale Supérieure des Télécommunications de Bretagne, 现 IMT Atlantique）计算机科学系终身教授。
-* **早年求学与学术背景**：哈拉兰布斯出生于希腊，早年赴法留学，在里尔第一大学（Université de Lille I）获得纯粹数学博士学位。他在抽象几何学与拓扑学方面的深厚数理造诣，为其日后开创性地研究文字轮廓矢量几何、多项式样条拟合与复杂书写系统自动机奠定了坚实的理论基石。
-* **TeX 与 $\Omega$（Omega）系统开拓**：上世纪 90 年代初，针对 Donald Knuth 传统 TeX 系统在处理非拉丁文字（希腊文、阿拉伯文、希伯来文、梵文、藏文等）以及 8 位文字セット限制上的历史瓶颈，哈拉兰布斯与英国计算机科学家约翰·普莱斯（John Plaice）共同开创性地开发了 **$\Omega$（Omega）排版系统**。Omega 率先引入了 16/32 位 Unicode 字符原生支持，并独创了“有限状态文本变换流”（Omega Translation Processes, OTPs），彻底革新了复杂文种的双向排版与上下文自动变体处理范式。
-* **全球多语言排版工程顾问**：哈拉兰布斯长期担任 Unicode 联盟专家顾问、国际排版协会（ATypI）理事、TeX 国际用户组（TUG）核心专家，为全球各大软件巨头与出版学术机构攻克了无数涉及古希腊文变音符标号（Polytonic Greek）、叙利亚文、乌尔都文及现代东亚表意文字的排印算法难题。
-* **本书成书源流**：本书最初以法文撰写，由 O'Reilly France 于 2004 年出版（书名《*Fontes & codages*》）。因其学术震撼力与前所未有的工程深度，O'Reilly 美国总部特聘计算语言学与专业翻译专家 P. Scott Horne 博士耗时三年进行深度英译扩充，全面更新至 Unicode 5.0 与最新 OpenType / AAT 工业标准，于 2007 年正式刊行英文首版，成为现代数字排印学的里程碑。
+原著は全1,040ページ余におよび、フランス国立ブルターニュ高等情報通信学校（ENST Bretagne、現 IMT Atlantique）のハラランブス教授が十余年にわたり積み重ねた深遠な学術的探究と工学実践の結晶です。本書は壮大かつ厳密な視野をもって、伝統的活版印刷の美学、OS低層の文字符号化、ベジェ曲線によるグリフのラスタライズ幾何数学、そして多言語複合文書組版エンジンの間に横たわる技術的断絶を打破しました。
+
+1. **文字符号化体系（Character Encodings & Unicode）**：黎明期の軍用テレタイプ通信規格 FIELDATA、ASCII、EBCDIC、ISO 8859 系列、東アジア（日中韓）の初期2バイトコードページから、現代の Unicode 5.0 の基本哲学、プレーン（面）構造、双方向テキスト組版アルゴリズム（Bidi）、正規化形式（Normalization Forms）、複雑文字の合字・連筆規則までを網羅；
+2. **デジタルフォント工学と低層フォーマット（Digital Font Technologies）**：初期のビットマップフォント、ドナルド・クヌース（Donald E. Knuth）の METAFONT 方程式、Adobe PostScript Type 1 の輪郭とヒンティング（Hinting）命令から、TrueType（TTF）の低層仮想マシン・バイトコード命令（Twilight Zone、CVT、FDIR）、OpenType 高度タイポグラフィ機能テーブル（GSUB / GPOS / GDEF / BASE / JSTF）、Apple 高度組版技術（Apple Advanced Typography, AAT）の有限状態オートマトン・エンジンまでを詳解；
+3. **学際的組版ソフトウェアと組版数学（Typographic Software & Mathematics）**：Donald Knuth による TeX 組版マクロ体系と $\Omega$（Omega）多言語組版エンジン、PostScript ページ記述言語の低層ストリーム解釈系、PDF 仕様内部のグリフ参照ストリーム、そしてピエール・ベジェ（Pierre Bézier）による3次パラメトリック曲線とバーンスタイン基底多項式（Bernstein Basis Polynomials）の厳密な数学的証明まで；
+
+これらすべてを有機的に融合し、歴史的変遷の文献考証と産業標準の低層工学仕様を完璧に兼ね備えた不朽の古典です。
 
 ---
 
-## 馆藏全书卷目导航
+## 著者および学術的背景
 
-::: tip 典籍分卷导览
-请点击下方各编章节，翻阅本馆全译图解正文：
+### 著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）
+
+* **学術的地位**：高名な計算機科学者、応用数学者、デジタル・タイポグラフィおよび計算言語学の世界的権威。フランス国立ブルターニュ高等情報通信学校（École Nationale Supérieure des Télécommunications de Bretagne、現 IMT Atlantique）計算機科学科終身教授。
+* **来歴と数学的基礎**：ギリシャ出身。若くしてフランスへ留学し、リール第1大学（Université de Lille I）にて純粋数学の博士号を取得。抽象幾何学およびトポロジーにおける卓越した数理的素養が、後に文字輪郭のベクトル幾何、多項式スプライン補間、複雑書字系オートマトンの先駆的研究を結実させる基盤となりました。
+* **TeX および $\Omega$（Omega）システムの開発**：1990年代初頭、Donald Knuth の古典的 TeX システムが非ラテン文字（ギリシャ文字、アラビア文字、ヘブライ文字、サンスクリット、チベット文字等）の処理や8ビット文字セットの制約に直面した際、ハラランブスは英計算機科学者ジョン・プレイス（John Plaice）とともに革新的な **$\Omega$（Omega）組版システム** を共同開発しました。Omega は16/32ビット Unicode のネイティブ対応をいち早く実現し、「有限状態テキスト変換プロセス」（Omega Translation Processes, OTPs）を導入して、複雑書字系の双方向組版と文脈依存異体字処理のパラダイムを一新しました。
+* **国際多言語組版の標準化**：Unicode コンソーシアム専門委員、国際タイポグラフィ協会（ATypI）理事、TeX ユーザーグループ（TUG）幹部を歴任。ポリトニック・ギリシャ語アクセント記号、シリア文字、ウルドゥー文字、現代東アジア表意文字の組版アルゴリズムにおいて、国際標準化に計り知れない貢献を果たしました。
+* **本書の成立経緯**：本書は元来フランス語で執筆され、2004年に O'Reilly France より『*Fontes & codages*』として刊行されました。その圧倒的な学術的完成度と前例のない工学的深度を受け、米国オライリー本社が計算言語学・学術翻訳の第一人者 P. スコット・ホーン博士を招聘。3年の歳月を費やして全編を英訳・大幅拡充し、Unicode 5.0 および最新の OpenType / AAT 工業規格へと全面改稿の上、2007年に英語版初版が公刊されました。
+
+---
+
+## 蔵書全編目録ナビゲーション
+
+::: tip 典籍目録
+各編章をクリックすると、完全日本語訳の本文および高精細図版を閲覧できます：
 :::
 
-### 导言篇与基础铺垫
-* **[导言 · 探索篇：字母部件、印刷排版、数字模型与全书知识图谱](./introduction)**  
-  *原著：Yannis Haralambous* —— 奠定全书基础概念。系统论述字符（character）与グリフ（Glyph）（glyph）的心智二元性；详解字母解剖学各部位术语（配高清全彩図版 Figure 0-1）；考据字母“E”的六大数学几何描述（配帕乔利、丢勒、托里、若戎委员会図版 Figure 0-2）；回溯狄德罗百科全书手工活字拼版机制（配十八世纪字盘与手合子図版 Figure 0-3 至 0-5）；详解数字排版ベースライン（Baseline）、进深矢量与字距微调；全景解析全书四大编体系知识图谱（配図版 Figure 0-6）。
+### 序論および基礎編
+* **[序論 · 探求篇：文字の解剖学、活版印刷、デジタルモデルと知識体系体系図](./introduction)**  
+  *原著：Yannis Haralambous* —— 全書の基盤概念を確立。文字（character）とグリフ（glyph）の二元性を論じ、文字の解剖学各部名称を詳解（高精細図版 Figure 0-1）；アルファベット「E」の6大幾何学的記述（パチョーリ、デューラー、トリー、ロワ委員会図版 Figure 0-2）；ディドロ百科全書に見る活版組版機構（18世紀の活字ケースとステッキ Figure 0-3〜0-5）；デジタル組版のベースライン、送り幅ベクトル、カーニング；全4部構成の知識体系図（Figure 0-6）を俯瞰。
 
-### 第一部：符号化と文字集合（Part I: Encodings & Unicode）
-* **[第一章：前 Unicode 时代的符号化体系](./chapter-1)**  
-  从电传机与军用 FIELDATA、7 位 ASCII 到 8 位 EBCDIC；详解 ISO 2022 转义序列框架；深入剖析 ISO 8859 家族（Latin-1 至 Latin-16）及东亚早期双字节编码标准；微软 Windows コードページ（Code Page）与苹果 MacRoman 历史架构；电子邮件 MIME 与早期 Web 文本传输困境。
-* **[第二章：字符、グリフ（Glyph）与字节：Unicode 导论](./chapter-2)**  
-  文字学哲学命题；Unicode 核心原则与四维空间；UTF-8、UTF-16、UTF-32、CESU-8 与 SCSU 编码形式底层比特流映射；基本多语言平面（BMP）与各辅助平面分布全景。
-* **[第三章：Unicode 字符核心属性体系](./chapter-3)**  
-  字符名称规范；通用分类（General Category）；方向性与双向算法类别；连写与镜像属性；数字值与标识符规范；深入解读 Unicode 字符数据库（UCD）。
-* **[第四章：规范化分解、双向排版算法与东亚表意文字处理](./chapter-4)**  
-  Unicode 规范等价与兼容等价；四种规范化形式（NFC、NFD、NFKC、NFKD）；Unicode 双向排版算法（Bidi Algorithm）解析；CJK 统一汉字（Unihan）编码历史源流、グリフ（Glyph）统合规则（Han Unification）与康熙字典部首索引。
-* **[第五章：Unicode 的实践与字符录入工具](./chapter-5)**  
-  操作系统多语言字符映射工具（Character Palette、Character Map、BabelMap、Gucharmap）；键盘布局定制器（MSKLC、Keyman Developer）；ICU 国际化组件。
+---
 
-### 第二编：操作系统字体管理（Part II: Font Management）
-* **[第六章：Macintosh 操作系统的字体管理](./chapter-6)**  
-  Classic Mac OS 资源分支（Resource Fork）与数据分支；Suitcase 字体箱架构；Mac OS X 字体簿（Font Book）与字体域（Domains）；Core Graphics 文本渲染。
-* **[第七章：Windows 操作系统的字体管理](./chapter-7)**  
-  Windows 字体控制面板与注册表架构；GDI 逻辑字体（LOGFONT）度量；ClearType 亚像素液晶渲染原理；OpenType 原生驱动支持。
-* **[第八章：X Window 与 Unix 字体管理](./chapter-8)**  
-  X11 逻辑字体描述符（XLFD）；X 字体服务器（XFS）与核心字体协议；现代 FreeType、Fontconfig 与 Xft 客户端渲染流水线；GNU 字体工具箱。
+### 第一部：符号化と文字集合（Part I）
+* **[第1章：前Unicode時代の符号化体系（FIELDATAからISO 8859まで）](./chapter-1)**  
+  軍用野戦通信 FIELDATA から ASCII、EBCDIC、ISO 646、ISO 8859-1〜16 各文字集合、ISO 2022 エスケープ・シーケンス、日中韓（CJK）2バイト符号化（Shift_JIS、EUC-JP、GB 2312、Big5）に至る歴史的変遷を総括。
+* **[第2章：文字、グリフ、バイト（Unicode序説と基本構造）](./chapter-2)**  
+  Unicode の基本理念、BMP（基本多言語面）および SMP/SIP/SSP 各プレーンの構造、UTF-8 / UTF-16 / UTF-32 のバイト変換アルゴリズム、文字とグリフの概念的境界を厳密に解明。
+* **[第3章：Unicode文字プロパティ体系](./chapter-3)**  
+  General Category（一般カテゴリ）、Bidi_Class、Canonical Combining Class（結合クラス）、Decomposition_Type、East Asian Width（全角半角幅）など、Unicode 文字プロパティの全容。
+* **[第4章：正規化形式、双方向テキスト（Bidi）と東アジア文字](./chapter-4)**  
+  NFC / NFD / NFKC / NFKD の4大正規化形式の数学的性質；アラビア語・ヘブライ語の双方向組版アルゴリズム（UBA）；日中韓表意文字統合（Han Unification）の歴史的背景と異体字セレクタ。
+* **[第5章：Unicode実践と文字入力ツール](./chapter-5)**  
+  Mac OS X、Windows、X Window/Linux 各環境における文字パレット、BabelMap、キーボード配列カスタマイズ（MSKLC、Keyman）の実践的運用。
 
-### 第三编：組版エンジン（Typesetting Engine）与技术生态（Part III: Typographic Software & Web）
-* **[第九章：TeX 与 Omega 系统的字体技术](./chapter-9)**  
-  高德纳批处理编译器架构；TFM 字体度量与 DVI 设备无关文件；虚拟字体（VF）与 PK 点阵压缩；哈拉兰布斯开创的 16/32 位 Omega 系统与 OTPs 有限状态文本变换流。
-* **[第十章：Web 网页字体与排版技术](./chapter-10)**  
-  万维网排版演化史；HTML/CSS 字体模块规范；ont-size-adjust 几何归一化算法与 x-height 视觉对齐；早期网络字体技术（Bitstream TrueDoc、Microsoft WEFT/EOT）；SVG 矢量字体规范。
+---
 
-### 第四编：字体艺术、设计与高级排版（Part IV: Typeface Art, Design & Typography）
-* **[第十一章：拉丁字体的历史演进与分类学](./chapter-11)**  
-  十五世纪金属活字排版大爆炸；卡罗林小草书体演进；加拉蒙德、巴斯克维尔、博多尼与迪多；无衬线体的工业崛起；Vox-ATypI 分类法全系解析；Panose-1 十维视觉特征度量符号化体系。
-* **[第十二章：字体设计与编辑实操](./chapter-12)**  
-  现代字体设计工作流；FontLab 与 FontForge 深度实操；PostScript 三次与 TrueType 二次ベジェ曲線（Bézier Curve）几何转换；轮廓遍历方向与ノンゼロ・ワインディング数ルール（Nonzero Winding Number Rule）；グリフ（Glyph）度量与基于类的字距微调（Class-based Kerning）。
-* **[第十三章：栅格化渲染优化与グリフ（Glyph）微调](./chapter-13)**  
-  屏幕低分辨率下的排印困境；PostScript 声明式微调（BlueValues 对齐区、标准笔宽 StdHW/StdVW、主干提示 hstem/vstem）；TrueType 图灵完备指令集虚拟机；CVT 控制值表；微点 Delta 指令实操。
-* **[第十四章：丰富字体表达：高级排版特性](./chapter-14)**  
-  智能字体技术全景；OpenType 布局架构（GSUB/GPOS/GDEF 三大支柱）；Adobe 特性定义语言；微软 VOLT 可视化工程实操；苹果 AAT 有限状態オートマトン（Finite State Automaton）流派深度对比。
+### 第二部：OSにおけるフォント管理（Part II）
+* **[第6章：Macintosh環境におけるフォント管理](./chapter-6)**  
+  Classic Mac OS の FONT / NFNT リソースから Mac OS X の dfont、Font Book（フォントブック）、Core Text アーキテクチャへの進化。
+* **[第7章：Windows環境におけるフォント管理](./chapter-7)**  
+  Windows 3.1 から XP/Vista に至るフォントディレクトリ、GDI レンダリングパイプライン、Uniscribe 複合テキスト整形エンジン。
+* **[第8章：X WindowとUnix環境におけるフォント管理](./chapter-8)**  
+  XLFD（X Logical Font Description）、コアXフォントプロトコル、Xft および Fontconfig による現代的フォント検索・照合機構。
 
-### 第五编：技术附录（Part V: Appendices）
-* **[附录全编：底层格式、虚拟机与数学原理手册](./appendices)**  
-  涵盖原著附录 A 至 G 全卷精要：点阵字库（BDF/PCF/PK）；TeX/Omega 度量体系（TFM/OFM/VF）；PostScript 页面描述语言与 Type 1/CFF；TrueType/OpenType/AAT 底层表结构汇编（head/cmap/loca/glyf/morx 等）；METAFONT 衍生系统；ベジェ曲線（Bézier Curve）数学定理严密推导。
+---
+
+### 第三部：組版エンジンとWebフォント技術（Part III）
+* **[第9章：TeXおよびOmegaシステムのフォント技術](./chapter-9)**  
+  TFM（TeX Font Metric）、仮想フォント（VF）、フォントインストールパイプライン、Omega 組版エンジンによる OTP（Omega Translation Process）ストリーム。
+* **[第10章：Webページ組版技術（Webフォントの起源とCSS標準）](./chapter-10)**  
+  HTML `<font>` タグの栄枯盛衰；CSS `@font-face` 仕様；Bitstream TrueDoc（PFR）、Microsoft WEFT（EOT）、SVG フォント、WOFF への道標。
+
+---
+
+### 第四部：書体設計学と高度な組版（Part IV）
+* **[第11章：ラテン文字書体の歴史的変遷と分類学](./chapter-11)**  
+  グーテンベルクのテクスチャー体からジェンソン、ガラモン、カズロン、バスカヴィル、ボドニ、ディド、サンセリフの登場まで；Thibaudeau、Vox-ATypI、DIN 16518、Alessandrini、PANOSE 各分類法。
+* **[第12章：フォント設計と編集の実践](./chapter-12)**  
+  Fontographer、FontStudio、FontLab、FontForge による輪郭設計、グリフメトリクス調整、マルチプルマスター（MM）技術、スキャン画像からの自動トレース工学。
+* **[第13章：ラスタライズ最適化とヒンティング技術](./chapter-13)**  
+  低解像度画面におけるドロップアウト制御、アライメントゾーン、PostScript ヒント置換、TrueType デルタ命令によるピクセル最適化。
+* **[第14章：高度な組版機能（OpenTypeとAAT）](./chapter-14)**  
+  OpenType GSUB/GPOS テーブル、VOLT によるフィーチャー記述；Apple Advanced Typography（AAT）のモーフ（morx）テーブルと有限状態機械駆動の自動コンテキスト置換。
+
+---
+
+### 第五部：技術付録（Part V）
+* **[付録全編：デジタルフォント底層フォーマット、仮想マシンと数学原理完全リファレンス](./appendices)**  
+  * **付録 A**：Macintosh、Windows、X11/BDF、TeX PK ビットマップフォントフォーマット
+  * **付録 B**：Adobe Font Metrics（AFM / AMFM）完全仕様
+  * **付録 C**：PostScript Type 1、Type 2 Charstring、CFF、CID-keyed フォント構造
+  * **付録 D**：TrueType / OpenType 各テーブル（head, hhea, hmtx, maxp, OS/2, cmap, glyf, GSUB, GPOS 等）詳細仕様
+  * **付録 E**：TrueType 仮想マシン命令セット（グラフィックス状態、スタック操作、ポイント移動、デルタ命令）
+  * **付録 F**：METAFONT 言語仕様、ペンモデル、数式による書体定義
+  * **付録 G**：ベジェ曲線、バーンスタイン多項式、ド・カステリョのアルゴリズム、幾何学的性質の数学的厳密証明

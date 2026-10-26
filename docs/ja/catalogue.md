@@ -198,21 +198,21 @@ $$\text{VML-}[\text{LCC 請求記号}]\text{.}[\text{カッター記号}]\text{-
 
 | 学際テーマ | 核心理論 / 法的根拠 | 該当所蔵典籍 | 重点研読章 |
 | :--- | :--- | :--- | :--- |
-| **神経薬理学と受容体動態** | 5-HTセロトニン・オピオイド受容体構造活性相関 | Vol. 01 規制物質 | [第4章：分子構造式図版](/ja/controlled-substances/chapter-4) |
-| **薬物規制法理と司法的境界** | CSAスケジュール体系、813条類似体実質類似性基準 | Vol. 01 規制物質 | [第1章：法的詳細と定義](/ja/controlled-substances/chapter-1) |
-| **鑑識化学・毒性分析** | GC-MS、NMRおよびヒル方式実験式索引 | Vol. 01 規制物質 | [第7章：実験式・化学索引](/ja/controlled-substances/chapter-7) |
-| **可変質量解析力学** | メシチェルスキー微分方程式、運動量保存則 | Vol. 02 ロケット先駆者 | [第二編·第1章：原理と方程式](/ja/rocket-pioneers/kondratyuk-build/section-1) |
-| **月軌道ランデブー（LOR）** | 二段階月面降下・上昇軌道、母船待機 | Vol. 02 ロケット先駆者 | [第三編·第7章：月面着陸とLOR](/ja/rocket-pioneers/kondratyuk-space/chapter-7) |
-| **天体引力アシスト（スイングバイ）** | 双曲線接近通過、惑星重力場によるエネルギー授受 | Vol. 02 ロケット先駆者 | [第二編·第6章：引力スイングバイ](/ja/rocket-pioneers/kondratyuk-build/section-6) |
-| **大気滑空再突入と空力減速** | 鈍頭体衝撃波、揚力制御再突入コリドー | Vol. 02 ロケット先駆者 | [第三編·第9章：大気減速再突入](/ja/rocket-pioneers/kondratyuk-space/chapter-9) |
-| **航空宇宙科学アーカイブ文献学** | TsGAOR 112号公文書、ARAN基金手稿原本考証 | Vol. 02 ロケット先駆者 | [主編序言](/ja/rocket-pioneers/preface) および [文献全景索引](/ja/rocket-pioneers/bibliography) |
+| **神経薬理学と受容体動態** | 5-HTセロトニン・オピオイド受容体構造活性相関 | 《規制物質》 | [第4章：分子構造式図版](/ja/controlled-substances/chapter-4) |
+| **薬物規制法理と司法的境界** | CSAスケジュール体系、813条類似体実質類似性基準 | 《規制物質》 | [第1章：法的詳細と定義](/ja/controlled-substances/chapter-1) |
+| **鑑識化学・毒性分析** | GC-MS、NMRおよびヒル方式実験式索引 | 《規制物質》 | [第7章：実験式・化学索引](/ja/controlled-substances/chapter-7) |
+| **可変質量解析力学** | メシチェルスキー微分方程式、運動量保存則 | 《ロケット技術の先駆者》 | [第二編·第1章：原理と方程式](/ja/rocket-pioneers/kondratyuk-build/section-1) |
+| **月軌道ランデブー（LOR）** | 二段階月面降下・上昇軌道、母船待機 | 《ロケット技術の先駆者》 | [第三編·第7章：月面着陸とLOR](/ja/rocket-pioneers/kondratyuk-space/chapter-7) |
+| **天体引力アシスト（スイングバイ）** | 双曲線接近通過、惑星重力場によるエネルギー授受 | 《ロケット技術の先駆者》 | [第二編·第6章：引力スイングバイ](/ja/rocket-pioneers/kondratyuk-build/section-6) |
+| **大気滑空再突入と空力減速** | 鈍頭体衝撃波、揚力制御再突入コリドー | 《ロケット技術の先駆者》 | [第三編·第9章：大気減速再突入](/ja/rocket-pioneers/kondratyuk-space/chapter-9) |
+| **航空宇宙科学アーカイブ文献学** | TsGAOR 112号公文書、ARAN基金手稿原本考証 | 《ロケット技術の先駆者》 | [主編序言](/ja/rocket-pioneers/preface) および [文献全景索引](/ja/rocket-pioneers/bibliography) |
 
 ---
 
 ## 蔵書貸出とデジタル引用規則
 
 1. **学術研究引用フォーマット（BibTeX）**：
-   * **Vol. 01**:
+   * **《規制物質》**：
      ```bibtex
      @book{shulgin1992controlled,
        title={Controlled Substances: Chemical and Legal Guide to the Federal Drug Laws},
@@ -225,7 +225,7 @@ $$\text{VML-}[\text{LCC 請求記号}]\text{.}[\text{カッター記号}]\text{-
        note={Voile Magic Library Call Number: VML-KF3890.S58-1992}
      }
      ```
-   * **Vol. 02**:
+   * **《ロケット技術の先駆者》**：
      ```bibtex
      @book{melkumov1965pioneers,
        title={Pioneers of Rocket Technology: Selected Works},

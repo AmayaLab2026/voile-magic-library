@@ -11,7 +11,6 @@ import Components from 'unplugin-vue-components/vite'
 import Inspect from 'vite-plugin-inspect'
 import { defineConfig } from 'vitepress'
 
-import enConfig from '../docs/en/config'
 import jaConfig from '../docs/ja/config'
 import zhHantConfig from '../docs/zh-hant/config'
 import zhConfig from '../docs/zh/config'
@@ -160,12 +159,6 @@ export default defineConfig({
       label: '简体中文',
       lang: 'zh-Hans',
       ...(zhConfig as any),
-    },
-    'en': {
-      label: 'English',
-      lang: 'en-US',
-      link: '/en/',
-      ...(enConfig as any),
     },
     'zh-hant': {
       label: '繁體中文',

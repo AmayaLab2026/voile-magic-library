@@ -61,7 +61,7 @@ $$\text{VML-}[\text{LCC 分類與著者號}]\text{-}[\text{歸檔年份}]$$
 
 ---
 
-## 館藏第一號典籍（Vol. 01）
+## 館藏典籍：《管制物質》（Controlled Substances）
 
 ### 典籍著錄總檔
 
@@ -113,7 +113,7 @@ $$\text{VML-}[\text{LCC 分類與著者號}]\text{-}[\text{歸檔年份}]$$
 
 ---
 
-## 館藏第二號典籍（Vol. 02）
+## 館藏典籍：《火箭技術先驅》（Pioneers of Rocket Technology）
 
 ### 典籍著錄總檔
 
@@ -214,21 +214,21 @@ $$\text{VML-}[\text{LCC 分類與著者號}]\text{-}[\text{歸檔年份}]$$
 
 | 跨學科主題標目 | 核心理論 / 法規基石 | 對應館藏典籍 | 重點研讀章節 |
 | :--- | :--- | :--- | :--- |
-| **神經藥理與受體動力學** | 5-HT 羥色胺受體與阿片受體構效拓撲 | Vol. 01 管制物質 | [第四章：分子結構式圖解](/zh-hant/controlled-substances/chapter-4) |
-| **藥物列管法理與司法邊界** | CSA 分級體系、813 類似物實質相似性準則 | Vol. 01 管制物質 | [第一章：法規細節與定義](/zh-hant/controlled-substances/chapter-1) |
-| **法庭毒理與定性分析** | GC-MS、NMR 與經驗化學式 Hill 索引庫 | Vol. 01 管制物質 | [第七章：經驗實驗式索引](/zh-hant/controlled-substances/chapter-7) |
-| **變質量分析力學** | 梅謝爾斯基微分方程、動量守恆定理 | Vol. 02 火箭技術先驅 | [第二編·第一章：原理與方程](/zh-hant/rocket-pioneers/kondratyuk-build/section-1) |
-| **月球軌道交會（LOR）** | 雙階段登月軌道、輕型着陸器分離與交會 | Vol. 02 火箭技術先驅 | [第三編·第 7 章：登月與 LOR](/zh-hant/rocket-pioneers/kondratyuk-space/chapter-7) |
-| **天體引力助推（引力彈弓）** | 借力雙曲線飛越、行星引力場能量轉移 | Vol. 02 火箭技術先驅 | [第二編·第六章：引力彈弓](/zh-hant/rocket-pioneers/kondratyuk-build/section-6) |
-| **大氣滑翔再入與防熱氣動** | 鈍頭體激波阻力、升力控制再入走廊 | Vol. 02 火箭技術先驅 | [第三編·第 9 章：再入大氣減速](/zh-hant/rocket-pioneers/kondratyuk-space/chapter-9) |
-| **航天科技檔案版本學** | TsGAOR 卷宗 112、ARAN 基金原始手稿考訂 | Vol. 02 火箭技術先驅 | [主編序言](/zh-hant/rocket-pioneers/preface) 與 [文獻全景索引](/zh-hant/rocket-pioneers/bibliography) |
+| **神經藥理與受體動力學** | 5-HT 羥色胺受體與阿片受體構效拓撲 | 《管制物質》 | [第四章：分子結構式圖解](/zh-hant/controlled-substances/chapter-4) |
+| **藥物列管法理與司法邊界** | CSA 分級體系、813 類似物實質相似性準則 | 《管制物質》 | [第一章：法規細節與定義](/zh-hant/controlled-substances/chapter-1) |
+| **法庭毒理與定性分析** | GC-MS、NMR 與經驗化學式 Hill 索引庫 | 《管制物質》 | [第七章：經驗實驗式索引](/zh-hant/controlled-substances/chapter-7) |
+| **變質量分析力學** | 梅謝爾斯基微分方程、動量守恆定理 | 《火箭技術先驅》 | [第二編·第一章：原理與方程](/zh-hant/rocket-pioneers/kondratyuk-build/section-1) |
+| **月球軌道交會（LOR）** | 雙階段登月軌道、輕型着陸器分離與交會 | 《火箭技術先驅》 | [第三編·第 7 章：登月與 LOR](/zh-hant/rocket-pioneers/kondratyuk-space/chapter-7) |
+| **天體引力助推（引力彈弓）** | 借力雙曲線飛越、行星引力場能量轉移 | 《火箭技術先驅》 | [第二編·第六章：引力彈弓](/zh-hant/rocket-pioneers/kondratyuk-build/section-6) |
+| **大氣滑翔再入與防熱氣動** | 鈍頭體激波阻力、升力控制再入走廊 | 《火箭技術先驅》 | [第三編·第 9 章：再入大氣減速](/zh-hant/rocket-pioneers/kondratyuk-space/chapter-9) |
+| **航天科技檔案版本學** | TsGAOR 卷宗 112、ARAN 基金原始手稿考訂 | 《火箭技術先驅》 | [主編序言](/zh-hant/rocket-pioneers/preface) 與 [文獻全景索引](/zh-hant/rocket-pioneers/bibliography) |
 
 ---
 
 ## 館藏典籍借閱與數字化引用規則
 
 1. **學術研究引用格式（BibTeX / APA）**：
-   * **Vol. 01**:
+   * **《管制物質》**：
      ```bibtex
      @book{shulgin1992controlled,
        title={Controlled Substances: Chemical and Legal Guide to the Federal Drug Laws},
@@ -241,7 +241,7 @@ $$\text{VML-}[\text{LCC 分類與著者號}]\text{-}[\text{歸檔年份}]$$
        note={Voile Magic Library Call Number: VML-KF3890.S58-1992}
      }
      ```
-   * **Vol. 02**:
+   * **《火箭技術先驅》**：
      ```bibtex
      @book{melkumov1965pioneers,
        title={Pioneers of Rocket Technology: Selected Works},

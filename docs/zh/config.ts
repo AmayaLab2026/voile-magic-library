@@ -153,9 +153,9 @@ export default defineConfig({
         {
           text: '馆藏典籍',
           items: [
-            { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
-            { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
-            { text: 'Vol. 03 字体与编码：Unicode 与高级排版', link: '/fonts-encodings/' },
+            { text: '《管制物质》：联邦药物法化学与法律指南', link: '/controlled-substances/' },
+            { text: '《火箭技术先驱》：苏联宇航先驱选集', link: '/rocket-pioneers/' },
+            { text: '《字体与编码》：Unicode 与高级排版全解', link: '/fonts-encodings/' },
           ],
         },
         {
@@ -216,9 +216,9 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '馆藏书库',
       items: [
-        { text: 'Vol. 01 管制物质：化学与法律指南', link: '/controlled-substances/' },
-        { text: 'Vol. 02 火箭技术先驱：选集', link: '/rocket-pioneers/' },
-        { text: 'Vol. 03 字体与编码：Unicode 与高级排版', link: '/fonts-encodings/' },
+        { text: '《管制物质》：联邦药物法化学与法律指南', link: '/controlled-substances/' },
+        { text: '《火箭技术先驱》：苏联宇航先驱选集', link: '/rocket-pioneers/' },
+        { text: '《字体与编码》：Unicode 与高级排版全解', link: '/fonts-encodings/' },
       ],
     },
     {
