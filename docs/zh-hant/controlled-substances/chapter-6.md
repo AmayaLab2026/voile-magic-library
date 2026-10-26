@@ -6,7 +6,9 @@ titleTemplate: 管制物質：化學與法律指南 · 亞歷山大·舒爾金
 # 第六章：聯邦公報法令與行政依據編年史 (Federal Register Citations)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亞歷山大·T·舒爾金 博士）  
+> 
 > **譯者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
+> 
 > **出處**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 6, pp. 351–378.  
 > **學術翻譯規範**：本章遵照美國行政法學與毒理學標準，對原書第 337 至 364 頁所收錄自 1966 年至 1991 年 4 月 1 日共計 **345 項《聯邦公報》正式法令、聽證報告與行政命令**展開**逐卷、逐頁、逐日期的完整中文翻譯**。
 

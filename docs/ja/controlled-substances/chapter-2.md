@@ -6,7 +6,9 @@ titleTemplate: 規制物質：化学と法律のガイド · アレクサンダ�
 # 第2章：規制薬物とシノニム全典 (List of Scheduled Drugs and Synonyms)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> 
 > **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
+> 
 > **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 2, pp. 27–256.  
 > **本巻の収録範囲**：A〜Z文字部の全規制薬物モノグラフ、非規制監視対象化学物質、市販商標名・同義語および相互参照索引（原著 pp. 27–256 の完全逐語学術精密訳）。
 

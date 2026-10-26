@@ -6,7 +6,9 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 # 第二章：受管制药物与同义词全典 (List of Scheduled Drugs and Synonyms)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  
+> 
 > **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
+> 
 > **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 2, pp. 27–256.  
 > **本卷收录**：A 字母部全部受管制药物专论、非管制监控化学品、商用俗名同义词与交叉检索索引（原书 pp. 27–45 完整逐字精译）。
 

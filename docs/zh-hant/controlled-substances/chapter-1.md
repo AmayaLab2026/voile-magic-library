@@ -6,7 +6,9 @@ titleTemplate: 管制物質：化學與法律指南 · 亞歷山大·舒爾金
 # 第一章：細則與法定定義 (Details and Definitions)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亞歷山大·T·舒爾金 博士）  
+> 
 > **譯者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
+> 
 > **出處**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 1, pp. 15–26.  
 > **學術翻譯規範**：本章遵照法理學、毒理學與有機化學學術標準，對原書第 15 至 26 頁全部正文、法理評註、各附表法定標準、管制除外條款及司法判例展開**完整無刪節、無摘要替代的逐字逐段權威精譯**。
 

@@ -6,7 +6,9 @@ titleTemplate: "規制物質：化学と法律のガイド · アレクサンダ
 # 第5章：米国麻薬取締局（DEA）薬物規制コード全典 (Drug Code Numbers)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> 
 > **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
+> 
 > **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 5, pp. 303–350.  
 > **学術基準**：原書第 289–336 ページの原始文献を忠実に再現。DEA内部の行政管理コード体系が単なる「内部統計処理」から「刑罰権行使の重火器」へと異質化した変遷に対するシュルギン博士の法理的批判を完全翻訳し、全数値帯にわたる薬物対照目録を収録。
 
