@@ -1,7 +1,11 @@
 ---
-title: 規制物質：連邦薬物法の化学的・法的ガイド
-description: アレクサンダー・T・シュルギン（Alexander T. Shulgin）の古典的名著『Controlled Substances』全訳・図解ガイド
+title: 『規制物質：連邦薬物法の化学・法律ガイド』
+description: アレクサンダー・シュルギン（Alexander T. Shulgin）世界的名著『規制物質：連邦薬物法の化学・法律ガイド』（Controlled Substances / 管制物质 / 管制物質）日本語全訳と分子構造図版。
 hideReprintNotice: true
+head:
+  - - meta
+    - name: keywords
+      content: 規制物質, 管制物质, 管制物質, Controlled Substances, Alexander Shulgin, 連邦薬物法, 神経薬理学, 構造活性相関, 分子構造式
 ---
 
 # 規制物質：連邦薬物法の化学的・法的ガイド

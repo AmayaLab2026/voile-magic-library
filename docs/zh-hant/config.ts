@@ -153,9 +153,9 @@ export default defineConfig({
         {
           text: '館藏典籍',
           items: [
-            { text: '《管制物質》：聯邦藥物法化學與法律指南', link: '/zh-hant/controlled-substances/' },
-            { text: '《火箭技術先驅》：蘇聯宇航先驅選集', link: '/zh-hant/rocket-pioneers/' },
-            { text: '《字體與編碼》：Unicode 與高級排版全解', link: '/zh-hant/fonts-encodings/' },
+            { text: '《管制物質：聯邦藥物法的化學與法律指南》', link: '/zh-hant/controlled-substances/' },
+            { text: '《火箭技術先驅：蘇聯宇航先驅選集》', link: '/zh-hant/rocket-pioneers/' },
+            { text: '《字體與編碼：Unicode 與高級排版全解》', link: '/zh-hant/fonts-encodings/' },
           ],
         },
         {
@@ -216,9 +216,9 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '館藏書庫',
       items: [
-        { text: '《管制物質》：聯邦藥物法化學與法律指南', link: '/zh-hant/controlled-substances/' },
-        { text: '《火箭技術先驅》：蘇聯宇航先驅選集', link: '/zh-hant/rocket-pioneers/' },
-        { text: '《字體與編碼》：Unicode 與高級排版全解', link: '/zh-hant/fonts-encodings/' },
+        { text: '《管制物質：聯邦藥物法的化學與法律指南》', link: '/zh-hant/controlled-substances/' },
+        { text: '《火箭技術先驅：蘇聯宇航先驅選集》', link: '/zh-hant/rocket-pioneers/' },
+        { text: '《字體與編碼：Unicode 與高級排版全解》', link: '/zh-hant/fonts-encodings/' },
       ],
     },
     {

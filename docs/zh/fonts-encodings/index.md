@@ -1,6 +1,10 @@
 ---
-title: 馆藏第三号 · 字体与编码：从 Unicode 到高级排版及其中一切
-description: ヴ瓦尔魔法图书馆 馆藏第三号典籍：雅尼斯·哈拉兰布斯（Yannis Haralambous）旷世巨著《Fonts & Encodings》全书深度学术汉译与图解典藏。
+title: 《字体与编码：Unicode 与高级排版全解》
+description: ヴ瓦尔魔法图书馆 馆藏典籍：《字体与编码：Unicode 与高级排版全解》（Fonts & Encodings / フォントとエンコーディング / 字體與編碼）。雅尼斯·哈拉兰布斯（Yannis Haralambous）旷世巨著全书深度学术汉译与图解典藏。
+head:
+  - - meta
+    - name: keywords
+      content: 字体与编码, 字體與編碼, フォントとエンコーディング, Fonts & Encodings, Yannis Haralambous, Unicode, OpenType, TrueType, Typography, 排版技术, 字符集, 字体设计
 ---
 
 # 馆藏第三号典籍 ·《字体与编码：从 Unicode 到高级排版及其中一切》

@@ -1,6 +1,10 @@
 ---
-title: 蔵書典籍 ·『フォントとエンコーディング：Unicodeから高度な組版技術まで』
-description: ヴワル魔法図書館 蔵書典籍：ヤニス・ハラランブス（Yannis Haralambous）の記念碑的大著『Fonts & Encodings』日本語学術訳・図版完全収録版。
+title: 『フォントとエンコーディング：Unicode と高度な組版技術全解』
+description: ヴワル魔法図書館 蔵書典籍：『フォントとエンコーディング：Unicode と高度な組版技術全解』（Fonts & Encodings / 字体与编码 / 字體與編碼）。ヤニス・ハラランブス（Yannis Haralambous）記念碑的大著日本語学術訳・図版完全収録版。
+head:
+  - - meta
+    - name: keywords
+      content: フォントとエンコーディング, 字体与编码, 字體與編碼, Fonts & Encodings, Yannis Haralambous, Unicode, OpenType, TrueType, Typography, 組版技術, 文字コード, フォント設計
 ---
 
 # 蔵書典籍 ·『フォントとエンコーディング：Unicodeから高度な組版技術まで』

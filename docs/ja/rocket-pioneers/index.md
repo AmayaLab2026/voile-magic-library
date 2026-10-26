@@ -1,6 +1,10 @@
 ---
-title: "蔵書第二号 · ロケット技術の先駆者たち：選集"
-description: "ヴワル魔法図書館 蔵書第二号典籍：ソ連科学アカデミー自然科学・技術史研究所編纂、NASA技術翻訳 NASA TT F-9285 日本語全訳本。"
+title: 『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』
+description: ソ連科学アカデミー自然科学技術史研究所編『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』（Pioneers of Rocket Technology / 火箭技术先驱 / 火箭技術先驅）、NASA TT F-9285 日本語全訳文献。
+head:
+  - - meta
+    - name: keywords
+      content: ロケット技術の先駆者, 火箭技术先驱, 火箭技術先驅, Pioneers of Rocket Technology, ツィオルコフスキー, コンドラチュク, 軌道力学, 月軌道ランデブー, LOR
 ---
 
 # 蔵書第二号典籍 ·『ロケット技術の先駆者たち：選集』

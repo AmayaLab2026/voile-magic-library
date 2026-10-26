@@ -1,6 +1,10 @@
 ---
-title: 馆藏第二号 · 火箭技术先驱：选集
-description: ヴ瓦尔魔法图书馆 馆藏第二号典籍：苏联科学院自然科学与技术史研究所编纂，NASA 技术翻译 NASA TT F-9285 中文全译本。
+title: 《火箭技术先驱：苏联宇航先驱选集》
+description: 苏联科学院自然科学与技术史研究所编纂《火箭技术先驱：苏联宇航先驱选集》（Pioneers of Rocket Technology / ロケット技術の先駆者 / 火箭技術先驅），NASA TT F-9285 中文全译本。
+head:
+  - - meta
+    - name: keywords
+      content: 火箭技术先驱, 火箭技術先驅, ロケット技術の先駆者, Pioneers of Rocket Technology, 齐奥尔科夫斯基, 康德拉秋克, 航天力学, 登月轨道, LOR, 变质量力学
 ---
 
 # 馆藏第二号典籍 ·《火箭技术先驱：选集》

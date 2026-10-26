@@ -153,9 +153,9 @@ export default defineConfig({
         {
           text: '所蔵文献',
           items: [
-            { text: '《規制物質》：連邦薬物法化学・法律ガイド', link: '/ja/controlled-substances/' },
-            { text: '《ロケット技術の先駆者》：ソ連宇宙開拓先駆者選集', link: '/ja/rocket-pioneers/' },
-            { text: '《フォントとエンコーディング》：Unicode と高度な組版技術全解', link: '/ja/fonts-encodings/' },
+            { text: '『規制物質：連邦薬物法の化学・法律ガイド』', link: '/ja/controlled-substances/' },
+            { text: '『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』', link: '/ja/rocket-pioneers/' },
+            { text: '『フォントとエンコーディング：Unicode と高度な組版技術全解』', link: '/ja/fonts-encodings/' },
           ],
         },
         {
@@ -224,9 +224,9 @@ function nav(): DefaultTheme.NavItem[] {
     {
       text: '蔵書庫',
       items: [
-        { text: '《規制物質》：連邦薬物法化学・法律ガイド', link: '/ja/controlled-substances/' },
-        { text: '《ロケット技術の先駆者》：ソ連宇宙開拓先駆者選集', link: '/ja/rocket-pioneers/' },
-        { text: '《フォントとエンコーディング》：Unicode と高度な組版技術全解', link: '/ja/fonts-encodings/' },
+        { text: '『規制物質：連邦薬物法の化学・法律ガイド』', link: '/ja/controlled-substances/' },
+        { text: '『ロケット技術の先駆者：ソ連宇宙開拓先駆者選集』', link: '/ja/rocket-pioneers/' },
+        { text: '『フォントとエンコーディング：Unicode と高度な組版技術全解』', link: '/ja/fonts-encodings/' },
       ],
     },
     {

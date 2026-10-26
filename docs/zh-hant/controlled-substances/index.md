@@ -1,7 +1,11 @@
 ---
-title: 管制物質：聯邦藥物法的化學與法律指南
-description: 亞歷山大·舒爾金（Alexander T. Shulgin）經典權威著作《Controlled Substances》全譯與圖解指南
+title: 《管制物質：聯邦藥物法的化學與法律指南》
+description: 亞歷山大·舒爾金（Alexander T. Shulgin）權威名著《管制物質：聯邦藥物法的化學與法律指南》（Controlled Substances / 規制物質 / 管制物质）全譯與圖解指南。
 hideReprintNotice: true
+head:
+  - - meta
+    - name: keywords
+      content: 管制物質, 管制物质, 規制物質, Controlled Substances, Alexander Shulgin, 藥物法, 神經藥理, 結構活性相依, CSA, 分子結構式
 ---
 
 # 管制物質：聯邦藥物法的化學與法律指南
