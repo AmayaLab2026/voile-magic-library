@@ -1,211 +1,259 @@
 ---
-title: "第七章 · Windows 平台上的字体架构"
-description: '权威全译本：Windows XP 字体中枢、C:\Windows\Fonts 特殊目录、PANOSE 相似度分类体系、字体属性扩展组件、ATM 与多重母版在 Windows 下的应用、Font Reserve、Suitcase、Typograf 以及 CrossFont 转换利器。'
+title: "第7章：Windowsにおけるフォント管理"
+description: "完全無削除学術訳：Windows 2000/XP におけるフォントインストールと管理アーキテクチャ、C:\\Windows\\Fonts 特殊システムフォルダ、アイコン識別特徴（.fon、.ttf、.otf、.pfm/.pfb）；PANOSE-1 10次元類似度分類体系と Web CSS 連携；マイクロソフトフォントプロパティ拡張（ttfext）；専門的フォント保守・診断（FontAgent 8.8）；ATM によるフォント平滑化とマルチプルマスター（Multiple Master）動的インスタンス生成；ハイエンドフォントマネージャー（Font Reserve、Suitcase、Neuber Typograf）とエンタープライズフォントサーバー；クロスプラットフォーム変換エンジニアリング（TransType Pro、CrossFont）。"
+head:
+  - - meta
+    - name: keywords
+      content: Windowsフォント管理, Windows XP, PANOSE, フォントプロパティ拡張, ttfext, ATM, Multiple Master, マルチプルマスター, Font Reserve, Suitcase, Typograf, CrossFont, TransType, フォント変換
 ---
 
-# 第七章 · Windows 平台上的字体架构
-### Chapter 7: Font Management under Windows
-
-**著者：雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）**  
-*选自『Fonts & Encodings』第 209–220 页*  
-*译者：ヴワル魔法図書館（Voile Magic Library）文献翻译工房*
-
----
-
-在世界个人电脑的另一大半壁江山中，微软公司的 **Windows** 操作系统统治着全球绝大多数办公与生产力桌面。从早期 Windows 3.1 首次引入 TrueType 字体技术、打破 Adobe 对数字アウトラインフォント（Outline Font）的绝对垄断，到 Windows 95/98 的广泛普及，再到基于 Windows NT 坚固内核的 **Windows 2000 与 Windows XP**，Windows 平台的字体架构形成了一套高度务实、兼容性极强、且与 Windows 图形设备接口（GDI）紧密交织的技术体系。
-
-本章我们将系统剖析 Windows XP 时代的字体管理架构、系统级 PANOSE 相似度算法、OpenType 高级属性扩展、以及以 Typograf 和 CrossFont 为代表的专业字体工具链。
+# 第7章：Windowsにおけるフォント管理
+**ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
+*『Fonts & Encodings』第209〜220頁より*  
+*訳者：ヴワル魔法図書館（Voile Magic Library）文献翻訳工房*
 
 ---
 
-## Windows XP 时代的技术生态（The Situation under Windows XP）
+本章における我々の関心事は、**Windows 2000** および **Windows XP** オペレーティングシステム環境下でのフォントのインストールと管理である。
 
-在 Windows 操作系统中，所有系统字体的物理栖息之所通常位于主系统盘的特定目录之下（在 Windows XP 中通常为 `C:\WINDOWS\Fonts`，在 Windows NT/2000 中则为 `C:\WINNT\Fonts`）。
+多くの側面において、Windows におけるこれら一連の手順は、前章で詳述したマッキントッシュ環境でのそれと驚くほど類似している。その理由は多岐にわたる。現在最も普及しているソフトウェア群は、オフィス自動化ツールであれ芸術的グラフィックデザインツールであれ、双方のプラットフォーム間で相互に移植されてきた（オフィススイートは Windows から Macintosh へ、DTP やグラフィックデザインツールは Macintosh から Windows へと移植された）。主要なアプリケーションが共通化されている以上、その補助リソースであるフォントの扱いが同様の軌跡を辿るのは極めて自然な成り行きと言えよう。
 
-然而，当用户在 Windows 资源管理器中双击进入该目录时，呈现在眼前的绝非一个普通的文件列表，而是一个由 Windows Shell 扩展特殊接管的**专用字体管理控制台**：
+Windows におけるフォントのインストールは、Mac OS と同様に表面的には極めて平易である。ユーザーは「コントロールパネル」（Control Panel）を開き、「フォント」（Fonts）ディレクトリへのショートカットをダブルクリックするだけでよい。このショートカットは、実際にはすべてのフォントファイルが物理的に保存されているシステムディレクトリ（Windows 2000/NT では `c:\winnt\fonts`、Windows XP では `c:\windows\fonts`）を指し示している。
 
-::: tip 図 7-1：Windows XP 中的 Fonts 字体系统专用目录
-![図 7-1：Windows XP 中的 Fonts 字体系统专用目录](/images/fonts-encodings/fig7-1.png)
-*図 7-1：Windows XP 中的 Fonts 字体系统专用目录*
+**図 7-1** は、Windows XP 環境におけるこのディレクトリのスクリーンショットである：
+
+::: tip 図 7-1：Windows XP における Fonts（フォント）システム専用ディレクトリ
+![Figure 7-1: The Fonts directory in Windows XP](/images/fonts-encodings/fig7-1.png)
+*図 7-1：Windows XP の Fonts フォルダ。極めて特殊なディレクトリであり、アイコンの下に表示されているのは物理的なファイル名ではなく、Windows 内部におけるフォントの正式名称である。*
 :::
 
-*図 7-1：Windows XP 资源管理器中的 Fonts 目录。窗口展示了各字体的全名、文件图标（带有 ‘TT’ 标识的 TrueType 或带有 ‘O’ 标识的 OpenType），以及特有的字体管理菜单。*
+このウィンドウに並ぶ各種アイコンを仔細に観察すると、異なるフォント形式を視覚的に明確に区別することができる：
+1. **赤色の大文字「A」アイコン**：ビットマップフォント（拡張子は `.fon`）を表す。極めて稀なケース（システム標準の Modern、Roman、Script など）では、有史以前のように古い「ベクターフォント」（Vector Fonts）形式である場合もある。これは Windows 1.0 や 2.0 の時代に用いられていた、AutoCAD などの CAD システムに類似した古い形式であり、グリフが塗りつぶされた輪郭ではなく、単なる線分ストロークの組み合わせで構成されている。これらは現代のデジタル組版においてほぼ絶滅に瀕した過去の遺物である；
+2. **二重の「T」（TT）アイコン**：標準的な TrueType フォントを表し、ファイル拡張子は `.ttf` である；
+3. **大文字の「O」アイコン**：通常は OpenType フォントを表すが、単なる TrueType フォントである場合もある。この混乱の理由は、マイクロソフト社が当初、TrueType 輪郭に基づく OpenType フォントに `.ttf` を、PostScript CFF 輪郭に基づく OpenType フォントに `.otf` を割り当てる方針をとったためである。1つの拡張子だけでは旧来の TrueType と OpenType-TTF を明確に識別することが困難であるため、システムがアイコンを半ばランダムに割り振っているような印象を受けることすらある；
+4. **小文字の「a」アイコン**：PostScript Type 1 フォントを表す。マッキントッシュと同様に、Windows においても PostScript フォントは2つの独立したファイルの対（ペア）を必須とする：
+   * 一方は、フォントメトリクスファイルであり、拡張子は `.pfm`（PostScript Font Metrics）である。これには Windows が必要とする情報（フォント名、文字幅メトリクス、カーニングペア、およびフォントの内部 PostScript 名）が格納されている；
+   * もう一方は、PostScript ベクター命令を格納したバイナリコードファイルであり、拡張子は `.pfb`（PostScript Font Binary。Unix で一般的な ASCII テキスト形式の `.pfa` と対比される）である。
 
-### 字体安装与快捷方式链接机制
+マッキントッシュと同様に、Windows においても PostScript や TrueType フォントは最大4つの基本スタイル（「標準 Regular」、「太字 Bold」、「斜体 Italic」、「太字斜体 Bold Italic」）を持ちうる[^footnote-style-ja]。しかし、複数のスタイルを単一のスーツケースに格納していたマッキントッシュとは決定的に異なり、**Windows においては各スタイルが完全に独立した別個のファイルとして保存される**！
 
-在 Windows 下安装字体主要有两种途径：
-1. 直接将外部字体文件拖拽并拷贝进 `C:\WINDOWS\Fonts` 目录；
-2. 通过菜单栏选择“文件” $\to$ “安装新字体”（Install New Font），弹出专用的安装对话框（见図 7-2）。
+[^footnote-style-ja]: フォントのスタイル情報は、下層の TrueType `head` テーブル内の `macStyle` 変数に記録される。しかし `OS/2` テーブルには別の変数 `fsSelection` も存在し、後者は「下線付き（underscored）」、「反転（negative、黒地に白文字）」、「中抜き輪郭（contour）」、「取り消し線（strikethrough）」およびそれらの任意の組み合わせを取りうる。OpenType 仕様書には `macStyle` と `fsSelection` の間の互換性規則が詳細に規定されている。
 
-::: tip 図 7-2：Windows 字体安装对话框
-![図 7-2：Windows 字体安装对话框](/images/fonts-encodings/fig7-2.png)
-*図 7-2：Windows 字体安装对话框*
+1つのフォントファミリーから4つものファイルが生じることによってフォントフォルダが過度に氾濫するのを防ぐため、Fonts ウィンドウの「表示」（View）メニューには「**書体のバリエーションを隠す（太字、斜体など）**」（Hide Variations (Bold, Italic, etc.)）という便利なオプションが用意されている。これを有効にすると、同一ファミリーに属する複数のスタイルが1つの代表アイコンに集約して表示される。
+
+### フォントのインストールとショートカットリンク機能
+
+Windows 環境でフォントをインストールするには、Fonts ウィンドウの「ファイル」（File）メニューから「**新しいフォントのインストール...**」（Install New Font...）を選択する。表示されるダイアログボックス（**図 7-2**）には、指定したディレクトリ内に存在するすべてのフォントが一覧表示される：
+
+::: tip 図 7-2：Windows のフォントインストール設定ダイアログ
+![Figure 7-2: Dialog box for installing fonts](/images/fonts-encodings/fig7-2.png)
+*図 7-2：フォントインストールダイアログ。選択されたディレクトリ内のフォント名と形式を一覧表示し、右下に重要なコピー制御チェックボックスを備える。*
 :::
 
-*図 7-2：Windows 经典的“添加字体”对话框。注意其底部包含一个极其关键的复选框：“将字体复制到 Fonts 文件夹”（Copy fonts to Fonts folder）。*
+ここでも表示されるのは難解な物理ファイル名ではなく、フォントの可読な正式名称である。かつて MS-DOS 時代の「8.3文字」制限の制約を強く受けた Windows のフォントファイル名は、例えば著名な名作活字 Bembo に対して `bm______.ttf` といった極めて暗号的な文字列になりがちであったため、この名称表示は実務上非常に有用である。ファイル名の右側にはそのフォントの形式が表示される。
 
-若取消勾选该复选框，Windows 仅仅会在注册表（Registry）的 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts` 键值中建立一条指向该文件原始物理路径的符号链接，而**不在系统盘上复制文件本身**。这对于通过只读网络共享挂载数万套字体的企业工作站而言，是一项极其高效的存储优化手段。
+ダイアログの右下には、極めて決定的なチェックボックスが存在する——「**フォントを Fonts フォルダにコピーする**」（Copy fonts to Fonts folder）：
+* **チェックを入れた場合**：フォントファイルの実体が `c:\winnt\fonts` ディレクトリへと物理的にコピーされる；
+* **チェックを外した場合**：既存の場所にあるフォントファイルへの**参照リンク（ショートカット）**のみが Fonts フォルダ内に生成される。このリンクアイコンの左下には小さな矢印マークが付与される。
+
+> [!NOTE] フォントショートカットの特殊な性質
+> Fonts フォルダ内に作られたこのリンクは、通常の Windows ショートカット（`.lnk` ファイル）とは全く異なる点に留意されたい。Windows のコマンドプロンプトで `dir` コマンドを実行しても、これらの「リンク」は通常のファイル一覧の中には一切現れない。これらは Windows レジストリと Shell 名前空間によって透過的に管理される特殊なシステム内部参照である。
 
 ---
 
-### PANOSE 相似度分类体系（PANOSE Classification System）
+### PANOSE-1 類似度分類体系（PANOSE Classification System）
 
-在 Windows Fonts 目录的“查看”（View）菜单中，隐藏着一项令排印学者惊叹的高阶功能——“**按相似度列出字体**”（List Fonts by Similarity）：
+Fonts ウィンドウの「表示」メニューには、タイポグラフィ研究者を驚嘆させるもう一つの独自機能が備わっている——「**類似度でフォントを一覧表示**」（List Fonts By Similarity、**図 7-3**）：
 
-::: tip 図 7-3：按相似度列出字体的智能匹配窗口
-![図 7-3：按相似度列出字体的智能匹配窗口](/images/fonts-encodings/fig7-3.png)
-*図 7-3：按相似度列出字体的智能匹配窗口*
+::: tip 図 7-3：PANOSE-1 アルゴリズムに基づくフォント類似度の一覧表示
+![Figure 7-3: List of fonts "by similarity"](/images/fonts-encodings/fig7-3.png)
+*図 7-3：基準フォント Linotype Palatino に対する外見の類似度分類画面。*
 :::
 
-*図 7-3：在下拉菜单中选中基准字体 Linotype Palatino 后，系统依据 PANOSE 度量矩阵计算出其他字体的外观相似度分级（Very similar / Fairly similar / Not similar）。*
+このモードでは、指定した基準フォントとシステム内の全フォントとの外見的類似性を判定するために、**PANOSE-1** 分類体系が全面的に活用される。
 
-这项智能分类的背后，正是由 Benjamin Bauermeister 于 1985 年创立、随后被惠普公司（HP）标准化并植入 TrueType/OpenType 标准 `OS/2` 表内部的 **PANOSE 字体分类度量体系**。
+PANOSE-1 の詳細な数学的・幾何学的構造については、本書第11章（327頁）で本格的に解説する。簡潔に言えば、PANOSE-1 は文字デザインの視覚的特徴を **10次元の幾何学的空間** 内の1つの座標点として厳密に数値化するシステムである。2つのフォント間の「類似度」（Similarity）とは、この10次元空間において2つのフォントを表す座標ベクトル間の重み付けユークリッド距離にほかならない。
 
-PANOSE 通过一组长达 10 位的十进制数组，严密量化了一套西文字体的十项关键几何拓扑特征：
-1. 家族家族类型（Family Kind：文本、展示、手写、图案）；
-2. 衬线样式（Serif Style：钝角三角衬线、直线板状衬线、圆头衬线、无衬线等）；
-3. 笔画粗细（Weight：极细到特黑共 11 级）；
-4. 比例与宽高比（Proportion：现代紧缩、常规、扩展）；
-5. 笔画对比度（Contrast：笔画最粗处与最细处之比）；
-6. 笔画起伏笔势（Stroke Variation）；
-7. 臂部与终端形态（Arm Style）；
-8. 字母形质（Letterform：常规、斜体、弯曲等）；
-9. 中线比例（Midline：大写字母水平中线与 x 字高相对位置）；
-10. x 字高光学比例（X-height）。
+**図 7-3** では、基準フォントとして名作 **Linotype Palatino** を選択している。システムは、ローカルにインストールされているフォントの中から、Palatino に「非常に類似している」（Very similar）フォントとして Georgia および Palatino 自身を即座に特定する。これに対して、Times New Roman は「ある程度類似している」（Fairly similar）にとどまり、サンセリフの Arial は「類似していない」（Not similar）と判定される。
 
-Windows 底层通过加权欧几里得空间几何距离算法（Weighted Euclidean Distance），即时计算目标字体与基准字体在 10 维 PANOSE 特征向量上的偏差值。当排版软件打开一份缺失特定字体的文档时，系统便能利用 PANOSE 矩阵从本地字库中自动遴选出在灰度与骨架上最接近的替代字体，最大程度避免版面发生剧烈走样。
+PANOSE-1 分類体系は、Web デザインの領域において計り知れない威力を発揮する。W3C の CSS 仕様には PANOSE によるフォント記述パラメータが組み込まれている。Web サイトの制作者は、スタイルシートで明示的なフォント名を指定すると同時に PANOSE 特徴ベクトルを付与することができる。閲覧者の端末環境に目的の商用フォントが存在しない場合でも、ブラウザは PANOSE 距離に基づいてローカル環境から最も骨格や灰調の近い代替フォントを自動選定してレンダリングできるため、レイアウトの破綻を最小限に防ぐことができる。
 
 ---
 
-### 微软字体属性扩展组件（Font Properties Extension）
-
-普通 Windows 用户右键单击字体文件只能看到基础的文件大小与修改日期。然而，微软官方发布了一套专为排印极客设计的免费系统级扩展——**Font Properties Extension**。
-
-安装该扩展后，右键单击任何 `.ttf` 或 `.otf` 文件的“属性”视窗，系统会暴增多达十几个极其深邃的专业技术标签页（见図 7-4）：
-
-::: tip 図 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）
-![図 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）](/images/fonts-encodings/fig7-4.png)
-*図 7-4：微软字体属性扩展组件面板（以 Linotype Palatino 为例）*
-:::
-
-*図 7-4：Font Properties Extension 详尽展示了 OpenType 特性标签页（左）以及文字セット覆盖表、度量ベースライン（Baseline）、厂商版权与数字签名信息。*
-
-在此视窗中，开发者可以审查字体的全部底层秘密：
-- **字体嵌入许可权限（Embedding Permissions）**：
-  - `Installable`（可无限制永久安装）；
-  - `Editable`（可编辑嵌入，允许在接收方机器上临时编辑）；
-  - `Preview & Print`（仅供预览与打印，严禁对文档进行文本修改）；
-  - `Restricted License`（严格限制许可证，严禁任何形式的文档嵌入）。
-- **微调提示指令（Hinting）**：指示字体是否包含原生 TrueType 字节码解释器指令，以及 ClearType 平滑字号阈值；
-- **OpenType 高阶排版特性（Features）**：罗列该字体内部是否烧录了标准合字（Ligature）（`liga`）、スモールキャピタル（Small Capitals）（`smcp`）、旧式不规则数字（`onum`）等高阶特性表。
+マッキントッシュ環境と同様に、Windows においてもアクティブなフォントは OS 内部で常にファイルハンドルが開かれた状態に保たれているため、不意のシステムクラッシュが発生した際にバイナリ破損を起こすリスクに常に晒されている。そのため、フォントファイルの整合性を定期的に検証し、必要な時だけ動的にマウントしてメモリ消費を抑える運用がプロの制作現場では不可欠となる。以下に、Windows プラットフォームにおけるプロフェッショナル向けフォント管理ツール群を紹介しよう。
 
 ---
 
-## 专业字体管理工具体系（Tools for Managing Fonts）
+# プロフェッショナル向けフォント管理ツール群（Tools for Managing Fonts）
 
-当排版工程涉及数百套专业字库时，单纯依靠 Windows 系统目录会导致开机启动延迟飙升。专业出版人员需要借助能够动态激活、分组编目的专业管理平台。
+### マイクロソフト純正拡張：フォントプロパティ拡張（Font Properties Extension）
 
-### Insider Software FontAgent 8.8
-在 Windows 平台上，**FontAgent** 同样提供了坚实的库管理与文件完整性校验，能够自动隔离损坏的字体并维护干净的物理分类（见図 7-5）。
+まず紹介すべきは、本来ならばオペレーティングシステムに標準搭載されているべき極めて優れたツールである。マイクロソフト社が無償で提供している **ttfext** という軽量なシステムユーティリティである。
 
-::: tip 図 7-5：Windows 平台下的 FontAgent v.8.8 配置界面
-![図 7-5：Windows 平台下的 FontAgent v.8.8 配置界面](/images/fonts-encodings/fig7-5.png)
-*図 7-5：Windows 平台下的 FontAgent v.8.8 配置界面*
+ユーザーが TrueType または OpenType フォントファイルを右クリックして「プロパティ」を選択すると、この拡張機能が自動的に起動する。従来の単純な「全般」タブ（フォントの物理ファイル名を確認する唯一の手段でもある）に加え、新たに9つもの高度な技術情報タブが追加される（**図 7-4**）：
+
+::: tip 図 7-4：マイクロソフト・フォントプロパティ拡張（ttfext）パネル（Linotype Palatino の例）
+![Figure 7-4: Two tabs of the Properties window of the font Linotype Palatino](/images/fonts-encodings/fig7-4.png)
+*図 7-4：Linotype Palatino のプロパティウィンドウ。左図：OpenType 高度組版機能（Features）タブ；右図：フォントの総合的解説と歴史（Description）タブ。*
 :::
 
-*図 7-5：FontAgent 在 Windows 下的配置面板，支持自动建立集中字体库与系统字体清理。*
+これら9つのタブが提供する詳細情報は以下の通りである：
+1. **埋め込み許可（Embedding）**：当該フォントが文書（PDF や Word 等）へ埋め込み可能かどうかを明示する。仕様上、4つの厳格なライセンスレベルが定義されている：
+   * **インストール可能埋め込み許可（Installable embedding allowed）**：文書への埋め込みが可能であり、閲覧者のシステムに恒久的にインストールして使用することすら許諾される；
+   * **編集可能埋め込み許可（Editable embedding allowed）**：文書に埋め込んでテキストの編集に使用できるが、閲覧者のマシンには一時的にのみインストールされ、文書を閉じると解放される；
+   * **印刷およびプレビュー埋め込み許可（Print & Preview embedding allowed）**：画面表示と紙への印刷のみが許可され、テキストの改変は禁止される。インストールも一時的なものに限られる；
+   * **制限付きライセンス（Restricted license embedding）**：いかなる形式の文書への埋め込みも一切禁止される。
+2. **文字セット／Unicode（CharSet/Unicode）**：フォントのデフォルト文字エンコーディング、収録されている Unicode ブロック範囲、および互換性のある他のエンコーディング一覧；
+3. **バージョン情報（Version）**：フォントのバージョン番号、ファイルの作成日時および最終更新日時；
+4. **ヒンティング／フォントスムージング（Hinting/Font Smoothing）**：フォント内にヒンティング命令が含まれているか、また何ポイント以上のサイズから多階調グレーによるアンチエイリアス（スムージング）を開始すべきかが示される。例えば `0+` という表記は「0ポイント以上」、すなわちあらゆる表示サイズで常にスムージングを行うことを意味する；
+5. **名称テーブル（Names）**：フォントの正式名称、ファミリー名、ファウンドリ名、著作権表示、商標情報；
+6. **高品位機能（Features）**：収録グリフ総数、ビットマップの有無、ユーロ記号（€）の収録状況、TTF 輪郭か CFF 輪郭かの別、対応するスクリプト（文字体系）、言語システム、および `GSUB`（置換）や `GPOS`（位置調整）テーブルの一覧；
+7. **リンク（Links）**：ファウンドリ、フォントデザイナー、マイクロソフト・タイポグラフィ部門の公式 Web サイトへのハイパーリンク；
+8. **解説（Description）**：フォントのデザイン背景、歴史的経緯、担当デザイナーの生平を記録したテキスト；
+9. **ライセンス（License）**：使用許諾契約の詳細および完全なライセンス条文へのリンク。
+
+このツールを用いれば、通常であれば TTX を用いて逆コンパイルしたり、FontLab や FontForge などの巨大な専門エディタを開かなければ確認できない内部メタデータを瞬時に閲覧できる。唯一の弱点は、**PostScript Type 1 フォントに対しては一切機能せず、完全に沈黙してしまう**点である。
 
 ---
 
-### ATM 与多重母版在 Windows 下的应用
+### フォント保守・診断ツール：Insider Software FontAgent 8.8
 
-与 Mac 平台类似，在 Windows 2000 之前（Windows 95/98），Windows GDI 并不具备原生的 PostScript Type 1 ラスタライズ（Rasterization）渲染能力。Adobe 推出的 **Adobe Type Manager (ATM)** 同样是 Windows 用户获得清晰 PostScript 排版的必装组件。
+OS のクラッシュを完全に防ぐことはできない以上、破損したフォントが新たなクラッシュの引き金となる前に、可能な限り早期に検出して隔離することが肝要である。また、世界中から多様なフォントを収集すると、同一名称のフォントが複数重複してインストールされる事態が頻発する。多くのファウンドリは同一の書体を PostScript Type 1 と TrueType の双方の形式で同時にリリースしているため、この問題は日常的に発生する。
 
-在 Windows 版本的 ATM 中，用户同样可以自由调用**多重母版**（Multiple Master）字体生成器（见図 7-6），并在写字板（WordPad）等标准文字处理软件中直接排印定制生成的动态母版实例（见図 7-7）。
+Insider Software 社が開発した **FontAgent**（**図 7-5**）は、Windows において破損フォントの診断と重複の整理を行う代表的ユーティリティである：
 
-::: tip 図 7-6：Windows 下的多重母版字体变体实例创建器
-![図 7-6：Windows 下的多重母版字体变体实例创建器](/images/fonts-encodings/fig7-6.png)
-*図 7-6：Windows 下的多重母版字体变体实例创建器*
+::: tip 図 7-5：Windows 環境における FontAgent v.8.8 の設定画面
+![Figure 7-5: Interface for configuring FontAgent, v.8.8](/images/fonts-encodings/fig7-5.png)
+*図 7-5：FontAgent 8.8 設定画面。重複の解決ポリシー、孤立ファイルの検出、フォルダ自動体系化などのオプションが並ぶ。*
 :::
 
-*図 7-6：Windows 平台下 ATM 的多重母版实例创建视窗。*
+FontAgent は以下の高度なメンテナンス機能を自動実行する：
+* **重複フォントの検出と削除**：TrueType 版と PostScript Type 1 版のどちらを優先して残すかをユーザーが指定できる。また、異なるファウンドリに由来する同名フォントであれば共存を許可することも可能である；
+* **孤立した PostScript フォントの検出**：`.pfm` を欠いた `.pfb`、あるいは `.pfb` を欠いた `.pfm` を検出する。ただし、Mac OS 上の Font Doctor とは異なり、Windows 版 FontAgent は**「家族の再会」（Family Reunion）機能を持たない**。すなわち、ディスク上の異なるフォルダに散在する対の `.pfb` と `.pfm` を発見しても、それらを自動的に単一のフォルダへ統合してくれるわけではない；
+* **フォルダ階層の自動体系化**：フォント名の頭文字アルファベットごとのフォルダツリーを自動構築したり、フォントごとに個別フォルダを作成して整理することができる（フォルダ名に TrueType を示す `tt` や Type 1 を示す `t1` の拡張サフィックスを付与可能。ただし OpenType には非対応）。また、システム Fonts フォルダ内を最小限の構成へと安全にスリム化することもできる；
+* **ファイル名の正規化**：MS-DOS 由来の短縮ファイル名を、人間が直感的に判読できる正式なフォント名へと一括リネームする；
+* **異常ファイルの安全な隔離**：破損したファイルや冗長な重複ファイルを専用の隔離フォルダへと安全に退避させる。
 
-::: tip 図 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现
-![図 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现](/images/fonts-encodings/fig7-7.png)
-*図 7-7：在 Windows 写字板（WordPad）中调用 Multiple Master 动态字体重现*
-:::
-
-*図 7-7：在 WordPad 中使用实时定制的多重母版字体实例排印的正文范例。*
+> [!WARNING] 作業前のバックアップの重要性
+> ファイルの移動やリネームを伴うため、不慮の誤操作やトラブルを避けるべく、FontAgent の実行前には全フォント資産の完全な物理バックアップを作成しておくことが強く推奨される。
 
 ---
 
-### 出版界巨头：Font Reserve 与 Suitcase for Windows
+### ATM：Windows におけるフォント平滑化とマルチプルマスター（Multiple Master）生成
 
-在商业字体管理领域，Extensis 公司的双子星产品统治了 Windows 专业出版车间：
-- **Font Reserve 2.6.5**（図 7-8）：拥有无可比拟的**多条件布尔高级检索面板**（図 7-10），允许设计师依照铸字厂商（Foundry）、文件格式、ウェイト（Weight）、PANOSE 属性以及文字セット支持情况进行复合多维查询；
-- **Extensis Suitcase for Windows**（図 7-9）：轻巧灵动，与主流排版软件无缝整合自动激活特性。
+Windows 2000 以降、PostScript Type 1 グリフのスムージング（平滑化）は OS によってネイティブに実行されるようになったため、**ATM（Adobe Type Manager）** は原則として必須ではなくなった。実際に Windows 2000 や XP に ATM をインストールしても、その設定画面では PostScript ファイルを格納する2つのフォルダを指定できるに過ぎない（Type 1 および OpenType-CFF の `.pfb` / `.otf` 用フォルダと、Type 1 および Multiple Master の `.pfm` / `.mmm` 用フォルダ。なお、後継の Windows Vista では ATM は完全に非互換となった）。
 
-::: tip 図 7-8：Extensis Font Reserve 2.6.5 主视窗
-![図 7-8：Extensis Font Reserve 2.6.5 主视窗](/images/fonts-encodings/fig7-8.png)
-*図 7-8：Extensis Font Reserve 2.6.5 主视窗*
+しかしながら、Windows 2000 や XP 環境において ATM をインストールすべき極めて強力な理由が一つ存在する：**それはマルチプルマスター（Multiple Master）インスタンスを生成できる唯一の手段であるという点である！**
+
+その手順は **図 7-6** に示される通りである：
+
+::: tip 図 7-6：Windows ATM におけるマルチプルマスター（MM）フォントインスタンスの対話的生成画面
+![Figure 7-6: The interface for creating instances of Multiple Master fonts](/images/fonts-encodings/fig7-6.png)
+*図 7-6：ATM マルチプルマスターインスタンス作成画面。各デザイン軸がスライダーとして視覚化され、右下の微小サンプルテキストがリアルタイムにインタラクティブ変形する。*
 :::
 
-*図 7-8：Font Reserve 2.6.5 for Windows 主界面。*
+マルチプルマスターフォントを選択すると、太さ（Weight）、字幅（Width）、視認サイズ（Optical Size）といった各デザインバリエーション軸がスライダーとして提示される。スライダーを操作して希望する数値を決定し「追加」（Add）をクリックすると、ATM 専用ディレクトリ `c:\psfonts\pfm` 内にそのインスタンスを表す新たな `.pfm` ファイルが即座に生成され、同時にシステム Fonts フォルダ内にリンクが自動作成される。
 
-::: tip 図 7-9：Extensis Suitcase v.9.2.2 for Windows
-![図 7-9：Extensis Suitcase v.9.2.2 for Windows](/images/fonts-encodings/fig7-9.png)
-*図 7-9：Extensis Suitcase v.9.2.2 for Windows*
+生成された新インスタンスは、直ちにシステム内のすべてのアプリケーションから利用可能となる。これらインスタンスは、**フォント名と各パラメータ値がアンダースコア（`_`）で連結されている**点に明確な特徴がある。
+
+**図 7-7** は、Windows 標準搭載の「ワードパッド」（WordPad）において、著名なマルチプルマスター書体 **Kepler MM Swash** のインスタンスを利用した実例である：
+
+::: tip 図 7-7：Windows 標準のワードパッド（WordPad）におけるマルチプルマスター動的インスタンスの組版
+![Figure 7-7: Using Multiple Master font instances under WordPad](/images/fonts-encodings/fig7-7.png)
+*図 7-7：ワードパッドにおいて、パラメータ Bold 435、Width 350、Optical Size 68 に設定された Kepler MM Swash インスタンスを用いて組版を行っている様子。*
 :::
 
-*図 7-9：Suitcase v.9.2.2 紧凑实用的字体组管理窗口。*
+フォント選択メニューには、`KeplerMM_435_350_68_` という固有の名称が整然と表示されている。
 
-::: tip 図 7-10：Font Reserve 强大的多条件组合高级检索视窗
-![図 7-10：Font Reserve 强大的多条件组合高级检索视窗](/images/fonts-encodings/fig7-10.png)
-*図 7-10：Font Reserve 强大的多条件组合高级检索视窗*
-:::
-
-*図 7-10：Font Reserve 高级检索面板。展示了基于布尔逻辑（AND/OR）对字体元数据进行精密过滤的强大能力。*
+> [!NOTE] デフォルトインスタンスとの違い
+> ATM をインストールしていない素の Windows 2000/XP 環境であっても、Multiple Master フォントを通常の Type 1 フォントとしてインストールして利用すること自体は可能である。ただしその場合、フォントに工場出荷時に固定設定されたデフォルトインスタンス（Default Instance）しか呼び出すことができず、自由な軸調整による無段階生成の恩恵を受けることはできない。
 
 ---
 
-### 独立软件巅峰：Neuber Typograf
+### プロ仕様の商用フォントマネージャー：Extensis 双璧（Font Reserve と Suitcase）
 
-对于资深字体架构师与技术人员而言，德国 Neuber Software 开发的 **Typograf** 堪称整个 Windows 生态中最具极客精神与排印深度的一款神兵利器：
+大量のアクティブフォントを効率的に整理し、OS の再起動を伴わずにオンデマンドで有効化／無効化を行うために、プロフェッショナルは専用のフォントマネージャーを導入する。
 
-::: tip 図 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析
-![図 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析](/images/fonts-encodings/fig7-11.png)
-*図 7-11：Neuber Typograf 主视窗与 Arial 字体底层表结构深度解析*
+Windows 向けの代表的な二大商用ツールが、**Font Reserve**（**図 7-8**）および **Suitcase**（**図 7-9**）である（現在はいずれも Extensis 社の製品ポートフォリオとなっている）：
+
+::: tip 図 7-8：Extensis Font Reserve v.2.6.5 プロフェッショナル管理画面
+![Figure 7-8: Font Reserve v.2.6.5](/images/fonts-encodings/fig7-8.png)
+*図 7-8：Font Reserve 2.6.5 画面。属性列の自由なカスタマイズとダイナミックなフォントセット管理を提供する。*
 :::
 
-*図 7-11：Typograf 正在深度剖析 Arial 字体的内部 TrueType 二进制表结构。*
+::: tip 図 7-9：Extensis Suitcase v.9.2.2 ワークスペース
+![Figure 7-9: Suitcase v.9.2.2](/images/fonts-encodings/fig7-9.png)
+*図 7-9：Suitcase 9.2.2 メイン画面。上部にプロジェクト別フォントセット、下部に物理フォントライブラリを配置する。*
+:::
 
-Typograf 不仅是一款美观的字体查看器，更是一套便携式字体剖析调试仪：
-1. **完整剖析 TrueType/OpenType 表结构**：如図 7-11 所示，它以十六进制与结构化树状图形式，直接将字体内部的 `cmap`（文字エンコーディング映射表）、`glyf`（轮廓图元表）、`head`（表头信息）、`hhea` 与 `hmtx`（水平度量表）、`name`（国际化多语言命名表）、`OS/2`（操作系统特定度量表）全盘托出；
-2. **全真字谷对（Kerning Pairs）网格查看**：能够抓取字体中预设的所有字母两两间距微调表，让设计师洞若观火；
-3. **免安装即时调用**：无需将字体安装至系统目录，即可直接挂载未安装的文件夹进行渲染测试与标样打印。
+両ツールの基本操作思想は共通している：
+* ディレクトリを指定してフォントを解析させ、下段のリストに展開する；
+* 上段ウィンドウで用途ごとの「セット」（Sets）を作成し、下段からドラッグ＆ドロップでフォントを登録する；
+* 最左列のボタンで3つのアクティベーション状態を制御する：**無効（Disabled）**、**一時的有効（Temporarily Enabled**、再起動または同名競合まで有効）、および **恒久的有効（Permanently Enabled）**。
+
+書体見本のプレビュー機構においては、両者に興味深い相違が見られる：
+* **Suitcase** は右側に常駐する縦方向のプレビュー領域を備え、自由な見本テキストを表示できる；
+* **Font Reserve** はリスト上のアイコンをマウスでクリックしたままホールドすることで、その場にポップアップで見本グリフが表示される仕様となっている；
+* さらに Font Reserve は、数千に及ぶ膨大なフォントの中から目的のものを瞬時に絞り込むための極めて強力な複合検索インターフェース（**図 7-10**）を備えている：
+
+::: tip 図 7-10：Font Reserve v.2.6.5 の高度な複合条件検索ウィンドウ
+![Figure 7-10: The font-search interface in Font Reserve v.2.6.5](/images/fonts-encodings/fig7-10.png)
+*図 7-10：Font Reserve の検索パネル。ファウンドリ、形式、属性などをブール条件で精密にフィルタリング可能。*
+:::
+
+ただし、これら Mac から移植されたツールの Windows 版には見逃せない欠点が存在する：**いずれのソフトウェアも、Windows 環境下では紙媒体用の高品位なフォント見本帳カタログ（Specimen Catalogs）の自動組版出力機能を備えていない**点である。
 
 ---
 
-## 字体转换利器（Tools for Font Conversion）
+### ハッカー精神溢れる独立系ソフトウェアの頂点：Neuber 兄弟の Typograf
 
-在跨平台协作中，Windows 用户经常需要处理来自 Mac 客户的原始字体文件。除了前一章介绍的跨平台巨擘 **TransType Pro**（见図 7-12）之外，Windows 平台上还孕育了一款轻盈迅捷的独立转换软件——Acute Systems 出品的 **CrossFont**（见図 7-13）。
+移植版商用ソフトウェアの限界を補うように、Windows プラットフォームには極めて優秀な独自のシェアウェアが数多く誕生した。その中でも屈指の完成度とタイポグラフィ的深さを誇るのが、ドイツのノイバー兄弟（Neuber Brothers）によって開発された **Typograf**（**図 7-11**）である：
 
-::: tip 図 7-12：TransType Pro 在 Windows XP 下的工作视窗
-![図 7-12：TransType Pro 在 Windows XP 下的工作视窗](/images/fonts-encodings/fig7-12.png)
-*図 7-12：TransType Pro 在 Windows XP 下的工作视窗*
+::: tip 図 7-11：Neuber Typograf v.4.8f のメイン画面および Arial フォントの内部テーブル構造解析
+![Figure 7-11: The main interface and window for the properties of the font Arial, in Typograf v.4.8f](/images/fonts-encodings/fig7-11.png)
+*図 7-11：Typograf 4.8f による Arial フォントの低レベル TrueType テーブル構造の詳細なバイナリ・ツリー解析画面。*
 :::
 
-*図 7-12：运行在 Windows XP 平台上的 FontLab TransType Pro。*
-
-::: tip 図 7-13：CrossFont v.4.1 字体格式转换器界面
-![図 7-13：CrossFont v.4.1 字体格式转换器界面](/images/fonts-encodings/fig7-13.png)
-*図 7-13：CrossFont v.4.1 字体格式转换器界面*
-:::
-
-*図 7-13：CrossFont v.4.1 主视窗。直观支持将 Mac PostScript/TrueType 文件一键批量转码为 Windows 标淮 TrueType 与 Type 1。*
-
-CrossFont 的独门绝技在于其原生集成了针对 Macintosh 历史打包格式（如 **MacBinary**、**BinHex** 以及 StuffIt 压缩包）的直接二进制流式解包引擎。Windows 用户无需借助任何模拟器或繁琐工具，只需将 Mac 软盘中的文件拖入 CrossFont，软件便会自动剥离其资源分叉、重构 TrueType 二次曲线或提取 Type 1 打印机字模，瞬间输出能在 Windows PC 上直接安装使用的标准 `.ttf` 与 `.pfb/.pfm` 字体文件！
+Typograf は単なるフォントビューアにとどまらず、フォントの内部構造を徹底的に透視・解剖するプロ用計測器である：
+1. **TrueType/OpenType テーブルの深層解析**：図 7-11 に示されるように、`cmap`、`glyf`、`head`、`hhea`、`hmtx`、`name`、`OS/2` といった内部バイナリテーブルの全貌を構造化ツリーとして完全可視化する；
+2. **カーニングペア（Kerning Pairs）の全景表示**：フォント内に焼き付けられたすべてのペアカーニング値を抽出し、フォント自身の本物のアウトライングリフを用いてビジュアルにマトリクス表示する；
+3. **複数フォントの並列詳細比較**：複数のフォントの属性やプロパティを並べて画面上で精密に比較検討できる；
+4. **多彩な本格見本帳印刷機能**：10種類以上のカスタマイズ可能な本格的レイアウトテンプレートを備え、紙面での印刷テスト見本を美しく出力可能である；
+5. **PANOSE および IBM クラスに基づく高度分類**：PANOSE-1 データや IBM クラス情報に基づく体系的なフォント分類と検索を完全サポートする。
 
 ---
 
-至此，我们完整阅历了 Windows 操作系统在数字字体领域的工业实践：从 `C:\Windows\Fonts` 的 Shell 命名空间，到 PANOSE 几何相似度多维向量，再到 Typograf 的二进制表级解剖与 CrossFont 的跨平台拆包重构。在接下来的第八章中，我们将步入开源与科研领域的心脏地带——全面探索 **X Window System（X11）下的 Unix/Linux 字体架构与核心渲染服务**！
+### エンタープライズ向けフォントサーバー（Font Servers）
+
+前章で紹介した **Suitcase Server** は、Windows NT、2000、XP Server 環境でも堅牢に稼働する。数百人のデザイナーが共同作業を行う大規模な出版・広告制作環境において、フォントサーバーは資産の集中検索、即座の配信、そして何より**購入ライセンス数（Concurrent Seats）に基づく厳格な法的コンプライアンス管理**を自動実行する。同時利用数が契約上限を超過した場合に自動的にブロックすることで、外部への入稿時に巨額の著作権侵害賠償リスクを負う危険を完全に回避できる。
+
+---
+
+# クロスプラットフォームフォント変換エンジニアリング（Tools for Font Conversion）
+
+異機種混在環境において、Macintosh 専用のフォントリソースを Windows へ移植する作業は日常茶飯事である。前章で解説した産業用変換エンジンの決定版 **TransType Pro**（Windows XP 上での動作画面は **図 7-12** を参照。機能およびアルゴリズムは Mac 版と完全に同一である）や **FontFlasher** に加え、Windows 独自の実力派シェアウェアとして米国 Acute Systems 社の **CrossFont**（**図 7-13**）が広く親しまれている：
+
+::: tip 図 7-12：FontLab TransType Pro の Windows XP における操作画面
+![Figure 7-12: The interface of TransType Pro under Windows XP](/images/fonts-encodings/fig7-12.png)
+*図 7-12：Windows XP 上で動作する TransType Pro。*
+:::
+
+::: tip 図 7-13：Acute Systems CrossFont v.4.1 の Windows XP における変換インターフェース
+![Figure 7-13: The interface of CrossFont v.4.1 under Windows XP](/images/fonts-encodings/fig7-13.png)
+*図 7-13：CrossFont 4.1 メイン画面。手頃な価格で高度な双方向クロスプラットフォーム変換を実現する。*
+:::
+
+CrossFont は TransType Pro の数分の一という極めて安価な価格設定でありながら、以下のような極めて優れた実用的特長を備えている：
+* **Mac OS X の `.dfont` 形式をネイティブにサポート**：Mac のデータフォークフォントを直接解体・変換可能；
+* **欠落した補助ファイルの自動生成**：Unix 環境から持ち込まれた生のアウトラインに対して Windows 必須の `.pfm` ファイルを自動合成したり、$\mathrm{\TeX}$ 組版環境で必要となるカーニングペア付きの `.afm`（Adobe Font Metrics）ファイルを自動生成する；
+* **カーニングペアの自動収集と統合**：既存の AFM ファイルからカーニングペア情報を抽出し、変換生成される Windows フォントの内部へ自動的に組み込む機能を備える。
+
+ただし、CrossFont にも一定の制約が存在する：
+* グリフの個別輪郭を目視確認するプレビュー機能がなく、変換前に欠落や文字コードの誤りを検知することができない；
+* マルチプルマスター（Multiple Master）フォントの動的インスタンス生成には対応していない。
+
+TransType および CrossFont はともに日数制限付きの全機能体験版が提供されているため、制作現場のパイプラインや予算に応じて最適なツールを柔軟に選択・検証することが可能である。
+
+---
+
+こうして、Windows 特有の Fonts フォルダ名前空間、PANOSE-1 10次元空間幾何マッチング、マイクロソフト純正の深層プロパティ拡張、ATM によるマルチプルマスターの動的実体化、Typograf によるバイナリテーブル解剖、そして CrossFont によるクロスプラットフォーム変換エンジニアリングに至るまで、我々は Windows 環境におけるデジタルタイポグラフィの全体像を完全に掌握した。次章では、学術研究とオープンソースの牙城である **X Window System（X11）における Unix/Linux フォントアーキテクチャ**の深淵へと進むことにしよう！
