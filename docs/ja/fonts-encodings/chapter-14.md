@@ -1,194 +1,264 @@
 ---
-title: "第 14 章：フォントの知性化：高度なタイポグラフィ機能"
-description: "OpenType の置換と配置（GSUB/GPOS）、AFDKO 機能定義言語の完全な構文仕様、Microsoft VOLT による視覚的構築、FontForge、Apple Advanced Typography（AAT）の有限状態機械（morx/kerx）の全貌。"
+title: "第 14 章：フォントの拡張：高度な組版機能"
+description: "OpenType および AAT の高度な組版機能の詳細解析：AFDKO 特性構文仕様、Microsoft VOLT エンジニアリング実践、Apple Advanced Typography (AAT) 有限状態オートマトン、GSUB/GPOS ルックアップテーブル体系。"
 ---
 
-# 第 14 章：フォントの知性化：高度なタイポグラフィ機能
+# 第14章：フォントの拡張：高度な組版機能
+
+*翻訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
+
 ### Chapter 14: Enriching Fonts: Advanced Typography
-ヤニス・ハラランボス（Yannis Haralambous, Ph.D.）著
-選書『Fonts & Encodings』第 551–598 頁
-*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
+
+本章のタイトルが指す「高度な組版機能（Advanced Typography）」とは、マイクロソフト、アドビ、およびアップルが基本の TrueType フォーマットの上に導入した拡張レイアウトテーブルシステム——すなわち現代のデジタルタイポグラフィの二大支柱である **OpenType** と **Apple Advanced Typography（AAT）** を指しています。
+
+伝統的な活版印刷時代において、組版工は多言語混植、アラビア文字の接続変形、南アジア諸文字の子音結合、欧文活字の合字（リガチャ）、スモールキャピタル、オールドスタイル数字、文脈に応じた長短「s」の使い分けなど、長年の職人芸と手動のスペーサー調整に依存していました。初期のパーソナルコンピュータ時代では、PostScript Type 1 や初期の TrueType フォントは単純な「文字コードからグリフ外観への静的射影表（`cmap`）」に過ぎず、複雑な表記体系は OS や DTP ソフトの外付けエンジンに頼らざるを得ませんでした。
+
+OpenType と AAT の革新性は、**テキスト動的組版の「インテリジェントなルール」をフォントファイル自体の内部に直接カプセル化したこと**にあります。テキスト整形エンジン（Shaping Engine、HarfBuzz、DirectWrite、CoreText など）は、各言語の規則をハードコードする必要がなくなり、フォント内部のレイアウトテーブルを解釈することで、書体設計者が意図した通りの字形変形、合字合成、微細な二次元位置調整を完全に制御できるようになりました。
 
 ---
 
-## 1. 組版知性化の進化とパラダイムシフト（Introduction）
+## 1. 組版の知能化とパラダイムシフト（Introduction）
 
-従来のデジタルフォント（初期の PostScript Type 1 やプレーンな TrueType など）において、フォントファイルは本質的に**静的なグリフ輪郭のコンテナ**に過ぎませんでした。OS がテキスト文字列（ASCII や Unicode コードポイントの並び）を受け取った際に行うのは、最も単純な「テーブル引き—輪郭抽出—描画」という一方向のマッピングだけでした。各文字は常に固定された単一のグリフに対応し、文字間の配置はあらかじめ定義された水平送り幅（Advance Width）の機械的な累積加算と、せいぜい単純な字間ペアカーニング表に依存していました。
+### 1.1 文字からグリフへ：テキスト整形の動的変換
 
-しかし、人類が何世紀にもわたり培ってきた活版印刷の伝統と、世界各地の複雑な文字体系は、コンピュータの組版エンジンに対して全く異なる要求を突きつけます：
-- **西欧古典組版の審美眼**：文字の衝突を回避し視覚的リズムを高めるため、特定の連続文字は単一の洗練されたリガチャ（合字）へと融合されねばなりません（例: $\text{f}+\text{i} \to \text{fi}$、$\text{f}+\text{f}+\text{l} \to \text{ffl}$）。本文中の大文字と小文字が混在する箇所では小文字サイズに光学設計されたスモールキャピタル（Small Capitals）が要求され、地の文では上下に起伏するオールドスタイル数字（Oldstyle Figures）、財務表では等幅のライニング数字（Lining Figures）が必須となります。さらに、分数は斜めバーの分数（Diagonal Fractions）や水平バーの分数（Vertical Fractions）へと自動変換される必要があります。
-- **非ラテン系複雑書記体系**：アラビア文字、シリア文字、モンゴル文字などでは文字が天然の草書連筆特性を持ち、同じ文字でも単語内の位置（語頭 Initial、語中 Medial、語末 Final、独立形 Isolated）に応じてまったく異なる物理的トポロジーを形成します。また、南アジアや東南アジアの文字（デーヴァナーガリー Devanagari、ベンガル文字 Bengali、タミル文字 Tamil、クメール文字 Khmer など）では、子音同士が結合して不可分な結合子音を形成し、特定の母音記号は論理的に子音の後ろに入力されながらも視覚的には子音クラスタの左側に回り込んで再配置（Reordering）されねばなりません。
+現代のデジタルテキスト処理の中核理論は、**文字（Character）** と **グリフ（Glyph）** の厳密な分離に立脚しています：
+* **文字**：コンピュータ情報処理における抽象的な意味論的最小単位であり、Unicode スカラー値（Code Point）によって一意に識別されます（「何という文字か」）；
+* **グリフ**：スクリーンピクセルや印刷紙上に描画される具体的な視覚的物理形態であり、ベジェ曲線輪郭、ヒンティング命令、空間メトリクスから構成されます（「どのように表示されるか」）。
 
-もしこれらの複雑な言語学的規則や文脈判断を OS のカーネルや個々のアプリケーション内部にハードコーディングしてしまえば、フォントの可搬性は失われ、新たな書記系や特殊な組版スタイルの拡張は完全に不可能となります。
-
-そのため、1990 年代中盤、デジタルフォント産業は**歴史的なパラダイムシフト**を迎えました。それが**フォントの知性化（Enriching Fonts）**です。組版規則の解析と実行ロジックはフォントファイルそのものの内部へと移譲されました。フォントは受動的なデータベースであることをやめ、**自律的な文脈判断能力とマイクロ構文規則、有限状態機械を内包した知的実行主体**へと変貌を遂げたのです。現在主流となっている高度組版フォント規格には以下の 2 つが存在します：
-1. **OpenType（TrueType 輪郭および CFF/PostScript 輪郭を含む）**：Microsoft と Adobe が共同策定した、宣言的規則と階層的テーブル探索に基づくアーキテクチャ；
-2. **Apple Advanced Typography（AAT）**：Apple が QuickDraw GX を源流として発展させた、計算理論における純粋な**決定性有限状態自動機（Finite State Machine, FSM）**に基づくアーキテクチャ。
-
-### 1.1 文字からグリフへ：テキストシェイピング（Text Shaping）の動的変容
-現代の組版シェイピングエンジン（オープンソースの HarfBuzz、Windows の Uniscribe/DirectWrite、macOS の CoreText など）のパイプラインにおいて、この処理は**テキストシェイピング（Text Shaping）**と呼ばれます。入力された Unicode 文字列は画面上に描画されるまでに次のような多次元の動的変容を経ます：
+組版エンジンが論理コードポイントを最終的なスクリーン上の幾何トポロジー流に変換する数学的パイプラインは、以下の4段階の変換として定式化されます：
 
 $$\text{Unicode Code Points} \xrightarrow{\quad\text{cmap マッピング}\quad} \text{Glyph IDs} \xrightarrow{\quad\text{GSUB 置換}\quad} \text{Glyph IDs} \xrightarrow{\quad\text{GPOS 配置}\quad} \text{Positioned Glyphs}$$
 
-この過程において、文字とグリフの間の 1 対 1 の関係は完全に打破され、多彩なマッピング形態が出現します：
-- **1 対多（One-to-Many）**：単一の文字が複数のグリフ部品に分解される；
-- **多対 1（Many-to-One）**：複数の連続文字が単一のリガチャグリフへと融合される；
-- **多対多（Many-to-Many）**：一連の文字列が長さや形態の異なる別のグリフ列へと再構成される；
-- **動的微細幾何変位**：グリフはもはやベースライン上に機械的に並ぶだけでなく、2 次元平面内で自在にシフトし、基底文字輪郭上の物理アンカーに対してピクセル精度で磁気吸着します。
+---
 
-### 1.2 高度組版の双翼：字形置換（GSUB）と幾何配置（GPOS）
-OpenType アーキテクチャにおいて、フォントの高度組版機能は **GSUB（Glyph Substitution Table、字形置換テーブル）** と **GPOS（Glyph Positioning Table、字形配置テーブル）** の 2 つのモジュールテーブルに明快に分離されています。
+### 1.2 高度な組版の双翼：グリフ置換（GSUB）と幾何配置（GPOS）
 
-#### 1. 字形置換の 6 大形態（GSUB）
-字形置換は座標系を変更することなく、構文的文脈に応じて現在のグリフを最適な候補グリフへと差し替えます：
-1. **単一置換（Single Substitution）**：あるグリフを別のグリフに直接置換（例: `a` $\to$ `a.sc`）；
-2. **複数置換（Multiple Substitution）**：単一のグリフを複数の連続するグリフに分解（連字の解体や結合文字の分解）；
-3. **代替字形置換（Alternate Substitution）**：美学的に等価な複数のバリアントを提供。例えば Hermann Zapf の **Zapfino** では小文字 `d` に 9 種類もの流麗なバリエーションが存在し、ユーザーが自由に選択できます；
-4. **合字置換（Ligature Substitution）**：複数の連続グリフを単一の合字グリフへ融合（`f` + `i` $\to$ `fi`）；
-5. **文脈的置換（Contextual Substitution）**：置換の発生が前後の環境に依存。アラビア文字のように、後続に文字が存在する場合にのみ語頭形へと変化します；
-6. **連鎖文脈置換（Chained Contextual Substitution）**：文脈環境を**後退列（Backtrack）**、**入力列（Input）**、**前進列（Lookahead）**の 3 つに分離し、文脈と置換対象を独立させることで連続的な連鎖トリガーを可能にします；
-7. **逆方向連鎖文脈単一置換（Reverse Chaining Contextual Single Substitution）**：ウルドゥー語（Urdu）のナスタアリーク体（Nastaliq）のように、右横書きでありながら後続（左側）の文字形状に依存して先行文字の垂下高さや連筆が決定される文字のため、書字方向とは逆の左から右へと逆流スキャンして置換を行います。
+OpenType アーキテクチャにおいて、この動的組版の心臓部は、形態変換を司る **`GSUB`（Glyph Substitution Table）** と、微小空間位置を司る **`GPOS`（Glyph Positioning Table）** の二大バイナリテーブルに完全に分離されています。
 
-#### 2. 字形微視幾何配置の 6 大形態（GPOS）
-1. **単一調整（Single Adjustment）**：単一グリフの水平・垂直位置や送り幅を微調整（全大文字時の括弧類の引き上げなど）；
-2. **ペア調整（Pair Adjustment / Kerning）**：特定のグリフペアの間隔を X 軸・Y 軸で微調整；
-3. **筆記体接続（Cursive Attachment）**：各グリフに「入刀点（Entry）」と「出刀点（Exit）」アンカーを定義し、前後のグリフを 2 次元空間で滑らかに吸着接続；
-4. **マーク吸着基底（Mark-to-Base Attachment）**：基底文字のアンカーに対してダイアクリティカルマーク（アクセント記号）を精密に磁気吸着；
-5. **マーク間吸着（Mark-to-Mark Attachment）**：既存のマークの上にさらに別のマークを多重積層；
-6. **合字部品マーク吸着（Mark-to-Ligature Attachment）**：合字内の各構成コンポーネントに対して個別のアンカーを割り当て、合字中の特定母音の上にだけアクセントを正確に配置；
-7. **文脈配置および連鎖文脈配置（Contextual / Chained Contextual Positioning）**：文脈に応じて配置を発動（例: `V.A.V.` ではピリオドと V を詰めるが、`V.V.` では文字衝突を防ぐため詰めない）。
+#### 1. グリフ置換の主要形態（GSUB）
+1. **単一置換（Single Substitution, Type 1）**：1つのグリフを別の1つのグリフに等価置換（例：小文字からスモールキャピタル `a` $\to$ `a.sc`、等幅数字 `tnum`、オールドスタイル数字 `onum`）；
+2. **複数置換（Multiple Substitution, Type 2）**：1つのグリフを2つ以上のグリフシーケンスに分解（例：合字 `ffi` の分解）；
+3. **代替置換（Alternate Substitution, Type 3）**：1つのグリフに対して複数の意匠候補を提供し、ユーザーが対話的に選択可能にする（例：スワッシュ字形 `swsh`、装飾記号 `ornm`、Zapfino の9種類の「d」）；
+4. **合字置換（Ligature Substitution, Type 4）**：指定された連続グリフシーケンスを1つの合字グリフに統合（例：`f` + `i` $\to$ `fi`、歴史的合字 `dlig`、アラビア文字の結合）；
+5. **文脈依存置換（Contextual Substitution, Type 5）**：前後の文脈グリフが存在する場合にのみ発動する置換；
+6. **連鎖文脈依存置換（Chained Contextual Substitution, Type 6）**：文脈を「後方参照（Backtrack）」「入力照合（Match）」「前方参照（Lookahead）」の3領域に厳密に分離し、柔軟な多段置換を実現；
+7. **逆方向連鎖文脈置換（Reverse Chaining Contextual Single Substitution, Type 8）**：ウルドゥー語（Nastaliq）などのために右から左への逆方向走査で評価を行う特殊置換。
 
-#### 3. 標準機能タグ体系（Standard Feature Tags）
-4 つの ASCII 文字からなるタグにより世界中の組版ソフトウェアから呼び出されます：`liga`, `dlig`, `hist`, `smcp`, `c2sc`, `onum`, `lnum`, `tnum`, `pnum`, `frac`, `afrc`, `kern`, `mark`, `mkmk`, `curs`, `size`, `aalt` 等。
+#### 2. グリフ微小幾何配置の主要形態（GPOS）
+各グリフの最終的な空間配置は、以下の4要素の値レコード（Value Record）によって定義されます：
+
+$$\langle xPlacement \quad yPlacement \quad xAdvance \quad yAdvance \rangle$$
+
+1. **単一調整（Single Adjustment, Type 1）**：個別グリフの位置や送り幅の微調整（例：オールキャップス時の括弧の垂直引き上げ `cpsp`）；
+2. **ペア調整（Pair Adjustment / Kerning, Type 2）**：隣接する2つのグリフ間の空隙調整（カーニング `kern`）；
+3. **筆記体接続（Cursive Attachment, Type 3）**：各グリフの接続入口（Entry）と出口（Exit）にアンカーを配置し、滑らかな接続を実現（アラビア文字・波斯折体）；
+4. **ベースへのマーク配置（Mark-to-Base, Type 4）**：基本文字のアンカーにアクセント記号や母音記号を吸着結合；
+5. **合字へのマーク配置（Mark-to-Ligature, Type 5）**：合字の内部コンポーネントごとに独立したアンカーを定義；
+6. **マークへのマーク配置（Mark-to-Mark, Type 6）**：多重アクセント記号の垂直・水平多層スタック配置（ベトナム語など）。
 
 ---
 
-## 2. FontLab における OpenType テーブルと AFDKO 構文の管理
+### 1.3 OpenType レイアウトテーブルのバイナリ構造
 
-**FontLab Studio**（バージョン 4.x / 5.x）は、Adobe が策定した業界標準 **AFDKO（Adobe Font Development Kit for OpenType）機能定義構文** をネイティブに採用しています。
+* **カバレッジテーブル（Coverage Tables）**：
+  * **Format 1**：昇順ソートされたグリフ ID 配列による二分探索；
+  * **Format 2**：連続区間範囲（`RangeRecord`）による効率的な圧縮。
+* **クラス定義テーブル（ClassDef Tables）**：クラスベースのカーニングや文脈置換のためのグリフ分類整数マッピング。
+* **`GDEF`（Glyph Definition）**：Base、Ligature、Mark、Component の分類、キャレット位置（`LigCaretList`）の管理。
+* **`BASE`**：ラテン基線、表意文字中央基線、サンスクリット懸垂基線など、多言語混植時の垂直ベースライン揃え。
+* **`JSTF`（Justification）**：アラビア文字カシーダ（伸展線）や語間調整の多段階優先順位パイプライン。
 
-### 2.1 AFDKO 機能定義言語の構文体系
+---
 
-#### 1. グリフクラス（Glyph Classes）の定義
-グリフクラスは `@` で始まり、一括処理するグリフ群をブラケット `[` と `]` でグループ化します：
+## 2. FontLab における OpenType テーブル管理と AFDKO 構文
 
-```fea
-@VOWELS = [ a e i o u y ];
-@UPPERCASE = [ A-Z ];
-@SC_LETTERS = [ a.sc-z.sc ];
-@ALL_LETTERS = [ @UPPERCASE @VOWELS agrave eacute ];
-```
+FontLab Studio は、アドビが開発した **AFDKO（Adobe Font Development Kit for OpenType）** 構文コンパイラを統合し、テキストコードベースでの OpenType 開発を確立しました。
 
-#### 2. 書記系、言語、機能のブロック構造
-OpenType の 4 段階階層（Script $\longrightarrow$ Language $\longrightarrow$ Feature $\longrightarrow$ Lookup）を直接記述します：
+### 2.1 AFDKO の構文仕様
 
 ```fea
 languagesystem DFLT dflt;
 languagesystem latn dflt;
-languagesystem latn TRK ;
 
+# クラス定義
+@UPPER = [A-Z];
+@LOWER = [a-z];
+@SC = [a.sc-z.sc];
+
+# 単一置換
+feature smcp {
+    sub @LOWER by @SC;
+} smcp;
+
+# 合字置換（最長一致の優先順序）
 feature liga {
-    script latn;
-    language DFLT;
-        sub f i by f_i;
-    language DEU;
-        sub c k by c_k;
-    language ENG excludeDFLT;
-        sub f f l by f_f_l;
+    sub f f i by f_f_i;
+    sub f i by f_i;
+    sub f l by f_l;
 } liga;
-```
 
-#### 3. 名前付きルックアップと lookupflag
-`lookupflag` によりスキャン時のスキップ対象を厳密に制御します：
-- `lookupflag IgnoreMarks;`：ダイアクリティカルマークを無視して隣接文字を判定。合字判定において極めて重要；
-- `lookupflag RightToLeft;`：右横書き専用。
+# 文脈置換と ignore 構文（TEX ロゴの置換例）
+feature liga {
+    ignore sub [A-Z] T' E' X', T' E' X' [A-Z];
+    sub T' E' X' by T_e_X;
+} liga;
 
-#### 4. 置換規則（GSUB）とアポストロフィ構文（`'`）
-文脈置換において、**アポストロフィ（`'`）が付いたグリフが実際の置換対象**であり、付いていないグリフは単なる文脈環境です：
+# GPOS カーニング
+feature kern {
+    pos T -50 o -20;
+    pos @CAPS_T @LOWER_O -80;
+} kern;
 
-```fea
-sub [ f f_f ] i' by i.nodot;
-```
-
-- **`ignore sub` の構文トラップ**：
-  ロゴ "TEX" を置換する際、`CONTEXTUAL` や `TEXT` などの通常単語を保護するため、カンマで複数除外条件を記述します：
-  ```fea
-  ignore sub [ A-Z ] T' E' X' , T' E' X' [ A-Z ] ;
-  sub T' E' X' by T_e_X ;
-  ```
-  1 行目に `ignore sub` があるため、ルックアップ全体が文脈的とみなされ、2 行目の置換対象にもアポストロフィが必須となります。
-
-#### 5. 配置規則（GPOS）と値レコード
-値レコードは 4 つの整数ベクトルです：
-$$\langle xPlacement \quad yPlacement \quad xAdvance \quad yAdvance \rangle$$
-- クラス間カーニング：`pos @Left_Round @Right_Round -40;`
-- 筆記体接続：`pos cursive f <anchor -10 0> <anchor 197 105>;`
-- 合字マーク吸着：`<anchor NULL>` で不要なコンポーネントをスキップ可能。
-
-#### 6. 光学サイズ特性（`size`）
-```fea
+# 光学サイズ特性
 feature size {
-    parameters 120 1 90 299;
+    parameters 10.0 0 8.0 11.9;
+    featureNames {
+        name 3 1 0x0409 "Regular (10pt Text)";
+        name 3 1 0x0411 "レギュラー (10pt 本文)";
+    };
 } size;
 ```
-設計光学サイズ 12.0 pt、ファミリー通し番号 1、推奨適用範囲 9.0 pt 〜 29.9 pt を明示。
+
+::: tip FontLab 4/5 における OpenType 機能編集ウィンドウ（Figure 14-1）
+![FontLab 4/5 における OpenType 機能編集ウィンドウ（Figure 14-1）](/images/fonts-encodings/fig14-1.png)
+*FontLab 4/5 における OpenType 機能編集ウィンドウ（Figure 14-1）*
+:::
+
+*図 14-1：FontLab の OpenType パネル。左側に機能タグリスト、右上に AFDKO コード編集画面、右下にコンパイルログが表示される。*
+
+::: tip FontLab 機能管理およびクラス管理詳細ウィンドウ（Figure 14-2, 14-3, 14-4）
+![FontLab 詳細機能ウィンドウ（Figure 14-2）](/images/fonts-encodings/fig14-2.png)
+*FontLab 詳細機能ウィンドウ（Figure 14-2）*
+:::
+
+*図 14-2：FontLab の OpenType 機能管理ウィンドウ。機能のスクリプト依存性とルックアップの階層関係。*
+
+::: tip FontLab カーニングクラスタブ（Figure 14-3）
+![FontLab カーニングクラスタブ（Figure 14-3）](/images/fonts-encodings/fig14-3.png)
+*FontLab カーニングクラスタブ（Figure 14-3）*
+:::
+
+*図 14-3：FontLab のクラスベースカーニング編集タブ。*
+
+::: tip FontLab グリフクラス定義タブ（Figure 14-4）
+![FontLab グリフクラス定義タブ（Figure 14-4）](/images/fonts-encodings/fig14-4.png)
+*FontLab グリフクラス定義タブ（Figure 14-4）*
+:::
+
+*図 14-4：FontLab の Classes タブ。同等の輪郭特性を持つ文字群をクラスとして一括管理。*
+
+::: tip FontLab リアルタイム組版プレビューパネル（Figure 14-5）
+![FontLab リアルタイム組版プレビューパネル（Figure 14-5）](/images/fonts-encodings/fig14-5.png)
+*FontLab リアルタイム組版プレビューパネル（Figure 14-5）*
+:::
+
+*図 14-5：FontLab のプレビューパネル。テキストを入力し、各種 OpenType 機能のチェックボックスをオン/オフしてレンダリング結果を検証できる。*
 
 ---
 
-## 3. Microsoft VOLT による視覚的 OpenType 構築（Managing OpenType Tables in VOLT）
+## 3. マイクロソフト VOLT による視覚的 OpenType 構築
 
-Microsoft の **VOLT（Visual OpenType Layout Tool）** は Windows の **Uniscribe** エンジンと密結合した高機能レイアウトツールです。
+マイクロソフトの **VOLT（Visual OpenType Layout Tool）** は、GUI ベースで複雑な表記体系（アラビア文字、ウルドゥー語、南アジア諸文字）のフォントを構築するための標準開発環境です。
 
-### 3.1 VOLT のプロジェクト構造と私有テーブル
-- フォント内部に `TSIV` などの非標準 XML 私有テーブルを保持してプロジェクトを管理；
-- 他ツールで作成された標準 OpenType テーブルを破壊的に初期化するため、事前のバックアップが不可欠；
-- PostScript 名のインポートと全グリフの型（`base`, `ligature`, `mark`, `component`）分類。
+### 3.1 VOLT の構造とプライベートテーブル
 
-### 3.2 視覚的アンカー吸着と校正ツール
-- 矢印構文による直感的な置換定義：`f i -> f_i`；
-- ウルドゥー語等のための逆方向連鎖置換（Reversal チェックボックス）；
-- 画面上でマウスドラッグによる直感的なアンカー座標吸着；
-- **Proofing Tool**：Uniscribe を介したリアルタイムのテキストシェイピング検証環境；
-- `File > Ship Font`：私有テーブルを完全に剥離したクリーンな商用フォントの出力。
+VOLT は `TSVT`、`TSVC`、`TSVG`、`TSVP` というプライベートテーブル内に編集データを保持し、コンパイル時に標準の `GSUB`/`GPOS`/`GDEF` に焼き付けます。
 
----
+::: tip マイクロソフト VOLT プロジェクトメインウィンドウ（Figure 14-6）
+![マイクロソフト VOLT プロジェクトメインウィンドウ（Figure 14-6）](/images/fonts-encodings/fig14-6.png)
+*マイクロソフト VOLT プロジェクトメインウィンドウ（Figure 14-6）*
+:::
 
-## 4. FontForge における OpenType テーブルの管理（Managing OpenType Tables in FontForge）
+*図 14-6：VOLT のプロジェクトウィンドウ。Glyphs、Classes、Features、Lookups のトポロジーが表示される。*
 
-FontForge はコードの知識を必要とせず、完全なメニューとダイアログによって OpenType 表を視覚的かつ無損失で管理できます。
+::: tip VOLT の置換ルックアップ編集ウィンドウ（Figure 14-7）
+![VOLT の置換ルックアップ編集ウィンドウ（Figure 14-7）](/images/fonts-encodings/fig14-7.png)
+*VOLT の置換ルックアップ編集ウィンドウ（Figure 14-7）*
+:::
 
-### 4.1 Lookups 管理とアンカークラス
-- `Element > Font Info > Lookups`（GSUB/GPOS 分割タブ）；
-- `Anchor Classes` で `mark`, `mkmk`, `curs` を定義し、グリフ編集画面で右クリックから `Add Anchor Point` により対話的にアンカーを配置；
-- 単一、複数、代替、合字置換のグラフィカル設定；
-- 4 段階ウィザードによる連鎖文脈置換（Backtrack, Input, Lookahead）。
+*図 14-7：VOLT の置換編集画面。直感的なグリッドと矢印構文による置換マッピング。*
 
----
+::: tip VOLT の筆記体アンカーおよび幾何配置ウィンドウ（Figure 14-8）
+![VOLT の筆記体アンカーおよび幾何配置ウィンドウ（Figure 14-8）](/images/fonts-encodings/fig14-8.png)
+*VOLT の筆記体アンカーおよび幾何配置ウィンドウ（Figure 14-8）*
+:::
 
-## 5. FontForge による Apple Advanced Typography（AAT）有限状態機械の構築
+*図 14-8：VOLT の配置編集画面。Entry/Exit アンカーを対話的に操作し、文字間の滑らかな接続を確認。*
 
-AAT は OpenType とは根本的に異なり、純粋な**決定性有限状態自動機（FSM）**として組版を処理します。
+::: tip VOLT のインタラクティブ校正ウィンドウ（Figure 14-9）
+![VOLT のインタラクティブ校正ウィンドウ（Figure 14-9）](/images/fonts-encodings/fig14-9.png)
+*VOLT のインタラクティブ校正ウィンドウ（Figure 14-9）*
+:::
 
-### 5.1 AAT の計算理論的優位性
-- 単一方向の線形スキャン、計算量は厳密に $O(N)$ でバックトラックが存在しない；
-- 中核テーブル：`morx`（変形）、`kerx`（拡張字距）、`feat`（特性名）、`trak`（トラッキング）。
-
-### 5.2 AAT 状態機械の 4 つのコアオペレーション
-1. **グリフ並べ替え（Glyph Rearrangement）**：
-   天城文等で前置される短元音 `r` を子音クラスタの先頭へ移動（`KGPTHr` $\longrightarrow$ `rKGPTH`）。状態 0、状態 2（子音蓄積）、`xD => Dx` による一瞬の順序反転。
-2. **文脈置換（Contextual Substitution）**：
-   一方向スキャンの時間的矛盾を解決する「Mark Current Glyph」と遅延置換（斜め分数 `1/2` の分子・分母自動変換）。
-3. **グリフ動的挿入（Glyph Insertion）**：
-   アラビア語の Kashida（タトウィール引き伸ばし線）やクメール文字の分割母音記号をテキストストリームへ動的に無中生有で挿入。カーソル選択可否の属性制御。
-4. **文脈的拡張字距（Contextual Kerning / `kerx`）**：
-   状態機械内にスタック（最大 8 個）を維持し、`Push Current Glyph` と `Pop` により、`A.V.` などの 3 文字文脈において $n-1$ 個の字間オフセットを同時に適用。
+*図 14-9：VOLT の校正ウィンドウ（Proofing Window）。複雑な文字列に対して、どのルックアップがどの順序で適用されたかの実行トレースを1ステップずつ追跡可能。*
 
 ---
 
-## 6. 結語と現代の組版エンジンの展望（Conclusions and Modern Outlook）
+## 4. FontForge における OpenType テーブル管理
 
-Uniscribe と CoreText の歴史的競争を経て、今日ではオープンソースの **HarfBuzz** が OpenType と AAT の両仕様を完全に統合し、世界中のブラウザや OS で稼働しています。
+FontForge では `Element > Font Info > Lookups` から GSUB および GPOS テーブルを直接編集できます。
 
-フォントはもはや単なる画像の集合ではありません。幾何学、代数学、オートマトン理論を内包した**自律的マイクロコンピュータ**であり、人類の書記文化の美をデジタル空間に永続させる架け橋なのです。
+::: tip FontForge におけるアンカーとアンカークラス編集（Figure 14-10）
+![FontForge におけるアンカーとアンカークラス編集（Figure 14-10）](/images/fonts-encodings/fig14-10.png)
+*FontForge におけるアンカーとアンカークラス編集（Figure 14-10）*
+:::
 
-*本章の完全 1:1 全景翻訳および技術校正は ヴワル魔法図書館（Voile Magic Library）文献翻訳工房 により完了しました。*
+*図 14-10：FontForge のアンカー定義画面。ベースグリフのアンカーとマーク記号のアンカーの対応関係。*
+
+::: tip FontForge 単一置換および配置ウィンドウ（Figure 14-11, 14-12）
+![FontForge 単一置換ウィンドウ（Figure 14-11）](/images/fonts-encodings/fig14-11.png)
+*FontForge 単一置換ウィンドウ（Figure 14-11）*
+:::
+
+*図 14-11：FontForge の非文脈置換ウィンドウ。*
+
+::: tip FontForge 単一およびペア配置ウィンドウ（Figure 14-12）
+![FontForge 単一およびペア配置ウィンドウ（Figure 14-12）](/images/fonts-encodings/fig14-12.png)
+*FontForge 単一およびペア配置ウィンドウ（Figure 14-12）*
+:::
+
+*図 14-12：FontForge の単一配置（左）とペアカーニング（右）画面。*
+
+::: tip FontForge 連鎖文脈置換ウィザードの4ステップ（Figure 14-13）
+![FontForge 連鎖文脈置換ウィザードの4ステップ（Figure 14-13）](/images/fonts-encodings/fig14-13.png)
+*FontForge 連鎖文脈置換ウィザードの4ステップ（Figure 14-13）*
+:::
+
+*図 14-13：FontForge の連鎖文脈置換ウィザード：(a) 機能タグ選択、(b) カバレッジ形式、(c) 後方・照合・前方クラスシーケンス定義、(d) ネストするサブルックアップの指定。*
+
+---
+
+## 5. FontForge における Apple Advanced Typography（AAT）有限状態機械の構築
+
+### 5.1 AAT と OpenType の計算理論的対比
+
+* **OpenType**：宣言的なグラフ書き換えルール群。エンジンがテキスト全体を何度も複数パス走査するため、計算量は $O(K \cdot N)$；
+* **AAT**：**決定性有限状態トランスデューサ（DFA / FST）**。すべての文脈ルールが事前に単一の二次元状態遷移表に最適化・統合されており、テキストを先頭から末尾まで一度だけ走査する**シングルパス走査**で実行され、時間計算量は物理的限界の $O(N)$ を達成します。
+
+$$M = \langle Q, \, \Sigma, \, \Gamma, \, \delta, \, q_0, \, F \rangle$$
+
+::: tip AAT 機能およびセレクタの多言語名称編集（Figure 14-14）
+![AAT 機能およびセレクタの多言語名称編集（Figure 14-14）](/images/fonts-encodings/fig14-14.png)
+*AAT 機能およびセレクタの多言語名称編集（Figure 14-14）*
+:::
+
+*図 14-14：FontForge での AAT 機能名編集。`feat` テーブル内に多言語のローカライズ表示名が格納される。*
+
+::: tip AAT 状態機械クラス表と状態遷移マトリクスウィンドウ（Figure 14-15）
+![AAT 状態機械クラス表と状態遷移マトリクスウィンドウ（Figure 14-15）](/images/fonts-encodings/fig14-15.png)
+*AAT 状態機械クラス表と状態遷移マトリクスウィンドウ（Figure 14-15）*
+:::
+
+*図 14-15：FontForge の AAT 状態機械編集画面。(a) 入力クラス表、(b) 状態遷移マトリクス。各行がマシン状態、各列が入力クラスを表し、セル内に遷移先状態と実行アクションが記録される。*
+
+#### AAT の4大状態機械：
+1. **グリフ並べ替え（Glyph Rearrangement）**：インディック系文字などの子音と母音の順序入れ替え；
+2. **文脈置換（Contextual Substitution）**：対角線分数（`1/2`）の分子・分数線・分母への三段置換；
+3. **グリフ挿入（Glyph Insertion）**：アラビア文字均等割り付けのためのカシーダ（伸展線）動的挿入；
+4. **文脈カーニング（Contextual Kerning / `kerx`）**：最大8文字のスタック保持による「S.A.V.」などの句読点を挟む複数文字一括カーニング。
+
+---
+
+## 6. 結びと現代の組版技術の展望
+
+今日、OpenType は Adobe と Microsoft の主導により世界標準の地位を確立し、AAT は Apple プラットフォームにおいて極めて洗練された高速処理の規範として生き続けています。さらに、現代のオープンソース整形エンジン **HarfBuzz** は両者の長所を統合し、全プラットフォームの基盤となっています。また、OpenType 1.8 で登場した**バリアブルフォント（Variable Fonts）**は、`FeatureVariations` テーブルを通じて、デザイン軸のパラメータに応じて字形置換を連続的に切り替える新たな地平を切り拓いています。

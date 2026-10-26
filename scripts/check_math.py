@@ -1,10 +1,11 @@
-import sys, re
-sys.stdout.reconfigure(encoding='utf-8')
-for lang in ['zh', 'zh-hant', 'ja']:
-    p = f'docs/{lang}/fonts-encodings/chapter-2.md'
-    with open(p, 'r', encoding='utf-8') as f:
-        text = f.read()
-    blocks = re.findall(r'\$\$(.*?)\$\$', text, re.DOTALL)
-    print(f'{lang}: {len(blocks)} display math blocks')
-    for i, b in enumerate(blocks):
-        print(f'  [{i+1}]: {b.strip()[:60]}...')
+import re
+from scripts.app_builders import build_app_a, build_app_b, build_app_c, build_app_d, build_app_e, build_app_f, build_app_g
+
+total_math = 0
+for mod, name in [(build_app_a, 'A'), (build_app_b, 'B'), (build_app_c, 'C'), (build_app_d, 'D'), (build_app_e, 'E'), (build_app_f, 'F'), (build_app_g, 'G')]:
+    func = getattr(mod, f'get_appendix_{name.lower()}')
+    text = func()
+    maths = re.findall(r'\$\$(.*?)\$\$', text, re.DOTALL)
+    print(f'App {name}: {len(maths)} math blocks')
+    total_math += len(maths)
+print(f'Total math blocks: {total_math}')

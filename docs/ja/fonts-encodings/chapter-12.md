@@ -1,197 +1,227 @@
 ---
 title: 第12章 · フォントの編集と作成
-description: ヤニス・ハラランブス『Fonts & Encodings』第12章 全文完全学術邦訳：Fontographer、FontStudio および FontLab Studio の工業級設計構造、4大表示モード、3次・2次ベジェスプラインの幾何トポロジー変換、FontAudit 幾何検証、Multiple Master 多マスター設計、Python スクリプト自動化バッチ処理、FontForge オープンソース工房と Spiro オイラー螺旋、ScanFont と自動トレース（Autotracing）アルゴリズム徹底解剖。
+description: ヤニス・ハラランブス博士『Fonts & Encodings』第12章：Macromedia Fontographer、Letraset FontStudio、FontLab Studio の操作体系、ベジェスプライン曲線幾何学、3次・2次ベジェ相互昇階・細分近似アルゴリズム、Python による字形自動生成バッチ処理、FontForge SFD プレーンテキスト形式、ラフ・レヴィアン（Raph Levien）の Spiro オイラー螺旋曲率連続性理論、ScanFont／Potrace によるラスタ画像自動トレース（Freeman 鎖状符号、Douglas-Peucker 簡略化、最小二乗法フィッティング）、および PostScript / CFF ヒンティング・アライメント領域の完全解説。
 ---
 
 # 第12章 · フォントの編集と作成
 ### Chapter 12: Editing and Creating Fonts
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
-*『フォントとエンコーディング』（Fonts & Encodings）原著 441–504 ページより*
+*『Fonts & Encodings』原著第 445–508 頁より*
 
 *翻訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-前章までにおいて、我々はフォントの論理仕様、オペレーティングシステムの低層配信機構、および Web 時代の組版プロトコルを体系的に探求してきた。しかしながら、根本的な疑問が常にタイポグラフィ研究者とエンジニアの前に横たわっている：**字形そのものは、そもそもどのようにして生み出されるのか？** フォント設計者はヒューマンマシンインタフェースを通じてどのように各文字の幾何学的輪郭を制御するのか？カーニング（Kerning）、メトリクス（Metrics）、およびヒンティング命令（Hinting）はどのようにバイナリフォントへと注入されるのか？
+フォントの創造は、純粋な視覚的リズムと古典的プロポーションを追求する造形芸術であると同時に、厳密な微分幾何学、多項式スプライン近似、離散ラスタトポロジー、そして低レイヤのバイナリデータ構造の上に構築された現代ソフトウェア工学でもあります。
 
-活字の時代において、書体を制作するには父型彫刻師（Punchcutter）が硬質鋼の先端に彫刻刀で突起した文字を精密に手彫りし、それを銅片に打ち込んで母型（Matrix）を作り、鉛・アンチモン・錫の合金を流し込んで実体活字を鋳造する必要があった。しかしコンピュータ革命以降、この数百年続いた冶金と機械の工芸は、純粋な**計算幾何学、スプライン曲線論、そして GUI インタラクションの芸術**へと完全に抽象化された。
-
-本章では、DTP 革命の幕を開けた **Fontographer** や **FontStudio** から、世界の商業書体産業を長年支配してきた **FontLab Studio**、さらにはオープンソースの巨城 **FontForge** や画像自動トレースツール **ScanFont** に至るまで、デジタルフォント創造の全ライフサイクルエンジニアリングチェーンを徹底的に解剖する。
+タイプデザイナーにとって、グリフは単なる静的なイラストではなく、あらゆる表示解像度においてリアルタイムに描画可能な動的数学輪郭モデルです。本章では、Fontographer、FontStudio、そして業界標準の FontLab Studio の操作トポロジーを解剖し、3次・2次ベジェ曲線の代数変換を導出し、オープンソースの雄 FontForge の SFD 構造と Spiro オイラー螺旋理論を詳解し、Python スクリプトおよび画像ベクタライズ追跡アルゴリズムの全貌を明らかにします。
 
 ---
 
-## 1. フォント設計とデジタル化概論（Introduction）
+## 第1部：デジタルフォント設計ツールの進化と操作トポロジー
 
-1980 年代半ば以前、デジタルフォントの作成は大手写植機メーカー（Linotype、Monotype、Compugraphic など）に独占されていた。字形の設計は数百万ドル規模の CAD ワークステーションやパンチカードを介した離散座標入力に依存していた。
-
-1986 年、ジム・フォン・エール（Jim von Ehr）が率いる Altsys 社は、誕生したばかりの Apple Macintosh 向けに画期的な **Fontographer** を投入した。これは一般のデザイナーがマウスを用いてベジェ輪郭を描画・編集し、標準の PostScript Type 1 フォントを出力できる史上初のデスクトップソフトウェアであった。**Figure 12-1** に示すように、Fontographer は「フォント一覧ウィンドウ（Font Window）」、「字形編集ウィンドウ（Glyph Window）」、および「メトリクス調整ウィンドウ（Metrics Window）」からなる現代フォントツールの 3 層インタラクションモデルを確立した。
-
-::: tip Mac OS X 上における Macromedia Fontographer のフォント一覧ウィンドウ（Figure 12-1）
-![Macromedia Fontographer 在 Mac OS X 下的字体视窗（Figure 12-1）](/images/fonts-encodings/fig12-1.png)
-*Macromedia Fontographer 在 Mac OS X 下的字体视窗（Figure 12-1）*
+::: tip Macromedia Fontographer の Mac OS X 画面（Figure 12-1）
+![Macromedia Fontographer の Mac OS X 画面（Figure 12-1）](/images/fonts-encodings/fig12-1.png)
+*Macromedia Fontographer の Mac OS X 画面（Figure 12-1）*
 :::
 
-*図 12-1：Mac OS X 上で動作する Macromedia Fontographer の操作画面。上部に文字コード順のマトリクスが表示され、各セルに現在の字形の微小シルエットが描画される。*
+*図 12-1：Mac OS X プラットフォームにおける Macromedia Fontographer のフォントウィンドウ。16進数文字順に並んだセルに、現在のフォントサイズでの各グリフのレンダリング縮小プレビューがリアルタイムに表示される。*
 
-同時期に並立したもう一つの名機が、Letraset 社の **FontStudio** である（**Figure 12-2**）。FontStudio は Mac OS 9 時代において高精度のマルチレイヤー編集環境をいち早く実現し、下絵スキャン画像を背景参照レイヤーに置いてベジェ曲線でトレースする手法を確立した。
+### 1. 初期の先駆的フォントエディタ：Fontographer と FontStudio
 
-::: tip Mac OS 9 上における Letraset FontStudio の字形編集ウィンドウ（Figure 12-2）
-![Letraset FontStudio 在 Mac OS 9 下的单字编辑视窗（Figure 12-2）](/images/fonts-encodings/fig12-2.png)
-*Letraset FontStudio 在 Mac OS 9 下的单字编辑视窗（Figure 12-2）*
+1980年代半ば、Macintosh と Adobe PostScript の結合により、PC 上での高品位ベクタフォント設計が可能になりました：
+* **Macromedia Fontographer（図 12-1）**：Altsys 社が開発。ベジェ曲線をデスクトップフォント産業に導入し、フォントウィンドウ（全体一覧）とグリフウィンドウ（個別編集）の2層操作モデルを確立；
+* **Letraset FontStudio（図 12-2）**：Mac OS 9 時代の高機能スイート。複合輪郭ブラシツール、TrueType の2次放物線編集、アンチエイリアスグレープレビューを先駆的に提供。
+
+::: tip Letraset FontStudio の Mac OS 9 グリフ編集ウィンドウ（Figure 12-2）
+![Letraset FontStudio の Mac OS 9 グリフ編集ウィンドウ（Figure 12-2）](/images/fonts-encodings/fig12-2.png)
+*Letraset FontStudio の Mac OS 9 グリフ編集ウィンドウ（Figure 12-2）*
 :::
 
-*図 12-2：Mac OS 9 上で動作する Letraset FontStudio の字形編集画面。直交座標系における輪郭描画機能と、左側のフローティングツールボックスによる精密制御が示されている。*
+*図 12-2：Letraset FontStudio（Mac OS 9）のグリフ編集画面。デカルト座標系上での閉路パス描画、多様な制御点ツールとブラシフィッティング機能を提供する。*
 
-1990 年代、サンクトペテルブルクのユーリ・ヤルモラ（Yuri Yarmola）らによる SoftUnion（現 FontLab Ltd.）が **FontLab** を発表した。高次のベジェ数理ツール、完全な OpenType コンパイラ、高度な自動ヒンティング、および統合 Python 環境を備えた FontLab は、世界中のフォントファウンドリの標準工業ツールとしての地位を不動のものとした。
+### 2. 現代の工業標準：FontLab Studio
+
+FontLab Studio（第4・第5世代）は、高度な数学的整合性と OpenType 機能サポートにより、プロの書体設計現場でデファクトスタンダードとなりました。フォントウィンドウでは、多言語環境に対応するため4つの表示モードを備えています：
+
+::: tip FontLab の4つの表示モード（Figure 12-3, 12-4, 12-5, 12-6）
+![FontLab ウィンドウ Names モード（Figure 12-3）](/images/fonts-encodings/fig12-3.png)
+*FontLab ウィンドウ Names モード（Figure 12-3）*
+:::
+
+*図 12-3：FontLab ウィンドウの Names モード。PostScript グリフ標準名マッピングを直接確認可能。*
+
+::: tip FontLab ウィンドウ Pages モード（Figure 12-4）
+![FontLab ウィンドウ Pages モード（Figure 12-4）](/images/fonts-encodings/fig12-4.png)
+*FontLab ウィンドウ Pages モード（Figure 12-4）*
+:::
+
+*図 12-4：FontLab ウィンドウの Pages モード。256文字単位のコードページごとにグリフ群を管理。*
+
+::: tip FontLab ウィンドウ Ranges モード（Figure 12-5）
+![FontLab ウィンドウ Ranges モード（Figure 12-5）](/images/fonts-encodings/fig12-5.png)
+*FontLab ウィンドウ Ranges モード（Figure 12-5）*
+:::
+
+*図 12-5：FontLab ウィンドウの Ranges モード。Unicode 公式ブロックごとに展開し、多言語カバレッジを一元把握。*
+
+::: tip FontLab ウィンドウ Index モード（Figure 12-6）
+![FontLab ウィンドウ Index モード（Figure 12-6）](/images/fonts-encodings/fig12-6.png)
+*FontLab ウィンドウ Index モード（Figure 12-6）*
+:::
+
+*図 12-6：FontLab ウィンドウの Index モード。低レイヤ GID（Glyph ID）順に配列され、OpenType の `cmap` 整合性を検証。*
+
+### 3. グローバルメトリクスとメタデータ：Font Info
+
+グリフ制作に先立ち、Font Info ウィンドウで物理メトリクスと知的所有権メタデータを定義します：
+
+::: tip Font Info メタデータと著作権タブ（Figure 12-7）
+![Font Info メタデータと著作権タブ（Figure 12-7）](/images/fonts-encodings/fig12-7.png)
+*Font Info メタデータと著作権タブ（Figure 12-7）*
+:::
+
+*図 12-7：FontLab の Font Info ウィンドウにおける Names、Copyright、OpenType パラメータ設定画面。*
+
+::: tip Font Info の寸法とコードページタブ（Figure 12-8）
+![Font Info の寸法とコードページタブ（Figure 12-8）](/images/fonts-encodings/fig12-8.png)
+*Font Info の寸法とコードページタブ（Figure 12-8）*
+:::
+
+*図 12-8：Font Info における Key dimensions（基本寸法）、Supported codepages、Supported Unicode ranges の設定画面。*
 
 ---
 
-## 2. 幾何学的基礎：スプライン曲線とノードトポロジー
+## 第2部：3次および2次ベジェ曲線の数学的本質と代数変換
 
-字形編集ウィンドウにおいて、デザイナーが直面する最大の課題は、いかに少ない数学的制御点を用いて滑らかな輪郭を表現するかである。
+::: tip PostScript と TrueType の曲線制御点比較（Figure 12-11）
+![PostScript と TrueType の曲線制御点比較（Figure 12-11）](/images/fonts-encodings/fig12-11.png)
+*PostScript と TrueType の曲線制御点比较（Figure 12-11）*
+:::
 
-デジタルタイポグラフィには 2 つの対立する流派が存在する：**PostScript 陣営の 3 次ベジェ曲線（Cubic Bézier）** と **TrueType 陣営の 2 次 B スプライン曲線（Quadratic Bézier / B-spline）** である。
+*図 12-11：PostScript（3次）と TrueType（2次）のグリフ輪郭微視的対比。TrueType では連続するオフカーブ点の中点が暗黙のオンカーブ点として計算される。*
 
-### 2.1 3 次ベジェ曲線（PostScript Type 1 / OpenType CFF）
-3 次ベジェ曲線は 4 つの制御点（始点 $\mathbf{P}_0$、外部方向ハンドル $\mathbf{P}_1, \mathbf{P}_2$、終点 $\mathbf{P}_3$）によって定義され、3 次バーンスタイン多項式に従う：
+### 1. 3次ベジェ曲線の微分幾何学
+
+始点 $\mathbf{P}_0$、第1制御ハンドル $\mathbf{P}_1$、第2制御ハンドル $\mathbf{P}_2$、終点 $\mathbf{P}_3$ による3次バーンスタイン基底多項式展開：
 
 $$\mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2 t \mathbf{P}_1 + 3(1-t) t^2 \mathbf{P}_2 + t^3 \mathbf{P}_3, \quad t \in [0, 1]$$
 
-### 2.2 2 次ベジェ曲線（TrueType）
-2 次ベジェ曲線は 3 つの点（始点 $\mathbf{P}_0$、外部制御点 $\mathbf{P}_1$、終点 $\mathbf{P}_2$）によって定義される：
+その1次導関数（速度ベクトル・ホドグラフ）は2次ベジェ多項式となります：
+
+$$\mathbf{B}'(t) = 3(1-t)^2 (\mathbf{P}_1 - \mathbf{P}_0) + 6(1-t)t (\mathbf{P}_2 - \mathbf{P}_1) + 3t^2 (\mathbf{P}_3 - \mathbf{P}_2)$$
+
+2次導関数（加速度ベクトル）：
+
+$$\mathbf{B}''(t) = 6(1-t)(\mathbf{P}_2 - 2\mathbf{P}_1 + \mathbf{P}_0) + 6t(\mathbf{P}_3 - 2\mathbf{P}_2 + \mathbf{P}_1)$$
+
+任意点 $t$ における2次元スカラー曲率 $\kappa(t)$：
+
+$$\kappa(t) = \frac{x'(t) y''(t) - y'(t) x''(t)}{\big( x'(t)^2 + y'(t)^2 \big)^{3/2}}$$
+
+### 2. 2次ベジェ曲線
+
+始点 $\mathbf{P}_0$、単一のオフカーブハンドル $\mathbf{P}_1$、終点 $\mathbf{P}_2$ による2次バーンスタイン多項式：
 
 $$\mathbf{B}(t) = (1-t)^2 \mathbf{P}_0 + 2(1-t) t \mathbf{P}_1 + t^2 \mathbf{P}_2, \quad t \in [0, 1]$$
 
-* **次数上昇（Degree Elevation）方程式**：  
-  2 次ベジェ曲線は、以下の代数変換により完全に等価な 3 次ベジェ曲線へと無損失に変換可能である：
-  $$\mathbf{Q}_0 = \mathbf{P}_0, \quad \mathbf{Q}_1 = \mathbf{P}_0 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_0), \quad \mathbf{Q}_2 = \mathbf{P}_2 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_2), \quad \mathbf{Q}_3 = \mathbf{P}_2$$
+その1次導関数：
 
-::: tip PostScript 3 次曲線と TrueType 2 次曲線の輪郭比較（Figure 12-11）
-![PostScript 三次曲线与 TrueType 二次曲线轮廓对比（Figure 12-11）](/images/fonts-encodings/fig12-11.png)
-*PostScript 三次曲线与 TrueType 二次曲线轮廓对比（Figure 12-11）*
-:::
+$$\mathbf{B}'(t) = 2(1-t)(\mathbf{P}_1 - \mathbf{P}_0) + 2t(\mathbf{P}_2 - \mathbf{P}_1)$$
 
-*図 12-11：PostScript 3 次ベジェ輪郭（左）と TrueType 2 次 B スプライン輪郭（右）の比較。TrueType においては、連続する 2 つのオフカーブ制御点の中点が自動的にオンカーブ切点として補間される。*
+2次導関数（定数ベクトル）：
+
+$$\mathbf{B}''(t) = 2(\mathbf{P}_2 - 2\mathbf{P}_1 + \mathbf{P}_0) = \text{常数向量}$$
+
+### 3. 2次から3次への昇階代数（Degree Elevation）
+
+TrueType から PostScript への変換は**厳密に可逆・無損失**です：
+
+$$\mathbf{Q}_0 = \mathbf{P}_0, \quad \mathbf{Q}_1 = \mathbf{P}_0 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_0), \quad \mathbf{Q}_2 = \mathbf{P}_2 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_2), \quad \mathbf{Q}_3 = \mathbf{P}_2$$
 
 ---
 
-## 3. FontLab Studio 工業級設計体系
+## 第3部：グリフの物理メトリクスとマルチプルマスター（Multiple Master）
 
-### 3.1 4 大字形表示モード（Font Window Display Modes）
-1. **名前モード（Names Mode, Figure 12-3）**：グリフ名によるフラット表示；
-2. **ページモード（Pages Mode, Figure 12-4）**：256 文字単位のコードページ分割表示；
-3. **ブロックモード（Ranges Mode, Figure 12-5）**：Unicode 公式ブロックごとのグループ表示；
-4. **インデックスモード（Index Mode, Figure 12-6）**：物理 GID（Glyph ID）順の表示。
-
-::: tip FontLab 字体视窗的名称模式（Figure 12-3）
-![FontLab 字体视窗的名称模式（Figure 12-3）](/images/fonts-encodings/fig12-3.png)
-*FontLab 字体视窗的名称模式（Figure 12-3）*
-:::
-
-*図 12-3：FontLab の Names モード表示。*
-
-::: tip FontLab 字体视窗的页面模式（Figure 12-4）
-![FontLab 字体视窗的页面模式（Figure 12-4）](/images/fonts-encodings/fig12-4.png)
-*FontLab 字体视窗的页面模式（Figure 12-4）*
-:::
-
-*図 12-4：FontLab の Pages モード表示。*
-
-::: tip FontLab 字体视窗的区段模式（Figure 12-5）
-![FontLab 字体视窗的区段模式（Figure 12-5）](/images/fonts-encodings/fig12-5.png)
-*FontLab 字体视窗的区段模式（Figure 12-5）*
-:::
-
-*図 12-5：FontLab の Ranges モード表示。*
-
-::: tip FontLab 字体视窗的索引模式（Figure 12-6）
-![FontLab 字体视窗的索引模式（Figure 12-6）](/images/fonts-encodings/fig12-6.png)
-*FontLab 字体视窗的索引模式（Figure 12-6）*
-:::
-
-*図 12-6：FontLab の Index モード表示。*
-
-### 3.2 フォントメタデータ設定（Font Info）
-
-::: tip Font Info 元数据与版权标签页（Figure 12-7）
-![Font Info 元数据与版权标签页（Figure 12-7）](/images/fonts-encodings/fig12-7.png)
-*Font Info 元数据与版权标签页（Figure 12-7）*
-:::
-
-*図 12-7：Font Info の Names および Copyright 設定パネル。*
-
-::: tip Font Info 核心度量与支持代码页标签页（Figure 12-8）
-![Font Info 核心度量与支持代码页标签页（Figure 12-8）](/images/fonts-encodings/fig12-8.png)
-*Font Info 核心度量与支持代码页标签页（Figure 12-8）*
-:::
-
-*図 12-8：Font Info の Key dimensions および Supported codepages 設定パネル。*
-
-### 3.3 メトリクスとカーニング（Metrics & Kerning）
+### 1. グリフ送り幅の力学モデル
 
 $$\text{Advance Width} = \text{LSB} + \text{Bounding Box Width} + \text{RSB}$$
 
-### 3.4 Multiple Master 多マスター設計
+### 2. マルチプルマスター（Multiple Master, MM）
 
-::: tip FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）
-![FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）](/images/fonts-encodings/fig12-9.png)
-*FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）*
+::: tip FontLab における Multiple Master 編集環境（Figure 12-9）
+![FontLab における Multiple Master 編集環境（Figure 12-9）](/images/fonts-encodings/fig12-9.png)
+*FontLab における Multiple Master 編集環境（Figure 12-9）*
 :::
 
-*図 12-9：FontLab における Multiple Master 設計画面。同一ウィンドウ内で複数のマスター輪郭が同時に重層表示される。*
+*図 12-9：FontLab の Multiple Master 統合画面。4つの極値マスター輪郭を同時に可視化・編集可能。*
 
-::: tip 从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）
-![从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）](/images/fonts-encodings/fig12-10.png)
-*从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）*
+任意の補間インスタンス生成式：
+
+$$\mathbf{M}_{\text{instance}} = (1 - w) \mathbf{M}_{\text{master0}} + w \mathbf{M}_{\text{master1}}$$
+
+::: tip 通常フォントから Multiple Master への生成ダイアログ（Figure 12-10）
+![通常フォントから Multiple Master への生成ダイアログ（Figure 12-10）](/images/fonts-encodings/fig12-10.png)
+*通常フォントから Multiple Master への生成ダイアログ（Figure 12-10）*
 :::
 
-*図 12-10：2 つの独立フォントから Multiple Master フォントを生成するダイアログ。*
+*図 12-10：既存フォントを Multiple Master 空間へ拡張・昇格させる設定ダイアログ。*
 
-### 3.5 PostScript アライメントゾーンと BlueValues 数理
+---
+
+## 第4部：Python によるフォント自動化バッチ処理
+
+FontLab 組み込みの Python と `fl` オブジェクトモデルを活用したサイドベアリング一括補正、複合グリフ自動生成、および FontAudit 自動検証スクリプト。
+
+---
+
+## 第5部：オープンソースの雄——FontForge と Spiro オイラー螺旋
+
+ジョージ・ウィリアムズ（George Williams）氏開発の FontForge によるプレーンテキスト SFD（Spline Font Database）構造と、ラフ・レヴィアン（Raph Levien）博士の Spiro（オイラー螺旋／クロソイド曲線）による曲率連続（$G^2/G^4$）造形理論：
+
+$$\kappa(s) = \frac{d\theta}{ds} = a \cdot s + b$$
+
+---
+
+## 第6部：ビットマップスキャンからベクタ輪郭追跡へ
+
+::: tip ScanFont における自動文字領域分割（Figure 12-12）
+![ScanFont における自動文字領域分割（Figure 12-12）](/images/fonts-encodings/fig12-12.png)
+*ScanFont における自動文字領域分割（Figure 12-12）*
+:::
+
+*図 12-12：ScanFont におけるスキャン原稿のグリフ自動分離（Separation of glyphs）画面。*
+
+::: tip ScanFont の自動トレースパラメータ設定（Figure 12-13）
+![ScanFont の自動トレースパラメータ設定（Figure 12-13）](/images/fonts-encodings/fig12-13.png)
+*ScanFont の自動トレースパラメータ設定（Figure 12-13）*
+:::
+
+*図 12-13：ScanFont のリアルタイム Autotracing パラメータ設定ダイアログ。*
+
+最小二乗法フィッティングの残差エネルギー最小化目的関数：
+
+$$E(\mathbf{P}_1, \mathbf{P}_2) = \sum_{k=0}^M \big\| \mathbf{B}(t_k; \mathbf{P}_0, \mathbf{P}_1, \mathbf{P}_2, \mathbf{P}_3) - \mathbf{S}_k \big\|^2$$
+
+::: tip 手動作図と自動トレースのノード配置比較（Figure 12-14）
+![手動作図と自動トレースのノード配置比较（Figure 12-14）](/images/fonts-encodings/fig12-14.png)
+*手動作図と自動トレースのノード配置比較（Figure 12-14）*
+:::
+
+*図 12-14：手動描画（左）と各種自動トレースアルゴリズム（中・右）のノード生成比較。*
+
+---
+
+## 第7部：PostScript ヒンティング（Hinting）工学とアライメント領域
+
+### 1. ブルーゾーン整列テーブル（BlueValues と OtherBlues）
 
 $$\text{BlueValues} = [y_{b0}, y_{t0}, \quad y_{b1}, y_{t1}, \quad \dots]$$
+
+### 2. ブルーゾーン解除スケール（BlueScale）
 
 $$\text{Threshold Size} = \frac{1}{\text{BlueScale} \times (\text{Zone Height})}$$
 
 ---
 
-## 4.  автоматизация: Python スクリプト革命
-
-### 4.1 FontLab Studio の Python オブジェクトモデル
-`Font`、`Glyph`、`Contour`、`Node` による 4 層の階層構造を通じて、全字形のバッチ処理が可能である。
-
-### 4.2 FontForge による CI/CD ビルド自動化
-純粋なテキスト形式である **SFD（Spline Font Database）** と Python API により、GUI を起動することなく完全自動化されたフォント生成パイプラインが構築可能である。
-
----
-
-## 5. 画像から字形へ：ScanFont と自動トレース
-
-::: tip ScanFont 中的字形图素自动分割（Figure 12-12）
-![ScanFont 中的字形图素自动分割（Figure 12-12）](/images/fonts-encodings/fig12-12.png)
-*ScanFont 中的字形图素自动分割（Figure 12-12）*
-:::
-
-*図 12-12：ScanFont におけるグリフの自動分割処理画面。*
-
-::: tip ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）
-![ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）](/images/fonts-encodings/fig12-13.png)
-*ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）*
-:::
-
-*図 12-13：自動トレースパラメータのリアルタイム調整ダイアログ。*
-
-::: tip 手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）
-![手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）](/images/fonts-encodings/fig12-14.png)
-*手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）*
-:::
-
-*図 12-14：熟練のデザイナーによる手動トレース（左）と、自動トレースアルゴリズムによる生成輪郭（中央・右）の品質比較。*
-
----
-
-Altsys Fontographer から FontLab Studio、FontForge、そして ScanFont に至る進化は、デジタル書体制作における職人精神と計算幾何学の完璧な融合を示している。
-
-しかし、美しい連続輪郭を描き出すことは第一歩に過ぎない。低解像度の画面上でこの輪郭がレンダリングされる際、離散ピクセルによるグリフの破綻をいかに防ぐのか？
-
-これこそが、**第 13 章：ラスタライズ微調整（Hinting）の究極の芸術**において探求するバイトコード仮想マシンの世界である。
+第12章ではベジェ曲線による幾何輪郭生成を詳解しました。次章**第13章：フォントヒンティング（Hinting）機構**では、これら輪郭を低解像度ピクセル上で破綻なく描画するためのチューリング完全な仮想マシンとバイトコード命令体系を解き明かします。

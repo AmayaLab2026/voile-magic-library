@@ -1,417 +1,802 @@
 ---
 title: "第 14 章：丰富字体：高级排版功能"
-description: "深入剖析 OpenType 替换与定位（GSUB/GPOS）、AFDKO 特性文件定义语言全语法规范、微软 VOLT 工程实战、FontForge 排版表与苹果高级排版（AAT）有限状态机（morx/kerx）。"
+description: "OpenType 与 AAT 高级排版功能深度解析：AFDKO 特性语法规范、微软 VOLT 工程实战、Apple Advanced Typography (AAT) 有限状态自动机、GSUB/GPOS 查找表体系。"
 ---
 
 # 第 14 章：丰富字体：高级排版功能
-### Chapter 14: Enriching Fonts: Advanced Typography
-雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著
-选自《Fonts & Encodings》第 551–598 页
+
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
+
+### Chapter 14: Enriching Fonts: Advanced Typography
+
+本章标题所指的“高级排版功能”，特指微软（Microsoft）、Adobe 与苹果（Apple）公司在基础 TrueType 格式之上引入的扩展布局表系统——即当今数字印艺领域的两大支柱体系：**OpenType** 与 **Apple Advanced Typography（AAT）**。
+
+在铅字活字印刷与机械排字机时代，排版师面对多语言混排、阿拉伯文连写变形、南亚诸文字辅音簇叠印、以及严苛的西文活字连字（Ligatures）、小型大写体（Small Capitals）、老式不等高数字（Oldstyle Figures）与上下文长短 's' 替换时，依赖的是人工的拣字经验与手工垫片微调。进入早期个人电脑桌面出版时代后，传统 PostScript Type 1 与基础 TrueType 字体仅仅是一张平面的“字符编码到字形外观”的静态投影表（`cmap`），对于上下文变形和复杂书写系统，只能依赖操作系统层或独立应用程序硬编码的排版外挂（如早期苹果系统的 QuickDraw GX 扩展或 QuarkXPress、InDesign 的私有字形替换引擎）。
+
+OpenType 与 AAT 的革命性突破在于：**将文本动态排版的“智能规则”直接固化、封装在字体文件自身内部**。排版引擎（Shaping Engine，如现代开源基石 HarfBuzz、Windows 系统的 DirectWrite、macOS 系统的 CoreText）不再需要硬编码各语系的拼写语法，而是遵循统一的规范读取字库内部的排版规则表，由字体设计大师完全掌控其字形在不同语言环境、上下文语境下的变形、连缀与微观几何位移。
 
 ---
 
 ## 1. 排版智能化的演进与范式转移（Introduction）
 
-在传统数字字体技术（如原始的 PostScript Type 1 或未经扩充的经典 TrueType）中，字体文件本质上仅仅是一个**静态的字形轮廓容器**。操作系统在接收到一段文本字符串（如 ASCII 或 Unicode 码位序列）时，所能执行的仅仅是最原始的“查表—提取轮廓—绘制”单向映射。每个字符对应且仅对应一个固定字形，字符之间的排列完全由各自预设的水平前进宽度（Advance Width）累加决定，至多辅以一张简单的平面字距对（Kerning Pair）调整表。
-
-然而，人类悠久的活字排版传统与全球纷繁复杂的书写系统，对计算机排版引擎提出了截然不同的严苛要求：
-- **经典西文排版美学**：为了避免字符碰撞并提升阅读韵律，两个或三个特定字母必须融合成精致的连字（如 $\text{f}+\text{i} \to \text{fi}$、$\text{f}+\text{f}+\text{l} \to \text{ffl}$）；正文中的大写字母如果与小写字母混排，需要使用缩放至小写字母高度的小型大写字母（Small Capitals）；在普通段落中应使用错落有致的旧体数字（Oldstyle Figures），而在财务表格中则必须使用等宽的齐线数字（Lining Figures）；分数的呈现需要将斜杠与数字自动转换为对角分数（Diagonal Fractions）或坚式分数（Vertical Fractions）。
-- **非拉丁复杂书写系统**：在阿拉伯文、叙利亚文、蒙古文中，文字具有天然的草书连笔特性，同一个字母在单词的词首（Initial）、词中（Medial）、词尾（Final）以及孤立状态（Isolated）下必须呈现完全不同的物理拓扑外形；在南亚与东南亚文字体系（如天城文 Devanagari、孟加拉文 Bengali、泰米尔文 Tamil、高棉文 Khmer）中，辅音与辅音相遇会结合成不可分割的半字连结符，而某些元音符号在逻辑编码上虽然输入在辅音之后，在物理视觉呈现上却必须被“重排”并绘制在辅音簇的最左侧。
-
-如果将这些极其复杂的语言学逻辑、上下文敏感分析和微观几何形变硬编码进操作系统的内核或应用程序内部，不仅会导致字体的可移植性彻底丧失，更使得任何新创文字或特殊排版风格的扩展成为天方夜谭。
-
-因此，20 世纪 90 年代中后期，数字字体工业迎来了一场**划时代的范式转移**：**字体的知性化（Enriching Fonts）**。排版规则的解析与执行逻辑被彻底移入字体文件本身。字体不再是一个被动的轮廓数据库，而变成了一个**拥有自主决策能力、包含微型语法规则与有限状态机的智能执行实体**。当前处于统治地位的高级排版字体标准包括：
-1. **OpenType（包含 TrueType 轮廓与 CFF/PostScript 轮廓）**：由微软（Microsoft）与 Adobe 联合制定，基于规则声明与分级查表的架构；
-2. **Apple Advanced Typography（AAT）**：由苹果公司（Apple）基于 Mac OS 经典 QuickDraw GX 发展而来，基于纯粹计算理论中的**确定性有限状态自动机（Finite State Machine, FSM）**架构。
-
 ### 1.1 从字符到字形：文本整形（Text Shaping）的动态蜕变
-在现代高级排版引擎（如开源跨平台的 HarfBuzz、Windows 的 Uniscribe/DirectWrite、macOS 的 CoreText）的工作管线中，排版过程被称为**文本整形（Text Shaping）**。输入引擎的字符流（Unicode 序列）在最终变为显示在屏幕上的像素之前，会经历一系列多维的动态蜕变：
+
+现代数字文本处理的核心理论，建立在**字符（Character）**与**字形（Glyph）**的严格二元分离之上：
+* **字符**：是计算机信息处理系统中的纯粹语义抽象单位，由 Unicode 标量值（Code Point）唯一标识，代表“这个文字是什么”；
+* **字形**：是呈现在屏幕像素或纸张墨迹上的具体可视物理形态，由字库中的轮廓数据（Bézier 曲线段）、图元指令与空间度量构成，代表“这个文字怎么呈现”。
+
+在简单西方文字的无修饰排版中，一个字符通常对应一个字形（例如字符 'A' 对应字形 `A`）。但在世界各大原生文字系统与高级西文典籍排印中，字符与字形之间存在着极度复杂的非单射、非双射的动态映射关系：
+1. **多对一映射（Many-to-One）**：连字现象。如输入字符序列 `'f' + 'i'`，排版引擎应将其自动融铸为单一的高级连字体字形 `fi`（`f_i`）；在阿拉伯文中，输入 `'l' + 'a'` 必须强制合成为连字 `lam_alif`；
+2. **一对多映射（One-to-Many）**：字形分解。如某些南亚印度系文字（Indic Scripts）或东南亚高棉文（Khmer），一个元音字符在逻辑上挂载于辅音之后，但在实际书写视觉上，其笔画必须分裂拆解为前置部首、上标声调与后置主干三个独立的物理字形，环绕包围辅音字母；
+3. **一对一上下文条件变体（One-to-One Contextual Variation）**：阿拉伯文与希伯来文的字母在词首（Initial）、词中（Medial）、词尾（Final）与孤立状态（Isolated）具有截然不同的四种书写骨架；在古典英语排印中，字母 `'s'` 若出现在词首或词中应选用长长伸展的 `longs`（'ſ'），而出现在词尾或特定辅音后则选用常规的圆弧 `'s'`；
+4. **二维空间微观吸附（2D Spatial Attachment）**：希腊文多重变音符（Polytonic Accents）、希伯来文元音发音符号（Nikud）、阿拉伯文点标（Nuqta）与印度天城文半辅音叠印，要求符号不仅要在水平方向紧跟基字，更必须依据基字的具体几何轮廓高度、笔画倾斜角，在二维空间内精准定位吸附。
+
+现代排版引擎将文本从逻辑码点转化为最终屏幕呈现的几何拓扑流，其数学处理管线可严格抽象为以下四阶转换：
 
 $$\text{Unicode Code Points} \xrightarrow{\quad\text{cmap 映射}\quad} \text{Glyph IDs} \xrightarrow{\quad\text{GSUB 替换}\quad} \text{Glyph IDs} \xrightarrow{\quad\text{GPOS 定位}\quad} \text{Positioned Glyphs}$$
 
-在这一过程中，字符与字形之间的一对一关系被彻底打破，呈现出丰富的映射形态：
-- **一对多（One-to-Many）**：单个字符被拆分为多个字形片段（例如南亚文字中被前后分割的环绕型元音）；
-- **多对一（Many-to-One）**：多个连续字符融合成单个连字字形；
-- **多对多（Many-to-Many）**：一段字符序列被重构为另一组长度不同、外形迥异的字形序列；
-- **动态微观位移**：字形不再仅仅沿着基线机械排列，而是可以在二维平面内任意平移，甚至自动根据基字轮廓上的物理锚点实现像素级的磁吸吸附。
+---
 
 ### 1.2 高级排版双翼：字形替换（GSUB）与几何定位（GPOS）
-在 OpenType 架构中，字体的高级排版能力被清晰地解耦为两大核心表：**GSUB（Glyph Substitution Table，字形替换表）**与 **GPOS（Glyph Positioning Table，字形定位表）**。
+
+在 OpenType 架构中，实现上述智能排版的动力核心被清晰解耦为两大并行的二进制数据表：负责“改换形态”的 **`GSUB`（Glyph Substitution Table，字形替换表）** 与负责“空间微调”的 **`GPOS`（Glyph Positioning Table，字形定位表）**。
 
 #### 1. 字形替换的六大形态（GSUB）
-字形替换负责在不改变字形坐标系统的前提下，根据语法上下文将当前字形替换为更适宜的候选字形：
-1. **单字替换（Single Substitution）**：将一个字形直接替换为另一个字形。最典型的应用是将普通小写字母替换为小型大写字母（`a` $\to$ `a.sc`），或者将普通标点替换为特定语言专用标点。
-2. **多字替换（Multiple Substitution）**：将单个字形分解为多个连续字形。例如，在解构复合连字或将特定南亚文字连结符还原为独立笔画时使用。
-3. **备选字形替换（Alternate Substitution）**：为一个字形提供多个美学对等的变体，供排版软件向用户展示选择菜单。例如赫尔曼·察夫（Hermann Zapf）设计的著名书法字体 **Zapfino** 中，小写字母 `d` 拥有多达 9 种不同挥洒程度的花体变体，排版引擎可以通过备选替换让用户自由挑选。
-4. **合字替换（Ligature Substitution）**：排版中最经典的替换形式。将两个或多个连续字形融合成单个专属连字字形（如 `f` + `i` $\to$ `fi`、`c` + `t` $\to$ `ct`）。
-5. **上下文替换（Contextual Substitution）**：替换的触发与否完全取决于该字形所处的前后环境（Context）。最经典的案例是阿拉伯文：一个孤立字母仅在后面紧随另一个相连字母时，才转变为词首形（Initial Form）。在这个过程中，字形外形的改变属于单字替换，而紧随其后的字形则构成了“上下文”。
-6. **链式上下文替换（Chained Contextual Substitution）**：上下文替换的高级演进形态。在前述阿拉伯文简单上下文中，被充当“上下文”的后随字形由于已被规则捕获，无法立即参与下一轮替换（导致第二个字母无法顺利变为词中形）。链式上下文替换引入了**回溯序列（Backtrack）**、**输入序列（Input）**与**前瞻序列（Lookahead）**的三元划分，使得上下文环境与实际被替换的字形彻底分离，允许规则像多米诺骨牌一样连续链式触发。
-7. **逆向链式上下文单替换（Reverse Chaining Contextual Single Substitution）**：专门针对诸如乌尔都语（Urdu）纳斯塔利格体（Nastaliq）等极端书写系统设计的特殊机制。乌尔都语采用从右向左的书写方向，但在排版时，一个字母的垂直悬垂高度和连笔外形取决于其**后续**字母（即视觉左侧的字母）。逆向链式替换以与文本书写相反的物理方向（从左向右）逆流扫描字形流，确保每一处的字形变体都能提前预知未来的上下文形态。
+
+`GSUB` 表内部被组织为一个结构精密的树状层级体系：包含脚本列表（ScriptList）、语言系统列表（LangSysList）、排版特性列表（FeatureList）与查找表列表（LookupList）。其中每个查找表根据排印学需求，被严格划分为六种原子操作形态：
+
+1. **单字替换（Single Substitution, Lookup Type 1）**：将单一输入字形等量替换为另一个目标字形。
+   * *典型场景*：小写字母替换为小型大写体（Small Caps, `smcp`），如 `a` $\to$ `a.sc`；表意数字替换为等宽表格数字（Tabular Figures, `tnum`）或老式非等高数字（Oldstyle Figures, `onum`）。
+2. **多字替换（Multiple Substitution, Lookup Type 2）**：将单一输入字形拆解为由两个或更多字形构成的有序序列。
+   * *典型场景*：历史活字中未编码连字的动态拆分，如将历史遗留字形 `ffi` 拆解为独立的 `f` + `f` + `i`；在印度系文字中将复合辅音印章分解为独立字母与虚线辅音架。
+3. **备选替换（Alternate Substitution, Lookup Type 3）**：为单一输入字形提供一个可选的字形阵列集合，允许用户或排版软件根据审美需要交互式选择。
+   * *典型场景*：书法花体变体（Swashes, `swsh`），如著名书法字体 Zapfino 中为字母 `'d'` 提供了多达九种飘逸长尾变体；乐谱符号与花边装饰符（Ornaments, `ornm`）的选择。
+4. **合字替换（Ligature Substitution, Lookup Type 4）**：将一个严格按序出现的输入字形序列融铸坍缩为一个单一的目标字形。
+   * *典型场景*：标准拉丁连字（Standard Ligatures, `liga`），如 `'f' + 'i' \to 'fi'`、`'f' + 'l' \to 'fl'`；历史珍本连字（Discretionary Ligatures, `dlig`），如 `'c' + 't' \to 'ct'`、`'s' + 't' \to 'st'`；德文长 's' 连字（Historical Ligatures, `hlig`）；阿拉伯文中极为普遍的二字、三字连写整体。
+5. **上下文替换（Contextual Substitution, Lookup Type 5）**：仅当目标字形处在特定的前驱或后继字符上下文字符串中时，才触发对输入序列中字形的替换。但经典上下文替换有一个致命缺陷：被匹配的“上下文环境字符”会被当前子表消耗锁定，无法参与后续链条的进一步替换。
+6. **链式上下文替换（Chained Contextual Substitution, Lookup Type 6）**：上下文替换的最强形态。允许排版师将上下文环境明确划分为三大独立隔离区间：**回溯序列（Backtrack Glyphs）**、**匹配目标序列（Input Glyphs）** 与 **前瞻序列（Lookahead Glyphs）**。只有当这三个区间的字形同时全部命中预设规则时，才对匹配目标区间内的指定字形执行级联替换，而回溯与前瞻字符保持完好，继续供下游规则链条匹配。
+7. **反向链式上下文单字替换（Reverse Chaining Contextual Single Substitution, Lookup Type 8）**：专为乌尔都语（Urdu）波斯折体（Nastaliq）等极端书写系统量身定制。它逆转了常规文本扫描方向，从左至右逆向评估上下文，以适配从右向左书写且笔画沿对角线阶梯向下悬垂坍落的特殊文字。
 
 #### 2. 字形微观几何定位的六大形态（GPOS）
-字形定位负责在字形外形已确定的基础上，微调字形在二维排版网格上的度量属性：
-1. **单字调整（Single Adjustment）**：对单个字形的水平位置、垂直位置、水平前进量或垂直前进量进行微调。例如，全大写排版时，将括号、连字符等标点符号整体向上提升若干距离，使其与大写字母光学中心对齐。
-2. **字对调整（Pair Adjustment）**：即现代化的字距调整（Kerning）。当特定的两个字形相遇时（如 `A` 与 `V`、`T` 与 `o`），动态缩短或拉开它们之间的物理间距。OpenType 的字对调整远超传统 1 对 1 字距对，它既支持基于字形类的笛卡尔积批量调整，更允许在 X 轴与 Y 轴两个维度同时进行平移。
-3. **草书连笔吸附（Cursive Attachment）**：在阿拉伯文、波斯文或西文花体手写体中，字母之间通过平滑的起伏曲线无缝连接。草书定位允许为每个字形定义一个“入刀点”（Entry Anchor）和一个“出刀点”（Exit Anchor）。排版引擎在渲染时，自动平移后一个字形，使其入刀点与前一个字形的出刀点在二维空间完全重合。
-4. **标音符号吸附基字（Mark-to-Base Attachment）**：现代字体实现 Unicode 任意重音组合的核心基石。传统字体不得不为 `á`、`à`、`ä` 等每个带重音字母预先绘制独立字形，导致汉明空间无限膨胀。而在 Mark-to-Base 定位下，基字（如字母 `a`）定义一个或多个吸附锚点（如顶部锚点 `(250, 450)`），重音符号（如尖音符 `acute`）在其基底定义对应的反向锚点。排版引擎动态将两个锚点严丝合缝地对齐，从而理论上可以用一套重音符号为世界上所有字母精准添加声调。
-5. **标音符号叠合（Mark-to-Mark Attachment）**：允许在已有标音符号之上继续叠合第二个、第三个标音符号（如越南语中既有扬抑符又有声调符号 `ế`，或国际音标中的复杂上下标）。
-6. **合字部件标音吸附（Mark-to-Ligature Attachment）**：当一个连字由多个元音组成（如 `ae` 连字 `æ`），而排版需要单独在 `e` 的上方添加重音符号时，Mark-to-Ligature 允许字体工程师在单个连字内部按照逻辑部件声明多个独立的局部锚点集，使得声调符号能够准确落在目标字母的正上方，彻底免去了为每一种重音组合重复绘制专用合字的繁重劳动。
-7. **上下文定位与链式上下文定位（Contextual / Chained Contextual Positioning）**：定位动作的发生受制于上下文。经典范例：在排版缩写词 `V.A.V.` 时，第二个字母 `V` 应当向第二个句点大幅收紧负字距，这是因为该句点前面是一个带有大倾角留白的 `A`；然而，在排版 `V.V.` 时，相同的 `.` 与 `V` 组合就绝对不能收紧字距，否则两个 `V` 的顶部会相互撞击，视觉上严重粘连并形似 `W`。
 
-#### 3. 标准排版特性标签体系（Standard Feature Tags）
-为了让世界各地的文字处理软件（InDesign、Word、Web 浏览器）能够以标准化的方式激活这些功能，OpenType 将所有的 GSUB 与 GPOS 操作归类进一组由 **4 个 ASCII 字符组成的特性标签（Feature Tags）**中：
+如果说 `GSUB` 决定了“显示哪个字形”，那么 `GPOS` 则彻底掌控了“字形显示在何处”。在 `GPOS` 体系中，每一个字形的最终空间位置由一个四元值记录（Value Record）决定：
 
-| 特性标签 | 英文全称 | 类别 | 核心功能与应用场景 |
-|:---|:---|:---|:---|
-| `liga` | Standard Ligatures | GSUB | 标准合字（默认开启）：处理 `fi`, `fl`, `ff` 等基础排版连字，消除字形碰撞 |
-| `dlig` | Discretionary Ligatures | GSUB | 自由/美学连字（默认关闭）：特殊历史或装饰性连字，如 `st`, `ct`, `Th` |
-| `hist` | Historical Forms | GSUB | 历史异体字：长 `s`（`ſ`）等古典排版字形替换 |
-| `smcp` | Lowercase to Small Capitals | GSUB | 将普通小写字母替换为光学设计的小型大写字母 |
-| `c2sc` | Capitals to Small Capitals | GSUB | 将普通大写字母替换为小型大写字母（用于全小大写混排） |
-| `onum` | Oldstyle Figures | GSUB | 旧体/悬挂数字：具有高低起伏升降部的数字（`0123456789`），融入正文文本流 |
-| `lnum` | Lining Figures | GSUB | 齐线数字：高度完全一致的现代西文数字，常用于表格排版 |
-| `tnum` | Tabular Figures | GPOS | 表格等宽数字：强制所有数字具有完全相同的水平前进宽度，保证账目纵向对齐 |
-| `pnum` | Proportional Figures | GPOS | 比例数字：每个数字具有符合自身形态的自然字宽 |
-| `frac` | Diagonal Fractions | GSUB | 对角斜线分数：将 `1/2`, `3/4` 自动替换为单字分数或分子下标/分母上标 |
-| `afrc` | Alternative Fractions | GSUB | 竖线水平分数：将分数排版为带水平横线的垂直堆叠结构 |
-| `kern` | Kerning | GPOS | 字距调整（默认开启）：微调特定字对之间的水平物理间隙 |
-| `mark` | Mark Positioning | GPOS | 标音符号吸附（默认开启）：将音标磁吸至基底字符的物理锚点上 |
-| `mkmk` | Mark-to-Mark Positioning | GPOS | 多重标音符号堆叠吸附 |
-| `curs` | Cursive Attachment | GPOS | 草书连笔平滑连接 |
-| `size` | Optical Size | 杂项 | 光学尺寸参数声明：声明字体专属设计的字号与推荐使用字号区间 |
-| `aalt` | Access All Alternates | 元特性 | 汇集字形的所有变体，供排版软件的“字形调色板”全局检视 |
+$$\langle xPlacement \quad yPlacement \quad xAdvance \quad yAdvance \rangle$$
+
+* $xPlacement$ / $yPlacement$：字形轮廓相对于逻辑原点的水平与垂直偏移量（平移绘制起点，但不改变排版笔刷前进量）；
+* $xAdvance$ / $yAdvance$：字形绘制完成后，文本排版光标在水平与垂直轴线上的推进距离（前进量，Advance Width/Height）。
+
+围绕该值记录，`GPOS` 定义了六大空间几何定位查找表类型：
+1. **单一微调（Single Adjustment, Lookup Type 1）**：针对单个字形调整其外形偏移或推进度量。
+   * *典型场景*：全大写排版微调（Capital Spacing, `cpsp`），当文本全为大写字母时，将括号 `()`、连字符 `-` 和破折号 `--` 向上抬升若干设计单位，以对齐大写字母的垂直视觉中心。
+2. **字偶对微调（Pair Adjustment / Kerning, Lookup Type 2）**：针对特定的两两相邻字形组合，微调它们之间的相对间隙。
+   * *典型场景*：经典字距微调（`kern`），如在 `'T'` 与 `'o'`、`'A'` 与 `'V'` 之间施加负向水平间隙，消除笔画负空间造成的排版空洞。支持基于具体字形对（Glyph-pair）与基于形态类（Class-based）的矩阵运算。
+3. **草书平滑咬合（Cursive Attachment, Lookup Type 3）**：专为阿拉伯文、波斯体（Nastaliq）以及手写连体设计。在每个字形的连线入口放置进入锚点（Entry Anchor），在出口放置退出锚点（Exit Anchor）。排版引擎在从右向左推进时，自动平移后一个字形，使后字的 Entry 锚点与前字的 Exit 锚点在空间中严格重合，形成平滑如行云流水的斜角或弧线连缀。
+4. **标音符号附着于基字（Mark-to-Base Attachment, Lookup Type 4）**：将重音符号、声调或点标精准吸附于基本字母。
+   * *典型场景*：在小写字母 `'e'` 的顶部中心锚点上吸附尖音符（Acute）`´`，使组合而成的 `é` 变音符无论基字字宽如何变化，均稳固居中。
+5. **标音符号附着于合字（Mark-to-Ligature Attachment, Lookup Type 5）**：连字体字形内部包含多个文字成分。该查找表允许在合字内部为每个逻辑构件分别指定锚点集合，使变音符能够精准降落在合字的第一个或第二个组成字母上方。
+6. **标音符号多层附着（Mark-to-Mark Attachment, Lookup Type 6）**：处理变音符号的层叠堆印。
+   * *典型场景*：在越南语排印中，字母往往同时拥有元音变音符（如扬抑符 `^`）和声调符号（如锐音符 `´`），Mark-to-Mark 定位使声调符能够精准叠加在元音变音符的顶端，避免两者在垂直空间发生重叠穿模。
 
 ---
+
+### 1.3 OpenType 布局表的底层二进制拓扑与关键基础设施
+
+要透彻理解 OpenType 引擎的执行机理，必须深入解剖其在二进制文件中的数据拓扑结构。无论是 `GSUB` 还是 `GPOS` 表，其顶层均严格包含一个表头（Header）：
+* `uint16 majorVersion` / `uint16 minorVersion`：版本标识符（通常 1.0 或 1.1）；
+* `Offset16 ScriptListOffset`：指向脚本列表（ScriptList）的字节偏移量；
+* `Offset16 FeatureListOffset`：指向特性列表（FeatureList）的字节偏移量；
+* `Offset16 LookupListOffset`：指向查找表列表（LookupList）的字节偏移量；
+* 在 1.1 版本中，还额外包含一个 `Offset32 FeatureVariationsOffset`，用于支持 OpenType 1.8 可变字体根据轴线坐标动态切换替换规则！
+
+#### 1. 覆盖表（Coverage Tables）的两大格式规范
+在任何一个查找子表中，排版引擎做的第一件事绝不是盲目遍历整个字库，而是通过**覆盖表（Coverage Table）**快速判断当前字形是否属于该子表的作用对象：
+* **Coverage Format 1（离散索引表）**：包含一个按 GID 升序严格排列的字形数组 `GlyphID glyphArray[glyphCount]`。引擎通过二分查找法在 $O(\log N)$ 时间内判定当前字形是否存在，若存在则返回其在数组中的索引作为其覆盖索引（Coverage Index）；
+* **Coverage Format 2（连续区间范围表）**：当被覆盖的字形在 GID 上是连续大块分布时（例如连续 500 个汉字变体），Format 1 会浪费巨量内存。Format 2 引入了范围记录结构 `RangeRecord`：
+  ```c
+  struct RangeRecord {
+      uint16 startGlyphID;      /* 区间起始字形 GID */
+      uint16 endGlyphID;        /* 区间终结字形 GID (包含) */
+      uint16 startCoverageIndex;/* 该区间首个字形对应的覆盖索引 */
+  };
+  ```
+  引擎仅需存储若干个区间端点，即可瞬间映射成千上万个连续字形，极大压缩了字体体积并提升了查找命中速度。
+
+#### 2. 分类定义表（Class Definition Tables）
+在基于类别的字距调整（Class-based Kerning）或上下文分类替换中，字形必须被离散投影到一个整数类索引（Class ID，通常 0 为默认未分类）：
+* **ClassDef Format 1**：定义了一个基准起始字形 `startGlyphID`，紧随其后为一个紧凑的单字节/双字节类值数组 `uint16 classValueArray[glyphCount]`；
+* **ClassDef Format 2**：采用三元组范围记录 `ClassRangeRecord`（`startGlyphID`, `endGlyphID`, `classValue`），高效对连续字符块赋予相同类别属性。
+
+#### 3. GDEF、BASE 与 JSTF 支撑底座
+* **`GDEF`（字形定义表）**：为全字体建立字形本体论属性分类。它包含三大核心子表：
+  1. `GlyphClassDef`：将字形严格归类为 Base（基字）、Ligature（合字）、Mark（附加音标）或 Component（构件）；
+  2. `AttachList`：记录特定复杂字形上允许其他字符连接的物理顶点轮廓节点号；
+  3. `LigCaretList`：定义合字内部允许闪烁文本光标的垂直剖分位置（Carets），使得用户在文本编辑器中按向左箭头时，光标能精准停靠在 ‘ﬁ’ 合字中间 ‘f’ 与 ‘i’ 的交界处。
+* **`BASE`（跨语系基线规范表）**：当多语言在同一水平行混排时，西文的基线是小写字母的底部，中文汉字采用正方形字身框垂直居中的表意字中线（Ideographic Baseline），而印度梵文天城文则以字母顶端的平直连梁为悬挂基线（Hanging Baseline）。`BASE` 表给出了各脚本基线之间的相对差值，使文本渲染器在混排拉丁字母与梵文时，能够自动上下平移字符，保持阅读视觉重心的绝对统一；
+* **`JSTF`（两端对齐表）**：针对阿拉伯文等高难度脚本的两端齐平排版。定义了多级优先级流水线（Priority Stages）：在第一级，优先使用加长字形（Swashes）；在第二级，调用连线伸展字符（Kashida）；在第三级，微调词间距。
+
+#### 4. 标准排版特性标签体系（Standard Feature Tags）
+
+OpenType 官方注册表中定义了近百个由 4 字节 ASCII 字符构成的排版特性标签（Feature Tags）。表 14-1 汇总了当今出版界最核心的特性及其行为：
+
+| 特性标签 | 英文全称 | 核心排印功能与转换行为 | 默认开启状态 |
+| :--- | :--- | :--- | :--- |
+| `liga` | Standard Ligatures | 标准审美连字（如 fi, fl, ffi, ffl） | 默认开启（ON） |
+| `dlig` | Discretionary Ligatures | 装饰性/自由连字（如 st, ct, Qu, Th） | 默认关闭（OFF） |
+| `hlig` | Historical Ligatures | 历史典籍珍本文献连字（如 ſt, ſi, ſl） | 默认关闭（OFF） |
+| `smcp` | Lowercase to Small Caps | 小写字母转为真小型大写体（保持大写高度与磅重统一） | 默认关闭（OFF） |
+| `c2sc` | Capitals to Small Caps | 大写字母转为小型大写体（用于缩写词头等混排场景） | 默认关闭（OFF） |
+| `onum` | Oldstyle Figures | 非等高老式数字（高低错落，融入正文行气流） | 默认关闭（OFF） |
+| `lnum` | Lining Figures | 等高全齐平现代数字（与大写字母齐平，适合标题） | 默认开启（标题） |
+| `pnum` | Proportional Figures | 比例间距数字（各数字拥有符合自身骨架的自然字宽） | 默认开启（正文） |
+| `tnum` | Tabular Figures | 表格等宽数字（所有数字宽度绝对一致，确保财务报表垂直对齐） | 默认开启（表格） |
+| `frac` | Diagonal Fractions | 斜线对角分数（将 `1/2` 等序列自动转换为专业分数分子分母字形） | 默认关闭（OFF） |
+| `ordn` | Ordinals | 序数词上标（如英语 1st, 2nd 或法语 1er, 2e） | 默认关闭（OFF） |
+| `zero` | Slashed Zero | 斜杠零（在数字 0 中增加斜杠或圆点，与大写字母 O 严格隔离） | 默认关闭（OFF） |
+| `swsh` | Swash | 书法飘逸花体（为字母提供长长延伸的书法出入刀笔画） | 默认关闭（OFF） |
+| `titl` | Titling | 标题专用大写体（笔画细致，专门优化大磅字排版） | 默认关闭（OFF） |
+| `kern` | Kerning | 字距微调（消除字母间负空间视觉缝隙） | 默认开启（ON） |
+| `cpsp` | Capital Spacing | 全大写排版间距扩展与符号垂直抬升 | 默认关闭（OFF） |
+| `locl` | Localized Forms | 本地语言定制字形（如土耳其语无点 i、波兰语 kreska 倾角） | 默认开启（强制） |
+
+---
+
+
+### 1.4 工业级西文经典排印四大数字体系与高级特性矩阵
+
+数字在现代排印学中具有极其复杂的视觉层级需求。一款顶级的专业西文字体通常必须同时配备**四套截然不同的阿拉伯数字系统**，由 OpenType 特性按需调度：
+
+#### 1. 西文四大数字体系的几何与功能对立
+1. **等高齐线数字（Lining Figures, `lnum`）**：所有数字的高度严格齐平，且顶端与大写字母（Cap Height）或接近大写字高完全平齐，基底与普通字母基线对齐。适合与全大写字母混排、海报标题与大字标语。
+2. **不等高老式数字（Oldstyle Figures / Non-lining Figures, `onum`）**：具有类似小写字母的升部（Ascender）与降部（Descender）。例如数字 `6` 与 `8` 向上伸展冲顶，`3`、`4`、`5`、`7`、`9` 向下伸出基线跌入降部区，而 `0`、`1`、`2` 则保持在 x 字高（x-Height）以内。老式数字在排印古典正文段落时，其墨迹灰度与小写行气浑然一体，绝不会像全齐线数字那样在大片正文中产生突兀扎眼的“黑斑”。
+3. **比例间距数字（Proportional Figures, `pnum`）**：每个数字的字身外框（Bounding Box）与推进宽度（Advance Width）根据自身骨架量身定制。例如狭窄的数字 `1` 拥有极小的字宽，而丰满的数字 `0` 与 `8` 则拥有较宽的字身。比例数字使文字行具有匀称优美的自然节奏。
+4. **表格等宽数字（Tabular Figures, `tnum`）**：所有 0 到 9 的数字，乃至小数点、逗号与美元货币符号，其推进宽度被强制锁定为完全相同的固定数值（例如 1000 设计单位字身框中的 550 单位）。在财务报表、资产负债表与统计图表中，只有表格等宽数字能够确保不同行之间的千位、百位与小数位实现如同机械游标卡尺般的绝对垂直纵向对齐！
+
+#### 2. 花体修饰（Swashes）与样式集（Stylistic Sets）的高级调度
+* **`swsh`（自由花体）与 `cswh`（上下文花体）**：古典书法花体字形若在单词中间随意出现，其长长的延伸笔画往往会与相邻字母发生严重的穿模碰撞。因此现代字体工程普遍使用 `cswh` 特性：通过上下文规则，仅在单词的首字母（词首花体）或最后一个字母（词尾收刀花体）处安全触发花体变体，中间字母自动回退为紧凑的常规形态；
+* **样式集（`ss01` 至 `ss20`）**：允许字体设计师为整个字体打包提供多达 20 套独立的风格主题包。例如一套专门模仿包豪斯几何风格的几何无衬线大写集合（开启 `ss01`），或一套针对手写体字迹的粗糙墨晕风化变体集合（开启 `ss02`），用户可在排版软件中一键全局切换。
+
 
 ## 2. 在 FontLab 中管理 OpenType 表与 AFDKO 特性定义语言
 
-**FontLab Studio**（版本 4.x 与 5.x）是商业字体开发领域的工业级标杆。在 FontLab 中，OpenType 排版表并非通过散乱的表单配置，而是直接采用了由 Adobe 制定并在开源社区广泛通行的标准：**AFDKO（Adobe Font Development Kit for OpenType）特性定义语言（Feature Definition Language）**。
-
-在 FontLab 的主菜单中打开 `Window > Panels > OpenType`，即可唤出 OpenType 面板。该面板顶部列出当前字体中定义的所有 Feature，中部为纯文本代码编辑区，底部则是全局字形类的声明区。如果在编译时代码存在哪怕一个语法错误，FontLab 将直接中断并报错：
-`<PalatinoLinotype-Roman> aborting because of errors`
-因此，深入掌握 AFDKO 语法是每位专业字体工程师的必修基本功。
+在桌面字型设计软件演进史中，FontLab Studio 4 与 5 率先深度集成了由 Adobe 开发的 **AFDKO（Adobe Font Development Kit for OpenType）** 语法编译器 `makeotf`，开创了通过纯文本高级代码声明 OpenType 特性的现代工业范式。
 
 ### 2.1 AFDKO 特性定义语言的完整语法规范
 
+AFDKO 语法采用类似于 C 语言与 PostScript 的大括号分块结构，每一条语句必须以分号（`;`）结尾。
+
 #### 1. 字形类（Glyph Classes）的定义与集合运算
-在字体排版中，许多字形遵循完全相同的上下文行为。AFDKO 允许使用中括号 `[` 和 `]` 将字形组织为**字形类（Glyph Class）**，类名必须以 `@` 符号开头：
+
+字形类是 AFDKO 代码的基石，以 `@` 字符为前缀。它将具有相同排印属性的多个字形绑定为一个具名集合：
 
 ```fea
 # 1. 显式枚举定义
-@VOWELS = [ a e i o u y ];
+@LOWER_VOWELS = [a e i o u];
 
 # 2. ASCII 字典序连续范围定义（使用连字符 -）
-@UPPERCASE = [ A-Z ];
-@DIGITS = [ zero-nine ];
+@UPPERCASE = [A-Z];
+@DIGITS_LINING = [zero-nine];
 
 # 3. 带特定前后缀的字形范围定义
-@SC_LETTERS = [ a.sc-z.sc ];
-@HIST_FIGURES = [ foo.023-foo.437 ];
+@SMALL_CAPS = [a.sc-z.sc];
+@FIGURES_OLDSTYLE = [zero.oldstyle-nine.oldstyle];
 
 # 4. 类的嵌套与组合
-@ALL_LETTERS = [ @UPPERCASE @VOWELS agrave eacute ];
+@ALL_LETTERS = [@UPPERCASE @LOWER_VOWELS b c d f g h j k l m n p q r s t v w x y z];
 ```
 
 #### 2. 书写系统、语言与特性的层级结构
-AFDKO 代码严格映射 OpenType 内部的四级索引树：**Script（书写系统） $\longrightarrow$ Language（语言系统） $\longrightarrow$ Feature（特性） $\longrightarrow$ Lookup（查找表）**。
+
+字库必须首先声明支持的脚本（Script）与语言系统（Language System）：
 
 ```fea
-# 声明字体支持的全局语言系统
-languagesystem DFLT dflt; # 默认缺省语言
-languagesystem latn dflt; # 拉丁文默认
-languagesystem latn TRK ; # 拉丁文土耳其语（点 i 特殊处理）
-languagesystem cyrl dflt; # 西里尔文默认
-
-feature liga {
-    script latn;
-    language DFLT;
-        # 针对拉丁文默认语言应用规则 A
-        sub f i by f_i;
-    language DEU;
-        # 德语继承默认规则，并追加规则 B
-        sub c k by c_k;
-    language ENG excludeDFLT;
-        # 英语显式排除默认规则（excludeDFLT），仅应用专用规则 C
-        sub f f l by f_f_l;
-} liga;
+languagesystem DFLT dflt;    # 兜底默认系统
+languagesystem latn dflt;    # 拉丁脚本默认语言
+languagesystem latn TRK ;    # 拉丁脚本土耳其语（支持点号 i 严格隔离）
+languagesystem arab ARA ;    # 阿拉伯脚本阿拉伯语
+languagesystem arab URD ;    # 阿拉伯脚本乌尔都语
 ```
-- `languagesystem` 语句必须在整个特性的最外层预先声明；
-- `excludeDFLT` 关键字具有极高的工程实用价值：当特定语言不希望继承默认规则时，可以干净利落地将其屏蔽。
 
-#### 3. 命名查找表（Named Lookups）与标记标志位（`lookupflag`）
-查找表（Lookup）是组织替换或定位规则的独立原子代码块。在一个特性内部，可以通过 `lookup` 关键字定义命名查找表，从而被其他特性复用或精确控制执行次序：
+在特性块定义中，排版师将具体的查找规则包裹在 `feature <tag> { ... } <tag>;` 中：
 
 ```fea
-lookup MyLigatures {
+feature liga {
+    # 查找规则写入此处
+    sub f f i by f_f_i;
     sub f i by f_i;
     sub f l by f_l;
-} MyLigatures;
-
-feature liga {
-    lookup MyLigatures;
 } liga;
 ```
 
-为了防止标音符号或连字破坏上下文匹配，AFDKO 提供了 `lookupflag` 指令，用于指示排版引擎在扫描字符流时忽略特定类型的字形：
-- `lookupflag IgnoreBaseGlyphs;`：跳过普通基底字形；
-- `lookupflag IgnoreLigatures;`：跳过连字字形；
-- `lookupflag IgnoreMarks;`：**跳过所有标音符号**。这是西文和阿拉伯文连字排版的关键指令，确保字母 `f` 与 `i` 之间即使插入了一个重音符号（如声调标音），引擎依然能够识别出 `f` 与 `i` 相邻并顺利触发连字；
-- `lookupflag RightToLeft;`：指示该查找表专门服务于从右向左的书写系统。
+#### 3. 命名查找表（Named Lookups）与标记标志位（`lookupflag`）
+
+为了在不同特性之间复用规则，或精细控制规则的执行顺序与过滤条件，AFDKO 支持具名查找表：
+
+```fea
+lookup SMALL_CAPS_SUB {
+    sub [a-z] by [a.sc-z.sc];
+} SMALL_CAPS_SUB;
+
+feature smcp {
+    lookup SMALL_CAPS_SUB;
+} smcp;
+```
+
+查找表可通过 `lookupflag` 指令直接控制底层渲染引擎的遍历过滤策略：
+* `RightToLeft`：指示规则在从右向左文本流中应用；
+* `IgnoreBaseGlyphs`：引擎在匹配上下文字符串时，自动跳过所有基字（仅在标记符号之间匹配）；
+* `IgnoreLigatures`：自动跳过所有合字；
+* `IgnoreMarks`：**工业级排印极其关键的指令**！指示排版引擎在扫描上下文时，自动无视插在字母中间的所有重音、声调与发音点标。例如，在处理带重音的法语单词时，`sub f i by f_i;` 即使中间插入了零宽重音符号，依然能够穿透标记成功触发连字！
 
 #### 4. 字形替换规则（GSUB 规则全集）
-- **单字替换（Single）**：
-  `sub a by a.sc;`
-  也可以在两个等长类之间实现全自动平行替换：
-  `sub @UPPERCASE by @SC_LETTERS;`
-- **合字替换（Ligature）**：
-  `sub f i by f_i;`
-  `sub f f i by f_f_i;`
-- **多字替换（Multiple）**：
-  `sub f_f_i by f f i;`
-- **备选替换（Alternate）**：
-  `sub ampersand from [ ampersand.alt1 ampersand.alt2 ampersand.alt3 ];`
-- **上下文替换（Contextual Substitution）与撇号语法（`'`）**：
-  在 AFDKO 语法中，**非定向撇号（`'`）**是判定上下文作用域的关键标尺。**带有撇号的字形代表实际要被替换的目标，而未带撇号的字形仅仅构成周围的上下文环境**：
-  ```fea
-  # 当字母 d 后面紧随元音时，将 d 替换为更舒展的花体 d.prettier
-  sub d' @VOWELS by d.prettier;
 
-  # 当字母 i 出现在连字 f 或 ff 之后时，将其替换为无点 i（i.nodot），防止与 f 的出刀端相撞
-  sub [ f f_f ] i' by i.nodot;
-  ```
-- **例外排除规则：`ignore sub` 的语法陷阱**：
-  假设我们希望将普通文本中独立出现的单词 “TEX” 替换为专有标志字形 `T_e_X`。如果直接书写 `sub T E X by T_e_X;`，那么包含这三个字母的正常单词（如 `CONTEXTUAL`、`PRETEXTS`、`TEXT`、`CORTEX`）都会遭到误伤，被替换成破碎的标志。
-  我们必须使用 `ignore sub` 声明前后如果紧邻英文字母则忽略替换。AFDKO 允许使用逗号将多个忽略条件并联：
-  ```fea
-  # 必须使用撇号标记上下文作用域
-  ignore sub [ A-Z ] T' E' X' , T' E' X' [ A-Z ] ;
-  sub T' E' X' by T_e_X ;
-  ```
-  > [!WARNING] **AFDKO 语法陷阱**
-  > 注意上述第二行代码中的 `T' E' X'` 也必须带上撇号！虽然第二行表面上看是一个普通合字替换，但由于第一行的 `ignore sub` 为整个查找表确立了上下文语境，整个代码块被编译器强制提升为上下文查找表，第二行的被替换目标必须严格借用撇号语法，否则编译将直接失败。
+AFDKO 覆盖了全部 6 种 GSUB 类型的代码写法：
+
+```fea
+# Type 1: 单字替换
+sub a by a.sc;
+sub @LOWERCASE by @SMALL_CAPS;
+
+# Type 2: 多字拆分替换
+sub f_f_i by f f i;
+
+# Type 3: 备选替换（从数组中选其一，弹出交互菜单）
+sub ampersand from [ampersand.alt1 ampersand.alt2 ampersand.swash];
+
+# Type 4: 合字替换（注意长词优先原则，避免短序列提前截断）
+sub f f l by f_f_l;
+sub f l by f_l;
+
+# Type 6: 链式上下文替换（使用单引号 ' 钉死目标输入区间）
+# 规则示例 1：当且仅当前方是数字且后方是数字时，将连字符替换为短破折号
+@digits = [ zero one two three four five six seven eight nine ];
+sub @digits hyphen' @digits by endash;
+
+# 规则示例 2：当小写 'd' 之后紧跟元音字母时，替换为更具流动感的 d.prettier 变体
+sub d' [ a e i o u ] by d.prettier;
+
+# 规则示例 3：著名的 TeX 标志上下文连字替换与 ignore 逆向排除技术！
+# 目标：将独立的 "TEX" 字符串替换为专属的 T_e_X 标志字形，但在 "CONTEXT" 或 "PRETEXT" 中保持原样
+ignore sub [ A-Z Eacute ] T' E' X' , T' E' X' [ A-Z Eacute ] ;
+sub T' E' X' by T_e_X ;
+```
+
+上述 `ignore sub` 语法展示了 AFDKO 极其高超的上下文控制力：通过在 `ignore sub` 语句中用逗号隔开多个排除模式，先排除掉前驱带大写字母或后继带大写字母的所有单词，紧随其后的 `sub` 即可安全地将孤立的 "TEX" 融铸为精美的标志合字。
 
 #### 5. 字形定位规则（GPOS 规则全集）
-排版位移的核心是 **值记录（Value Record）**，它是由尖括号包裹的 4 个整数：
-$$\langle xPlacement \quad yPlacement \quad xAdvance \quad yAdvance \rangle$$
-- $xPlacement$：字形在 X 轴的物理绘制原点偏移量；
-- $yPlacement$：字形在 Y 轴的物理绘制原点偏移量；
-- $xAdvance$：字形在 X 轴上的前进宽度增减量；
-- $yAdvance$：字形在 Y 轴上的前进高度增减量（用于垂直排版）。
 
-常见物理行为模式：
-1. `<0 0 -50 0>`：仅缩减前进宽度 50 单元，字形本身绘制位置不变，使下一个字形向左靠拢 50 单元（最经典的单值字距调整，可简写为 `-50`）；
-2. `<30 0 0 0>`：字形向右平移 30 单元，但前进宽度不变；
-3. `<0 30 0 0>`：字形向上提升 30 单元，基线保持不变（全大写括号提升）；
-4. `<0 -30 0 -30>`：字形向下平移 30 单元，且下一个字形的基线起点也同步下沉 30 单元。
+在 AFDKO 中，位置调整使用 `pos` 关键字声明：
 
-- **类间字距对调整（Class-based Kerning）**：
-  ```fea
-  pos @Left_Round @Right_Round -40;
-  ```
-  如果 `@Left_Round` 包含 7 个字形，`@Right_Round` 包含 3 个字形，该单行语句在编译后将自动在 GPOS 表中展开并生成 $7 \times 3 = 21$ 个高精度的字对调整记录！
-- **草书连笔定位（Cursive Attachment）**：
-  ```fea
-  pos cursive f <anchor -10 0> <anchor 197 105>;
-  pos cursive i <anchor -5 0>  <anchor 155 105>;
-  ```
-  前一个 anchor 声明当前字形的入刀点（Entry），后一个 anchor 声明出刀点（Exit）。
-- **合字上的标音符号吸附（Mark-to-Ligature）**：
-  以意大利文或法文中带双扬抑符的三部件合字 `e_t_a`（如 `prêtâmes`）为例，合字拥有 3 个逻辑槽位：
-  ```fea
-  mark circumflex <anchor 151 438>;
-  pos ligature e_t_a <anchor 286 432> <anchor NULL> <anchor 832 432> mark circumflex;
-  ```
-  使用 `<anchor NULL>` 巧妙跳过中间字母 `t`，直接为第一个部件 `e` 和第三个部件 `a` 分别赋予精准的声调吸附坐标。
+```fea
+# Type 1: 单字微调（四元值记录：<xPlacement yPlacement xAdvance yAdvance>）
+# 将全大写排版中的圆括号向上抬升 50 单位，并将前进量向右扩展 50 单位
+pos [parenleft parenright] <0 50 0 50>;
+
+# Type 2: 字偶对字距微调（Kerning）
+pos T -50 o -20;
+# 基于类的字距调整：将大写 T 类与小写 o 类的所有组合施加 -80 单位压缩
+pos @CAPS_T @LOWER_O -80;
+# 使用 enum pos 显式展开矩阵：
+enum pos [ T Tacute Tcaron ] [ a aacute acircumflex adieresis ] -50; # 瞬间展开为 3x4=12 对字距微调！
+
+# Type 3: 草书连缀定位（定义进出锚点）
+pos cursive beh.med <anchor 350 120> <anchor 0 100>;
+
+# Type 4: 标音符号吸附于基字
+markClass [ acute grave ] <anchor 0 0> @top_accents;
+pos base o <anchor 250 500> mark @top_accents;
+
+# Type 5: 标音符号吸附于合字（为合字的各个构件分别指定锚点）
+pos ligature f_i <anchor 200 600> mark @top_accents ligComponent <anchor 400 700> mark @top_accents;
+
+# Type 6: 标音符号多层重叠吸附（Mark-to-Mark）
+pos mark circumflex <anchor 150 400> mark @top_accents;
+```
 
 #### 6. 光学尺寸特性（`size`）与备选汇总（`aalt`）
-传统矢量字体彻底遗弃了金属活字时代随字号变化而微调粗细比率的“光学尺寸”传统。OpenType 通过 `size` 特性填补了这一鸿沟：
-```fea
-feature size {
-    parameters 120 1 90 299;
-} size;
-```
-- `120`：字体的标准设计光学尺寸（Design Size），以十分之一点（decipoints）为单位，即 **12.0 pt**；
-- `1`：字体在所属家族光学尺寸序列中的编号（从 0 开始计数）；
-- `90` 与 `299`：推荐排版软件应用该字体的字号区间：**9.0 pt 至 29.9 pt**。当用户在排版软件中将字号调整至 36 pt 时，引擎将自动调度专为大标题设计的 ITC Bodoni 72。
 
-### 2.2 FontLab Studio 图形化工作流实战
-1. **代码编写与即时编译**：在 OpenType 面板中输入上述代码，点击右上角的 **Compile** 按钮。FontLab 将调用内部集成的 AFDKO 编译器进行语法检查并生成二进制表结构。
-2. **Preview 预览面板交互**：打开 `Window > Panels > Preview`。在预览窗口中，字体工程师可以勾选需要激活的 Feature（如 `liga`, `smcp`, `onum`），从下拉菜单中指定 `script` 和 `language`，并在文本框中输入测试字符串（支持通过斜杠输入字形名称，如 `/eacute`）。窗口将上下分栏对比展示开启特性前后的实时矢量渲染效果。
-3. **位移向量可视化**：点击预览面板中的箭头按钮，FontLab 将直接在屏幕上以高亮线段绘制出每个字形的前进位移向量与锚点重合状态。
-4. **字形类型分类（Glyph Typing）**：在字形单元格上右键选择 `Properties`，在弹出窗口中可明确将字形标记为 `Single Glyph`、`Ligature`、`Mark` 或 `Component`。这一分类数据将直接被写入 OpenType 的 `GDEF`（字形定义表）中，作为 `lookupflag IgnoreMarks` 能够准确执行的底层依据。
+在所有 OpenType 特性中，有两个具有超脱于常规排版逻辑的特殊语法地位：
+1. **`aalt`（All Alternates，全备选汇总）**：其唯一使命是将字库中分散在 `smcp`, `onum`, `salt`, `titl` 等各个独立特性中的所有单字替换变体进行集中大汇编，供 Adobe InDesign 等软件的“字形调板（Glyphs Panel）”一次性向用户展示当前字符的所有可用外观变体。它通常必须置于特性的最首行：
+   ```fea
+   feature aalt {
+       feature smcp;
+       feature c2sc;
+       feature onum;
+       feature salt;
+   } aalt;
+   ```
+2. **`size`（光学尺寸元数据声明）**：用于弥补传统数字字体彻底抹杀金属活字“物理级磅重尺寸微调”的巨大缺陷。在 AFDKO 中，`size` 特性不包含任何字形替换或定位规则，而是包含四个核心工程浮点参数与一个多语言名称块：
+   ```fea
+   feature size {
+       # 参数依次为：设计物理尺寸（点数的 10 倍，如 100 代表 10pt）、子家族识别码、推荐适用尺寸下限、推荐适用尺寸上限
+       parameters 10.0 0 8.0 11.9;
+       
+       # 为支持此特性的操作系统提供本地化显示的尺寸家族名称（nameID 256+）
+       featureNames {
+           name 3 1 0x0409 "Regular (10pt Text)";  # Windows 英语
+           name 3 1 0x040C "Texte standard (10pt)"; # Windows 法语
+           name 1 0 0 "Regular (10pt Text)";       # Mac 英语
+       };
+   } size;
+   ```
 
 ---
+
+### 2.2 FontLab Studio 图形化工作流实战
+
+在 FontLab Studio 中，排版师不仅可以直接编写上述底层 AFDKO 代码，更可以通过丰富的图形化视窗直观管理特性、类与视觉锚点：
+
+::: tip FontLab 4/5 中的 OpenType 特性编辑视窗（Figure 14-1）
+![FontLab 4/5 中的 OpenType 特性编辑视窗（Figure 14-1）](/images/fonts-encodings/fig14-1.png)
+*FontLab 4/5 中的 OpenType 特性编辑视窗（Figure 14-1）*
+:::
+
+*图 14-1：FontLab 中的 OpenType 核心工作视窗。左侧为当前字库声明的排版特性列表（Feature Tags），右上为选定特性（如 `liga`）的 AFDKO 源码编辑区，右下为编译日志与错误输出控制台。*
+
+::: tip FontLab 视窗中详细的特性与类管理界面（Figure 14-2, 14-3, 14-4）
+![FontLab 视窗 OpenType 详细特性视窗（Figure 14-2）](/images/fonts-encodings/fig14-2.png)
+*FontLab 视窗 OpenType 详细特性视窗（Figure 14-2）*
+:::
+
+*图 14-2：FontLab 中的 OpenType 特性管理视窗。展示了特性的启用依赖关系、脚本隔离与独立的查找表链。*
+
+::: tip FontLab 视窗 Kerning 类矩阵选项卡（Figure 14-3）
+![FontLab 视窗 Kerning 类矩阵选项卡（Figure 14-3）](/images/fonts-encodings/fig14-3.png)
+*FontLab 视窗 Kerning 类矩阵选项卡（Figure 14-3）*
+:::
+
+*图 14-3：FontLab 的 OpenType 视窗中的 Kerning 标签页。展示了基于类的字距微调对与类矩阵分配。*
+
+::: tip FontLab 视窗 Classes 字符类定义标签页（Figure 14-4）
+![FontLab 视窗 Classes 字符类定义标签页（Figure 14-4）](/images/fonts-encodings/fig14-4.png)
+*FontLab 视窗 Classes 字符类定义标签页（Figure 14-4）*
+:::
+
+*图 14-4：FontLab 视窗中的 Classes 标签页。展示了字型设计师如何将数十个重音变体归入同一形态类，并在右侧文本框中直观预览所属字形。*
+
+::: tip FontLab 实时交互排版预览视窗（Figure 14-5）
+![FontLab 实时交互排版预览视窗（Figure 14-5）](/images/fonts-encodings/fig14-5.png)
+*FontLab 实时交互排版预览视窗（Figure 14-5）*
+:::
+
+*图 14-5：FontLab 的 Preview Panel（实时预览面板）。设计师可在面板中直接实时输入任意长文本字符串，并自由勾选开启或关闭特定的 OpenType 特性（如 liga、onum、kern），即时检验特性编译后的动态渲染效果。*
+
+#### FontLab 视觉锚点（Anchors）管理法
+在 FontLab 单字编辑窗口中，用户可通过右键菜单选择 `Add Anchor` 创建一个带红色十字光标的锚点：
+* 在字母基字（如 `o`）上方放置一个名为 `top` 的锚点；
+* 打开波浪变音符（`tilde`）窗口，在其底部关键位置放置一个名为 `_top` 的锚点（**关键规范：必须以下划线 `_` 开头且后接基字完全相同的锚点名**）；
+* 当设计师打开 `Window > Panels > Preview` 视窗并切换至 `Anchors` 选项卡时，FontLab 会自动计算这两个坐标之间的向量相对位移，实时展现变音符在基字上的完美吸附效果！
+
+---
+
+
+### 2.3 工业级 AFDKO 特性文件的高阶架构设计模式
+
+在开发涵盖数万字形的大型泛东亚（CJK）字库或巨型西文排版大系时，单体 `.fea` 特性文件往往会膨胀到数万行。现代工业字型工程普遍采用模块化架构模式：
+
+#### 1. 宏替换与文件包含（Include Directives）
+AFDKO 支持类似于 C 语言预处理器的 `include()` 指令：
+```fea
+# 主特性入口文件：features.fea
+include(classes.fea);
+include(tables/gsub_lookups.fea);
+include(tables/gpos_kerning.fea);
+
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+include(features/liga.fea);
+include(features/smcp.fea);
+include(features/onum.fea);
+include(features/cpsp.fea);
+```
+
+#### 2. 条件编译与脚本分流（Script Sub-routing）
+在大型字库中，同一特性在不同语言体系下需要表现出差异化的排版行为。例如在土耳其语、阿塞拜疆语与克里米亚鞑靼语中，拉丁字母 `'i'` 拥有大写的带点 `'İ'`（U+0130）与小写的无点 `'ı'`（U+0131），与常规英语中大写 `'I'` 变为小写 `'i'` 的规则彻底冲突！
+在 AFDKO 中，排版师必须利用 `script` 与 `language` 分支实现精密的语系隔离：
+
+```fea
+feature locl {
+    # 针对拉丁脚本、土耳其语系统的专属隔离规则
+    script latn;
+    language TRK exclude_dflt;
+        sub i by i.dotaccent;
+        sub I by I.nodot;
+        
+    language AZE exclude_dflt; # 阿塞拜疆语
+        sub i by i.dotaccent;
+        sub I by I.nodot;
+        
+    # 针对罗马尼亚语与摩尔多瓦语的逗号重音（Comma-below）隔离
+    language ROM exclude_dflt;
+        sub Scedilla by Scommaaccent;
+        sub scedilla by scommaaccent;
+        sub Tcedilla by Tcommaaccent;
+        sub tcedilla by tcommaaccent;
+} locl;
+```
+
+#### 3. 连字截断陷阱与拓扑偏序原则（Topological Subsumption）
+在编写 `GSUB Type 4`（合字替换）时，若规则书写顺序不当，排版引擎会按照“先入为主”的原则提前消耗前缀字符，导致更长的合字永远无法被触发！
+* **致命错误顺序**：
+  ```fea
+  sub f i by f_i;
+  sub f f i by f_f_i; # 永远死锁！引擎在读到 'f' + 'f' + 'i' 时，在遇到 'f' + 'i' 时已将后两字吃掉合成为 f_i，从而产生 'f' + 'f_i'，三重连字被永久截断！
+  ```
+* **工业级标准偏序**：
+  ```fea
+  # 必须严格遵循“自长至短（Longest Match First）”的偏序排列：
+  sub f f l by f_f_l;
+  sub f f i by f_f_i;
+  sub f f by f_f;
+  sub f l by f_l;
+  sub f i by f_i;
+  ```
+
 
 ## 3. 在微软 VOLT 中可视化构建 OpenType 排版表（Managing OpenType Tables in VOLT）
 
-由微软官方推出的 **VOLT（Visual OpenType Layout Tool）** 是专门用于为 TrueType/OpenType 字体添加复杂高级排版表的高级专用工具。与 FontLab 的纯文本编译模式不同，VOLT 提供了一套深度绑定 Windows **Uniscribe** 整形引擎的可视化图形工作流。
+与 Adobe 基于纯文本代码编译的 AFDKO 路线不同，微软推出了重量级的纯图形化开发环境——**VOLT（Visual OpenType Layout Tool）**。VOLT 曾承担了包括 Windows 系统中全部阿拉伯文、希伯来文、泰文以及印度数十种复杂地方官方文字字库的排版工程研发。
 
 ### 3.1 VOLT 的架构哲学与私有数据表
-- **专属工作环境**：VOLT 仅运行在 Windows 平台下。
-- **字体无损保留与破坏性打开**：VOLT 采用了一种特殊的内部项目存储方式。当在 VOLT 中保存字体时，它会将全部工程源码、组名、锚点连接网以私有二进制数据表（如 `TSIV` 表）的形式直接嵌入到 TTF 字体文件内部。
-  > [!CAUTION] **数据覆盖警告**
-  > 当使用 VOLT 打开一个由其他软件（如 FontLab 或 FontForge）生成的 OpenType 字体时，VOLT 会**强制抹除所有现存的标准 GSUB/GPOS 表**，仅保留自身能够识别的私有表！若未备份源码，此前的排版表工作将彻底丢失。
-- **PostScript 名称导入**：由于 TrueType 字形在底层仅以 GID（字形编号）标识，VOLT 打开字体后第一步必须执行 `Import > Import PostScript Names`，从字体的 `post` 表或 `name` 表中恢复人类可读的字形名称。
-- **全字形类型标记（Glyph Typing）**：在 `Tools > Edit Glyphs` 窗口中，字体工程师必须对字体中所有字形进行严格的类别审核，将每个符号确凿归类为 `base`（基字）、`ligature`（连字，需指定部件数目）、`mark`（标音符号）或 `component`（部件）。
+
+VOLT 并不直接解析或生成 AFDKO 代码，而是在 TrueType 字体二进制内部开辟了一组私有数据表：
+* `TSVT`：VOLT 项目主拓扑与工程设置表；
+* `TSVC`：字符类定义表；
+* `TSVG`：字形命名、Unicode 映射与元数据；
+* `TSVP`：定位与查找表参数。
+
+当排版师在 VOLT 中完成全部可视化规则编排并点击“Compile”后，VOLT 内部的编译器会将这套私有拓扑一键编译为标准的工业级二进制 `GSUB`、`GPOS` 和 `GDEF` 表。而在字库发布阶段，设计师可以选择执行“Ship Font”，彻底剥离这组体积庞大的私有表，仅保留纯净的标准 OpenType 布局表。
+
+::: tip 微软 VOLT 工程主项目控制视窗（Figure 14-6）
+![微软 VOLT 工程主项目控制视窗（Figure 14-6）](/images/fonts-encodings/fig14-6.png)
+*微软 VOLT 工程主项目控制视窗（Figure 14-6）*
+:::
+
+*图 14-6：微软 VOLT 主项目视窗。从上至下清晰展现了字符字形映射（Glyphs）、字符类矩阵（Classes）、排版特性（Features）与底层查找表（Lookups）的层级依赖拓扑。*
+
+#### VOLT 标准操作流
+1. **打开字体与数据重置**：点击 `Open` 载入字体。**重要警告**：此操作会完全抹除字体内所有由其他工具生成的非 VOLT OpenType 表！
+2. **导入 PostScript 字形名称**：TrueType 原生字形仅有 GID 数字编号，点击 `Import > Import PostScript Names` 自动从 `post` 表导入具名符号；
+3. **分配 GDEF 字形类型**：进入 `Tools > Edit Glyphs`，为每个字形赋予 Single glyph、Ligature、Mark 或 Component 类型，并注明合字包含的部件数量；
+4. **添加脚本、语言与特性**：点击 `Add Script` 输入 `<latn>` 等四字标签，接着点击 `Add Language` 选择 `<dflt>`，最后点击 `Add Feature` 输入 `<liga>` 建立排版特性插槽。
 
 ### 3.2 查找表与规则编辑
-VOLT 的项目主窗口（Project Window）呈现清晰的三栏架构：
-1. **层次树（Hierarchy Area）**：展示 Script、Language、Feature 的树形隶属关系；
-2. **查找表库（Lookup List）**：平铺展示字体中所有全局独立的 Lookup；
-3. **字形组库（Glyph Classes）**：展示所有预定义的字形分组。
 
 #### 1. 替换规则的可视化与箭头语法
-双击一个替换查找表，VOLT 呈现出极其直观的编辑界面。在规则网格中，规则以简单的箭头形式书写：
-- **单字替换**：`a -> a.sc`（VOLT 会自动在旁侧列绘制出字形的真实微缩位图）；
-- **连字替换**：`f i -> f_i`；
-- **多字替换**：`f_f_t -> f f t`；
-- **交替字形**：连续书写多条单字映射：
-  ```text
-  a -> a.old
-  a -> a.odd
-  a -> a.pretty
-  ```
-- **上下文替换**：在被替换字形两侧使用管道符 `|` 声明前后上下文环境：
-  ```text
-  [ zero - nine ] | [ zero - nine ] -> [ slash.fraction ]
-  ```
-- **逆向链式替换（Reversal）**：在查找表属性中勾选 **Reversal** 选项框。针对乌尔都语的倒序排版，VOLT 将指示 Uniscribe 引擎从右向左逆流扫描，完美解决复杂的斜向垂直悬挂排版问题。
+
+双击任一替换查找表，即可进入直观的字形替换网格视窗：
+
+::: tip VOLT 中字形替换查找表的可视化配置视窗（Figure 14-7）
+![VOLT 中字形替换查找表的可视化配置视窗（Figure 14-7）](/images/fonts-encodings/fig14-7.png)
+*VOLT 中字形替换查找表的可视化配置视窗（Figure 14-7）*
+:::
+
+*图 14-7：VOLT 中查找表（Lookup）编辑视窗。展示了可视化的替换规则映射网格，支持通过直观的箭头拖拽定义输入字符序列到目标字形的变换映射。*
+
+排版师可以直接在网格左侧输入基准字形名或字形类，右侧输入目标替换字形名，甚至通过 `[ zero - nine ] | [ zero - nine ]` 的上下文分割竖线语法建立高阶替换，VOLT 会在后台自动完成覆盖表格式的离散划分与索引二分查找树优化。
 
 #### 2. 定位规则与交互式锚点吸附（Visual Anchor Attachment）
-在定位编辑窗口中，VOLT 彻底展现了可视化交互的巨大威力：
-- 窗口右侧为大尺寸的高精度字形工作画布；
-- 字体工程师在定义 Mark-to-Base 或 Mark-to-Ligature 时，画布上会同时浮现出基字与标音符号的矢量轮廓；
-- 工程师可以直接用鼠标在画布上拖拽标音符号，将其拖动至视觉上最完美的相对位置，VOLT 会在后台自动计算两者的相对距离并精确锁定各自的 Anchor 坐标；
-- 支持为合字中的每一个组成部件依次创建名为 `Component 1: Anchor`、`Component 2: Anchor` 的分立吸附点。
 
-### 3.3 VOLT 校对工具（Proofing Tool）与成品发布
-VOLT 内置了强大的 **Proofing Tool**（校对工具）。点击该按钮即可打开一个专门的排版测试窗口，该窗口直接调用操作系统底层的 Uniscribe 引擎。工程师可以输入任意长文本测试用例，窗口将一步一步动态高亮展示每条查找表的触发过程、字形替换前后的序列演变以及各锚点的吸附向量。
+在定位规则编辑视窗中，VOLT 提供了强大的双重视窗联动：
 
-测试无误后，通过 `File > Ship Font` 命令即可导出最终商用字体。VOLT 在此时会自动编译出纯净的标准 OpenType 表，并彻底剔除庞大的内部 `TSIV` 工程表，生成体积高度优化的最终文件。
+::: tip VOLT 中的草书锚点与二维空间定位视窗（Figure 14-8）
+![VOLT 中的草书锚点与二维空间定位视窗（Figure 14-8）](/images/fonts-encodings/fig14-8.png)
+*VOLT 中的草书锚点与二维空间定位视窗（Figure 14-8）*
+:::
+
+*图 14-8：VOLT 的定位（Positioning）编辑视窗。展示了在阿拉伯文字形上交互式放置进入锚点（Entry）与退出锚点（Exit），实时观察两字沿斜角咬合的力学状态。*
+
+视窗左侧定义参与定位的字形对或字形类，右侧则以图形画布展现两个字符在当前锚点下的拼接状态。设计师可直接用鼠标拖动锚点十字星，画布上的两个字符会实时响应吸附位移，极大地降低了复杂草书连缀的数学心智负担。
+
+### 3.3 VOLT 校对工具（Proofing Tool）与实战
+
+在复杂书写系统排版中，一个输入字符串可能会连续激发数十个级联查找表。一旦某个查找表发生逻辑死锁或意外截断，在成品文本中极难排查根因。VOLT 配备了享誉业界的交互式校对检验工具（Proofing Tool）：
+
+::: tip VOLT 复杂脚本交互式校对与排印预览视窗（Figure 14-9）
+![VOLT 复杂脚本交互式校对与排印预览视窗（Figure 14-9）](/images/fonts-encodings/fig14-9.png)
+*VOLT 复杂脚本交互式校对与排印预览视窗（Figure 14-9）*
+:::
+
+*图 14-9：VOLT 交互式校对检验视窗（Proofing Window）。在复杂的阿拉伯文与乌尔都语长句排版中，实时展示当前应用的查找表执行轨迹链条。*
+
+在校对视窗中输入长文本字符串后，VOLT 会在下方逐条打印执行报告（Execution Trace）：哪一个查找表在第几个字符上命中、输入字形被转化为什么中间 GID、哪些标记符号被忽略、光标坐标被累加了多少偏移量。排版师可以像使用调试器单步跟踪代码一样，一帧一帧地检查整个排版管线的状态跃迁。
+
+### 3.4 工业级挑战：乌尔都语波斯折体（Nastaliq）在 VOLT 中的排版工程全景
+
+波斯折体（Nastaliq）被公认为全人类排印技术皇冠上的明珠。它拥有极其严苛、甚至是违反直觉的排印物理学定律：
+1. **级联阶梯倾斜跌落（Cascading Stems）**：在一个词内部，每一个字母不是水平排在后方，而是跌落在前一个字母的左下后方，整词呈现为从右上向左下以约 $45^\circ$ 倾斜的悬垂阶梯；
+2. **点标自适应避让（Dynamic Dot Placement）**：阿拉伯辅音字母带有单个、成对或三个发音点标（Nuqta）。由于字形随上下文不断升降，点标必须根据邻近笔画的空间拓扑，动态在空间中上下平移移动，绝对不可与邻近字母发生笔画穿模碰撞；
+3. **笔画死结反向嵌套**：后方的字母尾部可能会向左下深远回勾，穿插进前一个字母内部的负空间中。
+
+在微软著名的《Urdu Typesetting》项目中，VOLT 展现了不可替代的统治力：
+* **第一步：上下文形态拆解与合字替换**：通过大量的 GSUB Type 4（Ligature）与 Type 6（Chained Contextual），将上千种高频两字、三字辅音组合预先熔铸为独立的倾斜整体；
+* **第二步：草书锚点精确咬合**：使用 GPOS Type 3（Cursive Attachment），在每一个字形的入刀点（Entry）与出刀点（Exit）放置精确锚点。排版引擎在从右向左排版时，自动将后字的 Entry 锚点与前字的 Exit 锚点在空间中对齐，从而自然形成了全单词平滑连贯的 $45^\circ$ 阶梯跌落！
+* **第三步：反向链式上下文（GSUB Type 8）动态修剪**：当词尾字母具有长长的水平回勾大弧线时，通过 Type 8 反向扫描前方词干的高度层级，动态将词尾替换为不同长度与深度的回弯变体；
+* **第四步：多层点标避让附着（GPOS Type 4 与 Type 6）**：为每个辅音字形配置上中下多个等级的候选锚点，并通过上下文定位规则检测下沉深度，自动将发音点标推向不受阻挡的安全视觉区域。
 
 ---
+
+
+### 3.5 VOLT 查找表拓扑与依赖图（Lookup Dependency DAG）
+
+在微软 VOLT 中组织上百个查找表时，排版师必须将其构建为一个严格的有向无环图（Directed Acyclic Graph, DAG）。每个查找表绝非孤立存在，而是遵循严密的依赖注入机制：
+1. **预处理查找表（Preprocessing Lookups）**：负责将 Unicode 原始码点清洗为字库规范基字（Canonical Forms）。例如消除多重零宽空格（ZWNJ/ZWJ）带来的码点漂移；
+2. **形态重构查找表（Morphological Analysis）**：依次执行词首（`init`）、词中（`medi`）、词尾（`fina`）孤立（`isol`）四态判定；
+3. **连字坍缩查找表（Ligature Formation）**：自长至短逐级合并；
+4. **后处理修剪查找表（Post-processing Trimming）**：针对特定字尾进行反向伸展修剪；
+5. **空间几何吸附（Spatial Anchoring）**：在所有字形形态彻底定型之后，启动 GPOS 查找表链，依次执行基线平移、字偶间隙、草书咬合与标音吸附。
+
+在处理包含多套变音符号的古代文献字体时，VOLT 的锚点系统支持多达 16 层的递归附着。排版师通过在基字上配置 `TopAnchor`、`BottomAnchor`、`RightAnchor`、`LeftAnchor`，并在变音符上配置配对的 `_TopAnchor`、`_BottomAnchor` 等，实现了全自动的二维网格化字母装配流水线。
+
 
 ## 4. 在 FontForge 中管理 OpenType 表（Managing OpenType Tables in FontForge）
 
-与商业软件 FontLab 的代码驱动和 VOLT 的排他性架构完全不同，开源自由软件 **FontForge**（由 George Williams 领衔开发）提供了一种**纯菜单化、原生双向无损**的 OpenType 管理体验。
-
-FontForge 不强迫用户学习任何专有代码语法，一切排版表操作均通过图形窗口、树状列表和向导式对话框完成。更重要的是，FontForge 能够直接解析字体中现有的任何 OpenType 表，并在保存时直接写回标准的二进制表结构。
+作为自由开源阵营的代表，FontForge（George Williams 主导开发）提供了一套极其贴近底层 TrueType/OpenType 二进制数据结构的排版表管理环境。
 
 ### 4.1 核心控制台：Element > Font Info > Lookups
-在 FontForge 中打开 `Element > Font Info`，切换至 **Lookups** 选项卡。该面板被清晰地划分为两大部分：**GSUB** 选项卡与 **GPOS** 选项卡。
 
-在每个选项卡内部，Lookups 以树状折叠列表的形式呈现。用户可以点击 `Add Lookup` 创建新的查找表，指定其类型（如 Single Substitution、Ligature、Pairwise Positioning 等），并在其下点击 `Add Subtable` 为其挂载具体的规则子表。查找表的执行严格遵循从上到下的几何物理次序，用户可以通过 `Up` 和 `Down` 按钮随时调整其优先级。
+在 FontForge 中打开 `Element > Font Info`，并导航至 `Lookups` 选项卡。这是 FontForge 管理高级排版功能的中枢神经系统。该界面清晰地将整个字体内部的排版规则划分为两大并行视窗：
+* `GSUB` 树状节点：展示所有字形替换查找表；
+* `GPOS` 树状节点：展示所有字形定位查找表。
+
+用户点击 `Add Lookup` 按钮时，FontForge 会弹出一个严谨的类型配置对话框，列出标准 OpenType 规范支持的全部查找表类型（Single, Multiple, Alternate, Ligature, Contextual, Chained Contextual, Pairwise, Cursive, Mark-to-Base, Mark-to-Ligature, Mark-to-Mark）。每一个查找表下方，可以进一步挂载一个或多个子表（Subtables）。
 
 ### 4.2 锚点体系与类定义（Anchor Classes）
-FontForge 将锚点的管理提升到了字形画布的核心交互层：
-1. **全局类声明**：在 `Font Info > Anchor Classes` 窗口中点击 `New`，定义锚点类的名称（如 `Top`、`Bottom`、`Entry`、`Exit`），并指定其排版语义：
-   - `abvm`：基字上方标音定位（Above-base mark positioning）；
-   - `blwm`：基字下方标音定位（Below-base mark positioning）；
-   - `mark`：通用标音吸附；
-   - `mkmk`：标音叠合标音定位；
-   - `curs`：草书连续连笔定位。
-2. **画布直观放置**：关闭设置后打开任意字形的编辑窗口，在轮廓上的目标位置右键点击，选择 `Add Anchor Point`。在弹出的下拉菜单中选择此前定义的锚点类（如 `Top`），该锚点即以图形标记的形式钉死在画布上。字形窗口中会实时显示该锚点的名称与绝对坐标，一目了然。
+
+::: tip FontForge 中的锚点与锚点类编辑视窗（Figure 14-10）
+![FontForge 中的锚点与锚点类编辑视窗（Figure 14-10）](/images/fonts-encodings/fig14-10.png)
+*FontForge 中的锚点与锚点类编辑视窗（Figure 14-10）*
+:::
+
+*图 14-10：FontForge 中锚点系统的定义。左侧为单字编辑视窗中直观放置的具名锚点（Named Anchors）；右侧为锚点类定义窗口，清晰展示了基字锚点与标记符号锚点的配对关系。*
+
+FontForge 将锚点严格组织为**锚点类（Anchor Classes）**：
+1. 在 `Font Info > Contextual` 中创建一个锚点类，例如命名为 `TopAccent`；
+2. 为该类指定查找表类型为 `Mark to Base`；
+3. 打开基字（如字符 `a`），选择 `Point > Add Anchor`，类型选择 `Base`，归入 `TopAccent` 类，拖动到字符顶部中心；
+4. 打开重音变体字形（如 `grave`），新建锚点选择 `Mark`，同样归入 `TopAccent` 类，拖动到重音符号基底部；
+5. FontForge 会在后台自动完成两者在 `GPOS` Format 1 表中的坐标偏移矩阵换算。
 
 ### 4.3 非上下文替换与定位
-在字形列表窗口中，右键选中任意字形并点击 `Glyph Info`：
-- **单字替换（Single Subs）**：在 `Substitutions` 标签下点击 `New`，指定目标替换字形与关联的 Feature Tag；
-- **多字替换（Mult Subs）**：输入拆解后的多个字形名称（以空格分隔）；
-- **交替字形（Alt Subs）**：输入多个备选变体列表；
-- **合字替换（Ligatures）**：在目标合字（如 `f_i`）的属性窗口中，填入构成它的源字形组件列表（`f i`）。
 
-在定位方面，`Glyph Info > Pairwise Pos` 允许为当前字形添加字对定位规则。在弹出的配对窗口中选择第二字形（Second Glyph），即可独立调整第一字形和第二字形的原点偏移与前进量 $\Delta XAdvance$。
+在单字编辑视窗中，设计师可以通过标签页直观配置简单的非上下文规则：
+
+::: tip FontForge 非上下文替换与定位编辑（Figure 14-11, 14-12）
+![FontForge 非上下文替换视窗（Figure 14-11）](/images/fonts-encodings/fig14-11.png)
+*FontForge 非上下文替换视窗（Figure 14-11）*
+:::
+
+*图 14-11：FontForge 的非上下文替换视窗。左侧展示了单字替换（Single Substitution）标签页，右侧为新建替换规则的参数对话框。*
+
+::: tip FontForge 单字与字偶对定位视窗（Figure 14-12）
+![FontForge 单字与字偶对定位视窗（Figure 14-12）](/images/fonts-encodings/fig14-12.png)
+*FontForge 单字与字偶对定位视窗（Figure 14-12）*
+:::
+
+*图 14-12：FontForge 的简单单字定位（左）与成对字距定位（右）窗口。*
+
+在字距调整（Kerning）视窗中，FontForge 支持成组导入字形类矩阵。设计师可以将包含相同左侧或右侧轮廓特征的字母归类，大大削减需要人工填写的数值单元格总数。
 
 ### 4.4 链式上下文排版向导（Chained Contextual Lookups）
-针对复杂的上下文排版，FontForge 提供了强大的 4 步向导式配置流程（见图 14-13）：
-- **步骤 1：格式选择（Format）**：选择规则基于字形覆盖列表（By Coverage）、基于字形类别（By Classes）还是基于独立字形枚举（By Glyphs）。
-- **步骤 2：序列划分（List of Classes）**：将目标文本流划分为三大连续区域：
-  1. **Backtrack（回溯序列）**：匹配目标之前必须出现的字形环境；
-  2. **Match / Input（匹配序列）**：当前正在扫描并即将被改变的目标字形序列；
-  3. **Lookahead（前瞻序列）**：匹配目标之后必须紧随的字形环境。
-- **步骤 3：嵌套子查找表绑定（Sub-lookup Calls）**：在 Match 序列中，精确指定将第几个字形交由哪一个此前已定义好的非上下文查找表（如某个单字替换或合字替换）进行实际处理。
-- **步骤 4：多规则覆盖排序**：为整个上下文特性配置一系列规则的匹配优先级，确保长词优先、特殊模式优先于一般模式。
+
+在 OpenType 各种查找表中，链式上下文替换与定位由于涉及回溯（Backtrack）、匹配（Match）与前瞻（Lookahead）三大字符区间的逻辑嵌套，手动编写容易产生死循环。FontForge 专门设计了一个四步向导流程：
+
+::: tip FontForge 中定义链式上下文替换的前四步流程（Figure 14-13）
+![FontForge 中定义链式上下文替换的前四步流程（Figure 14-13）](/images/fonts-encodings/fig14-13.png)
+*FontForge 中定义链式上下文替换的前四步流程（Figure 14-13）*
+:::
+
+*图 14-13：在 FontForge 中定义链式上下文替换（Chained Contextual Substitution）的四步引导流程：(a) 选择特性标签；(b) 设定覆盖表类型；(c) 定义回溯、匹配输入与前瞻字符序列覆盖集；(d) 绑定对应的子查找表索引。*
+
+向导执行逻辑：
+1. **步骤 (a)**：选定触发该规则的目标特性标签（如 `calt` 或 `liga`）以及适用的语言系统；
+2. **步骤 (b)**：选择覆盖表格式（Coverage Format 1 针对离散字形枚举，Format 2 针对连续区间）；
+3. **步骤 (c)**：定义三大字符区间的字形或字形类序列。排版师在 Backtrack 列表中输入前置字符类，在 Match 列表中输入当前需要被替换的字符，在 Lookahead 列表中输入后续触发条件；
+4. **步骤 (d)**：为 Match 序列中的每一个指定槽位，绑定预先建立好的简单替换（Single Substitution）或定位子查找表。引擎运行时在匹配到整体上下文后，即对目标槽位实施调用的子动作。
 
 ---
+
+
+### 4.5 实战案例：使用链式上下文覆盖表构建英文序数词（Ordinals）自动化排版
+
+在英文正文排版中，序数词格式有着极其严苛的规则：
+* 词尾为 1 的数字（除 11 外）后接 `st`（如 1st, 21st, 101st）；
+* 词尾为 2 的数字（除 12 外）后接 `nd`（如 2nd, 22nd, 102nd）；
+* 词尾为 3 的数字（除 13 外）后接 `rd`（如 3rd, 23rd, 103rd）；
+* 其余所有数字（包括 11, 12, 13）均后接 `th`（如 4th, 11th, 12th, 13th, 20th）。
+优秀的字体应当在用户输入普通文本时，自动将 `st`, `nd`, `rd`, `th` 提升为优美的上标字形（Superscript），同时保持数字本身为常规字形。
+
+在 FontForge 中，我们通过以下四步向导精确实现：
+1. **第一步：建立底层非上下文单字替换子表**：
+   在 `sups` 特性下，新建一个单字替换查找表，将常规字母映射为其上标变体：
+   `s -> s.superior`, `t -> t.superior`, `n -> n.superior`, `d -> d.superior`, `r -> r.superior`, `h -> h.superior`。
+2. **第二步：划分覆盖表集合（Coverage Tables）**：
+   为避免规则碰撞，我们将字符划分为独立的覆盖集合：
+   * `Cov_Digit1`：`[one]`；
+   * `Cov_Digit2`：`[two]`；
+   * `Cov_Digit3`：`[three]`；
+   * `Cov_DigitsOther`：`[zero four five six seven eight nine]`；
+   * `Cov_Teen1`：`[one]`（用于匹配十位上的 1）；
+   * `Cov_st`：`[s]`, `[t]`；
+   * `Cov_nd`：`[n]`, `[d]`；
+   * `Cov_rd`：`[r]`, `[d]`；
+   * `Cov_th`：`[t]`, `[h]`。
+3. **第三步：配置链式上下文匹配规则（Chained Contextual Rules）**：
+   在向导的 (c) 与 (d) 视窗中，我们定义多条互斥的匹配链条：
+   * *规则 1（处理 11th, 12th, 13th 特例）*：
+     * **Backtrack 序列**：`Cov_Teen1`；
+     * **Match 序列**：`[one two three]`（索引 0） + `[t]`（索引 1） + `[h]`（索引 2）；
+     * **调用的子查找表**：仅在索引 1 与索引 2 上调用 `sups` 单字替换！索引 0（数字）不被修改；
+   * *规则 2（常规 1st）*：
+     * **Backtrack 序列**：无或 `[zero two-nine]`；
+     * **Match 序列**：`Cov_Digit1`（索引 0） + `[s]`（索引 1） + `[t]`（索引 2）；
+     * **调用的子查找表**：在索引 1 和 2 上调用 `sups`；
+   * *规则 3（常规 2nd）*：
+     * **Match 序列**：`Cov_Digit2` + `[n]` + `[d]` 并在 `nd` 上调用 `sups`；
+   * *规则 4（常规 3rd）*：
+     * **Match 序列**：`Cov_Digit3` + `[r]` + `[d]` 并在 `rd` 上调用 `sups`；
+   * *规则 5（兜底 4th..0th）*：
+     * **Match 序列**：`Cov_DigitsOther` + `[t]` + `[h]` 并在 `th` 上调用 `sups`。
+
+通过这种“覆盖集嵌套 + 槽位绑定”的精妙结构，FontForge 编译生成的 `GSUB Format 6` 表具有最高等级的执行效率与鲁棒性。
+
 
 ## 5. 在 FontForge 中构建苹果高级排版（AAT）有限状态机（Managing AAT Tables in FontForge）
 
-在整个数字排版世界中，FontForge 是极少数（甚至在很长一段历史时期内是唯一一个）能够完整创建与编辑 **Apple Advanced Typography（AAT）** 表的通用工具。
+在数字排版技术的另一座技术巅峰上，伫立着苹果公司的 **Apple Advanced Typography（AAT）**。AAT 源于 1990 年代初苹果研发的 TrueType GX 架构，在苹果操作系统生态中（macOS、iOS）拥有最顶级的底层原生支持。
 
 ### 5.1 AAT 与 OpenType 的计算理论对决
-深入理解 AAT，必须首先理解其背后由 QuickDraw GX 奠定的计算机科学哲学。AAT 与 OpenType 构成了排版引擎设计上的两条截然不同的路线：
 
-```
-OpenType 架构：声明式模式匹配树（Declarative Pattern-Matching Engine）
-  [ 扫描输入流 ] ──> [ 全局遍历 Feature 规则 ] ──> [ 递归回溯匹配 ] ──> [ 规则替换 ]
-  特征：计算复杂度受上下文深度与规则链嵌套影响，最坏情况下存在回溯与性能抖动。
-
-AAT 架构：确定性有限状态自动机（Deterministic Finite State Automata, FSM）
-  [ 字符流输入 ] ──> [ 状态转移：State_i ─(Class_k)─> State_j ] ──> [ 触发瞬时动作 ]
-  特征：单向线性扫描，时间复杂度恒定为 O(N)，无回溯，底层执行极度高速稳定。
-```
-
-AAT 废弃了庞杂的规则匹配，将排版完全建模为一个带有动作的**有限状态机（Finite State Machine）**。字体文件内部包含四张核心 AAT 表：
-1. **`morx`（Extended Glyph Metamorphosis Table）**：形态变换表，包含全部基于状态机的字形替换与重排；
-2. **`kerx`（Extended Kerning Table）**：扩展字距表，包含基于状态机的上下文字距微调；
-3. **`feat`（Feature Name Table）**：特性与选择器名称表，向操作系统 UI 提供本地化的人类可读菜单名；
-4. **`trak`（Tracking Table）**：全局字间距跟踪表，根据实际字号自动拉开或收紧整行文字的字距。
+OpenType 与 AAT 代表了计算机科学中两种完全不同的计算哲学路线：
+* **OpenType 的“声明式模式匹配”路线**：将字体排版视为一系列声明式的图重写规则集合（Graph Rewriting Rules）。排版引擎在运行时加载字符串，像一个多遍历扫描器一样，一遍遍扫描整段文本，按顺序匹配查找表。其优点是规则逻辑直观、易于移植；但缺点是在处理复杂上下文时，引擎必须往复扫描字符串，且容易发生规则顺序依赖与歧义碰撞。
+* **AAT 的“确定性有限状态自动机（DFA / FST）”路线**：AAT 认为，**文本流在排版引擎中的流动本质上是一个时间序列信号**！任何上下文条件替换、字距微调与连字融铸，都可以严格抽象为一个**有限状态转换器（Finite State Transducer, FST）**。字库内部存储的不是分散的规则碎片，而是一张结构严密的二维状态转移矩阵。
 
 ### 5.2 特性与选择器命名体系（Features and Selectors）
-在 AAT 中，每一个排版效果由一个**特性（Feature）**和一个具体的**选择器（Selector）**二元组共同标识：
-- 在 FontForge 中打开 `Element > Font Info > Mac Features`；
-- 每一个 Feature 拥有一个数字标识符 `Feature_Id`（例如 5 代表合字，11 代表数字样式）；
-- 每个 Feature 包含若干个可选的 `Setting_Id`（例如设置 0 为开启常用合字，1 为开启罕见合字）；
-- 字体工程师可以为特性和选择器输入多种自然语言的本地化字符串（英语、法语、中文等）。当在 Mac OS X 的文本程序（如 TextEdit、Pages）中打开排版面板时，系统将直接根据当前系统语言显示这些优雅的原生菜单。
+
+与 OpenType 使用晦涩的 4 字符 ASCII 缩写标签（如 `smcp`, `onum`）不同，AAT 采用两级整数分层架构：**特性类型（Feature Type）** 与 **特性选择器（Feature Selector）**。
+更具颠覆性的是：**AAT 将排版特性的多语言本地化显示名称直接存储在字库内部的 `feat` 表中**！任何排版软件无需更新应用程序代码，只需读取字库自身的 `feat` 表，即可自动在界面下拉菜单中向用户渲染出由字体设计师亲自编写的母语选项（如“连字开启”、“斜线分数”、“老式数字”）。
+
+::: tip AAT 特性与选择器多语言名称编辑（Figure 14-14）
+![AAT 特性与选择器多语言名称编辑（Figure 14-14）](/images/fonts-encodings/fig14-14.png)
+*AAT 特性与选择器多语言名称编辑（Figure 14-14）*
+:::
+
+*图 14-14：FontForge 中编辑 AAT 特性与选择器名称界面。展示了在 `feat` 表中为特定排版特性（如连字特性、数字样式）配置法语、英语等多语言本地化显示标签。*
 
 ### 5.3 AAT 状态机四大核心操作（Font Info > Mac SM）
-在 `Font Info > Mac SM`（Mac State Machines）面板中，包含了 AAT 的四大核心状态机引擎：
+
+::: tip AAT 状态机类表与状态转移矩阵视窗（Figure 14-15）
+![AAT 状态机类表与状态转移矩阵视窗（Figure 14-15）](/images/fonts-encodings/fig14-15.png)
+*AAT 状态机类表与状态转移矩阵视窗（Figure 14-15）*
+:::
+
+*图 14-15：FontForge 中 AAT 状态机类表与状态转移矩阵输入视窗。(a) 输入类表分配；(b) 状态转移矩阵视窗，表格每一行代表一个机器状态，每一列代表输入类别，单元格内标明目标状态与触发动作。*
+
+在 FontForge 中打开 `Font Info > Mac SM`，可以构建 AAT 的四大状态自动机：
 
 #### 1. 字形重排状态机（Glyph Rearrangement）
-**这是 AAT 独步天下、而在 OpenType 中完全没有对应底层表的革命性设计**。在 OpenType 中，字符重排必须依赖操作系统外部驱动（如 Uniscribe）对特定语言的硬编码支持；而 AAT 允许字体本身直接通过内部状态机完成任意复杂的字形物理位置对调。
-
-- **南亚文字天城文重排案例**：
-  在天城文中，短元音 `r` 在逻辑编码上输入在辅音簇之后，但在物理显示时必须移至整组辅音的前面。例如，输入字符序列 `KGPTHr`，必须自动蜕变为显示序列 `rKGPTH`。
-- **状态转移图推演**：
-  1. **状态 0（初始状态/行首）**：当遇到非辅音字符时保持状态 0；一旦遇到属于辅音类的字符（`K`, `G`, `P`, `T`, `H`），系统发生转移，跃迁至 **状态 2（辅音收集状态）**，并勾选动作 **Mark Current Glyph As First**（将该辅音标记为重排区间的起始点 A）；
-  2. **状态 2（辅音循环状态）**：若继续读入辅音字符，系统停留在状态 2，不改变标记；
-  3. **遇到元音触发重排**：当在状态 2 读入字符 `r`（类 5）时，系统立即将当前字符 `r` 标记为区间终点 D，并在下拉菜单中选择执行代号为 `xD => Dx` 的重排指令！
-  4. 瞬间，原本位于尾部的终点字形 `r` 被精准移送至起始辅音的前方，随后状态机重置回状态 0，整个过程仅耗费极微小的 CPU 周期。
+专用于印度系与东南亚文字中辅音与元音的物理时空重排。例如在孟加拉文或高棉文中，输入序列为辅音 $C$ 接元音 $V$，但在视觉呈现上元音符号必须出现在辅音左侧。状态机在扫描到辅音时将其压入内部暂存槽，在扫描到元音时触发重排动作，直接在底层输出流中对调两者的绘制次序。
 
 #### 2. 上下文替换状态机（Contextual Substitution）
-在确定性有限状态机中，由于文本流只能向前单向推进，当排版引擎读到后随字符从而确认上下文时，前一个字符在时间线上已经“过去了”。
-AAT 巧妙地通过 **标记当前字形（Mark Current Glyph）** 机制解决了这一时空矛盾：
-- 状态机在扫描过程中，先为可能发生改变的字形打上临时标记（Mark）；
-- 继续前行扫描后置上下文，一旦后置条件满足，立即触发 **Mark Subs** 动作，对早先标记的那个字形执行回溯性替换；
-- **斜向分数实战**：输入 `1/2` 自动转换为漂亮的对角分数：
-  - 遇到第一个数字 `1` 时，将其标记，状态迁移至“分子状态”；
-  - 遇到斜杠 `/` 时，确认分数结构成立，触发对被标记的数字 `1` 执行替换，将其变为分子字形 `1.numerator`，斜杠自身替换为分数斜杠，状态迁移至“分母状态”；
-  - 遇到后随的数字 `2` 时，直接替换为分母字形 `2.denominator`。
+以对角线专业分数（Fractions，如 `1/2`）的排版为例，AAT 的状态机设计堪称工程典范：
+1. **输入类别划分**：
+   * 类别 0：End of text（文本终结符）；
+   * 类别 1：Out of bounds（越界符）；
+   * 类别 2：Non-digits（非数字字符）；
+   * 类别 3：Slash（斜杠字符 `/`）；
+   * 类别 4：Digits（数字字符 `0-9`）。
+2. **状态机状态转移规划**：
+   * **状态 0（Start of text）**：若读取到类别 4（数字），勾选 `Mark Current Glyph`（标记当前字形），跃迁至**状态 2（Seen Numerator）**；若读取到其他字符，保持状态 0；
+   * **状态 2（Seen Numerator）**：若继续读取到数字，保持状态 2；若读取到类别 3（斜杠），跃迁至**状态 3（Seen Slash）**；若读取到非数字，重置回状态 0；
+   * **状态 3（Seen Slash）**：若读取到类别 4（数字），立刻触发双重动作：将此前被标记的字符替换为**分子字形（Numerator Glyph）**，将当前的斜杠替换为**对角分数线（Fraction Slash）**，并将当前数字替换为**分母字形（Denominator Glyph）**！状态跃迁至**状态 4（Seen Denominator）**；
+   * **状态 4（Seen Denominator）**：若后续继续出现数字，直接替换为分母字形；一旦遇到非数字，重置回到状态 0。
 
 #### 3. 字形动态插入状态机（Glyph Insertion）
-该状态机允许在原始文本流中**凭空动态插入原本不存在的全新字形**，这在处理复杂书写系统时具有无可替代的威力：
-- **阿拉伯文 Kashida（拉长线）动态注入**：在两端对齐排版中，阿拉伯文不是通过拉大字间距来对齐，而是在字母连笔处插入一条被称为 Kashida（Tatweel）的水平连接线。AAT 能够根据排版引擎的拉伸信号，在特定的字母连接点状态机中动态插入若干个 Kashida 字形；
-- **高棉文裂变元音（Split Vowels）注入**：柬埔寨文字中的部分复合元音需要同时出现在辅音的左侧和右侧。状态机在扫描到该元音时，原地保留右侧部分，同时在辅音左侧动态插入一个新的左侧字形。
-- **光标交互属性控制**：状态机专门提供了属性复选框，用于指示插入的字形是作为独立字符响应鼠标光标选择，还是作为依附于相邻字符的“幽灵字形”（不可单独选中文本），完美保障了文字编辑时的交互体验。
+AAT 独树一帜的杀手级功能。在 OpenType 中，替换只能是一对一或多对一，无法凭空向文本流中注入全新字形。而在 AAT 中，状态机允许在当前字形与标记字形之间**动态插入全新字形**！
+* *阿拉伯文两端对齐伸展线（Kashida Insertion）*：排版引擎在扫描到阿拉伯字母单词内部合法的伸展断点时，状态机自动插入一个或多个连线拉伸字形（Kashida），而无需更改原始文本的逻辑字符序列；
+* *高棉文/柬埔寨文笔画分裂*：当扫描到复杂的环绕元音时，自动在辅音前后插入对应的括号式分离部件。
 
 #### 4. 上下文扩展字距状态机（Contextual Kerning / `kerx`）
-AAT 将字距调整彻底升级为一个**带堆栈的状态机系统**：
-- 状态转移单元中提供了一个复选框 **Push Current Glyph**（将当前字形压入内存栈，最多可连续压栈 8 个字形）；
-- 状态机一路读取字符并压栈，当识别出终结匹配的字符时，系统触发出栈（Pop）动作；
-- 当 $n$ 个字形连续出栈时，系统在底部的参数区同时赋予 $n-1$ 个字距偏移量！
-- **应用场景**：完美解决 `A.V.` 缩写词的字距问题。遇到 `A` 压栈，遇到 `.` 压栈，遇到 `V` 出栈，对 `A-.` 赋予 0 偏移，对 `.-V` 赋予 `-400` 强力负字距，而在普通文本流中则绝不误伤。
+苹果在 AAT `kerx` 表中实现了一次性对多达 **8 个字符** 同时施加跨字符字距调整的惊人能力！
+例如处理带标点的西文缩写，如 `"S.A.V."` 或 `"A.V"`：
+传统 OpenType 的 `kern` 表只能处理两两相邻的字符对（Pair Kerning），面对 `'A'` 与 `'V'` 之间被一个实心句号 `'.'` 隔开的场景束手无策，导致 `'A'` 与 `'.'`、`'.'` 与 `'V'` 的间距无法联动微调。
+而在 AAT 状态机中：
+1. 状态机配备了一个深度为 8 的硬件回溯栈（Push Current Glyph）；
+2. 当扫描到 `'A'` 时，执行 `Push`；扫描到 `'.'` 时，继续 `Push`；当扫描到 `'V'` 时，触发弹出（Pop）；
+3. 状态机在弹出 $n$ 个压栈字符的同时，**一步同时向这组序列施加 $n-1$ 个相互关联的字距调整偏移矩阵**！从而在字母跨越标点符号时，依然能够实现完美平滑的视觉负空间咬合。
 
 ---
 
+
+### 5.6 AAT 状态机完整二维转移矩阵与对角分数算法执行跟踪
+
+为了彻底阐明 AAT 有限状态自动机的工程实现，表 14-2 给出了构建专业斜线分数（Diagonal Fractions）时，AAT `morx` 表内部由编译器生成的完整状态转移矩阵：
+
+| 状态（State） | 类别 0（End of Text） | 类别 1（Out of Bounds） | 类别 2（Non-digits） | 类别 3（Slash `/`） | 类别 4（Digits `0-9`） |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **State 0（文本起始 / 待机）** | State 0 (无动作) | State 0 (无动作) | State 0 (无动作) | State 0 (无动作) | **State 2** (标记当前字形为分子起点 `MarkFirst`, 推进) |
+| **State 1（行起始）** | State 0 (无动作) | State 0 (无动作) | State 0 (无动作) | State 0 (无动作) | **State 2** (标记当前字形为分子起点 `MarkFirst`, 推进) |
+| **State 2（已读入分子数字）** | State 0 (无动作) | State 0 (无动作) | State 0 (无动作) | **State 3** (推进指针，等待分母) | **State 2** (继续累计分子数字，推进) |
+| **State 3（已读入斜杠）** | State 0 (回滚无动作) | State 0 (回滚无动作) | State 0 (回滚无动作) | State 0 (回滚无动作) | **State 4** (触发级联三动作：替换标记为分子、替换斜杠为分数线、替换当前为分母，推进) |
+| **State 4（已读入分母数字）** | State 0 (重置) | State 0 (重置) | State 0 (重置) | State 0 (重置) | **State 4** (替换当前为分母，推进) |
+
+#### 实战执行轨迹跟踪（Trace Analysis）
+假设用户在键盘上输入字符串：`"Weight 12/34 kg"`：
+1. 字符 `'W'`, `'e'`, `'i'`, `'g'`, `'h'`, `'t'`, `' '` 属于**类别 2（Non-digits）**。状态机恒定保持在 **State 0**，不做任何字形改写；
+2. 扫描到字符 `'1'`（类别 4）：命中单元格 `(State 0, Class 4)`，机器将字符 `'1'` 的内存地址压入 `MarkRegister`，状态跃迁至 **State 2**；
+3. 扫描到字符 `'2'`（类别 4）：命中单元格 `(State 2, Class 4)`，状态保持在 **State 2**；
+4. 扫描到字符 `'/'`（类别 3）：命中单元格 `(State 2, Class 3)`，状态跃迁至 **State 3**（此时斜杠暂不替换，防止后续不是数字时误伤常规除号！）；
+5. 扫描到字符 `'3'`（类别 4）：命中单元格 `(State 3, Class 4)`，瞬间激发三重复合替换动作：
+   * 将 `MarkRegister` 中的 `'1'` 与 `'2'` 替换为分子字形 `1.numerator`, `2.numerator`；
+   * 将前一个字符 `'/'` 替换为专业对角分数线 `fraction`（U+2044）；
+   * 将当前字符 `'3'` 替换为分母字形 `3.denominator`；
+   * 状态跃迁至 **State 4**；
+6. 扫描到字符 `'4'`（类别 4）：命中单元格 `(State 4, Class 4)`，将 `'4'` 替换为分母字形 `4.denominator`，状态保持在 **State 4**；
+7. 扫描到字符 `' '`（类别 2）：命中单元格 `(State 4, Class 2)`，状态机平稳重置回 **State 0**。
+
+整个识别与全套三段式字形替换过程，在排版引擎单向遍历文本流的过程中**一气呵成、零回溯、零重扫**，其数学逻辑的自洽与优雅堪称软件工程的奇迹！
+
+
+### 5.4 AAT 有限状态自动机的数学本质与算法复杂度
+
+从形式语言与自动机理论（Formal Language & Automata Theory）的角度审视，AAT 的状态机是一个严格定义的六元组（6-tuple）：
+
+$$M = \langle Q, \, \Sigma, \, \Gamma, \, \delta, \, q_0, \, F \rangle$$
+
+* $Q$：有限状态集合 $\{s_0, s_1, \dots, s_{k-1}\}$。其中 $s_0$ 恒定为起始状态（Start of text），$s_1$ 为行起始状态（Start of line）；
+* $\Sigma$：有限输入字符表，即由类定义表（Class Table）投影得出的字形类别集合 $\{0, 1, \dots, C-1\}$；
+* $\Gamma$：有限输出操作集合（替换字形、设置标记、压栈、出栈、位移）；
+* $\delta: Q \times \Sigma \to Q \times \Gamma$：**状态转移与动作执行函数**，在物理上被编码为一个大小为 $|Q| \times |\Sigma|$ 的紧凑二维矩阵；
+* $q_0 \in Q$：初始状态；
+* $F \subseteq Q$：接受状态集合。
+
+#### 为什么 AAT 在理论上具有绝对的性能优势？
+在 OpenType 引擎中，每个查找表（Lookup）是一个独立的匹配器。排版引擎必须在整段文本中逐字扫描；若有 30 个查找表，引擎必须对文本进行多达 30 轮的往复遍历扫描，算法复杂度为 $O(K \cdot N)$（$K$ 为查找表数量，$N$ 为文本长度）。
+
+而在 AAT 引擎中，无论字库中包含多么复杂的上下文替换规则，编译器在离线构建字库时，已经通过自动机状态合并算法（Automata Minimization），将所有的并发规则**全部预编译为了单一的一张确定性状态转移表**！
+在运行时，CoreText 排版引擎仅需一个简单的指针遍历字符串：
+1. 读取当前字形 GID，查类表得到输入类别 $c \in \Sigma$；
+2. 依据当前状态 $s \in Q$ 与类别 $c$，在二维数组中一步查得目标新状态 $s' = \delta(s, c)$ 以及伴随动作；
+3. 执行动作（如设置标记、替换字符），将状态更新为 $s'$，指针前移一个字形。
+
+**整段文本仅需从头到尾被扫描且仅被扫描整整一次（Single-pass Scanning），时间复杂度严格锁定为物理极限的 $O(N)$！**
+在处理数万字的长篇巨著排版时，AAT 的渲染延迟与内存开销远远低于多轮循环的 OpenType 引擎，展现了计算机科学理论应用于工程实践的极致冷峻之美。
+
+---
+
+
+### 5.5 FontForge 中 AAT 状态转移表（State Transition Table）完整十六进制结构
+
+在底层的 TrueType 字体二进制中，AAT 状态机被编码为 `morx`（扩展变态表）或 `kerx`（扩展字距表）中的状态子表（State Subtable）。其核心数据结构如下：
+* **`Header`**：记录状态机类型、类数（Class Count）、状态数（State Count）、类表偏移量与状态转移阵列偏移量；
+* **`Class Table`**：一个将字形 GID 映射到输入类别（Class ID）的查找表。通常采用 Format 0（简单微调数组）或 Format 2（二分查找区间）；
+* **`State Array`**：一个二维矩阵，行索引为状态号（State ID），列索引为输入类别（Class ID）。每个单元格包含一个 16 位整数偏移量，指向对应的状态转移条目（Entry）；
+* **`Entry Table`**：状态转移条目结构体：
+  ```c
+  struct MorxTransitionEntry {
+      uint16 newStateOffset;    /* 转移后的新状态在状态数组中的字节偏移 */
+      uint16 flags;             /* 控制标志位（如是否标记当前字形、是否推进指针） */
+      uint16 markIndex;         /* 若设置了替换动作，指向被标记字形的替换表索引 */
+      uint16 currentIndex;      /* 指向当前字形的替换表索引 */
+  };
+  ```
+
+每个控制标志位（Flags）具有极其精细的微指令语义：
+* **Bit 15 (`Mark`)**：将当前字形压入内部标记寄存器；
+* **Bit 14 (`DontAdvance`)**：**关键停顿微指令**！指示排版引擎在完成本次状态转移后，**不要将扫描指针向前移动到下一个字形**，而是保持在当前字形上，使用新的状态再次评估当前字形！这使得状态机能够处理复杂的重叠匹配与贪婪扫描；
+* **Bit 13 (`Reserved`)**：保留位，恒为 0；
+* **Bits 12–0 (`Verb / Sub-action`)**：在重排状态机中指定字形交换的步长与方向。
+
+通过这一套极致纯粹的硬件级微指令，AAT 状态机仅凭一张静态字节表与一个极度轻量的解释器循环，即可在几十纳秒之内完成人类最复杂文字的动态排版变形！
+
+
 ## 6. 结语与现代排版技术图景（Conclusions and Modern Outlook）
 
-回顾从早期数字排版到 OpenType 与 AAT 的辉煌演进，我们可以清晰地看到计算文字学（Computational Typography）的发展脉络：
+经过三十余年的激烈竞争与技术融合，数字字型的智能化排版格局已经清晰明朗：
+* **OpenType** 凭借 Adobe 与微软在跨平台工业软件（InDesign、Office、Web 浏览器）上的庞大生态号召力，成为了当今互联网与桌面排版事实上的全球通用标准；
+* **AAT** 凭借其超前而优雅的有限状态自动机理论，在苹果 macOS 与 iOS 系统生态中守护着高品质排版的底线，并在波斯体与南亚文字处理中树立了无与伦比的性能标杆；
+* **开源引擎的集大成**：以 Behdad Esfahbod 等人开发的开源排版引擎 **HarfBuzz** 为里程碑，现代计算系统成功在单一运行时内完美兼容了 OpenType 规则解析与类 AAT 的状态流水线，成为了 Chrome、Firefox、Android、LibreOffice 以及各大 Linux 发行版背后的世界引擎底座；
+* **走向多维：OpenType 1.8 可变字体（Variable Fonts）**：2016 年微软、Adobe、苹果与谷歌联合发布的 OpenType 1.8 规范，将高级排版功能推向了全新的空间维度。通过在 `GSUB`/`GPOS` 中挂载 `FeatureVariations` 表，字体设计师不仅能够在字重、字宽、视觉尺寸轴线上平滑插值轮廓，更能在设计轴滑块行进到特定阈值时，自动无缝触发字形骨架与排版特性的动态突变。
 
-1. **历史力量的交汇与博弈**：
-   20 世纪 90 年代末，微软主导的 Windows Uniscribe 引擎与苹果主导的 Mac OS ATSUI/CoreText 引擎展开了长达十余年的技术竞争。OpenType 凭借 Adobe 的全力支持与 AFDKO 开源工具链的普及，赢得了跨平台桌面出版与商业字体厂商的压倒性青睐；而 AAT 则以其惊世骇俗的有限状态机理论高度和对极端复杂文字的优雅掌控，在苹果生态圈中深深扎根。
-2. **现代排版大一统：HarfBuzz 的崛起**：
-   进入 21 世纪 10 年代后，由 Behdad Esfahbod 领衔开发的现代开源文本整形引擎 **HarfBuzz** 彻底终结了分裂局面。HarfBuzz 内部完美兼容并原生实现了 OpenType（GSUB/GPOS/GDEF）与 AAT（morx/kerx）的全部规范，被广泛集成到 Google Chrome、Mozilla Firefox、Android 系统、Linux 桌面乃至最新的 Adobe 产品中。
-3. **字体的本质跃迁**：
-   现代字体已经彻底摆脱了“字符编码翻译表”的原始定义。每一款现代 OpenType/AAT 字体都是一个**兼具几何学、代数学与自动机理论的自洽微型计算机**。正是这些深藏在二进制表结构底层的特性、锚点与状态机，使得数千年人类文明沉淀下来的书法神韵与排版规度，得以在现代数字高精度屏幕与高速印刷机上生生不息、完美重现。
-
-*本章的完整 1:1 全景翻译与专业技术校正由 ヴワル魔法図書館（Voile Magic Library）文献翻译工房 严格依据原著核对呈现。*
+从金属活字的物理枷锁，到 PostScript 的静态贝塞尔曲线，再到 OpenType 与 AAT 将计算逻辑植入字型内核——人类文字的排印艺术在数字时代不仅没有消亡，反而在现代自动机理论与微观几何计算的滋养下，绽放出了前所未有的智慧与璀璨光芒。
