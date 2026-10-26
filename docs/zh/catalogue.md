@@ -255,7 +255,7 @@ $$\text{VML-}[\text{LCC 分类与著者号}]\text{-}[\text{归档年份}]$$
   * 字符与字形的哲学二元性；字母解剖学各部位术语与 Figure 0-1 图版；字母“E”的六大数学几何描述（帕乔利、丢勒、托里、若戎委员会与现代 FontLab，Figure 0-2）；十八世纪凸版活字拼版机制（狄德罗百科全书字盘、手合子与拼版行，Figure 0-3 至 0-5）；数字排版基线、进深矢量与字号点制；全书章节体系知识图谱（Figure 0-6）。
 * **[第一编：编码与 Unicode（Part I: Encodings & Unicode）](/fonts-encodings/)**
   * **[第一章：前 Unicode 时代的编码体系](/fonts-encodings/chapter-1)**：FIELDATA、7 位 ASCII 与终端硬件控制码；EBCDIC 穿孔卡片机械渊源；ISO 2022 转义序列框架；ISO 8859 家族（Latin-1 至 Latin-16）地理割据；远东 CJK 汉字双字节标准（GB 2312、Shift-JIS、Big5）；微软与苹果代码页；早期互联网 MIME 与 HTTP 编码协商。
-  * **第二章：字符、字形与字节：Unicode 导论**：文字学哲学命题；Unicode 核心原则；UTF-8、UTF-16、UTF-32、CESU-8 比特流；基本多语言平面（BMP）与各辅助平面分布。
+  * **[第二章：字符、字形与字节：Unicode 导论](/fonts-encodings/chapter-2)**：文字学哲学命题；Unicode 核心原则；UTF-8、UTF-16、UTF-32、CESU-8 比特流；基本多语言平面（BMP）与各辅助平面分布。
   * **第三章：Unicode 字符核心属性体系**：字符名称、通用类别、双向排版类别、标点与数字属性、Unicode 字符数据库（UCD）。
   * **第四章：规范化分解、双向排版算法与东亚表意字符处理**：NFC/NFD/NFKC/NFKD 四大规范化形式；Unicode 双向排版算法（Bidi）；CJK 统一汉字（Unihan）统合原则。
   * **第五至七章：Unicode 实践、压缩传输与 Web 排印**：SCSU/BOCU-1 压缩；CSS 字体模块与现代网页排版。
