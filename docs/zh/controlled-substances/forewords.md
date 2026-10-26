@@ -6,6 +6,7 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 # 引言与专家序言 (Introduction & Forewords)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
+> **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **序言撰写者**：
 > * **James Bakalar**（哈佛大学医学院法学与精神病学讲师）  
 > * **John I. Thornton**（加利福尼亚大学伯克利分校法庭科学教授）  

@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 6 章�
 ---
 
 # 第 6 章 · 空間飛行軌道類型與所需火箭速度
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VI. Types of Trajectories and Rocket Velocities Required
 **尤里·瓦西裏耶維奇·孔德拉秋克**  
 *(選自 NASA TT F-9285 第 76–85 頁 / 原著第 23–33 頁)*

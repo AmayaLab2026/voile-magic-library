@@ -6,6 +6,7 @@ description: "完全無削除日本語訳：グーテンベルクとジェンソ
 # 第11章：ラテン文字書体の歴史的変遷と組版分類体系
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第367–444ページより*
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

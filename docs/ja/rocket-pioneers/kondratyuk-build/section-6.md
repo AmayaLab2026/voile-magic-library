@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第6章 · 宇宙太陽光反射鏡、重力スイングバイと軌道基地
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Solar Mirrors, Orbital Stations, Gravitational Slingshot & Mass Drivers
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  
 *(NASA TT F-9285 第42–51頁 / ロシア語原手稿 1918–1919年より)*

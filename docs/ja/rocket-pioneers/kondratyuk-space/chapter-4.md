@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第4章 · ロケット構造と軽量化設計工学
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section IV. The Combustion Process, Construction of Chamber and Nozzle
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  
 *(NASA TT F-9285 pp. 72–73 / 原著 pp. 16–18 より)*

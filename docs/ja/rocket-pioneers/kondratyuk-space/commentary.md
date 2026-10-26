@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』附録全訳：�
 ---
 
 # 『惑星間空間の征服』附録：学術評論および編者註釈全訳
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、文献出版の歴史的背景解説
 

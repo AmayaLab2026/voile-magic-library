@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克 1918–1919 年第一部手稿全文翻译�
 ---
 
 # 第二编 · 致读此书以建造者（孔德拉秋克第一手稿）
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### To Whomsoever Will Read in Order to Build (1918–1919)
 **尤里·瓦西里耶维奇·孔德拉秋克（Yu. V. Kondratyuk）著**  
 *苏联科学院自然科学与技术史研究所 整理考证*

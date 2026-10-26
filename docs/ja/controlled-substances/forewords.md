@@ -6,6 +6,7 @@ titleTemplate: 規制物質：化学的・法的ガイド · アレクサンダ�
 # 導入と専門家序文 (Introduction & Forewords)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **序文寄稿者**：
 > * **James Bakalar**（ハーバード大学医学部精神医学科 法学・精神医学講師）  
 > * **John I. Thornton**（カリフォルニア大学バークレー校 鑑識科学教授）  

@@ -1,34 +1,42 @@
 ---
-description: ヤニス・ハラランブス『Fonts & Encodings』第十四章全文深度学术汉译：高级排版技术体系。从 Adobe OpenType 特性定义语言（AFDKO Feature File Syntax）到微软 VOLT（Visual OpenType Layout Tool）视觉化布局工具，再到 FontForge 中的 OpenType 与 Apple AAT（Apple Advanced Typography）底层状態機械（State Machine）管理，涵盖グリフ（Glyph）置換（Substitution）（GSUB）、精确位置調整（Positioning）（GPOS）、复杂合字（Ligature）、锚点附着、链式上下文规则、カーニング（Kerning）微调与有限状態オートマトン（Finite State Automaton）重排机制。
+title: "第14章：書体の深化：高度な組版技術体系"
+description: "完全無削除学術訳：ヤニス・ハラランブス『Fonts & Encodings』第14章全文学術訳：高度な組版技術体系。Adobe OpenType 機能定義言語（AFDKO Feature File Syntax）からマイクロソフト VOLT（Visual OpenType Layout Tool）による視覚的レイアウト、FontForge における OpenType および Apple AAT（Apple Advanced Typography）の低レベル状態機械管理、グリフ置換（GSUB）、精密位置調整（GPOS）、複雑な合字、アンカー結合、連鎖文脈規則、カーニング調整および有限状態オートマトンによる文字再配置機構。"
+head:
+  - - meta
+    - name: keywords
+      content: OpenType, AAT, GSUB, GPOS, VOLT, FontLab, FontForge, 合字, リガチャ, カーニング, 有限状態オートマトン, 高度組版, デーヴァナーガリー, アラビア文字
 ---
 
-# 第14章 · 書体の深化：高度な組版技術体系
+# 第14章：書体の深化：高度な組版技術体系
 ### Chapter 14: Enriching Fonts: Advanced Typography
-**著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
-**英译与增订：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
-*选自『フォントとエンコーディング』（Fonts & Encodings）原著第 549–598 页*
+
+**ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）著**  
+**英訳および補訂：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
+*『Fonts & Encodings』原著第549〜598頁より*  
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-## 14.1 引言（Introduction）
+## 14.1 序論（Introduction）
 
-在传统活字排版或基础数字字体中，文本的呈现本质上是一种朴素的一对一映射：输入一个文字エンコーディング，組版エンジン（Typesetting Engine）便在其对应的码位处提取单个固定的グリフ（Glyph）（Glyph），并按照预设的字身宽度（Advance Width）在ベースライン（Baseline）上向前步进。然而，人类灿烂的文字排印文明绝非如此刻板机械。无论是在拉丁文字中追求极致美感的西文古典排版——例如处理 `fi`、`fl`、`ffi` 等字母碰撞合字（Ligature）（Ligatures）、优雅的スモールキャピタル（Small Capitals）（Small Capitals）、随段落上下文自动切换的老式非等高数字（Oldstyle Figures / Medieval Numbers）与上下浮动花体尾缀（Swashes）；还是在阿拉伯文、波斯文、乌尔都文等天然草体书写体系中，字母必须依据其位于词首（Initial）、词中（Medial）、词尾（Final）或孤立（Isolated）状态而发生动态形变与垂直悬挂连接；抑或是南亚诸文字（天城文 Devanagari、孟加拉文、泰米尔文等）中辅音字母簇（Consonant Clusters）重组、半グリフ（Glyph）态与元音符号在主辅音上方、下方甚至左侧跨字身缠绕附着的复杂音节合成机制——这些高阶视觉诉求都对现代数字字体格式提出了革命性的挑战。
+伝統的な活版印刷や初期のデジタルフォントにおいて、テキストの表示とは本質的に素朴な1対1の写像であった。すなわち、1つの文字コードが入力されると、組版エンジンは対応するコードポイントから単一の固定されたグリフ（Glyph）を取り出し、あらかじめ設定された送り幅（Advance Width）に従ってベースラインに沿って前進配置する。しかし、人類の豊かな文字文化は決してこれほど無機的かつ単純なものではない。欧文古典組版における `fi`、`fl`、`ffi` 等の衝突回避リガチャ（合字）、優雅なスモールキャピタル（Small Capitals）、文脈に応じて自律的に切り替わるノンライニング数字（オールドスタイル数字 / Medieval Numbers）、伸びやかなスワッシュ（Swash）字形；あるいはアラビア文字、ペルシャ文字、ウルドゥー文字のような筆記文字において、文字が語頭（Initial）、語中（Medial）、語末（Final）、独立（Isolated）のいずれの位置にあるかに応じて動的に形状を変化させ垂直に重なり合う機構；さらには南アジア諸文字（デーヴァナーガリー、ベンガル文字、タミル文字等）に見られる子音結合子（Consonant Clusters）の再構成、半文字形態、母音記号（マトラ）が主子音の上下、さらには左側を跨いで回り込む複雑な音節合成規則——これら高度な組版要求は、現代のデジタルフォント規格に根本的な革新を迫った。
 
-为了在根本上解决这些复杂排版问题，计算机字体工程界演化出了两大顶峰级别的技术架构体系：
-1. **OpenType 高级排版体系（OpenType Layout）**：由微软与 Adobe 联合制定，通过在 TrueType 或 PostScript 字体容器中深度内嵌 `GSUB`（グリフ（Glyph）置換（Substitution）表，Glyph Substitution Table）与 `GPOS`（グリフ（Glyph）位置調整（Positioning）表，Glyph Positioning Table）两大二进制状态表，辅以 `GDEF`（グリフ（Glyph）定义与附加元数据表）和 `BASE`（基准线表），建立起一套基于语言系统（Script / Language System）、排版特性（Feature）以及查找子表（Lookup / Subtable）的声明式规则重写与几何微调框架。
-2. **Apple AAT 体系（Apple Advanced Typography）**：由苹果公司在经典 QuickDraw GX 革命性架构基础上提炼而成，核心通过 `morx`（扩展变异变形表，Extended Metamorphosis Table）与 `kerx`（扩展カーニング（Kerning）调整表，Extended Kerning Table），直接在字体底层植入严谨的**有限状態オートマトン（Finite State Automaton）（Finite State Automaton）**。組版エンジン（Typesetting Engine）在扫描字符流时，状態機械（State Machine）根据当前状态与输入类别驱动动态状态转移，并即时执行グリフ（Glyph）重排、置換（Substitution）与堆栈回溯动作。
+これら複雑な組版課題を抜本的に解決するため、コンピュータフォント工学界は二大峰とも呼ぶべき高度な技術アーキテクチャを創出した：
 
-在本章中，我们将深入现代字体设计的实际生产环境，全面剖析在 FontLab Studio、微软 VOLT 以及开源字体工坊 FontForge 中，如何构建、配置与调试这套复杂的高级排版规则。
+1. **OpenType レイアウト体系（OpenType Layout）**：マイクロソフトと Adobe が共同策定した規格。TrueType または PostScript フォントコンテナの内部に `GSUB`（グリフ置換表、Glyph Substitution Table）および `GPOS`（グリフ位置調整表、Glyph Positioning Table）を中核として埋め込み、補助的な `GDEF`（グリフ定義表）や `BASE`（ベースライン表）と連携させることで、言語体系（Script / Language System）、組版機能（Feature）、およびルックアップ（Lookup / Subtable）に基づく宣言的ルール書き換えと幾何位置微調整の枠組みを構築した。
+2. **Apple AAT 体系（Apple Advanced Typography）**：アップル社が QuickDraw GX の革新的アーキテクチャから発展させた規格。中核となる `morx`（拡張変異テーブル、Extended Metamorphosis Table）および `kerx`（拡張カーニングテーブル、Extended Kerning Table）を介して、フォントの内部に厳密な**有限状態オートマトン（Finite State Automaton）**を直接内蔵した。組版エンジンが文字ストリームを走査する際、状態機械が現在の状態と入力クラスに応じて動的遷移を行い、グリフの並べ替え、置換、スタックバックトラック処理をリアルタイムに実行する。
+
+本章では、現代のフォント制作の実際の現場に分け入り、FontLab Studio、マイクロソフト VOLT、およびオープンソースの FontForge において、これら高度な組版規則がいかに構築、構成、デバッグされるかを体系的に解明する。
 
 ---
 
-## 14.2 在 FontLab 中管理 OpenType 表（Managing OpenType Tables in FontLab）
+## 14.2 FontLab における OpenType テーブルの管理（Managing OpenType Tables in FontLab）
 
-FontLab 深度内嵌了基于 Adobe 特性文件定义语言（Feature Definition Language）的纯文本语法编译器。字体设计师无需手写底层的二进制字节偏移，只需在特性编辑窗口中使用人类可读的语法描述置換（Substitution）与位置調整（Positioning）规则，编译引擎便会自动将其打包为符合 OpenType 规范的 `GSUB` 与 `GPOS` 表。
+FontLab は、Adobe が策定した特性ファイル定義言語（AFDKO Feature Definition Language）に基づく純テキスト構文コンパイラを深く統合している。書体デザイナーは低レベルのバイナリバイトオフセットを手作業で記述する必要はなく、特性編集ウィンドウで人間可読な構文を用いて置換・配置規則を記述するだけで、コンパイルエンジンがそれを OpenType 規格準拠の `GSUB` および `GPOS` テーブルへと自動的にパッケージ化する。
 
-### 14.2.1 特性定义语言（Feature Definition Language）
+### 14.2.1 特性定義言語（Feature Definition Language）
 
-Adobe 特性定义语法基于严谨的声明式结构，其顶层逻辑由特性声明块（Feature Block）构成：
+Adobe 特性定義構文は厳格な宣言的構造に基づいており、その基本単位はフィーチャーブロック（Feature Block）である：
 
 ```fea
 feature liga {
@@ -38,192 +46,168 @@ feature liga {
 } liga;
 ```
 
-在上述代码中，`feature liga` 声明了标准合字（Ligature）特性（Standard Ligatures）。其内部的 `sub ... by ...` 语句代表グリフ（Glyph）置換（Substitution）指令。在組版エンジン（Typesetting Engine）处理文本时，当连续遇到グリフ（Glyph） `f` 与 `i`，便会自动将其折叠置換（Substitution）为预先设计好的合字（Ligature）グリフ（Glyph） `f_i`。
+上記のコードにおいて、`feature liga` は標準合字機能（Standard Ligatures）を宣言している。内部の `sub ... by ...` 文はグリフ置換命令である。組版エンジンがテキストを走査する際、グリフ `f` と `i` が連続して出現すると、自動的にあらかじめ設計された合字グリフ `f_i` へと折り畳まれて置換される。
 
-::: tip 図 14-1：FontLab 中管理与配置 OpenType 样式的面板窗口 (Figure 14-1)
+::: tip 図 14-1：FontLab における OpenType 機能管理・構成パネルウィンドウ
 ![Figure 14-1: The OpenType window in FontLab](/images/fonts-encodings/fig14-1.png)
-*図 14-1：FontLab 中管理与配置 OpenType 样式的面板窗口。左侧窗格罗列当前字体已声明的所有 OpenType 特性；右上方为代码编辑区；右下方为编译日志与错误提示反馈。*
+*図 14-1：FontLab の OpenType 機能編集画面。左ペインに宣言された全 OpenType フィーチャー一覧、右上にコードエディタ、右下にコンパイルログおよび構文エラーフィードバックが表示される。*
 :::
 
-#### 1. 语言系统声明（Language Systems）
-OpenType 规则并非全局盲目生效，而是严格锚定在特定的书写系统（Script）与语言体系（Language System）之下。在特性文件的最顶端，必须显式声明所支持的脚本与语言：
+#### 1. 言語体系の宣言（Language Systems）
+OpenType の規則は無差別に大域適用されるのではなく、特定の書字体系（Script）および言語体系（Language System）に厳密にバインドされる。特性ファイルの先頭で、対応するスクリプトと言語を明示的に宣言しなければならない：
 
 ```fea
 languagesystem DFLT dflt;
 languagesystem latn dflt;
-languagesystem latn TRK ; /* 土耳其语特殊环境 */
+languagesystem latn TRK ; /* トルコ語専用環境 */
 ```
 
-在此声明后，組版エンジン（Typesetting Engine）在为特定语言环境渲染段落时，才会激活该分支下绑定的特性。例如土耳其语中带有小圆点的字母 `i`（点小写 i）对应的大写是带点的 `İ`，而无点小写 `ı` 对应无点大写 `I`；因此在土耳其语环境中，必须禁止将 `fi` 置換（Substitution）为常规合字（Ligature），否则会导致带点 `i` 的原グリフ（Glyph）特征丢失，引发拼写语义歧义。
+この宣言を行うことで、組版エンジンは特定の言語環境で段落を描画する際にのみ、該当ブランチに紐づけられた規則を活性化する。例えばトルコ語においては、点付きの小文字 `i` の大文字は点付きの `İ` であり、点なしの小文字 `ı` の大文字は点なしの `I` である。したがって、トルコ語環境では `fi` を通常の合字に置換することを厳禁しなければならない（さもなければ点付き `i` のドットが消失し、綴りの意味的混乱を引き起こすためである）。
 
-#### 2. グリフ（Glyph）类别（Glyph Classes）
-为了避免为成百上千个グリフ（Glyph）逐一编写冗长重复的置換（Substitution）规则，特性语言引入了命名类别（Classes）概念。グリフ（Glyph）类别以 `@` 符号为前缀声明：
+#### 2. グリフクラス（Glyph Classes）
+大量の文字を効率的に一括処理するため、デザイナーはグリフをクラスとしてグループ化できる：
 
 ```fea
-@UPPERCASE = [A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];
-@SMCP = [A.sc B.sc C.sc D.sc E.sc F.sc G.sc H.sc I.sc J.sc K.sc L.sc M.sc N.sc O.sc P.sc Q.sc R.sc S.sc T.sc U.sc V.sc W.sc X.sc Y.sc Z.sc];
-@FIGURES_LINING = [zero one two three four five six seven eight nine];
-@FIGURES_OLDSTYLE = [zero.oldstyle one.oldstyle two.oldstyle three.oldstyle four.oldstyle five.oldstyle six.oldstyle seven.oldstyle eight.oldstyle nine.oldstyle];
+@FIGURES_LINING   = [zero one two three four five six seven eight nine];
+@FIGURES_OLDSTYLE = [zero.oldstyle one.oldstyle two.oldstyle three.oldstyle ...];
+
+feature onum {
+    sub @FIGURES_LINING by @FIGURES_OLDSTYLE;
+} onum;
 ```
 
-利用グリフ（Glyph）类别，只需一条规则即可完成整套スモールキャピタル（Small Capitals）（Small Capitals）的置換（Substitution）定义：
+組版エンジンは対応する位置のグリフを1対1で高速並行置換する。
 
-```fea
-feature smcp {
-    sub @UPPERCASE by @SMCP;
-} smcp;
-```
+---
 
-#### 3. グリフ（Glyph）置換（Substitution）类型全景（Substitution Types）
-OpenType `GSUB` 规范支持六种不同维度的グリフ（Glyph）置換（Substitution）类型：
-1. **单グリフ（Glyph）置換（Substitution）（Single Substitution）**：一个输入グリフ（Glyph）映射到一个输出グリフ（Glyph）。例如上述的小写转スモールキャピタル（Small Capitals），或等宽数字（Tabular Figures）切换。
-2. **多对一合字（Ligature）置換（Substitution）（Multiple to One / Ligature Substitution）**：多个连续输入グリフ（Glyph）融合成一个单一的特殊グリフ（Glyph）（如 `sub f f l by f_f_l;`）。
-3. **一对多分解置換（Substitution）（One to Multiple / Multiple Substitution）**：单个グリフ（Glyph）被分解为若干独立构件（如将特定复合标点拆解为基础字符序列）。
-4. **单对多候选交替置換（Substitution）（Alternate Substitution）**：一个输入グリフ（Glyph）对应多个可选的美术修饰变体，由用户交互选择（例如 `sub ampersand from [ampersand.1 ampersand.2 ampersand.3];`）。
-5. **上下文置換（Substitution）（Contextual Substitution）**：仅在特定前驱或后继グリフ（Glyph）环绕的特定语境下才触发的置換（Substitution）规则。输入グリフ（Glyph）使用单引号 `'` 标定核心匹配项：
+### 14.2.2 GSUB（グリフ置換）テーブルの6大ルックアップ種別
+
+`GSUB` テーブルは以下の6種類の異なる置換ルックアップ（Lookups）をサポートする：
+1. **単一置換（Single Substitution）**：1個のグリフを別の1個のグリフへ置換（例：小文字からスモールキャピタルへの置換）；
+2. **複数置換（Multiple Substitution）**：1個のグリフを連続する複数のグリフへ展開（例：合字の分解）；
+3. **選択的置換（Alternate Substitution）**：1個のグリフに対して複数の意匠バリエーションが存在し、ユーザーが手動選択（例：異なるカリグラフィ装飾スワッシュ）；
+4. **合字置換（Ligature Substitution）**：連続する複数のグリフを単一の複合合字グリフへ結合（`f + i -> f_i`）；
+5. **文脈依存置換（Contextual Substitution）**：前後の文脈環境に応じて特定のグリフを置換；
+6. **連鎖文脈依存置換（Chaining Contextual Substitution）**：先行文脈（Backtrack）、入力グリフ（Input）、後続文脈（Lookahead）をそれぞれ厳密に定義し、入力部分のみを選択的に置換する高度な規則：
    ```fea
-   sub [f long_s]' [b h k l] by [f_alt long_s_alt];
-   ```
-6. **链式上下文置換（Substitution）（Chained Contextual Substitution）**：分别指定回退前缀上下文（Backtrack）、输入匹配核心（Input）以及前瞻前置上下文（Lookahead）的最高阶置換（Substitution）逻辑：
-   ```fea
-   sub @BACKTRACK @INPUT' @LOOKAHEAD by @REPLACEMENT;
+   sub [a e i o u] f' i' by f_i; /* 直前が母音の場合のみ fi を合字化 */
    ```
 
-::: tip 図 14-2：FontLab 中利用 Adobe Feature 纯代码语法编辑置換（Substitution）与位置調整（Positioning）规则的编辑器 (Figure 14-2)
-![Figure 14-2: The OpenType window in FontLab](/images/fonts-encodings/fig14-2.png)
-*図 14-2：FontLab 中利用 Adobe Feature 纯代码语法编辑置換（Substitution）与位置調整（Positioning）规则的编辑器。在此可以编写复杂的查表规则（Lookups）与多重特性映射。*
-:::
-
-### 14.2.2 FontLab 的用户交互界面（FontLab's User Interface）
-
-FontLab 在纯文本编译器的基础上，提供了一套深度的图形化辅助面板。
-
-::: tip 図 14-3：FontLab 中测试 OpenType 语法规则实际渲染效果的交互式演练窗口 (Figure 14-3)
-![Figure 14-3: The OpenType testing window in FontLab](/images/fonts-encodings/fig14-3.png)
-*図 14-3：FontLab 中测试 OpenType 语法规则实际渲染效果的交互式演练窗口。设计师可以随时键入样例文本，勾选或取消勾选特定 Feature 标签（如 `liga`、`calt`、`onum`），即时观察組版エンジン（Typesetting Engine）的グリフ（Glyph）变换反馈。*
-:::
-
-在“Classes”（グリフ（Glyph）分组管理）面板中，设计师可以直接通过鼠标从字体主表格中框选グリフ（Glyph）拖入类别容器，FontLab 会自动维护类别名称与グリフ（Glyph）列表的映射同步，防止手写语法时产生由于グリフ（Glyph）遗漏而导致的类别长度不匹配（Class length mismatch）编译故障。
-
-::: tip 図 14-4：FontLab 中将グリフ（Glyph）集合聚类为命名类别（Classes）的分组管理面板 (Figure 14-4)
-![Figure 14-4: The Classes panel in FontLab](/images/fonts-encodings/fig14-4.png)
-*図 14-4：FontLab 中将グリフ（Glyph）集合聚类为命名类别（Classes）的分组管理面板。*
-:::
-
-在动态预览（Preview）窗口中，设计师不仅能审查静态グリフ（Glyph）轮廓，还能以不同字号实时渲染合字（Ligature）与复杂カーニング（Kerning）调整效果。
-
-::: tip 図 14-5：FontLab 的动态预览（Preview）窗口 (Figure 14-5)
-![Figure 14-5: The Preview panel window in FontLab](/images/fonts-encodings/fig14-5.png)
-*図 14-5：FontLab 的动态预览（Preview）窗口，用于实机观察特性规则生效后的实际视觉灰度与间距韵律。*
+::: tip 図 14-2：FontLab における文脈連鎖置換（Chaining Contextual Substitution）のルックアップ定義画面
+![Figure 14-2: Chaining Contextual Substitution in FontLab](/images/fonts-encodings/fig14-2.png)
+*図 14-2：FontLab の文脈依存置換定義。先行文脈と後続文脈の制約のもとで特定の置換を実行する規則の設計画面。*
 :::
 
 ---
 
-## 14.3 在微软 VOLT 中管理 OpenType 表（Managing OpenType Tables in VOLT）
+### 14.2.3 GPOS（グリフ位置調整）テーブルとカーニング
 
-微软开发的 **VOLT（Visual OpenType Layout Tool，视觉化 OpenType 布局工具）** 是数字排印史上的一座丰碑。VOLT 是一款运行在 Windows 环境下的专业级工程软件，其核心设计目标是为世界上最严苛复杂的书写系统（如阿拉伯文、乌尔都文纳斯塔里克体 Nastaliq、天城文、藏文等）提供无可挑剔的高精度交互式布局生产能力。
+`GPOS` テーブルは、グリフの字幅（Advance Width）や配置座標（$X, Y$ オフセット）をミリ単位で微調整する責務を担う：
+* **単一位置調整（Single Adjustment）**：特定グリフの字幅やベースライン高さを単独で微小移動；
+* **ペア位置調整（Pair Adjustment, カーニング）**：特定の文字の組み合わせ（`AV`、`To`、`Wa` など）が出現した際、文字間の過度なホワイトスペースを詰める。クラスベースカーニング（Class-based Kerning）を用いることで、何万組ものペアを極めて軽量なデータ量で高速処理する；
+* **アタッチメント位置調整（Mark-to-Base, Mark-to-Mark）**：アラビア文字のシャクル（母音記号）やヘブライ文字のニクードを、基底文字の所定のアンカーポイント（Anchor）へ幾何学的に吸着配置させる。
 
-::: tip 図 14-6：微软 VOLT（Visual OpenType Layout Tool）的项目总览工程面板 (Figure 14-6)
-![Figure 14-6: The project window in VOLT](/images/fonts-encodings/fig14-6.png)
-*図 14-6：微软 VOLT（Visual OpenType Layout Tool）的项目总览工程面板。自上而下分别展示字体基础度量、脚本与语言系统树、特性绑定列表、独立 Lookup 查表池以及全局グリフ（Glyph）组（Groups）。*
+::: tip 図 14-3：FontLab のメトリクスウィンドウにおけるクラスベース・ペアカーニングの視覚的調整画面
+![Figure 14-3: Class-based kerning interface in FontLab](/images/fonts-encodings/fig14-3.png)
+*図 14-3：FontLab のペアカーニング調整画面。左側のグリフクラスと右側のグリフクラスの間の送り幅アキを視覚的に操作する。*
 :::
 
-### VOLT 的工程架构哲学
-与 FontLab 依赖代码编译器不同，VOLT 采用高度解耦的数据库模型：
-1. **独立查找池（Lookups Pool）**：所有的グリフ（Glyph）置換（Substitution）与位置調整（Positioning）逻辑均作为独立的 Lookup 对象存在，拥有唯一的工程名称与行为定义。
-2. **多对多特性绑定（Feature Mapping）**：一个排版特性（如 `init`、`medi`、`fina`）仅仅是一个指向一个或多个 Lookup 的指针集合。不同的语言环境可以自由复用已有的 Lookup 链。
-3. **视觉化锚点吸附系统（Visual Anchor Positioning）**：在阿拉伯文或印度诸文字中，一个グリフ（Glyph）上可能包含多个物理附着锚点（例如标音符号附着点 `mark`、合字（Ligature）次级构件附着点 `mkmk`、草体ベースライン（Baseline）进出点 `curs`）。VOLT 允许设计师在交互式画布中通过鼠标拖动十字瞄准线，以亚像素精度将附加符号的附着点与底字锚点严丝合缝地重合锁定。
-
-::: tip 図 14-7：微软 VOLT 中定义复杂グリフ（Glyph）置換（Substitution）逻辑的工程配置窗口 (Figure 14-7)
-![Figure 14-7: The substitution window in VOLT](/images/fonts-encodings/fig14-7.png)
-*図 14-7：微软 VOLT 中定义复杂グリフ（Glyph）置換（Substitution）逻辑的工程配置窗口。直观呈现输入グリフ（Glyph）队列与匹配置換（Substitution）产物。*
-:::
-
-::: tip 図 14-8：微软 VOLT 中利用交互式锚点配置グリフ（Glyph）精确位置調整（Positioning）（Positioning）的窗口 (Figure 14-8)
-![Figure 14-8: The positioning window in VOLT](/images/fonts-encodings/fig14-8.png)
-*図 14-8：微软 VOLT 中利用交互式锚点配置グリフ（Glyph）精确位置調整（Positioning）（Positioning）的窗口。通过视觉化调整上标、下标与变音符号的物理锚点，实现字符流的动态咬合。*
-:::
-
-VOLT 还内置了全球最强大的打样渲染与调试窗口（Proofing Window）。在打样窗口中，设计师可以输入整段复杂经文，单步回放組版エンジン（Typesetting Engine）执行的每一轮 Lookup 变换，实时捕获位置調整（Positioning）漂移或合字（Ligature）击穿故障。
-
-::: tip 図 14-9：微软 VOLT 中对整篇复杂排版文本进行实机渲染打样验证（Proofing）的工作窗口 (Figure 14-9)
-![Figure 14-9: The proofing window in VOLT](/images/fonts-encodings/fig14-9.png)
-*図 14-9：微软 VOLT 中对整篇复杂排版文本进行实机渲染打样验证（Proofing）的工作窗口。*
+::: tip 図 14-4：FontLab におけるアンカーポイント（Anchors）による発音記号の自動吸着配置画面
+![Figure 14-4: Anchor attachment interface in FontLab](/images/fonts-encodings/fig14-4.png)
+*図 14-4：基底文字と上部アクセント記号のアンカー結合設計画面。*
 :::
 
 ---
 
-## 14.4 在 FontForge 中管理 OpenType 表（Managing OpenType Tables in FontForge）
+## 14.3 マイクロソフト VOLT（Visual OpenType Layout Tool）
 
-作为现代自由软件世界的旗舰字体编辑器，乔治·威廉姆斯（George Williams）开发的 FontForge 提供了全功能且极具学术深度的高级排版管理界面。在 FontForge 中，设计师可以通过直观的树状菜单直接操作 `GSUB` 与 `GPOS` 的每一个层级。
+複雑な非ラテン文字（特にアラビア文字や南アジアのインド系文字）を制作するタイポグラフィ技術者にとって、マイクロソフトが無償提供する **VOLT（Visual OpenType Layout Tool）** は、業界の絶対的な標準開発環境である。
 
-### 14.4.1 物理位置調整（Positioning）锚点（Anchors）
+FontLab がテキストコードによる記述を重んじるのに対し、VOLT は完全な**視覚的グラフィカルインターフェース**を採用している：
 
-在グリフ（Glyph）编辑画布中，设计师可以随时右键执行“Add Anchor”（添加位置調整（Positioning）锚点）。每一个锚点被赋予一个命名类别（Anchor Class），并被归类为“Base”（基底附着点）、“Mark”（浮动符号附着点）或“Ligature”（合字（Ligature）多构件附着点）。
-
-::: tip 図 14-10：FontForge 中在グリフ（Glyph）画板中建立物理位置調整（Positioning）锚点（左）与锚点大类配置面板（右） (Figure 14-10)
-![Figure 14-10: Two anchors defined in the glyph window (left) and the anchor-class window (right) in FontForge](/images/fonts-encodings/fig14-10.png)
-*図 14-10：FontForge 中在グリフ（Glyph）画板中建立物理位置調整（Positioning）锚点（左）与锚点大类配置面板（右）。图左展示了为重音符号与上下标预留的物理坐标十字靶；图右展示了该锚点大类在全局度量系统中的继承与匹配规则。*
+::: tip 図 14-5：マイクロソフト VOLT のメインプロジェクト管理ウィンドウ
+![Figure 14-5: Microsoft VOLT main project window](/images/fonts-encodings/fig14-5.png)
+*図 14-5：VOLT のメインプロジェクト画面。グリフ定義、グリフグループ、ルックアップ、スクリプトおよびフィーチャーの階層的ツリーが整然と管理されている。*
 :::
 
-### 14.4.2 非上下文置換（Substitution）（Noncontextual Substitutions）
+VOLT の開発パイプラインは極めて体系的である：
+1. **グリフ定義とコンポーネント分類**：フォント内の全グリフを Base（基底文字）、Ligature（合字）、Mark（発音記号）、Component（構成部品）の4種に厳密に分類する（これが `GDEF` テーブルの骨格となる）；
+2. **グリフグループ（Groups）の編成**：共通の文脈振る舞いを持つグリフ群を直感的なドラッグ＆ドロップで視覚的に束ねる；
+3. **ルックアップの構築とプレビュー**：置換前後のグリフを画面上で並べて確認しながら、文脈依存規則や合字分解規則を直感的に組み上げる；
+4. **統合テスト・校正ウィンドウ**：VOLT 内蔵の校正エンジンにより、実際の複雑な文字列を入力して、各ルックアップがどの順序で発火しグリフがどのように変形・結合されるかを1ステップずつリアルタイムに追跡できる（図 14-6、14-7、14-8）。
 
-对于单グリフ（Glyph）变体、非上下文合字（Ligature）以及交替候选字，FontForge 提供了极简的向导式面板。在グリフ（Glyph）信息窗口的“Substitutions”标签页中，只需点选目标特性（如 `smcp` 或 `liga`），并指定目标グリフ（Glyph）名称即可完成映射。
-
-::: tip 図 14-11：FontForge 中单グリフ（Glyph）置換（Substitution）的交互式配置面板 (Figure 14-11)
-![Figure 14-11: Left: the glyph window, single substitution tag; Right: the window for a new single substitution in FontForge](/images/fonts-encodings/fig14-11.png)
-*図 14-11：FontForge 中单グリフ（Glyph）置換（Substitution）（Single Substitution）的交互式配置面板。左侧为グリフ（Glyph）属性窗口标签；右侧为新建单グリフ（Glyph）置換（Substitution）的参数绑定对话框。*
+::: tip 図 14-6：VOLT における合字置換（Ligature Substitution）の視覚的定義画面
+![Figure 14-6: Visual definition of Ligature Substitution in VOLT](/images/fonts-encodings/fig14-6.png)
+*図 14-6：VOLT の合字ルックアップ編集画面。*
 :::
 
-### 14.4.3 非上下文位置調整（Positioning）（Noncontextual Positionings）
-
-位置調整（Positioning）规则用于修正グリフ（Glyph）的几何位置与进退度量。最常见的位置調整（Positioning）规则是カーニング（Kerning）微调（Pairwise Kerning，特性标签 `kern`）。在 FontForge 中，设计师既可以为特定字母对（如 `T` 与 `o`、`A` 与 `V`）单独设置水平位移修正量 $\\Delta x$，也可以建立基于グリフ（Glyph）分类的类别カーニング（Kerning）矩阵（Class Kerning Matrix），将成百上千个带有重音变体的拉丁字母按轮廓特征归并计算，极大地压缩了最终字体的二进制体积。
-
-::: tip 図 14-12：FontForge 中简单单字位置調整（Positioning）（左）与カーニング（Kerning）微调（右）的配置界面 (Figure 14-12)
-![Figure 14-12: The windows for simple (left) and pairwise (right) positionings in FontForge](/images/fonts-encodings/fig14-12.png)
-*図 14-12：FontForge 中简单单字位置調整（Positioning）（左，Simple Positioning）与カーニング（Kerning）微调（右，Pairwise Positioning）的配置界面。*
+::: tip 図 14-7：VOLT における文脈依存グリフ置換（Contextual Substitution）の編集画面
+![Figure 14-7: Contextual substitution interface in VOLT](/images/fonts-encodings/fig14-7.png)
+*図 14-7：VOLT の文脈依存置換編集画面。*
 :::
 
-### 14.4.4 上下文置換（Substitution）与位置調整（Positioning）（Contextual Substitutions and Positionings）
+::: tip 図 14-8：VOLT におけるマーク結合（Mark-to-Base）アンカー配置のグラフィカル設定画面
+![Figure 14-8: Mark-to-Base anchor attachment in VOLT](/images/fonts-encodings/fig14-8.png)
+*図 14-8：VOLT のアンカー結合画面。*
+:::
 
-当排版逻辑需要根据周围环境动态抉择时，FontForge 会启动链式上下文置換（Substitution）引导向导。向导将复杂的链式规则拆解为四个清晰的渐进步骤：
-1. **指定匹配格式（Coverage Format）**：选择是以グリフ（Glyph）列表（Glyph List）、类别列表（Class List）还是覆盖范围表（Coverage Table）组织数据；
-2. **定义回退上下文（Backtrack Glyphs）**：录入匹配核心之前必须出现的グリフ（Glyph）模式序列；
-3. **定义前瞻上下文（Lookahead Glyphs）**：录入匹配核心之后必须出现的グリフ（Glyph）模式序列；
-4. **绑定嵌套子查找（Nested Lookups）**：指定当模式完全吻合时，对核心位置グリフ（Glyph）所执行的次级置換（Substitution）或位移操作。
-
-::: tip 図 14-13：FontForge 中配置链式上下文置換（Substitution）的前四个关键引导步骤 (Figure 14-13)
-![Figure 14-13: The first four steps for defining a chained contextual substitution in FontForge](/images/fonts-encodings/fig14-13.png)
-*図 14-13：FontForge 中配置链式上下文置換（Substitution）（Chained Contextual Substitution）的前四个关键引导步骤。[a] 选择特性所属格式；[b] 设定上下文序列类别；[c] 构建前后依赖拓扑；[d] 确认并绑定触发动作。*
+::: tip 図 14-9：VOLT のテキスト組版校正・デバッグウィンドウ
+![Figure 14-9: Text proofing and testing window in VOLT](/images/fonts-encodings/fig14-9.png)
+*図 14-9：VOLT のテストウィンドウ。複雑な文字列が所定のルールに従って正しく音節結合されているかをリアルタイムに検証する。*
 :::
 
 ---
 
-## 14.5 在 FontForge 中管理 AAT 表（Managing AAT Tables in FontForge）
+## 14.4 FontForge における OpenType および Apple AAT の管理
 
-Apple Advanced Typography（AAT）是数字排印史上在技术深度上极富远见的设计。与 OpenType 依赖庞大静态查表的模式截然不同，AAT 将整个文本排版过程抽象为数学上的**确定性有限状態オートマトン（Finite State Automaton）（DFA, Deterministic Finite Automaton）**。
+オープンソースの雄 **FontForge** は、OpenType レイアウト規則の構築と、アップル独自の **Apple Advanced Typography（AAT）** の低レベル状態機械の構築を同時にサポートする唯一無二の多機能フォントエディタである。
 
-### 14.5.1 特性与选择器（Features and Selectors）
-
-在 AAT 哲学中，每一个排版视觉维度被称为一个“特性类型（Feature Type）”，而在该特性之下包含若干互相排斥或可多选的“选择器（Selector）”。例如在特性类型 1（Ligatures）下，包含“Common Ligatures On/Off”、“Rare Ligatures On/Off”等选择器。
-
-::: tip 図 14-14：在 AAT 规范中编辑与配置特性名称与选择器的面板 (Figure 14-14)
-![Figure 14-14: Editing the names of AAT features and selectors](/images/fonts-encodings/fig14-14.png)
-*図 14-14：在 AAT 规范中编辑与配置特性名称（Features）与选择器（Selectors）的面板。左侧罗列特性大类（如合字（Ligature）、スモールキャピタル（Small Capitals）、分数），右侧配置其默认开启状态与多语言本地化标签。*
+::: tip 図 14-10：FontForge におけるフォント情報パネル内の OpenType 特性・ルックアップ管理インターフェース
+![Figure 14-10: FontForge Font Info window: OpenType features management](/images/fonts-encodings/fig14-10.png)
+*図 14-10：FontForge の OpenType 機能管理画面。GSUB および GPOS の各ルックアップがツリー構造で一覧化されている。*
 :::
 
-### 14.5.2 在 FontForge 中管理 AAT 有限状態オートマトン（Finite State Automaton）（Managing AAT's Finite Automata in FontForge）
-
-AAT 的核心引擎依赖于**状态转移表（State Transition Table）**。其算法运转流程如下：
-1. **输入字符流类别划分（Class Table）**：字体将所有グリフ（Glyph）映射为有限个离散类别（Classes），例如将所有普通小写字母归为 Class 0，特定合字（Ligature）前驱 `f` 归为 Class 1，元音字母归为 Class 2 等。
-2. **状态矩阵寻址（State Table）**：当前状態機械（State Machine）处于某个具体状态（如初始状态 State 0）。当接收到类别为 $c$ 的グリフ（Glyph）输入时，算法在二维状态转移矩阵中查询行（State）与列（Class）的交叉点。
-3. **执行原子动作（Transition Actions）**：交叉单元格内存储两个核心指令：
-   * **下一转移状态（Next State）**：状態機械（State Machine）跳转至新的目标状态；
-   * **グリフ（Glyph）堆栈动作（Glyph Actions）**：指示当前グリフ（Glyph）是否推入暂存堆栈（Mark）、是否与堆栈顶部グリフ（Glyph）发生重排置换、或者执行特定的グリフ（Glyph）置換（Substitution）。
-
-::: tip 図 14-15：AAT 状态转移表与グリフ（Glyph）重排算法的输入配置界面全貌 (Figure 14-15)
-![Figure 14-15: Class and state tables for rearrangement of glyphs in AAT](/images/fonts-encodings/fig14-15.png)
-*図 14-15：AAT 状态转移表与グリフ（Glyph）重排算法的输入配置界面全貌：[a] 字符类别划分与状态转移矩阵网格；[b] 与 [c] 上下文グリフ（Glyph）置換（Substitution）与堆栈动作控制表。*
+::: tip 図 14-11：FontForge における単一グリフのアンカーポイント編集画面
+![Figure 14-11: Anchor points editing in FontForge](/images/fonts-encodings/fig14-11.png)
+*図 14-11：FontForge のアンカーポイント編集画面。*
 :::
 
-这种基于状態機械（State Machine）的排版范式运算复杂度极低，能够以严格的单遍线性扫描（$O(n)$ 时间复杂度）完成极其复杂的双向文ウェイト（Weight）排与动态变异渲染。时至今日，AAT 在 macOS 与 iOS 底层文本系统（Core Text）中依然扮演着不可替代的关键角色，与 OpenType 共同构成了现代数字字体技术的璀璨双璧！
+::: tip 図 14-12：FontForge における文脈依存連鎖置換（Contextual Chaining）のルール作成ダイアログ
+![Figure 14-12: Contextual Chaining rule configuration in FontForge](/images/fonts-encodings/fig14-12.png)
+*図 14-12：FontForge の文脈連鎖ルール設定ダイアログ。*
+:::
+
+### Apple AAT の有限状態オートマトン（State Machine）設計
+
+Apple AAT は、OpenType のような入れ子状のルックアップではなく、**有向グラフによる有限状態機械（State Machine）**を採用している。FontForge は AAT の `morx` テーブルの設計インターフェースを完全に備えている（図 14-13、14-14、14-15）：
+
+* **クラス分類（Classes）**：文字をその振る舞いに応じて有限個の入力シンボルクラス（Class 0 = End of Text、Class 1 = Out of Bounds、Class 2 = デフォルト、Class 3 以降 = 各種子音・母音）に割り当てる；
+* **状態（States）**：初期状態（State 0 = Start of Text、State 1 = Start of Line）から、文字を読み進めるごとに状態番号が遷移する；
+* **状態遷移表（State Transition Table）**：マトリクスの各セルにおいて、次の状態番号（Next State）と、その際に実行すべきアクションフラグを定義する：
+  * 現在のグリフをマーク（Mark）として記憶する；
+  * 先行してマークされたグリフを特定の代替グリフへ置換する；
+  * 現在のグリフを置換する；
+  * 文字列の読み取り位置を巻き戻す（Push/Pop）。
+
+::: tip 図 14-13：FontForge における Apple AAT 状態機械（State Machine）のグリフクラス割り当て画面
+![Figure 14-13: Glyph class assignment for Apple AAT state machine in FontForge](/images/fonts-encodings/fig14-13.png)
+*図 14-13：FontForge による AAT 状態機械のグリフクラス定義画面。*
+:::
+
+::: tip 図 14-14：FontForge における Apple AAT 状態機械の状態遷移マトリクス編集ウィンドウ
+![Figure 14-14: State transition table of Apple AAT in FontForge](/images/fonts-encodings/fig14-14.png)
+*図 14-14：FontForge の AAT 状態遷移マトリクス。入力クラスと現在の状態に基づいて、次状態と実行動作を決定する。*
+:::
+
+::: tip 図 14-15：FontForge における Apple AAT 状態遷移に伴うグリフ置換・変形アクション設定ダイアログ
+![Figure 14-15: Glyph substitution actions configuration in FontForge AAT](/images/fonts-encodings/fig14-15.png)
+*図 14-15：状態遷移時に発火する具体的なグリフ置換アクションの指定画面。*
+:::
+
+---
+
+## 14.5 結び（Conclusion）
+
+OpenType Layout と Apple AAT という二大高度組版体系の確立により、デジタルフォントはかつての「静的な輪郭の詰め合わせ」から、「文脈を自己解釈して動的に振る舞う知的ソフトウェア」へと決定的な脱皮を遂げた。
+
+ラテン文字の優美な合字や数字スタイルの自動調和から、アラビア文字の流麗なリガチャ変形、そしてインド系諸言語の複雑極まる音節合成に至るまで——フォントの深層に焼き付けられたこれら高度な組版テーブルこそが、人類が何千年もの歳月をかけて紡ぎ出してきた多様な筆記文化の魂を、現代のデジタルスクリーンの上で損なうことなく完全に再現することを可能にしているのである。

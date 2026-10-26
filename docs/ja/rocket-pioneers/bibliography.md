@@ -6,6 +6,7 @@ description: "ソ連科学アカデミー宇宙遺産委員会編纂：キバリ
 # 付録 · 先駆者の著作および歴史文献全景索引
 ### Bibliography of the Published Works of N. I. Kibal'chich, K. E. Tsiolkovskiy, F. A. Tsander, and Yu. V. Kondratyuk on the Problems of Reactive Flying Machines and Interplanetary Travel
 **編纂整理：B・N・ヴォロビヨフ（B. N. Vorob'yev）**  
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 *(NASA TT F-9285 159–165頁 / ロシア語版 669–678頁より)*
 
 ---

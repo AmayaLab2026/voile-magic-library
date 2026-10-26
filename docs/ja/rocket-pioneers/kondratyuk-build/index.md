@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュクによる1918–1919年の第1手�
 ---
 
 # 第2編 · 建設を志して本書を読む者へ（コンドラチュク第1手稿）
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### To Whomsoever Will Read in Order to Build (1918–1919)
 **ユーリ・ワシーリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  
 *ソビエト連邦科学アカデミー 自然科学・技術史研究所 編纂・考証*

@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』第 9 章全訳�
 ---
 
 # 第 9 章 · 大気抵抗を利用した帰還速度の消殺
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section IX. Dissipation of Return Velocity by Atmospheric Drag
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  
 *(NASA TT F-9285 pp. 102–115 / 原著 pp. 57–73 より)*

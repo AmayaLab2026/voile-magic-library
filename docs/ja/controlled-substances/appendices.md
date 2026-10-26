@@ -6,6 +6,7 @@ titleTemplate: 規制物質：化学的・法的ガイド · アレクサンダ�
 # 附録集：連邦規則条文、緊急指定および量刑ガイドライン (Appendices I–V)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **原典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Appendices I–V, pp. 391–436.  
 > **学術翻訳基準**：本編は原著第377〜422頁に収録された5大中核連邦法典原文、歴史的変遷対照、量刑ガイドライン換算表、ならびに前駆化学物質リストを**完全無削除・逐条精訳**として提示する。
 

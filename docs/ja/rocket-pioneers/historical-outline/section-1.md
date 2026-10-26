@@ -4,6 +4,7 @@ description: "V・N・ソコリスキー教授『ロシアの科学者・ロケ�
 ---
 
 # 第1章：メシチェルスキーの変質量力学とツィオルコフスキーの宇宙航行理論
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、I・V・メシチェルスキーと変質量質点動力学の基礎
 

@@ -6,6 +6,7 @@ titleTemplate: 管制物質：化學與法律指南 · 亞歷山大·舒爾金
 # 第三章：聯邦藥物管制法歷史沿革 (The History of the Federal Drug Law)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亞歷山大·T·舒爾金 博士）  
+> **譯者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出處**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 3, pp. 257–266.  
 > **學術翻譯規範**：本章遵照法史學與藥物法理學標準，對原書第 243 至 252 頁所載自 1886 年至 1990 年間一個多世紀的全部聯邦禁毒法律、憲法管轄權轉移、沒收法案及重大國際公約進行**完整無刪節、無遺漏逐年編年全譯**。
 

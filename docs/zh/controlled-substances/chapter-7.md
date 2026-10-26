@@ -6,6 +6,7 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 # 第七章：经验实验式全量索引库 (Empirical Formula Index)
 
 > **本章导言（亚历山大·T·舒尔金博士 著）**：
+> **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 >
 > 第二章中收录的所有受管制药物，以及第五章表三（次要药物、有机试剂、溶剂与生化制品）中列出的所有化学物质，均按照其**经验分子实验式（Empirical Formula）**的希尔排序体系（Hill System：先排列碳原子 $C$、再排列氢原子 $H$，其余元素按英文字母顺序排列）完整汇编于本索引库中。
 >

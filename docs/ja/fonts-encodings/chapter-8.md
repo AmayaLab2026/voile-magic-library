@@ -10,7 +10,7 @@ head:
 # 第8章：X Window システムにおけるフォント管理
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第221〜236頁より*  
-*訳者：ヴワル魔法図書館（Voile Magic Library）文献翻訳工房*
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

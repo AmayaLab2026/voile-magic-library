@@ -10,7 +10,7 @@ head:
 # 第6章：Macintoshにおけるフォント管理
 **ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
 *『Fonts & Encodings』第187〜208頁より*  
-*訳者：ヴワル魔法図書館（Voile Magic Library）文献翻訳工房*
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第3章 · 宇宙船構造、多段分離とジャイロ姿勢制御
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Rocket Architecture, Staging & Gyroscopic Stabilization
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  
 *(NASA TT F-9285 第28–35頁 / ロシア語原手稿 1918–1919年より)*

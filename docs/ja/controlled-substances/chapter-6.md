@@ -6,6 +6,7 @@ titleTemplate: "規制物質：化学と法律のガイド · アレクサンダ
 # 第6章：連邦官報公示・行政根拠編年史 (Federal Register Citations)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 6, pp. 351–378.  
 > **学術翻訳規範**：本章は米国行政法学および法中毒学の学術規範に準拠し、原著第 337 至 364 頁に収載された 1966 年から 1991 年 4 月 1 日までの計 **345 項に及ぶ『連邦官報（Federal Register）』の正式規則制定公示、聴聞会報告および行政命令**を、巻号・頁番号・日付順に完全網羅した学術全訳である。
 

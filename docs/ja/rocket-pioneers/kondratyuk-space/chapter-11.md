@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』第 11 章全訳
 ---
 
 # 第 11 章 · ロケットの制御・計測および姿勢航法計器
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section XI. Control and Measurement Instruments. Orientation
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  
 *(NASA TT F-9285 pp. 120–123 / 原著 pp. 80–84 より)*

@@ -1,354 +1,356 @@
 ---
-description: ヤニス・ハラランブス『Fonts & Encodings』附录 A–G 全文深度学术汉译：数字字体底层格式、虚拟机与数学基础完全技术参考手册。涵盖点阵位图字体格式（Macintosh FONT/NFNT、Windows FNT/FON、Unix BDF/PCF、TeX PK/GF）、TeX 与 Omega 度量体系（TFM/OFM/VF/OVF）、PostScript Type 1 二进制架构与 eexec 密码学、Multiple Master 多主控字体、CIDFont 架构、TrueType/OpenType/AAT 底层表结构全字典、TrueType 虚拟机指令集、METAFONT 语言数学参数以及三次ベジェ曲線（Bézier Curve）德卡斯特里奥细分算法。
+title: 付録 A–G · デジタルフォント内部構造、仮想マシンと数学的基礎の完全技術リファレンスマニュアル
+description: ヤニス・ハラランブス『Fonts & Encodings』付録 A–G 全文の学術和訳：デジタルフォント低水準形式、仮想マシンと数学的基礎の完全技術リファレンスマニュアル。ビットマップフォント形式（Macintosh FONT/NFNT、Windows FNT/FON、Unix BDF/PCF、TeX PK/GF）、TeX と Omega のメトリクス体系（TFM/OFM/VF/OVF）、PostScript Type 1 バイナリアーキテクチャと eexec 暗号、Multiple Master、CIDFont 構造、TrueType/OpenType/AAT テーブル構造辞典、TrueType 仮想マシン命令セット、METAFONT 言語と 3 次ベジェ曲線のド・カステリョ細分アルゴリズム。
 ---
 
 # 付録 A–G · デジタルフォント内部構造、仮想マシンと数学的基礎の完全技術リファレンスマニュアル
 ### Appendices A–G: Technical Reference Manual
 **著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
-**英译与增订：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
-*选自『フォントとエンコーディング』（Fonts & Encodings）原著第 599–990 页*
+**英訳・増補：P. スコット・ホーン 博士（P. Scott Horne, Ph.D.）**  
+*『フォントとエンコーディング』（Fonts & Encodings）原著第 599–990 頁より*  
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-# 附录 A：点阵位图字体格式（Bitmap Font Formats）
+# 付録 A：ビットマップフォント形式（Bitmap Font Formats）
 
-在轮廓向量字体（Outline Vector Fonts）统治数字排印世界之前，计算机屏幕与点阵打印机完全依赖离散的点阵位图（Bitmap）呈现文字。了解这些古老的二进制位图格式，是洞悉操作系统字体子系统进化史的钥匙。
+輪郭ベクトルフォント（Outline Vector Fonts）がデジタルタイポグラフィの世界を席巻する以前、コンピュータディスプレイやドットインパクトプリンタは、文字の表現を離散的なビットマップ（Bitmap）に完全に依存していた。これら往年のバイナリビットマップ形式を理解することは、オペレーティングシステムのフォントサブシステム進化史を紐解くための鍵となる。
 
-## A.1 经典 Macintosh 体系：FONT 与 NFNT 资源结构
+## A.1 古典的 Macintosh 体系：FONT および NFNT リソース構造
 
-在经典 Mac OS（System 1 至 Mac OS 9）中，位图字体作为资源分支（Resource Fork）中的资源存储，其资源类型标签为 `'FONT'` 或 `'NFNT'`（New Font）。
+クラシック Mac OS（System 1 から Mac OS 9 まで）において、ビットマップフォントはリソースフォーク（Resource Fork）内のリソースとして格納され、そのリソースタイプタグは `'FONT'` または `'NFNT'`（New Font）であった。
 
-每个字号的点阵数据被打包为一个连续的水平 1-bit 位图条带（Bitmap Strike）。字体的所有グリフ（Glyph）被横向拼接在同一个条带内，并辅以偏移表（Offset Table）与宽度表（Width Table）来界定每个グリフ（Glyph）的左右边界。
+各文字サイズのビットマップデータは、連続した水平方向の 1 ビットビットマップストライク（Bitmap Strike）としてパックされていた。フォント内のすべてのグリフは同一のストリップ内に横方向に隙間なく連結配置され、各グリフの左右境界はオフセットテーブル（Offset Table）および幅テーブル（Width Table）によって定義された。
 
-::: tip 図版 A-1：经典 Macintosh 操作系统 Chicago 字体的连续位图条带 (Figure A-1)
+::: tip 図版 A-1：クラシック Macintosh システムフォント Chicago の連続ビットマップストリップ (Figure A-1)
 ![Figure A-1: The global image of the font Chicago](/images/fonts-encodings/fig-app-a1.png)
-*図版 A-1：二十多年来长盛不衰的 Macintosh 系统界面字体 Chicago 的全局点阵条带（选自原著第 621 页）。所有グリフ（Glyph）水平无缝紧贴排列，字身间距完全通过底层的位图度量表进行寻址切分。*
+*図版 A-1：二十年以上にわたり親しまれた Macintosh システムフォント Chicago の全体ビットマップストリップ（原著第 621 頁より）。すべてのグリフが水平方向に隙間なく並び、文字間隔は下位のメトリクステーブルによって切り出される。*
 :::
 
-## A.2 DOS、Windows 与 Unix ビットマップフォント（Bitmap Font）标准
+## A.2 DOS、Windows および Unix のビットマップフォント標準
 
-### 1. DOS CPI 格式
-在 MS-DOS 环境下，显示器与打印机的硬件ビットマップフォント（Bitmap Font）被封装在 `.CPI`（Code Page Information）容器中，内含针对 EGA/VGA 显示卡特制的 $8 	imes 8$、$8 	imes 14$ 与 $8 	imes 16$ 像素点阵字模。
+### 1. DOS CPI 形式
+MS-DOS 環境下において、ディスプレイおよびプリンタ用のハードウェアビットマップフォントは `.CPI`（Code Page Information）コンテナに格納され、EGA/VGA グラフィックカード向けに特化された $8 \times 8$、$8 \times 14$、$8 \times 16$ ピクセルのビットマップフォントパターンを保持していた。
 
-### 2. Windows FNT 与 FON 格式
-Windows 1.0 至 3.x 引入了 `.FNT`（单个位图グリフ（Glyph）资源）与 `.FON`（封装在 16 位 NE 架构 DLL 中的点阵字库）。其内部包含グリフ（Glyph）位移矩阵、字头元数据与字符映射表。
+### 2. Windows FNT および FON 形式
+Windows 1.0 から 3.x は、`.FNT`（単一のビットマップグリフリソース）および `.FON`（16 ビット NE アーキテクチャの DLL 内にパッケージ化されたフォントライブラリ）を導入した。内部にはグリフ変位マトリクス、ヘッダメタデータ、文字マッピングテーブルが含まれる。
 
-### 3. Unix 与 X11 体系：Adobe BDF 与 PCF 格式
-在 Unix/X Window 系统中，**BDF（Bitmap Distribution Format）** 是一种基于 ASCII 纯文本的可移植位图字体交换格式。
+### 3. Unix および X11 体系：Adobe BDF および PCF 形式
+Unix / X Window System において、**BDF（Bitmap Distribution Format）** は ASCII プレーンテキストに基づく可搬性の高いビットマップフォント交換形式であった。
 
-::: tip 図版 A-2：Adobe BDF 格式点阵グリフ（Glyph）的点阵矩阵结构 (Figure A-2)
+::: tip 図版 A-2：Adobe BDF 形式におけるビットマップグリフのマトリクス構造 (Figure A-2)
 ![Figure A-2: BDF's vision of the bitmap and vector versions of an ideograph](/images/fonts-encodings/fig-app-a2.png)
-*図版 A-2：Adobe BDF 规范中单个汉字表意文字的位图矩阵与度量框架（选自原著第 629 页）。清晰展示了字符边框（Bounding Box）、位移向量（DWIDTH/SWIDTH）以及点阵星号与原点ベースライン（Baseline）坐标系。*
+*図版 A-2：Adobe BDF 仕様における単一漢字表意文字のビットマップマトリクスとメトリクスフレームワーク（原著第 629 頁より）。バウンディングボックス、変位ベクトル（DWIDTH/SWIDTH）、アスタリスクによるドットパターン、原点とベースライン座標系を示す。*
 :::
 
-在系统实际加载时，BDF 通常会被二进制编译为 **PCF（Portable Compiled Format）** 或 **SNF（Server Natural Format）**，以实现内存映射（mmap）级别的急速读取。
+実際のシステム読み込み時、BDF は通常、メモリマッピング（mmap）による超高速読み込みを実現するため、バイナリ形式の **PCF（Portable Compiled Format）** または **SNF（Server Natural Format）** へとコンパイルされた。
 
-## A.3 TEX 体系的点阵输出：GF 与 PK 格式
+## A.3 TeX 体系のビットマップ出力：GF および PK 形式
 
-在 Donald Knuth 的 TeX 排版世界中，METAFONT 编译器首先输出通用的 **GF（Generic Font）** 二进制文件。随后通过 `gftopk` 工具将其深度压缩为紧凑的 **PK（Packed Font）** 格式。
+ドナルド・クヌースの TeX 組版体系において、METAFONT コンパイラはまず汎用の **GF（Generic Font）** バイナリファイルを出力する。次いで `gftopk` ツールにより、高圧縮されたコンパクトな **PK（Packed Font）** 形式へと変換される。
 
-::: tip 図版 A-3：METAFONT 输出的 gftodvi 高分辨率字模印样 (Figure A-3)
+::: tip 図版 A-3：METAFONT 出力による gftodvi 高解像度字型見本 (Figure A-3)
 ![Figure A-3: A page from the DVI file produced by gftodvi from Computer Modern Roman 10](/images/fonts-encodings/fig-app-a3.png)
-*図版 A-3：通过 gftodvi 工具从 Computer Modern Roman 10pt 的 GF 文件生成的像素级宏观印样（选自原著第 638 页）。展示了小写字母 'a' 在像素网格上的精确骨架、控制点与像素填充分布。*
+*図版 A-3：`gftodvi` ツールにより Computer Modern Roman 10pt の GF ファイルから生成されたピクセルレベルのマクロ見本（原著第 638 頁より）。ピクセル格子上の骨格、制御点、ピクセル塗りつぶし分布を示す。*
 :::
 
 ---
 
-# 附录 B：TEX 与 Omega 字体格式规范（TFM, OFM, VF）
+# 付録 B：TeX および Omega フォント形式仕様（TFM, OFM, VF）
 
-TeX 排版系统具有极其超前的“排版与渲染彻底解耦”的工程哲学。TeX 引擎在进行段落折行与数学公式排版时，**完全不需要读取任何グリフ（Glyph）轮廓或位图像素**，它只需要精确知晓每个字符的宏观几何度量（外框盒尺寸、カーニング（Kerning）、合字（Ligature）规则与光学尺寸修正）。
+TeX 組版システムは、「組版処理と描画の完全な分離」という極めて先駆的な工学哲学を備えている。TeX エンジンが段落の改行計算や数式組版を行う際、**グリフの輪郭やビットマップピクセルを読み取る必要は一切ない**。必要とされるのは、個々の文字のマクロな幾何メトリクス（外接枠の寸法、カーニング、合字規則、視覚的サイズ補正）のみである。
 
-## B.1 TFM（TEX 字体度量表）二进制数据结构
+## B.1 TFM（TeX フォントメトリクス表）バイナリデータ構造
 
-每个 TeX 字体度量文件（`.tfm`）由 16 位大端无符号整数构建，逻辑上严密划分为以下十个连续的数据区：
+各 TeX フォントメトリクスファイル（`.tfm`）は 16 ビットのビッグエンディアン符号なし整数で構築され、論理的に以下の 10 個の連続するデータ領域に分割されている。
 
-| 数据区索引 | 名称 | 内容与作用 |
+| 領域インデックス | 名称 | 内容と役割 |
 | :--- | :--- | :--- |
-| 1 | `header` | 校验和（Checksum）、设计字号（Design Size）以及排版编码方案字符串 |
-| 2 | `char_info` | 字符索引表：宽度索引（`width_index`）、高度与深度索引（`height_depth_index`）、斜体修正索引（`italic_index`）及标签字段 |
-| 3 | `width` | 字身宽度数组（以定点数 `fix_word` 存储） |
-| 4 | `height` | 字符ベースライン（Baseline）上方高度数组 |
-| 5 | `depth` | 字符ベースライン（Baseline）下方深度数组 |
-| 6 | `italic` | 斜体倾斜角与斜体空间修正量数组 |
-| 7 | `lig_kern` | 合字（Ligature）与カーニング（Kerning）状态转移微指令虚拟机程序（Ligature/Kerning Table） |
-| 8 | `kern` | 物理カーニング（Kerning）数值表 |
-| 9 | `exten` | 大型数学延展字符装配描述表（如括号、积分号的分段拼接构件） |
-| 10 | `param` | 字体全局排版参数数组（`fontdimen`），包含空格基准宽度、拉伸量、收缩量、x-ハイト（x-height）与数学轴高度 |
+| 1 | `header` | チェックサム、デザインサイズ（Design Size）、符号化スキーム文字列 |
+| 2 | `char_info` | 文字インデックス表：幅インデックス（`width_index`）、高さ・深さインデックス（`height_depth_index`）、イタリック補正インデックス（`italic_index`）、タグフィールド |
+| 3 | `width` | 文字幅配列（固定小数点数 `fix_word` で格納） |
+| 4 | `height` | ベースライン上方の文字高さ配列 |
+| 5 | `depth` | ベースライン下方の文字深さ配列 |
+| 6 | `italic` | イタリック傾斜角および字間余白補正量配列 |
+| 7 | `lig_kern` | 合字およびカーニング状態遷移マイクロ命令仮想マシンプログラム（Ligature/Kerning Table） |
+| 8 | `kern` | 物理的カーニング値テーブル |
+| 9 | `exten` | 大型数学伸長文字の組み立て記述表（括弧や積分記号の部品結合など） |
+| 10 | `param` | フォント全体組版パラメータ配列（`fontdimen`）：空白基準幅、伸縮量、x-ハイト、数式軸の高さなど |
 
-### 核心定点数表示：`fix_word`
-TFM 文件中所有的几何尺寸全部采用 Knuth 独创的 32 位二进制补码定点数 `fix_word` 表示。其中高 12 位表示整数部分，低 20 位表示小数部分。其绝对基准单位为字体的设计字号（$1.0 = 2^{20} = 1048576$ 个内部单位）。这种精妙的设计使得 TeX 的几何排版计算在任何硬件架构上均能保证绝对一致、分毫不差的跨平台可复现性！
+### 中核の固定小数点数表現：`fix_word`
+TFM ファイル内の幾何寸法はすべて、クヌースが創案した 32 ビットの 2 の補数固定小数点数 `fix_word` で表現される。上位 12 ビットが整数部、下位 20 ビットが小数部を表す。絶対基準単位はフォントのデザインサイズである（$1.0 = 2^{20} = 1,048,576$ 内部単位）。この精緻な設計により、TeX の幾何計算はいかなるハードウェア環境においても完全に同一かつ再現可能な結果を保証する。
 
-## B.2 Omega OFM 与虚拟字体（VF）体系
+## B.2 Omega OFM と仮想フォント（VF）体系
 
-为了突破 TFM 仅支持 256 个字符的先天瓶颈，Omega 项目引入了 **OFM（Omega Font Metrics）**，将字符索引拓展至 16 位甚至 32 位 Unicode 全域。
+TFM が 256 文字しかサポートできないという制約を打破するため、Omega プロジェクトは **OFM（Omega Font Metrics）** を導入し、文字インデックスを 16 ビットおよび 32 ビットの Unicode 全域へと拡張した。
 
-而 **VF（Virtual Font，虚拟字体）** 则允许組版エンジン（Typesetting Engine）将来自不同物理字体的グリフ（Glyph）组合拼装为单一的逻辑字体。通过 VF 字节码，組版エンジン（Typesetting Engine）可以在运行时动态完成グリフ（Glyph）缩放、位移、叠加甚至旋转，实现了现代复合字体的早期雏形。
+**VF（Virtual Font、仮想フォント）** は、組版エンジンが異なる物理フォントに属するグリフを組み合わせて単一の論理フォントを合成することを可能にした。VF バイトコードにより、実行時にグリフの拡大縮小、変位、重ね合わせ、回転を動的に実行でき、現代の複合フォントの先駆的プロトタイプとなった。
 
 ---
 
-# 附录 C：PostScript Type 1 字体二进制架构与 eexec 密码学
+# 付録 C：PostScript Type 1 フォントのバイナリアーキテクチャと eexec 暗号
 
-Adobe 的 PostScript Type 1 字体是现代矢量排印文明的基石。
+Adobe の PostScript Type 1 フォントは、現代ベクトルタイポグラフィの礎石である。
 
-## C.1 PostScript 路径追踪与着色规则
+## C.1 PostScript パストラッキングと塗りつぶし規則
 
-PostScript 解释器通过ベジェ曲線（Bézier Curve）指令描述轮廓，并采用“ノンゼロ・ワインディング数ルール（Nonzero Winding Number Rule）（Nonzero Winding Number Rule）”来判定封闭区域的内外着色属性。
+PostScript インタプリタはベジェ曲線命令によって輪郭を記述し、「ノンゼロ・ワインディング数ルール（Nonzero Winding Number Rule）」を用いて閉領域の内外判定を行う。
 
-::: tip 図版 C-1：PostScript 路径追踪与形状填充范例 (Figure C-1)
+::: tip 図版 C-1：PostScript パス構築と形状塗りつぶしのコード例 (Figure C-1)
 ![Figure C-1: Examples of PostScript code: tracing a path, filling a shape](/images/fonts-encodings/fig-app-c1.png)
-*図版 C-1：PostScript 矢量代码示例：路径构建、描边与形状填充（选自原著第 662 页）。*
+*図版 C-1：PostScript ベクトルコード例：パス構築、線画描画、形状塗りつぶし（原著第 662 頁より）。*
 :::
 
-::: tip 図版 C-2：非零环绕数着色规则的几何判定逻辑 (Figure C-2)
+::: tip 図版 C-2：ノンゼロ・ワインディング数塗りつぶし規則の幾何判定ロジック (Figure C-2)
 ![Figure C-2: Examples of filling according to the nonzero winding number rule](/images/fonts-encodings/fig-app-c2.png)
-*図版 C-2：ノンゼロ・ワインディング数ルール（Nonzero Winding Number Rule）（Nonzero Winding Number Rule）的几何判定（选自原著第 663 页）。通过向外引出射线统计轮廓环绕方向代数和，精准识别孔洞与复合填充区域。*
+*図版 C-2：ノンゼロ・ワインディング数規則の幾何判定（原著第 663 頁より）。外部への半直線を引き、輪郭の周回方向の代数和を計算して穴あき複合領域を判定する。*
 :::
 
-## C.2 文本渲染算子与 Scrabble 字体
+## C.2 テキスト描画演算子と Scrabble フォント
 
-PostScript 提供了丰富的文本输出算子，包括基础的 `show`、用于字符间距均匀扩展的 `ashow` 以及为每个グリフ（Glyph）赋予独立坐标位移的 `xyshow`。
+PostScript は多彩なテキスト出力演算子を提供する。基本的な `show`、文字間隔を一様に拡張する `ashow`、各グリフに個別の変位座標を与える `xyshow` などである。
 
-::: tip 図版 C-3：PostScript show 算子及其间距扩展变体 (Figure C-3)
+::: tip 図版 C-3：PostScript show 演算子とその字間拡張バリアント (Figure C-3)
 ![Figure C-3: The show operator and variants: ashow, xyshow](/images/fonts-encodings/fig-app-c3.png)
-*図版 C-3：`show` 算子及其变体 `ashow`（字距微调拉伸）与 `xyshow`（独立幅（Width）平衡）（选自原著第 667 页）。*
+*図版 C-3：`show` 演算子とそのバリアント `ashow`（トラッキング調整）および `xyshow`（個別文字幅バランシング）（原著第 667 頁より）。*
 :::
 
-::: tip 図版 C-4：雅克·安德烈设计的 Scrabble 拼字游戏 Type 3 字体 (Figure C-4)
+::: tip 図版 C-4：ジャック・アンドレ設計による Scrabble 拼字ゲーム Type 3 フォント (Figure C-4)
 ![Figure C-4: The font Scrabble, by Jacques André](/images/fonts-encodings/fig-app-c4.png)
-*図版 C-4：法国排印大师雅克·安德烈（Jacques André）设计的 Scrabble 拼字游戏 Type 3 字体（选自原著第 675 页）。同一文档的连续四次打印展现了完全随机化的木质纹理与字偶微颤效果。*
+*図版 C-4：フランスのタイポグラフィの泰斗ジャック・アンドレ（Jacques André）が設計した Scrabble ゲーム用 Type 3 フォント（原著第 675 頁より）。同一文書の連続 4 回の印刷で、木目テクスチャと文字の揺らぎがランダムに変化する。*
 :::
 
-## C.3 编码表与グリフ（Glyph）轮廓度量
+## C.3 エンコーディングテーブルとグリフ輪郭メトリクス
 
-::: tip 図版 C-5：Adobe 标准字体编码表（StandardEncoding） (Figure C-5)
+::: tip 図版 C-5：Adobe Standard 欧文フォントエンコーディング表 (Figure C-5)
 ![Figure C-5: The Adobe Standard font encoding, illustrated with Monotype Columbus](/images/fonts-encodings/fig-app-c5.png)
-*図版 C-5：Adobe Standard 字体编码规范，以 Monotype Columbus 字体展示（选自原著第 681 页）。*
+*図版 C-5：Adobe Standard 符号化仕様（Monotype Columbus フォントによる例示、原著第 681 頁より）。*
 :::
 
-::: tip 図版 C-6：Adobe 专家级字体编码表（ExpertEncoding） (Figure C-6)
+::: tip 図版 C-6：Adobe Expert 専門家向け拡張エンコーディング表 (Figure C-6)
 ![Figure C-6: The Adobe Expert font encoding, illustrated with Monotype Columbus Expert](/images/fonts-encodings/fig-app-c6.png)
-*図版 C-6：Adobe Expert 专家级扩展编码规范，包含真正的スモールキャピタル（Small Capitals）、ノンライニング数字（Oldstyle Figures）与合字（Ligature）（选自原著第 681 页）。*
+*図版 C-6：Adobe Expert 拡張符号化仕様。本格的なスモールキャピタル、オールドスタイル数字、合字を完備（原著第 681 頁より）。*
 :::
 
-::: tip 図版 C-7：各文字书写系统中的相关高度与超出量度量 (Figure C-7)
+::: tip 図版 C-7：各言語書記体系における関連高さと突出量メトリクス (Figure C-7)
 ![Figure C-7: The relevant heights, with overshoot, of various script glyphs](/images/fonts-encodings/fig-app-c7.png)
-*図版 C-7：拉丁文、阿拉伯文等文字中グリフ（Glyph）的光学超出量（Overshoot）、ベースライン（Baseline）、キャップハイト（Cap Height）与ディセンダー（Descender）线度量（选自原著第 683 页）。*
+*図版 C-7：ラテン文字、アラビア文字等におけるグリフの視覚的突出量（Overshoot）、ベースライン、キャップハイト、ディセンダーラインのメトリクス（原著第 683 頁より）。*
 :::
 
-::: tip 図版 C-8：The Sans Mono Condensed Light 字体中小写字母 'e' 的轮廓描述 (Figure C-8)
+::: tip 図版 C-8：The Sans Mono Condensed Light における小文字 'e' の輪郭記述 (Figure C-8)
 ![Figure C-8: Description of the glyph 'e' in The Sans Mono Condensed Light](/images/fonts-encodings/fig-app-c8.png)
-*図版 C-8：Luc(as) de Groot 设计的 The Sans Mono 中字母 'e' 的绝对矢量轮廓与三次样条分段（选自原著第 686 页）。*
+*図版 C-8：リュック(アス)・ド・フロート設計の The Sans Mono における文字 ‘e’ の絶対ベクトル輪郭と 3 次スプライン分割（原著第 686 頁より）。*
 :::
 
-## C.4 PostScript Hints（微调提示）体系
+## C.4 PostScript ヒンティング（Hinting）体系
 
-为了在低分辨率设备（如 72–150 DPI 屏幕或早期的 300 DPI 激光打印机）上保持字茎宽度一致并防止グリフ（Glyph）黑度失真，Type 1 规范引入了一套优雅的ヒンティング（Hinting）系统。
+低解像度機器（72〜150 DPI の画面や初期の 300 DPI レーザープリンタなど）においてステム幅の一貫性を保ち、黒みの潰れを防ぐため、Type 1 仕様は洗練されたヒンティング機構を導入した。
 
-::: tip 図版 C-9：字母 H、O、m 的潜在微调提示区（Hint Zones） (Figure C-9)
+::: tip 図版 C-9：文字 H、O、m における潜在的ヒントゾーン (Figure C-9)
 ![Figure C-9: Potential hints for the letters 'H', 'O', and 'm'](/images/fonts-encodings/fig-app-c9.png)
-*図版 C-9：字母 'H'、'O' 与 'm' 的微调提示区间（选自原著第 688 页）。灰色区域代表需要锁定的主干笔画宽度。*
+*図版 C-9：文字 ‘H’、‘O’、‘m’ のヒント適用区間（原著第 688 頁より）。灰色領域はピクセル格子に整列・固定すべき主ステム幅を表す。*
 :::
 
-::: tip 図版 C-10：字母 'B' 中置換（Substitution）四个微调提示的执行逻辑 (Figure C-10)
+::: tip 図版 C-10：文字 'B' における 4 つのヒントの動的置換ロジック (Figure C-10)
 ![Figure C-10: Replacing four hints in the letter 'B'](/images/fonts-encodings/fig-app-c10.png)
-*図版 C-10：在绘制复杂グリフ（Glyph） 'B' 时动态置換（Substitution）微调提示（Hint Replacement）（选自原著第 689 页）。*
+*図版 C-10：複雑なグリフ ‘B’ の描画過程におけるヒント置換（Hint Replacement）の実行（原著第 689 頁より）。*
 :::
 
-::: tip 図版 C-11：由两条三次ベジェ曲線（Bézier Curve）构成的 Flex 浅曲率控制 (Figure C-11)
+::: tip 図版 C-11：2 つの 3 次ベジェ曲線から構成される Flex 浅曲率制御 (Figure C-11)
 ![Figure C-11: Flex formed by two cubic Bézier curves](/images/fonts-encodings/fig-app-c11.png)
-*図版 C-11：由两条三次ベジェ曲線（Bézier Curve）拼接构成的 Flex 机制（选自原著第 690 页），用于防止极其平缓的弧线在低分辨率下退化为生硬的阶梯锯齿或直线。*
+*図版 C-11：2 本の 3 次ベジェ曲線で構成される Flex 機構（原著第 690 頁より）。緩やかな円弧が低解像度で不自然な直線や階段状ジャギーに退化するのを防ぐ。*
 :::
 
-::: tip 図版 C-12：PostScript Type 1 字体的对冲控制（Counter Controls） (Figure C-12)
+::: tip 図版 C-12：PostScript Type 1 フォントのカウンターコントロール (Figure C-12)
 ![Figure C-12: Counter controls of PostScript Type 1 fonts](/images/fonts-encodings/fig-app-c12.png)
-*図版 C-12：Type 1 字体的内白对冲控制机制（选自原著第 692 页），确保 'm' 等多竖画字母在极小字号下内部白空间保持均等。*
+*図版 C-12：Type 1 フォントの内部空白カウンター制御機構（原著第 692 頁より）。‘m’ などの多幹文字において、小サイズでも均等な内白を保持する。*
 :::
 
-::: tip 図版 C-13：Times-Roman 在不同字号下的字距微调变化曲线 (Figure C-13)
+::: tip 図版 C-13：Times-Roman の各サイズにおける字間調整曲線 (Figure C-13)
 ![Figure C-13: Two examples of letterspacing in Times-Roman](/images/fonts-encodings/fig-app-c13.png)
-*図版 C-13：Times-Roman 在 5pt 至 15.5pt 之间的字距微调轨迹（TrackKern）对比（选自原著第 696 页）。*
+*図版 C-13：Times-Roman における 5pt から 15.5pt までのトラッキングカーニング（TrackKern）対比（原著第 696 頁より）。*
 :::
 
-## C.5 Multiple Master 字体与四维设计空间
+## C.5 Multiple Master フォントと多次元デザイン空間
 
-Adobe 的 Multiple Master（MM）技术允许字体设计师构建一个连续的多维设计空间（Design Space）。通过在轴的两极甚至中间设定母版グリフ（Glyph）（Master Designs），计算机可以在运行时根据用户的任意参数进行多维线性插值。
+Adobe の Multiple Master（MM）技術は、フォントデザイナーが連続的な多次元デザイン空間（Design Space）を構築することを可能にした。軸の両極や中間にマスターグリフ（Master Designs）を設定し、ユーザーのパラメータに応じて多次元線形補間を行う。
 
-::: tip 図版 C-14：Adobe Kepler MM 字体中字母 'A' 的八个核心设计母版 (Figure C-14)
+::: tip 図版 C-14：Adobe Kepler MM フォントにおける文字 'A' の 8 つのマスターデザイン (Figure C-14)
 ![Figure C-14: Eight master designs of the glyph 'A' in Adobe Kepler MM](/images/fonts-encodings/fig-app-c14.png)
-*図版 C-14：Adobe Kepler MM 字体中字母 'A' 围绕“ウェイト（Weight）（Weight）”、“幅（Width）（Width）”与“光学字号（Optical Size）”三维立方体分布的 8 个极端设计母版与中间插值形态（选自原著第 698 页）。*
+*図版 C-14：Adobe Kepler MM において「ウェイト（Weight）」「幅（Width）」「光学サイズ（Optical Size）」の 3 次元立方体空間に配置された 8 つの極限マスターデザインと中間補間形態（原著第 698 頁より）。*
 :::
 
-## C.6 OCF 与 CIDFont 架构
+## C.6 OCF および CIDFont アーキテクチャ
 
-为了满足东亚中日韩（CJK）成千上万个汉字表意文字的排版需求，Adobe 先后研发了 OCF（Original Composite Format）与划时代的 **CIDFont** 架构。CIDFont 将文字エンコーディング（CMap）与グリフ（Glyph）轮廓（CIDFont 文件）彻底分离，每个グリフ（Glyph）通过一个全局唯一的纯数字索引（CID, Character Identifier）寻址。
+東アジアの日中韓（CJK）の膨大な漢字需要に応えるため、Adobe は OCF（Original Composite Format）および画期的な **CIDFont** アーキテクチャを開発した。CIDFont は文字エンコーディング（CMap）とグリフ輪郭（CIDFont ファイル）を完全に分離し、各グリフは一意の数値インデックス（CID, Character Identifier）でアドレッシングされる。
 
-::: tip 図版 C-15：经典 OCF 复合字体的双层寻址机制 (Figure C-15)
+::: tip 図版 C-15：古典的 OCF 複合フォントの二層参照機構 (Figure C-15)
 ![Figure C-15: How OCF fonts work](/images/fonts-encodings/fig-app-c15.png)
-*図版 C-15：经典 OCF 字体的嵌套字典与双字节寻址模型（选自原著第 706 页）。*
+*図版 C-15：古典的 OCF フォントの入れ子型辞書と 2 バイト参照モデル（原著第 706 頁より）。*
 :::
 
-::: tip 図版 C-16：CIDFont 文件（CID Type 0）的全局拓扑结构 (Figure C-16)
+::: tip 図版 C-16：CIDFont ファイル（CID Type 0）の全体構造 (Figure C-16)
 ![Figure C-16: Overall structure of a CIDFont file (CID type 0)](/images/fonts-encodings/fig-app-c16.png)
-*図版 C-16：CIDFont 二进制文件（Type 0）的全局拓扑结构与解释器寻址路径（选自原著第 709 页）。*
+*図版 C-16：CIDFont バイナリファイル（Type 0）の全体トポロジー構造とインタプリタの探索パス（原著第 709 頁より）。*
 :::
 
-::: tip 図版 C-17：Type 2 Charstrings 中的高阶微调掩码管理 (Figure C-17)
+::: tip 図版 C-17：Type 2 Charstrings における高次ヒントマスク管理 (Figure C-17)
 ![Figure C-17: Hint management in charstrings of Type 2](/images/fonts-encodings/fig-app-c17.png)
-*図版 C-17：Type 2 Charstrings 中的高阶微调掩码管理（选自原著第 723 页）。展示了从左至右在复杂汉字“講”（11 条水平茎微调）中的微调掩码切换。*
+*図版 C-17：Type 2 Charstrings における高次ヒントマスク管理（原著第 723 頁より）。複雑な漢字「講」（11 本の水平ステムヒント）におけるヒントマスクの切り替えを示す。*
 :::
 
 ---
 
-# 附录 D：TrueType、OpenType 与 AAT 二进制表结构完全字典
+# 付録 D：TrueType、OpenType および AAT バイナリテーブル構造完全辞典
 
-TrueType 与 OpenType 字体文件在底层由一个根目录（Table Directory）和若干独立的二进制表（Tables）构成。
+TrueType および OpenType フォントファイルは、低水準においてテーブルディレクトリ（Table Directory）と複数の独立したバイナリテーブル群（Tables）から構成される。
 
-## D.1 点阵与设备度量表
+## D.1 ビットマップおよびデバイスメトリクステーブル
 
-::: tip 図版 D-1：EBLC 表中点阵グリフ（Glyph）的水平与垂直度量几何模型 (Figure D-1)
+::: tip 図版 D-1：EBLC 表におけるビットマップグリフの水平・垂直メトリクスモデル (Figure D-1)
 ![Figure D-1: Horizontal and vertical metrics of a bitmap glyph in an EBLC table](/images/fonts-encodings/fig-app-d1.png)
-*図版 D-1：TrueType EBLC 表中内嵌点阵グリフ（Glyph）的水平与垂直度量几何参数（选自原著第 756 页）。*
+*図版 D-1：TrueType EBLC テーブルに内蔵されたビットマップグリフの水平・垂直幾何メトリクスパラメータ（原著第 756 頁より）。*
 :::
 
-::: tip 図版 D-2：中文文本在 12 ppem 与 24 ppem 下的点阵渲染对比 (Figure D-2)
+::: tip 図版 D-2：中国語テキストの 12 ppem と 24 ppem におけるビットマップ描画対比 (Figure D-2)
 ![Figure D-2: Comparison of Chinese text rendered at 12 and 24 ppem](/images/fonts-encodings/fig-app-d2.png)
-*図版 D-2：中文汉字文本在 12 像素/em 与 24 像素/em 下的点阵微调效果对比（选自原著第 760 页）。*
+*図版 D-2：漢字テキストにおける 12 ppem と 24 ppem のビットマップヒンティング効果の対比（原著第 760 頁より）。*
 :::
 
-::: tip 図版 D-3：Verdana 字体字母 'A' 像素幅（Width）随 ppem 的阶梯分布 (Figure D-3)
+::: tip 図版 D-3：Verdana フォント文字 'A' の ppem に伴うピクセル幅の階段状分布 (Figure D-3)
 ![Figure D-3: Distribution of sizes in pixels of the letter 'A' from Verdana](/images/fonts-encodings/fig-app-d3.png)
-*図版 D-3：Verdana 字体字母 'A' 在 `hdmx` 表中随字号变化的离散像素宽度曲线（选自原著第 764 页）。*
+*図版 D-3：Verdana フォントの文字 ‘A’ が `hdmx` テーブル内で文字サイズに伴って示す離散ピクセル幅の曲線（原著第 764 頁より）。*
 :::
 
-## D.2 布局查找与草体连接
+## D.2 レイアウト検索と連筆結合
 
-::: tip 図版 D-4：OpenType 草体连接附着（Cursive Attachment）查找标志 (Figure D-4)
+::: tip 図版 D-4：OpenType 連筆結合（Cursive Attachment）ルックアップフラグ (Figure D-4)
 ![Figure D-4: Two examples of cursive attachment lookup flag](/images/fonts-encodings/fig-app-d4.png)
-*図版 D-4：在乌尔都文纳斯塔里克草体排版中使用 Cursive Attachment 查找标志的ベースライン（Baseline）锚定效果（选自原著第 788 页）。*
+*図版 D-4：ウルドゥー語ナスタアリーク体において Cursive Attachment フラグを用いたベースライン係留効果（原著第 788 頁より）。*
 :::
 
-::: tip 図版 D-5：带哈姆扎的阿拉伯字母 Yeh Barree 的グリフ（Glyph）变异与合字（Ligature）历程 (Figure D-5)
+::: tip 図版 D-5：ハムザ付きアラビア文字 Yeh Barree のグリフ変異と合字の変遷 (Figure D-5)
 ![Figure D-5: The glorious fate of arabic letter yeh barree with hamza above](/images/fonts-encodings/fig-app-d5.png)
-*図版 D-5：字符 U+06D3 在经历 GSUB 置換（Substitution）后的宏伟历程（选自原著第 804 页）。*
+*図版 D-5：コード U+06D3 が GSUB 置換テーブルを経て遂げる変形プロセスの全景（原著第 804 頁より）。*
 :::
 
-::: tip 図版 D-6：Ampersands 字体族中的 202 种＆字符设计变体 (Figure D-6)
+::: tip 図版 D-6：Ampersands フォントファミリーにおける 202 種類のアンパサンド変体 (Figure D-6)
 ![Figure D-6: The 202 ampersands of AmpersandsOne and AmpersandsTwo](/images/fonts-encodings/fig-app-d6.png)
-*図版 D-6：由美国排印协会整理的 Ampersands 字体中收录的 202 种古典与现代合字（Ligature）符变体全貌（选自原著第 806 页）。*
+*図版 D-6：米国タイポグラフィ協会によって編纂された Ampersands フォント収録の 202 種におよぶ古典・現代の「＆」記号バリアント（原著第 806 頁より）。*
 :::
 
-::: tip 図版 D-7：赫尔曼·察普夫 Zapfino 字体排印的三语情诗 (Figure D-7)
+::: tip 図版 D-7：ヘルマン・ツァップ Zapfino による三言語愛の詩篇 (Figure D-7)
 ![Figure D-7: A trilingual and tri-fontal love poem in Zapfino](/images/fonts-encodings/fig-app-d7.png)
-*図版 D-7：采用大师察普夫设计的 Zapfino 排印的三语三字体经典爱情诗篇（选自原著第 861 页），生动展现了极端字偶侧边距与上下交织花体。*
+*図版 D-7：巨匠ツァップ設計による Zapfino で組まれた 3 言語 3 書体の名作愛の詩篇（原著第 861 頁より）。極端なスウォッシュと上下行の交差装飾を示す。*
 :::
 
-::: tip 図版 D-8：Apple Skia 字体在 wght ウェイト（Weight）轴上的连续变异 (Figure D-8)
+::: tip 図版 D-8：Apple Skia フォントの wght ウェイト軸に沿った連続変形 (Figure D-8)
 ![Figure D-8: Apple Skia variations along the wght axis](/images/fonts-encodings/fig-app-d8.png)
-*図版 D-8：Apple AAT Skia 字体在 `wght` ウェイト（Weight）轴上的无缝平滑形变（选自原著第 873 页）。*
+*図版 D-8：Apple AAT Skia フォントにおける `wght` 軸上の滑らかな無段階モーフィング（原著第 873 頁より）。*
 :::
 
-## D.3 AAT 有限状態オートマトン（Finite State Automaton）转移模型
+## D.3 AAT 有限状態機械（Finite State Automaton）遷移モデル
 
-::: tip 図版 D-9：AAT 确定性有限状態オートマトン（Finite State Automaton）的两个典型状态转移模型 (Figure D-9)
+::: tip 図版 D-9：AAT 決定性有限オートマトンの二つの典型状態遷移モデル (Figure D-9)
 ![Figure D-9: Two examples of finite automata](/images/fonts-encodings/fig-app-d9.png)
-*図版 D-9：AAT 状态转移自动机模型示例（选自原著第 878 页）。椭圆代表状态节点，有向箭头代表由输入字符类别驱动的状态迁移。*
+*図版 D-9：AAT 状態遷移オートマトンモデルの例（原著第 878 頁より）。楕円が状態ノード、有向矢印が入力文字クラスによる状態遷移を表す。*
 :::
 
-::: tip 図版 D-10：带有双初始状态的增强型 AAT 自动机模型 (Figure D-10)
+::: tip 図版 D-10：二重初期状態を持つ拡張型 AAT オートマトンモデル (Figure D-10)
 ![Figure D-10: Finite automaton with an additional initial state](/images/fonts-encodings/fig-app-d10.png)
-*図版 D-10：增加了专门针对行首（Beginning of Line）与行中上下文识别的增强型 AAT 有限状態オートマトン（Finite State Automaton）（选自原著第 881 页）。*
+*図版 D-10：行頭（Beginning of Line）と行中の文脈識別を分離した拡張型 AAT 有限状態オートマトン（原著第 881 頁より）。*
 :::
 
 ---
 
-# 附录 E：TrueType 虚拟机指令集完全参考手册（Instruction Set）
+# 付録 E：TrueType 仮想マシン命令セット完全リファレンスマニュアル
 
-TrueType 字体包含一个图灵完备的虚拟处理器内核。每个グリフ（Glyph）内部包含一段前微调字节码程序。解释器通过操纵控制点网格、执行投影与测量向量投影、以及调整局部自由度，实现极其精湛的屏幕像素点对齐。
+TrueType フォントはチューリング完全な仮想プロセッサコアを内蔵している。各グリフ内部にはプリヒンティング・バイトコードプログラムが格納されている。インタプリタは制御点グリッドの操作、投影ベクトル・測定ベクトルの射影計算、自由度の調整を通じて、精緻無比なピクセルグリッド調整（Grid-fitting）を実行する。
 
-::: tip 図版 E-1：Courier 字体字母 'T' 的底层控制点拓扑 (Figure E-1)
+::: tip 図版 E-1：Courier フォント文字 'T' の低水準制御点トポロジー (Figure E-1)
 ![Figure E-1: The 'T' of TrueType Courier with instructions](/images/fonts-encodings/fig-app-e1.png)
-*図版 E-1：Apple/Bitstream Courier 字体字母 'T' 的原始控制点网格（选自原著第 913 页）。*
+*図版 E-1：Apple/Bitstream Courier フォント文字 ‘T’ の元の制御点グリッド（原著第 913 頁より）。*
 :::
 
-::: tip 図版 E-2：Verdana 字体字母 'O' 的虚拟机指令执行序列 (Figure E-2)
+::: tip 図版 E-2：Verdana フォント文字 'O' の仮想マシン命令実行シーケンス (Figure E-2)
 ![Figure E-2: The 'O' from TrueType Verdana with instructions](/images/fonts-encodings/fig-app-e2.png)
-*図版 E-2：微软经典屏幕字体 Verdana 中字母 'O' 的ヒンティング（Hinting）执行与像素舍入锁定过程（选自原著第 922 页）。*
+*図版 E-2：Microsoft の名作画面フォント Verdana における文字 ‘O’ のヒンティング実行とピクセル丸めロックの過程（原著第 922 頁より）。*
 :::
 
 ---
 
-# 附录 F：METAFONT 语言与三次样条微分几何
+# 付録 F：METAFONT 言語と 3 次スプライン微分幾何学
 
-高德纳（Donald E. Knuth）创立的 METAFONT 语言是计算机字体学史上最深邃的数学丰碑。在 METAFONT 中，字符不再是静态绘制的轮廓多边形，而是一个由严格代数方程与微分几何参数共同驱动的“动态活字程序”。
+ドナルド・クヌースが創始した METAFONT 言語は、計算機フォント学史上最も深遠な数学的記念碑である。METAFONT において、文字は静的に描画された輪郭ポリゴンではなく、厳密な代数方程式と微分幾何パラメータによって動的に駆動される「生きたプログラム」である。
 
-::: tip 図版 F-1：经典 Computer Modern 字体家族全集（第 1 部分） (Figure F-1)
+::: tip 図版 F-1：古典 Computer Modern フォントファミリー全集（第 1 部） (Figure F-1)
 ![Figure F-1: The fonts of the original Computer Modern distribution (1/2)](/images/fonts-encodings/fig-app-f1.png)
-*図版 F-1：TeX 原始发行版所包含的 Computer Modern 字体家族矩阵：罗马正体、倾斜体、无衬线体与粗体印样（选自原著第 958 页）。*
+*図版 F-1：TeX オリジナル配布版に収録された Computer Modern フォントファミリー：ローマン立体、傾斜体、サンセリフ、ボールドの見本（原著第 958 頁より）。*
 :::
 
-::: tip 図版 F-2：经典 Computer Modern 字体家族全集（第 2 部分） (Figure F-2)
+::: tip 図版 F-2：古典 Computer Modern フォントファミリー全集（第 2 部） (Figure F-2)
 ![Figure F-2: The fonts of the original Computer Modern distribution (2/2)](/images/fonts-encodings/fig-app-f2.png)
-*図版 F-2：Computer Modern 字体家族的等宽打字机体、数学斜体与特殊符号印样（选自原著第 959 页）。*
+*図版 F-2：Computer Modern の等幅タイプライター体、数式用イタリック、特殊記号の見本（原著第 959 頁より）。*
 :::
 
-::: tip 図版 F-3：Computer Modern 字体家族的 62 个底层物理几何参数全景 (Figure F-3)
+::: tip 図版 F-3：Computer Modern フォントファミリーの 62 個の幾何パラメータ全景 (Figure F-3)
 ![Figure F-3: The parameters of the Computer Modern fonts](/images/fonts-encodings/fig-app-f3.png)
-*図版 F-3：驱动 Computer Modern 生成的三次样条核心物理参数图解（选自原著第 961 页）：涵盖 x-ハイト（x-height）、ディセンダー（Descender）深度、主干粗细（`stem`）、发丝细线（`hair`）、圆点直径（`dot_size`）与衬线倾角（`serif_drop`）。*
+*図版 F-3：Computer Modern を生成する 3 次スプライン中核幾何パラメータ図解（原著第 961 頁より）：x-ハイト、ディセンダー深さ、主ステム幅（`stem`）、ヘアライン幅（`hair`）、ドット径（`dot_size`）、セリフ傾角（`serif_drop`）など。*
 :::
 
-::: tip 図版 F-4：METAFONT weed 交互式样条设计调试器界面 (Figure F-4)
+::: tip 図版 F-4：METAFONT weed 対話的スプライン設計デバッガ画面 (Figure F-4)
 ![Figure F-4: The window of weed showing METAFONT glyph design](/images/fonts-encodings/fig-app-f4.png)
-*図版 F-4：在专用图形交互软件 `weed` 中调试由三次样条方程生成的 METAFONT 动态グリフ（Glyph）轮廓（选自原著第 967 页）。*
+*図版 F-4：専用グラフィックツール `weed` 上での 3 次スプライン方程式による METAFONT 動的グリフ輪郭デバッグ（原著第 967 頁より）。*
 :::
 
-::: tip 図版 F-5：波兰古典字体 Antykwa Półtawskiego 数字化发行版印样 (Figure F-5)
+::: tip 図版 F-5：ポーランド古典書体 Antykwa Półtawskiego デジタル版見本 (Figure F-5)
 ![Figure F-5: The fonts of the Antykwa Półtawskiego distribution](/images/fonts-encodings/fig-app-f5.png)
-*図版 F-5：基于 METAFONT 参数化重建的波兰民族排印瑰宝 Antykwa Półtawskiego 字体家族（选自原著第 977 页）。*
+*図版 F-5：METAFONT パラメータ記述によって復元されたポーランド民族タイポグラフィの至宝 Antykwa Półtawskiego 書体ファミリー（原著第 977 頁より）。*
 :::
 
-::: tip 図版 F-6：Antykwa Półtawskiego 字体家族的核心微分参数骨架 (Figure F-6)
+::: tip 図版 F-6：Antykwa Półtawskiego 書体ファミリーの中核パラメータ骨格 (Figure F-6)
 ![Figure F-6: The parameters of the Antykwa Półtawskiego font family](/images/fonts-encodings/fig-app-f6.png)
-*図版 F-6：Antykwa Półtawskiego 字体家族的特征参数矩阵图解（选自原著第 979 页）。*
+*図版 F-6：Antykwa Półtawskiego 書体ファミリーの特徴パラメータマトリクス図解（原著第 979 頁より）。*
 :::
 
 ---
 
-# 附录 G：ベジェ曲線（Bézier Curve）的数学性质与ド・カステリョのアルゴリズム（De Casteljau's Algorithm）
+# 付録 G：ベジェ曲線（Bézier Curve）の数学的性質とド・カステリョのアルゴリズム
 
-数字字体的轮廓本质上是分段三次多项式样条曲线。
+デジタルフォントの輪郭は、本質的に区分 3 次多項式スプライン曲線である。
 
-## G.1 バーンスタイン多項式（Bernstein Polynomials）与基底定义
+## G.1 バーンスタイン多項式（Bernstein Polynomials）と基底定義
 
-设平面上有 $n+1$ 个控制点 $P_0, P_1, \dots, P_n$。对应的 $n$ 次ベジェ曲線（Bézier Curve） $B(t)$ 定义为：
+平面上に $n+1$ 個の制御点 $P_0, P_1, \dots, P_n$ が与えられたとき、$n$ 次ベジェ曲線 $B(t)$ は次のように定義される。
 $$B(t) = \sum_{i=0}^n B_{i,n}(t) P_i, \quad t \in [0, 1]$$
-其中伯恩斯坦基底多项式（Bernstein Polynomials）$B_{i,n}(t)$ 为：
+ここでバーンスタイン基底多項式 $B_{i,n}(t)$ は次の通りである。
 $$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}$$
 
-在字体工程中，PostScript Type 1、OpenType CFF 以及 TrueType（采用二次曲线并升阶计算）普遍采用三次ベジェ曲線（Bézier Curve）（$n=3$）：
+フォント工学において、PostScript Type 1、OpenType CFF、および TrueType（2 次曲線を昇階計算）は一般に 3 次ベジェ曲線（$n=3$）を採用する。
 $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3$$
 
-## G.2 核心数学性质
+## G.2 中核的数学性質
 
-1. **仿射不变性（Affine Invariance）**：对曲线进行任何平移、旋转、缩放或剪切变换，等价于直接对其控制多边形进行相同的变换。
-2. **凸包性（Convex Hull Property）**：整条曲线完全被其控制多边形构成的凸包（Convex Hull）所包覆。排版渲染引擎在进行字体外框碰撞检测（Bounding Box Clipping）时，无需计算样条方程，只需对控制点外框求极值即可实现极高效的裁剪。
-3. **端点插值与切线几何**：曲线严格经过起点 $P_0$ 和终点 $P_3$，且端点处的切线方向精确平行于第一段向量 $P_1 - P_0$ 与最后一段向量 $P_3 - P_2$：
+1. **アフィン不変性（Affine Invariance）**：曲線に対する任意の平行移動、回転、拡大縮小、剪断変形は、その制御多角形に対する同一の変換と等価である。
+2. **凸包性（Convex Hull Property）**：曲線全体は、その制御多角形の凸包（Convex Hull）の内部に完全に包含される。レンダリングエンジンは、外接矩形クリッピング判定において複雑なスプライン方程式を解くことなく、制御点の極値のみで高速に判定できる。
+3. **端点補間と接線幾何**：曲線は厳密に始点 $P_0$ と終点 $P_3$ を通過し、端点における接線方向は最初と最後の制御ベクトル $P_1 - P_0$ および $P_3 - P_2$ に正確に平行である。
    $$B'(0) = 3(P_1 - P_0), \quad B'(1) = 3(P_3 - P_2)$$
-4. **变差缩减性（Variation Diminishing Property）**：任何平面直线与ベジェ曲線（Bézier Curve）的交点数量，绝不会超过该直线与控制多边形的交点数量。这从数学上保证了曲线绝不会发生莫名其妙的额外剧烈振荡。
+4. **変差減少性（Variation Diminishing Property）**：任意の平面直線とベジェ曲線の交点数は、その直線と制御多角形の交点数を決して超えない。これにより、曲線が想定外の不要な振動を起こさないことが数学的に保証される。
 
-## G.3 德卡斯特里奥细分算法（De Casteljau's Algorithm）
+## G.3 ド・カステリョのアルゴリズム（De Casteljau's Algorithm）
 
-**ド・カステリョのアルゴリズム（De Casteljau's Algorithm）（De Casteljau's Algorithm）** 是一种纯粹基于简单线性插值的数值稳定计算框架。对于任意给定参数 $t \in [0, 1]$，算法通过迭代构建点序列：
+**ド・カステリョのアルゴリズム（De Casteljau's Algorithm）** は、単純な線形補間に基づく数値的に極めて安定した計算フレームワークである。任意のパラメータ $t \in [0, 1]$ に対し、以下の反復によって点列を構築する。
 $$P_i^{[0]} = P_i$$
 $$P_i^{[k]} = (1-t) P_i^{[k-1]} + t P_{i+1}^{[k-1]}, \quad k = 1, \dots, n, \quad i = 0, \dots, n-k$$
 
-当 $k=n$ 时，最终收敛点 $P_0^{[n]}$ 恰好等于曲线在 $t$ 处的坐标 $B(t)$！更重要的是，中间生成的控制点序列：
-* 左半段控制点：$P_0^{[0]}, P_0^{[1]}, P_0^{[2]}, P_0^{[3]}$
-* 右半段控制点：$P_0^{[3]}, P_1^{[2]}, P_2^{[1]}, P_3^{[0]}$
+$k=n$ のとき、最終収束点 $P_0^{[n]}$ は正確に $t$ における曲線の座標 $B(t)$ と一致する！ さらに重要なことに、途中で生成された制御点系列：
+* 前半区間の制御点：$P_0^{[0]}, P_0^{[1]}, P_0^{[2]}, P_0^{[3]}$
+* 後半区間の制御点：$P_0^{[3]}, P_1^{[2]}, P_2^{[1]}, P_3^{[0]}$
 
-直接将原三次ベジェ曲線（Bézier Curve）精确细分为两段独立的无缝衔接三次曲线。ラスタライズ（Rasterization）渲染引擎（Rasterizer）以此为基础执行自适应递归二分细分（Recursive Subdivision），直至每一小段曲线与直线线段的离散误差小于单个像素点尺寸，从而以惊人的极速完成抗锯齿位图ラスタライズ（Rasterization）！
+は、元の 3 次ベジェ曲線を二つの独立した滑らかに接続された 3 次曲線へと正確に分割する。ラスタライザ（Rasterizer）はこの性質を利用して再帰的二分割細分（Recursive Subdivision）を実行し、個々の微小曲線と直線線分の離散誤差が単一ピクセル未満になるまで分割を繰り返すことで、驚異的な超高速でアンチエイリアスビットマップラスタライズを完遂するのである！
 
 ---
 
-# 结语
+# 結び
 
-至此，我们完成了对ヤニス・ハラランブス教授鸿篇巨制『Fonts & Encodings』全部十四章及附录 A–G 的全方位技术参考汉译。从人类最原始的铅活字物理力学，到统一万象的 Unicode 编码空间；从经典桌上操作系统的字库总线，到现代网络动态排印与 SVG 矢量流；从ベジェ曲線（Bézier Curve）的微分几何数学，到虚拟机图灵完备的微调逻辑——数字字体不仅是计算机科学与工程算法的结晶，更是人类文字文明在硅基时代得以永续传承的宏伟殿堂！
+ここに、ヤニス・ハラランブス教授の記念碑的大著『Fonts & Encodings』の全十四章および付録 A〜G の学術和訳が完結した。人類の最も原初的な鉛活字の物理力学から、森羅万象を統べる Unicode の符号化空間に至るまで；古典的デスクトップ OS のフォントバスから、現代の Web 動的タイポグラフィと SVG ベクトル流に至るまで；ベジェ曲線の微分幾何学から、仮想マシンのチューリング完全なヒンティング論理に至るまで――デジタルフォントとは単なる計算機工学アルゴリズムの結晶であるのみならず、人類の文字文明がシリコンの時代において永劫に息づくための壮大なる神殿なのである！

@@ -6,6 +6,7 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 # 第五章：美国缉毒署（DEA）药物管制代码全典 (Drug Code Numbers)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  
+> **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 5, pp. 303–350.  
 > **学术规范说明**：本章忠实于原书第 289–336 页的原始文献，完整翻译舒尔金博士针对美国缉毒署内部行政编码体系由“内部统计”异化为“刑法重器”的法理批判，并收录全量数值段药物对照库。
 

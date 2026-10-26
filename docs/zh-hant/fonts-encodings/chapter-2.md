@@ -7,6 +7,7 @@ description: 雅尼斯·哈拉蘭布斯《Fonts & Encodings》第二章全文深
 ### Chapter 2: Characters, Glyphs, Bytes: An Introduction to Unicode
 **著者：雅尼斯·哈拉蘭布斯 博士（Yannis Haralambous, Ph.D.）**  
 *選自《字體與編碼》（Fonts & Encodings）原著第 53–94 頁*
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

@@ -4,6 +4,7 @@ description: "V・N・ソコリスキー教授『ロシアの科学者・ロケ�
 ---
 
 # 第4章：初期研究機関（GDL/GIRD/RNII）の総括と全編参考文献
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、孤立せる理論先駆者から国家的研究集団へ（GDL、GIRD、RNII）
 

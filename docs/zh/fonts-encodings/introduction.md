@@ -7,6 +7,7 @@ description: 雅尼斯·哈拉兰布斯《Fonts & Encodings》导言全文深度
 ### Introduction: Explorations
 **著者：雅尼斯·哈拉兰布斯 博士（Yannis Haralambous, Ph.D.）**  
 *选自《字体与编码》（Fonts & Encodings）原著第 1–26 页*
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

@@ -4,6 +4,7 @@ description: "『ロケット技術の先駆者たち：選集』ソ連科学ア
 ---
 
 # 主編序言：ロケット技術の先駆者たちと宇宙征服への道
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Editor's Preface by T. M. Mel'kumov
 
 > **「……社会主義こそは堅固にして確実なる発射台であり、ソ連邦はこの発射台から、強力無比にして精緻を極めた宇宙船を次々と果てしなき天空へと勝利のうちに送り出しているのである。」**  

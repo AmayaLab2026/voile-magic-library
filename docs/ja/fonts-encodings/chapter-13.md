@@ -1,191 +1,193 @@
 ---
-title: "第 13 章：ラスタライズ（Rasterization）优化与グリフ（Glyph）微调技术（Hinting）"
-description: "完整无删节中文译本：低分辨率屏幕渲染困境与物理机理；PostScript Type 1 声明式微调（对齐区 BlueValues、主干微调 hstem/vstem、微调动态置換（Substitution） hintmask、弹性机制 Flex）；TrueType 虚拟机字节码指令系统（CVT 控制值表、微光区 Twilight Zone、图形状態機械（State Machine）、MIAP/MIRP/IUP 指令、Delta 像素级补丁、微软 VTT 与 FontForge 交互式调试器）。"
+title: "第13章：ラスタライズ最適化とヒンティング技術（Hinting）"
+description: "完全無削除学術訳：低解像度画面描画の物理的課題（ドロップアウト、非対称性、ベースラインジッター）；PostScript Type 1 の宣言型ヒンティング（整列ゾーン BlueValues、ステムヒント hstem/vstem、ヒント置換 hintmask、フレックス機構 Flex）；TrueType 仮想マシンの命令型バイトコード体系（制御値テーブル CVT、トワイライトゾーン Twilight Zone、グラフィックスステート、MIAP/MIRP/IUP 命令、Delta ピクセル補正、マイクロソフト VTT および FontForge 対話的デバッガ）。"
+head:
+  - - meta
+    - name: keywords
+      content: ヒンティング, Hinting, ラスタライズ, TrueType バイトコード, PostScript ヒント, BlueValues, CVT, トワイライトゾーン, IUP, Delta命令, VTT, FontForge, ClearType
 ---
 
-# 第 13 章：ラスタライズ（Rasterization）优化与グリフ（Glyph）微调技术（Hinting）
-**雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著**
-*选自『Fonts & Encodings』第 507–550 页*
+# 第13章：ラスタライズ最適化とヒンティング技術（Hinting）
+**ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
+*『Fonts & Encodings』第507〜550頁より*  
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-在理想的纯数学世界中，ベジェ曲線（Bézier Curve）轮廓可以在连续实数坐标空间中无限平滑地延展。然而，人类阅读数字文本的物理终端——计算机显示器、液晶平板以及数字印刷机——却是由一个个微小、离散且呈刚性正交网格排列的物理像素点（Pixels）所构成的光栅点阵。
+純粋な数学の世界において、ベジェ曲線輪郭は連続的な実数座標空間の中で無限に滑らかに展開することができる。しかしながら、人間がデジタルテキストを閲覧する物理端末——ディスプレイ、液晶画面、そしてデジタル印刷機——は、微小かつ離散的で、硬直した直交グリッド状に配列された物理ピクセル（Pixels）によって構成されたラスタ格子にほかならない。
 
-当我们在极高分辨率（如 1200 至 2400 DPI 的激光照排机）下输出文字时，单个像素的物理尺寸微不可察，连续曲线被离散化时的锯齿误差可以忽略不计。然而，在主流桌面显示器（通常仅有 72 至 96 DPI）以及小字号正文阅读场景（如 9 至 12 磅文本，在屏幕上分配到的全身高度仅有区区 12 至 16 个像素！）下，**ラスタライズ（Rasterization）离散误差将演变成一场灾难性的排版浩劫**：
-* **脱落现象（Dropouts）**：在笔画交汇或极为纤细的圆弧处，连续的轮廓线可能恰好穿过了四个相邻像素的对角缝隙，导致没有一个像素的中心落在轮廓内部，从而在屏幕上呈现出触目惊心的断裂缺口！
-* **严重非对称性与粗细失衡（Asymmetry & Distortion）**：例如大写字母 ‘H’ 或 ‘m’ 本应具有绝对相同厚度的平行主干立柱，但由于轮廓落入像素网格时的浮点数舍入微差，一根立柱被四舍五入分配为 1 像素宽，另一根立柱却占用了 2 像素宽，导致原本优雅的字母在视觉上瞬间变得跛脚畸形！
-* **头脚颠簸（Baseline Jitter）**：并排排列的若干平直与圆弧字母（如 “H” 与 “O”），由于顶部或底部边缘落在不同的像素行边界上，导致整行文字的顶部与ベースライン（Baseline）呈现出波浪形的高低跳跃不齐。
+1200〜2400 DPI といった極めて高解像度のイメージセッタで印刷出力を行う場合、単一ピクセルの物理サイズは肉眼では不可分であり、連続曲線が離散化される際の誤差は無視できる。しかし、一般的なデスクトップモニタ（72〜96 DPI）や本文閲覧時の極小文字サイズ（9〜12 pt テキストでは、画面上で割り当てられる文字高さはわずか 12〜16 ピクセル程度に過ぎない！）においては、**ラスタライズに伴う離散化誤差は壊滅的なタイポグラフィ的悲劇を引き起こす**：
+* **ドロップアウト現象（Dropouts）**：ストロークの交差部や極めて細い円弧において、連続した輪郭線が隣接する4つのピクセル同士の隙間を斜めにすり抜けてしまい、どのピクセルの中心点も輪郭の内部に収まらない結果、画面上で文字の線が途切れてしまう断裂現象！
+* **著しい非対称性と太さの不均一（Asymmetry & Distortion）**：大文字「H」や「m」のように本来完全に同一の太さを持つべき平行な縦ステムが、ピクセルグリッドに落ち込む際の端数処理の微差により、一方のステムは四捨五入で 1 ピクセル幅、もう一方は 2 ピクセル幅を占拠してしまい、文字が視覚的に極端に歪んでしまう現象！
+* **ベースラインのガタつき（Baseline Jitter）**：直線の文字と曲線の文字（例えば「H」と「O」）が並んだ際、上端や下端のエッジが異なるピクセル行の境界を跨ぐことにより、行全体のベースラインや頭揃えが波打つように乱れてしまう現象。
 
-为了化解上述严峻危机，数字字体技术中诞生了一门至关重要的核心高阶工艺——**グリフ（Glyph）微调技术**（**Hinting** / 优化ラスタライズ（Rasterization））。
+これら過酷な危機を回避するため、デジタルフォント技術において誕生した極めて高度な職人芸とアルゴリズムの結晶が——**字形微調整技術（ヒンティング, Hinting）**である。
 
-::: tip 図 13-1：PostScript Type 1 字体在不同ラスタライズ（Rasterization）优化策略下的显示效果显微对比（以 Monotype Old Style 字体为例）。从上至下依次展示：完全无微调的原始粗暴采样、施加基础全局微调对齐、施加局部高级微调提示，以及结合抗锯齿（Anti-aliasing）与次像素渲染（ClearType）后的锐利优雅呈现
-![図 13-1：PostScript Type 1 字体在不同ラスタライズ（Rasterization）优化策略下的显示效果显微对比](/images/fonts-encodings/fig13-1.png)
-*図 13-1：PostScript Type 1 字体在不同ラスタライズ（Rasterization）优化策略下的显示效果显微对比（以 Monotype Old Style 字体为例）。从上至下依次展示：完全无微调的原始粗暴采样、施加基础全局微调对齐、施加局部高级微调提示，以及结合抗锯齿（Anti-aliasing）与次像素渲染（ClearType）后的锐利优雅呈现。*
+::: tip 図 13-1：異なるラスタライズ最適化戦略下における PostScript Type 1 フォントの描画比較（Monotype Old Style の例）
+![Figure 13-1: Microscopic comparison of PostScript Type 1 rendering strategies](/images/fonts-encodings/fig13-1.png)
+*図 13-1：PostScript Type 1 フォントのラスタライズ比較（Monotype Old Style）。上から順に：ヒンティングを一切行わない粗野な標本化、基本的な大域アライメント適用、高度な局所ヒント指示適用、そしてアンチエイリアスとサブピクセル描画（ClearType）を統合した最終状態。*
 :::
 
-在字体工程史上，两大对立阵营发展出了截然相反的两套微调技术哲学：**Adobe PostScript 的声明式微调（Declarative Hinting）**与**苹果/微软 TrueType 的指令式微调（Imperative Hinting / Bytecode）**。
+フォント工学の歴史において、二大陣営は対極をなす2つのヒンティング哲学を発展させた：**Adobe PostScript の宣言型ヒンティング（Declarative Hinting）**と、**アップルおよびマイクロソフトによる TrueType の命令型ヒンティング（Imperative Hinting / Bytecode）**である。
 
 ---
 
-# PostScript 声明式微调体系（PostScript Hints）
+# PostScript 宣言型ヒンティング体系（PostScript Hints）
 
-Adobe 在设计 PostScript Type 1 与 Type 2 (OpenType CFF) 格式时，秉承了“字模轻量化、将复杂解析负担交由智能ラスタライズ（Rasterization）解释器（如 Adobe Type Manager, ATM）承担”的哲学。在 Type 1 字体中，微调信息并非可执行代码，而是一组声明性的排印度量参数与几何约束特征：
+Adobe は PostScript Type 1 および Type 2 (OpenType CFF) 形式を設計するにあたり、「フォントファイル自体は軽量に保ち、複雑な解釈処理はインテリジェントなラスタライザ（Adobe Type Manager, ATM など）に委ねる」という哲学を掲げた。Type 1 フォントにおけるヒント情報は実行可能コードではなく、一連の宣言的なメトリクスパラメータと幾何拘束特徴である：
 
-## 1. 对齐区（Alignment Zones / Blue Zones）
+## 1. 整列ゾーン（Alignment Zones / Blue Zones）
 
-为了根除整行文字在小字号下ベースライン（Baseline）颠簸与キャップハイト（Cap Height）不一的顽疾，PostScript 引入了著名的“蓝色对齐区”（Blue Zones）。设计者在字体的全局私有字典（Private Dictionary）中声明两组关键数组：
-* `BlueValues`：用于精确控制**ベースライン（Baseline）**（Baseline）与所有**向上延伸的排印特征**（包括大写字母高度 Cap-Height、小写アセンダー（Ascender）高度 Ascender、数字大写字高）。
-* `OtherBlues`：用于精确控制所有**向下延伸的排印特征**（主要是小写ディセンダー（Descender）高度 Descender）。
+行全体のベースラインの乱れや大文字高さの不揃いを解消するため、PostScript は名高い「ブルーゾーン（Blue Zones）」を導入した。設計者はフォントの大域的なプライベート辞書（Private Dictionary）に2組の重要な配列を宣言する：
+* `BlueValues`：**ベースライン（Baseline）**と、すべての**上方に伸びる組版特徴**（大文字高さ Cap-Height、小文字アセンダ高さ、ライニング数字高さ）を精密に制御する。
+* `OtherBlues`：すべての**下方に伸びる組版特徴**（主に小文字ディセンダ深さ Descender）を制御する。
 
-每个对齐区由一对严格递增的整型坐标定义：$[y_{\text{bottom&#125;&#125;, y_{\text{top&#125;&#125;]$。其中一条边代表平直字符（如大写 ‘H’）的严格几何基准线，另一条边则划定了圆弧字符（如大写 ‘O’）为了在视错觉上与平直字符等高而在物理上刻意微微超出基准线的**外突溢出区**（Overshoot）。
+各整列ゾーンは、昇順の整数の組 $[y_{\text{bottom}}, y_{\text{top}}]$ によって定義される。一方の辺は直線文字（大文字「H」など）の厳格な幾何基準線を表し、もう一方の辺は、錯視によって直線文字と同じ高さに見せるために意図的に基準線をわずかに越えて描かれる曲線文字（大文字「O」など）の**オーバーシュート領域（Overshoot）**を画定する。
 
-::: tip 図 13-2：PostScript 字体中的核心对齐区示意图：(1) 大写字母基准高度与大写 ‘O’ 的顶部外突区；(2) 小写字母 x-ハイト（x-height）与小写 ‘o’ 的顶部外突区；(3) 文本ベースライン（Baseline）与 ‘o’、‘p’ 的底部外突区；(4) 下行ディセンダー（Descender）最低线与 ‘p’ 的底部外突区
-![図 13-2：PostScript 字体中的核心对齐区示意图](/images/fonts-encodings/fig13-2.png)
-*図 13-2：PostScript 字体中的核心对齐区示意图：(1) 大写字母基准高度与大写 ‘O’ 的顶部外突区；(2) 小写字母 x-ハイト（x-height）与小写 ‘o’ 的顶部外突区；(3) 文本ベースライン（Baseline）与 ‘o’、‘p’ 的底部外突区；(4) 下行ディセンダー（Descender）最低线与 ‘p’ 的底部外突区。*
+::: tip 図 13-2：PostScript フォントにおける中核的整列ゾーンの概念図
+![Figure 13-2: Core alignment zones in PostScript fonts](/images/fonts-encodings/fig13-2.png)
+*図 13-2：PostScript の整列ゾーン：(1) 大文字基準高と大文字「O」の上部オーバーシュート領域；(2) 小文字 x-高さと小文字「o」の上部オーバーシュート領域；(3) ベースラインと「o」「p」の下部オーバーシュート領域；(4) ディセンダ下限線と「p」の下部オーバーシュート領域。*
 :::
 
-当ラスタライズ（Rasterization）引擎检测到当前目标字号极小（低于系统设定的 `BlueScale` 阈值，通常为 12 磅以下）时，解释器将启动强大的“过冲抑制机制”：**强制将所有落在溢出区内的圆弧外突节点强行拉平至基准水平像素线上，确保所有字母严丝合缝地锁定在同一像素高度！** 只有当分辨率或字号足够大、单个像素已无法察觉视错觉差异时，引擎才会松开约束，恢复圆弧字体的饱满微弧。
+ラスタライズエンジンは、文字サイズが極小（システム定義の `BlueScale` 閾値未満、通常 12 pt 未満）であることを検出すると、強力な「オーバーシュート抑制機構」を発動する：**オーバーシュート領域内に落ち込んだすべての円弧の頂点を強制的に基準ピクセル行へと引き下げ、全文字を寸分の狂いもなく同一ピクセル行へとロックする！** 解像度が十分に高くなり、1ピクセルの差が錯視の補正として知覚可能になった段階でのみ、エンジンは拘束を緩め、豊かな円弧を復元する。
 
-此外，为了保证整个庞大字体家族（正体、粗体、斜体、浓缩体）在同一页面混排时视觉高度绝对整齐划一，Type 1 还允许定义 `FamilyBlues` 与 `FamilyOtherBlues`，强制所有衍生样式服从统一的家族基准。
+また、ファミリー全体（標準、太字、斜体、コンデンス）で高さを統一するため、`FamilyBlues` および `FamilyOtherBlues` を定義して一貫した基準を強制することも可能である。
 
-::: tip 図 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面
-![図 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面](/images/fonts-encodings/fig13-3.png)
-*図 13-3：FontLab 中配置全局微调设置（Hinting Settings）与标准笔画宽度（Standard stems）的参数界面。*
-:::
-
----
-
-## 2. 主干微调（Stem Hints）与三连微调
-
-针对字符中核心的受力主干笔画，PostScript 在グリフ（Glyph）底层字符解释程序（CharString）中提供了专门的操作符：
-* `hstem`（水平主干）：声明一条由起始纵坐标 $y$ 与笔画垂直跨度宽度 $dy$ 所界定的水平笔画区域。
-* `vstem`（垂直主干）：声明一条由起始横坐标 $x$ 与笔画水平跨度宽度 $dx$ 所界定的垂直笔画区域。
-* `hstem3` 与 `vstem3`：专门用于应对具有三根等宽、等间距平行骨架的复杂グリフ（Glyph）（例如小写字母 ‘m’ 的三根垂直立柱，或大写字母 ‘E’ 的三根水平横梁）。
-
-::: tip 図 13-4：FontLab グリフ（Glyph）编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面。半透明彩色高亮条直观映射各受保护笔画的宽度与位置边界
-![図 13-4：FontLab グリフ（Glyph）编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面](/images/fonts-encodings/fig13-4.png)
-*図 13-4：FontLab グリフ（Glyph）编辑窗口中交互式显示与调控独立主干微调（Stem Hints）界面。半透明彩色高亮条直观映射各受保护笔画的宽度与位置边界。*
+::: tip 図 13-3：FontLab における大域的ヒンティング設定と標準ステム幅の構成パネル
+![Figure 13-3: FontLab's Hinting Settings and Standard stems interface](/images/fonts-encodings/fig13-3.png)
+*図 13-3：FontLab のグローバルヒンティング設定画面。*
 :::
 
 ---
 
-## 3. 微调动态置換（Substitution）机制（Hint Substitution / Hint Replacement）
+## 2. ステムヒント（Stem Hints）と3連ステムヒント
 
-在几何结构复杂的字符中，不同局部的ヒンティング（Hinting）经常会发生空间冲突。例如大写字母 ‘B’，其上部圆环与下部圆环各自拥有独立收缩的水平横笔，而在中央交汇处又存在重叠。如果整套グリフ（Glyph）自始至终只应用单一静态微调集合，ラスタライズ（Rasterization）引擎将不可避免地顾此失彼。
+文字の骨格を支える主要ストロークに対して、PostScript はグリフ解釈プログラム（CharString）内で専用のオペレータを提供する：
+* `hstem`（水平ステム）：開始 Y 座標 $y$ と垂直ストローク幅 $dy$ によって定義される水平ステム領域を宣言する。
+* `vstem`（垂直ステム）：開始 X 座標 $x$ と水平ストローク幅 $dx$ によって定義される垂直ステム領域を宣言する。
+* `hstem3` および `vstem3`：小文字「m」の3本の縦柱や大文字「E」の3本の横梁のように、等幅・等間隔の3本平行骨格を持つ複雑なグリフのために用意された専用演算子。
 
-为了突破这一瓶颈，Type 1 规范引入了革命性的**微调置換（Substitution）机制**（Hint Substitution）：在グリフ（Glyph）绘制数据流中，允许在不同的子轮廓绘制指令之间插入新的微调定义；而在更先进的 Type 2 (CFF) 规范中，更将所有主干微调集中声明在グリフ（Glyph）头部，随后在路径绘制过程中通过轻量级的 `hintmask`（微调掩码）指令，随时按需激活或冻结特定的微调子集！
-
-::: tip 図 13-5：FontLab 中对グリフ（Glyph）实施高级微调动态置換（Substitution）（Hint Replacement）的分组配置界面
-![図 13-5：FontLab 中对グリフ（Glyph）实施高级微调动态置換（Substitution）（Hint Replacement）的分组配置界面](/images/fonts-encodings/fig13-5.png)
-*図 13-5：FontLab 中对グリフ（Glyph）实施高级微调动态置換（Substitution）（Hint Replacement）的分组配置界面。*
-:::
-
-::: tip 図 13-6：FontForge 软件中管理与自动化生成独立ヒンティング（Hinting）的交互界面
-![図 13-6：FontForge 软件中管理与自动化生成独立ヒンティング（Hinting）的交互界面](/images/fonts-encodings/fig13-6.png)
-*図 13-6：FontForge 软件中管理与自动化生成独立ヒンティング（Hinting）的交互界面。*
+::: tip 図 13-4：FontLab グリフ編集ウィンドウにおけるステムヒントの対話的表示と調整
+![Figure 13-4: Interactive display and adjustment of stem hints in FontLab](/images/fonts-encodings/fig13-4.png)
+*図 13-4：FontLab のステムヒント調整画面。半透明のカラーバーが各ストロークの幅と位置の境界を直感的にマッピングしている。*
 :::
 
 ---
 
-## 4. 浅弓挠度弹性机制（Flex Mechanism）
+## 3. ヒント置換機構（Hint Substitution / Hint Replacement）
 
-在古典手写风骨的字体中，存在大量表面上看似接近水平或垂直、但实际上带有极其微弱下凹弧度（Sagitta 弧高通常仅有区区 2 至 5 个设计单位）的优雅长曲线（例如大写 ‘H’ 的水平横档中段微微下垂）。
+大文字「B」のように上下のループが独立して収縮し中央で交差する複雑な文字では、静的な単一のヒントセットだけでは空間的競合を避けることができない。
 
-在低分辨率屏幕上，如果ラスタライズ（Rasterization）引擎老老实实去采样这段极浅的曲线，由于像素离散误差，原本连贯平滑的微弧极易突兀地向上或向下突出一颗极其刺眼的孤立黑像素，破坏整体整洁度。为此，Adobe 发明了著名的 **Flex 机制**：将这种微弱浅弧用特殊的嵌套子程序包装。当ラスタライズ（Rasterization）引擎计算发现当前字号下该弧段的最大物理偏离量小于半个像素（0.5 px）时，引擎将断然忽略微弧，自动强制将其压平成一条绝对笔直的刚性直线；而一旦分辨率提升至肉眼能够分辨微弧时，曲线形态便优雅复苏。
+これに対し、Type 1 規格は**ヒント置換機構（Hint Substitution）**を導入し、輪郭描画の途中で新たなヒントを宣言し直すことを可能にした。さらに進化した Type 2 (CFF) では、文字の先頭ですべてのステムヒントを一括宣言し、パス描画中に軽量な `hintmask`（ヒントマスク）命令を用いて、必要なヒントのサブセットを動的にオン／オフする高度な制御を実現している。
 
----
-
-# TrueType 虚拟机与指令式微调（TrueType Instructions）
-
-如果说 PostScript 的微调是向ラスタライズ（Rasterization）解释器提供“参考建议”，那么苹果与微软联手打造的 **TrueType** 微调体系，则是一场彻底的“君主专制”——**它直接在每一个グリフ（Glyph）文件内部，嵌入了一座功能完备、拥有图灵完备指令集的微型虚拟机（TrueType Virtual Machine）**！
-
-在 TrueType 中，ラスタライズ（Rasterization）引擎不再是一个能够自作主张的“智能艺术家”，而是一个绝对听话的“执行木偶”。字体设计师通过向虚拟机灌入底层字节码汇编指令，亲自接管从轮廓缩放到每个像素点亮与熄灭的绝对控制权！
-
-::: tip 図 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与ヒンティング（Hinting）管线。灰色轮廓直观展示了被字节码指令强行扭曲推拉至像素物理网格边缘的真实变形状态
-![図 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与ヒンティング（Hinting）管线](/images/fonts-encodings/fig13-7.png)
-*図 13-7：FontLab 中全方位实时模拟 TrueType 像素网格对齐、轮廓变形与ヒンティング（Hinting）管线。灰色轮廓直观展示了被字节码指令强行扭曲推拉至像素物理网格边缘的真实变形状态。*
+::: tip 図 13-5：FontLab における高度なヒント置換（Hint Replacement）のグループ構成パネル
+![Figure 13-5: Hint Replacement configuration interface in FontLab](/images/fonts-encodings/fig13-5.png)
+*図 13-5：FontLab のヒント置換設定画面。*
 :::
 
-## 1. TrueType 虚拟机的内存与执行架构
-
-TrueType 虚拟机的内部结构由以下核心部件咬合而成：
-* **执行堆栈（The Stack）**：后进先出（LIFO）的数据栈，用于传递操作数、数值与坐标索引。
-* **通用存储区（Storage Area）**：一个可由指令自由读写的全局寄存器数组，用于在不同グリフ（Glyph）指令之间暂存临时状态。
-* **图形状態機械（State Machine）（Graphics State, GS）**：维护当前渲染环境的数百个上下文状态变量，包括自由投影向量（Projection Vector）、自由测量向量（Dual Projection Vector）、舍入状态规则（Round State）、网格补偿参数与当前激活的参考点寄存器（$rp_0, rp_1, rp_2$）。
-* **微光区（The Twilight Zone）**：一个极其神秘而精妙的虚拟几何绘图平面（对应グリフ（Glyph）索引 0 之前的虚拟区）。设计者可以在微光区中凭空创造出实际字符轮廓中根本不存在的纯数学虚拟几何辅助参考点（Phantom Points），利用它们作为复杂合字（Ligature）或倾斜投影的物理对齐杠杆！
-* **控制值表（Control Value Table, CVT）**：整个 TrueType 字体中最关键的全局排印度量常数库！它在字体二进制文件中以 `'cvt '` 表形式独立存储。
-
-::: tip 図 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图。条目中精确固化了ベースライン（Baseline）、キャップハイト（Cap Height）、小写 x-ハイト（x-height）等核心物理尺寸在设计网格下的标准数值
-![図 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图](/images/fonts-encodings/fig13-8.png)
-*図 13-8：TrueType 控制值表（CVT）索引 0 至 19 条目的排印度量高度含义映射图。条目中精确固化了ベースライン（Baseline）、キャップハイト（Cap Height）、小写 x-ハイト（x-height）等核心物理尺寸在设计网格下的标准数值。*
-:::
-
-::: tip 図 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图
-![図 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图](/images/fonts-encodings/fig13-9.png)
-*図 13-9：TrueType 控制值表（CVT）索引 68 至 119 条目关于衬线高度（SH）与衬线宽度（SW）的映射图。*
+::: tip 図 13-6：FontForge におけるヒント命令の管理と自動生成インターフェース
+![Figure 13-6: Interface for managing and generating hints in FontForge](/images/fonts-encodings/fig13-6.png)
+*図 13-6：FontForge のヒンティング管理画面。*
 :::
 
 ---
 
-## 2. 核心字节码指令全集
+## 4. 微小撓みのフレックス機構（Flex Mechanism）
 
-TrueType 的指令集包含上百条底层机器码，涵盖从堆栈逻辑、算术运算到精密几何调控的全部领域：
+大文字「H」の横棒の中央がほんのわずかに下垂しているような、伝統的な肉筆の風合いを持つ極めて浅い曲線（矢高がわずか 2〜5 デザイン単位程度）が存在する。
 
-### 锚点对齐与刚性位置調整（Positioning）指令
-* `MDAP[a]`（Move Direct Absolute Point）：将堆栈指定的链上节点直接以当前舍入规则捕捉对齐到最近的物理像素网格线上。标志位 `a` 控制是否同时更新参考点。
-* `MIAP[a]`（Move Indirect Absolute Point）：**间接绝对点移动**。它不仅仅是对齐网格，而是首先在 CVT 控制值表中检索预设的标准尺寸，若当前尺寸与预设值误差在容差带（Cut-in）之内，则强制将其置換（Substitution）为 CVT 标准值，然后再对齐到像素网格！
-
-### 相对间距与主干厚度控制指令
-* `MDRP`（Move Direct Relative Point）：以某个已被固定的参考点为锚点，将目标节点保持绝对固定的物理相对距离。
-* `MIRP`（Move Indirect Relative Point）：**间接相对点移动**。控制笔画主干（如竖立柱的两侧边缘）的核心王牌指令！它以第一条边为基准，参考 CVT 表中规定的标准主干宽度，在像素网格上推拉第二条边，确保整套字体中所有字符的垂直笔画在当前字号下严格保持绝对完全一致的物理像素厚度！
-
-### 链上未触碰节点的平滑顺应指令（IUP）
-* `IUP[X]` 与 `IUP[Y]`（Interpolate Untouched Points）：在用 `MIAP` 与 `MIRP` 强行将グリフ（Glyph）的关键极值骨架节点对齐到像素网格之后，曲线中间成百上千个未曾直接受到指令控制的其余控制点该如何自处？`IUP` 指令将沿着轮廓遍历，根据两侧已固定关键节点的实际移动向量，利用优雅的线性插值算法，带动中间所有附属点平滑顺应位移，从而在消除笔画畸变的同时，完美维系了曲线原有的优美弧度！
+低解像度画面においてこのような浅い曲線を愚直にサンプリングすると、ピクセルの丸め誤差によって、滑らかなはずの微小弧から1個の黒ピクセルが無残に突出してしまう。このため Adobe は **Flex 機構** を開発した：最大偏位量が 0.5 ピクセル未満である微小弧を検知した際、ラスタライザはそれを完全に平坦な直線として強制描画し、解像度が十分に高くなった段階でのみ本来の優雅な曲線を復元するのである。
 
 ---
 
-## 3. 针对特定低分辨率的点穴式手术刀：Delta ヒンティング（Hinting）
+# TrueType 仮想マシンと命令型ヒンティング（TrueType Instructions）
 
-在极低分辨率下，无论多么精密的普遍性数学对齐规则，有时都无法避免某些字号下的视觉尴尬（例如在极为特殊的 11 像素高度下，某个汉字的某一点恰好落在两条像素线交界中线上，导致显示严重发虚）。
+PostScript のヒンティングがラスタライザに対する「親切な助言」であるとすれば、アップルとマイクロソフトが創出した **TrueType** のヒンティング体系は、徹底した「絶対王政」である——**各フォントファイルの内部に、チューリング完全な命令セットを備えた本格的な極小仮想マシン（TrueType Virtual Machine）を直接内蔵してしまったのである！**
 
-为此，TrueType 亮出了终极终极必杀器——**Delta ヒンティング（Hinting）**（`DELTAP1`, `DELTAP2`, `DELTAP3`, `DELTAC1`, `DELTAC2`, `DELTAC3`）：
-* 设计者可以明确指定：“**仅当且仅当ラスタライズ（Rasterization）点阵大小精确等于每全身 13 像素（13 PPM）时，将第 4 号节点沿 X 轴向右微调挪动 $1/8$ 像素；而在 14 PPM 时，向左微调挪动 $2/8$ 像素；在其余所有字号下一概不生效！**”
+TrueType において、ラスタライザは自律的に判断する芸術家ではなく、フォント側の指示に絶対服従する操り人形に過ぎない。書体デザイナーは仮想マシンへバイトコード命令を注入することで、輪郭の伸縮からピクセルの点灯・消灯に至る全権を自ら直接掌握する！
 
-这种外科手术般精准的逐像素定点修补能力，赋予了 TrueType 在早期 Windows 系统极低分辨率 CRT/LCD 显示器上无可匹敌的绝对清晰刀锋！
-
----
-
-## 4. 可视化微调生产工具：微软 VTT 与 FontForge 调试器
-
-由于直接手写十六进制 TrueType 汇编机器码极其晦涩痛苦，工业界诞生了专用的可视化微调辅助环境：
-
-* **Microsoft Visual TrueType**（**VTT**）：微软公司倾力打造的工业级官方微调利器。它采用高层人类可读的高级微调语言（TalkBack / VTT Talk），通过直观的图形化箭头锚点，自动将其编译为底层 TrueType 字节码流（図 13-10）。
-* **FontForge 指令调试器**：为开源世界提供了媲美专业软件调试工具的交互式单步执行环境（Instruction Debugger）。设计者可以在虚拟机的堆栈、寄存器、CVT 表、Storage 区与ラスタライズ（Rasterization）点阵窗口之间设置断点，逐帧观察每一个贝塞尔锚点在ヒンティング（Hinting）驱动下的微观跳动轨迹（図 13-11、13-12、13-13）！
-
-::: tip 図 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口
-![図 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口](/images/fonts-encodings/fig13-10.png)
-*図 13-10：微软 Visual TrueType（VTT）的可视化单字微调工程窗口。*
+::: tip 図 13-7：FontLab による TrueType ピクセルグリッド整合、輪郭変形および命令パイプラインのリアルタイムシミュレーション
+![Figure 13-7: Real-time simulation of TrueType grid-fitting in FontLab](/images/fonts-encodings/fig13-7.png)
+*図 13-7：FontLab における TrueType グリッドフィッティングシミュレーション。灰色の輪郭線は、バイトコード命令によって物理ピクセルの境界へと強力に変形・スナップされた実際の状態を示している。*
 :::
 
-::: tip 図 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口
-![図 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口](/images/fonts-encodings/fig13-11.png)
-*図 13-11：FontForge 中单步调试与断点监控 TrueType 字节码指令的执行调试窗口。*
+## 1. TrueType 仮想マシンのメモリと実行アーキテクチャ
+
+TrueType 仮想マシンは、以下の極めて洗練されたコンポーネントから構成される：
+* **実行スタック（The Stack）**：後入れ先出し（LIFO）のデータスタック。演算数、座標インデックス、数値を授受する。
+* **ストレージ領域（Storage Area）**：命令から自由に読み書き可能な大域レジスタ配列。グリフ間で一時的な状態を保持する。
+* **グラフィックスステート（Graphics State, GS）**：現在の描画環境の数百もの文脈変数を保持する（投影ベクトル、測定ベクトル、丸め規則、基準点レジスタ $rp_0, rp_1, rp_2$ など）。
+* **トワイライトゾーン（The Twilight Zone）**：グリフの実際の輪郭には存在しない純粋な数学的仮想参照点（Phantom Points）を創出可能な仮想幾何平面。複雑なアクセント配置や斜体投影のアライメント梃子として機能する！
+* **制御値テーブル（Control Value Table, CVT）**：フォント全体の中核的組版定数バンクであり、`'cvt '` テーブルとしてバイナリ内に独立保存される。
+
+::: tip 図 13-8：TrueType 制御値テーブル（CVT）インデックス 0〜19 の組版寸法マッピング
+![Figure 13-8: Mapping of TrueType Control Value Table (CVT) entries 0 through 19](/images/fonts-encodings/fig13-8.png)
+*図 13-8：TrueType CVT テーブルのインデックス 0〜19 の寸法定義図。ベースライン、大文字高さ、x-高さなどの物理寸法が厳密に数値化されている。*
 :::
 
-::: tip 図 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口：通用寄存器（Registers）、控制值表（Cvt）、临时存储区（Storage）、节点坐标表（Points）、执行堆栈（Stack）、ラスタライズ（Rasterization）位图预览（Raster）与术语字典（Glossary）
-![図 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口](/images/fonts-encodings/fig13-12.png)
-*図 13-12：FontForge 虚拟机调试环境中的七大辅助监控子窗口：通用寄存器（Registers）、控制值表（Cvt）、临时存储区（Storage）、节点坐标表（Points）、执行堆栈（Stack）、ラスタライズ（Rasterization）位图预览（Raster）与术语字典（Glossary）。*
-:::
-
-::: tip 図 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面
-![図 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面](/images/fonts-encodings/fig13-13.png)
-*図 13-13：FontForge 中直接编辑 TrueType 底层指令脚本的代码编辑工作界面。*
+::: tip 図 13-9：TrueType 制御値テーブル（CVT）インデックス 68〜119 におけるセリフ高さ（SH）とセリフ幅（SW）のマッピング
+![Figure 13-9: Mapping of TrueType Control Value Table (CVT) entries 68 through 119](/images/fonts-encodings/fig13-9.png)
+*図 13-9：TrueType CVT テーブルのインデックス 68〜119 におけるセリフ寸法定義図。*
 :::
 
 ---
 
-# 结语
+## 2. 中核バイトコード命令群
 
-グリフ（Glyph）微调技术，是计算机科学在极度严苛的物理离散硬件限制面前，所谱写出的一曲震撼人心的工程赞歌。它不仅要求设计者具备艺术家对笔触灰度的极致敏锐，更要求其拥有系统程序员在底层堆栈与多项式插值间自如游刃的深厚功力。
+TrueType の命令セットは100以上の低レベル命令を擁する：
 
-正是这些深埋在字体文件深处、肉眼看不见的微调数据与字节码指令，日夜守护着数十亿屏幕前人类文明文字阅读的明晰、尊严与从容。
+### アンカー配置と位置固定命令
+* `MDAP[a]`（Move Direct Absolute Point）：指定ノードを現在の丸め規則に従って最も近い物理ピクセル境界へ直接スナップする。
+* `MIAP[a]`（Move Indirect Absolute Point）：**間接絶対点移動**。単にスナップするだけでなく、CVT テーブルの標準寸法と照合し、誤差が許容値（Cut-in）以内であれば CVT の標準値へ強制補正した上でグリッドへ整列させる！
+
+### 相対間隔とステム幅制御命令
+* `MDRP`（Move Direct Relative Point）：固定された基準点からの相対距離を維持して対象ノードを配置する。
+* `MIRP`（Move Indirect Relative Point）：**間接相対点移動**。ステム幅（縦柱の両端など）を統制する最重要命令！第1のエッジを基準とし、CVT テーブルの標準幅を参照して第2のエッジを押し引きし、フォント全体の垂直ストローク幅を完全に同一ピクセル厚に統一する！
+
+### 未制御ノードの平滑追従命令（IUP）
+* `IUP[X]` および `IUP[Y]`（Interpolate Untouched Points）：主要ノードがピクセル格子に強制スナップされた後、命令を直接受けていない中間の無数の曲線の点はどうなるのか？`IUP` 命令は輪郭に沿って走査し、両端の固定点の移動量に基づいて線形補間演算を行い、中間のすべての付随点を滑らかに追従移動させる。これにより、文字の歪みを防ぎつつ本来の曲線の美しさを維持する！
+
+---
+
+## 3. 低解像度ピンポイント手術：Delta ヒント命令
+
+極小サイズにおいて、いかに普遍的な数学規則であっても視覚的違和感を完全に排除できないケースが生じる。ここで TrueType が放つ究極の切り札が **Delta 命令**（`DELTAP1`, `DELTAP2`, `DELTAP3` 等）である：
+* 設計者はピンポイントで命令できる：**「ラスタライズサイズが厳密に 13 ピクセル（13 PPM）のときのみ、第4ノードを右へ $1/8$ ピクセル微小移動せよ。14 PPM のときは左へ $2/8$ ピクセル移動せよ。それ以外のサイズでは一切無視せよ！」**
+
+この外科手術のような精密さこそが、黎明期の低解像度 Windows 環境において TrueType に圧倒的な鮮明度をもたらしたのである！
+
+---
+
+## 4. ビジュアル開発環境：マイクロソフト VTT と FontForge デバッガ
+
+難解なバイトコードを手書きする過酷な作業を支援するため、専用の視覚的ツールが整備された：
+* **Microsoft Visual TrueType（VTT）**：マイクロソフト純正の産業用ヒンティング環境。高水準な記述言語（TalkBack / VTT Talk）と直感的な GUI 矢印を用いて、低レベルの TrueType バイトコードストリームを自動コンパイル生成する（図 13-10）。
+* **FontForge 命令デバッガ**：オープンソース界最高峰の対話的ステップ実行環境。スタック、レジスタ、CVT 表、Storage 領域を監視しつつブレークポイントを設定し、命令実行に伴うアンカーの微動を1フレームずつ観察できる（図 13-11、13-12、13-13）！
+
+::: tip 図 13-10：マイクロソフト Visual TrueType（VTT）の視覚的ヒンティング工程ウィンドウ
+![Figure 13-10: Microsoft Visual TrueType (VTT) interface](/images/fonts-encodings/fig13-10.png)
+*図 13-10：Microsoft Visual TrueType（VTT）の編集画面。*
+:::
+
+::: tip 図 13-11：FontForge における TrueType バイトコード命令のステップ実行デバッグ画面
+![Figure 13-11: Instruction Debugger in FontForge](/images/fonts-encodings/fig13-11.png)
+*図 13-11：FontForge の命令デバッガ画面。*
+:::
+
+::: tip 図 13-12：FontForge 仮想マシンデバッグ環境における7大補助監視ウィンドウ群
+![Figure 13-12: The seven auxiliary debugging windows in FontForge](/images/fonts-encodings/fig13-12.png)
+*図 13-12：FontForge のデバッグ監視ウィンドウ群：レジスタ（Registers）、CVT 表（Cvt）、ストレージ（Storage）、ノード座標（Points）、スタック（Stack）、ラスタプレビュー（Raster）、用語辞書（Glossary）。*
+:::
+
+::: tip 図 13-13：FontForge における TrueType 低レベル命令スクリプトの直接編集画面
+![Figure 13-13: Direct editing of TrueType instructions in FontForge](/images/fonts-encodings/fig13-13.png)
+*図 13-13：FontForge の命令スクリプト編集画面。*
+:::
+
+---
+
+# 結び
+
+字形微調整（ヒンティング）技術は、極めて過酷なハードウェアの物理的離散性の前に計算機科学が打ち立てた、偉大なる工学の賛歌である。それは芸術家が持つ濃淡への鋭敏な感性と、システムプログラマーが持つ低レベルスタックや補間計算を操る卓越した論理的知性の双方を要求する。
+
+フォントファイルの深奥に刻まれたこれら目に見えないヒントデータとバイトコード命令こそが、世界中の無数のスクリーン上において、人類文明の文字の尊厳と可読性を日夜守り続けているのである。

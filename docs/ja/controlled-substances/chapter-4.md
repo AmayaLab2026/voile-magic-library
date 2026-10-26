@@ -6,6 +6,7 @@ titleTemplate: "規制物質：化学と法律のガイド · アレクサンダ
 # 第4章：規制薬物の化学構造図譜全典 (Chemical Structures of Scheduled Drugs)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 4, pp. 267–302.  
 > **学術基準**：原書第 253–288 ページの有機化学分類および原図譜系を忠実に再現し、原書に収載された全 33 組の化学分子系統図を完全収録。シュルギン博士が著した構造変遷、類似体規制法（Analogue Act）への射程、および構造活性相関（SAR）解析を一字一句厳密に翻訳。
 

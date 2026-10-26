@@ -6,6 +6,7 @@ titleTemplate: 規制物質：化学的・法的ガイド · アレクサンダ�
 # 第3章：連邦薬物管制法歴史沿革 (The History of the Federal Drug Law)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **原典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 3, pp. 257–266.  
 > **学術翻訳基準**：法制史および医薬法理学の学術規範に準拠し、原著第243〜252頁に収載された1886年から1990年に至る1世紀余りの全連邦薬物取締法、憲法上の管轄権の移行、資産没収法、ならびに国際条約の展開を**完全無削除・年次ごとの編年体全訳**として提示する。
 

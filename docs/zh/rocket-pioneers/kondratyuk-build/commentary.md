@@ -4,6 +4,7 @@ description: 《致读此书以建造者》（1918–1919）苏联科学院自�
 ---
 
 # 编委会文献考证与技术评注
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Commentary by the USSR Academy of Sciences
 *(选自 NASA TT F-9285 第 52–59 页 / 俄版第 639–654 页)*
 

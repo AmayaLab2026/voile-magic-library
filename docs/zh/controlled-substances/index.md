@@ -14,7 +14,7 @@ head:
 > **原著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
 > **版本**：Second Edition（第 2 版，1992 年）  
 > **出版**：Ronin Publishing, Inc. (Berkeley, California)  
-> **中文整理与图解**：ヴワル魔法図書館（Voile Magic Library）
+> **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 
 ---
 

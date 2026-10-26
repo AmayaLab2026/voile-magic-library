@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星际空间》（1929）第 2 章�
 ---
 
 # 第 2 章 · 飞行轨道的加速段与推进剂载荷公式
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section II. Formula for the Load Rating & Theory of Multistage Staging
 **尤里·瓦西里耶维奇·孔德拉秋克**  
 *(选自 NASA TT F-9285 第 64–66 页 / 原著第 7–9 页)*

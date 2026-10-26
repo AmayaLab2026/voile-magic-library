@@ -4,6 +4,7 @@ description: コンドラチュク『惑星間空間の征服』第 13 章全訳
 ---
 
 # 第 13 章 · 必須の実験研究課題大綱（10項目の基礎課題）
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section XIII. Outline of Essential Experimental Work
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  
 *(NASA TT F-9285 pp. 128–130 / 原著 pp. 90–93 より)*

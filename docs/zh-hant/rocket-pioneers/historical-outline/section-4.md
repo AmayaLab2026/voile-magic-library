@@ -4,6 +4,7 @@ description: V. N. 索科利斯基教授《俄羅斯火箭技術先驅（歷史�
 ---
 
 # 第四節：蘇聯早期火箭研發機構與全篇歷史文獻索引
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ## 一、從理論先驅走向國家科研集體（GDL、GIRD 與 RNII）
 

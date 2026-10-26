@@ -10,6 +10,7 @@ head:
 # 馆藏第二号典籍 ·《火箭技术先驱：选集》
 ### Pioneers of Rocket Technology: Selected Works
 **苏联科学院自然科学与技术史研究所 编纂**  
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 *美国国家航空航天局（NASA）技术翻译文献 NASA TT F-9285*
 
 > **“我是在死前数日，于囹圄之中写下这一方案的。我深信我的设想切实可行，这份信念支撑着我度过这可怕的处境……若我的方案能为国家与人类贡献微薄之力，我便能安详赴死，因为知晓我的构想不会随我化为灰烬，而将永存于世。”**  

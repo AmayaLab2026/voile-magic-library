@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第 8 章 · 大気層がロケットの上昇に及ぼす影響
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VIII. Effect of the Atmosphere on Rocket Ascent
 **ユーリ・ヴァシリエヴィチ・コンドラチュク（Yu. V. Kondratyuk）著**  
 *(NASA TT F-9285 pp. 88–101 / 原著 pp. 37–56 より)*

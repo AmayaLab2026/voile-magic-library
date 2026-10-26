@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『建設を志して本書を読�
 ---
 
 # 第1章 · 反動推進の基本原理と理想速度方程式
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### The Fundamental Principles of Reactive Propulsion & Theoretical Equations
 **ユーリ・ワシーリエヴィチ・コンドラチュク**  
 *(NASA TT F-9285 第18–22頁 / ロシア語原手稿 第501–508頁より)*

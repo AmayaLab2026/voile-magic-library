@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《致讀此書以建造者》（1918–1919
 ---
 
 # 第二章 · 軌道爬升方案、抗過載與活性推進劑
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Orbital Ascent, Physiological Protection & Advanced Propellants
 **尤里·瓦西裏耶維奇·孔德拉秋克**  
 *(選自 NASA TT F-9285 第 23–27 頁 / 俄版手稿第 508–514 頁)*

@@ -1,208 +1,213 @@
 ---
-title: "第 12 章：字体的设计、编辑与制作技术"
-description: "完整无删节中文译本：现代数字字体制作软件全景（Fontographer、FontStudio、FontLab Studio、FontForge、ScanFont）；PostScript 三次ベジェ曲線（Bézier Curve）与 TrueType 二次 B-样条数学机理、轮廓顺逆走向与缠绕法则、极值点约束、度量间距微调、多重母版（Multiple Master）设计空间与位图自动描摹算法。"
+title: "第12章：フォントの設計・編集と制作技術"
+description: "完全無削除学術訳：現代デジタルフォント制作ソフトウェア全景（Fontographer、FontStudio、FontLab Studio、FontForge、ScanFont）；PostScript 3次ベジェ曲線と TrueType 2次 B-スプラインの幾何数学、輪郭の方向と非ゼロワインディング規則、極値点拘束、組版メトリクス調整、マルチプルマスター（Multiple Master）設計空間、およびビットマップの自動トレースアルゴリズム。"
+head:
+  - - meta
+    - name: keywords
+      content: フォント制作, フォント設計, FontLab, FontForge, Fontographer, ベジェ曲線, B-スプライン, ワインディング規則, 極値点, マルチプルマスター, ScanFont, 自動トレース
 ---
 
-# 第 12 章：字体的设计、编辑与制作技术
-**雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）著**
-*选自『Fonts & Encodings』第 445–506 页*
-
----
-
-在计算机排版技术彻底普及的今天，创造一套高品质的数字矢量字体不再是只有大型铸字工坊与大型软件巨头才能染指的秘术。随着个人图形工作站与专业字体设计软件（Font Editors）的飞速演进，独立字体设计师、排版学者乃至具备审美直觉的普通创作者，都能够直接在屏幕上操纵纯粹的几何矢量轮廓，赋予每一个字符以独特的灵魂与生命力。
-
-然而，字体设计是一门在“极致自由的艺术灵感”与“冰冷严苛的数学与工业标准”之间走钢丝的高难度科学。在グリフ（Glyph）美感背后，隐藏着一整套涉及贝塞尔微积分、轮廓缠绕多边形拓扑、整型网格离散化、排印度量度量系统以及复杂的跨平台二进制格式包装逻辑。本章将全面解构现代数字字体创作的核心软件生态与底层几何技术机理。
-
----
-
-# 字体设计与编辑软件全景
-
-在数字字体演进史上，有几款具有划时代意义的经典软件塑造了现代字体工业的工作流：
-
-## 1. 拓荒时代的先驱：Fontographer 与 FontStudio
-
-* **Macromedia Fontographer**（最早由 Altsys 公司于 1986 年开发）：这是人类历史上首个在 Macintosh 图形界面上实现直接用贝塞尔钢笔工具交互绘制 PostScript Type 1 轮廓的革命性字体编辑器。它让千万排印创作者从晦涩的 PostScript 纯代码坐标中彻底解脱出来。尽管后续历经所有权易手与停滞，但其直观的“字体字符网格窗口”与“グリフ（Glyph）编辑画板”奠定了后世所有字体软件的人机交互范式。
-* **Letraset FontStudio**（运行于经典 Mac OS 9 时代）：由著名的干印即贴字字模巨头 Letraset 打造的高端专业级字体工坊软件。它引入了极其先进的自动微调提示（Auto-hinting）、灰度预览与多图层度量网格系统，在 1990 年代初受到各大专业铸字厂商的极高推崇。
-
-::: tip 図 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口。每个方格内直观呈现字符图形、Unicode 编码与 PostScript グリフ（Glyph）名称
-![図 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口](/images/fonts-encodings/fig12-1.png)
-*図 12-1：Macromedia Fontographer 在 Mac OS X 下的字体字符总览窗口。每个方格内直观呈现字符图形、Unicode 编码与 PostScript グリフ（Glyph）名称。*
-:::
-
-::: tip 図 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符グリフ（Glyph）编辑工作窗口。展示了早期专业字体设计所依赖的参考基准辅助线与贝塞尔节点调控界面
-![図 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符グリフ（Glyph）编辑工作窗口](/images/fonts-encodings/fig12-2.png)
-*図 12-2：Letraset FontStudio 在经典 Mac OS 9 系统下的单字符グリフ（Glyph）编辑工作窗口。展示了早期专业字体设计所依赖的参考基准辅助线与贝塞尔节点调控界面。*
-:::
+# 第12章：フォントの設計・編集と制作技術
+**ヤニス・ハラランブス（Yannis Haralambous, Ph.D.）著**  
+*『Fonts & Encodings』第445〜506頁より*  
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-## 2. 现代工业标准霸主：FontLab Studio
+コンピュータ組版技術が完全に普及した現代において、高品位なデジタルベクターフォントを制作することは、もはや巨大なフォントファウンドリや大手ソフトウェア企業だけに許された特権ではない。パーソナルグラフィックワークステーションとプロ仕様のフォントエディタ（Font Editors）の飛躍的な進化により、独立系の書体デザイナーやタイポグラフィ研究者、さらには審美眼を持つ一般のクリエイターであっても、画面上で純粋な幾何ベクター輪郭を直接操作し、各文字に独自の生命と魂を吹き込むことが可能となった。
 
-由苏联裔天才程序员尤里·亚尔莫拉（Yuri Yarmola）于 1990 年代初创立的 **FontLab Studio**（由 SoftMaker 与 Fontlab Ltd. 联合运营），在长达二十余年的时间里，无可争辩地统治着全球各大商业字体厂商（如 Adobe、Linotype、Monotype、Bitstream）的工业生产流水线。
+しかしながら、フォント設計とは「極限まで自由な芸術的インスピレーション」と「冷徹で厳格な数学および工業規格」との間で綱渡りを行う、極めて難度の高い学問である。文字の美しさの背後には、ベジェ微積分、輪郭ワインディング多角形トポロジー、整数グリッド離散化、組版メトリクス体系、そして複雑なクロスプラットフォーム・バイナリパッケージング論理の強固なシステムが隠されている。本章では、現代デジタルフォント制作の中核的ソフトウェアエコシステムと、下層の幾何技術メカニズムを余すところなく解明する。
 
-FontLab 深度整合了对 Type 1、TrueType、OpenType 以及 Multiple Master 格式的全功能原生支持，其核心工作流构建在高度专业化的“四大字符总览视图模式”之上：
+---
 
-### FontLab 字体总览窗口的四大视图模式
+# フォント設計・編集ソフトウェア全景
 
-在 FontLab 的主字体管理窗口中，用户可以根据当前工程任务的侧重点，自如切换四种完全不同的字符组织模式：
+デジタルフォントの進化史において、現代のフォント産業のワークフローを形作ったいくつかの画期的な名作ソフトウェアが存在する：
 
-1. **Names 模式（グリフ（Glyph）名称模式）**：依据标准 Adobe PostScript グリフ（Glyph）命名规范（如 `A`, `acute`, `adieresis`, `hyphen`, `ampersand`）组织排列。这是传统 PostScript 字体工程师最习惯的视角，直观反映グリフ（Glyph）在組版エンジン（Typesetting Engine）内部的符号命名树。
-2. **Pages 模式（编码コードページ（Code Page）模式）**：以经典的 256 字符单字节编码页（Code Page，如 Windows-1252 Latin 1、MacRoman、IBM CP437、ISO 8859 系列）为基准划分。每个コードページ（Code Page）被切分为整齐的 16×16 矩阵表格，极大地方便了设计者为特定旧式操作系统或区域市场快速排查字符缺漏。
-3. **Ranges 模式（Unicode 字符块模式）**：完全遵循 Unicode 联盟官方划分的标准文字セット区间（Unicode Blocks / Ranges，如 Basic Latin、Latin-1 Supplement、Latin Extended-A、Greek and Coptic、Cyrillic 等）。在开发包含数千字符的大型泛欧或全球化通用 OpenType 字体时，该模式是必不可少的工作中枢。
-4. **Index 模式（グリフ（Glyph）索引模式）**：直接以字体二进制文件内部的物理グリフ（Glyph）索引（Glyph Index, **GID**）为顺序展示。在底层 TrueType/OpenType 结构中，GID 0 永远固定指派给缺失符号（`.notdef`），随后的各グリフ（Glyph）按其实际编译进字体数据流中的物理先后次序自左向右严格递增排列。
+## 1. 黎明期の先駆者たち：Fontographer と FontStudio
 
-::: tip 図 12-3：FontLab 字体窗口中的 Names（グリフ（Glyph）名称）视图模式
-![図 12-3：FontLab 字体窗口中的 Names（グリフ（Glyph）名称）视图模式](/images/fonts-encodings/fig12-3.png)
-*図 12-3：FontLab 字体窗口中的 Names（グリフ（Glyph）名称）视图模式。*
+* **Macromedia Fontographer**（1986年に Altsys 社が開発）：マッキントッシュの GUI 上で、ベジェペンツールを用いて PostScript Type 1 輪郭を直接インタラクティブに描画することを人類史上初めて実現した革命的フォントエディタ。これによって何万ものタイポグラフィ制作者が、暗号のような純粋な PostScript コード座標の呪縛から完全に解放された。その後の所有権の変遷を経てもなお、その直感的な「フォント文字グリッドウィンドウ」と「グリフ編集キャンバス」は、後世のすべてのフォントソフトウェアの基本インターフェース標準を決定づけた。
+* **Letraset FontStudio**（クラシック Mac OS 9 時代）：転写式インレタの巨人 Letraset 社が放った最高峰のプロフェッショナル向け書体工房ツール。極めて先進的な自動ヒンティング（Auto-hinting）、グレースケールプレビュー、多層メトリクスグリッドを導入し、1990年代初頭の専門ファウンドリから絶大な称賛を浴びた。
+
+::: tip 図 12-1：Mac OS X 上で動作する Macromedia Fontographer のフォント一覧ウィンドウ
+![Figure 12-1: Fontographer's font window under Mac OS X](/images/fonts-encodings/fig12-1.png)
+*図 12-1：Mac OS X 上の Macromedia Fontographer フォント一覧ウィンドウ。各セルに文字図形、Unicode コードポイント、および PostScript グリフ名が直感的に配置されている。*
 :::
 
-::: tip 図 12-4：FontLab 字体窗口中的 Pages（单字节编码コードページ（Code Page））视图模式
-![図 12-4：FontLab 字体窗口中的 Pages（单字节编码コードページ（Code Page））视图模式](/images/fonts-encodings/fig12-4.png)
-*図 12-4：FontLab 字体窗口中的 Pages（单字节编码コードページ（Code Page））视图模式。*
-:::
-
-::: tip 図 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式
-![図 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式](/images/fonts-encodings/fig12-5.png)
-*図 12-5：FontLab 字体窗口中的 Ranges（Unicode 标准字符区间块）视图模式。*
-:::
-
-::: tip 図 12-6：FontLab 字体窗口中的 Index（物理グリフ（Glyph）索引 GID）视图模式
-![図 12-6：FontLab 字体窗口中的 Index（物理グリフ（Glyph）索引 GID）视图模式](/images/fonts-encodings/fig12-6.png)
-*図 12-6：FontLab 字体窗口中的 Index（物理グリフ（Glyph）索引 GID）视图模式。*
+::: tip 図 12-2：クラシック Mac OS 9 上での Letraset FontStudio による単一文字編集ウィンドウ
+![Figure 12-2: FontStudio's glyph editing window under Mac OS 9](/images/fonts-encodings/fig12-2.png)
+*図 12-2：クラシック Mac OS 9 上の Letraset FontStudio グリフ編集画面。初期のプロ向けフォント設計が依拠した基準ガイドラインとベジェノード制御パネルを示す。*
 :::
 
 ---
 
-### 全面的排印度量与元数据架构（Font Properties）
+## 2. 現代の産業標準の覇者：FontLab Studio
 
-设计字体绝不仅仅是画出好看的矢量外形，更是一项极其繁重的技术元数据配置工程。在 FontLab 的“Font Info”（字体信息属性面板）中，涵盖了决定字体跨平台行为的关键标签页：
+1990年代初頭に天才プログラマーのユーリ・ヤルモラ（Yuri Yarmola）によって創始された **FontLab Studio**（SoftMaker および Fontlab Ltd. 共同運営）は、20年以上にわたり世界の主要な商業フォントベンダー（Adobe、Linotype、Monotype、Bitstream 等）の産業生産ラインを絶対的に支配し続けてきた。
 
-* **Names and Copyright（名称与版权信息）**：遵循严格的 OpenType `name` 记录规范（多达 20 余种预定义字符串标识符），包括字体族名称（Family Name）、样式名称（Style Name）、完整字模名称（Full Font Name）、PostScript 内部名称、独一无二的唯一标识符（Unique Font Identifier）、版本号以及设计者商标与法律版权声明（図 12-7）。
-* **Key Dimensions（核心排印度量尺寸）**：精确设定字体的全身身长网格（Units per em，通常 PostScript 设定为 1000，TrueType 设定为 2048）、大写字母高度（Cap-Height）、小写 x-ハイト（x-height）（X-Height）、字体上行升幅（Ascender）、下行降幅（Descender）以及行距（Line Gap）（図 12-8）。
-* **Supported Codepages and Unicode Ranges（支持的コードページ（Code Page）与 Unicode 范围标志位）**：直接对应 TrueType/OpenType 二进制规范中 `OS/2` 表的 128 位 `ulUnicodeRange` 掩码与 64 位 `ulCodePageRange` 掩码。这些比特位明确通知操作系统与文字渲染管线：本字体经过认证能够完整支持哪些语言与国家标准！
+FontLab は Type 1、TrueType、OpenType、および Multiple Master 形式に対する完全なネイティブサポートを深く統合しており、その中核ワークフローは高度に体系化された「4大文字グリッド表示モード」の上に構築されている：
 
-::: tip 図 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页
-![図 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页](/images/fonts-encodings/fig12-7.png)
-*図 12-7：FontLab 字体属性面板：字体命名规范、版权信息及 OpenType 扩展名称配置标签页。*
+### FontLab フォント一覧ウィンドウの4大表示モード
+
+FontLab のメインフォント管理ウィンドウにおいて、ユーザーは現在の作業目的に応じて以下の4つの全く異なる文字分類表示モードを自在に切り替えることができる：
+
+1. **Names モード（グリフ名称順）**：標準的な Adobe PostScript グリフ命名規則（`A`、`acute`、`adieresis`、`hyphen`、`ampersand` など）に基づいて整理される。伝統的な PostScript エンジニアが最も慣れ親しんだ視点であり、組版エンジン内部での記号命名ツリーを忠実に反映する。
+2. **Pages モード（コードページ順）**：古典的な 256 文字の単一バイトコードページ（Windows-1252 Latin 1、MacRoman、IBM CP437、ISO 8859 シリーズ等）ごとに分割表示する。各コードページは整然とした 16×16 マトリクス表として提示され、レガシー OS や特定地域市場向けの文字欠落チェックに絶大な威力を発揮する。
+3. **Ranges モード（Unicode 領域順）**：Unicode コンソーシアム公式の標準文字ブロック領域（Basic Latin、Latin-1 Supplement、Latin Extended-A、Greek and Coptic、Cyrillic など）に完全に準拠して一覧化する。数千文字を擁する多言語汎欧州 OpenType フォントを構築する際、必須の中枢ナビゲーションとなる。
+4. **Index モード（物理グリフインデックス順、GID）**：フォントのバイナリファイル内部における物理的なグリフインデックス（Glyph Index, **GID**）の数値順に直接配列する。TrueType/OpenType の低レベル構造において、GID 0 は常に未定義記号（`.notdef`）に予約され、それ以降の各グリフはフォントデータストリーム内にコンパイルされた物理的な出現順序に従って左から右へ厳密に昇順で並ぶ。
+
+::: tip 図 12-3：FontLab フォントウィンドウにおける Names（グリフ名称）表示モード
+![Figure 12-3: FontLab's font window in Names mode](/images/fonts-encodings/fig12-3.png)
+*図 12-3：FontLab の Names 表示モード。*
 :::
 
-::: tip 図 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持コードページ（Code Page）与 Unicode 覆盖区间配置标签页
-![図 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持コードページ（Code Page）与 Unicode 覆盖区间配置标签页](/images/fonts-encodings/fig12-8.png)
-*図 12-8：FontLab 字体属性面板：核心排印度量尺寸（Key dimensions）、支持コードページ（Code Page）与 Unicode 覆盖区间配置标签页。*
+::: tip 図 12-4：FontLab フォントウィンドウにおける Pages（単一バイトコードページ）表示モード
+![Figure 12-4: FontLab's font window in Pages mode](/images/fonts-encodings/fig12-4.png)
+*図 12-4：FontLab の Pages 表示モード。*
+:::
+
+::: tip 図 12-5：FontLab フォントウィンドウにおける Ranges（Unicode 標準ブロック領域）表示モード
+![Figure 12-5: FontLab's font window in Ranges mode](/images/fonts-encodings/fig12-5.png)
+*図 12-5：FontLab の Ranges 表示モード。*
+:::
+
+::: tip 図 12-6：FontLab フォントウィンドウにおける Index（物理グリフインデックス GID）表示モード
+![Figure 12-6: FontLab's font window in Index mode](/images/fonts-encodings/fig12-6.png)
+*図 12-6：FontLab の Index 表示モード。*
 :::
 
 ---
 
-## 3. 开源世界的传奇旗帜：FontForge
+### 包括的な組版メトリクスとメタデータ構造（Font Properties）
 
-在自由与开源软件（FOSS）领域，由传奇黑客**乔治·威廉姆斯**（George Williams）倾注毕生心血独立打造的 **FontForge**（原名 **PfaEdit**），是一座令人肃然起敬的丰碑。
+フォントの設計とは、美しいベクター形状を描くことにとどまらず、膨大な技術メタデータを精密に構成するエンジニアリングである。FontLab の「Font Info」（フォント情報属性パネル）には、クロスプラットフォーム動作を決定づける極めて重要な設定タブ群が揃えられている：
 
-FontForge 基于 Unix/X11 图形架构开发，以完全开放、完全无商业壁垒的姿态，实现了对当时市面上所有已知字体格式（Type 1, TrueType, OpenType, CID-keyed, CFF, SVG, BDF, PCF, UFO）的绝对全功能原生读写与无损交叉转译。更令学术界与排版极客痴迷的是：FontForge 深度内置了强大的 C 语言与 Python 脚本控制台，允许开发者以纯代码方式批量自动化遍历字体中数万个字符的轮廓几何拓扑，执行极其复杂的自动提示、坐标圆整、轮廓布尔运算与字体健康诊断！
+* **Names and Copyright（名称と著作権情報）**：OpenType の厳格な `name` テーブル仕様（20種以上の定義済み文字列識別子）に準拠し、ファミリー名（Family Name）、スタイル名（Style Name）、フルフォント名（Full Font Name）、内部 PostScript 名、一意のフォント識別子（Unique ID）、バージョン番号、および商標・法的著作権条項を登録する（図 12-7）。
+* **Key Dimensions（中核組版寸法）**：エム正方形グリッド（Units per em：PostScript では通常 1000、TrueType では 2048）、大文字高さ（Cap-Height）、小文字 x-高さ（X-Height）、アセンダ幅（Ascender）、ディセンダ幅（Descender）、および行送りアキ（Line Gap）をマイクロ単位で厳密に設定する（図 12-8）。
+* **Supported Codepages and Unicode Ranges（対応コードページおよび Unicode 範囲フラグ）**：TrueType/OpenType バイナリの `OS/2` テーブルにおける 128 ビットの `ulUnicodeRange` マスクおよび 64 ビットの `ulCodePageRange` マスクに直結する。これらのビットフラグは、OS やレンダリングパイプラインに対して、本フォントが公的にどの言語および国家規格に対応しているかを宣言する重要な役割を果たす。
+
+::: tip 図 12-7：FontLab フォント情報パネル：名称仕様、著作権情報および OpenType 拡張名称設定タブ
+![Figure 12-7: FontLab's Font Info window: Names and Copyright](/images/fonts-encodings/fig12-7.png)
+*図 12-7：FontLab フォント情報パネルの名称・著作権設定画面。*
+:::
+
+::: tip 図 12-8：FontLab フォント情報パネル：中核組版寸法（Key dimensions）、対応コードページおよび Unicode カバー範囲設定タブ
+![Figure 12-8: FontLab's Font Info window: Key dimensions, Supported Codepages, and Unicode Ranges](/images/fonts-encodings/fig12-8.png)
+*図 12-8：FontLab フォント情報パネルの寸法・言語範囲設定画面。*
+:::
 
 ---
 
-# 矢量轮廓的几何与拓扑数学机理
+## 3. オープンソース界の伝説的旗手：FontForge
 
-数字字体本质上是由平面几何中的参数化曲线闭合路径所构成的数学矢量对象。在字体的微观世界中，存在两大并立又相互对立的数学技术流派：
+自由／オープンソースソフトウェア（FOSS）の世界において、伝説的ハッカー**ジョージ・ウィリアムズ（George Williams）**が独力で心血を注ぎ構築した **FontForge**（旧称 **PfaEdit**）は、学界とギークたちから深く崇敬されている至高の金字塔である。
 
-## 1. PostScript 三次ベジェ曲線（Bézier Curve） vs TrueType 二次 B-样条
+FontForge は Unix/X11 上で開発され、商用の障壁を一切持たない純粋な自由ソフトウェアとして、当時存在したほぼすべてのフォント形式（Type 1、TrueType、OpenType、CID-keyed、CFF、SVG、BDF、PCF、UFO）に対する完全なネイティブ読み書きと相互変換を実現した。さらに驚異的なのは、強固な C 言語および Python スクリプトコンソールを内蔵しており、数万文字に及ぶフォントの幾何トポロジーの解析、自動ヒンティング、座標丸め、ブール演算、および構造診断をコードによって完全自動バッチ処理できる点にある！
 
-::: tip 図 12-11：PostScript 三次ベジェ曲線（Bézier Curve）轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比。实心黑点代表链上节点（On-curve nodes），白色空心圆点代表链外控制点（Off-curve control handles）
-![図 12-11：PostScript 三次ベジェ曲線（Bézier Curve）轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比](/images/fonts-encodings/fig12-11.png)
-*図 12-11：PostScript 三次ベジェ曲線（Bézier Curve）轮廓（左）与 TrueType 二次 B-样条曲线轮廓（右）的几何结构对比。实心黑点代表链上节点（On-curve nodes），白色空心圆点代表链外控制点（Off-curve control handles）。*
+---
+
+# ベクター輪郭の幾何学とトポロジー数学
+
+デジタルフォントは、本質的に平面幾何学におけるパラメータ化曲線閉路によって定義される数学的ベクターオブジェクトである。フォントのミクロな世界には、並立しつつ対立する2大幾何数学体系が存在する：
+
+## 1. PostScript 3次ベジェ曲線 vs TrueType 2次 B-スプライン
+
+::: tip 図 12-11：PostScript 3次ベジェ曲線輪郭（左）と TrueType 2次 B-スプライン曲線輪郭（右）の幾何構造比較
+![Figure 12-11: Comparison between cubic Bézier splines (left) and quadratic B-splines (right)](/images/fonts-encodings/fig12-11.png)
+*図 12-11：PostScript 3次ベジェ曲線（左）と TrueType 2次 B-スプライン（右）の構造比較。黒丸はオンカーブ上の端点ノード（On-curve nodes）、白丸はオフカーブ制御点（Off-curve control handles）を表す。*
 :::
 
-### PostScript 三次ベジェ曲線（Bézier Curve）（Cubic Bézier Splines, 3阶）
-由法国雷诺汽车工程师皮埃尔·贝塞尔（Pierre Bézier）在汽车车身设计中首创，后被 Adobe 采纳为 PostScript 核心。
-* **数学阶数**：三阶多项式方程：
+### PostScript 3次ベジェ曲線（Cubic Bézier Splines, 3次）
+フランスのルノー社のエンジニアであるピエール・ベジェ（Pierre Bézier）が自動車の車体設計で考案し、Adobe が PostScript の中核として採用した。
+* **数学的次数**：3次多項式方程式：
   $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3, \quad t \in [0, 1]$$
-* **节点结构**：每个独立的曲线段必须严格由 **4 个坐标点**决定：起始链上端点 $P_0$、第 1 控制手柄 $P_1$、第 2 控制手柄 $P_2$ 以及终止链上端点 $P_3$。
-* **特性**：能够以极少数量的控制点勾勒出极其饱满、曲率变化自然且具有极高阶导数连续性（$C^2$ 平滑度）的优雅艺术曲线，是专业字体设计师手工塑形的首选工具。
+* **ノード構造**：各曲線区間は厳密に **4 つの座標点**（始点オンカーブ $P_0$、第1制御点 $P_1$、第2制御点 $P_2$、終点オンカーブ $P_3$）によって決定される。
+* **特性**：極めて少ないノード数で自然で豊かな曲率変化と高階微分連続性（$C^2$ 平滑度）を描くことができ、書体デザイナーによる手作業の造形に最も適している。
 
-### TrueType 二次 B-样条（Quadratic Splines, 2阶）
-由苹果与微软联合制定的 TrueType 格式核心几何规范。
-* **数学阶数**：二阶多项式方程：
+### TrueType 2次 B-スプライン（Quadratic Splines, 2次）
+アップルとマイクロソフトが共同策定した TrueType の中核幾何仕様。
+* **数学的次数**：2次多項式方程式：
   $$B(t) = (1-t)^2 P_0 + 2(1-t)t P_1 + t^2 P_2, \quad t \in [0, 1]$$
-* **节点结构**：每个独立的抛物线弧段仅由 **3 个坐标点**决定：起点 $P_0$、单个控制手柄 $P_1$ 以及终点 $P_2$。
-* **隐式内插节点特性（Implicit On-Curve Points）**：为了极大压缩 TrueType 字体文件在网络与磁盘上的体积，TrueType 规范引入了绝顶聪明的存储策略：**当两个链外控制点（如 $P_1$ 与 $P_2$）在数据序列中连续相邻出现时，渲染引擎将自动在两点的绝对几何中点处 $\frac{P_1 + P_2}{2}$，隐式内插一个虚拟链上端点**！如此一来，设计复杂的弧线时可以省略大量链上锚点的坐标存储。
-* **特性**：由于仅涉及二阶乘法运算，早期微处理器ラスタライズ（Rasterization）计算二次样条的速度比计算三次曲线快数倍以上；但其缺点是需要更多的控制节点才能逼近同一段高阶自由曲线。
+* **ノード構造**：各放物線区間は **3 つの座標点**（始点 $P_0$、単一の制御点 $P_1$、終点 $P_2$）のみで決定される。
+* **暗黙のオンカーブ内挿特性（Implicit On-Curve Points）**：ファイルサイズを極限まで軽量化するため、TrueType 規格は巧妙なルールを設けた：**データ列の中で2つのオフカーブ制御点（$P_1$ と $P_2$）が連続して現れた場合、レンダリングエンジンはその絶対的な幾何的中点 $\frac{P_1 + P_2}{2}$ に、オンカーブ端点ノードが暗黙に存在するものとして自動補間計算する**！これにより、無数の端点座標の記録を大幅に省略できる。
+* **特性**：2次の乗算のみで計算できるため、初期の非力な CPU において 3次曲線よりも数倍高速にラスタライズ可能であった。しかし同じ複雑な自由曲線に近似するためには、より多くの制御点を配置する必要がある。
 
 ---
 
-## 2. 轮廓顺逆走向与多边形缠绕法则（Contour Direction & Winding Rules）
+## 2. 輪郭の方向と多角形ワインディング規則（Contour Direction & Winding Rules）
 
-当一个字母（例如大写 ‘O’ 或 ‘B’）包含外部边缘与内部掏空的镂空孔洞（Counters）时，ラスタライズ（Rasterization）引擎如何准确判定哪一部分应该填充油墨黑度、哪一部分必须保持透明空白？
+「O」や「B」のように外側のアウトラインと内側の白抜き孔（Counters）を持つ文字をラスタライズする際、描画エンジンはどこをインクで塗りつぶし、どこを透明な白抜きのまま残すべきかをいかにして判断するのだろうか？
 
-图形学主要采用**非零缠绕数规则**（Non-Zero Winding Rule）：从当前测试像素点向无穷远处引出一条任意射线，当射线穿过一条从左向右（顺时针）的轮廓曲线时，缠绕计数加 1；当穿过一条从右向左（逆时针）的曲线时，缠绕计数减 1。最终如果代数和非零，则填充黑色；若等于零，则保持透明。
+コンピュータグラフィックスでは主に**非ゼロワインディング規則（Non-Zero Winding Rule）**が用いられる：判定対象のピクセルから無限遠へ向けて任意の半直線を引き、その半直線が左から右（時計回り）の輪郭と交差するときはカウントを +1、右から左（反時計回り）の輪郭と交差するときは -1 する。最終的な代数和がゼロでなければ黒く塗りつぶし、ゼロであれば透明とする。
 
-这直接导致了グリフ（Glyph）轮廓走向的严格铁律：**外轮廓与内腔轮廓的环绕方向必须绝对严格相反**！然而，令人头疼的是，历史上两大巨头在方向定义上恰恰水火不容：
-* **PostScript Type 1 / OpenType (CFF)**：**外轮廓必须为顺时针（Clockwise），内孔轮廓必须为逆时针（Counter-Clockwise）**！
-* **TrueType / OpenType (TTF)**：**外轮廓必须为逆时针（Counter-Clockwise），内孔轮廓必须为顺时针（Clockwise）**！
+このアルゴリズムゆえに、フォントの輪郭には絶対的な鉄則が存在する：**「外側のアウトラインと内側の白抜き輪郭の周回方向は、厳格に逆方向でなければならない！」** しかし頭の痛いことに、二大陣営はここでも真逆の定義を採用した：
+* **PostScript Type 1 / OpenType (CFF)**：**外側輪郭は時計回り（Clockwise）、内側孔輪郭は反時計回り（Counter-Clockwise）**！
+* **TrueType / OpenType (TTF)**：**外側輪郭は反時計回り（Counter-Clockwise）、内側孔輪郭は時計回り（Clockwise）**！
 
-如果设计者在导出字体时搞错了轮廓走向（Flipped Direction），文字在排版打印时很可能会发生可怕的“内部反色”、“实心黑坨”或在小字号ラスタライズ（Rasterization）时孔洞彻底粘连闭合等严重畸变！现代字体软件均提供“Correct Direction”（校正轮廓走向）的自动化一键修复算法。
-
----
-
-## 3. 极值点铁律（Extremum Points）
-
-在ベジェ曲線（Bézier Curve）几何中，一条被所有资深字体大师与工业渲染引擎视为不可逾越的圣律便是：**必须在所有轮廓切线处于绝对水平（$dy/dt = 0$）与绝对垂直（$dx/dt = 0$）的最外边缘顶点处，显式安放链上节点（Extrema）**！
-
-若违背此规则（例如在一个圆弧的左侧最鼓点处不安放节点，而是用两端斜向拉出的长控制手柄隔空跨越），将带来一系列致命后果：
-1. **微调提示（Hinting）彻底失效**：无论是 PostScript Stem Hints 还是 TrueType Grid-Fitting 字节码指令，其对齐像素网格的前提都是捕获水平或垂直极值点坐标。缺少极值节点将导致低分辨率屏幕上出现严重的笔画粗细不均、端点发虚或锯齿暴碎。
-2. **包围盒计算失真**：部分老旧 RIP 打印机ラスタライズ（Rasterization）引擎在计算グリフ（Glyph）物理外接矩形（Bounding Box）时，为了节省算力，仅遍历链上节点的最小/最大坐标，缺少极值节点将导致グリフ（Glyph）边缘在显示或打印时被活生生截断切平！
+フォント出力時に輪郭の方向を誤ると（Flipped Direction）、組版印刷時に文字の内部が反転して真っ黒に塗りつぶされたり、小サイズで孔が潰れるなどの深刻な破綻が発生する。現代のフォントエディタは「Correct Direction」（輪郭方向自動修正）コマンドを備えている。
 
 ---
 
-# 多重母版（Multiple Master）设计空间体系
+## 3. 極値点配置の鉄則（Extremum Points）
 
-在传统排版中，一个字体家族若要包含从 Ultra Light（超细）到 Ultra Black（超黑）、从 Ultra Condensed（超窄）到 Ultra Expanded（超宽）等数十款ウェイト（Weight）与宽高变体，设计师往往需要日以继夜地单独雕琢每一个版式。
+ベジェ曲線の幾何学において、すべての経験豊かな書体マイスターが遵守する至高の規則が：**「輪郭の接線が完全に水平（$dy/dt = 0$）または完全に垂直（$dx/dt = 0$）になる最も外側の頂点には、必ず明示的にオンカーブノード（極値点）を配置しなければならない！」** という原則である。
 
-1991 年，Adobe 推出了革命性的**多重母版技术**（Multiple Master, **MM**）。设计师只需精心绘制处于多维设计空间极值角落上的若干个基准“母版グリフ（Glyph）”（Master Designs，例如図 12-9 中的极细母版与极粗母版），计算机算法便能利用多维线性插值（Linear Interpolation），动态、无级、连续地衍生生成出成千上万款拥有完美灰度与骨架过渡的衍生字体！
-
-::: tip 図 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口。同一画板中同时叠映着极细母版与极黑母版的矢量轮廓骨架
-![図 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口](/images/fonts-encodings/fig12-9.png)
-*図 12-9：FontLab 中设计多重母版（Multiple Master）字体的工作窗口。同一画板中同时叠映着极细母版与极黑母版的矢量轮廓骨架。*
-:::
-
-::: tip 図 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口
-![図 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口](/images/fonts-encodings/fig12-10.png)
-*図 12-10：FontLab 中通过合并两个独立字体生成多重母版字体的配置窗口。*
-:::
-
-### 多重母版插值的严格数学相容性约束（Compatibility）
-插值算法能够在两个母版之间流畅演算的前提，是两者在数学拓扑上具有绝对的一一对应关系：
-1. **完全相同数量的闭合轮廓（Contours）**；
-2. **每个对应轮廓内部必须包含绝对完全相同数量的节点（Nodes）**；
-3. **每个节点必须拥有完全相同的类型（平滑连接点 vs 角折点）**；
-4. **两者的起始节点（First Point）必须位于同一几何特征位置，且轮廓遍历方向必须绝对相同**！
-
-一旦某一个母版多了一个多余的锚点，多重母版系统将断然报错拒绝生成。这一理念在今天演化为了现代数字排版王冠上的明珠——**可变字体**（OpenType Variable Fonts）。
+この原則を怠ると（例えば円弧の最左端にノードを置かず、両側の斜めの長い制御ハンドルで強引に跨いでしまうと）、以下の致命的な問題が発生する：
+1. **ヒンティング（Hinting）の完全な破綻**：PostScript の Stem Hints であれ TrueType の Grid-Fitting バイトコードであれ、ピクセル格子に文字を揃える処理は水平・垂直の極値点座標を捕捉することを大前提としている。極値ノードが欠落すると、低解像度ディスプレイ上で線の太さの著しい不揃いやエッジのボケ、ジャギーの激増を招く。
+2. **バウンディングボックス計算の歪み**：古い RIP プリンタの描画エンジンは、計算負荷を抑えるためオンカーブノードの最小／最大値のみを参照して文字の外接矩形（Bounding Box）を計算することがあり、極値点がないと文字の端部が途中で無残に切り落とされてしまう！
 
 ---
 
-# 位图自动描摹与扫描字体（ScanFont）
+# マルチプルマスター（Multiple Master）設計空間体系
 
-许多经典的印刷字体复刻或古老书籍排印工程，始于对古籍原版的纸质扫描。由 FontLab 家族出品的专用工具 **ScanFont**，代表了数字字体领域位图自动描摹（Autotracing）的最高专业水准。
+伝統的な活版印刷において、ウルトラライト（超極細）からウルトラブラック（超極太）、ウルトラコンデンス（超狭幅）からウルトラエクスパンデッド（超広幅）に至る広大な書体ファミリーを構築するためには、職人が数十ものウェイトを手作業で1本ずつ彫り分ける必要があった。
 
-::: tip 図 12-12：ScanFont 软件对扫描页面进行自动グリフ（Glyph）切分与包围框分离界面
-![図 12-12：ScanFont 软件对扫描页面进行自动グリフ（Glyph）切分与包围框分离界面](/images/fonts-encodings/fig12-12.png)
-*図 12-12：ScanFont 软件对扫描页面进行自动グリフ（Glyph）切分与包围框分离界面。*
+1991年、Adobe は革命的な**マルチプルマスター技術（Multiple Master, MM）**を発表した。デザイナーが多次元設計空間の極値の角に位置する少数の基準「マスターデザイン」（図 12-9 の極細マスターと極太マスターなど）を完璧に設計すれば、コンピュータが多次元線形補間（Linear Interpolation）を用いて、その中間に存在する無数のバリエーションを動的・無段階・連続的に自動生成してくれるのである！
+
+::: tip 図 12-9：FontLab におけるマルチプルマスター（MM）フォント設計ウィンドウ
+![Figure 12-9: Designing Multiple Master fonts in FontLab](/images/fonts-encodings/fig12-9.png)
+*図 12-9：FontLab の MM 設計画面。極細マスターと極太マスターのベクター輪郭骨格が同一キャンバス上に重ね合わされて表示されている。*
 :::
 
-::: tip 図 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框
-![図 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框](/images/fonts-encodings/fig12-13.png)
-*図 12-13：ScanFont 中实时动态配置自动描摹轮廓平滑度与抗噪参数的对话框。*
+::: tip 図 12-10：FontLab において2つの独立したフォントを結合してマルチプルマスターフォントを生成する設定ウィンドウ
+![Figure 12-10: Merging two fonts into a Multiple Master font in FontLab](/images/fonts-encodings/fig12-10.png)
+*図 12-10：FontLab のフォント結合・MM 生成ダイアログ。*
 :::
 
-::: tip 図 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比。清晰展现了算法自动拟合在极小拐角与弧度转折处不可避免产生的多余冗余噪点
-![図 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比](/images/fonts-encodings/fig12-14.png)
-*図 12-14：手工精准雕琢轮廓（左）与两款采用不同平滑参数自动描摹轮廓（中、右）的显微几何对比。清晰展现了算法自动拟合在极小拐角与弧度转折处不可避免产生的多余冗余噪点。*
-:::
+### マルチプルマスター補間における厳格な数学的互換性（Compatibility）
+補間アルゴリズムが2つのマスター間で破綻なく成立するためには、幾何トポロジーにおける絶対的な1対1の対応関係が要求される：
+1. **完全に同一の数の閉じた輪郭（Contours）を持つこと**；
+2. **対応する各輪郭内に、完全に同一の数のノード（Nodes）を含むこと**；
+3. **各ノードの種別（スムーズ接続点か角折れ点か）が完全に一致していること**；
+4. **双方の開始ノード（First Point）が幾何学的に同一の特徴位置にあり、輪郭の周回方向が完全に一致していること**！
 
-通过図 12-14 的显微对比，作者给出了极具警示意义的技术箴言：**无论计算机的位图边缘侦测与贝塞尔拟合算法多么强大，自动描摹生成的轮廓永远充满着多余的锯齿噪点、缺少正交极值点，且控制点分布极度紊乱**。因此，自动描摹只能作为起草参考底稿，一位追求卓越的字体工匠，最终必须以虔诚的耐心，亲手在关键极值点处逐一落笔雕琢每一根优雅匀称的贝塞尔矢量曲线！
+いずれかのマスターに余分なアンカーが1つでも存在すれば、システムはエラーを吐いて補間を拒絶する。この思想は、今日のデジタル組版の至宝たる**可変フォント（OpenType Variable Fonts）**の礎となった。
 
 ---
 
-# 结语
+# ビットマップ自動トレースとスキャンフォント（ScanFont）
 
-字体的数字化创造，是人类理性逻辑与感性美学最深沉的结晶。从屏幕上轻轻拖动的一个控制手柄，到底层微处理器执行的样条微积分方程；从グリフ（Glyph）间距的一微米妥协，到 OpenType 表结构中精密咬合的几千个数据字节——正是现代字体设计软件与背后严谨科学体系的交融，赋予了文字跨越时空、在数字文明中永远清晰绽放的永恒力量。
+多くの歴史的名作活字のデジタル復刻プロジェクトは、古い古写本や活字見本帳の紙面スキャンから始まる。FontLab 社が開発した **ScanFont** は、ビットマップ自動トレース（Autotracing）における最高峰の専門ツールである。
+
+::: tip 図 12-12：ScanFont ソフトウェアによるスキャン原稿の自動グリフ分割とバウンディングボックス分離画面
+![Figure 12-12: ScanFont's automatic glyph segmentation interface](/images/fonts-encodings/fig12-12.png)
+*図 12-12：ScanFont によるスキャン画像の自動文字領域認識と切り出し。*
+:::
+
+::: tip 図 12-13：ScanFont における自動トレース輪郭平滑度とノイズ除去パラメータの動的設定ダイアログ
+![Figure 12-13: ScanFont's autotracing parameters configuration dialog](/images/fonts-encodings/fig12-13.png)
+*図 12-13：ScanFont の自動トレース平滑化設定画面。*
+:::
+
+::: tip 図 12-14：手作業による精密輪郭（左）と、異なるパラメータで自動トレースされた2つの輪郭（中・右）のミクロ幾何比較
+![Figure 12-14: Microscopic comparison between manual contour (left) and autotraced contours (center, right)](/images/fonts-encodings/fig12-14.png)
+*図 12-14：手作業の輪郭（左）と自動トレースの輪郭（中・右）の微細構造比較。アルゴリズムによる自動フィッティングが、微小な角やカーブの転換点において不可避的に生み出してしまう冗長なノイズノードの乱立が克明に示されている。*
+:::
+
+図 12-14 の顕微鏡レベルの比較を通じて、著者は極めて重要な戒めを提示している：**どれほど進歩した画像認識とベジェフィッティングアルゴリズムを用いても、自動トレースによって生成された輪郭は常に余分なノイズノードで溢れ、直交極値点を欠き、制御点の配置は極めて無秩序である**。それゆえ、自動トレースはあくまで下絵の参考にとどまるべきであり、真の卓越性を志す書体職人は、敬虔な忍耐をもって主要な極値点に自らの手で1点ずつアンカーを打ち、均整の取れた優美なベジエ曲線を彫り上げなければならないのである！
+
+---
+
+# 結び
+
+フォントのデジタルな創造とは、人間の論理的知性と感性的美学が最も純粋に融合した知的結晶である。ディスプレイ上で軽く操作される1つの制御ハンドルから、低レベルのプロセッサが演算するスプライン微積分方程式に至るまで；字間アキの1マイクロメートルの妥協から、OpenType テーブル内部で精密に噛み合う数千バイトのデータ構造に至るまで——現代のフォント制作ソフトウェアと背後の厳密な科学体系の協調こそが、文字をして時空を越え、デジタル文明の中で永遠に鮮やかに息づく力を与えているのである。

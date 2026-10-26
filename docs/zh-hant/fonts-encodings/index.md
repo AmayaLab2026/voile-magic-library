@@ -11,6 +11,7 @@ head:
 ### Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between
 **著者：雅尼斯·哈拉蘭布斯 博士（Yannis Haralambous, Ph.D.）**  
 *英譯審訂：P. Scott Horne 博士 · 原著由 O'Reilly Media 出版（ISBN 978-0-596-10242-5）*
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 > **“智人（*Homo sapiens*）是一種進行書寫的物種。在用於書寫的形形色色的工具之中，最新近亦最繁複的造物當屬計算機——它集閱讀工具、書寫工具、存儲媒介與數據交換手段於一身……在這一數字書寫空間內部，編碼（encoding）與字體（font）承擔着截然不同卻密不可分的核心使命：編碼源於人類對信息的概念化抽象（abstraction），是純粹思維的心智構建；而字體則是書寫符號的具象視覺呈現，是黑白墨彩的圖形實體。兩者猶如陰陽、天地、理論與實踐，在數字世界永無休止地交織共舞。”**  
 > —— 雅尼斯·哈拉蘭布斯（Yannis Haralambous），《字體與編碼》導言
@@ -39,6 +40,7 @@ head:
 * **TeX 與 $\Omega$（Omega）系統開拓**：上世紀 90 年代初，針對 Donald Knuth 傳統 TeX 系統在處理非拉丁文字（希臘文、阿拉伯文、希伯來文、梵文、藏文等）以及 8 位字符集限制上的歷史瓶頸，哈拉蘭布斯與英國計算機科學家約翰·普萊斯（John Plaice）共同開創性地開發了 **$\Omega$（Omega）排版系統**。Omega 率先引入了 16/32 位 Unicode 字符原生支持，並獨創了“有限狀態文本變換流”（Omega Translation Processes, OTPs），徹底革新了複雜文種的雙向排版與上下文自動變體處理範式。
 * **全球多語言排版工程顧問**：哈拉蘭布斯長期擔任 Unicode 聯盟專家顧問、國際排版協會（ATypI）理事、TeX 國際用戶組（TUG）核心專家，爲全球各大軟件巨頭與出版學術機構攻克了無數涉及古希臘文變音符標號（Polytonic Greek）、敘利亞文、烏爾都文及現代東亞表意文字的排印算法難題。
 * **本書成書源流**：本書最初以法文撰寫，由 O'Reilly France 於 2004 年出版（書名《*Fontes & codages*》）。因其學術震撼力與前所未有的工程深度，O'Reilly 美國總部特聘計算語言學與專業翻譯專家 P. Scott Horne 博士耗時三年進行深度英譯擴充，全面更新至 Unicode 5.0 與最新 OpenType / AAT 工業標準，於 2007 年正式刊行英文首版，成爲現代數字排印學的里程碑。
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

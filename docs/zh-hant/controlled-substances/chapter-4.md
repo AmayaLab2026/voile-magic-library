@@ -6,6 +6,7 @@ titleTemplate: 管制物質：化學與法律指南 · 亞歷山大·舒爾金
 # 第四章：管制藥物化學結構圖譜全典 (Chemical Structures of Scheduled Drugs)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  
+> **譯者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出處**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 4, pp. 267–302.  
 > **學術規範**：本章忠實於原書第 253–288 頁的有機化學分類與原圖譜系，將原書全部 33 組化學分子譜系圖完整嵌入，並對舒爾金博士撰寫的所有結構變遷、類似物法案映射、構效關係分析進行逐字逐段精譯。
 

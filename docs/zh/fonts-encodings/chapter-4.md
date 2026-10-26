@@ -8,7 +8,7 @@ description: "权威全译本：规范等价与兼容等价、四大规范化形
 
 **著者：雅尼斯·哈拉兰博斯（Yannis Haralambous, Ph.D.）**  
 *选自《Fonts & Encodings》第 127–158 页*  
-*译者：ヴワル魔法図書館（Voile Magic Library）文献翻译工房*
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

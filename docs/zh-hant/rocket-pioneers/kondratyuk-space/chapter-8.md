@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 8 章�
 ---
 
 # 第 8 章 · 大氣層對火箭爬升的影響
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VIII. Effect of the Atmosphere on Rocket Ascent
 **尤里·瓦西裏耶維奇·孔德拉秋克**  
 *(選自 NASA TT F-9285 第 88–101 頁 / 原著第 37–56 頁)*

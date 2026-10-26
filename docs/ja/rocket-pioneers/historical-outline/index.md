@@ -4,6 +4,7 @@ description: "V・N・ソコリスキー教授『ロシアの科学者・ロケ�
 ---
 
 # 第四編：ロシアおよびソ連におけるロケット先駆者の歴史的概説
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ### Works of Russian Scientists — Pioneers of Rocket Technology (Historical Outline)
 **V・N・ソコリスキー（V. N. Sokol'skiy）**  

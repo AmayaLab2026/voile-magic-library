@@ -4,6 +4,7 @@ description: V. N. 索科利斯基教授《俄罗斯火箭技术先驱（历史�
 ---
 
 # 第三节：孔德拉秋克的手稿演进、科学遗产与重大原创贡献
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 在俄罗斯与苏联早期火箭技术的先驱星群中，**尤里·瓦西里耶维奇·孔德拉秋克（Yu. V. Kondratyuk，1897–1941?）**是一位最具传奇色彩、命运最为坎坷、却又闪耀着惊人超前智慧的天才理论家与工程师。
 

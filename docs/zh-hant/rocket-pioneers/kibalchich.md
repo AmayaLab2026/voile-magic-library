@@ -4,6 +4,7 @@ description: 尼古拉·基巴利契奇 1881 年 3 月 23 日死囚牢手稿全�
 ---
 
 # 第一編 · 航空機器設想
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### A Concept for an Aeronautical Machine
 **N. I. 基巴利契奇（N. I. Kibal'chich）**  
 *1881 年 3 月 23 日*

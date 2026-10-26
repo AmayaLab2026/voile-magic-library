@@ -4,6 +4,7 @@ description: ユーリ・コンドラチュク『惑星間空間の征服』（1
 ---
 
 # 第2章 · 能動加速段軌道と多段推進剤積載公式
+*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section II. Formula for the Load Rating & Theory of Multistage Staging
 **ユーリ・ヴァシリエヴィチ・コンドラチュク 著**  
 *(NASA TT F-9285 pp. 64–66 / 原著 pp. 7–9 より)*

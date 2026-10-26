@@ -6,6 +6,7 @@ titleTemplate: 規制物質：化学的・法的ガイド · アレクサンダ�
 # 第1章：詳細と法定定義 (Details and Definitions)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **訳者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **原典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 1, pp. 15–26.  
 > **学術翻訳基準**：法理学、毒性学および有機化学の学術規範に準拠し、原著第15〜26頁に収載された全本文、法理注釈、各スケジュールの法定基準、適用除外規定、ならびに司法判例の分析を**完全無削除・要約なしの逐条精訳**として提示する。
 

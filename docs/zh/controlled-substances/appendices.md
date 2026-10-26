@@ -6,6 +6,7 @@ titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
 # 附录辑录：联邦法规条文、紧急列管与量刑指南 (Appendices I–V)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
+> **译者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Appendices I–V, pp. 391–436.  
 > **学术翻译规范**：本辑录对原书第 377 至 422 页收录的五大部分核心联邦法典原文、历史演变对照、量刑指南折算表及化学前体清单进行**完整无删节、无遗漏逐字逐段权威精译**。
 

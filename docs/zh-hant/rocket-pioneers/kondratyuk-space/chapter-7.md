@@ -4,6 +4,7 @@ description: 尤里·孔德拉秋克《征服星際空間》（1929）第 7 章�
 ---
 
 # 第 7 章 · 飛往其他天體與月球軌道交會方案（LOR）
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Section VII. Peak Acceleration & The Lunar Orbit Rendezvous Architecture
 **尤里·瓦西裏耶維奇·孔德拉秋克**  
 *(選自 NASA TT F-9285 第 86–88 頁 / 原著第 34–37 頁)*

@@ -4,6 +4,7 @@ description: 《火箭技術先驅：選集》蘇聯科學院自然科學與技�
 ---
 
 # 主編序言：火箭技術的先驅與征服太空之路
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 ### Editor's Preface by T. M. Mel'kumov
 
 > **“……社會主義是堅實可靠的發射臺，蘇聯正是從這裏，將一艘艘強勁而近乎完美的宇宙飛船勝利送入浩瀚蒼穹。”**  

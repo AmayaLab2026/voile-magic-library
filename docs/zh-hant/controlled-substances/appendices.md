@@ -6,6 +6,7 @@ titleTemplate: 管制物質：化學與法律指南 · 亞歷山大·舒爾金
 # 附錄輯錄：聯邦法規條文、緊急列管與量刑指南 (Appendices I–V)
 
 > **著者**：Alexander T. Shulgin, Ph.D.（亞歷山大·T·舒爾金 博士）  
+> **譯者**：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)
 > **出處**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Appendices I–V, pp. 391–436.  
 > **學術翻譯規範**：本輯錄對原書第 377 至 422 頁收錄的五大部分核心聯邦法典原文、歷史演變對照、量刑指南折算表及化學前體清單進行**完整無刪節、無遺漏逐字逐段權威精譯**。
 

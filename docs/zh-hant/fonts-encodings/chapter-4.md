@@ -8,7 +8,7 @@ description: "權威全譯本：規範等價與兼容等價、四大規範化形
 
 **著者：雅尼斯·哈拉蘭博斯（Yannis Haralambous, Ph.D.）**  
 *選自《Fonts & Encodings》第 127–158 頁*  
-*譯者：ヴワル魔法図書館（Voile Magic Library）文獻翻譯工房*
+*譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

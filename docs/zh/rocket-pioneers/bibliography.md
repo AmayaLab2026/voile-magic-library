@@ -6,7 +6,8 @@ description: 苏联科学院航天遗产委员会汇编：基巴利契奇、齐�
 # 附录 · 先驱著作与历史文献全景索引
 ### Bibliography of the Published Works of N. I. Kibal'chich, K. E. Tsiolkovskiy, F. A. Tsander, and Yu. V. Kondratyuk on the Problems of Reactive Flying Machines and Interplanetary Travel
 **汇编整理：B. N. 沃罗比约夫（B. N. Vorob'yev）**  
-*(选自 NASA TT F-9285 第 159–165 页 / 俄版第 669–678 页)*
+*(选自 NASA TT F-9285 第 159–165 页 / 俄版第 669–678 页)*  
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 

@@ -4,6 +4,7 @@ description: V. N. 索科利斯基教授《俄罗斯火箭技术先驱（历史�
 ---
 
 # 第四编：俄罗斯火箭技术先驱（历史概述）
+*译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ### Works of Russian Scientists — Pioneers of Rocket Technology (Historical Outline)
 **V. N. 索科利斯基（V. N. Sokol'skiy）**  
