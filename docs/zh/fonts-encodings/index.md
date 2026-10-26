@@ -51,7 +51,7 @@ description: ヴ瓦尔魔法图书馆 馆藏第三号典籍：雅尼斯·哈拉�
 ### 第一编：编码与 Unicode（Part I: Encodings & Unicode）
 * **[第一章：前 Unicode 时代的编码体系](./chapter-1)**  
   从电传机与军用 FIELDATA、7 位 ASCII 到 8 位 EBCDIC；详解 ISO 2022 转义序列框架；深入剖析 ISO 8859 家族（Latin-1 至 Latin-16）及东亚早期双字节编码标准；微软 Windows 代码页与苹果 MacRoman 历史架构；电子邮件 MIME 与早期 Web 文本传输困境。
-* **第二章：字符、字形与字节：Unicode 导论**  
+* **[第二章：字符、字形与字节：Unicode 导论](./chapter-2)**  
   文字学哲学命题；Unicode 核心原则与四维空间；UTF-8、UTF-16、UTF-32、CESU-8 与 SCSU 编码形式底层比特流映射；基本多语言平面（BMP）与各辅助平面分布全景。
 * **第三章：Unicode 字符核心属性体系**  
   字符名称规范；通用分类（General Category）；方向性与双向算法类别；连写与镜像属性；数字值与标识符规范；解读 Unicode 数据表（UCD）。

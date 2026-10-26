@@ -113,7 +113,26 @@ export function resolvePageMeta(relPath: string): PageMeta {
   let callNo: string | undefined
   let author: string | undefined
 
-  if (normalized.includes('rocket-pioneers')) {
+  const isHome = urlPath === '/' || urlPath === '/en/' || urlPath === '/ja/' || urlPath === '/zh-hant/'
+  if (isHome) {
+    if (lang === 'en') {
+      title = 'Voile Magic Library · Digital Archives'
+      category = 'Digital Special Collections'
+    }
+    else if (lang === 'ja') {
+      title = 'ヴワル魔法図書館 · 書香漂う禁断の知識'
+      category = '館蔵典籍総覧'
+    }
+    else if (lang === 'zh-hant') {
+      title = 'ヴワル魔法図書館 · 散發著書香的禁忌之識'
+      category = '館藏典籍總覽'
+    }
+    else {
+      title = 'ヴワル魔法図書館 · 散发着书香的禁忌之识'
+      category = '馆藏典籍总览'
+    }
+  }
+  else if (normalized.includes('rocket-pioneers')) {
     callNo = 'VML-TL781.P56-1965'
     if (lang === 'en') {
       category = 'Pioneers of Rocket Technology (NASA TT F-9285)'

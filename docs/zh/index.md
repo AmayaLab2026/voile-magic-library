@@ -36,7 +36,4 @@ features:
   - icon: 🔤
     title: 现代排印与字体工程
     details: 收录雅尼斯·哈拉兰布斯 1040 页百科全书式巨著《字体与编码》，涵盖 Unicode 5.0、TrueType 虚拟机微码、字母解剖学及贝塞尔排印数学。
-  - icon: ⚡
-    title: 极速阅读体验
-    details: 基于 VitePress 与 Claude 温润拟纸美学，大圆角胶囊交互与优雅衬线排版，如在昏黄灯下轻翻泛黄典籍。
 ---

@@ -95,6 +95,7 @@ export default defineConfig({
             { text: '典籍概述与全书目录', link: '/fonts-encodings/' },
             { text: '导言 · 探索篇：字母部件与排版', link: '/fonts-encodings/introduction' },
             { text: '第一章：前 Unicode 时代编码体系', link: '/fonts-encodings/chapter-1' },
+            { text: '第二章：字符字形与字节（Unicode 导论）', link: '/fonts-encodings/chapter-2' },
           ],
         },
       ],
