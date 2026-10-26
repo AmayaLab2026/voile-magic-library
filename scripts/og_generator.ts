@@ -20,7 +20,7 @@ export async function ensureInit() {
     wasmInitialized = true
   }
   if (!fontBuffer) {
-    const fontPath = path.resolve(__dirname, '../public/source-han-sans.ttf')
+    const fontPath = path.resolve(__dirname, '../public/SourceHanSansSC.otf')
     fontBuffer = fs.readFileSync(fontPath)
   }
 }
