@@ -1,2574 +1,2574 @@
-# 第二章：受管制药物与同义词全典 (List of Scheduled Drugs and Synonyms)
+---
+title: "Chapter 2: List of Scheduled Drugs and Synonyms"
+titleTemplate: "Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws · Alexander T. Shulgin"
+---
 
-> **著者**：Alexander T. Shulgin, Ph.D.  
-> **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 2, pp. 27–256.  
-> **本卷收录**：A 字母部全部受管制药物专论、非管制监控化学品、商用俗名同义词与交叉检索索引（原书 pp. 27–45 完整逐字精译）。
+# Chapter 2: List of Scheduled Drugs and Synonyms
+
+> **Author**: Alexander T. Shulgin, Ph.D.  
+> **Source**: *Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 2, pp. 27–256.  
+> **Scope of this Volume**: Complete monographs of scheduled drugs, non-scheduled monitored chemicals, commercial trade names, synonyms, and cross-reference index from A to Z (Unabridged academic translation of the original work, pp. 27–256).
 
 ---
 
-## 章节凡例与编纂体例 (Introduction to Chapter 2)
+## Introduction to Chapter 2
 
-本章是自 1970 年 10 月 27 日《受管制物质法》（84 Stat. 1242; 21 U.S.C. § 801）以及《受管制物质进出口法》（84 Stat. 1285; 21 U.S.C. § 951）颁布以来，**所有曾经或当前被纳入联邦管制的药物、以及被赋予缉毒署（DEA）监控代码的所有化学品的穷尽式全典**。
+This chapter represents an exhaustive dictionary of **all drugs that have ever been or are currently subject to federal control, as well as all chemical substances assigned a Drug Enforcement Administration (DEA) drug code number**, since the enactment of the Controlled Substances Act of October 27, 1970 (84 Stat. 1242; 21 U.S.C. § 801) and the Controlled Substances Import and Export Act (84 Stat. 1285; 21 U.S.C. § 951).
 
-1. **编排次序**：全章严格依据英文字母顺序排列，并以 1970 年 10 月 27 日原始法案为基准起点。原始法案中命名的所有药物均收录于此，且自那时起至 **1991 年 4 月 1 日**期间所发生的一切法律修改、行政命令，均附带了作为其法定授权依据的《联邦公报》（Federal Register, FR）具体卷期页码引注。
-2. **命名偏好**：为便于法律与科研检索，条目优先采用通用俗名（Trivial Names）及原始法案所选用的法定名称，并给出对应的美国化学文摘社（CA）正式命名。
-3. **CAS 注册号**：为每一个药物尽可能穷尽其 CAS 编号（至少涵盖第 10 次累积《化学文摘》索引中的所有编号），包括同位素标记变体；但对未定型的混合物或极其罕见的奇特盐类进行了必要精简。
-4. **分类标识**：
-   * `(L)`：法律条文成文法中所给出的药理分类（如 Opiate、Opium derivative、Stimulant 等）；
-   * `(M)`：《默克索引》（Merck Index 第 11 版）中给出的药理学分类。
-5. **代码与附表**：名称后紧随的罗马数字（I、II、III、IV、V）代表截至 1991 年 4 月 1 日该药物所处的**现行管制附表**；四位数字为 DEA 药物管制代码（Drug Code Number）。
-6. **结构映射**：每个主要词条均注明分子式（Empirical Formula）以及其在**第四章（Chapter 4）化学结构图谱**中的具体图版对应位置。
-7. **同义词网络**：混编汇录了来自《默克索引》、《美国通用名》（USAN）以及克拉克《药物分离与鉴定》（Clarke's Isolation and Identification of Drugs）中的海量商品名、研究代号与街头黑话，均标明 `(see ...)` 交叉指引。
+1. **Arrangement**: The entire chapter is arranged in strict alphabetical order, taking the original Act of October 27, 1970 as the baseline. All drugs named in the original Act are included herein, and all statutory amendments and administrative orders that occurred between that time and **April 1, 1991** are accompanied by specific volume and page citations to the *Federal Register* (FR) serving as their statutory authorization.
+2. **Nomenclature Preferences**: For legal and research indexing convenience, entries preferentially use trivial names and statutory names chosen in the original Act, with corresponding Chemical Abstracts Service (CA) formal names provided.
+3. **CAS Registry Numbers**: Exhaustive CAS Registry Numbers are provided for each drug where possible (covering at least all numbers in the 10th Collective Index of *Chemical Abstracts*), including isotopically labeled variants; however, necessary simplifications have been made for undefined mixtures or exceptionally rare exotic salts.
+4. **Classification Identifiers**:
+   * `(L)`: Statutory classification given in the text of the statutes (e.g., Opiate, Opium derivative, Stimulant, etc.);
+   * `(M)`: Pharmacological classification given in *The Merck Index* (11th Edition).
+5. **Codes and Schedules**: The Roman numeral (I, II, III, IV, V) immediately following the entry name represents the **current control schedule** of the drug as of April 1, 1991; the four-digit number is the DEA Drug Code Number.
+6. **Structural Mapping**: Each primary entry indicates the empirical formula and its specific plate location in the **chemical structure diagrams of Chapter 4**.
+7. **Synonym Network**: A massive compilation of trade names, research code designations, and street slang from *The Merck Index*, *United States Adopted Names* (USAN), and Clarke's *Isolation and Identification of Drugs* is interfiled, each indicated with `(see ...)` cross-references.
 
 ---
 
-## A 字母部词条全典 (Letter A)
+## Letter A
 
 ### A-10361
-*(see Hydroxyphenamate / 羟苯氨酯)*
+*(see Hydroxyphenamate)*
 
 ### A-65
-*(see Piritramide / 吡利特胺)*
+*(see Piritramide)*
 
 ### A-66
-*(see Phenmetrazine / 芬美曲嗪)*
+*(see Phenmetrazine)*
 
 ### A-101
-*(see Nordiazepam / 去甲地西泮)*
+*(see Nordiazepam)*
 
 ### A-145
-*(see Promazine / 丙嗪)*
+*(see Promazine)*
 
 ### Abasin
-*(see Acetylcarbromal / 乙酰卡溴脲)*
+*(see Acetylcarbromal)*
 
 ### Abbott 30400
-*(see Pemoline / 匹莫林)*
+*(see Pemoline)*
 
 ### Abbott 35616
-*(see Clorazepate / 氯氮䓬酸)*
+*(see Clorazepate)*
 
 ### Abbott 39083
-*(see Clorazepate / 氯氮䓬酸)*
+*(see Clorazepate)*
 
 ### Acecarbromal
-*(see Acetylcarbromal / 乙酰卡溴脲)*
+*(see Acetylcarbromal)*
 
 ### Acedicon
-*(see Thebacon / 醋氢可酮)*
+*(see Thebacon)*
 
 ### Acemethadone
-*(see Acetylmethadol / 乙酰美沙醇)*
+*(see Acetylmethadol)*
 
 ### Acetexa
-*(see Amitriptyline / 阿米替林)*
+*(see Amitriptyline)*
 
 ### Acethydrocodone
-*(see Thebacon / 醋氢可酮)*
+*(see Thebacon)*
 
 ### Acetomorphine
-*(see Heroin / 海洛因)*
+*(see Heroin)*
 
 ### Acetone bromoform
-*(see Tribromo-tert-butyl alcohol / 三溴叔丁醇)*
+*(see Tribromo-tert-butyl alcohol)*
 
 ### Acetone chloroform
-*(see Chlorobutanol / 三氯叔丁醇)*
+*(see Chlorobutanol)*
 
 ---
 
-### ACETOPHENAZINE (乙酰奋乃静)
-乙酰奋乃静是一种非管制安定催眠类精神药物（Tranquilizer）。
-* 其二顺丁烯二酸盐被 DEA 分配了药物管制代码 **2710**；
-* 其顺丁烯二酸单盐被分配了药物管制代码 **2892**。
+### ACETOPHENAZINE
+Acetophenazine is a non-scheduled tranquilizer / sedative psychoactive drug.
+* Its dimaleate salt was assigned DEA Drug Code **2710**;
+* Its monomaleate salt was assigned DEA Drug Code **2892**.
 
 ---
 
-### ACETORPHINE (醋托啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9319**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`25333-77-1`
-* **分子式**：$C_{27}H_{35}NO_{5}$
-* **结构图位置**：第四章图版第 8 图 (Structure page 263 / Diels-Alder加成物)
-* **CA 正式命名**：6,14-Ethanomorphinan-7-methanol, 3-acetoxy-4,5-epoxy-6-methoxy-α,17-dimethyl-α-propyl-, [5α,7α(R)]-
-* **法理评注**：本品为埃托啡（Ethorphine）的乙酸酯。埃托啡系单独列入附表二的阿片类管制药物，参见相关词条。
+### ACETORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9319**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `25333-77-1`
+* **Empirical Formula**: $C_{27}H_{35}NO_{5}$
+* **Structure Diagram**: Chapter 4, Plate 8 (Structure page 263 / Diels-Alder adducts)
+* **CA Formal Name**: 6,14-Ethanomorphinan-7-methanol, 3-acetoxy-4,5-epoxy-6-methoxy-α,17-dimethyl-α-propyl-, [5α,7α(R)]-
+* **Legal Commentary**: This compound is the acetate ester of etorphine. Etorphine is an opiate controlled substance separately placed in Schedule II; see the corresponding entry.
 
 ---
 
 ### Aceto-Sterandryl
-*(see under Testosterone / 见睾酮项下)*
+*(see under Testosterone)*
 
 ### Aceto-Testoviron
-*(see under Testosterone / 见睾酮项下)*
+*(see under Testosterone)*
 
 ### Acetyl Adalin
-*(see Acetylcarbromal / 乙酰卡溴脲)*
+*(see Acetylcarbromal)*
 
 ---
 
-### ACETYL-ALPHA-METHYLFENTANYL (乙酰-α-甲基芬太尼)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9815**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **分子式**：$C_{22}H_{28}N_{2}O$
-* **结构图位置**：第四章图版第 13 图 (Structure page 267)
-* **CA 正式命名**：Acetamide, N-[1-(1-methyl-2-phenylethyl)-4-piperidinyl]-N-phenyl-
-* **立法演进历史**：
-  * 本化合物属于芬太尼类似物，最初是通过援引《紧急列管法案》的行政特权于 1985 年 10 月 29 日被临时打入附表一（参见 50 FR 43698）；
-  * 1986 年 11 月由 DEA 提出延长紧急临时管制六个月（51 FR 42834）；
-  * 1986 年 11 月 28 日正式刊登永久列入附表一的行政建议（51 FR 43025）；
-  * 1987 年 5 月 29 日起正式永久确立为附表一管制药物（52 FR 20070）。
-* **化学评注**：截至《化学文摘》第 103 卷（1985 年 12 月 31 日），该分子甚至从未被 CA 索引收录。然而在甲基位于其他异构位点的同系物中存在大量已知衍生物，包括 3-甲基芬太尼的对应体（乙酰-3-甲基芬太尼，CAS-97605-08-8），以及在两个苯环各个位置带有甲基的同系物。本品在成文法中的标题命名在化学技术上是不严密的。
+### ACETYL-ALPHA-METHYLFENTANYL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9814** (Salt code **9815**)
+* **Statutory Classification (L)**: Opiate
+* **Empirical Formula**: $C_{22}H_{28}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 13 (Structure page 267)
+* **CA Formal Name**: Acetamide, N-[1-(1-methyl-2-phenylethyl)-4-piperidinyl]-N-phenyl-
+* **Legislative History**:
+  * This compound is a fentanyl analogue, initially placed into Schedule I temporarily on October 29, 1985 by invoking emergency scheduling executive authority (see 50 FR 43698);
+  * In November 1986, the DEA proposed a six-month extension of the emergency temporary control (51 FR 42834);
+  * On November 28, 1986, a formal administrative proposal for permanent placement into Schedule I was published (51 FR 43025);
+  * Effective May 29, 1987, it was permanently established as a Schedule I controlled substance (52 FR 20070).
+* **Chemical Commentary**: As of Volume 103 of *Chemical Abstracts* (December 31, 1985), this molecule had never been indexed by CA. However, numerous known derivatives exist among homologues with the methyl group at other isomeric positions, including the counterpart of 3-methylfentanyl (acetyl-3-methylfentanyl, CAS 97605-08-8), as well as homologues bearing methyl groups at various positions on both phenyl rings. The statutory title designation of this substance is technically imprecise in chemical terms.
 
 ---
 
-### ACETYLCARBROMAL (乙酰卡溴脲)
-乙酰卡溴脲是一种非受管制的镇静药物，但被美国缉毒署分配了监控代码 **2410**。
+### ACETYLCARBROMAL
+Acetylcarbromal is a non-scheduled sedative drug, but was assigned monitoring Drug Code **2410** by the Drug Enforcement Administration.
 
 ### Acetylcodeine
-*(see under Codeine / 见可待因项下)*
+*(see under Codeine)*
 
 ---
 
-### ACETYLDIHYDROCODEINE (乙酰二氢可待因)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9051**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`3861-72-1`
-* **分子式**：$C_{20}H_{25}NO_{4}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-6-ol, 4,5-epoxy-3-methoxy-17-methyl-, acetate (ester) (5α)
-* **法理评注**：本品为二氢可待因（Dihydrocodeine）的乙酸酯，而二氢可待因本身被单独列为附表二鸦片衍生物。
+### ACETYLDIHYDROCODEINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9051**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `3861-72-1`
+* **Empirical Formula**: $C_{20}H_{25}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-6-ol, 4,5-epoxy-3-methoxy-17-methyl-, acetate (ester) (5α)
+* **Legal Commentary**: This substance is the acetate ester of dihydrocodeine, which itself is separately scheduled as a Schedule II opium derivative.
 
 ### Acetyldihydrocodeinone
-*(see Thebacon / 醋氢可酮)*
+*(see Thebacon)*
 
 ---
 
-### ACETYLMETHADOL (乙酰美沙醇)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9601**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：麻醉性镇痛剂 (Analgesic, Narcotic)
-* **CAS 注册号体系**：
-  * `34433-66-4`（未指定立体构型母体）
-  * `509-74-0`（作为美沙醇乙酸酯）
-  * `38821-43-1`（盐酸盐）
-  * `1553-31-7`（外消旋体，R\*R\* 构型，对应代码 **9590**）
-  * `17199-58-5`（(+)-R\*R\* 旋光对映体）
-  * `53757-35-0`（(+)-R\*R\* 盐酸盐）
-  * `1477-40-3`（(-)-R\*R\* 旋光对映体）
-  * `43033-72-3`（(-)-R\*R\* 盐酸盐）
-  * **LAAM (左旋乙酰美沙醇)**：代码 **9555**
-  * `66944-76-1`（外消旋体，R\*S\* 构型）
-  * `61443-59-2`（(+)-R\*S\* 盐酸盐）
-  * `61443-60-5`（(-)-R\*S\* 盐酸盐）
-* **分子式**：$C_{23}H_{31}NO_{2}$
-* **结构图位置**：第四章图版第 15 图 (Structure page 269)
-* **CA 正式命名**：Benzeneethanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, acetate (ester).
-* **CA 旧称**：3-Heptanol, 6-dimethylamino-4,4-diphenyl-, acetate (ester).
-* **法理评注**：α-乙酰美沙醇（R\*R\* 异构体）与 β-乙酰美沙醇（R\*S\* 异构体）均在附表一中单独列出并分配了独立的 DEA 识别代码。法律条文中“Acetylmethadol”这一统称未作任何异构体区分。其脱乙酰基还原产物亦单独列出，参见 Alphamethadol、Betamethadol 以及 Dimepheptanol。
+### ACETYLMETHADOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9601**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Analgesic, Narcotic
+* **CAS Registry Number System**:
+  * `34433-66-4` (Unspecified stereochemistry parent)
+  * `509-74-0` (As methadol acetate)
+  * `38821-43-1` (Hydrochloride)
+  * `1553-31-7` (Racemate, R*R* configuration, corresponding to Code **9590**)
+  * `17199-58-5` ((+)-R*R* optical enantiomer)
+  * `53757-35-0` ((+)-R*R* hydrochloride)
+  * `1477-40-3` ((-)-R*R* optical enantiomer)
+  * `43033-72-3` ((-)-R*R* hydrochloride)
+  * **LAAM (Levo-alpha-acetylmethadol)**: Code **9555**
+  * `66944-76-1` (Racemate, R*S* configuration)
+  * `61443-59-2` ((+)-R*S* hydrochloride)
+  * `61443-60-5` ((-)-R*S* hydrochloride)
+* **Empirical Formula**: $C_{23}H_{31}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 15 (Structure page 269)
+* **CA Formal Name**: Benzeneethanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, acetate (ester).
+* **Prior CA Name**: 3-Heptanol, 6-dimethylamino-4,4-diphenyl-, acetate (ester).
+* **Legal Commentary**: Both alphacetylmethadol (R*R* isomer) and betacetylmethadol (R*S* isomer) are separately listed in Schedule I with distinct DEA identification codes. The umbrella statutory term "Acetylmethadol" makes no isomeric distinction. Its deacetylated reduction products are also separately scheduled; see Alphamethadol, Betamethadol, and Dimepheptanol.
 
 ---
 
 ### 3-O-Acetyl-19-propylorvinol
-*(see Acetorphine / 见醋托啡项下)*
+*(see Acetorphine)*
 
 ---
 
-### ACRYL-ALPHA-METHYLFENTANYL (丙烯酰-α-甲基芬太尼)
-推测属于阿片拮抗剂；非受管制药物，但已被分配缉毒署药物代码 **9416**。其名称在化学上不严谨，本质是 α-甲基芬太尼分子中的丙酸基团被丙烯酸替代的类似物。
+### ACRYL-ALPHA-METHYLFENTANYL
+Presumed to be an opioid antagonist; non-scheduled, but assigned DEA Drug Code **9416**. Its name is chemically imprecise, representing an analogue where the propionyl group of α-methylfentanyl is replaced with an acryloyl moiety.
 
 ---
 
 ### Actedron
-*(see Amphetamine / 见安非他命项下)*
+*(see Amphetamine)*
 
 ### Activin
-*(see under Nandrolone / 见诺龙项下)*
+*(see under Nandrolone)*
 
 ### Actozine
-*(see Benactyzine / 见苯克嗪项下)*
+*(see Benactyzine)*
 
 ### Adalin
-*(see Carbromal / 见卡溴脲项下)*
+*(see Carbromal)*
 
 ### Adam
-*(街头俗称，see 3,4-Methylenedioxymethamphetamine / MDMA)*
+*(Street name; see 3,4-Methylenedioxymethamphetamine / MDMA)*
 
 ### Adanon Hydrochloride
-*(see Methadone / 见美沙酮项下)*
+*(see Methadone)*
 
 ### Adapin
-*(see Doxepin / 见多塞平项下)*
+*(see Doxepin)*
 
 ### Addisomnol
-*(see Carbromal / 见卡溴脲项下)*
+*(see Carbromal)*
 
 ### Adepril
-*(see Amitriptyline / 见阿米替林项下)*
+*(see Amitriptyline)*
 
 ### Adipan
-*(see Amphetamine / 见安非他命项下)*
+*(see Amphetamine)*
 
 ### Adiparthrol
-*(see N-Ethylamphetamine / 见N-乙基苯丙胺项下)*
+*(see N-Ethylamphetamine)*
 
 ### Adipex-P
-*(see Phentermine / 见芬特明项下)*
+*(see Phentermine)*
 
 ### Adipomin
-*(see Fenfluramine / 见芬氟拉明项下)*
+*(see Fenfluramine)*
 
 ### Adiposettin
-*(see Cathine / 见去甲伪麻黄碱项下)*
+*(see Cathine)*
 
 ### Adphen
-*(see Phendimetrazine / 见芬美曲嗪项下)*
+*(see Phendimetrazine)*
 
 ### Adroyd
-*(see Oxymetholone / 见羟甲烯龙项下)*
+*(see Oxymetholone)*
 
 ### Adumbran
-*(see Oxazepam / 见奥沙西泮项下)*
+*(see Oxazepam)*
 
 ### Afatin
-*(右旋苯丙胺商品名，see Amphetamine)*
+*(Trade name for dextroamphetamine; see Amphetamine)*
 
 ### Agrypnal
-*(see Phenobarbital / 见苯巴比妥项下)*
+*(see Phenobarbital)*
 
 ### AHR-223
-*(see Mephenoxalone / 见美芬诺酮项下)*
+*(see Mephenoxalone)*
 
 ### AHR-3002
-*(see Fenfluramine / 见芬氟拉明项下)*
+*(see Fenfluramine)*
 
 ### Akalon-T
-*(含有甲喹酮/安眠酮的复方制剂，q.v.)*
+*(Combination preparation containing methaqualone, q.v.)*
 
 ### Alamon
-*(see Hydroxyzine / 见羟嗪项下)*
+*(see Hydroxyzine)*
 
 ### Alanone
-*(see under Nandrolone / 见诺龙项下)*
+*(see under Nandrolone)*
 
 ### Albego
-*(see Camazepam / 见卡马西泮项下)*
+*(see Camazepam)*
 
 ### Albemap
-*(右旋苯丙胺商品名，see Amphetamine)*
+*(Trade name for dextroamphetamine; see Amphetamine)*
 
 ### Alempol
-*(see Methylpentynol / 见甲基戊炔醇项下)*
+*(see Methylpentynol)*
 
 ### Alentol
-*(see Amphetamine / 见安非他命项下)*
+*(see Amphetamine)*
 
 ### Alertol
-*(see Pipradrol / 见哌苯甲醇项下)*
+*(see Pipradrol)*
 
 ---
 
-### ALFENTANIL (阿芬太尼)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9737**（游离碱及水合物代码 **9738**）
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号体系**：
-  * `71195-58-9`（未指定形态）
-  * `70879-28-6`（盐酸盐水合物）
-  * `69049-06-5`（无水盐酸盐）
-* **分子式**：$C_{21}H_{32}N_{6}O_{3}$
-* **结构图位置**：第四章图版第 2 图及第 13 图 (Structure page 267)
-* **CA 正式命名**：Propanamide, N-[1-[2-(4-ethyl-4,5-dihydro-5-oxo-1H-tetrazol-1-yl)ethyl]-4-(methoxymethyl)-4-piperidinyl]-N-phenyl-
-* **立法演进历史**：
-  * 本品于 1984 年 8 月 24 日由司法部依据《1961 年麻醉品单一公约》国际条约履约要求首次列入**附表一**（49 FR 25849）；
-  * 随后由于 FDA 正式批准其临床静脉麻醉用途，司法部依据 51 FR 13025 提出重新分级建议，并于 1987 年 1 月 23 日正式将其调整降级至**附表二**实施严格处方管制。
+### ALFENTANIL
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9737** (Free base and hydrate code **9738**)
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number System**:
+  * `71195-58-9` (Unspecified form)
+  * `70879-28-6` (Hydrochloride hydrate)
+  * `69049-06-5` (Anhydrous hydrochloride)
+* **Empirical Formula**: $C_{21}H_{32}N_{6}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 2 and Plate 13 (Structure page 267)
+* **CA Formal Name**: Propanamide, N-[1-[2-(4-ethyl-4,5-dihydro-5-oxo-1H-tetrazol-1-yl)ethyl]-4-(methoxymethyl)-4-piperidinyl]-N-phenyl-
+* **Legislative History**:
+  * Initially placed into **Schedule I** on August 24, 1984 by the Department of Justice pursuant to international treaty obligations under the Single Convention on Narcotic Drugs of 1961 (49 FR 25849);
+  * Following FDA clinical approval for intravenous surgical anesthesia, the DOJ published a rescheduling proposal under 51 FR 13025, and on January 23, 1987, formally rescheduled it downward to **Schedule II** subject to strict prescription controls.
 
 ---
 
-### ALLOBARBITAL (阿罗巴比妥)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2145**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：中枢抑制催眠药 (Central depressant, Hypnotic)
-* **CAS 注册号**：`52-43-7`
-* **分子式**：$C_{10}H_{12}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 278)
-* **CA 正式命名**：2,4,6(1H,3H,5H)-Pyrimidinetrione, 5,5-di-2-propenyl-
-* **法理地位**：5,5-二烯丙基巴比妥酸。属于经典巴比妥类化合物，在成文法中属于明确列管的附表三中枢抑制剂。
+### ALLOBARBITAL
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2145**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Central depressant, Hypnotic
+* **CAS Registry Number**: `52-43-7`
+* **Empirical Formula**: $C_{10}H_{12}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 278)
+* **CA Formal Name**: 2,4,6(1H,3H,5H)-Pyrimidinetrione, 5,5-di-2-propenyl-
+* **Legal Status**: 5,5-Diallylbarbituric acid. A classic barbiturate compound, explicitly controlled in statutory law as a Schedule III depressant.
 
 ---
 
-### ALLYLPRODINE (烯丙普罗丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9602**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号体系**：
-  * `25384-17-2`（外消旋游离碱）
-  * `5967-75-9`（盐酸盐）
-* **分子式**：$C_{18}H_{25}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **CA 正式命名**：3-Piperidinol, 1-methyl-4-phenyl-3-(2-propenyl)-, propanoate (ester)
-* **法理评注**：3-烯丙基-1-甲基-4-苯基-4-丙酰氧基哌啶。系 1970 年法案初版即列名的烈性阿片类物质。
+### ALLYLPRODINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9602**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number System**:
+  * `25384-17-2` (Racemic free base)
+  * `5967-75-9` (Hydrochloride)
+* **Empirical Formula**: $C_{18}H_{25}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **CA Formal Name**: 3-Piperidinol, 1-methyl-4-phenyl-3-(2-propenyl)-, propanoate (ester)
+* **Legal Commentary**: 3-Allyl-1-methyl-4-phenyl-4-propionyloxypiperidine. A potent opiate listed in the original 1970 Act.
 
 ---
 
-### ALPHAMEPRODINE (α-美普罗丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9604**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`468-51-3`
-* **分子式**：$C_{17}H_{25}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **CA 正式命名**：3-Piperidinol, 3-ethyl-1-methyl-4-phenyl-, propanoate (ester), cis-
-* **化学对映关系**：顺式顺反异构体（cis-isomer）被列为 α-美普罗丁；反式异构体（trans-isomer）则被单独命名为 **β-美普罗丁 (Betameprodine)**，代码 **9608**，同属附表一管制。
+### ALPHAMEPRODINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9604**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `468-51-3`
+* **Empirical Formula**: $C_{17}H_{25}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **CA Formal Name**: 3-Piperidinol, 3-ethyl-1-methyl-4-phenyl-, propanoate (ester), cis-
+* **Chemical Diastereomeric Relationship**: The cis-isomer is scheduled as alphameprodine; the trans-isomer is separately scheduled as **Betameprodine**, Code **9608**, likewise in Schedule I.
 
 ---
 
-### ALPHAMETHADOL (α-美沙醇)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9605**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`17199-54-1`
-* **分子式**：$C_{21}H_{29}NO$
-* **结构图位置**：第四章图版第 14 图 (Structure page 269)
-* **CA 正式命名**：Benzenepropanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, [R-(R\*,R\*)]-
-* **法理评注**：美沙酮还原后所得醇类代谢产物的特定立体异构对映体，其反式异构体为 **β-美沙醇 (Betamethadol)**，代码 **9609**。
+### ALPHAMETHADOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9605**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `17199-54-1`
+* **Empirical Formula**: $C_{21}H_{29}NO$
+* **Structure Diagram**: Chapter 4, Plate 14 (Structure page 269)
+* **CA Formal Name**: Benzenepropanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, [R-(R*,R*)]-
+* **Legal Commentary**: A specific stereoisomer of the alcohol reduction metabolite of methadone; its diastereomer is **Betamethadol**, Code **9609**.
 
 ---
 
-### ALPHA-METHYLFENTANYL (α-甲基芬太尼)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9814**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`79704-88-4`（盐酸盐 `65814-08-6`）
-* **分子式**：$C_{23}H_{30}N_{2}O$
-* **结构图位置**：第四章图版第 13 图 (Structure page 267)
-* **CA 正式命名**：Propanamide, N-[1-(1-methyl-2-phenylethyl)-4-piperidinyl]-N-phenyl-
-* **历史大案背景**：著名的 1970 年代末至 1980 年代初席卷加州的地下合成设计毒品**“中国白”（China White）**。因其镇痛和致死毒力相当于吗啡的数千倍，引发全美药物滥用突发公害。DEA 于 1981 年 9 月 22 日依据 46 FR 46799 紧急将其正式锁定在附表一管辖之内。
+### ALPHA-METHYLFENTANYL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9814**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `79704-88-4` (Hydrochloride `65814-08-6`)
+* **Empirical Formula**: $C_{23}H_{30}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 13 (Structure page 267)
+* **CA Formal Name**: Propanamide, N-[1-(1-methyl-2-phenylethyl)-4-piperidinyl]-N-phenyl-
+* **Historical Background**: The famous underground designer drug known as **"China White"** that swept California in the late 1970s and early 1980s. With analgesic potency and lethality thousands of times greater than morphine, it caused widespread public health emergencies. DEA placed it under emergency control in Schedule I on September 22, 1981 (46 FR 46799).
 
 ---
 
-### ALPHA-METHYL THIOFENTANYL (α-甲基硫代芬太尼)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9832**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **分子式**：$C_{21}H_{28}N_{2}OS$
-* **结构图位置**：第四章图版第 13 图 (Structure page 267)
-* **CA 正式命名**：N-[1-[1-methyl-2-(2-thienyl)ethyl]-4-piperidinyl]-N-phenylpropanamide
-* **立法演进**：1985 年依据《紧急列管法》临时列管（50 FR 43698），1986 年延期，1987 年 5 月 29 日（52 FR 20070）正式永久确认为附表一重罪管制药物。
+### ALPHA-METHYL THIOFENTANYL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9832**
+* **Statutory Classification (L)**: Opiate
+* **Empirical Formula**: $C_{21}H_{28}N_{2}OS$
+* **Structure Diagram**: Chapter 4, Plate 13 (Structure page 267)
+* **CA Formal Name**: N-[1-[1-methyl-2-(2-thienyl)ethyl]-4-piperidinyl]-N-phenylpropanamide
+* **Legislative History**: Temporarily scheduled under the Emergency Scheduling Act in 1985 (50 FR 43698), extended in 1986, and permanently scheduled as a Schedule I controlled substance on May 29, 1987 (52 FR 20070).
 
 ---
 
-### ALPHAPRODINE (α-普罗丁 / 咯西汀)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9010**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：麻醉镇痛药 (Narcotic analgesic)
-* **CAS 注册号**：`77-20-3`（盐酸盐 `561-78-4`）
-* **分子式**：$C_{16}H_{23}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **法理异构辨析**：此处列入附表二的为顺式外消旋体（cis-racemate，曾广泛用于产科短效静脉镇痛）；而其反式异构外消旋体 **β-普罗丁 (Betaprodine)** 却被归入**附表一**绝对禁用类别。
+### ALPHAPRODINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9010**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `77-20-3` (Hydrochloride `561-78-4`)
+* **Empirical Formula**: $C_{16}H_{23}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **Legal Isomeric Distinction**: Placed in Schedule II is the cis-racemate (formerly widely used as an intravenous short-acting obstetric analgesic); whereas its trans-isomer racemate, **Betaprodine**, is assigned to **Schedule I** as an illicit substance.
 
 ---
 
-### ALPRAZOLAM (阿普唑仑 / 佳静安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2882**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：抗焦虑镇静药 (Anxiolytic, Sedative)
-* **CAS 注册号**：`28981-97-7`
-* **分子式**：$C_{17}H_{13}ClN_{4}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274 / 三唑并苯二氮䓬)
-* **CA 正式命名**：4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-1-methyl-6-phenyl-
-* **立法演进**：由 Upjohn 公司研发的强效三唑并苯二氮䓬类代表药（Xanax）。于 1981 年 11 月 12 日依据 46 FR 55688 被正式纳入附表四管制。
+### ALPRAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2882**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Anxiolytic, Sedative
+* **CAS Registry Number**: `28981-97-7`
+* **Empirical Formula**: $C_{17}H_{13}ClN_{4}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274 / Triazolobenzodiazepines)
+* **CA Formal Name**: 4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-1-methyl-6-phenyl-
+* **Legislative History**: A potent triazolobenzodiazepine developed by Upjohn (Xanax). Placed into Schedule IV on November 12, 1981 pursuant to 46 FR 55688.
 
 ---
 
-### AMOBARBITAL (异戊巴比妥)
-* **现行附表**：
-  * 单方纯品及一般制剂：**Schedule II (附表二)**，代码 **2125**
-  * 复方活性制剂或直肠栓剂：**Schedule III (附表三)**，代码 **2126**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静催眠药 (Hypnotic, Sedative)
-* **CAS 注册号**：`57-43-2`（钠盐 `64-43-7`）
-* **分子式**：$C_{11}H_{18}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 278)
-* **CA 正式命名**：2,4,6(1H,3H,5H)-Pyrimidinetrione, 5-ethyl-5-(3-methylbutyl)-
-* **立法演进**：于 1973 年 11 月 13 日依据 38 FR 31310 升级至附表二；若本品与任何其他非受管制的活性药物成分制成复方制剂、或制成栓剂剂型，则依据 52 FR 5951 降为附表三管制。
+### AMOBARBITAL
+* **Current Schedule**:
+  * Pure single entity and general formulations: **Schedule II**, Code **2125**
+  * Combination formulations with other active non-controlled ingredients or suppositories: **Schedule III**, Code **2126**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Hypnotic, Sedative
+* **CAS Registry Number**: `57-43-2` (Sodium salt `64-43-7`)
+* **Empirical Formula**: $C_{11}H_{18}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 278)
+* **CA Formal Name**: 2,4,6(1H,3H,5H)-Pyrimidinetrione, 5-ethyl-5-(3-methylbutyl)-
+* **Legislative History**: Rescheduled upward to Schedule II on November 13, 1973 (38 FR 31310); combination formulations with non-controlled active ingredients or suppository dosage forms are assigned to Schedule III pursuant to 52 FR 5951.
 
 ---
 
-### AMPHETAMINE (安非他命 / 苯丙胺)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 统称及外消旋体：**1100**
-  * 专属化学名 α-甲基苯乙胺：**8720**
-  * 右旋苯丙胺（D-Amphetamine / Dexedrine）：代码 **1106**
-  * 左旋苯丙胺（L-Amphetamine）：代码 **1105**
-  * 特殊长效树脂复方 Biphetamine：代码 **1102**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **药理分类 (M)**：中枢兴奋与食欲抑制剂 (CNS Stimulant, Anorexic)
-* **CAS 注册号体系**：
-  * `300-62-9`（外消旋游离碱）
-  * `60-13-9`（硫酸外消旋苯丙胺）
-  * `51-64-9`（右旋游离碱）
-  * `51-63-8`（硫酸右旋苯丙胺）
-  * `156-34-3`（左旋游离碱）
-* **分子式**：$C_{9}H_{13}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **立法演进与复方大案**：
-  * 1971 年 7 月 23 日，DEA 将双组分苯丙胺树脂复方制剂（Biphetamine）升级为附表二（36 FR 13686）；
-  * 1971 年 8 月 18 日，将含有右旋苯丙胺与丙氯拉嗪的缓释复方（Eskatrol）升级为附表二（36 FR 15747）；
-  * 1971 年 10 月 28 日，通过 36 FR 21336 正式确立通则：凡含有任何数量的安非他命或甲基苯丙胺及其异构体的混合制剂，一律全面收归附表二最严苛处方管理体系。
+### AMPHETAMINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Generic collective and racemate: **1100**
+  * Specific chemical designation α-methylphenethylamine: **8720**
+  * Dextroamphetamine (D-Amphetamine / Dexedrine): Code **1106**
+  * Levoamphetamine (L-Amphetamine): Code **1105**
+  * Extended-release resin complex (Biphetamine): Code **1102**
+* **Statutory Classification (L)**: Stimulant
+* **Pharmacological Classification (M)**: CNS Stimulant, Anorexic
+* **CAS Registry Number System**:
+  * `300-62-9` (Racemic free base)
+  * `60-13-9` (Racemic amphetamine sulfate)
+  * `51-64-9` (Dextro free base)
+  * `51-63-8` (D-Amphetamine sulfate)
+  * `156-34-3` (Levo free base)
+* **Empirical Formula**: $C_{9}H_{13}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Legislative History and Combination Cases**:
+  * On July 23, 1971, DEA upgraded the dual-component amphetamine resin complex (Biphetamine) to Schedule II (36 FR 13686);
+  * On August 18, 1971, the sustained-release combination of dextroamphetamine and prochlorperazine (Eskatrol) was rescheduled to Schedule II (36 FR 15747);
+  * On October 28, 1971, through 36 FR 21336, a general statutory rule was established: all formulations containing any quantity of amphetamine or methamphetamine, including their isomers, are comprehensively consolidated under the strictest Schedule II prescription regime.
 
 ---
 
-### ANILERIDINE (阿尼利啶)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9020**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`144-14-9`（二盐酸盐 `126-12-5`）
-* **分子式**：$C_{22}H_{28}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-[2-(4-aminophenyl)ethyl]-4-phenyl-, ethyl ester
-* **法理评注**：属于哌替啶（杜冷丁）的 N-(对氨基苯乙基)取代类似物，镇痛效力为哌替啶的数倍。
+### ANILERIDINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9020**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `144-14-9` (Dihydrochloride `126-12-5`)
+* **Empirical Formula**: $C_{22}H_{28}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-[2-(4-aminophenyl)ethyl]-4-phenyl-, ethyl ester
+* **Legal Commentary**: An N-(p-aminophenethyl) substituted analogue of meperidine, possessing several times the analgesic potency of meperidine.
 
 ---
 
-### APOMORPHINE (阿扑吗啡)
-* **现行法律地位**：**非管制处方药 (Not Scheduled / Schedule NS)**
-* **DEA 药物管制代码**：**无**
-* **历史除名公案**：
-  * 本品是由吗啡经浓酸加热脱水重排制得的强效多巴胺激动剂与催吐剂，在化学定义上是不折不扣的“鸦片衍生物”；
-  * 在 1970 年至 1976 年间，联邦执法机关因成文法序言中的“衍生物”兜底条款，一直将其推定为附表二列管重罪物质；
-  * 直至 **1976 年 6 月 28 日**，DEA 局长才正式签署行政命令，以该化合物完全不具备阿片样滥用潜能为由，指名道姓将其从附表二中正式**除名并彻底豁免管制**（41 FR 26567）。这一事件成为舒尔金揭示法条“衍生物”过度扩张荒谬性的经典历史实证。
-
+### APOMORPHINE
+* **Current Legal Status**: **Not Scheduled (Schedule NS / Prescription Legend)**
+* **DEA Drug Code**: **None**
+* **Historical De-scheduling Case**:
+  * Prepared by the acid-catalyzed dehydration rearrangement of morphine, apomorphine is a potent dopamine agonist and emetic that is chemically indisputably an "opium derivative";
+  * Between 1970 and 1976, federal enforcement authorities presumed it to be a Schedule II controlled substance under the statutory preamble catch-all clause for "derivatives";
+  * On **June 28, 1976**, the Administrator of the DEA formally issued an order explicitly **de-scheduling and completely exempting** apomorphine from Schedule II on the grounds that it entirely lacks opiate abuse potential (41 FR 26567). This historical episode stands as a textbook example cited by Shulgin to demonstrate the absurdities stemming from statutory overreach of the term "derivative."
 
 ---
 
-## B 字母部词条全典 (Letter B)
+## Letter B
 
 ### Ba-20684
-*(see Etonitazene / 依他氮烯)*
+*(see Etonitazene)*
 
 ### Ba-29038
-*(see under Boldenone / 见宝丹酮项下)*
+*(see under Boldenone)*
 
 ### Bacarate
-*(see Phendimetrazine / 芬美曲嗪)*
+*(see Phendimetrazine)*
 
 ### Bamadex
-*(含有眠尔通 Meprobamate 的复方制剂，q.v.)*
+*(Combination preparation containing meprobamate, q.v.)*
 
 ### Bamate
-*(see Meprobamate / 甲丙氨酯)*
+*(see Meprobamate)*
 
 ### Bamo-400
-*(see Meprobamate / 甲丙氨酯)*
+*(see Meprobamate)*
 
 ### Barbamyl
-*(see Amobarbital / 异戊巴比妥)*
+*(see Amobarbital)*
 
 ### Barbenyl
-*(see Phenobarbital / 苯巴比妥)*
+*(see Phenobarbital)*
 
 ### Barbexaclone
-*(see under Propylhexedrine / 环己丙甲胺复方)*
+*(see under Propylhexedrine / combination)*
 
 ### Barbiphenyl
-*(see Phenobarbital / 苯巴比妥)*
+*(see Phenobarbital)*
 
 ### Barbipil
-*(see Phenobarbital / 苯巴比妥)*
+*(see Phenobarbital)*
 
 ---
 
-### BARBITAL (巴比妥 / 佛罗拿)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2145**（游离酸），钠盐代码 **2150**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静催眠药 (Sedative, hypnotic)
-* **CAS 注册号体系**：
-  * `57-44-3`（游离酸）
-  * `144-02-5`（钠盐）
-  * `4388-77-6`（钾盐）
-  * `67007-94-7`（铵盐）
-  * `77252-89-2`（锂盐）
-* **分子式**：$C_{8}H_{12}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 279)
-* **CA 正式命名**：2,4,6(1H,3H,5H)-Pyrimidinetrione, 5,5-diethyl-
-* **法理同义词**：Barbitone、Diethylbarbituric Acid、Veronal。
+### BARBITAL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2145** (Free acid), Sodium salt code **2150**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, hypnotic
+* **CAS Registry Number System**:
+  * `57-44-3` (Free acid)
+  * `144-02-5` (Sodium salt)
+  * `4388-77-6` (Potassium salt)
+  * `67007-94-7` (Ammonium salt)
+  * `77252-89-2` (Lithium salt)
+* **Empirical Formula**: $C_{8}H_{12}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 279)
+* **CA Formal Name**: 2,4,6(1H,3H,5H)-Pyrimidinetrione, 5,5-diethyl-
+* **Synonyms**: Barbitone, Diethylbarbituric Acid, Veronal.
 
 ---
 
-### BARBITURIC ACID (巴比妥酸 / 丙二酰脲)
-* **现行法律争议地位**：**Schedule III (附表三推导适用)**
-* **DEA 药物管制代码体系**：
-  * 巴比妥酸游离母体：**2100**
-  * 巴比妥类复方制剂 (Barbiturate Combinations)：**2345**
-  * 巴比妥类镇痛复方制剂 (Barbiturate - Analgesic Combinations)：**2350**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **商业用途 (M)**：塑料工业合成原料 (Manufacture of Plastics)
-* **CAS 注册号**：
-  * `67-52-7`（无水游离酸）
-  * `619-25-9`（二水合游离酸）
-  * `4390-16-3`（钠盐）
-  * `67008-01-9`（铵盐）
-* **分子式**：$C_{4}H_{4}N_{2}O_{3}$
-* **法理混乱与司法灰色地带考证**：
-  * 本词条是联邦毒品法中最为著名的司法灰色泥潭之一。**巴比妥酸本身在药理学上完全惰性、没有任何中枢抑制活性**，亦未在成文法中直接指名列管。然而，法条规定凡含有巴比妥酸“任何化学衍生物”的物质均属附表三。这种循环定义导致执法界陷入分裂；
-  * **明确移入附表二的巴比妥衍生物**：异戊巴比妥 (Amobarbital)、戊巴比妥 (Pentobarbital)、司可巴比妥 (Secobarbital) 于 1973 年 11 月 15 日升级至附表二；
-  * **明确列入附表四的巴比妥衍生物**：美索比妥 (Methohexital)、甲苯巴比妥 (Methylphenobarbital)、苯巴比妥 (Phenobarbital)、巴比妥 (Barbital)；
-  * **遗留在附表三的悬空衍生物**：阿罗巴比妥 (Allobarbital)、异丁巴比妥 (Butalbital)、布他比妥等在 1973 年曾拟移入附表二（38 FR 31310）但从未正式完成听证，目前推定保留在附表三。
+### BARBITURIC ACID
+* **Current Statutory Ambiguity Status**: **Schedule III (Presumed / Derivative catch-all)**
+* **DEA Drug Code System**:
+  * Barbituric acid free parent: **2100**
+  * Barbiturate Combinations: **2345**
+  * Barbiturate - Analgesic Combinations: **2350**
+* **Statutory Classification (L)**: Depressant
+* **Commercial Application (M)**: Manufacture of Plastics
+* **CAS Registry Number System**:
+  * `67-52-7` (Anhydrous free acid)
+  * `619-25-9` (Dihydrate free acid)
+  * `4390-16-3` (Sodium salt)
+  * `67008-01-9` (Ammonium salt)
+* **Empirical Formula**: $C_{4}H_{4}N_{2}O_{3}$
+* **Statutory Confusion and Judicial Grey Zone Analysis**:
+  * This entry represents one of the most notorious judicial quagmires in federal drug law. **Barbituric acid itself is pharmacologically completely inert, possessing zero central depressant activity**, nor was it directly named for control in the text of the statute. However, the statute decrees that any substance containing "any chemical derivative" of barbituric acid falls into Schedule III. This circular statutory construction has led to deep division within regulatory enforcement;
+  * **Barbiturate derivatives explicitly moved to Schedule II**: Amobarbital, Pentobarbital, and Secobarbital were rescheduled upward to Schedule II on November 15, 1973;
+  * **Barbiturate derivatives explicitly placed in Schedule IV**: Methohexital, Methylphenobarbital, Phenobarbital, and Barbital;
+  * **Hanging derivatives remaining in Schedule III**: Allobarbital, Butalbital, etc., were proposed for transfer to Schedule II in 1973 (38 FR 31310) but never completed formal hearings, thus remaining presumed in Schedule III.
 
 ---
 
-### BEMEGRIDE (贝美格 / 美解眠)
-贝美格是一种中枢兴奋剂与惊厥逆转剂，非受管制药物，但已被分配缉毒署监控代码 **1503**。
-* 化学命名：2,6-dioxo-4-ethyl-4-methylpiperidine（3-乙基-3-甲基戊二酰亚胺）；
-* 药理注意：其分子结构与附表三镇静剂格鲁米特（Glutethimide，代码 2550）高度相似。
+### BEMEGRIDE
+Bemegride is a central nervous system stimulant and analeptic/anticonvulsant reversal agent; non-scheduled, but assigned DEA monitoring code **1503**.
+* Chemical nomenclature: 2,6-dioxo-4-ethyl-4-methylpiperidine (3-ethyl-3-methylglutarimide);
+* Pharmacological note: Its molecular structure bears high structural similarity to the Schedule III sedative glutethimide (Code 2550).
 
 ---
 
-### BENACTYZINE HYDROCHLORIDE (盐酸苯克嗪)
-一种抗胆碱能安定催眠药，非管制药物，DEA 监控代码 **2725**；与眠尔通混编的复方代码为 **2730**。
+### BENACTYZINE HYDROCHLORIDE
+An anticholinergic sedative/tranquilizer; non-scheduled, assigned DEA monitoring code **2725**; combination preparations with meprobamate are assigned code **2730**.
 
 ### Benzedrex
-*(see Propylhexedrine / 环己丙甲胺)*
+*(see Propylhexedrine)*
 
 ### Benzedrine
-*(安非他命硫酸盐历史商品名，see Amphetamine)*
+*(Historical trade name for amphetamine sulfate; see Amphetamine)*
 
 ---
 
-### BENZETHIDINE (苄替啶)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9606**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`3691-78-9`
-* **分子式**：$C_{23}H_{29}NO_{3}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-[2-(benzyloxy)ethyl]-4-phenyl-, ethyl ester
-* **法理评注**：属于哌替啶（杜冷丁）的 1-[2-(苄氧基)乙基]取代类似物，1970 年法案初版列名的附表一烈性麻醉品。
+### BENZETHIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9606**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `3691-78-9`
+* **Empirical Formula**: $C_{23}H_{29}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-[2-(benzyloxy)ethyl]-4-phenyl-, ethyl ester
+* **Legal Commentary**: A 1-[2-(benzyloxy)ethyl] substituted analogue of meperidine, scheduled as a potent Schedule I narcotic in the original 1970 Act.
 
 ---
 
-### BENZYL-ALPHA-METHYLFENTANYL (苄基-α-甲基芬太尼)
-DEA 监控代码 **9818**。本化合物在 1985 年曾由 DEA 依据《紧急列管法》临时列入附表一（50 FR 43698）；但在 1986 年延期申请中，DEA 主动将其剔除并任由其紧急管制过期失效。因此在法理上属于**非列管化学品**。该代码 9818 亦曾被用于指代去甲基芬太尼（Desmethylfentanyl）。
+### BENZYL-ALPHA-METHYLFENTANYL
+DEA Monitoring Code **9818**. Temporarily placed into Schedule I by DEA in 1985 under the Emergency Scheduling Act (50 FR 43698); however, in the 1986 extension petition, DEA affirmatively omitted it and allowed the emergency scheduling to expire. Consequently, it has the legal status of an **uncontrolled chemical**. The code 9818 was also historically utilized to designate desmethylfentanyl.
 
 ---
 
-### BENZYLMORPHINE (苄吗啡 / 苄基吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9052**（游离碱），盐酸盐代码 **9075**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`14297-87-1`
-* **分子式**：$C_{24}H_{25}NO_{3}$
-* **结构图位置**：第四章图版第 7 图 (Structure page 260)
-* **CA 正式命名**：Morphinan-6-ol, 7,8-didehydro-4,5-epoxy-17-methyl-3-(phenylmethoxy)-, (5α,6α)-
-* **商品名**：Peronin（佩罗宁）。
+### BENZYLMORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9052** (Free base), Hydrochloride code **9075**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `14297-87-1`
+* **Empirical Formula**: $C_{24}H_{25}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 7 (Structure page 260)
+* **CA Formal Name**: Morphinan-6-ol, 7,8-didehydro-4,5-epoxy-17-methyl-3-(phenylmethoxy)-, (5α,6α)-
+* **Trade Name**: Peronin.
 
 ---
 
-### BETAACETYLMETHADOL (β-乙酰美沙醇)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9607**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **分子式**：$C_{23}H_{31}NO_{2}$
-* **结构图位置**：第四章图版第 15 图 (Structure page 269)
-* **CA 正式命名**：Benzeneethanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, acetate (ester), [R-(R\*,S\*)]-
-* **法理对映关系**：系美沙醇乙酸酯的特定非对映异构对（R\*S\* 构型），与 α-乙酰美沙醇互为立体非对映体。
+### BETAACETYLMETHADOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9607**
+* **Statutory Classification (L)**: Opiate
+* **Empirical Formula**: $C_{23}H_{31}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 15 (Structure page 269)
+* **CA Formal Name**: Benzeneethanol, β-[2-(dimethylamino)propyl]-α-ethyl-β-phenyl-, acetate (ester), [R-(R*,S*)]-
+* **Legal Diastereomeric Relationship**: A specific diastereomeric pair (R*S* configuration) of methadol acetate, forming a stereoisomeric counterpart to alphacetylmethadol.
 
 ---
 
-### BETAMEPRODINE (β-美普罗丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9608**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号体系**：
-  * `468-51-9`（顺式游离碱）
-  * `468-50-8`（反式游离碱）
-  * `57401-80-6`（(+)-异构体）
-  * `57401-82-8`（(-)-异构体）
-* **分子式**：$C_{17}H_{25}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **CA 正式命名**：3-Piperidinol, 3-ethyl-1-methyl-4-phenyl-, propanoate (ester), trans-
+### BETAMEPRODINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9608**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number System**:
+  * `468-51-9` (cis-Free base)
+  * `468-50-8` (trans-Free base)
+  * `57401-80-6` ((+)-Isomer)
+  * `57401-82-8` ((-)-Isomer)
+* **Empirical Formula**: $C_{17}H_{25}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **CA Formal Name**: 3-Piperidinol, 3-ethyl-1-methyl-4-phenyl-, propanoate (ester), trans-
 
 ---
 
-### BETAMETHADOL (β-美沙醇)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9609**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`17199-55-2`（[R-(R\*,S\*)] 构型）
-* **分子式**：$C_{21}H_{29}NO$
-* **结构图位置**：第四章图版第 14 图 (Structure page 269)
+### BETAMETHADOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9609**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `17199-55-2` ([R-(R*,S*)] configuration)
+* **Empirical Formula**: $C_{21}H_{29}NO$
+* **Structure Diagram**: Chapter 4, Plate 14 (Structure page 269)
 
 ---
 
-### BETAPRODINE (β-普罗丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9611**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`468-50-8`
-* **分子式**：$C_{16}H_{23}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **法理对比**：反式外消旋体归入附表一；顺式异构体（Alphaprodine）归入附表二。
+### BETAPRODINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9611**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `468-50-8`
+* **Empirical Formula**: $C_{16}H_{23}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **Legal Comparison**: The trans-racemate is assigned to Schedule I; the cis-isomer (Alphaprodine) is placed in Schedule II.
 
 ---
 
-### BOLANDIOL (波兰二醇)
-依据 1990 年《公法第 101-647 号》（类固醇控制法案），作为睾酮与同化激素隐性涵括在**附表三 (Schedule III)** 之中。其二丙酸酯曾用于临床。
+### BOLANDIOL
+Implicitly encompassed within **Schedule III** as testosterone-related anabolic steroids pursuant to Public Law 101-647 (Anabolic Steroids Control Act of 1990). Its dipropionate ester was formerly used clinically.
 
-### BOLASTERONE (波拉睾酮)
-同化雄激素类固醇，隐性列入**附表三 (Schedule III)**。
+### BOLASTERONE
+Anabolic-androgenic steroid, implicitly controlled in **Schedule III**.
 
 ---
 
-### BOLDENONE (宝丹酮)
-* **现行附表**：**Schedule III (附表三)**
-* **法定分类 (L)**：同化类固醇 (Anabolic Steroid)
-* **CAS 注册号体系**：
-  * `846-48-0`（游离醇）
-  * `13103-34-9`（十一烯酸宝丹酮 / 宝丹酮十一烯酸酯）
-  * `2487-63-0`（乙酸酯）
-* **分子式**：$C_{19}H_{26}O_{2}$
-* **结构图位置**：第四章图版第 28 图 (Structure page 282)
-* **CA 正式命名**：Androsta-1,4-dien-3-one, 17-hydroxy-, (17β)-
-* **立法演进**：于 1990 年 11 月 29 日随同化类固醇法案正式纳入附表三。其常用形式十一烯酸酯（商品名 Equipoise）广泛用于赛马与兽医领域。
+### BOLDENONE
+* **Current Schedule**: **Schedule III**
+* **Statutory Classification (L)**: Anabolic Steroid
+* **CAS Registry Number System**:
+  * `846-48-0` (Free alcohol)
+  * `13103-34-9` (Boldenone undecylenate)
+  * `2487-63-0` (Acetate)
+* **Empirical Formula**: $C_{19}H_{26}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 28 (Structure page 282)
+* **CA Formal Name**: Androsta-1,4-dien-3-one, 17-hydroxy-, (17β)-
+* **Legislative History**: Formally incorporated into Schedule III on November 29, 1990 under the Anabolic Steroids Control Act. Its commonly used undecylenate ester (Equipoise) is widely utilized in horse racing and veterinary medicine.
 
 ---
 
-### 4-BROMO-2,5-DIMETHOXYAMPHETAMINE (DOB / 4-溴-2,5-二甲氧基苯丙胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7391**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号穷尽体系**：
-  * `32156-26-6`（未指定构型）
-  * `64638-07-9`（外消旋体）
-  * `43061-15-0`（(R)-对映体）
-  * `43061-16-1`（(S)-对映体）
-  * `53581-53-6`（外消旋氢溴酸盐）
-  * `29705-96-2`（未指定盐酸盐）
-  * `51261-87-1`（外消旋盐酸盐）
-  * `50505-92-5`（(R)-盐酸盐）
-  * `50505-93-6`（(S)-盐酸盐）
-* **分子式**：$C_{11}H_{16}BrNO_{2}$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **CA 正式命名**：Benzeneethanamine, 4-bromo-2,5-dimethoxy-α-methyl-
-* **药理与法理**：舒尔金博士合成的强效超长效致幻苯乙胺类代表药物（见 PIHKAL #62）。微克级有效剂量。于 1973 年 9 月 21 日依据 38 FR 26447 被正式列入附表一。
-
----
-
-### BUFOTENINE (蟾毒色胺 / 5-羟基二甲基色胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7433**，草酸单盐代码 **7425**，1:1 草酸盐代码 **7427**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：致幻剂 (Hallucinogen)
-* **CAS 注册号体系**：
-  * `487-93-4`（游离碱）
-  * `55206-22-9`（盐酸盐）
-  * `64636-16-2`（氢氧化锂复合物）
-  * `16698-26-3`（草酸盐）
-  * `2963-79-3`（草酸单盐）
-* **分子式**：$C_{12}H_{16}N_{2}O$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278)
-* **CA 正式命名**：1H-Indol-5-ol, 3-[2-(dimethylamino)ethyl]-
-* **天然来源**：蟾蜍皮肤分泌物及南美致幻植物种子。1970 年法案初版即收录的附表一严格列管致幻生物碱。
-
----
-
-### BUPRENORPHINE (丁丙诺啡)
-* **现行附表**：**Schedule V (附表五)**
-* **DEA 药物管制代码**：**9064**
-* **法定分类 (L)**：麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`52483-29-7`（盐酸盐 `53152-21-9`）
-* **分子式**：$C_{29}H_{41}NO_{4}$
-* **结构图位置**：第四章图版第 8 图 (Structure page 263 / Diels-Alder奥利帕文加成物)
-* **立法演进**：1985 年由 DEA 归入附表五管理。作为阿片 μ-受体部分激动剂与 κ-受体拮抗剂，后广泛用于阿片依赖替代脱毒。
-
----
-
-### BUTALBITAL (布他比妥 / 异丁巴比妥)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2100**
-* **CAS 注册号**：`77-26-5`
-* **分子式**：$C_{11}H_{16}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 279)
-* **CA 正式命名**：5-(2-methylpropyl)-5-(2-propenyl)-2,4,6(1H,3H,5H)-pyrimidinetrione
-* **商品名制剂**：Fiorinal（含有布他比妥、阿司匹林、咖啡因的著名镇痛复方）。
-
----
-
-## C 字母部词条全典 (Letter C)
-
-### CAMAZEPAM (卡马西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2749**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`36104-80-0`
-* **分子式**：$C_{19}H_{18}ClN_{3}O_{3}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **CA 正式命名**：1H-1,4-Benzodiazepine-3-carboxylic acid, 7-chloro-1,3-dihydro-1-methyl-2-oxo-5-phenyl-, dimethylcarbamate (ester)
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 正式增列入附表四抑制剂名录。
-
----
-
-### CATHINE (去甲伪麻黄碱 / d-去甲伪麻黄碱)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1230**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号穷尽体系**：
-  * `492-39-7`（(+)-[R-(R\*,R\*)] 构型，即 Cathine 本身）
-  * `37577-07-4`（(-)-[S-(R\*,R\*)] 构型）
-  * `53643-20-2`（外消旋体）
-  * `2153-98-2`（盐酸盐）
-* **分子式**：$C_{9}H_{13}NO$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **天然来源与管制**：阿拉伯茶（巧茶 / Khat）中的活性生物碱。1988 年 5 月 17 日依据 53 FR 17459 紧急临时列入附表四，后转为正式附表四管制。
-
----
-
-### CATHINONE (卡西酮 / β-酮基苯丙胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**1235**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`71031-16-8`（游离碱），盐酸盐 `16735-19-6`
-* **分子式**：$C_{9}H_{11}NO$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **CA 正式命名**：1-Propanone, 2-amino-1-phenyl-
-* **药理评注**：巧茶中最具兴奋活性的天然不稳定性前体，药效与安非他命相当。1988 年提出列管，最终确立为附表一禁用兴奋剂。
-
----
-
-### CHLORAL BETAINE (氯醛甜菜碱)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2460**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`2218-68-0`
-* **分子式**：$C_{7}H_{14}Cl_{3}NO_{5}$
-* **法理地位**：水合氯醛与甜菜碱形成的分子加合物。
-
----
-
-### CHLORDIAZEPOXIDE (氯氮䓬 / 利眠宁)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2744**（游离碱），盐酸盐代码 **2745**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静安眠药 (Sedative)
-* **CAS 注册号**：`58-25-3`（游离碱），盐酸盐 `438-41-5`
-* **分子式**：$C_{16}H_{14}ClN_{3}O$
-* **结构图位置**：第四章图版第 17 图及第 18 图 (Structure page 273)
-* **CA 正式命名**：3H-1,4-Benzodiazepin-2-amine, 7-chloro-N-methyl-5-phenyl-, 4-oxide
-* **历史公案**：罗氏制药开发的人类历史上第一个 1,4-苯二氮䓬类中枢镇静药物（Librium）。1975 年 7 月 2 日依据 40 FR 23998 被联邦政府正式收编纳入附表四。
-
----
-
-### CHLORPHENTERMINE (氯苯丁胺)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**1645**
-* **法定分类 (L)**：中枢兴奋剂 / 食欲抑制剂
-* **CAS 注册号**：`461-78-9`（盐酸盐 `151-06-4`）
-* **分子式**：$C_{10}H_{14}ClN$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **立法演进**：于 1973 年 6 月 15 日依据 38 FR 15719 列入附表三。
-
----
-
-### CLONAZEPAM (氯硝西泮 / 氯硝安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2737**
-* **法定分类 (L)**：中枢抑制剂 / 抗癫痫药
-* **CAS 注册号**：`1622-61-3`
-* **分子式**：$C_{15}H_{10}ClN_{3}O_{3}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **CA 正式命名**：2H-1,4-Benzodiazepin-2-one, 5-(2-chlorophenyl)-1,3-dihydro-7-nitro-
-* **商品名**：Klonopin。1975 年依据 40 FR 23998 列入附表四。
-
----
-
-### CLORAZEPATE (氯氮䓬酸二钾)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2768**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`20432-69-3`（单钾盐），二钾盐 `5991-71-9`
-* **分子式**：$C_{16}H_{11}ClK_{2}N_{2}O_{4}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Tranxene。1975 年 7 月 2 日列入附表四（40 FR 23998）。
-
----
-
-### CLORTERMINE (氯特明)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**1647**
-* **法定分类 (L)**：中枢兴奋剂 / 食欲抑制剂
-* **CAS 注册号**：`10389-73-8`（盐酸盐 `10389-72-7`）
-* **分子式**：$C_{10}H_{14}ClN$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **CA 正式命名**：Benzeneethanamine, 2-chloro-α,α-dimethyl-
-* **商品名**：Voranil。1973 年 6 月 15 日列入附表三（38 FR 15719）。
-
----
-
-### CLOXAZOLAM (氯噁唑仑)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2750**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`24166-13-0`
-* **分子式**：$C_{17}H_{14}Cl_{2}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274)
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 列入附表四。
-
----
-
-### COCAINE (可卡因 / 古柯碱)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 可卡因基础代码：**9041**
-  * 盐酸可卡因 (Cocaine HCl)：代码 **9042**
-  * 麻醉品可卡因统合大类 (Narcotics, Cocaine)：代码 **9000**
-  * 硝酸可卡因 (Cocaine Nitrate)：代码 **9035**
-  * 硫酸可卡因 (Cocaine Sulfate)：代码 **9036**
-  * 可卡因复方制剂 (In Combination with Other drugs)：代码 **9043**
-  * 未定型可卡因盐类 (Salt Undetermined)：代码 **9046**
-  * 苯甲酰爱哥宁甲酯 (Benzoylecgonine methylester，同义词代码)：**9182**
-* **法定分类 (L)**：植物源性物质 / 麻醉药品 (Narcotic Drug 法律拟制分类)
-* **药理分类 (M)**：表面麻醉药 (Topical anesthetic)；强效中枢多巴胺再摄取抑制兴奋剂
-* **CAS 注册号穷尽体系**：
-  * `50-36-2`（天然 1-R 左旋游离碱）
-  * `53-21-4`（1-R 盐酸可卡因结晶）
-  * `21206-60-0`（2-exo-3-exo 外消旋游离碱）
-  * `56222-58-3`（外消旋盐酸盐）
-  * `47195-07-3`（1-S 对映异构体）
-* **分子式**：$C_{17}H_{21}NO_{4}$
-* **结构图位置**：第四章图版第 3 图 (Structure page 257)
-* **古柯叶伴生生物碱与化学降解控制考证**：
-  * 法条不仅管制可卡因本身，更严密覆盖了古柯叶中的全部伴生生物碱及其水解产物爱哥宁（Ecgonine）；
-  * **古柯次生生物碱专属代码分配**：
-    * 库斯科红豆碱 (Cuscohygrine / Cuchygrine)：代码 **9047**
-    * 红豆碱 (Hygrine)：代码 **9048**
-    * 吐鲁西林 (Truxilline，α- 与 β- 构型)：代码 **9049**
-  * **成文法拟制特征**：尽管现代神经科学与药理学毫无争议地将可卡因界定为典型中枢兴奋剂，成文法仍坚决将其捆绑为“麻醉药品”（Narcotic），以维持针对可卡因贩运案件的高压重刑量刑政策。
-
----
-
-### CODEINE (可待因 / 甲基吗啡)
-* **现行附表**：
-  * 单方纯品及原料药：**Schedule II (附表二)**，代码 **9050**
-  * 含有其他活性非麻醉成分的复方口服制剂：**Schedule III (附表三)**
-  * 极低浓度止咳糖浆制剂（每 100ml 含可待因不超过 200mg）：**Schedule V (附表五)**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉性镇痛剂；中枢镇咳药 (Narcotic analgesic; Antitussive)
-* **CAS 注册号穷尽体系**：
-  * `76-57-3`（无水游离碱）
-  * `6059-47-8`（水合游离碱）
-  * `125-25-7`（氢溴酸盐）
-  * `1422-07-7`（盐酸盐，对应代码 **9085**）
-  * `5913-73-7`（硝酸盐）
-  * `1420-53-7`（2:1 硫酸可待因，对应代码 **9090**）
-  * `6854-40-6`（硫酸盐三水合物）
-  * `4478-25-5`（磷酸可待因，对应代码 **9080**）
-  * `52-28-8`（1:1 无水磷酸盐）
-  * `41444-62-6`（磷酸盐半水合物）
-* **分子式**：$C_{18}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **DEA 衍生化合物监控代码列表**：
-  * 醋酸可待因 (Codeine Acetate)：代码 **9060**
-  * 醋酸可待因复方 (In Combination)：代码 **9061**
-  * 可待因碱纯品 (Codeine Base)：代码 **9062**
-  * 磷酸可待因复方制剂：代码 **9081**
-  * 硫酸可待因复方制剂：代码 **9091**
-  * 可待因-6-葡萄糖醛酸苷代谢物：代码 **9069**
-  * 可待因合成中间体 (Codeine Intermediate)：代码 **9095**
-  * 可待因止咳糖浆通用类 (Cough Preparations)：代码 **9100**
-  * 其他未列名可待因制剂：代码 **9101**
-
----
-
-### CODEINE N-OXIDE (可待因-N-氧化物 / 氧化可待因)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9053**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：镇咳药 (Antitussive)
-* **CAS 注册号体系**：
-  * `3688-65-1`（未指定立体构型）
-  * `60827-70-5`（17-R 对映体，系罂粟植物天然形态及人体体内主要代谢形式）
-  * `60827-71-6`（17-S 对映体）
-* **分子式**：$C_{18}H_{21}NO_{4}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **CA 正式命名**：Morphinan-6-ol, 7,8-didehydro-4,5-epoxy-3-methoxy-17-methyl-, 17-oxide, (5α,6α)-
-* **法理对比**：可待因母体为附表二处方药物，但其天然氮氧化物被成文法直接打入**附表一（绝对禁用）**类别。
-
----
-
-### CONCENTRATE OF POPPY STRAW (罂粟秆浓缩提取物)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9670**
-* **法定分类 (L)**：麻醉药品 (Narcotic Drug)
-* **立法演进**：于 1975 年 2 月 14 日依据 40 FR 6779 正式纳入 CSA 附表二，并在 51 FR 5370 中重申其麻醉药品地位。
-* **法定定义**：指任何液态、固态或粉末形态的罂粟秆粗提浸膏，只要其含有罂粟植物的菲类生物碱（吗啡、可待因、蒂巴因等），即属于附表二重罪管制原料。
-
----
-
-### CYPRENORPHINE (环丙诺啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9054**（游离碱），盐酸盐代码 **9037**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉拮抗剂 (Narcotic antagonist)
-* **CAS 注册号**：`16550-22-4`（盐酸盐）
-* **分子式**：$C_{26}H_{33}NO_{4}$
-* **结构图位置**：第四章图版第 8 图 (Structure page 263 / Diels-Alder加成物)
-* **CA 正式命名**：6,14-Ethenomorphinan-7-methanol, 17-(cyclopropylmethyl)-18,19-didehydro-4,5-epoxy-3-hydroxy-6-methoxy-α-methyl-
-* **法理评注**：由蒂巴因经 Diels-Alder 反应合成的强效奥利帕文环丙甲基拮抗剂。
-
-
----
-
-## D 字母部词条全典 (Letter D)
-
-### DELORAZEPAM (去甲氯西泮 / 德洛西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2754**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`2894-67-9`
-* **分子式**：$C_{15}H_{10}Cl_{2}N_{2}O$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **CA 正式命名**：2H-1,4-Benzodiazepin-2-one, 7-chloro-5-(2-chlorophenyl)-1,3-dihydro-
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 正式纳入附表四。
-
----
-
-### DESOMORPHINE (去氢脱氧吗啡 / 达索吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9055**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：强效麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`427-00-9`（氢溴酸盐 `32904-22-6`，硫酸盐 `5497-62-1`）
-* **分子式**：$C_{17}H_{21}NO_{2}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-6-ol, 4,5-epoxy-17-methyl-, (5α)-
-* **历史与毒理**：二氢脱氧吗啡（Dihydrodesoxymorphine-D）。镇痛效力为吗啡的 8 至 10 倍，系 1970 年法案初版列名的附表一烈性受管制毒品（也是日后臭名昭著的自制街头毒品“鳄鱼”Krokodil 的核心活性成分）。
-
----
-
-### DEXTROAMPHETAMINE (右旋安非他命 / 右旋苯丙胺)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**1106**（硫酸盐代码 **1100**）
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`51-64-9`（游离碱），硫酸盐 `51-63-8`
-* **分子式**：$C_{9}H_{13}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **商品名**：Dexedrine。系安非他命的高活性右旋立体异构体，中枢神经兴奋效力为左旋体的 3 至 4 倍。
-
----
-
-### DEXTROMORAMIDE (右吗酰胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9612**（酒石酸盐代码 **9614**）
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`357-56-2`（酒石酸盐 `2922-44-3`）
-* **分子式**：$C_{25}H_{32}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **法理异构辨析**：本品为强效镇痛活性右旋异构体（Palfium）。其外消旋混合物（Racemoramide，代码 9645）与左旋异构体（Levomoramide，代码 9629）在附表一中均被单独列出并分配专属代码；而其合成化学前体右吗酰胺中间体（Moramide Intermediate，代码 9802）则被列入附表二管制。
-
----
-
-### DEXTROPROPOXYPHENE (右丙氧芬)
-* **现行附表**：
-  * 口服制剂纯品：**Schedule IV (附表四)**，代码 **9278**
-  * 散装原料药 (Bulk Dextropropoxyphene)：**Schedule II (附表二)**，代码 **9273**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：麻醉性镇痛药 (Narcotic analgesic)
-* **CAS 注册号体系**：
-  * `469-62-5`（[S-(R\*,S\*)] 构型，即右旋体本身）
-  * `1639-60-7`（盐酸盐，Darvon）
-  * `17140-78-2`（萘磺酸盐水合物）
-* **分子式**：$C_{22}H_{29}NO_{2}$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **法理豁免公案**：其左旋光学对映体**左丙氧芬 (Levopropoxyphene / Novrad)** 仅具有中枢镇咳作用而无阿片镇痛活性，被成文法明文除名并彻底豁免于管制附表之外。
-
----
-
-### DIAMPROMIDE (二安丙酰胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9615**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`552-25-0`
-* **分子式**：$C_{21}H_{28}N_{2}O$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **CA 正式命名**：Propanamide, N-[2-[methyl(2-phenylethyl)amino]propyl]-N-phenyl-
-
----
-
-### DIAZEPAM (地西泮 / 安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2765**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：抗焦虑药；骨骼肌松弛剂；镇静安眠药 (Sedative, Muscle Relaxant)
-* **CAS 注册号**：`439-14-5`
-* **分子式**：$C_{16}H_{13}ClN_{2}O$
-* **结构图位置**：第四章图版第 17 图及第 18 图 (Structure page 273)
-* **CA 正式命名**：2H-1,4-Benzodiazepin-2-one, 7-chloro-1,3-dihydro-1-methyl-5-phenyl-
-* **商品名**：Valium。罗氏制药开发的跨时代抗焦虑药，于 1975 年 7 月 2 日依据 40 FR 23998 被联邦政府正式列入附表四实施处方监控制度。
-
----
-
-### DIFENOXIN (地芬诺新)
-* **现行附表**：
-  * 单方纯品及一般制剂：**Schedule I (附表一)**，代码 **9168**
-  * 复方处方制剂（每剂量单位含地芬诺新 1mg 并配伍不低于 25μg 硫酸阿托品）：**Schedule IV (附表四)**，代码 **9167**
-  * 极低剂量复方（每剂量单位含地芬诺新 0.5mg 配伍阿托品）：**Schedule V (附表五)**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：止泻药 (Antidiarrheal)
-* **CAS 注册号**：`28782-42-5`（盐酸盐 `35607-36-4`）
-* **分子式**：$C_{28}H_{28}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-(3-cyano-3,3-diphenylpropyl)-4-phenyl-
-* **立法演进**：系地芬诺酯（Diphenoxylate）的体内脱乙基活性代谢物。1975 年 6 月 1 日列入附表一（40 FR 19813）；1978 年 9 月 27 日依据 43 FR 38382 确立了结合阿托品抗滥用配方后的附表四与附表五梯级管理。
-
----
-
-### DIHYDROCODEINE (二氢可待因)
-* **现行附表**：
-  * 单方纯品原料药：**Schedule II (附表二)**，代码 **9120**
-  * 含有非麻醉活性成分的复方制剂（每 100ml 不超过 1.8g 或每剂量单位不超过 90mg）：**Schedule III (附表三)**
-  * 极低浓度复方止咳制剂（每 100ml 不超过 100mg）：**Schedule V (附表五)**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`125-28-0`（酒石酸氢盐 `5965-13-9`）
-* **分子式**：$C_{18}H_{23}NO_{3}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-
----
-
-### DIHYDROMORPHINE (脱吗啡 / 二氢吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9145**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`509-60-4`
-* **分子式**：$C_{17}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-3,6-diol, 4,5-epoxy-17-methyl-, (5α,6α)-
-* **法理辨析**：天然吗啡 7,8 位双键饱和还原物，镇痛效力显著强于吗啡，1970 年法案初版列入附表一。
-
----
-
-### DIMENOXADOL (迪美诺沙朵)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9617**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`509-78-4`
-* **分子式**：$C_{19}H_{23}NO_{3}$
-* **CA 正式命名**：Benzeneacetic acid, α-ethoxy-α-phenyl-, 2-(dimethylamino)ethyl ester
-
----
-
-### DIMEPHEPTANOL (迪美非妥 / 二甲庚醇)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9618**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`545-90-4`
-* **分子式**：$C_{21}H_{29}NO$
-* **结构图位置**：第四章图版第 14 图 (Structure page 269)
-* **CA 正式命名**：3-Heptanol, 6-(dimethylamino)-4,4-diphenyl-
-* **法理体系**：美沙醇统称，其 α 与 β 异构体分别对应 Alphamethadol 与 Betamethadol。
-
----
-
-### DIMETHYLTHIAMBUTENE (二甲噻丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9619**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`524-84-5`
-* **分子式**：$C_{15}H_{19}NS_{2}$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **CA 正式命名**：3-Buten-2-amine, N,N-dimethyl-4,4-di-2-thienyl-
-
----
-
-### N,N-DIMETHYLAMPHETAMINE (N,N-二甲基苯丙胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**1480**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`4075-96-1`（盐酸盐 `24107-76-4`）
-* **分子式**：$C_{11}H_{17}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **立法演进**：地下化学家合成以规避安非他命与甲基苯丙胺管制的新型衍生物。DEA 于 1987 年 11 月 18 日援引紧急列管特权（52 FR 44105）打入附表一，后转为正式附表一管制。
-
----
-
-### N,N-DIMETHYLTRYPTAMINE (DMT / 二甲基色胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7435**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：强效致幻生物碱 (Hallucinogen)
-* **CAS 注册号**：`61-50-7`
-* **分子式**：$C_{12}H_{16}N_{2}$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278)
-* **CA 正式命名**：1H-Indole-3-ethanamine, N,N-dimethyl-
-* **天然来源**：南美死藤水（Ayahuasca）及多种致幻植物鼻血木的核心活性生物碱。1970 年法案初版列入附表一。
-
----
-
-### DIPHENOXYLATE (地芬诺酯 / 苯乙哌啶)
-* **现行附表**：
-  * 原料药及纯品：**Schedule II (附表二)**，代码 **9170**
-  * 复方抗腹泻口服制剂（每剂量单位含地芬诺酯 2.5mg 并混配不低于 25μg 硫酸阿托品，如止泻宁 Lomotil）：**Schedule V (附表五)**
-* **法定分类 (L)**：阿片类物质 / 麻醉药品 (Narcotic Drug)
-* **药理分类 (M)**：止泻药 (Antidiarrheal)
-* **CAS 注册号**：`915-30-0`（盐酸盐 `3810-80-8`）
-* **分子式**：$C_{30}H_{32}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-(3-cyano-3,3-diphenylpropyl)-4-phenyl-, ethyl ester
-
----
-
-### DIPIPANONE (地匹哌酮)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9622**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`467-83-9`（盐酸盐水合物 `856-87-1`）
-* **分子式**：$C_{24}H_{31}NO$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **CA 正式命名**：3-Heptanone, 4,4-diphenyl-6-(1-piperidinyl)-
-
----
-
-### DROTEBANOL (羟二氢可待因酮 / 决脱巴诺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9335**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`3176-03-2`
-* **分子式**：$C_{19}H_{27}NO_{4}$
-* **CA 正式命名**：Morphinan-6,14-diol, 3,4-dimethoxy-17-methyl-, 6-beta-
-* **立法演进**：于 1973 年 8 月 6 日依据 38 FR 21171 列入附表一。
-
----
-
-## E 字母部词条全典 (Letter E)
-
-### ECGONINE (爱哥宁 / 芽子碱)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9180**
-* **法定分类 (L)**：古柯叶提取物 / 麻醉药品 (Narcotic Drug)
-* **CAS 注册号体系**：
-  * `481-37-8`（[1R-(exo,exo)] 构型游离碱）
-  * `529-38-4`（盐酸盐）
-  * 其立体异构体：假爱哥宁（Pseudoecgonine）、别爱哥宁（Alloecgonine）、假别爱哥宁（Pseudoalloecgonine）全部依据 51 FR 5370 强制列入附表二管制。
-* **分子式**：$C_{9}H_{15}NO_{3}$
-* **结构图位置**：第四章图版第 3 图 (Structure page 257)
-* **法理极刑机制**：成文法规定爱哥宁其所有的盐类、异构体、衍生物以及盐类的衍生物，一律等同于可卡因受到附表二最严厉管制；其裂解前体甲基芽子碱（Methylecgonidine，代码 9181）同样严格受控。
-
----
-
-### EPHEDRINE (麻黄碱 / 麻黄素)
-* **现行法定法律地位**：**第一类法定监控前体化学品 (List I Chemical)**
-* **DEA 监控代码**：**1105**（作为前体监控）
-* **药理分类 (M)**：肾上腺素受体激动剂；拟交感神经兴奋剂 (Sympathomimetic)
-* **CAS 注册号**：`299-42-3`（(-)-左旋异构体），盐酸盐 `50-98-6`，硫酸盐 `134-72-5`
-* **分子式**：$C_{10}H_{15}NO$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **1988 年化学品前体法管辖核心**：由于麻黄碱是地下非法还原合成**甲基苯丙胺（冰毒 / Methamphetamine）**的最核心反应前体，依据《1988 年化学品贩运转移控制法》，任何大宗单方麻黄碱原料的流转、进出口均受到严苛的联邦实名台账监控与重刑打击。
-
----
-
-### ESTAZOLAM (艾司唑仑 / 舒乐安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2756**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静安眠药 (Sedative, Hypnotic)
-* **CAS 注册号**：`29975-16-4`
-* **分子式**：$C_{16}H_{11}ClN_{4}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274 / 三唑并苯二氮䓬)
-* **CA 正式命名**：4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-6-phenyl-
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 增列入附表四。
-
----
-
-### ETHCHLORVYNOL (乙氯维诺)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2540**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`113-18-8`
-* **分子式**：$C_{7}H_{9}ClO$
-* **CA 正式命名**：1-Penten-4-yn-3-ol, 1-chloro-3-ethyl-
-* **商品名**：Placidyl。
-
----
-
-### ETHINAMATE (乙炔氨酯 / 炔己蚁胺)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2545**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`126-52-3`
-* **分子式**：$C_{9}H_{13}NO_{2}$
-* **CA 正式命名**：Cyclohexanol, 1-ethynyl-, carbamate
-* **商品名**：Valamin。
-
----
-
-### ETHYLAMINE ANALOG OF PHENCYCLIDINE (苯环利定乙胺类似物 / PCE)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7455**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号**：`2201-15-2`（盐酸盐 `1867-65-8`）
-* **分子式**：$C_{14}H_{21}N$
-* **结构图位置**：第四章图版第 27 图 (Structure page 281 / PCP类似物)
-* **CA 正式命名**：Cyclohexanamine, N-ethyl-1-phenyl-
-* **俗称**：Cyclohexamine。PCP 早期著名地下设计毒品类似物，于 1978 年 10 月 25 日依据 43 FR 43295 正式列入附表一。
-
----
-
-### N-ETHYLAMPHETAMINE (N-乙基苯丙胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**1475**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`457-87-4`（外消旋游离碱），盐酸盐 `2200-44-8`
-* **分子式**：$C_{11}H_{17}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **立法演进**：于 1982 年 1 月 7 日依据 47 FR 1003 列入附表一。
-
----
-
-### ETHYLMORPHINE (乙基吗啡 / 狄奥宁)
-* **现行附表**：
-  * 单方原料及高浓度：**Schedule II (附表二)**，代码 **9190**
-  * 复方处方制剂（每 100ml 不超过 1.8g 或每剂量单位不超过 90mg）：**Schedule III (附表三)**
-  * 极低浓度复方镇咳制剂（每 100ml 不超过 100mg）：**Schedule V (附表五)**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`76-58-4`（盐酸盐二水合物 `6746-59-4`）
-* **分子式**：$C_{19}H_{23}NO_{3}$
-* **结构图位置**：第四章图版第 7 图 (Structure page 260)
-* **商品名**：Dionin。吗啡的 3-位乙基醚衍生物。
-
----
-
-### ETORPHINE (埃托啡)
-* **现行附表**：
-  * **埃托啡游离碱纯品**：**Schedule I (附表一)**，代码 **9172**
-  * **盐酸埃托啡 (Etorphine Hydrochloride)**：**Schedule II (附表二)**，代码 **9173**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：超强麻醉镇痛药 (Narcotic analgesic)
-* **CAS 注册号**：`14521-96-1`（游离碱），盐酸盐结晶 `13764-49-3`
-* **分子式**：$C_{25}H_{33}NO_{4}$
-* **结构图位置**：第四章图版第 8 图 (Structure page 263 / Diels-Alder奥利帕文加成物)
-* **CA 正式命名**：6,14-Ethenomorphinan-7-methanol, 4,5-epoxy-3-hydroxy-6-methoxy-α,17-dimethyl-α-propyl-, [5α,7α(R)]-
-* **商品名**：Immobilon、M99。
-* **双重管制阶梯与超强毒力公案**：
-  * 镇痛与中枢抑制毒力高达吗啡的 **1,000 至 8,000 倍**，微量经皮吸收或黏膜接触即可致死；仅用于大型野生动物（大象、犀牛）的远程野外麻醉枪；
-  * **独特的法理双重定位**：其游离碱因被认定无公认人体医疗用途列入附表一；而其盐酸盐因特许用于大型兽医手术，被单独割裂并列为附表二处方管制品。其特效解毒拮抗剂为地普诺啡（Diprenorphine）。
-
----
-
-### ETOXERIDINE (依托克利啶)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9623**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`468-59-7`
-* **分子式**：$C_{18}H_{27}NO_{4}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-[2-(2-hydroxyethoxy)ethyl]-4-phenyl-, ethyl ester
-
----
-
-## F 字母部词条全典 (Letter F)
-
-### FENCAMFAMINE (芬坎法明)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1641**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`1209-97-8`（盐酸盐 `2240-14-4`）
-* **分子式**：$C_{15}H_{21}N$
-* **CA 正式命名**：Bicyclo[2.2.1]heptan-2-amine, N-ethyl-3-phenyl-
-* **立法演进**：1988 年 5 月 17 日依据 53 FR 17459 紧急临时列入附表四，后转为正式附表四管制。
-
----
-
-### FENETHYLLINE (芬乙茶碱 / 芬乃他林)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**1504**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`3736-08-1`（盐酸盐 `1886-59-5`）
-* **分子式**：$C_{18}H_{23}N_{5}O_{2}$
-* **结构图位置**：第四章图版第 22 图 (Structure page 276)
-* **商品名**：Captagon（卡托根 / 泰诺昔）。系茶碱与安非他命通过乙基共价桥接形成的前药分子。于 1981 年 8 月 20 日依据 46 FR 42261 永久列入附表一。
-
----
-
-### FENFLURAMINE (芬氟拉明)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1670**
-* **法定分类 (L)**：食欲抑制剂 / 中枢抑制性兴奋变体
-* **CAS 注册号**：`458-24-2`（盐酸盐 `404-82-0`）
-* **分子式**：$C_{12}H_{16}F_{3}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **商品名**：Pondimin。三氟甲基取代苯乙胺类食欲抑制减肥药。
-
----
-
-### FENTANYL (芬太尼)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 芬太尼母体基准代码：**9801**
-  * 柠檬酸芬太尼 (Fentanyl Citrate / 枸橼酸芬太尼)：代码 **9801**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：强效麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号体系**：
-  * `437-38-7`（游离碱结晶）
-  * `990-73-8`（柠檬酸盐）
-* **分子式**：$C_{22}H_{28}N_{2}O$
-* **结构图位置**：第四章图版第 2 图、第 12 图及第 13 图 (Structure page 266–267)
-* **CA 正式命名**：Propanamide, N-(1-phenethyl-4-piperidinyl)-N-phenyl-
-* **商品名**：Sublimaze。
-* **药理与现代地下类似物风暴核心**：
-  * 由比利时杨森制药（保罗·杨森博士）于 1960 年首次合成，镇痛效力约为纯品吗啡的 **80 至 100 倍**，具有极高的脂溶性与极速的血脑屏障穿透能力；
-  * 作为当代所有芬太尼类地下合成“设计毒品”（如卡芬太尼、α-甲基芬太尼、对氟芬太尼、乙酰芬太尼）的共同化学母核，自 1970 年法案诞生起即被确立为受联邦生产配额制（Production Quotas）严密锁定的附表二核心麻醉药品。
-
----
-
-### FLUDIAZEPAM (氟地西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2759**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`3900-31-0`
-* **分子式**：$C_{16}H_{12}ClFN_{2}O$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 正式列入附表四。
-
----
-
-### FLUNITRAZEPAM (氟硝西泮 / 氟硝安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2763**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：强效镇静催眠药 (Sedative, Hypnotic)
-* **CAS 注册号**：`1622-62-4`
-* **分子式**：$C_{16}H_{12}FN_{3}O_{3}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Rohypnol（十字架 / 罗眠乐）。1984 年 11 月 5 日列入附表四（49 FR 39307）。因其强效的顺行性遗忘作用与中枢深度抑制效应，在后续司法实践中被严格监控。
-
----
-
-### FLURAZEPAM (氟西泮 / 氟安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2767**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`17617-23-1`（二盐酸盐 `1172-18-5`）
-* **分子式**：$C_{21}H_{23}ClFN_{3}O$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Dalmane。1975 年 7 月 2 日列入附表四（40 FR 23998）。
-
----
-
-### FORMEBOLONE (福美龙 / 蚁睾酮)
-* **现行附表**：**Schedule III (附表三)**
-* **法定分类 (L)**：同化类固醇 (Anabolic Steroid)
-* **CAS 注册号**：`2454-11-7`
-* **分子式**：$C_{20}H_{26}O_{4}$
-* **CA 正式命名**：Androsta-1,4-dien-3-one, 11,17-dihydroxy-17-methyl-3-oxo-, (11α,17β)-
-* **商品名**：Esiclene。于 1990 年 11 月 29 日依据《同化雄激素类固醇法案》（公法第 101-647 号）正式纳入附表三刑事管制。
-
----
-
-### FURETHIDINE (呋替啶)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9626**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`2385-81-1`
-* **分子式**：$C_{21}H_{31}NO_{4}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 4-phenyl-1-[2-[(tetrahydro-2-furanyl)methoxy]ethyl]-, ethyl ester
-* **法理评注**：属于哌替啶（杜冷丁）的四氢呋喃甲氧基乙基取代类似物，1970 年法案初版即收录的附表一严格列管阿片类物质。
-
-
----
-
-## G 字母部词条全典 (Letter G)
-
-### GLUTETHIMIDE (格鲁米特 / 导眠能)
-* **现行附表**：**Schedule II (附表二，升级列管)**
-* **DEA 药物管制代码**：**2550**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静催眠药 (Sedative, Hypnotic)
-* **CAS 注册号**：`77-21-4`（外消旋体）
-* **分子式**：$C_{13}H_{15}NO_{2}$
-* **结构图位置**：第四章图版第 30 图 (Structure page 283 / 砜类与非巴比妥镇静催眠药)
-* **CA 正式命名**：2,6-Piperidinedione, 3-ethyl-3-phenyl-
-* **商品名**：Doriden（多利登）。
-* **立法升级历史考证**：
-  * 在 1970 年法案中，格鲁米特最初被置于**附表三（Schedule III）**管制；
-  * 然而在 1970 至 1980 年代，街头非法滥用者频繁将格鲁米特与可待因（Codeine）联合摄入（即街头极具致死性的毒品混剂“Loads”或“Hits”），导致大量中枢呼吸抑制死亡公害；
-  * 司法部 DEA 于 1990 年 7 月 26 日发布列管升级意向通知（55 FR 30472），并于 **1991 年正式将其全面从附表三提级至附表二（Schedule II）**实施最严苛的生产配额与书面不可续方监管。
-
----
-
-## H 字母部词条全典 (Letter H)
-
-### HALAZEPAM (哈拉西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2762**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`23092-17-3`
-* **分子式**：$C_{17}H_{12}ClF_{3}N_{2}O$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **CA 正式命名**：2H-1,4-Benzodiazepin-2-one, 7-chloro-1,3-dihydro-5-phenyl-1-(2,2,2-trifluoroethyl)-
-* **商品名**：Paxipam。三氟乙基取代苯二氮䓬抗焦虑药，1981 年 11 月 12 日依据 46 FR 55688 列入附表四。
-
----
-
-### HALOXAZOLAM (卤噁唑仑)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2770**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`59128-97-1`
-* **分子式**：$C_{17}H_{14}BrFN_{2}O_{2}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274)
-* **CA 正式命名**：2H-Oxazolo[3,2-d][1,4]benzodiazepin-6(5H)-one, 10-bromo-11b-(2-fluorophenyl)-2,3,7,11b-tetrahydro-
-* **立法演进**：于 1984 年 11 月 5 日依据 49 FR 39307 正式纳入附表四。
-
----
-
-### HEROIN (海洛因 / 白粉 / 二乙酰吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码体系**：
-  * 海洛因通用基准代码：**9200**
-  * 盐酸海洛因 (Heroin HCl)：代码 **9202**
-  * **按街头毒品形态与色泽细分代码**：
-    * 白色海洛因 (White, 未定型盐)：代码 **9200**（一级分类代码 611）
-    * 白色海洛因 (White, 盐酸盐)：代码 **9202**
-    * 白色海洛因 (White, 游离碱)：代码 **9208**
-    * 白色海洛因 (White, 其他盐类)：代码 **9212**
-    * 棕色海洛因 (Brown / 墨西哥黑焦油，未定型盐)：代码 **9201**（一级分类代码 612）
-    * 棕色海洛因 (Brown, 盐酸盐)：代码 **9203**
-    * 棕色海洛因 (Brown, 游离碱)：代码 **9207**
-    * 棕色海洛因 (Brown, 其他盐类)：代码 **9209**
-    * 游离碱通用类 (Base)：代码 **9206**
-    * 其他未列名盐类：代码 **9204**
-    * 其他未指明形态海洛因：代码 **9205**（一级分类代码 613）
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉性镇痛剂 (Narcotic Analgesic)
-* **CAS 注册号体系**：
-  * `561-27-3`（游离碱纯品）
-  * `1502-95-0`（盐酸二乙酰吗啡结晶）
-* **分子式**：$C_{21}H_{23}NO_{5}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **CA 正式命名**：Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-methyl-, (5α,6α)-, diacetate (ester)
-* **学术同义词辨析**：绝大多数权威参考书（《默克索引》、《美国通用名》USAN）均将其规范列名为**二乙酰吗啡 (Diacetylmorphine)**；在英国药典及英联邦司法文献中法定名称为**二乙酰吗啡 / 戴阿吗啡 (Diamorphine)**。系 1970 年法案初版列名的首要附表一绝对禁用烈性阿片。
-
----
-
-### HUMAN GROWTH HORMONE (人类生长激素 / HGH)
-* **现行法定法律地位**：**重罪受控特殊化学品 (Felony under PL 101-647)**
-* **CAS 注册号**：`9002-72-6`（Somatropin 天然重组形态），`12629-72-6`（Somatrem 类似物）
-* **分子式**：$C_{990}H_{1528}N_{262}O_{300}S_{7}$（分子量约 22,124 Da）
-* **1990 年犯罪控制法特殊重罪机制**：
-  * 在老布什总统签署的 1990 年《公法第 101-647 号》中，国会通过修正《联邦食品、药品和化妆品法》，创立了一项极其罕见的直接由 DEA 管辖的特殊重罪：**除经执业医师诊断用于人类疾病或其他合法医疗需求外，任何人分销（或以分销为目的持有）人类生长激素（HGH），均直接构成联邦重罪**；
-  * 法律管辖范围不仅涵盖人生长激素天然提取物与基因重组**生长素 (Somatropin)**，更直接穿透至其同系类似物**美生长素 (Somatrem)**。
-
----
-
-### HYDROCODONE (氢可酮 / 双氢可待因酮)
-* **现行附表**：
-  * 单方纯品原料药及高浓度制剂：**Schedule II (附表二)**，代码 **9193**
-  * 含有非麻醉活性成分的口服处方复方（如维可汀 Vicodin，每剂量单位含氢可酮不超过 15mg）：**Schedule III (附表三)**
-  * 与足量阿片异喹啉生物碱配伍的止咳复方：**Schedule III (附表三)**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：麻醉性镇痛剂；中枢镇咳药 (Narcotic analgesic; Antitussive)
-* **CAS 注册号体系**：
-  * `125-29-1`（游离碱）
-  * `74035-75-9`（外消旋体）
-  * `25968-91-6`（盐酸盐）
-  * `143-71-5`（酒石酸盐，代码 **9132**）
-  * `63127-18-4`（1:2 酒石酸盐）
-  * `34366-67-1`（2:3 磷酸盐）
-* **分子式**：$C_{18}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-6-one, 4,5-epoxy-3-methoxy-17-methyl-, (5α)-
-
----
-
-### HYDROMORPHINOL (羟二氢吗啡 / 14-羟基二氢吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9301**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`2188-67-2`
-* **分子式**：$C_{17}H_{21}NO_{4}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **文献勘误考证**：在《默克索引》第 8 版中，该名称曾被错误列为羟吗啡酮（Oxymorphone，附表二代码 9652）的同义词，此错误在第 9 版中被更正删除。作为附表一鸦片衍生物，其所有的光学对映体均被严格同步列管。
-
----
-
-### HYDROMORPHONE (氢吗啡酮 / 双氢吗啡酮)
-* **现行附表**：
-  * 单方纯品及原料药：**Schedule II (附表二)**，代码 **9150**
-  * 硫酸盐代码：**9149**；盐酸盐代码：**9151**
-  * 复方处方制剂 (In Combination)：代码 **9152**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **药理分类 (M)**：强效麻醉性镇痛剂 (Analgesic, narcotic)
-* **CAS 注册号**：`466-99-9`（游离碱），盐酸盐结晶 `71-68-1`
-* **分子式**：$C_{17}H_{19}NO_{3}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-6-one, 4,5-epoxy-3-hydroxy-17-methyl-, (5α)-
-* **商品名**：Dilaudid（二劳迪德）。镇痛效力为吗啡的 5 至 8 倍，呼吸抑制毒力极强。
-
----
-
-### N-HYDROXY-3,4-METHYLENEDIOXYAMPHETAMINE (N-羟基-MDA / MDOH)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7402**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号**：`74698-47-8`
-* **分子式**：$C_{10}H_{13}NO_{3}$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **立法演进**：舒尔金博士合成的致幻苯乙胺衍生物。DEA 于 1987 年 8 月 13 日在 52 FR 30175 发布紧急列管通知，将其作为地下类似物紧急打入附表一。
-
----
-
-### HYDROXYPETHIDINE (羟哌替啶 / 羟杜冷丁)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9627**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`468-56-4`
-* **分子式**：$C_{15}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 4-(3-hydroxyphenyl)-1-methyl-, ethyl ester
-* **商品名**：Bemidone。属于哌替啶苯环间位引入酚羟基的衍生物，1970 年法案初版列为附表一。
-
----
-
-## I 字母部词条全典 (Letter I)
-
-### IBOGAINE (伊博格碱 / 伊菠加因)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7260**（游离碱），盐酸盐代码 **7265**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：抗抑郁剂；天然强效致幻生物碱 (Antidepressant, Hallucinogen)
-* **CAS 注册号体系**：
-  * `83-74-9`（游离碱纯品）
-  * `36415-61-9`（盐酸盐）
-  * `5934-55-4`（单盐酸盐）
-* **分子式**：$C_{20}H_{26}N_{2}O$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278)
-* **CA 正式命名**：Ibogamine, 12-methoxy-
-* **法理植物源与异构体陷阱考据**：
-  * 在成文法中，该药条目同时列出了其原植物学名 **Tabernanthe iboga (非洲马蹄花 / 夹竹桃科伊博格树)**；
-  * **位置异构体列管公案**：原植物伴生生物碱**塔伯南亭 (Tabernanthine)**，其甲氧基位于吲哚环的 6-位（而伊博格碱位于 5-位），根据 1984 年修正案关于附表一致幻剂“涵盖所有位置异构体”的法定拟制，塔伯南亭虽未在成文法中直接命名，但在司法实践中已被全面推定为附表一管制物质。
-
----
-
-### ISOMETHADONE (异美沙酮)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9226**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`466-40-0`（盐酸盐 `561-10-4`）
-* **分子式**：$C_{21}H_{27}NO$
-* **结构图位置**：第四章图版第 14 图 (Structure page 269)
-* **CA 正式命名**：3-Hexanone, 6-(dimethylamino)-5-methyl-4,4-diphenyl-
-* **法理对比**：美沙酮的支链甲基位置异构体，镇痛与成瘾潜能相当，被同等列入附表二处方管控。
-
----
-
-## K 字母部词条全典 (Letter K)
-
-### KETAMINE (氯胺酮 / K他命 / 凯他敏)
-* **截至 1991 年全书付梓时的法定法律地位**：**非管制处方药 (Not Scheduled / 司法悬空)**
-* **DEA 监控分配代码**：
-  * 游离碱代码：**7285**
-  * 盐酸氯胺酮：代码 **7476**
-  * 未定型盐类：代码 **7286**
-* **药理分类 (M)**：静脉分离麻醉剂；具致幻与精神解离副作用
-* **CAS 注册号**：`6740-88-1`（盐酸氯胺酮 `1867-66-9`）
-* **分子式**：$C_{13}H_{16}ClNO$
-* **结构图位置**：第四章图版第 27 图 (Structure page 282 / 芳基环己胺系)
-* **CA 正式命名**：Cyclohexanone, 2-(2-chlorophenyl)-2-(methylamino)-
-* **商品名**：Ketalar、Ketaject、Ketanest。
-* **全书核心立法悖论实证考据**：
-  * 本词条是舒尔金博士在加州大学伯克利分校讲堂上被学生提问、并直接引爆全书撰写初衷的核心主角；
-  * **十年悬而未决的立法闹剧**：早在 1981 年 6 月 2 日，美国卫生与公众服务部（HHS）便向司法部发出正式科学建议，依据其严重的滥用公害建议将其列入**附表三（Schedule III）**（46 FR 29484）。然而直至 1991 年 4 月 1 日，联邦司法部与 DEA 既未正式将其列管，也未举行听证，更未撤回建议，使其在滥用泛滥的情况下竟然悬空整整十年未被列管！（注：美国联邦最终直至 1999 年 8 月才正式将氯胺酮收归附表三管制）。
-
----
-
-### KETAZOLAM (凯他唑仑)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2772**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`27223-35-3`
-* **分子式**：$C_{20}H_{17}ClN_{2}O_{3}$
-* **结构图位置**：第四章图版第 19 图 (Structure page 274)
-* **商品名**：Contamex。1984 年 11 月 5 日列入附表四（49 FR 39307）。
-
----
-
-### KETOBEMIDONE (酮米酮 / 凯托米酮)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9628**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`469-79-4`（盐酸盐 `5965-49-1`）
-* **分子式**：$C_{15}H_{21}NO_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：1-Propanone, 1-[4-(3-hydroxyphenyl)-1-methyl-4-piperidinyl]-
-* **商品名**：Cliradon。镇痛强度极高且成瘾依赖潜能极快，1970 年法案初版列入附表一。
-
----
-
-## L 字母部词条全典 (Letter L)
-
-### LEVOMETHORPHAN (左美芬 / 左甲吗喃)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9210**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`125-70-2`（氢溴酸盐 `125-69-9`）
-* **分子式**：$C_{18}H_{25}NO$
-* **结构图位置**：第四章图版第 9 图 (Structure page 263 / 吗啡喃系)
-* **法理对映公案**：其右旋立体对映体**右美沙芬 (Dextromethorphan)** 彻底丧失镇痛与阿片依赖性，成为全美通用的非处方 OTC 止咳糖浆成分，被成文法专门明文豁免除名。
-
----
-
-### LEVOMORAMIDE (左吗酰胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9629**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`5666-11-5`
-* **分子式**：$C_{25}H_{32}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-
----
-
-### LEVOPHENACYLMORPHAN (左苯啡烷)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9631**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`10061-32-2`
-* **分子式**：$C_{24}H_{27}NO_{2}$
-* **结构图位置**：第四章图版第 9 图 (Structure page 263)
-
----
-
-### LEVORPHANOL (左啡诺)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9220**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`77-07-6`（酒石酸盐水合物 `5985-38-6`）
-* **分子式**：$C_{17}H_{23}NO$
-* **结构图位置**：第四章图版第 9 图 (Structure page 263 / 吗啡喃系)
-* **商品名**：Levo-Dromoran。效力为吗啡 4 至 8 倍的长效麻醉镇痛处方药。
-
----
-
-### LOPERAMIDE (洛哌丁胺 / 易蒙停)
-* **现行法定法律地位**：**非管制非处方 OTC 药物 (Not Scheduled / 彻底豁免)**
-* **历史除名公案**：
-  * 本品于 1977 年 6 月 17 日依据 42 FR 30837 曾被纳入**附表五（Schedule V）**管制；
-  * 但随后临床与大样本药物代谢研究证实，其高脂溶性虽使其对肠道阿片受体具有极高亲和力，但通过 P-糖蛋白外排泵机制使其根本无法穿透血脑屏障产生中枢欣快感；
-  * 司法部 DEA 于 **1982 年 11 月 3 日**依据 47 FR 49840 正式将其从附表五中**彻底除名并转为自由流通的非处方止泻药**。
-
----
-
-### LOPRAZOLAM (氯普唑仑)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2773**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`61197-73-3`
-* **分子式**：$C_{23}H_{21}ClN_{6}O_{3}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274)
-* **商品名**：Dormonoct。1984 年 11 月 5 日列入附表四（49 FR 39307）。
-
----
-
-### LORAZEPAM (劳拉西泮 / 罗拉)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2885**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`846-49-1`
-* **分子式**：$C_{15}H_{10}Cl_{2}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Ativan。高效力 3-羟基苯二氮䓬抗焦虑与镇静药，1977 年 10 月 14 日依据 42 FR 54546 列入附表四。
-
----
-
-### LORMETAZEPAM (洛甲西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2774**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`848-75-9`
-* **分子式**：$C_{16}H_{12}Cl_{2}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Noctamid。1984 年 11 月 5 日依据 49 FR 39307 列入附表四。
-
----
-
-### LYSERGIC ACID (麦角酸)
-* **现行附表**：**Schedule III (附表三)**，同时为**第一类核心法定前体 (List I Precursor)**
-* **DEA 药物管制代码**：**7300**（水合物代码 **7310**）
-* **法定分类 (L)**：中枢抑制剂 (Depressant) / 合成前体
-* **CAS 注册号**：`82-58-6`
-* **分子式**：$C_{16}H_{16}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278)
-* **法理双重身份冲突**：作为合成 LSD 最直接的不可替代前体，在 1970 年法案中被诡异地归类为附表三“中枢抑制剂”；而在 1988/1990 年法律中又被重复列为第一类重点监控化学品。
-
----
-
-### LYSERGIC ACID AMIDE (麦角酰胺 / 麦角新碱)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**7310**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`478-95-5`
-* **天然来源**：牵牛花种子（Morning Glory Seeds）中的天然致幻成分。
-
----
-
-### LYSERGIC ACID DIETHYLAMIDE (LSD / 麦角酸二乙酰胺 / LSD-25)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码体系**：
-  * LSD 基准代码：**7315**
-  * 酒石酸盐 (Tartrate Salt)：代码 **7314**
-  * 未定型盐类：代码 **7299**
-  * LSD 与 PCP 混合制剂：代码 **7345**
-  * LSD 与其他药物混合制剂：代码 **7350**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：拟精神病药 / 超强精神致幻剂 (Psychotomimetic, Hallucinogen)
-* **CAS 注册号**：`50-37-3`（游离碱），酒石酸盐 `930-49-4`
-* **分子式**：$C_{20}H_{25}N_{3}O$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278)
-* **CA 正式命名**：Ergoline-8-carboxamide, 9,10-didehydro-N,N-diethyl-6-methyl-, (8β)-
-* **桑多斯（Sandoz）母核变体与全系列衍生物代码总览**：
-  * 由阿尔伯特·霍夫曼博士于 1938 年在瑞士桑多斯实验室首次合成；
-  * **母环取代修饰物代码**：
-    * 2-溴代-LSD (BOL-148)：代码 **7304**
-    * 2-碘代-LSD：代码 **7306**
-    * 二氢-LSD：代码 **7305**
-    * 光照降解异构体 Lumi-LSD：代码 **7309**
-    * 异-LSD (Iso-LSD)：代码 **7307**
-  * **二烷基同系变体代码**：
-    * N,N-二甲基类似物 (DAM-57)：代码 **7318**
-    * N-甲基-N-乙基类似物 (LME-54)：代码 **7325**
-    * N-甲基-N-丙基类似物 (LMP-55)：代码 **7328**
-    * N-甲基-N-异丙基类似物：代码 **7326**
-    * N,N-二丙基类似物：代码 **7319**
-    * N,N-二异丙基类似物：代码 **7317**
-    * N,N-二丁基类似物：代码 **7313**
-    * N-乙基-N-丙基类似物 (LEP-57)：代码 **7321**
-    * N,N-四氢吡咯基类似物 (LPD-824)：代码 **7332**
-    * N,N-哌啶基类似物：代码 **7330**
-    * N-吗啉基类似物 (LSM-775)：代码 **7329**
-    * 单乙基酰胺类似物 (LAE-32)：代码 **7311**
-
-
----
-
-## M 字母部词条全典 (Letter M)
-
-### MAZINDOL (马吲哚)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1605**
-* **法定分类 (L)**：中枢兴奋剂 / 食欲抑制剂 (Stimulant, Anorexic)
-* **CAS 注册号**：`22232-71-9`
-* **分子式**：$C_{16}H_{13}ClN_{2}O$
-* **结构图位置**：第四章图版第 22 图 (Structure page 276)
-* **CA 正式命名**：3H-Imidazo[2,1-a]isoindol-5-ol, 5-(4-chlorophenyl)-2,5-dihydro-
-* **立法演进**：于 1973 年 6 月 15 日依据 38 FR 15719 最初置于附表三；后于 1981 年 11 月 27 日依据 46 FR 57883 降级重分类至附表四。
-
----
-
-### MECLOQUALONE (甲氯喹酮)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**2572**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`340-57-8`（盐酸盐 `14008-60-7`）
-* **分子式**：$C_{15}H_{11}ClN_{2}O$
-* **CA 正式命名**：4(3H)-Quinazolinone, 3-(2-chlorophenyl)-2-methyl-
-* **立法演进**：系甲喹酮（安眠酮）的邻氯苯基类似物，1975 年 7 月 10 日依据 40 FR 28795 列入附表一绝对禁用。
-
----
-
-### MEDAZEPAM (美达西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2836**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`2898-12-6`（盐酸盐 `2898-11-5`）
-* **分子式**：$C_{16}H_{15}ClN_{2}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Nobrium。1984 年 11 月 5 日依据 49 FR 39307 纳入附表四。
-
----
-
-### MEPERIDINE (哌替啶 / 杜冷丁 / 地美露)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 哌替啶基准代码：**9230**
-  * 盐酸哌替啶结晶：代码 **9233**
-  * 哌替啶合成中间体 A (Intermediate-A / 4-氰基-1-甲基-4-苯基哌啶)：代码 **9232**
-  * 哌替啶合成中间体 B (Intermediate-B / 4-苯基哌啶-4-羧酸乙酯 / 去甲基哌替啶)：代码 **9233**
-  * 哌替啶合成中间体 C (Intermediate-C / 1-甲基-4-苯基哌啶-4-羧酸)：代码 **9234**
-* **法定分类 (L)**：阿片类物质 / 麻醉药品 (Narcotic Drug)
-* **药理分类 (M)**：经典人工合成阿片镇痛药 (Narcotic analgesic)
-* **CAS 注册号**：`57-42-1`（盐酸盐 `50-13-5`）
-* **分子式**：$C_{15}H_{21}NO_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-methyl-4-phenyl-, ethyl ester
-* **合成前体穿透式列管**：1970 年法案不仅将杜冷丁母体打入附表二，更将其核心合成反应中全部三道工序的中间体（A、B、C）均无条件作为附表二全额列管。
-
----
-
-### MEPROBAMATE (甲丙氨酯 / 眠尔通)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2820**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：镇静安定药 (Tranquilizer)
-* **CAS 注册号**：`57-53-4`
-* **分子式**：$C_{9}H_{18}N_{2}O_{4}$
-* **结构图位置**：第四章图版第 4 图 (Structure page 258)
-* **商品名**：Miltown、Equanil。1950 年代风靡全美的代表性二氨基甲酸酯类镇静剂。
-
----
-
-### MESCALINE (麦司卡林 / 墨斯卡灵 / 3,4,5-三甲氧基苯乙胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7381**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：强效致幻生物碱 (Hallucinogen)
-* **CAS 注册号**：`54-04-1`（游离碱），硫酸盐 `1152-76-7`，盐酸盐 `832-92-8`
-* **分子式**：$C_{11}H_{17}NO_{3}$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **CA 正式命名**：Benzeneethanamine, 3,4,5-trimethoxy-
-* **法理位置异构体网络考据**：
-  * 系仙人掌乌羽玉（Peyote）中的主生物碱；
-  * **1984 年法律重新定义“异构体”的直接受害者**：根据 1984 年公法对附表一致幻剂术语的扩张解释，麦司卡林所有的**位置异构体**（即三甲氧基位于苯环其他相对位置的异构变体，如 2,3,4-、2,4,5- 或 2,4,6-三甲氧基苯乙胺）全部被自动打入附表一管辖范围。
-
----
-
-### METHADONE (美沙酮 / 阿米酮)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 美沙酮基准代码：**9250**
-  * 盐酸美沙酮结晶：代码 **9254**
-  * 美沙酮中间体 (Intermediate / 4-氰基-2-二甲氨基-4,4-二苯基丁烷)：代码 **9254**
-  * 左旋美沙酮 (L-Methadone)：代码 **9255**
-* **法定分类 (L)**：阿片类物质 / 麻醉药品 (Narcotic Drug)
-* **药理分类 (M)**：长效麻醉镇痛药；阿片受体替代戒断药 (Narcotic analgesic)
-* **CAS 注册号体系**：
-  * `76-99-3`（外消旋游离碱）
-  * `1095-90-5`（外消旋盐酸盐 / Dolophine）
-  * `125-56-4`（(R)-左旋美沙酮，真正阿片活性异构中心）
-  * `544-31-0`（(S)-右旋对映异构体）
-* **分子式**：$C_{21}H_{27}NO$
-* **结构图位置**：第四章图版第 14 图及第 15 图 (Structure page 268–269)
-* **CA 正式命名**：3-Heptanone, 6-(dimethylamino)-4,4-diphenyl-
-* **二战历史起源**：德国 I.G. Farben 工业法团在第二次世界大战期间（1937–1939 年）作为合成代用止痛剂开发（研究代号 Polamidon），战后作为战争赔偿被同盟国获取并在全美及全球推广用于海洛因依赖替代疗法。
-
----
-
-### METHAMPHETAMINE (甲基苯丙胺 / 冰毒 / 去氧麻黄碱)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 甲基苯丙胺通用代码：**1105**
-  * 盐酸甲基苯丙胺结晶：代码 **1107**
-  * 早期注射液特殊代码 (Injectable liquid)：**1400**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **药理分类 (M)**：强效拟交感神经中枢兴奋剂 (CNS Stimulant)
-* **CAS 注册号体系**：
-  * `537-46-2`（(S)-右旋甲基苯丙胺 / D-Methamphetamine）
-  * `51-57-0`（(S)-右旋盐酸盐结晶 / Desoxyn）
-  * `5633-50-1`（(±)-外消旋游离碱）
-  * `300-42-5`（外消旋盐酸盐）
-  * `33817-09-3`（(R)-左旋甲基苯丙胺 / L-Methamphetamine / 用于鼻通吸入剂）
-* **分子式**：$C_{10}H_{15}N$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **商品名**：Desoxyn、Methedrine。
-* **立法激进化历史与“冰毒”(Ice) 特别重刑**：
-  * 在 1971 年之前，口服片剂的甲基苯丙胺最初曾归于附表三；但 1971 年 7 月 7 日依据 36 FR 12734，联邦政府鉴于严重的静脉滥用潮，将其连同所有复方制剂一律强制升级至**附表二**；
-  * **1990 年针对结晶吸食“冰毒”的量刑激增**：1990 年《公法第 101-647 号》针对高纯度吸食结晶冰毒在夏威夷和西海岸的爆发，在联邦量刑指南中强制增加两级基准量刑。舒尔金在此严厉指出：成文法在化学上根本无法给出如何从分子或晶型上区分“可吸食性”与“非吸食性”盐酸甲基苯丙胺的客观标准，这一法条在司法实践中必然导致所有甲基苯丙胺涉案案件均被无差别顶格重判。
-
----
-
-### METHAQUALONE (甲喹酮 / 安眠酮 / 忽得 / Quaalude)
-* **现行附表**：**Schedule I (附表一，彻底死刑禁绝)**
-* **DEA 药物管制代码**：**2565**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：强效镇静催眠药 (Sedative, Hypnotic)
-* **CAS 注册号**：`72-44-6`（盐酸盐 `340-56-7`）
-* **分子式**：$C_{16}H_{14}N_{2}O$
-* **结构图位置**：第四章图版第 33 图 (Structure page 285)
-* **CA 正式命名**：4(3H)-Quinazolinone, 2-methyl-3-(2-methylphenyl)-
-* **商品名**：Quaalude、Sopor、Mequin、Mandrax。
-* **美国禁毒史上最著名的附表跳跃惨案**：
-  * 1960–1970 年代作为“非巴比妥类安全镇静剂”上市，随即引发全美迪斯科文化中最疯狂的滥用狂潮；
-  * 1973 年 10 月 4 日依据 38 FR 27516 被列入附表二处方药管制；
-  * 由于黑市伪造处方与大规模转移，国会最终通过专项目标立法，于 **1984 年 8 月 27 日正式将其从附表二直接钉死入附表一（49 FR 33870）**，全面取缔并销毁其全美所有商业处方制剂。
+### 4-BROMO-2,5-DIMETHOXYAMPHETAMINE (DOB)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7391**
+* **Statutory Classification (L)**: Hallucinogen
+* **Exhaustive CAS Registry Number System**:
+  * `32156-26-6` (Unspecified configuration)
+  * `64638-07-9` (Racemate)
+  * `43061-15-0` ((R)-Enantiomer)
+  * `43061-16-1` ((S)-Enantiomer)
+  * `53581-53-6` (Racemic hydrobromide)
+  * `29705-96-2` (Unspecified hydrochloride)
+  * `51261-87-1` (Racemic hydrochloride)
+  * `50505-92-5` ((R)-Hydrochloride)
+  * `50505-93-6` ((S)-Hydrochloride)
+* **Empirical Formula**: $C_{11}H_{16}BrNO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **CA Formal Name**: Benzeneethanamine, 4-bromo-2,5-dimethoxy-α-methyl-
+* **Pharmacology and Jurisprudence**: A potent, exceptionally long-acting hallucinogenic phenethylamine synthesized by Dr. Alexander Shulgin (see PIHKAL #62), active at microgram doses. Formally placed into Schedule I on September 21, 1973 pursuant to 38 FR 26447.
+
+---
+
+### BUFOTENINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7433**, Monooxalate code **7425**, 1:1 Oxalate code **7427**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Hallucinogen
+* **CAS Registry Number System**:
+  * `487-93-4` (Free base)
+  * `55206-22-9` (Hydrochloride)
+  * `64636-16-2` (Lithium hydroxide complex)
+  * `16698-26-3` (Oxalate)
+  * `2963-79-3` (Monooxalate)
+* **Empirical Formula**: $C_{12}H_{16}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278)
+* **CA Formal Name**: 1H-Indol-5-ol, 3-[2-(dimethylamino)ethyl]-
+* **Natural Sources**: Toad skin secretions (*Bufo* alvarius) and seeds of South American entheogenic plants (*Anadenanthera*). A strictly controlled Schedule I hallucinogenic alkaloid listed since the original 1970 Act.
+
+---
+
+### BUPRENORPHINE
+* **Current Schedule**: **Schedule V**
+* **DEA Drug Code**: **9064**
+* **Statutory Classification (L)**: Narcotic analgesic
+* **CAS Registry Number**: `52483-29-7` (Hydrochloride `53152-21-9`)
+* **Empirical Formula**: $C_{29}H_{41}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 8 (Structure page 263 / Diels-Alder oripavine adducts)
+* **Legislative History**: Assigned to Schedule V by DEA in 1985. Functioning as an opioid μ-receptor partial agonist and κ-receptor antagonist, it subsequently gained widespread application in opioid dependency substitution detoxification.
+
+---
+
+### BUTALBITAL
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2100**
+* **CAS Registry Number**: `77-26-5`
+* **Empirical Formula**: $C_{11}H_{16}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 279)
+* **CA Formal Name**: 5-(2-methylpropyl)-5-(2-propenyl)-2,4,6(1H,3H,5H)-pyrimidinetrione
+* **Trade Formulations**: Fiorinal (a well-known analgesic combination containing butalbital, aspirin, and caffeine).
+
+---
+
+## Letter C
+
+### CAMAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2749**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `36104-80-0`
+* **Empirical Formula**: $C_{19}H_{18}ClN_{3}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **CA Formal Name**: 1H-1,4-Benzodiazepine-3-carboxylic acid, 7-chloro-1,3-dihydro-1-methyl-2-oxo-5-phenyl-, dimethylcarbamate (ester)
+* **Legislative History**: Formally added to the Schedule IV depressant schedule on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### CATHINE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1230**
+* **Statutory Classification (L)**: Stimulant
+* **Exhaustive CAS Registry Number System**:
+  * `492-39-7` ((+)-[R-(R*,R*)] configuration; d-norpseudoephedrine / cathine itself)
+  * `37577-07-4` ((-)-[S-(R*,R*)] configuration)
+  * `53643-20-2` (Racemate)
+  * `2153-98-2` (Hydrochloride)
+* **Empirical Formula**: $C_{9}H_{13}NO$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Natural Source and Control**: Active alkaloid in the khat plant (*Catha edulis*). Temporarily placed into Schedule IV on May 17, 1988 pursuant to 53 FR 17459, and subsequently made permanent.
+
+---
+
+### CATHINONE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **1235**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `71031-16-8` (Free base), Hydrochloride `16735-19-6`
+* **Empirical Formula**: $C_{9}H_{11}NO$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **CA Formal Name**: 1-Propanone, 2-amino-1-phenyl-
+* **Pharmacological Commentary**: The principal psychoactive, labile alkaloid precursor in khat (*Catha edulis*), possessing stimulant potency comparable to amphetamine. Proposed for control in 1988 and finalized as a Schedule I prohibited stimulant.
+
+---
+
+### CHLORAL BETAINE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2460**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `2218-68-0`
+* **Empirical Formula**: $C_{7}H_{14}Cl_{3}NO_{5}$
+* **Statutory Status**: A molecular adduct formed between chloral hydrate and betaine.
+
+---
+
+### CHLORDIAZEPOXIDE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2744** (Free base), Hydrochloride code **2745**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative
+* **CAS Registry Number**: `58-25-3` (Free base), Hydrochloride `438-41-5`
+* **Empirical Formula**: $C_{16}H_{14}ClN_{3}O$
+* **Structure Diagram**: Chapter 4, Plate 17 and Plate 18 (Structure page 273)
+* **CA Formal Name**: 3H-1,4-Benzodiazepin-2-amine, 7-chloro-N-methyl-5-phenyl-, 4-oxide
+* **Historical Case**: The very first 1,4-benzodiazepine central sedative drug developed in human history by Hoffmann-La Roche (Librium). Officially brought under federal Schedule IV control on July 2, 1975 pursuant to 40 FR 23998.
+
+---
+
+### CHLORPHENTERMINE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **1645**
+* **Statutory Classification (L)**: Stimulant / Anorexic
+* **CAS Registry Number**: `461-78-9` (Hydrochloride `151-06-4`)
+* **Empirical Formula**: $C_{10}H_{14}ClN$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Legislative History**: Placed into Schedule III on June 15, 1973 pursuant to 38 FR 15719.
+
+---
+
+### CLONAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2737**
+* **Statutory Classification (L)**: Depressant / Anticonvulsant
+* **CAS Registry Number**: `1622-61-3`
+* **Empirical Formula**: $C_{15}H_{10}ClN_{3}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **CA Formal Name**: 2H-1,4-Benzodiazepin-2-one, 5-(2-chlorophenyl)-1,3-dihydro-7-nitro-
+* **Trade Name**: Klonopin. Placed in Schedule IV in 1975 pursuant to 40 FR 23998.
+
+---
+
+### CLORAZEPATE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2768**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `20432-69-3` (Monopotassium salt), Dipotassium salt `5991-71-9`
+* **Empirical Formula**: $C_{16}H_{11}ClK_{2}N_{2}O_{4}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Tranxene. Placed in Schedule IV on July 2, 1975 (40 FR 23998).
+
+---
+
+### CLORTERMINE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **1647**
+* **Statutory Classification (L)**: Stimulant / Anorexic
+* **CAS Registry Number**: `10389-73-8` (Hydrochloride `10389-72-7`)
+* **Empirical Formula**: $C_{10}H_{14}ClN$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **CA Formal Name**: Benzeneethanamine, 2-chloro-α,α-dimethyl-
+* **Trade Name**: Voranil. Placed in Schedule III on June 15, 1973 (38 FR 15719).
+
+---
+
+### CLOXAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2750**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `24166-13-0`
+* **Empirical Formula**: $C_{17}H_{14}Cl_{2}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274)
+* **Legislative History**: Placed into Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### COCAINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Cocaine base code: **9041**
+  * Cocaine HCl: Code **9042**
+  * Narcotics, Cocaine collective category: Code **9000**
+  * Cocaine Nitrate: Code **9035**
+  * Cocaine Sulfate: Code **9036**
+  * Cocaine in combination with other drugs: Code **9043**
+  * Salt undetermined: Code **9046**
+  * Benzoylecgonine methyl ester (Synonym code): **9182**
+* **Statutory Classification (L)**: Vegetable origin substance / Narcotic Drug (Statutory fiction)
+* **Pharmacological Classification (M)**: Topical anesthetic; potent central dopamine reuptake inhibitor stimulant
+* **Exhaustive CAS Registry Number System**:
+  * `50-36-2` (Natural 1-R levo-free base)
+  * `53-21-4` (1-R cocaine hydrochloride crystalline)
+  * `21206-60-0` (2-exo-3-exo racemic free base)
+  * `56222-58-3` (Racemic hydrochloride)
+  * `47195-07-3` (1-S enantiomer)
+* **Empirical Formula**: $C_{17}H_{21}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 3 (Structure page 257)
+* **Coca Leaf Associated Alkaloids and Chemical Degradation Control Analysis**:
+  * Statutory law controls not merely cocaine itself, but thoroughly encompasses all accompanying alkaloids in coca leaves and their hydrolysis product ecgonine;
+  * **Dedicated DEA Codes for Secondary Coca Alkaloids**:
+    * Cuscohygrine (Cuchygrine): Code **9047**
+    * Hygrine: Code **9048**
+    * Truxilline (α- and β-forms): Code **9049**
+  * **Statutory Fiction**: Although modern neuroscience and pharmacology unambiguously classify cocaine as a prototypical central nervous system stimulant, statutory law adamantly binds it under the label of "Narcotic Drug" to preserve severe felony sentencing penalties for trafficking.
+
+---
+
+### CODEINE
+* **Current Schedule**:
+  * Pure single entity and bulk raw material: **Schedule II**, Code **9050**
+  * Oral combination preparations containing other active non-narcotic ingredients: **Schedule III**
+  * Low-concentration cough syrup preparations (not exceeding 200 mg codeine per 100 mL): **Schedule V**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic; Antitussive
+* **Exhaustive CAS Registry Number System**:
+  * `76-57-3` (Anhydrous free base)
+  * `6059-47-8` (Hydrated free base)
+  * `125-25-7` (Hydrobromide)
+  * `1422-07-7` (Hydrochloride, corresponding to Code **9085**)
+  * `5913-73-7` (Nitrate)
+  * `1420-53-7` (2:1 Codeine sulfate, corresponding to Code **9090**)
+  * `6854-40-6` (Sulfate trihydrate)
+  * `4478-25-5` (Codeine phosphate, corresponding to Code **9080**)
+  * `52-28-8` (1:1 Anhydrous phosphate)
+  * `41444-62-6` (Phosphate hemihydrate)
+* **Empirical Formula**: $C_{18}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **DEA Monitored Derivative Compounds Code List**:
+  * Codeine Acetate: Code **9060**
+  * Codeine Acetate in Combination: Code **9061**
+  * Codeine Base pure: Code **9062**
+  * Codeine Phosphate in Combination: Code **9081**
+  * Codeine Sulfate in Combination: Code **9091**
+  * Codeine-6-glucuronide metabolite: Code **9069**
+  * Codeine Intermediate: Code **9095**
+  * Cough Preparations generic category: Code **9100**
+  * Other unlisted codeine preparations: Code **9101**
+
+---
+
+### CODEINE N-OXIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9053**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Antitussive
+* **CAS Registry Number System**:
+  * `3688-65-1` (Unspecified stereochemistry)
+  * `60827-70-5` (17-R enantiomer; natural form in opium poppy and primary human metabolite)
+  * `60827-71-6` (17-S enantiomer)
+* **Empirical Formula**: $C_{18}H_{21}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **CA Formal Name**: Morphinan-6-ol, 7,8-didehydro-4,5-epoxy-3-methoxy-17-methyl-, 17-oxide, (5α,6α)-
+* **Legal Comparison**: While parent codeine is a Schedule II prescription drug, its natural N-oxide was directly relegated to **Schedule I (total prohibition)** by statutory law.
+
+---
+
+### CONCENTRATE OF POPPY STRAW
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9670**
+* **Statutory Classification (L)**: Narcotic Drug
+* **Legislative History**: Formally incorporated into CSA Schedule II on February 14, 1975 pursuant to 40 FR 6779, and reaffirmed as a narcotic drug in 51 FR 5370.
+* **Statutory Definition**: Means the crude extract of poppy straw in either liquid, solid or powder form which contains the phenanthrene alkaloids of the opium poppy (*Papaver somniferum* L., such as morphine, codeine, thebaine).
+
+---
+
+### CYPRENORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9054** (Free base), Hydrochloride code **9037**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic antagonist
+* **CAS Registry Number**: `16550-22-4` (Hydrochloride)
+* **Empirical Formula**: $C_{26}H_{33}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 8 (Structure page 263 / Diels-Alder adducts)
+* **CA Formal Name**: 6,14-Ethenomorphinan-7-methanol, 17-(cyclopropylmethyl)-18,19-didehydro-4,5-epoxy-3-hydroxy-6-methoxy-α-methyl-
+* **Legal Commentary**: A potent oripavine cyclopropylmethyl antagonist synthesized from thebaine via the Diels-Alder reaction.
+
+---
+
+## Letter D
+
+### DELORAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2754**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `2894-67-9`
+* **Empirical Formula**: $C_{15}H_{10}Cl_{2}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **CA Formal Name**: 2H-1,4-Benzodiazepin-2-one, 7-chloro-5-(2-chlorophenyl)-1,3-dihydro-
+* **Legislative History**: Formally added to Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### DESOMORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9055**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `427-00-9` (Hydrobromide `32904-22-6`, Sulfate `5497-62-1`)
+* **Empirical Formula**: $C_{17}H_{21}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-6-ol, 4,5-epoxy-17-methyl-, (5α)-
+* **History and Toxicology**: Dihydrodesoxymorphine-D. With analgesic potency 8 to 10 times that of morphine, it was listed in Schedule I in the original 1970 Act (and subsequently became notorious as the active component of the illicit street drug "Krokodil").
+
+---
+
+### DEXTROAMPHETAMINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **1106** (Sulfate code **1100**)
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `51-64-9` (Free base), Sulfate `51-63-8`
+* **Empirical Formula**: $C_{9}H_{13}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Trade Name**: Dexedrine. The active dextrorotatory enantiomer of amphetamine, exhibiting 3 to 4 times the central nervous stimulation of the levorotatory isomer.
+
+---
+
+### DEXTROMORAMIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9612** (Tartrate code **9614**)
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `357-56-2` (Tartrate `2922-44-3`)
+* **Empirical Formula**: $C_{25}H_{32}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **Legal Isomeric Distinction**: The potent analgesic dextrorotatory isomer (Palfium). Its racemate (Racemoramide, Code 9645) and levorotatory isomer (Levomoramide, Code 9629) are both separately scheduled in Schedule I with dedicated codes; its synthetic precursor, moramide intermediate (Code 9802), is placed in Schedule II.
+
+---
+
+### DEXTROPROPOXYPHENE
+* **Current Schedule**:
+  * Pure oral formulations: **Schedule IV**, Code **9278**
+  * Bulk raw material (Bulk Dextropropoxyphene): **Schedule II**, Code **9273**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number System**:
+  * `469-62-5` ([S-(R*,S*)] configuration; dextro-isomer itself)
+  * `1639-60-7` (Hydrochloride, Darvon)
+  * `17140-78-2` (Napsylate hydrate)
+* **Empirical Formula**: $C_{22}H_{29}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **Statutory Exemption**: Its optical enantiomer, **Levopropoxyphene (Novrad)**, which possesses antitussive action without opioid analgesic or addiction potential, was explicitly de-listed and exempted from control in the statute.
+
+---
+
+### DIAMPROMIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9615**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `552-25-0`
+* **Empirical Formula**: $C_{21}H_{28}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **CA Formal Name**: Propanamide, N-[2-[methyl(2-phenylethyl)amino]propyl]-N-phenyl-
+
+---
+
+### DIAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2765**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Anxiolytic; Skeletal muscle relaxant; Sedative
+* **CAS Registry Number**: `439-14-5`
+* **Empirical Formula**: $C_{16}H_{13}ClN_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 17 and Plate 18 (Structure page 273)
+* **CA Formal Name**: 2H-1,4-Benzodiazepin-2-one, 7-chloro-1,3-dihydro-1-methyl-5-phenyl-
+* **Trade Name**: Valium. The epoch-making anxiolytic developed by Hoffmann-La Roche, formally placed under federal Schedule IV prescription controls on July 2, 1975 pursuant to 40 FR 23998.
+
+---
+
+### DIFENOXIN
+* **Current Schedule**:
+  * Pure single entity and general formulations: **Schedule I**, Code **9168**
+  * Combination prescription formulations (containing per dosage unit not more than 1 mg difenoxin and not less than 25 μg atropine sulfate): **Schedule IV**, Code **9167**
+  * Very low dose combinations (0.5 mg difenoxin with atropine): **Schedule V**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Antidiarrheal
+* **CAS Registry Number**: `28782-42-5` (Hydrochloride `35607-36-4`)
+* **Empirical Formula**: $C_{28}H_{28}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-(3-cyano-3,3-diphenylpropyl)-4-phenyl-
+* **Legislative History**: The active deethylated metabolite of diphenoxylate. Placed in Schedule I on June 1, 1975 (40 FR 19813); tiered scheduling under Schedule IV and V for anti-abuse atropine combinations was established on September 27, 1978 (43 FR 38382).
+
+---
+
+### DIHYDROCODEINE
+* **Current Schedule**:
+  * Bulk raw material and pure single entity: **Schedule II**, Code **9120**
+  * Combination preparations with non-narcotic active ingredients (not exceeding 1.8 g per 100 mL or 90 mg per dosage unit): **Schedule III**
+  * Very low concentration antitussive combinations (not exceeding 100 mg per 100 mL): **Schedule V**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `125-28-0` (Bitartrate `5965-13-9`)
+* **Empirical Formula**: $C_{18}H_{23}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+
+---
+
+### DIHYDROMORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9145**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `509-60-4`
+* **Empirical Formula**: $C_{17}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-3,6-diol, 4,5-epoxy-17-methyl-, (5α,6α)-
+* **Legal Distinction**: The 7,8-dihydro reduced derivative of natural morphine, with significantly higher analgesic potency than morphine; listed in Schedule I since the original 1970 Act.
+
+---
+
+### DIMENOXADOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9617**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `509-78-4`
+* **Empirical Formula**: $C_{19}H_{23}NO_{3}$
+* **CA Formal Name**: Benzeneacetic acid, α-ethoxy-α-phenyl-, 2-(dimethylamino)ethyl ester
+
+---
+
+### DIMEPHEPTANOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9618**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `545-90-4`
+* **Empirical Formula**: $C_{21}H_{29}NO$
+* **Structure Diagram**: Chapter 4, Plate 14 (Structure page 269)
+* **CA Formal Name**: 3-Heptanol, 6-(dimethylamino)-4,4-diphenyl-
+* **Statutory Scheme**: The collective umbrella designation for methadol; its α- and β-isomers correspond to Alphamethadol and Betamethadol.
+
+---
+
+### DIMETHYLTHIAMBUTENE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9619**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `524-84-5`
+* **Empirical Formula**: $C_{15}H_{19}NS_{2}$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **CA Formal Name**: 3-Buten-2-amine, N,N-dimethyl-4,4-di-2-thienyl-
+
+---
+
+### N,N-DIMETHYLAMPHETAMINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **1480**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `4075-96-1` (Hydrochloride `24107-76-4`)
+* **Empirical Formula**: $C_{11}H_{17}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Legislative History**: Synthesized by clandestine chemists to evade controls on amphetamine and methamphetamine. DEA invoked emergency scheduling on November 18, 1987 (52 FR 44105) to place it in Schedule I, later made permanent.
+
+---
+
+### N,N-DIMETHYLTRYPTAMINE (DMT)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7435**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Hallucinogenic alkaloid
+* **CAS Registry Number**: `61-50-7`
+* **Empirical Formula**: $C_{12}H_{16}N_{2}$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278)
+* **CA Formal Name**: 1H-Indole-3-ethanamine, N,N-dimethyl-
+* **Natural Sources**: Primary psychoactive alkaloid in South American Ayahuasca and *Virola* snuffs. Listed in Schedule I in the original 1970 Act.
+
+---
+
+### DIPHENOXYLATE
+* **Current Schedule**:
+  * Bulk substance and raw material: **Schedule II**, Code **9170**
+  * Combination antidiarrheal oral preparations (containing per dosage unit not more than 2.5 mg diphenoxylate and not less than 25 μg atropine sulfate, e.g. Lomotil): **Schedule V**
+* **Statutory Classification (L)**: Opiate / Narcotic Drug
+* **Pharmacological Classification (M)**: Antidiarrheal
+* **CAS Registry Number**: `915-30-0` (Hydrochloride `3810-80-8`)
+* **Empirical Formula**: $C_{30}H_{32}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-(3-cyano-3,3-diphenylpropyl)-4-phenyl-, ethyl ester
+
+---
+
+### DIPIPANONE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9622**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `467-83-9` (Hydrochloride hydrate `856-87-1`)
+* **Empirical Formula**: $C_{24}H_{31}NO$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **CA Formal Name**: 3-Heptanone, 4,4-diphenyl-6-(1-piperidinyl)-
+
+---
+
+### DROTEBANOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9335**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `3176-03-2`
+* **Empirical Formula**: $C_{19}H_{27}NO_{4}$
+* **CA Formal Name**: Morphinan-6,14-diol, 3,4-dimethoxy-17-methyl-, 6-beta-
+* **Legislative History**: Added to Schedule I on August 6, 1973 pursuant to 38 FR 21171.
+
+---
+
+## Letter E
+
+### ECGONINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9180**
+* **Statutory Classification (L)**: Coca leaf extract / Narcotic Drug
+* **CAS Registry Number System**:
+  * `481-37-8` ([1R-(exo,exo)] configuration free base)
+  * `529-38-4` (Hydrochloride)
+  * Its stereoisomers—Pseudoecgonine, Alloecgonine, and Pseudoalloecgonine—are all mandatorily encompassed under Schedule II pursuant to 51 FR 5370.
+* **Empirical Formula**: $C_{9}H_{15}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 3 (Structure page 257)
+* **Statutory Strict Liability Scheme**: The statute provides that all salts, isomers, derivatives, and salts of derivatives of ecgonine are controlled identically to cocaine under the strictest Schedule II provisions; its cleavage precursor methylecgonidine (Code 9181) is similarly tightly controlled.
+
+---
+
+### EPHEDRINE
+* **Current Statutory Legal Status**: **List I Regulated Precursor Chemical**
+* **DEA Monitoring Code**: **1105** (monitored as precursor)
+* **Pharmacological Classification (M)**: Adrenergic receptor agonist; Sympathomimetic
+* **CAS Registry Number**: `299-42-3` ((-)-levo isomer), Hydrochloride `50-98-6`, Sulfate `134-72-5`
+* **Empirical Formula**: $C_{10}H_{15}NO$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Jurisdictional Focus of the Chemical Diversion and Trafficking Act of 1988**: Because ephedrine serves as the premier chemical precursor for the illicit clandestine reduction synthesis of **methamphetamine**, any bulk transaction, import, or export of ephedrine single-entity raw material is subject to rigorous federal registration, quota reporting, and severe felony penalties.
+
+---
+
+### ESTAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2756**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Hypnotic
+* **CAS Registry Number**: `29975-16-4`
+* **Empirical Formula**: $C_{16}H_{11}ClN_{4}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274 / Triazolobenzodiazepines)
+* **CA Formal Name**: 4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-6-phenyl-
+* **Legislative History**: Added to Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### ETHCHLORVYNOL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2540**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `113-18-8`
+* **Empirical Formula**: $C_{7}H_{9}ClO$
+* **CA Formal Name**: 1-Penten-4-yn-3-ol, 1-chloro-3-ethyl-
+* **Trade Name**: Placidyl.
+
+---
+
+### ETHINAMATE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2545**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `126-52-3`
+* **Empirical Formula**: $C_{9}H_{13}NO_{2}$
+* **CA Formal Name**: Cyclohexanol, 1-ethynyl-, carbamate
+* **Trade Name**: Valamin.
+
+---
+
+### ETHYLAMINE ANALOG OF PHENCYCLIDINE (PCE)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7455**
+* **Statutory Classification (L)**: Hallucinogen
+* **CAS Registry Number**: `2201-15-2` (Hydrochloride `1867-65-8`)
+* **Empirical Formula**: $C_{14}H_{21}N$
+* **Structure Diagram**: Chapter 4, Plate 27 (Structure page 281 / PCP analogues)
+* **CA Formal Name**: Cyclohexanamine, N-ethyl-1-phenyl-
+* **Synonym**: Cyclohexamine. An early prominent clandestine designer analogue of PCP, formally placed into Schedule I on October 25, 1978 pursuant to 43 FR 43295.
+
+---
+
+### N-ETHYLAMPHETAMINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **1475**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `457-87-4` (Racemic free base), Hydrochloride `2200-44-8`
+* **Empirical Formula**: $C_{11}H_{17}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Legislative History**: Placed into Schedule I on January 7, 1982 pursuant to 47 FR 1003.
+
+---
+
+### ETHYLMORPHINE
+* **Current Schedule**:
+  * Bulk raw material and high concentrations: **Schedule II**, Code **9190**
+  * Combination prescription formulations (not exceeding 1.8 g per 100 mL or 90 mg per dosage unit): **Schedule III**
+  * Low-concentration antitussive combinations (not exceeding 100 mg per 100 mL): **Schedule V**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `76-58-4` (Hydrochloride dihydrate `6746-59-4`)
+* **Empirical Formula**: $C_{19}H_{23}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 7 (Structure page 260)
+* **Trade Name**: Dionin. The 3-O-ethyl ether derivative of morphine.
+
+---
+
+### ETORPHINE
+* **Current Schedule**:
+  * **Etorphine free base pure**: **Schedule I**, Code **9172**
+  * **Etorphine Hydrochloride**: **Schedule II**, Code **9173**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `14521-96-1` (Free base), Hydrochloride `13764-49-3`
+* **Empirical Formula**: $C_{25}H_{33}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 8 (Structure page 263 / Diels-Alder oripavine adducts)
+* **CA Formal Name**: 6,14-Ethenomorphinan-7-methanol, 4,5-epoxy-3-hydroxy-6-methoxy-α,17-dimethyl-α-propyl-, [5α,7α(R)]-
+* **Trade Names**: Immobilon, M99.
+* **Dual Scheduling Hierarchy and Extreme Lethality Case**:
+  * Possessing analgesic and central depressive potency **1,000 to 8,000 times that of morphine**, minute dermal or mucosal contact can be fatal; restricted exclusively to remote capture darting of large wildlife (elephants, rhinoceroses);
+  * **Unique Statutory Bifurcation**: Its free base, having no accepted human medical use, is consigned to Schedule I; whereas its hydrochloride salt, specially authorized for large-animal veterinary immobilizations, is carved out into Schedule II. Its specific antidote antagonist is diprenorphine.
+
+---
+
+### ETOXERIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9623**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `468-59-7`
+* **Empirical Formula**: $C_{18}H_{27}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-[2-(2-hydroxyethoxy)ethyl]-4-phenyl-, ethyl ester
+
+---
+
+## Letter F
+
+### FENCAMFAMINE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1641**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `1209-97-8` (Hydrochloride `2240-14-4`)
+* **Empirical Formula**: $C_{15}H_{21}N$
+* **CA Formal Name**: Bicyclo[2.2.1]heptan-2-amine, N-ethyl-3-phenyl-
+* **Legislative History**: Temporarily placed into Schedule IV on May 17, 1988 pursuant to 53 FR 17459, and subsequently made permanent.
+
+---
+
+### FENETHYLLINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **1504**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `3736-08-1` (Hydrochloride `1886-59-5`)
+* **Empirical Formula**: $C_{18}H_{23}N_{5}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 22 (Structure page 276)
+* **Trade Name**: Captagon. A prodrug molecule consisting of theophylline and amphetamine covalently linked via an ethyl bridge. Permanently placed into Schedule I on August 20, 1981 pursuant to 46 FR 42261.
+
+---
+
+### FENFLURAMINE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1670**
+* **Statutory Classification (L)**: Anorexic / Depressant-stimulant variant
+* **CAS Registry Number**: `458-24-2` (Hydrochloride `404-82-0`)
+* **Empirical Formula**: $C_{12}H_{16}F_{3}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Trade Name**: Pondimin. A trifluoromethyl-substituted phenethylamine anorexic agent.
+
+---
+
+### FENTANYL
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Fentanyl base code: **9801**
+  * Fentanyl Citrate: Code **9801**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number System**:
+  * `437-38-7` (Free base crystalline)
+  * `990-73-8` (Citrate salt)
+* **Empirical Formula**: $C_{22}H_{28}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 2, Plate 12, and Plate 13 (Structure pages 266–267)
+* **CA Formal Name**: Propanamide, N-(1-phenethyl-4-piperidinyl)-N-phenyl-
+* **Trade Name**: Sublimaze.
+* **Pharmacology and Epicenter of Modern Clandestine Analogues**:
+  * First synthesized in 1960 by Dr. Paul Janssen at Janssen Pharmaceutica in Belgium, exhibiting analgesic potency approximately **80 to 100 times** that of pure morphine, with exceptionally high lipid solubility and rapid blood-brain barrier penetration;
+  * As the common chemical parent core for all modern underground synthetic designer analogues (e.g., carfentanil, α-methylfentanyl, para-fluorofentanyl, acetylfentanyl), it has been strictly controlled under federal annual production quotas within Schedule II since the inception of the 1970 Act.
+
+---
+
+### FLUDIAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2759**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `3900-31-0`
+* **Empirical Formula**: $C_{16}H_{12}ClFN_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Legislative History**: Formally added to Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### FLUNITRAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2763**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Hypnotic
+* **CAS Registry Number**: `1622-62-4`
+* **Empirical Formula**: $C_{16}H_{12}FN_{3}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Rohypnol. Placed in Schedule IV on November 5, 1984 (49 FR 39307). Due to its potent anterograde amnesic and deep central depressant properties, it has been subjected to intense scrutiny in judicial enforcement.
+
+---
+
+### FLURAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2767**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `17617-23-1` (Dihydrochloride `1172-18-5`)
+* **Empirical Formula**: $C_{21}H_{23}ClFN_{3}O$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Dalmane. Placed in Schedule IV on July 2, 1975 (40 FR 23998).
+
+---
+
+### FORMEBOLONE
+* **Current Schedule**: **Schedule III**
+* **Statutory Classification (L)**: Anabolic Steroid
+* **CAS Registry Number**: `2454-11-7`
+* **Empirical Formula**: $C_{20}H_{26}O_{4}$
+* **CA Formal Name**: Androsta-1,4-dien-3-one, 11,17-dihydroxy-17-methyl-3-oxo-, (11α,17β)-
+* **Trade Name**: Esiclene. Formally placed under Schedule III penal control on November 29, 1990 pursuant to Public Law 101-647 (Anabolic Steroids Control Act).
+
+---
+
+### FURETHIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9626**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `2385-81-1`
+* **Empirical Formula**: $C_{21}H_{31}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 4-phenyl-1-[2-[(tetrahydro-2-furanyl)methoxy]ethyl]-, ethyl ester
+* **Legal Commentary**: A tetrahydrofurfuryloxyethyl-substituted analogue of meperidine, scheduled as a strictly controlled Schedule I opiate in the original 1970 Act.
+
+---
+
+## Letter G
+
+### GLUTETHIMIDE
+* **Current Schedule**: **Schedule II (Upgraded)**
+* **DEA Drug Code**: **2550**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Hypnotic
+* **CAS Registry Number**: `77-21-4` (Racemate)
+* **Empirical Formula**: $C_{13}H_{15}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 30 (Structure page 283 / Sulfones and non-barbiturate sedatives)
+* **CA Formal Name**: 2,6-Piperidinedione, 3-ethyl-3-phenyl-
+* **Trade Name**: Doriden.
+* **Legislative Rescheduling History**:
+  * In the 1970 Act, glutethimide was initially placed into **Schedule III**;
+  * During the 1970s and 1980s, clandestine street abusers frequently combined glutethimide with codeine (the lethal street drug mixture known as "Loads" or "Hits"), causing widespread central respiratory depression fatalities;
+  * The DEA issued a notice of intent to reschedule upward on July 26, 1990 (55 FR 30472), and in **1991 formally transferred it from Schedule III to Schedule II**, imposing the strictest manufacturing quotas and non-refillable written prescription requirements.
+
+---
+
+## Letter H
+
+### HALAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2762**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `23092-17-3`
+* **Empirical Formula**: $C_{17}H_{12}ClF_{3}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **CA Formal Name**: 2H-1,4-Benzodiazepin-2-one, 7-chloro-1,3-dihydro-5-phenyl-1-(2,2,2-trifluoroethyl)-
+* **Trade Name**: Paxipam. A trifluoroethyl-substituted benzodiazepine anxiolytic, placed into Schedule IV on November 12, 1981 pursuant to 46 FR 55688.
+
+---
+
+### HALOXAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2770**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `59128-97-1`
+* **Empirical Formula**: $C_{17}H_{14}BrFN_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274)
+* **CA Formal Name**: 2H-Oxazolo[3,2-d][1,4]benzodiazepin-6(5H)-one, 10-bromo-11b-(2-fluorophenyl)-2,3,7,11b-tetrahydro-
+* **Legislative History**: Formally added to Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### HEROIN
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code System**:
+  * Heroin generic base code: **9200**
+  * Heroin HCl: Code **9202**
+  * **Categorization by Street Form and Coloration**:
+    * White Heroin (Undetermined salt): Code **9200** (Primary class 611)
+    * White Heroin (Hydrochloride): Code **9202**
+    * White Heroin (Free base): Code **9208**
+    * White Heroin (Other salts): Code **9212**
+    * Brown Heroin (Mexican black tar / Undetermined salt): Code **9201** (Primary class 612)
+    * Brown Heroin (Hydrochloride): Code **9203**
+    * Brown Heroin (Free base): Code **9207**
+    * Brown Heroin (Other salts): Code **9209**
+    * Base generic category: Code **9206**
+    * Other unlisted salts: Code **9204**
+    * Other unspecified forms: Code **9205** (Primary class 613)
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic Analgesic
+* **CAS Registry Number System**:
+  * `561-27-3` (Pure free base)
+  * `1502-95-0` (Diacetylmorphine hydrochloride crystalline)
+* **Empirical Formula**: $C_{21}H_{23}NO_{5}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **CA Formal Name**: Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-methyl-, (5α,6α)-, diacetate (ester)
+* **Academic Synonyms**: Standard authoritative compendia (*The Merck Index*, USAN) index it as **diacetylmorphine**; in the British Pharmacopoeia and Commonwealth legal literature it is officially designated **diamorphine**. It is the foremost Schedule I illicit narcotic in the original 1970 Act.
+
+---
+
+### HUMAN GROWTH HORMONE (HGH)
+* **Current Statutory Legal Status**: **Felony-Controlled Special Chemical (under P.L. 101-647)**
+* **CAS Registry Number**: `9002-72-6` (Somatropin natural/recombinant form), `12629-72-6` (Somatrem analogue)
+* **Empirical Formula**: $C_{990}H_{1528}N_{262}O_{300}S_{7}$ (Molecular weight approx. 22,124 Da)
+* **Crime Control Act of 1990 Special Felony Mechanism**:
+  * In Public Law 101-647, Congress amended the Federal Food, Drug, and Cosmetic Act to establish a unique statutory felony enforced by DEA: **Whoever knowingly distributes, or possesses with intent to distribute, human growth hormone for any use in humans other than the treatment of a disease or other recognized medical condition pursuant to the order of a physician, commits a federal felony**;
+  * The statutory reach encompasses both natural extracts and recombinant **Somatropin**, as well as the methionyl analogue **Somatrem**.
+
+---
+
+### HYDROCODONE
+* **Current Schedule**:
+  * Pure single entity and high-concentration formulations: **Schedule II**, Code **9193**
+  * Oral combination formulations containing non-narcotic active ingredients (e.g., Vicodin, not exceeding 15 mg hydrocodone per dosage unit): **Schedule III**
+  * Antitussive combinations with sufficient isoquinoline alkaloids: **Schedule III**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic; Antitussive
+* **CAS Registry Number System**:
+  * `125-29-1` (Free base)
+  * `74035-75-9` (Racemate)
+  * `25968-91-6` (Hydrochloride)
+  * `143-71-5` (Bitartrate, Code **9132**)
+  * `63127-18-4` (1:2 Bitartrate)
+  * `34366-67-1` (2:3 Phosphate)
+* **Empirical Formula**: $C_{18}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-6-one, 4,5-epoxy-3-methoxy-17-methyl-, (5α)-
+
+---
+
+### HYDROMORPHINOL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9301**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `2188-67-2`
+* **Empirical Formula**: $C_{17}H_{21}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **Literature Erratum Note**: In *The Merck Index* (8th Edition), this name was mistakenly listed as a synonym for oxymorphone (Schedule II, Code 9652), an error corrected and deleted in the 9th Edition. As a Schedule I opium derivative, all its optical isomers are strictly controlled.
+
+---
+
+### HYDROMORPHONE
+* **Current Schedule**:
+  * Pure single entity and bulk raw material: **Schedule II**, Code **9150**
+  * Sulfate code: **9149**; Hydrochloride code: **9151**
+  * Combination prescription formulations: Code **9152**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `466-99-9` (Free base), Hydrochloride crystalline `71-68-1`
+* **Empirical Formula**: $C_{17}H_{19}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-6-one, 4,5-epoxy-3-hydroxy-17-methyl-, (5α)-
+* **Trade Name**: Dilaudid. Exhibiting 5 to 8 times the analgesic potency of morphine, with profound respiratory depressive liability.
+
+---
+
+### N-HYDROXY-3,4-METHYLENEDIOXYAMPHETAMINE (MDOH)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7402**
+* **Statutory Classification (L)**: Hallucinogen
+* **CAS Registry Number**: `74698-47-8`
+* **Empirical Formula**: $C_{10}H_{13}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Legislative History**: A hallucinogenic phenethylamine synthesized by Dr. Alexander Shulgin. DEA issued an emergency scheduling notice on August 13, 1987 in 52 FR 30175, placing it into Schedule I as an underground designer analogue.
+
+---
+
+### HYDROXYPETHIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9627**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `468-56-4`
+* **Empirical Formula**: $C_{15}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 4-(3-hydroxyphenyl)-1-methyl-, ethyl ester
+* **Trade Name**: Bemidone. An analogue of meperidine bearing a meta-phenolic hydroxyl group, placed in Schedule I in the original 1970 Act.
+
+---
+
+## Letter I
+
+### IBOGAINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7260** (Free base), Hydrochloride code **7265**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Antidepressant, Hallucinogen
+* **CAS Registry Number System**:
+  * `83-74-9` (Pure free base)
+  * `36415-61-9` (Hydrochloride)
+  * `5934-55-4` (Monohydrochloride)
+* **Empirical Formula**: $C_{20}H_{26}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278)
+* **CA Formal Name**: Ibogamine, 12-methoxy-
+* **Botanical Origin and Positional Isomer Trap Analysis**:
+  * In the statute, the entry simultaneously lists its botanical source, **Tabernanthe iboga**;
+  * **Positional Isomer Statutory Capture**: The accompanying alkaloid in the plant, **tabernanthine**, has its methoxy group at the 6-position of the indole nucleus (whereas ibogaine has it at the 5-position). Under the 1984 statutory amendment establishing that "isomers" of Schedule I hallucinogens include all positional isomers, tabernanthine, though not explicitly named in the statute, is legally presumed to be controlled under Schedule I.
+
+---
+
+### ISOMETHADONE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9226**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `466-40-0` (Hydrochloride `561-10-4`)
+* **Empirical Formula**: $C_{21}H_{27}NO$
+* **Structure Diagram**: Chapter 4, Plate 14 (Structure page 269)
+* **CA Formal Name**: 3-Hexanone, 6-(dimethylamino)-5-methyl-4,4-diphenyl-
+* **Legal Comparison**: The branched methyl positional isomer of methadone, possessing comparable analgesic and addiction liability; controlled alongside methadone under Schedule II prescription regulation.
+
+---
+
+## Letter K
+
+### KETAMINE
+* **Statutory Legal Status as of Book Publication (1991)**: **Not Scheduled (Judicial Limbo / Prescription Legend)**
+* **DEA Monitoring Assigned Codes**:
+  * Free base code: **7285**
+  * Ketamine Hydrochloride: Code **7476**
+  * Undetermined salts: Code **7286**
+* **Pharmacological Classification (M)**: Intravenous dissociative anesthetic; possessing hallucinogenic and psychotomimetic properties
+* **CAS Registry Number**: `6740-88-1` (Hydrochloride `1867-66-9`)
+* **Empirical Formula**: $C_{13}H_{16}ClNO$
+* **Structure Diagram**: Chapter 4, Plate 27 (Structure page 282 / Arylcyclohexylamines)
+* **CA Formal Name**: Cyclohexanone, 2-(2-chlorophenyl)-2-(methylamino)-
+* **Trade Names**: Ketalar, Ketaject, Ketanest.
+* **Core Legislative Paradox of the Book**:
+  * This entry represents the very drug that a student asked Dr. Shulgin about in his UC Berkeley classroom, sparking the initial motivation for writing this entire book;
+  * **The Ten-Year Legislative Farce**: As early as June 2, 1981, the Department of Health and Human Services (HHS) submitted a formal scientific recommendation to the Department of Justice proposing that ketamine be placed into **Schedule III** due to severe abuse liability (46 FR 29484). Yet as of April 1, 1991, the DOJ and DEA had neither scheduled it, nor held hearings, nor withdrawn the recommendation—leaving it in statutory limbo for a full decade while widespread abuse flourished! (Note: Ketamine was ultimately scheduled into federal Schedule III in August 1999).
+
+---
+
+### KETAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2772**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `27223-35-3`
+* **Empirical Formula**: $C_{20}H_{17}ClN_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 19 (Structure page 274)
+* **Trade Name**: Contamex. Added to Schedule IV on November 5, 1984 (49 FR 39307).
+
+---
+
+### KETOBEMIDONE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9628**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `469-79-4` (Hydrochloride `5965-49-1`)
+* **Empirical Formula**: $C_{15}H_{21}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 1-Propanone, 1-[4-(3-hydroxyphenyl)-1-methyl-4-piperidinyl]-
+* **Trade Name**: Cliradon. Exhibiting extraordinarily high analgesic potency and rapid dependence liability, placed in Schedule I in the original 1970 Act.
+
+---
+
+## Letter L
+
+### LEVOMETHORPHAN
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9210**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `125-70-2` (Hydrobromide `125-69-9`)
+* **Empirical Formula**: $C_{18}H_{25}NO$
+* **Structure Diagram**: Chapter 4, Plate 9 (Structure page 263 / Morphinans)
+* **Legal Enantiomeric Exemption**: Its dextrorotatory optical enantiomer, **dextromethorphan**, entirely lacks analgesic and opioid dependence liability, becoming a ubiquitous non-prescription over-the-counter (OTC) cough suppressant, and was explicitly exempted from statutory control.
+
+---
+
+### LEVOMORAMIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9629**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `5666-11-5`
+* **Empirical Formula**: $C_{25}H_{32}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+
+---
+
+### LEVOPHENACYLMORPHAN
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9631**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `10061-32-2`
+* **Empirical Formula**: $C_{24}H_{27}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 9 (Structure page 263)
+
+---
+
+### LEVORPHANOL
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9220**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `77-07-6` (Tartrate hydrate `5985-38-6`)
+* **Empirical Formula**: $C_{17}H_{23}NO$
+* **Structure Diagram**: Chapter 4, Plate 9 (Structure page 263 / Morphinans)
+* **Trade Name**: Levo-Dromoran. A long-acting opioid analgesic prescription drug with 4 to 8 times the potency of morphine.
+
+---
+
+### LOPERAMIDE
+* **Current Statutory Legal Status**: **Not Scheduled / Completely Exempted (OTC)**
+* **Historical De-scheduling Episode**:
+  * Placed into **Schedule V** on June 17, 1977 pursuant to 42 FR 30837;
+  * Subsequent clinical pharmacokinetics demonstrated that while its high lipophilicity gives it high affinity for peripheral intestinal opioid receptors, P-glycoprotein efflux transport prevents it from crossing the blood-brain barrier to produce central euphoria;
+  * On **November 3, 1982**, DEA issued 47 FR 49840, formally **de-scheduling and completely removing** loperamide from Schedule V, making it an un-scheduled over-the-counter antidiarrheal drug.
+
+---
+
+### LOPRAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2773**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `61197-73-3`
+* **Empirical Formula**: $C_{23}H_{21}ClN_{6}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274)
+* **Trade Name**: Dormonoct. Placed into Schedule IV on November 5, 1984 (49 FR 39307).
+
+---
+
+### LORAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2885**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `846-49-1`
+* **Empirical Formula**: $C_{15}H_{10}Cl_{2}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Ativan. A high-potency 3-hydroxybenzodiazepine anxiolytic and sedative, placed into Schedule IV on October 14, 1977 pursuant to 42 FR 54546.
+
+---
+
+### LORMETAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2774**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `848-75-9`
+* **Empirical Formula**: $C_{16}H_{12}Cl_{2}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Noctamid. Placed into Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### LYSERGIC ACID
+* **Current Schedule**: **Schedule III**, simultaneously a **List I Regulated Precursor Chemical**
+* **DEA Drug Code**: **7300** (Hydrate code **7310**)
+* **Statutory Classification (L)**: Depressant / Precursor
+* **CAS Registry Number**: `82-58-6`
+* **Empirical Formula**: $C_{16}H_{16}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278)
+* **Dual Statutory Conflict**: As the most direct, irreplaceable synthetic precursor to LSD, it was strangely categorized in the 1970 Act as a Schedule III "depressant"; in 1988/1990 statutes it was redundantly classified as a List I primary precursor.
+
+---
+
+### LYSERGIC ACID AMIDE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **7310**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `478-95-5`
+* **Natural Sources**: Naturally occurring psychoactive component in morning glory seeds (*Ipomoea violacea*).
+
+---
+
+### LYSERGIC ACID DIETHYLAMIDE (LSD / LSD-25)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code System**:
+  * LSD base code: **7315**
+  * Tartrate Salt: Code **7314**
+  * Undetermined salts: Code **7299**
+  * Mixture of LSD with PCP: Code **7345**
+  * Mixture of LSD with other drugs: Code **7350**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Psychotomimetic, Hallucinogen
+* **CAS Registry Number**: `50-37-3` (Free base), Tartrate `930-49-4`
+* **Empirical Formula**: $C_{20}H_{25}N_{3}O$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278)
+* **CA Formal Name**: Ergoline-8-carboxamide, 9,10-didehydro-N,N-diethyl-6-methyl-, (8β)-
+* **Sandoz Structural Variants and Series Derivatives Code Overview**:
+  * First synthesized in 1938 by Dr. Albert Hofmann at Sandoz Laboratories in Basel, Switzerland;
+  * **Ring-Substituted Derivatives**:
+    * 2-Bromo-LSD (BOL-148): Code **7304**
+    * 2-Iodo-LSD: Code **7306**
+    * Dihydro-LSD: Code **7305**
+    * Photodegradation isomer Lumi-LSD: Code **7309**
+    * Iso-LSD: Code **7307**
+  * **Dialkyl Homologous Variants**:
+    * N,N-Dimethyl analogue (DAM-57): Code **7318**
+    * N-Methyl-N-ethyl analogue (LME-54): Code **7325**
+    * N-Methyl-N-propyl analogue (LMP-55): Code **7328**
+    * N-Methyl-N-isopropyl analogue: Code **7326**
+    * N,N-Dipropyl analogue: Code **7319**
+    * N,N-Diisopropyl analogue: Code **7317**
+    * N,N-Dibutyl analogue: Code **7313**
+    * N-Ethyl-N-propyl analogue (LEP-57): Code **7321**
+    * N,N-Pyrrolidide analogue (LPD-824): Code **7332**
+    * N,N-Piperidide analogue: Code **7330**
+    * N-Morpholide analogue (LSM-775): Code **7329**
+    * Monoethylamide analogue (LAE-32): Code **7311**
+
+---
+
+## Letter M
+
+### MAZINDOL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1605**
+* **Statutory Classification (L)**: Stimulant, Anorexic
+* **CAS Registry Number**: `22232-71-9`
+* **Empirical Formula**: $C_{16}H_{13}ClN_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 22 (Structure page 276)
+* **CA Formal Name**: 3H-Imidazo[2,1-a]isoindol-5-ol, 5-(4-chlorophenyl)-2,5-dihydro-
+* **Legislative History**: Initially placed into Schedule III on June 15, 1973 (38 FR 15719); rescheduled downward to Schedule IV on November 27, 1981 pursuant to 46 FR 57883.
+
+---
+
+### MECLOQUALONE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **2572**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `340-57-8` (Hydrochloride `14008-60-7`)
+* **Empirical Formula**: $C_{15}H_{11}ClN_{2}O$
+* **CA Formal Name**: 4(3H)-Quinazolinone, 3-(2-chlorophenyl)-2-methyl-
+* **Legislative History**: An ortho-chlorophenyl analogue of methaqualone, permanently placed into Schedule I on July 10, 1975 pursuant to 40 FR 28795.
+
+---
+
+### MEDAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2836**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `2898-12-6` (Hydrochloride `2898-11-5`)
+* **Empirical Formula**: $C_{16}H_{15}ClN_{2}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Nobrium. Added to Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
+
+---
+
+### MEPERIDINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Meperidine base code: **9230**
+  * Meperidine HCl crystalline: Code **9233**
+  * Meperidine Intermediate-A (4-cyano-1-methyl-4-phenylpiperidine): Code **9232**
+  * Meperidine Intermediate-B (ethyl 4-phenylpiperidine-4-carboxylate / Normeperidine): Code **9233**
+  * Meperidine Intermediate-C (1-methyl-4-phenylpiperidine-4-carboxylic acid): Code **9234**
+* **Statutory Classification (L)**: Opiate / Narcotic Drug
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `57-42-1` (Hydrochloride `50-13-5`)
+* **Empirical Formula**: $C_{15}H_{21}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-methyl-4-phenyl-, ethyl ester
+* **Synthetic Precursor Comprehensive Control**: The 1970 Act placed not only meperidine itself into Schedule II, but mandatorily captured all three core chemical synthetic intermediates (A, B, and C) under Schedule II felony controls.
+
+---
+
+### MEPROBAMATE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2820**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Tranquilizer
+* **CAS Registry Number**: `57-53-4`
+* **Empirical Formula**: $C_{9}H_{18}N_{2}O_{4}$
+* **Structure Diagram**: Chapter 4, Plate 4 (Structure page 258)
+* **Trade Names**: Miltown, Equanil. The iconic dicarbamate tranquilizer that swept the United States in the 1950s.
+
+---
+
+### MESCALINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7381**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Hallucinogen
+* **CAS Registry Number**: `54-04-1` (Free base), Sulfate `1152-76-7`, Hydrochloride `832-92-8`
+* **Empirical Formula**: $C_{11}H_{17}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **CA Formal Name**: Benzeneethanamine, 3,4,5-trimethoxy-
+* **Botanical Origin and Positional Isomer Net**:
+  * Principal psychoactive alkaloid in the peyote cactus (*Lophophora williamsii*);
+  * **Direct Impact of the 1984 Statutory Redefinition of "Isomers"**: Under the 1984 amendments expanding the definition of isomers for Schedule I hallucinogens to include all positional isomers, all ring-positional isomers of mescaline (e.g., 2,3,4-, 2,4,5-, or 2,4,6-trimethoxyphenethylamine) became automatically controlled under Schedule I.
+
+---
+
+### METHADONE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Methadone base code: **9250**
+  * Methadone HCl crystalline: Code **9254**
+  * Methadone Intermediate (4-cyano-2-dimethylamino-4,4-diphenylbutane): Code **9254**
+  * L-Methadone: Code **9255**
+* **Statutory Classification (L)**: Opiate / Narcotic Drug
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number System**:
+  * `76-99-3` (Racemic free base)
+  * `1095-90-5` (Racemic hydrochloride / Dolophine)
+  * `125-56-4` ((R)-(-)-methadone; active opioid enantiomeric center)
+  * `544-31-0` ((S)-(+)-enantiomer)
+* **Empirical Formula**: $C_{21}H_{27}NO$
+* **Structure Diagram**: Chapter 4, Plate 14 and Plate 15 (Structure pages 268–269)
+* **CA Formal Name**: 3-Heptanone, 6-(dimethylamino)-4,4-diphenyl-
+* **World War II Origins**: Developed by I.G. Farben in Germany during 1937–1939 as a synthetic substitute analgesic (Polamidon), acquired as war reparations by the Allies, and subsequently deployed worldwide for heroin addiction maintenance.
+
+---
+
+### METHAMPHETAMINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Methamphetamine generic code: **1105**
+  * Methamphetamine HCl crystalline: Code **1107**
+  * Historical injectable liquid code: **1400**
+* **Statutory Classification (L)**: Stimulant
+* **Pharmacological Classification (M)**: CNS Stimulant
+* **CAS Registry Number System**:
+  * `537-46-2` ((S)-(+)-methamphetamine / D-Methamphetamine)
+  * `51-57-0` ((S)-(+)-hydrochloride crystalline / Desoxyn)
+  * `5633-50-1` ((±)-racemic free base)
+  * `300-42-5` (Racemic hydrochloride)
+  * `33817-09-3` ((R)-(-)-methamphetamine / L-Methamphetamine; OTC nasal inhalers)
+* **Empirical Formula**: $C_{10}H_{15}N$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Trade Names**: Desoxyn, Methedrine.
+* **Radicalized Legislative History and "Ice" Sentencing**:
+  * Prior to 1971, oral tablet formulations of methamphetamine resided in Schedule III; however, on July 7, 1971 (36 FR 12734), federal authorities upgraded methamphetamine and all combination formulations to **Schedule II** in response to the intravenous abuse epidemic;
+  * **Severe Penalties for Smokeable Crystalline "Ice" (1990)**: Public Law 101-647 mandated two-level sentencing enhancements for smokable crystal methamphetamine. Shulgin sharply critiques this statutory distinction: chemical nomenclature provides no objective scientific criteria to distinguish "smokeable" from "non-smokeable" crystalline methamphetamine hydrochloride, ensuring that in practice all methamphetamine prosecutions receive maximum sentence enhancements without distinction.
+
+---
+
+### METHAQUALONE
+* **Current Schedule**: **Schedule I (Total Prohibition)**
+* **DEA Drug Code**: **2565**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Hypnotic
+* **CAS Registry Number**: `72-44-6` (Hydrochloride `340-56-7`)
+* **Empirical Formula**: $C_{16}H_{14}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 33 (Structure page 285)
+* **CA Formal Name**: 4(3H)-Quinazolinone, 2-methyl-3-(2-methylphenyl)-
+* **Trade Names**: Quaalude, Sopor, Mequin, Mandrax.
+* **The Most Dramatic Schedule Transfer in Federal Drug History**:
+  * Marketed during the 1960s and 1970s as a "safe, non-barbiturate sedative," it sparked massive recreational abuse in American disco culture;
+  * Placed into Schedule II on October 4, 1973 (38 FR 27516);
+  * Due to pervasive black market diversion, Congress passed specific targeted legislation permanently **banishing methaqualone directly into Schedule I on August 27, 1984 (49 FR 33870)**, extinguishing and destroying all commercial pharmaceutical formulations throughout the United States.
 
 ---
 
 ### 3,4-METHYLENEDIOXYAMPHETAMINE (MDA)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7400**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号**：`4764-17-4`（外消旋游离碱），盐酸盐 `6292-91-7`
-* **分子式**：$C_{10}H_{13}NO_{2}$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **俗称**：Tenamfetamine、“爱的药物”（Love Drug）。1970 年法案初版列入附表一。
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7400**
+* **Statutory Classification (L)**: Hallucinogen
+* **CAS Registry Number**: `4764-17-4` (Racemic free base), Hydrochloride `6292-91-7`
+* **Empirical Formula**: $C_{10}H_{13}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **Synonyms**: Tenamfetamine, "Love Drug." Controlled in Schedule I in the original 1970 Act.
 
 ---
 
-### 3,4-METHYLENEDIOXYMETHAMPHETAMINE (MDMA / 摇头丸 / Ecstasy / Adam)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7405**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：共情剂；致幻兴奋性拟交感苯乙胺 (Empathogen, Entactogen)
-* **CAS 注册号体系**：
-  * `42542-10-9`（外消旋游离碱）
-  * `69610-10-2`（盐酸盐结晶）
-  * `66142-88-9`（(S)-右旋对映体）
-  * `66142-89-0`（(R)-左旋对映体）
-* **分子式**：$C_{11}H_{15}NO_{2}$
-* **结构图位置**：第四章图版第 21 图 (Structure page 275)
-* **CA 正式命名**：Benzeneethanamine, N,α-dimethyl-3,4-(methylenedioxy)-
-* **美利坚历史上最旷日持久的行政司法诉讼大战考证**：
-  * 舒尔金博士于 1970 年代重新合成并在心理治疗界推广其独特的人际共情心理治疗潜能；
-  * **1984 年 7 月 27 日**：DEA 首次发布列入附表一建议（49 FR 30210），遭遇心理医学界强烈反弹并要求举行公开听证；
-  * **1985 年 7 月 1 日**：DEA 局长悍然动用刚出台的《紧急列管法》特权，以“危害公共安全”为由突击将 MDMA 临时列入附表一；
-  * **行政法官判决被推翻**：DEA 行政法官弗朗西斯·杨（Francis Young）在深入审查海量精神医学证据后作出历史性裁决，建议将其列为**附表三（以保留其心理医学临床治疗合法性）**，但遭 DEA 局长单方面野蛮否决；
-  * **联邦第一巡回上诉法院撤销判决**：全美精神病学界上诉至联邦巡回法院（*Grinspoon v. DEA*, 1987），上诉法院判决 DEA 裁定“无公认医疗用途”的标准违法并强令 DEA 撤销列管（1988 年 1 月 27 日正式撤出附表一，53 FR 2225）；
-  * **DEA 闪电反扑**：不到一个月后（1988 年 2 月 22 日），DEA 迅速重构行政说辞，通过 53 FR 5156 于 1988 年 3 月 23 日重新将其永久锁死在附表一之中。
+### 3,4-METHYLENEDIOXYMETHAMPHETAMINE (MDMA / Ecstasy / Adam)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7405**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Empathogen, Entactogen
+* **CAS Registry Number System**:
+  * `42542-10-9` (Racemic free base)
+  * `69610-10-2` (Hydrochloride crystalline)
+  * `66142-88-9` ((S)-enantiomer)
+  * `66142-89-0` ((R)-enantiomer)
+* **Empirical Formula**: $C_{11}H_{15}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 21 (Structure page 275)
+* **CA Formal Name**: Benzeneethanamine, N,α-dimethyl-3,4-(methylenedioxy)-
+* **The Epic Judicial and Administrative War in American History**:
+  * Resynthesized in the 1970s by Dr. Shulgin, who introduced its therapeutic empathogenic potential to psychotherapists;
+  * **July 27, 1984**: DEA published a proposal to place MDMA into Schedule I (49 FR 30210), sparking strong medical objections and demands for formal public hearings;
+  * **July 1, 1985**: DEA invoked the newly enacted emergency scheduling authority to summarily place MDMA into Schedule I;
+  * **Administrative Law Judge Overruled**: DEA Administrative Law Judge Francis L. Young, after extensive hearings, recommended that MDMA be placed into **Schedule III** to preserve medical research and psychotherapy, but his ruling was unilaterally rejected by the DEA Administrator;
+  * **First Circuit Court of Appeals Reversal**: In *Grinspoon v. DEA* (1987), the federal appellate court vacated the Schedule I placement, holding that DEA's interpretation of "accepted medical use" was contrary to law (53 FR 2225, January 27, 1988);
+  * **DEA Re-Scheduling Counter-Strike**: Less than one month later (February 22, 1988, 53 FR 5156), DEA reconstructed its administrative findings and permanently locked MDMA into Schedule I effective March 23, 1988.
 
 ---
 
-### 3-METHYLFENTANYL (3-甲基芬太尼)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9813**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`42045-86-3`（顺式异构体，镇痛毒力为吗啡千倍以上）
-* **分子式**：$C_{23}H_{30}N_{2}O$
-* **结构图位置**：第四章图版第 13 图 (Structure page 267)
-* **立法演进**：1986 年 4 月 25 日紧急临时列管（51 FR 15317），1987 年 5 月 29 日永久列入附表一（52 FR 20070）。
+### 3-METHYLFENTANYL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9813**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `42045-86-3` (cis-isomer; analgesic potency over 1,000 times that of morphine)
+* **Empirical Formula**: $C_{23}H_{30}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 13 (Structure page 267)
+* **Legislative History**: Emergency scheduled on April 25, 1986 (51 FR 15317); permanently placed into Schedule I on May 29, 1987 (52 FR 20070).
 
 ---
 
-### METHYLPHENIDATE (哌醋甲酯 / 利他林 / Ritalin)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**1724**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **药理分类 (M)**：中枢兴奋药（用于注意力缺陷多动障碍 ADHD）
-* **CAS 注册号**：`113-45-1`（盐酸盐 `298-59-9`）
-* **分子式**：$C_{14}H_{19}NO_{2}$
-* **结构图位置**：第四章图版第 22 图 (Structure page 276)
-* **立法演进**：1971 年 10 月 28 日依据 36 FR 20686 从附表三提级至附表二管制。
+### METHYLPHENIDATE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **1724**
+* **Statutory Classification (L)**: Stimulant
+* **Pharmacological Classification (M)**: CNS Stimulant (used for ADHD)
+* **CAS Registry Number**: `113-45-1` (Hydrochloride `298-59-9`)
+* **Empirical Formula**: $C_{14}H_{19}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 22 (Structure page 276)
+* **Legislative History**: Rescheduled from Schedule III upward to Schedule II on October 28, 1971 pursuant to 36 FR 20686.
 
 ---
 
-### METHYLPHENOBARBITAL (甲苯巴比妥 / 麦非巴比妥)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2250**（钠盐代码 **2202**）
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`115-38-8`
-* **分子式**：$C_{13}H_{14}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 26 图 (Structure page 281)
-* **商品名**：Mephobarbital、Mebaral。
+### METHYLPHENOBARBITAL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2250** (Sodium salt code **2202**)
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `115-38-8`
+* **Empirical Formula**: $C_{13}H_{14}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 26 (Structure page 281)
+* **Trade Names**: Mephobarbital, Mebaral.
 
 ---
 
 ### 1-METHYL-4-PHENYL-4-PROPIONOXYPIPERIDINE (MPPP)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9661**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`13147-09-6`（盐酸盐 `4968-48-3`）
-* **分子式**：$C_{15}H_{21}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 266)
-* **诱发人类帕金森氏症的历史大惨案核心**：
-  * 地下化学家仿制哌替啶合成的逆酯设计毒品；在合成反应中若酸度或温度未受精确控制，极易发生消去脱水反应副产大量 **MPTP (1-甲基-4-苯基-1,2,3,6-四氢吡啶)**；
-  * MPTP 在人脑内经单胺氧化酶 B 转化为剧毒离子 MPP+，精准全歼大脑黑质多巴胺能神经元，导致摄入该毒品的数名年轻滥用者在几天内永久陷入不可逆的终身重度帕金森氏病僵死状态；
-  * DEA 于 1985 年紧急列管 MPPP（50 FR 28098），该惨案直接加速推动了国会通过 1986 年《类似物法案》。
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9661**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `13147-09-6` (Hydrochloride `4968-48-3`)
+* **Empirical Formula**: $C_{15}H_{21}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 266)
+* **The Tragic Landmark Case Inducing Human Parkinsonism**:
+  * An underground reverse ester designer analogue of meperidine; when synthesized without rigorous temperature and pH control, elimination dehydration yields massive quantities of **MPTP (1-methyl-4-phenyl-1,2,3,6-tetrahydropyridine)**;
+  * In the human brain, MPTP is metabolized by monoamine oxidase B into the neurotoxin MPP+, which selectively destroys dopamine neurons in the substantia nigra, plunging several young users into irreversible, permanent end-stage Parkinsonism within days;
+  * DEA placed MPPP under emergency Schedule I control in 1985 (50 FR 28098), a catastrophe that directly catalyzed Congress to pass the Controlled Substances Analogue Enforcement Act of 1986.
 
 ---
 
-### MIDAZOLAM (咪达唑仑 / 咪哒唑仑)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2884**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：水溶性超短效催眠麻醉诱导药 (Sedative, Anesthetic)
-* **CAS 注册号**：`59467-70-8`（顺丁烯二酸盐 `59467-96-8`）
-* **分子式**：$C_{18}H_{13}ClFN_{3}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274 / 咪唑并苯二氮䓬)
-* **商品名**：Versed。1986 年依据 51 FR 10197 列入附表四。
+### MIDAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2884**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Anesthetic
+* **CAS Registry Number**: `59467-70-8` (Maleate `59467-96-8`)
+* **Empirical Formula**: $C_{18}H_{13}ClFN_{3}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274 / Imidazobenzodiazepines)
+* **Trade Name**: Versed. Added to Schedule IV in 1986 pursuant to 51 FR 10197.
 
 ---
 
-### MORPHINE (吗啡 / 天然阿片母核)
-* **现行附表**：
-  * 单方纯品原料药及高浓度制剂：**Schedule II (附表二)**，代码 **9300**
-  * 硫酸吗啡结晶：代码 **9303**
-  * 盐酸吗啡结晶：代码 **9304**
-  * 含有非麻醉活性成分的低浓度复方：**Schedule III (附表三)**
-* **法定分类 (L)**：鸦片衍生麻醉药品 (Opium derivative / Narcotic Drug)
-* **药理分类 (M)**：中枢麻醉性镇痛药之金标准基准物 (Narcotic analgesic)
-* **CAS 注册号穷尽体系**：
-  * `57-27-2`（天然 5α,6α 游离碱单水合物）
-  * `64-31-3`（2:1 硫酸吗啡水合物 / 硫酸吗啡结晶）
-  * `52-26-6`（盐酸吗啡）
-  * `6032-59-3`（酒石酸吗啡）
-  * `41444-64-8`（甲基吗啡溴化物）
-  * `552-66-9`（吗啡甲基醚）
-* **分子式**：$C_{17}H_{19}NO_{3}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **CA 正式命名**：Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-methyl-, (5α,6α)-
-* **DEA 全谱系衍生编号总览**：
-  * 吗啡碱纯品：代码 **9300**
-  * 硫酸吗啡口服液：代码 **9303**
-  * 醋酸吗啡：代码 **9305**
-  * 柠檬酸吗啡：代码 **9306**
-  * 氢溴酸吗啡：代码 **9307**
-  * 磷酸吗啡：代码 **9308**
-  * 吗啡复方制剂 (In Combination)：代码 **9302**
-  * 硫酸吗啡复方：代码 **9313**
-  * 吗啡体内活性代谢物（吗啡-6-葡萄糖醛酸苷 M6G）：代码 **9312**
-  * 吗啡-3-葡萄糖醛酸苷：代码 **9311**
+### MORPHINE
+* **Current Schedule**:
+  * Pure single entity raw material and high-concentration formulations: **Schedule II**, Code **9300**
+  * Morphine sulfate crystalline: Code **9303**
+  * Morphine hydrochloride crystalline: Code **9304**
+  * Low-concentration combination preparations with non-narcotic ingredients: **Schedule III**
+* **Statutory Classification (L)**: Opium derivative / Narcotic Drug
+* **Pharmacological Classification (M)**: Narcotic analgesic (gold standard baseline opioid)
+* **Exhaustive CAS Registry Number System**:
+  * `57-27-2` (Natural 5α,6α free base monohydrate)
+  * `64-31-3` (2:1 Morphine sulfate pentahydrate crystalline)
+  * `52-26-6` (Morphine hydrochloride)
+  * `6032-59-3` (Morphine tartrate)
+  * `41444-64-8` (Morphine methylbromide)
+  * `552-66-9` (Morphine methyl ether)
+* **Empirical Formula**: $C_{17}H_{19}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **CA Formal Name**: Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-methyl-, (5α,6α)-
+* **Comprehensive DEA Derivative Code System**:
+  * Morphine Base pure: Code **9300**
+  * Morphine Sulfate oral liquid: Code **9303**
+  * Morphine Acetate: Code **9305**
+  * Morphine Citrate: Code **9306**
+  * Morphine Hydrobromide: Code **9307**
+  * Morphine Phosphate: Code **9308**
+  * Morphine in Combination: Code **9302**
+  * Morphine Sulfate in Combination: Code **9313**
+  * Morphine active metabolite (Morphine-6-glucuronide M6G): Code **9312**
+  * Morphine-3-glucuronide: Code **9311**
 
 ---
 
-## N 字母部词条全典 (Letter N)
+## Letter N
 
-### NALBUPHINE (纳布啡)
-* **现行法定法律地位**：**非管制处方药 (Not Scheduled / 彻底豁免)**
-* **历史除名公案**：系蒂巴因合成衍生的激动-拮抗型镇痛药（商品名 Nubain）。因在化学上属于鸦片衍生物，曾被推定落入附表二网络；但联邦政府最终因其滥用潜能极低且具备天花板镇痛呼吸抑制保护机制，正式将其排除于管制附表之外。
-
----
-
-### NALORPHINE (烯丙吗啡)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**9400**
-* **法定分类 (L)**：麻醉性镇痛剂 / 阿片受体拮抗剂
-* **CAS 注册号**：`62-67-9`（盐酸盐 `57-96-5`）
-* **分子式**：$C_{19}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **CA 正式命名**：Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-(2-propenyl)-, (5α,6α)-
-* **历史地位**：人类历史上最早应用于临床的麻醉拮抗与镇痛复合物（商品名 Nalline），在 1970 年法案中单独归为附表三管制。
+### NALBUPHINE
+* **Current Statutory Legal Status**: **Not Scheduled / Completely Exempted (Prescription Legend)**
+* **Historical De-scheduling Episode**: An agonist-antagonist analgesic derived from thebaine (Nubain). Because it is chemically an opium derivative, it was originally presumed to be captured under Schedule II; however, federal authorities ultimately excluded it entirely from statutory schedules because of its negligible abuse potential and ceiling effect on respiratory depression.
 
 ---
 
-### NANDROLONE (诺龙 / 19-去甲睾酮)
-* **现行附表**：**Schedule III (附表三)**
-* **法定分类 (L)**：同化类固醇 (Anabolic Steroid)
-* **CAS 注册号体系**：
-  * `434-22-0`（游离醇母体）
-  * `62-90-8`（苯丙酸诺龙 / Nandrolone Phenpropionate / 杜拉宝灵 Durabolin）
-  * `360-70-3`（癸酸诺龙 / Nandrolone Decanoate / 德卡 Deca-Durabolin）
-  * `1474-10-8`（环己基丙酸诺龙）
-* **分子式**：$C_{18}H_{26}O_{2}$
-* **结构图位置**：第四章图版第 29 图 (Structure page 282)
-* **CA 正式命名**：Estr-4-en-3-one, 17-hydroxy-, (17β)-
-* **立法演进**：于 1990 年 11 月 29 日随《同化雄激素类固醇控制法》（公法第 101-647 号）连同其全部长效酯化产物完整打入附表三刑事列管。
+### NALORPHINE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **9400**
+* **Statutory Classification (L)**: Narcotic analgesic / Opioid receptor antagonist
+* **CAS Registry Number**: `62-67-9` (Hydrochloride `57-96-5`)
+* **Empirical Formula**: $C_{19}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **CA Formal Name**: Morphinan-3,6-diol, 7,8-didehydro-4,5-epoxy-17-(2-propenyl)-, (5α,6α)-
+* **Historical Status**: The earliest narcotic antagonist and analgesic compound used in clinical medicine (Nalline), individually placed into Schedule III in the 1970 Act.
 
 ---
 
-### NIMETAZEPAM (硝甲西泮 / 一粒眠 / 甜睡诺)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2837**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`2011-67-8`
-* **分子式**：$C_{16}H_{13}N_{3}O_{3}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **CA 正式命名**：2H-1,4-Benzodiazepin-2-one, 1,3-dihydro-1-methyl-7-nitro-5-phenyl-
-* **立法演进**：1984 年 11 月 5 日列入附表四（49 FR 39307）。
+### NANDROLONE
+* **Current Schedule**: **Schedule III**
+* **Statutory Classification (L)**: Anabolic Steroid
+* **CAS Registry Number System**:
+  * `434-22-0` (Free alcohol parent)
+  * `62-90-8` (Nandrolone Phenpropionate / Durabolin)
+  * `360-70-3` (Nandrolone Decanoate / Deca-Durabolin)
+  * `1474-10-8` (Cyclohexylpropionate)
+* **Empirical Formula**: $C_{18}H_{26}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 29 (Structure page 282)
+* **CA Formal Name**: Estr-4-en-3-one, 17-hydroxy-, (17β)-
+* **Legislative History**: Formally incorporated into Schedule III on November 29, 1990 under Public Law 101-647 along with all its long-acting esterified derivatives.
 
 ---
 
-### NITRAZEPAM (硝西泮 / 硝基安定)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2834**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`146-22-5`
-* **分子式**：$C_{15}H_{11}N_{3}O_{3}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Mogadon。1984 年 11 月 5 日列入附表四（49 FR 39307）。
+### NIMETAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2837**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `2011-67-8`
+* **Empirical Formula**: $C_{16}H_{13}N_{3}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **CA Formal Name**: 2H-1,4-Benzodiazepin-2-one, 1,3-dihydro-1-methyl-7-nitro-5-phenyl-
+* **Legislative History**: Placed into Schedule IV on November 5, 1984 pursuant to 49 FR 39307.
 
 ---
 
-### NORMORPHINE (去甲吗啡)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9313**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`466-97-7`
-* **分子式**：$C_{16}H_{17}NO_{3}$
-* **结构图位置**：第四章图版第 5 图 (Structure page 260)
-* **法理对比**：吗啡的 17-位 N-脱甲基产物，1970 年法案初版即收录为附表一禁用鸦片衍生物。
+### NITRAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2834**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `146-22-5`
+* **Empirical Formula**: $C_{15}H_{11}N_{3}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Mogadon. Placed into Schedule IV on November 5, 1984 (49 FR 39307).
 
 ---
 
-## O 字母部词条全典 (Letter O)
-
-### OXAZEPAM (奥沙西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2835**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`604-75-1`
-* **分子式**：$C_{15}H_{11}ClN_{2}O_{2}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Serax。地西泮在体内的主要活性代谢物，1975 年 7 月 2 日依据 40 FR 23998 列入附表四。
+### NORMORPHINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9313**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `466-97-7`
+* **Empirical Formula**: $C_{16}H_{17}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 5 (Structure page 260)
+* **Legal Comparison**: The 17-N-demethylated derivative of morphine, listed in Schedule I in the original 1970 Act.
 
 ---
 
-### OXYCODONE (羟考酮 / 双氢羟可待因酮)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 羟考酮基准代码：**9143**
-  * 盐酸羟考酮结晶：代码 **9144**
-  * 羟考酮复方制剂 (In Combination，如 Percodan、Percocet)：代码 **9145**
-  * 对苯二甲酸羟考酮：代码 **9146**
-* **法定分类 (L)**：鸦片衍生物 / 麻醉药品 (Narcotic Drug)
-* **药理分类 (M)**：强效半合成阿片麻醉镇痛药 (Narcotic analgesic)
-* **CAS 注册号**：`76-42-6`（盐酸盐 `124-90-9`）
-* **分子式**：$C_{18}H_{21}NO_{4}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **CA 正式命名**：Morphinan-6-one, 4,5-epoxy-14-hydroxy-3-methoxy-17-methyl-, (5α)-
-* **药理与滥用核心**：镇痛强度与吗啡相当，具有极高的口服生物利用度；作为日后席卷全美的奥施康定（OxyContin）母体，自 1970 年起即被锁定为附表二最严格制造配额管理品种。
+## Letter O
+
+### OXAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2835**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `604-75-1`
+* **Empirical Formula**: $C_{15}H_{11}ClN_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Serax. The primary active metabolite of diazepam in vivo, placed into Schedule IV on July 2, 1975 pursuant to 40 FR 23998.
 
 ---
 
-### OXYMORPHONE (羟吗啡酮 / 14-羟基双氢吗啡酮)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9652**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`76-41-5`（盐酸盐 `357-07-3`）
-* **分子式**：$C_{17}H_{19}NO_{4}$
-* **结构图位置**：第四章图版第 6 图 (Structure page 261)
-* **商品名**：Numorphan。镇痛效力为吗啡的 10 倍以上。
+### OXYCODONE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Oxycodone base code: **9143**
+  * Oxycodone HCl crystalline: Code **9144**
+  * Combination formulations (e.g., Percodan, Percocet): Code **9145**
+  * Oxycodone Terephthalate: Code **9146**
+* **Statutory Classification (L)**: Opium derivative / Narcotic Drug
+* **Pharmacological Classification (M)**: Semi-synthetic narcotic analgesic
+* **CAS Registry Number**: `76-42-6` (Hydrochloride `124-90-9`)
+* **Empirical Formula**: $C_{18}H_{21}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **CA Formal Name**: Morphinan-6-one, 4,5-epoxy-14-hydroxy-3-methoxy-17-methyl-, (5α)-
+* **Pharmacology and Abuse Epicenter**: Exhibiting analgesic potency comparable to morphine with high oral bioavailability; as the active entity in OxyContin, it has been tightly controlled under Schedule II manufacturing quotas since 1970.
 
 ---
 
-## P 字母部词条全典 (Letter P)
-
-### PARAHEXYL (派拉六基 / 双甲基己基四氢大麻酚)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7374**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号**：`117-51-1`
-* **分子式**：$C_{22}H_{32}O_{2}$
-* **结构图位置**：第四章图版第 31 图 (Structure page 284 / 大麻类衍生物)
-* **CA 正式命名**：6H-Dibenzo[b,d]pyran-1-ol, 3-hexyl-7,8,9,10-tetrahydro-6,6,9-trimethyl-
-* **立法演进**：系人工合成的大麻酚类似物，药效强度与持续时间远超天然 THC。于 1982 年 12 月 22 日依据 47 FR 33986 正式列入附表一。
+### OXYMORPHONE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9652**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `76-41-5` (Hydrochloride `357-07-3`)
+* **Empirical Formula**: $C_{17}H_{19}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 6 (Structure page 261)
+* **Trade Name**: Numorphan. Exhibiting over 10 times the analgesic potency of morphine.
 
 ---
 
-### PENTAZOCINE (喷他佐新 / 镇痛新)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**9701**（游离碱），盐酸盐代码 **9720**
-* **法定分类 (L)**：中枢抑制与镇痛药
-* **CAS 注册号**：`359-83-1`（盐酸盐 `64024-15-3`）
-* **分子式**：$C_{19}H_{27}NO$
-* **结构图位置**：第四章图版第 9 图 (Structure page 263 / 苯并吗喃系)
-* **商品名**：Talwin。于 1979 年 2 月 9 日依据 44 FR 8259 正式纳入附表四管制。
+## Letter P
+
+### PARAHEXYL
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7374**
+* **Statutory Classification (L)**: Hallucinogen
+* **CAS Registry Number**: `117-51-1`
+* **Empirical Formula**: $C_{22}H_{32}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 31 (Structure page 284 / Cannabinoids)
+* **CA Formal Name**: 6H-Dibenzo[b,d]pyran-1-ol, 3-hexyl-7,8,9,10-tetrahydro-6,6,9-trimethyl-
+* **Legislative History**: A synthetic cannabinol analogue whose potency and duration of action far exceed natural THC. Placed into Schedule I on December 22, 1982 pursuant to 47 FR 33986.
 
 ---
 
-### PENTOBARBITAL (戊巴比妥)
-* **现行附表**：
-  * 单方纯品及一般口服/注射剂型：**Schedule II (附表二)**，代码 **2270**
-  * 钙盐代码：**2275**；钠盐代码：**2280**
-  * 复方活性制剂或直肠栓剂：**Schedule III (附表三)**，代码 **2271**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：经典中效巴比妥镇静催眠药 (Hypnotic, sedative)
-* **CAS 注册号穷尽体系**：
-  * `76-74-4`（游离酸）
-  * `5992-37-0`（外消旋游离酸）
-  * `21045-50-1`（(R)-对映体）
-  * `5767-32-8`（(S)-对映体）
-  * `57-33-0`（戊巴比妥钠结晶 / 著名的死刑注射与动物安乐死核心药剂）
-  * `23714-57-0`（外消旋戊巴比妥钠）
-* **分子式**：$C_{11}H_{18}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 279)
-* **商品名**：Nembutal（黄夹克 / 眠不妥）。1973 年 11 月 13 日依据 38 FR 31310 从附表三升级至附表二管制。
+### PENTAZOCINE
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **9701** (Free base), Hydrochloride code **9720**
+* **Statutory Classification (L)**: Depressant and analgesic
+* **CAS Registry Number**: `359-83-1` (Hydrochloride `64024-15-3`)
+* **Empirical Formula**: $C_{19}H_{27}NO$
+* **Structure Diagram**: Chapter 4, Plate 9 (Structure page 263 / Benzomorphans)
+* **Trade Name**: Talwin. Formally placed into Schedule IV on February 9, 1979 pursuant to 44 FR 8259.
 
 ---
 
-### PHENCYCLIDINE (苯环利定 / PCP / 天使粉 / Angel Dust)
-* **现行附表**：**Schedule II (附表二，升级列管)**
-* **DEA 药物管制代码体系**：
-  * PCP 通用基准代码：**7471**
-  * 盐酸 PCP 纯品结晶：代码 **7472**
-  * 未定型盐类：代码 **7477**
-  * 氢溴酸盐：代码 **7473**；硫酸盐：代码 **7474**
-  * **合成核心前体化学品直接并入附表二**：
-    * PCC (1-哌啶基环己腈)：代码 **8603**
-    * PCH (1-苯基环己胺)：代码 **7460**
-  * **附表一绝对禁用的 PCP 结构类似物大系**：
-    * 乙胺基类似物 (PCE / Cyclohexamine)：代码 **7455**
-    * 吡咯烷基类似物 (PHP / PCPY)：代码 **7463**
-    * 噻吩基类似物 (TCP)：代码 **7470**
-    * 异丙胺基类似物：代码 **7488**
-    * 正丁胺基类似物：代码 **7490**
-    * 异丁胺基类似物：代码 **7492**
-* **法定分类 (L)**：中枢抑制剂 / 解离致幻麻醉药 (Depressant)
-* **药理分类 (M)**：NMDA 受体非竞争性拮抗剂；超强解离麻醉药
-* **CAS 注册号体系**：
-  * `77-10-1`（游离碱纯品）
-  * `956-90-1`（盐酸盐结晶）
-* **分子式**：$C_{17}H_{25}N$
-* **结构图位置**：第四章图版第 27 图 (Structure page 282 / 芳基环己胺系)
-* **CA 正式命名**：Piperidine, 1-(1-phenylcyclohexyl)-
-* **历史升级公案**：最初由帕克-戴维斯（Parke-Davis）作为全身麻醉剂开发（Sernyl），因引发患者重度谵妄、极度暴力倾向与解离精神错乱而被全面弃用；1970 年法案初版列为附表三，但由于其在全美街头毒品黑市造成的空前暴力与治安灾难，DEA 于 **1978 年 2 月 24 日依据 43 FR 3359 正式将其升级至附表二**，并连同其合成前体 PCC 与 PCH 实施一网打尽的重刑打击。
+### PENTOBARBITAL
+* **Current Schedule**:
+  * Pure single entity and general oral/injectable formulations: **Schedule II**, Code **2270**
+  * Calcium salt code: **2275**; Sodium salt code: **2280**
+  * Combination formulations with other active non-controlled ingredients or suppositories: **Schedule III**, Code **2271**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Hypnotic, sedative
+* **Exhaustive CAS Registry Number System**:
+  * `76-74-4` (Free acid)
+  * `5992-37-0` (Racemic free acid)
+  * `21045-50-1` ((R)-enantiomer)
+  * `5767-32-8` ((S)-enantiomer)
+  * `57-33-0` (Pentobarbital sodium crystalline; the premier lethal injection and veterinary euthanasia agent)
+  * `23714-57-0` (Racemic pentobarbital sodium)
+* **Empirical Formula**: $C_{11}H_{18}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 279)
+* **Trade Name**: Nembutal. Rescheduled upward from Schedule III to Schedule II on November 13, 1973 (38 FR 31310).
 
 ---
 
-### PHENOBARBITAL (苯巴比妥 / 鲁米那 / Luminal)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2285**（游离酸），钠盐结晶代码 **2286**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：长效抗癫痫药；镇静安眠药 (Anticonvulsant, Sedative)
-* **CAS 注册号体系**：
-  * `50-06-6`（游离酸纯品）
-  * `57-30-7`（苯巴比妥钠）
-* **分子式**：$C_{12}H_{12}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 24 图 (Structure page 279)
-* **商品名**：Luminal、Gardenal。人类历史上应用最广泛的长效巴比妥酸抗惊厥药，1970 年法案初版即归入附表四监控。
+### PHENCYCLIDINE (PCP / Angel Dust)
+* **Current Schedule**: **Schedule II (Upgraded)**
+* **DEA Drug Code System**:
+  * PCP generic base code: **7471**
+  * PCP HCl pure crystalline: Code **7472**
+  * Undetermined salts: Code **7477**
+  * Hydrobromide: Code **7473**; Sulfate: Code **7474**
+  * **Core Chemical Synthesis Precursors Placed Directly in Schedule II**:
+    * PCC (1-piperidinocyclohexanecarbonitrile): Code **8603**
+    * PCH (1-phenylcyclohexylamine): Code **7460**
+  * **Schedule I Strictly Prohibited PCP Structural Analogues Series**:
+    * Ethylamine analogue (PCE / Cyclohexamine): Code **7455**
+    * Pyrrolidine analogue (PHP / PCPY): Code **7463**
+    * Thiophene analogue (TCP): Code **7470**
+    * Isopropylamine analogue: Code **7488**
+    * n-Butylamine analogue: Code **7490**
+    * Isobutylamine analogue: Code **7492**
+* **Statutory Classification (L)**: Depressant / Dissociative anesthetic
+* **Pharmacological Classification (M)**: Non-competitive NMDA receptor antagonist; potent dissociative anesthetic
+* **CAS Registry Number System**:
+  * `77-10-1` (Pure free base)
+  * `956-90-1` (Hydrochloride crystalline)
+* **Empirical Formula**: $C_{17}H_{25}N$
+* **Structure Diagram**: Chapter 4, Plate 27 (Structure page 282 / Arylcyclohexylamines)
+* **CA Formal Name**: Piperidine, 1-(1-phenylcyclohexyl)-
+* **Historical Rescheduling Case**: Originally developed by Parke-Davis as a general surgical anesthetic (Sernyl), but entirely abandoned due to severe post-operative emergence delirium, extreme violent agitation, and psychosis; listed as Schedule III in 1970, but upgraded to **Schedule II on February 24, 1978 (43 FR 3359)** due to devastating street abuse, along with its synthetic precursors PCC and PCH.
 
 ---
 
-### PSILOCYBIN (裸盖菇素 / 赛洛西宾)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7437**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：天然强效致幻生物碱 (Hallucinogen)
-* **CAS 注册号**：`520-52-5`
-* **分子式**：$C_{12}H_{17}N_{2}O_{4}P$
-* **结构图位置**：第四章图版第 23 图 (Structure page 278 / 色胺系)
-* **CA 正式命名**：1H-Indol-4-ol, 3-[2-(dimethylamino)ethyl]-, dihydrogen phosphate (ester)
-* **天然来源与去磷酸化活性代谢物**：
-  * 墨西哥与全球裸盖菇（*Psilocybe mexicana* 等）中的前药分子；
-  * 人体摄入后迅速在体内经碱性磷酸酶水解脱去磷酸基团，转化为具有真正中枢 5-HT2A 受体致幻活性的**脱磷酸裸盖菇素 (Psilocin / Psilocyn，CAS 520-53-6，代码 7438)**；两者在成文法附表一中均被单独列入最高级别管制。
-
+### PHENOBARBITAL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2285** (Free acid), Sodium salt code **2286**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Anticonvulsant, Sedative
+* **CAS Registry Number System**:
+  * `50-06-6` (Pure free acid)
+  * `57-30-7` (Phenobarbital sodium)
+* **Empirical Formula**: $C_{12}H_{12}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 24 (Structure page 279)
+* **Trade Names**: Luminal, Gardenal. The most widely used long-acting barbiturate anticonvulsant in human history, controlled in Schedule IV since the original 1970 Act.
 
 ---
 
-## Q 至 Z 字母部词条全典 (Letters Q–Z)
-
-### PIPRADROL (哌苯甲醇)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1750**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`467-60-7`（盐酸盐 `71-78-3`）
-* **分子式**：$C_{18}H_{21}NO$
-* **结构图位置**：第四章图版第 22 图 (Structure page 276)
-* **CA 正式命名**：2-Piperidinemethanol, α,α-diphenyl-
-* **商品名**：Meratran。1980 年 12 月 1 日依据 45 FR 78632 列入附表四。
-
----
-
-### PIRITRAMIDE (吡利特胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9642**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`302-41-0`
-* **分子式**：$C_{27}H_{34}N_{4}O$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：[1,4'-Bipiperidine]-4'-carboxamide, 1'-(3-cyano-3,3-diphenylpropyl)-
-* **商品名**：Dipidolor。强效合成阿片镇痛药，1970 年法案初版列入附表一。
+### PSILOCYBIN
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7437**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Natural hallucinogenic alkaloid
+* **CAS Registry Number**: `520-52-5`
+* **Empirical Formula**: $C_{12}H_{17}N_{2}O_{4}P$
+* **Structure Diagram**: Chapter 4, Plate 23 (Structure page 278 / Tryptamines)
+* **CA Formal Name**: 1H-Indol-4-ol, 3-[2-(dimethylamino)ethyl]-, dihydrogen phosphate (ester)
+* **Natural Sources and Dephosphorylated Active Metabolite**:
+  * The prodrug alkaloid found in Mexican and global *Psilocybe* mushrooms (*Psilocybe mexicana*, etc.);
+  * Rapidly hydrolyzed in the human body by alkaline phosphatase into **Psilocin (Psilocyn, CAS 520-53-6, Code 7438)**, which exhibits true 5-HT2A hallucinogenic activity; both are individually controlled under Schedule I.
 
 ---
 
-### PRAZEPAM (普拉西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2764**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`2954-47-8`
-* **分子式**：$C_{19}H_{17}ClN_{2}O$
-* **结构图位置**：第四章图版第 19 图 (Structure page 274)
-* **商品名**：Centrax、Verstran。环丙甲基取代苯二氮䓬，1976 年建议列管，1977 年正式列入附表四。
+## Letters Q–Z
+
+### PIPRADROL
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1750**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `467-60-7` (Hydrochloride `71-78-3`)
+* **Empirical Formula**: $C_{18}H_{21}NO$
+* **Structure Diagram**: Chapter 4, Plate 22 (Structure page 276)
+* **CA Formal Name**: 2-Piperidinemethanol, α,α-diphenyl-
+* **Trade Name**: Meratran. Placed into Schedule IV on December 1, 1980 pursuant to 45 FR 78632.
 
 ---
 
-### PROPERIDINE (丙哌替啶)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9644**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`561-76-2`
-* **分子式**：$C_{16}H_{23}NO_{2}$
-* **结构图位置**：第四章图版第 10 图 (Structure page 264)
-* **CA 正式命名**：4-Piperidinecarboxylic acid, 1-methyl-4-phenyl-, 1-methylethyl ester
-* **法理评注**：异丙基取代的哌替啶衍生物，1970 年法案初版列为附表一。
+### PIRITRAMIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9642**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `302-41-0`
+* **Empirical Formula**: $C_{27}H_{34}N_{4}O$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: [1,4'-Bipiperidine]-4'-carboxamide, 1'-(3-cyano-3,3-diphenylpropyl)-
+* **Trade Name**: Dipidolor. A potent synthetic opioid analgesic, placed in Schedule I in the original 1970 Act.
 
 ---
 
-### PYROVALERONE (吡咯戊酮)
-* **现行附表**：**Schedule V (附表五)**
-* **DEA 药物管制代码**：**1485**
-* **法定分类 (L)**：中枢兴奋剂 (Stimulant)
-* **CAS 注册号**：`3563-49-1`（盐酸盐 `1147-62-2`）
-* **分子式**：$C_{16}H_{23}NO$
-* **CA 正式命名**：1-Pentanone, 1-(4-methylphenyl)-2-(1-pyrrolidinyl)-
-* **立法演进**：1988 年依据国际公约履约建议列入附表五。
+### PRAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2764**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `2954-47-8`
+* **Empirical Formula**: $C_{19}H_{17}ClN_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 19 (Structure page 274)
+* **Trade Names**: Centrax, Verstran. A cyclopropylmethyl-substituted benzodiazepine; proposed in 1976 and finalized in Schedule IV in 1977.
 
 ---
 
-### RACEMETHORPHAN (消旋美芬)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码**：**9732**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`510-53-2`（氢溴酸盐 `125-69-9`）
-* **分子式**：$C_{18}H_{25}NO$
-* **结构图位置**：第四章图版第 9 图 (Structure page 263 / 吗啡喃系)
-* **法理异构分裂公案**：系左美芬（附表二烈性阿片）与右美沙芬（成文法豁免非处方止咳药）的外消旋混合物。因其包含左旋活性对映体，成文法将其整体严格锁定为附表二管制。
+### PROPERIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9644**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `561-76-2`
+* **Empirical Formula**: $C_{16}H_{23}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 10 (Structure page 264)
+* **CA Formal Name**: 4-Piperidinecarboxylic acid, 1-methyl-4-phenyl-, 1-methylethyl ester
+* **Legal Commentary**: The isopropyl ester analogue of meperidine, placed in Schedule I in the original 1970 Act.
 
 ---
 
-### RACEMORAMIDE (消旋吗酰胺)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9645**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`545-59-5`
-* **分子式**：$C_{25}H_{32}N_{2}O_{2}$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **CA 正式命名**：Pyrrolidine, 1-[3-methyl-4-(4-morpholinyl)-1-oxo-2,2-diphenylbutyl]-, (±)-
+### PYROVALERONE
+* **Current Schedule**: **Schedule V**
+* **DEA Drug Code**: **1485**
+* **Statutory Classification (L)**: Stimulant
+* **CAS Registry Number**: `3563-49-1` (Hydrochloride `1147-62-2`)
+* **Empirical Formula**: $C_{16}H_{23}NO$
+* **CA Formal Name**: 1-Pentanone, 1-(4-methylphenyl)-2-(1-pyrrolidinyl)-
+* **Legislative History**: Added to Schedule V in 1988 pursuant to international convention compliance.
 
 ---
 
-### SECOBARBITAL (司可巴比妥 / 速可眠 / 红中)
-* **现行附表**：
-  * 单方纯品及一般口服剂型：**Schedule II (附表二)**，代码 **2315**
-  * 钠盐结晶 (Sodium salt)：代码 **2315**
-  * 复方活性制剂或直肠栓剂：**Schedule III (附表三)**，代码 **2316**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：强效短效催眠镇静药 (Hypnotic, Sedative)
-* **CAS 注册号体系**：
-  * `76-73-3`（游离酸）
-  * `309-43-3`（司可巴比妥钠结晶 / Seconal）
-* **分子式**：$C_{12}H_{18}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 25 图 (Structure page 280)
-* **CA 正式命名**：2,4,6(1H,3H,5H)-Pyrimidinetrione, 5-(1-methylbutyl)-5-(2-propenyl)-
-* **商品名**：Seconal（红中 / 红魔鬼）。
-* **立法升级考据**：1970 年代全美黑市泛滥的速效镇静剂，1973 年 11 月 13 日依据 38 FR 31310 从附表三提级至附表二实施配额管制；若与非受管制活性药物混编复方或制成栓剂剂型，依据 52 FR 5951 降为附表三（代码 2316）。
+### RACEMETHORPHAN
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code**: **9732**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `510-53-2` (Hydrobromide `125-69-9`)
+* **Empirical Formula**: $C_{18}H_{25}NO$
+* **Structure Diagram**: Chapter 4, Plate 9 (Structure page 263 / Morphinans)
+* **Legal Isomeric Dichotomy Case**: The racemic mixture comprising levomethorphan (a Schedule II potent opiate) and dextromethorphan (an exempted OTC cough suppressant). Because it contains the active levo-enantiomer, statutory law strictly captures the racemate under Schedule II.
 
 ---
 
-### SPA (左旋二甲基二苯乙胺 / 乐非他明 / Lefetamine)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**1630**
-* **法定分类 (L)**：中枢抑制与镇痛药
-* **CAS 注册号**：`7262-75-1`（盐酸盐 `14148-99-9`）
-* **分子式**：$C_{16}H_{19}N$
-* **结构图位置**：第四章图版第 16 图 (Structure page 270)
-* **CA 正式命名**：Benzeneethanamine, N,N-dimethyl-α-phenyl-, (R)-
-* **立法演进**：于 1980 年 12 月 1 日依据 45 FR 78632 列入附表四。
+### RACEMORAMIDE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9645**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `545-59-5`
+* **Empirical Formula**: $C_{25}H_{32}N_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **CA Formal Name**: Pyrrolidine, 1-[3-methyl-4-(4-morpholinyl)-1-oxo-2,2-diphenylbutyl]-, (±)-
 
 ---
 
-### STANOZOLOL (康力龙 / 司坦唑醇)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**4179**
-* **法定分类 (L)**：同化类固醇 (Anabolic Steroid)
-* **CAS 注册号**：`10418-03-8`
-* **分子式**：$C_{21}H_{32}N_{2}O$
-* **结构图位置**：第四章图版第 29 图 (Structure page 284)
-* **CA 正式命名**：2'H-Androst-2-en-17-ol, 17-methyl-[3,2-c]pyrazol-, (5α,17β)-
-* **商品名**：Winstrol、Stromba。
-* **奥运世纪兴奋剂公案与立法列管**：1988 年汉城奥运会男子百米飞人大战中本·约翰逊因检出康力龙被剥夺金牌震惊世界；1990 年 11 月 29 日老布什总统签署《同化雄激素类固醇控制法》（公法 101-647 号），正式将其作为重点管制类固醇打入附表三刑事列管。
+### SECOBARBITAL
+* **Current Schedule**:
+  * Pure single entity and general oral dosage forms: **Schedule II**, Code **2315**
+  * Sodium salt crystalline: Code **2315**
+  * Combination formulations with other active non-controlled ingredients or suppositories: **Schedule III**, Code **2316**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Hypnotic, Sedative
+* **CAS Registry Number System**:
+  * `76-73-3` (Free acid)
+  * `309-43-3` (Secobarbital sodium crystalline / Seconal)
+* **Empirical Formula**: $C_{12}H_{18}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 25 (Structure page 280)
+* **CA Formal Name**: 2,4,6(1H,3H,5H)-Pyrimidinetrione, 5-(1-methylbutyl)-5-(2-propenyl)-
+* **Trade Name**: Seconal ("Reds" / "Red Devils").
+* **Legislative Rescheduling Analysis**: Rampantly abused in the 1970s black market; rescheduled upward from Schedule III to Schedule II on November 13, 1973 (38 FR 31310) to impose quota controls; combination formulations or suppository forms are assigned to Schedule III pursuant to 52 FR 5951 (Code 2316).
 
 ---
 
-### SUFENTANIL (舒芬太尼)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 舒芬太尼游离碱：代码 **9740**
-  * 枸橼酸舒芬太尼 (Citrate Salt)：代码 **9741**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **药理分类 (M)**：超强效麻醉性镇痛剂 (Narcotic analgesic)
-* **CAS 注册号**：`56030-54-7`（枸橼酸盐 `60561-17-3`）
-* **分子式**：$C_{22}H_{30}N_{2}O_{2}S$
-* **结构图位置**：第四章图版第 2 图及第 13 图 (Structure page 267)
-* **CA 正式命名**：Propanamide, N-[4-(methoxymethyl)-1-[2-(2-thienyl)ethyl]-4-piperidinyl]-N-phenyl-
-* **商品名**：Sufenta。
-* **临床毒理与附表重分类考据**：
-  * 镇痛效力为纯品吗啡的 **500 至 1,000 倍**，约为芬太尼的 5 至 10 倍，是人类现代临床手术中药力最强的阿片类静脉麻醉剂；
-  * 1980 年 12 月 1 日依据 45 FR 64571 最初作为高危阿片列入**附表一**；后因 FDA 批准其在心脏外科麻醉中的卓越血流动力学稳定性，于 1984 年 5 月 25 日依据 49 FR 22074 降级重分类为**附表二**处方药物。
+### SPA (Lefetamine)
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **1630**
+* **Statutory Classification (L)**: Depressant and analgesic
+* **CAS Registry Number**: `7262-75-1` (Hydrochloride `14148-99-9`)
+* **Empirical Formula**: $C_{16}H_{19}N$
+* **Structure Diagram**: Chapter 4, Plate 16 (Structure page 270)
+* **CA Formal Name**: Benzeneethanamine, N,N-dimethyl-α-phenyl-, (R)-
+* **Legislative History**: Added to Schedule IV on December 1, 1980 pursuant to 45 FR 78632.
 
 ---
 
-### SULFONDIETHYLMETHANE (磺二乙甲烷)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2600**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`无 (文献彻底遗忘)`
-* **分子式**：$C_{9}H_{20}O_{4}S_{2}$
-* **结构图位置**：第四章图版第 30 图 (Structure page 285 / 砜类衍生物)
-* **CA 正式命名**：Pentane, 3,3-bis(ethylsulfonyl)-
-* **全书核心立法黑色幽默实证**：舒尔金指出，该化合物在全美甚至没有任何大型现代药学教科书收录，且在过去四十年中**没有任何滥用案例、亦无任何医疗价值**，但由于立法者的官僚惯性抄录旧法，至今仍赫然高居附表三管制法网之中！
+### STANOZOLOL
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **4179**
+* **Statutory Classification (L)**: Anabolic Steroid
+* **CAS Registry Number**: `10418-03-8`
+* **Empirical Formula**: $C_{21}H_{32}N_{2}O$
+* **Structure Diagram**: Chapter 4, Plate 29 (Structure page 284)
+* **CA Formal Name**: 2'H-Androst-2-en-17-ol, 17-methyl-[3,2-c]pyrazol-, (5α,17β)-
+* **Trade Names**: Winstrol, Stromba.
+* **The Olympic Doping Scandal and Statutory Scheduling**: World attention focused on stanozolol when Ben Johnson was stripped of his 100m gold medal at the 1988 Seoul Olympics; on November 29, 1990, President George H.W. Bush signed the Anabolic Steroids Control Act of 1990 (P.L. 101-647), formally capturing it under Schedule III penal controls.
 
 ---
 
-### SULFONETHYLMETHANE (磺乙甲烷)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2605**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`76-20-0`
-* **分子式**：$C_{8}H_{18}O_{4}S_{2}$
-* **结构图位置**：第四章图版第 30 图 (Structure page 285)
-* **CA 正式命名**：Butane, 2,2-bis(ethylsulfonyl)-
+### SUFENTANIL
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Sufentanil free base: Code **9740**
+  * Sufentanil Citrate: Code **9741**
+* **Statutory Classification (L)**: Opiate
+* **Pharmacological Classification (M)**: Narcotic analgesic
+* **CAS Registry Number**: `56030-54-7` (Citrate `60561-17-3`)
+* **Empirical Formula**: $C_{22}H_{30}N_{2}O_{2}S$
+* **Structure Diagram**: Chapter 4, Plate 2 and Plate 13 (Structure page 267)
+* **CA Formal Name**: Propanamide, N-[4-(methoxymethyl)-1-[2-(2-thienyl)ethyl]-4-piperidinyl]-N-phenyl-
+* **Trade Name**: Sufenta.
+* **Clinical Toxicology and Rescheduling History**:
+  * With analgesic potency **500 to 1,000 times that of morphine** (5 to 10 times that of fentanyl), it is the most potent opioid intravenous anesthetic in modern surgical practice;
+  * Initially placed into **Schedule I** on December 1, 1980 (45 FR 64571); following FDA approval for cardiac surgery due to its exceptional hemodynamic stability, it was rescheduled downward to **Schedule II** on May 25, 1984 pursuant to 49 FR 22074.
 
 ---
 
-### SULFONMETHANE (磺甲烷 / 索佛那 / Sulfonal)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2610**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`115-24-2`
-* **分子式**：$C_{7}H_{16}O_{4}S_{2}$
-* **结构图位置**：第四章图版第 30 图 (Structure page 285)
-* **CA 正式命名**：Propane, 2,2-bis(ethylsulfonyl)-
+### SULFONDIETHYLMETHANE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2600**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `None (completely forgotten in modern literature)`
+* **Empirical Formula**: $C_{9}H_{20}O_{4}S_{2}$
+* **Structure Diagram**: Chapter 4, Plate 30 (Structure page 285 / Sulfone derivatives)
+* **CA Formal Name**: Pentane, 3,3-bis(ethylsulfonyl)-
+* **Core Example of Legislative Bureaucratic Inertia**: Shulgin notes that this compound is not even included in modern major pharmaceutical textbooks, and over the past forty years has had **zero abuse cases and zero medical utility**; yet due to bureaucratic copying of historical statutes, it remains solemnly ensconced in the federal Schedule III net!
 
 ---
 
-### TEMAZEPAM (替马西泮 / 羟地西泮)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2925**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`846-50-4`
-* **分子式**：$C_{16}H_{13}ClN_{2}O_{2}$
-* **结构图位置**：第四章图版第 18 图 (Structure page 273)
-* **商品名**：Restoril。1981 年 4 月 7 日列入附表四（46 FR 20672）。
+### SULFONETHYLMETHANE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2605**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `76-20-0`
+* **Empirical Formula**: $C_{8}H_{18}O_{4}S_{2}$
+* **Structure Diagram**: Chapter 4, Plate 30 (Structure page 285)
+* **CA Formal Name**: Butane, 2,2-bis(ethylsulfonyl)-
 
 ---
 
-### TESTOSTERONE (睾酮 / 睾丸素 / 天然雄激素母体)
-* **现行附表**：**Schedule III (附表三)**
-* **法定分类 (L)**：同化类固醇 (Anabolic Steroid)
-* **CAS 注册号穷尽体系（涵盖全部长效酯化产物）**：
-  * `58-22-0`（天然睾酮游离醇母体）
-  * `1045-69-8`（醋酸睾酮 / Acetate）
-  * `1169-49-9`（异丁酸睾酮 / Isobutyrate）
-  * `5949-44-0`（十一酸睾酮 / Undecanoate / 安雄 Andriol）
-  * `668-56-4`（烟酸睾酮 / Nicotinate）
-  * `58-20-8`（环戊丙酸睾酮 / Cypionate）
-  * `315-37-7`（庚酸睾酮 / Enanthate）
-  * `5704-03-0`（苯乙酸睾酮 / Phenylacetate）
-  * `57-85-2`（丙酸睾酮 / Propionate）
-  * `5721-91-5`（癸酸睾酮 / Decanoate）
-  * `14195-92-5`（环己基甲酸睾酮）
-  * `15262-86-9`（异己酸睾酮）
-  * `1255-49-8`（苯丙酸睾酮）
-* **分子式**：$C_{19}H_{28}O_{2}$
-* **结构图位置**：第四章图版第 28 图 (Structure page 283)
-* **CA 正式命名**：Androst-4-en-3-one, 17-hydroxy-, (17β)-
-* **立法大变革**：1990 年 11 月 29 日《公法第 101-647 号》正式将人类天然男性性激素及其上述全部 12 种酯类衍生物，一揽子归入附表三实施联邦刑事管制。
+### SULFONMETHANE
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2610**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `115-24-2`
+* **Empirical Formula**: $C_{7}H_{16}O_{4}S_{2}$
+* **Structure Diagram**: Chapter 4, Plate 30 (Structure page 285)
+* **CA Formal Name**: Propane, 2,2-bis(ethylsulfonyl)-
 
 ---
 
-### TETRAHYDROCANNABINOLS (THC / 四氢大麻酚天然与合成异构全系)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码体系**：
-  * THC 通用基准代码：**7370**
-  * 有机天然提取四氢大麻酚 (Organic)：代码 **7371**
-  * 合成纯品屈大麻酚 (Dronabinol in sesame oil / Marinol)：**附表二特许 (Schedule II)**，代码 **7369**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **药理分类 (M)**：精神活性致幻大麻素 (Hallucinogen)
-* **CAS 注册号体系**：
-  * `1972-08-3`（(-)-Δ9-trans-THC，大麻天然最主要精神致幻活性成分）
-  * `5957-75-5`（(+)-Δ9-trans-THC 对映体）
-  * `5957-74-4`（(±)-Δ9-THC 外消旋体）
-  * `5957-76-6`（Δ8-THC / 6a,10a-trans-6a,7,10,10a-tetrahydro-6,6,9-trimethyl-3-pentyl-6H-dibenzo[b,d]pyran-1-ol）
-* **分子式**：$C_{21}H_{30}O_{2}$
-* **结构图位置**：第四章图版第 31 图 (Structure page 284)
-* **法理异构体与代码分裂荒谬性考证**：
-  * 伯克利 Thornton 教授在序言中痛斥的“给名字编代码”的最荒诞例证：DEA 专为天然提取与合成来源分配了分裂的 7370 与 7371 两个代码；
-  * **几何与位置异构体全网打击**：成文法规定附表一涵盖其全部“顺反顺式几何异构体”；而 1984 修正案更直接将双键迁移的位置异构体（如 Δ8-THC、Δ6a,10a-THC）全额收归附表一重罪管辖；
-  * 唯独将溶于芝麻油并装入软胶囊的合成 Δ9-THC 制剂（商品名 Marinol，用于晚期癌症化疗止吐与艾滋病恶病质）于 1986 年特许降为**附表二**处方药（51 FR 17476）。
+### TEMAZEPAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2925**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `846-50-4`
+* **Empirical Formula**: $C_{16}H_{13}ClN_{2}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 18 (Structure page 273)
+* **Trade Name**: Restoril. Placed into Schedule IV on April 7, 1981 (46 FR 20672).
 
 ---
 
-### THEBACON (醋氢可酮)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9315**
-* **法定分类 (L)**：鸦片衍生物 (Opium derivative)
-* **CAS 注册号**：`466-90-0`（盐酸盐 `20236-82-2`）
-* **分子式**：$C_{20}H_{23}NO_{4}$
-* **结构图位置**：第四章图版第 7 图 (Structure page 262)
-* **CA 正式命名**：Morphinan-6-ol, 6,7-didehydro-4,5-epoxy-3-methoxy-17-methyl-, acetate (ester)
-* **学术异名**：《默克索引》收录为二氢可待因酮烯醇乙酸酯（Dihydrocodeinone Enol Acetate）。
+### TESTOSTERONE
+* **Current Schedule**: **Schedule III**
+* **Statutory Classification (L)**: Anabolic Steroid
+* **Exhaustive CAS Registry Number System (Encompassing all long-acting ester derivatives)**:
+  * `58-22-0` (Natural testosterone free alcohol parent)
+  * `1045-69-8` (Testosterone acetate)
+  * `1169-49-9` (Testosterone isobutyrate)
+  * `5949-44-0` (Testosterone undecanoate / Andriol)
+  * `668-56-4` (Testosterone nicotinate)
+  * `58-20-8` (Testosterone cypionate)
+  * `315-37-7` (Testosterone enanthate)
+  * `5704-03-0` (Testosterone phenylacetate)
+  * `57-85-2` (Testosterone propionate)
+  * `5721-91-5` (Testosterone decanoate)
+  * `14195-92-5` (Testosterone cyclohexanecarboxylate)
+  * `15262-86-9` (Testosterone isocaproate)
+  * `1255-49-8` (Testosterone phenylpropionate)
+* **Empirical Formula**: $C_{19}H_{28}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 28 (Structure page 283)
+* **CA Formal Name**: Androst-4-en-3-one, 17-hydroxy-, (17β)-
+* **Major Legislative Overhaul**: On November 29, 1990, Public Law 101-647 officially placed the human natural male sex hormone and all 12 of the above esterified derivatives under federal Schedule III criminal control.
 
 ---
 
-### THEBAINE (蒂巴因 / 二甲基吗啡)
-* **现行附表**：**Schedule II (附表二)**
-* **DEA 药物管制代码体系**：
-  * 蒂巴因母体代码：**9333**
-  * 盐酸蒂巴因结晶：代码 **9334**
-  * 重酒石酸蒂巴因：代码 **9338**
-  * 二氢蒂巴因 (Dihydrothebaine)：代码 **9339**
-  * 二氢蒂巴因酮 (Dihydrothebainone)：代码 **9345**
-  * 四氢蒂巴因 (Tetrahydrothebaine)：代码 **9347**
-* **法定分类 (L)**：天然鸦片衍生麻醉药品 (Opium derivative)
-* **药理分类 (M)**：中枢惊厥毒素 (Convulsant)
-* **CAS 注册号**：`115-37-7`（游离碱），外消旋体 `23979-19-3`，盐酸盐 `850-57-7`
-* **分子式**：$C_{19}H_{21}NO_{3}$
-* **结构图位置**：第四章图版第 7 图 (Structure page 262)
-* **CA 正式命名**：Morphinan, 6,7,8,14-tetrahydro-4,5-epoxy-3,6-dimethoxy-17-methyl-
-* **半合成阿片工业的法理总源头**：蒂巴因本身无显著镇痛作用反而会诱发强烈的士的宁样惊厥毒性，但因其含有二烯醚结构，是全美及全球工业半合成羟考酮、羟吗啡酮、纳洛酮、纳曲酮、丁丙诺啡及埃托啡等数十种核心药物不可替代的唯一工业原料母体，故受附表二最严密实物流转监控。
+### TETRAHYDROCANNABINOLS (THC)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code System**:
+  * THC generic base code: **7370**
+  * Organically extracted natural THC: Code **7371**
+  * Synthetic pure Dronabinol in sesame oil (Marinol): **Schedule II (Special exception)**, Code **7369**
+* **Statutory Classification (L)**: Hallucinogen
+* **Pharmacological Classification (M)**: Hallucinogen
+* **CAS Registry Number System**:
+  * `1972-08-3` ((-)-Δ9-trans-THC; primary natural psychoactive component of cannabis)
+  * `5957-75-5` ((+)-Δ9-trans-THC enantiomer)
+  * `5957-74-4` ((±)-Δ9-THC racemate)
+  * `5957-76-6` (Δ8-THC / 6a,10a-trans-6a,7,10,10a-tetrahydro-6,6,9-trimethyl-3-pentyl-6H-dibenzo[b,d]pyran-1-ol)
+* **Empirical Formula**: $C_{21}H_{30}O_{2}$
+* **Structure Diagram**: Chapter 4, Plate 31 (Structure page 284)
+* **Analysis of Isomeric and Regulatory Code Duplication**:
+  * Professor Thornton in his Foreword severely criticizes the absurdity of "coding names rather than molecules": DEA assigned separate codes (7370 vs 7371) based solely on natural vs synthetic extraction source;
+  * **Geometric and Positional Isomer Net**: Statutory law captures all cis/trans geometric isomers; while the 1984 amendments explicitly swept in double-bond positional isomers (e.g., Δ8-THC, Δ6a,10a-THC) into Schedule I felony status;
+  * Only synthetic Δ9-THC formulated in sesame oil and encapsulated in soft gelatin capsules (Marinol, indicated for chemotherapy nausea and AIDS cachexia) was granted a rescheduling downward to **Schedule II** in 1986 (51 FR 17476).
 
 ---
 
-### THIOPHENE ANALOG OF PHENCYCLIDINE (TCP / 苯环利定噻吩类似物)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**7470**
-* **法定分类 (L)**：致幻剂 (Hallucinogen)
-* **CAS 注册号**：`21500-98-1`（盐酸盐 `1867-64-7`）
-* **分子式**：$C_{15}H_{23}NS$
-* **结构图位置**：第四章图版第 27 图 (Structure page 282)
-* **CA 正式命名**：Piperidine, 1-[1-(2-thienyl)cyclohexyl]-
-* **立法演进**：将 PCP 分子中的苯环替换为噻吩环所得的超强解离类似物，1975 年 8 月 11 日正式列入附表一（40 FR 33660）。其吡咯烷同系物 **TCPy (代码 7473)** 亦被严格列入附表一。
+### THEBACON
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9315**
+* **Statutory Classification (L)**: Opium derivative
+* **CAS Registry Number**: `466-90-0` (Hydrochloride `20236-82-2`)
+* **Empirical Formula**: $C_{20}H_{23}NO_{4}$
+* **Structure Diagram**: Chapter 4, Plate 7 (Structure page 262)
+* **CA Formal Name**: Morphinan-6-ol, 6,7-didehydro-4,5-epoxy-3-methoxy-17-methyl-, acetate (ester)
+* **Academic Synonym**: *The Merck Index* indexes it as Dihydrocodeinone Enol Acetate.
 
 ---
 
-### TILIDINE (地利啶)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9750**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`51931-66-9`（反式外消旋体），盐酸盐半水合物 `27107-79-5`
-* **分子式**：$C_{17}H_{23}NO_{2}$
-* **商品名**：Valoron。1980 年 12 月 1 日依据 45 FR 78632 列入附表一。
+### THEBAINE
+* **Current Schedule**: **Schedule II**
+* **DEA Drug Code System**:
+  * Thebaine parent base code: **9333**
+  * Thebaine HCl crystalline: Code **9334**
+  * Thebaine Bitartrate: Code **9338**
+  * Dihydrothebaine: Code **9339**
+  * Dihydrothebainone: Code **9345**
+  * Tetrahydrothebaine: Code **9347**
+* **Statutory Classification (L)**: Opium derivative
+* **Pharmacological Classification (M)**: Convulsant
+* **CAS Registry Number**: `115-37-7` (Free base), Racemate `23979-19-3`, Hydrochloride `850-57-7`
+* **Empirical Formula**: $C_{19}H_{21}NO_{3}$
+* **Structure Diagram**: Chapter 4, Plate 7 (Structure page 262)
+* **CA Formal Name**: Morphinan, 6,7,8,14-tetrahydro-4,5-epoxy-3,6-dimethoxy-17-methyl-
+* **The Fountainhead of Semi-Synthetic Opioid Industry**: Thebaine itself possesses no significant analgesic activity and instead induces severe strychnine-like convulsions; however, because of its conjugated diene ring system, it is the sole, indispensable industrial precursor for the semi-synthesis of oxycodone, oxymorphone, naloxone, naltrexone, buprenorphine, and etorphine, and is consequently subject to the tightest physical tracking under Schedule II.
 
 ---
 
-### TRIAZOLAM (三唑仑 / 海乐神 / 酣乐欣)
-* **现行附表**：**Schedule IV (附表四)**
-* **DEA 药物管制代码**：**2887**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **药理分类 (M)**：超短效强效镇静催眠药 (Sedative, Hypnotic)
-* **CAS 注册号**：`28911-01-5`
-* **分子式**：$C_{17}H_{12}Cl_{2}N_{4}$
-* **结构图位置**：第四章图版第 20 图 (Structure page 274 / 三唑并苯二氮䓬)
-* **CA 正式命名**：4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-6-(2-chlorophenyl)-1-methyl-
-* **商品名**：Halcion。由 Upjohn 研发的超短效三唑并类催眠药，微克级有效剂量；于 1982 年 12 月 28 日依据 47 FR 57693 正式纳入附表四管制。
+### THIOPHENE ANALOG OF PHENCYCLIDINE (TCP)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **7470**
+* **Statutory Classification (L)**: Hallucinogen
+* **CAS Registry Number**: `21500-98-1` (Hydrochloride `1867-64-7`)
+* **Empirical Formula**: $C_{15}H_{23}NS$
+* **Structure Diagram**: Chapter 4, Plate 27 (Structure page 282)
+* **CA Formal Name**: Piperidine, 1-[1-(2-thienyl)cyclohexyl]-
+* **Legislative History**: A potent dissociative analogue wherein the phenyl ring of PCP is replaced by a thiophene nucleus, placed into Schedule I on August 11, 1975 (40 FR 33660). Its pyrrolidine homologue, **TCPy (Code 7473)**, is likewise strictly scheduled under Schedule I.
 
 ---
 
-### TRIMEPERIDINE (三甲利啶 / 普罗美度 / Promedol)
-* **现行附表**：**Schedule I (附表一)**
-* **DEA 药物管制代码**：**9646**
-* **法定分类 (L)**：阿片类物质 (Opiate)
-* **CAS 注册号**：`64-39-1`（盐酸盐 `125-80-4`）
-* **分子式**：$C_{17}H_{25}NO_{2}$
-* **结构图位置**：第四章图版第 11 图 (Structure page 265)
-* **CA 正式命名**：4-Piperidinol, 1,2,5-trimethyl-4-phenyl-, propanoate (ester)
-* **商品名**：Promedol。苏联药典收录的经典强效合成阿片镇痛药，1970 年法案初版列为附表一。
+### TILIDINE
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9750**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `51931-66-9` (trans-racemate), Hydrochloride hemihydrate `27107-79-5`
+* **Empirical Formula**: $C_{17}H_{23}NO_{2}$
+* **Trade Name**: Valoron. Placed into Schedule I on December 1, 1980 pursuant to 45 FR 78632.
 
 ---
 
-### VINBARBITAL (乙烯巴比妥)
-* **现行附表**：**Schedule III (附表三)**
-* **DEA 药物管制代码**：**2335**
-* **法定分类 (L)**：中枢抑制剂 (Depressant)
-* **CAS 注册号**：`125-42-8`（钠盐 `125-44-0`）
-* **分子式**：$C_{11}H_{16}N_{2}O_{3}$
-* **结构图位置**：第四章图版第 25 图 (Structure page 280)
-* **商品名**：Delvinal。5-乙基-5-(1-甲基-1-丁烯基)巴比妥酸。
+### TRIAZOLAM
+* **Current Schedule**: **Schedule IV**
+* **DEA Drug Code**: **2887**
+* **Statutory Classification (L)**: Depressant
+* **Pharmacological Classification (M)**: Sedative, Hypnotic
+* **CAS Registry Number**: `28911-01-5`
+* **Empirical Formula**: $C_{17}H_{12}Cl_{2}N_{4}$
+* **Structure Diagram**: Chapter 4, Plate 20 (Structure page 274 / Triazolobenzodiazepines)
+* **CA Formal Name**: 4H-[1,2,4]Triazolo[4,3-a][1,4]benzodiazepine, 8-chloro-6-(2-chlorophenyl)-1-methyl-
+* **Trade Name**: Halcion. An ultra-short-acting triazolobenzodiazepine hypnotic developed by Upjohn, active at microgram doses; placed into Schedule IV on December 28, 1982 pursuant to 47 FR 57693.
 
 ---
 
-### ZOLAZEPAM (佐拉西泮)
-* **截至 1991 年全书付梓时的法定法律地位**：**特殊复方管制 / 单方非管制 (Schedule NS)**
-* **历史公案考据**：
-  * 系吡唑并二氮䓬类镇静抑制剂。帕克-戴维斯（Parke-Davis）将其与替他明（Tiletamine）等比例混合制成复合兽用麻醉剂 **Telazol**；
-  * DEA 于 1981 年曾提议将单方佐拉西泮列入附表一，但制药厂商提出抗辩：单方成分仅属于中间反应体；
-  * 最终联邦司法部于 **1987 年 1 月 21 日（52 FR 2221）正式将复合制剂 Telazol 单独列入附表三（Schedule III）**管制，而单方 Zolazepam 截至 1991 年并未作为单独药物正式列入附表。
+### TRIMEPERIDINE (Promedol)
+* **Current Schedule**: **Schedule I**
+* **DEA Drug Code**: **9646**
+* **Statutory Classification (L)**: Opiate
+* **CAS Registry Number**: `64-39-1` (Hydrochloride `125-80-4`)
+* **Empirical Formula**: $C_{17}H_{25}NO_{2}$
+* **Structure Diagram**: Chapter 4, Plate 11 (Structure page 265)
+* **CA Formal Name**: 4-Piperidinol, 1,2,5-trimethyl-4-phenyl-, propanoate (ester)
+* **Trade Name**: Promedol. The classic potent synthetic opioid analgesic in the Soviet Pharmacopoeia, listed in Schedule I in the original 1970 Act.
+
+---
+
+### VINBARBITAL
+* **Current Schedule**: **Schedule III**
+* **DEA Drug Code**: **2335**
+* **Statutory Classification (L)**: Depressant
+* **CAS Registry Number**: `125-42-8` (Sodium salt `125-44-0`)
+* **Empirical Formula**: $C_{11}H_{16}N_{2}O_{3}$
+* **Structure Diagram**: Chapter 4, Plate 25 (Structure page 280)
+* **Trade Name**: Delvinal. 5-Ethyl-5-(1-methyl-1-butenyl)barbituric acid.
+
+---
+
+### ZOLAZEPAM
+* **Statutory Legal Status as of Book Publication (1991)**: **Combination Controlled (Schedule III) / Single Entity Not Scheduled (Schedule NS)**
+* **Historical Jurisprudential Analysis**:
+  * A pyrazolodiazepinone sedative depressant. Parke-Davis combined it in an equal ratio with tiletamine to formulate the veterinary anesthetic **Telazol**;
+  * In 1981, DEA proposed placing single-entity zolazepam into Schedule I, but pharmaceutical sponsors successfully contended that the single entity was merely an intermediate compound;
+  * On **January 21, 1987 (52 FR 2221)**, the Department of Justice officially placed the combination preparation **Telazol into Schedule III**, while single-entity zolazepam remained un-scheduled as an isolated substance through 1991.

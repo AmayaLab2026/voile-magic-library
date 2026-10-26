@@ -9,6 +9,68 @@ export default defineConfig({
     nav: nav(),
 
     sidebar: {
+      '/en/rocket-pioneers/': [
+        {
+          text: 'Pioneers of Rocket Technology: Selected Works',
+          items: [
+            { text: 'Overview & Table of Contents', link: '/en/rocket-pioneers/' },
+            { text: 'Editorial Foreword: Soviet Astronautics', link: '/en/rocket-pioneers/preface' },
+            { text: 'Part 1: Project for an Aeronautical Machine (Kibal\'chich)', link: '/en/rocket-pioneers/kibalchich' },
+          ],
+        },
+        {
+          text: 'Part 2: To Whoever Will Read to Build (Kondratyuk 1918–1919)',
+          collapsed: false,
+          items: [
+            { text: 'Manuscript Overview & Reading Guide', link: '/en/rocket-pioneers/kondratyuk-build/' },
+            { text: 'Section 1: Propulsion Principles & Velocity Equations', link: '/en/rocket-pioneers/kondratyuk-build/section-1' },
+            { text: 'Section 2: Trajectory Ascent & Active Propellants', link: '/en/rocket-pioneers/kondratyuk-build/section-2' },
+            { text: 'Section 3: Spacecraft Hull & Gyroscopic Orientation', link: '/en/rocket-pioneers/kondratyuk-build/section-3' },
+            { text: 'Section 4: Nozzle Design & Retro-Braking Discoveries', link: '/en/rocket-pioneers/kondratyuk-build/section-4' },
+            { text: 'Section 5: Gliding Reentry & Atmospheric Thermal Protection', link: '/en/rocket-pioneers/kondratyuk-build/section-5' },
+            { text: 'Section 6: Solar Concentrators & Gravitational Slingshot', link: '/en/rocket-pioneers/kondratyuk-build/section-6' },
+            { text: 'Editorial Historical Notes & Commentary', link: '/en/rocket-pioneers/kondratyuk-build/commentary' },
+          ],
+        },
+        {
+          text: 'Part 3: Conquest of Interplanetary Space (Kondratyuk 1929)',
+          collapsed: false,
+          items: [
+            { text: 'Author\'s Preface & Guide to the Work', link: '/en/rocket-pioneers/kondratyuk-space/' },
+            { text: 'Chapter 1: Flight Prerequisites & Laws of Motion', link: '/en/rocket-pioneers/kondratyuk-space/chapter-1' },
+            { text: 'Chapter 2: Boost Phase Trajectory & Propellant Mass', link: '/en/rocket-pioneers/kondratyuk-space/chapter-2' },
+            { text: 'Chapter 3: Exhaust Velocity & Chemical Energy', link: '/en/rocket-pioneers/kondratyuk-space/chapter-3' },
+            { text: 'Chapter 4: Rocket Construction & Lightweight Design', link: '/en/rocket-pioneers/kondratyuk-space/chapter-4' },
+            { text: 'Chapter 5: Structural Deadweight & Staging Optimization', link: '/en/rocket-pioneers/kondratyuk-space/chapter-5' },
+            { text: 'Chapter 6: Passive Trajectories & Orbital Maneuvers', link: '/en/rocket-pioneers/kondratyuk-space/chapter-6' },
+            { text: 'Chapter 7: Lunar Landing & Lunar Orbit Rendezvous (LOR)', link: '/en/rocket-pioneers/kondratyuk-space/chapter-7' },
+            { text: 'Chapter 8: Atmospheric Effects on Boost Ascent', link: '/en/rocket-pioneers/kondratyuk-space/chapter-8' },
+            { text: 'Chapter 9: Atmospheric Reentry & Hypersonic Thermal Shielding', link: '/en/rocket-pioneers/kondratyuk-space/chapter-9' },
+            { text: 'Chapter 10: Space Relay Stations & Interplanetary Bases', link: '/en/rocket-pioneers/kondratyuk-space/chapter-10' },
+            { text: 'Chapter 11: Solar Mirrors & Orbital Energy Systems', link: '/en/rocket-pioneers/kondratyuk-space/chapter-11' },
+            { text: 'Chapter 12: Priority Claims & Historical Notes', link: '/en/rocket-pioneers/kondratyuk-space/chapter-12' },
+            { text: 'Chapter 13: Urgent Fundamental Experiments', link: '/en/rocket-pioneers/kondratyuk-space/chapter-13' },
+            { text: 'Editorial Mathematical Commentary & Derivations', link: '/en/rocket-pioneers/kondratyuk-space/commentary' },
+          ],
+        },
+        {
+          text: 'Part 4: Historical Outline of Rocket Pioneers',
+          collapsed: false,
+          items: [
+            { text: 'Introduction & Early 19th Century Pioneers', link: '/en/rocket-pioneers/historical-outline/' },
+            { text: 'Section 1: Tsiolkovskiy & Meshcherskiy', link: '/en/rocket-pioneers/historical-outline/section-1' },
+            { text: 'Section 2: Tsander & Early Liquid-Propellant Engines', link: '/en/rocket-pioneers/historical-outline/section-2' },
+            { text: 'Section 3: Kondratyuk\'s Theoretical Contributions', link: '/en/rocket-pioneers/historical-outline/section-3' },
+            { text: 'Section 4: Summary of Research Groups (GDL/GIRD/RNII)', link: '/en/rocket-pioneers/historical-outline/section-4' },
+          ],
+        },
+        {
+          text: 'Appendix & Bibliography',
+          items: [
+            { text: 'Comprehensive Archival Index & Bibliography', link: '/en/rocket-pioneers/bibliography' },
+          ],
+        },
+      ],
       '/en/controlled-substances/': [
         {
           text: 'Controlled Substances: Guide',
@@ -38,7 +100,7 @@ export default defineConfig({
           text: 'Collections',
           items: [
             { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
-            { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/rocket-pioneers/' },
+            { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/en/rocket-pioneers/' },
           ],
         },
         {
@@ -108,7 +170,7 @@ function nav(): DefaultTheme.NavItem[] {
       text: 'Collections',
       items: [
         { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
-        { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/rocket-pioneers/' },
+        { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/en/rocket-pioneers/' },
       ],
     },
     {

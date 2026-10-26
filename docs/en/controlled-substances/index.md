@@ -1,52 +1,52 @@
 ---
-title: 管制物质：联邦药物法的化学与法律指南
-description: 亚历山大·舒尔金（Alexander T. Shulgin）经典权威著作《Controlled Substances》全译与图解指南
+title: "Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws"
+description: Complete translated and illustrated guide to Alexander T. Shulgin's classic treatise Controlled Substances
 hideReprintNotice: true
 ---
 
-# 管制物质：联邦药物法的化学与法律指南
+# Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws
 ### *Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws*
 
-> **原著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
-> **版本**：Second Edition（第 2 版，1992 年）  
-> **出版**：Ronin Publishing, Inc. (Berkeley, California)  
-> **中文整理与图解**：ヴワル魔法図書館（Voile Magic Library）
+> **Author**: Alexander T. Shulgin, Ph.D.  
+> **Edition**: Second Edition (1992)  
+> **Publisher**: Ronin Publishing, Inc. (Berkeley, California)  
+> **Compilation & Diagrams**: Voile Magic Library (ヴワル魔法図書館)
 
 ---
 
-## 📖 本书概述与学术地位
+## Overview and Academic Significance
 
-《管制物质：联邦药物法的化学与法律指南》（*Controlled Substances*）是由世界著名药理化学家**亚历山大·“萨沙”·舒尔金**（Alexander T. Shulgin, 1925–2014）编纂的跨学科经典巨著。
+*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws* is a seminal interdisciplinary treatise compiled by the world-renowned medicinal chemist and pharmacologist **Alexander "Sasha" Shulgin** (1925–2014).
 
-长期以来，药物管制法律（如美国 1970 年《受控物质法案》CSA、后续修正案以及缉毒局 DEA 的行政法典 CFR）散布于数以千计的联邦公报、行政命令与判例裁决中。化学家往往不熟悉错综复杂的法条逻辑，而法官、检察官与辩护律师又往往困惑于异构体、立体构型与同系物的细微分子差异。
+For decades, drug control jurisprudence—such as the Controlled Substances Act of 1970 (CSA), subsequent legislative amendments, and the Code of Federal Regulations (21 CFR) administered by the Drug Enforcement Administration (DEA)—remained scattered across thousands of Federal Register notices, administrative orders, and judicial case law. Chemists frequently found themselves bewildered by intricate statutory logic, while judges, prosecutors, and defense attorneys were equally confounded by subtle molecular nuances separating isomers, stereoisomers, and homologues.
 
-舒尔金博士凭借其在精神药物合成领域的深厚造诣，以及在加州大学伯克利分校长期讲授《法庭毒理学》（Forensic Toxicology）的经验，将**高精度的有机化学分子结构分析**与**冷峻严密的联邦法律条文**进行了前所未有的系统性编织。本书是全球法庭毒理学家、刑事辩护律师、检方物证专家及药物化学家案头必备的权威工具书。
+Drawing upon his profound expertise in psychoactive drug synthesis and his extensive tenure teaching *Forensic Toxicology* at the University of California, Berkeley, Dr. Shulgin achieved an unprecedented synthesis: weaving **rigorous organic chemical structural analysis** together with the **cold, exacting statutory provisions of federal law**. This work remains an indispensable reference on the desks of forensic toxicologists, criminal defense attorneys, evidentiary experts, prosecutors, and medicinal chemists worldwide.
 
 ---
 
-## 🗂 全书目录导引
+## Table of Contents & Chapter Guide
 
-本站已将该书的核心内容、法学论述及全部化学图谱完整翻译整理为以下章节，点击即可跳转阅读：
+The core text, legal discourse, and complete chemical illustrations have been organized into the following chapters:
 
-| 章节 | 中文标题 | 核心内容概述 |
+| Chapter | Title | Synopsis |
 | :--- | :--- | :--- |
-| **[引言与序言](./forewords)** | 舒尔金引言与专家序言 | 舒尔金自序（源于一次关于氯胺酮列管的课堂提问）；法学专家 Bakalar、法庭科学家 Thornton、药物化学家 Jacob 专序 |
-| **[第一章](./chapter-1)** | 细节与定义：药物列管的法规维度 | CSA 法律架构、五级列管（Schedule I–V）标准、“异构体/衍生物/盐”的法定化学边界及类似物法考量 |
-| **[第二章](./chapter-2)** | 受管制药物及其同义词名录 | 字母排序的核心管制药物名录、俗名、商品名、化学全称与列管级别交叉索引 |
-| **[第三章](./chapter-3)** | 联邦药物管制法历史沿革 | 从 1914 年《哈里森麻醉品税法》到 1970 年 CSA、1984 年紧急列管法、1986 年类似物法的演化脉络 |
-| **[第四章](./chapter-4)** | **化学分子结构式与骨架图解（全）** | **【核心图集】** 包含全书 33 幅高清截取的化学母核与取代基图版（阿片、芬太尼、苯丙胺、吲哚、巴比妥、类固醇等） |
-| **[第五章](./chapter-5)** | **DEA 管制药物代码编号全表** | 完整收录 DEA 1000–9999 管制物质与前体生化试剂的四位编码矩阵及行政历史沿革 |
-| **[第六章](./chapter-6)** | **联邦公报法令与行政依据编年史** | 编年汇总 1966–1991 年间 345 次具有法律效力的《联邦公报》(FR) 规则制定、听证及列管命令 |
-| **[第七章](./chapter-7)** | **经验实验式全量索引库** | 依据希尔体系（Hill System）编排的经验分子式正逆向交叉索引，覆盖全书所有带代码化学品 |
-| **[法律附录](./appendices)** | 核心联邦法规条文与前体清单 | 《管制物质法》法条选萃、紧急列管法、类似物执行法（Analogue Act）及前体化学品管制名单 |
+| **[Introduction & Forewords](./forewords)** | Author's Introduction & Expert Forewords | Shulgin's introduction (inspired by a classroom inquiry regarding ketamine); forewords by legal scholar Bakalar, forensic scientist Thornton, and medicinal chemist Jacob. |
+| **[Chapter 1](./chapter-1)** | Details and Definitions: Statutory Dimensions of Drug Scheduling | The statutory architecture of the CSA, scheduling criteria for Schedules I–V, statutory chemical boundaries of "isomers/derivatives/salts," and Analogue Act considerations. |
+| **[Chapter 2](./chapter-2)** | Controlled Drugs and Their Synonyms | An alphabetical master register of core controlled drugs, colloquial names, trade names, systematic chemical nomenclature, and cross-referenced control schedules. |
+| **[Chapter 3](./chapter-3)** | History of Federal Drug Law | Evolutionary continuum from the Harrison Narcotics Tax Act of 1914 to the CSA of 1970, the Emergency Scheduling provisions of 1984, and the Controlled Substances Analogue Enforcement Act of 1986. |
+| **[Chapter 4](./chapter-4)** | **Chemical Structures and Skeletal Illustrations (Complete)** | **[Core Atlas]** Complete set of 33 high-resolution chemical plates detailing molecular parent nuclei and substituent variations (opiates, fentanyls, amphetamines, indoles, barbiturates, anabolic steroids, etc.). |
+| **[Chapter 5](./chapter-5)** | **DEA Controlled Drug Code Numbers (Master List)** | Exhaustive matrix of DEA 1000–9999 four-digit identification codes for controlled substances, synthetic precursors, and biochemical reagents, including administrative history. |
+| **[Chapter 6](./chapter-6)** | **Chronicle of Federal Register Orders and Legal Authorities** | Chronological compendium of 345 legally operative Federal Register (FR) rulemakings, formal hearings, and scheduling orders spanning 1966 through 1991. |
+| **[Chapter 7](./chapter-7)** | **Empirical Formula Master Index** | Hill System empirical molecular formula bidirectional cross-index, covering all coded chemical entries in the text. |
+| **[Legal Appendices](./appendices)** | Statutory Compendium & Precursor Chemical Lists | Key provisions of the Controlled Substances Act, emergency scheduling statutes, the Controlled Substances Analogue Enforcement Act, and List I / List II precursor chemicals. |
 
 ---
 
-## ⚖️ 导读核心要点提炼
+## Key Conceptual Takeaways
 
-1. **化学定义与法律定义的错位**：  
-   舒尔金在书中犀利指出，许多法律术语（如“麻醉品 Narcotic”、“镇静剂 Depressant”、“衍生物 Derivative”）在法律上的定义与现代科学标准相去甚远。在法律语境下，可卡因（中枢兴奋剂）一度被荒谬地归类为“麻醉品”。
-2. **结构类似物法案（Analogue Act）的边界困境**：  
-   1986 年通过的类似物法规定，任何“化学结构实质相似”且“药理活性实质相似”的未列管物质均可直接视同 Schedule I 管制。何谓“实质相似”（Substantially similar）成为有机化学界与法庭持续数十年辩论的焦点。
-3. **环简化与同系物衍变规律**：  
-   第四章直观展示了阿片类物质如何从复杂的天然吗啡五环骨架，逐步退化/简化为吗啡喃（四环）、苯并吗烷（三环）、苯基哌啶（双环），乃至美沙酮式的完全开环分子。
+1. **The Disconnect Between Chemical and Legal Definitions**:  
+   Dr. Shulgin incisively demonstrates that numerous statutory definitions (e.g., "Narcotic," "Depressant," "Derivative") diverge fundamentally from modern scientific taxonomy. Within statutory jurisprudence, cocaine (a central nervous system stimulant) was historically categorized by legal fiction as a "narcotic drug."
+2. **The Jurisprudential Dilemma of the Analogue Act**:  
+   Enacted in 1986, the Controlled Substances Analogue Enforcement Act mandates that any unlisted compound whose chemical structure and pharmacological effect are "substantially similar" to a Schedule I or II drug shall be treated as a Schedule I substance if intended for human consumption. What constitutes "substantially similar" has sparked decades of contentious courtroom and chemical debate.
+3. **Ring Simplification and Homologous Evolution**:  
+   Chapter 4 illustrates how synthetic opioids progressively devolved from the intricate pentacyclic skeleton of natural morphine into morphinans (tetracyclic), benzomorphans (tricyclic), phenylpiperidines (bicyclic), and ultimately acyclic, ring-opened entities such as methadone.

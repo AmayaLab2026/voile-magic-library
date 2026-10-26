@@ -55,13 +55,13 @@ Readers entering the library can proceed directly to the curated collections bel
 :::
 
 ::: tip Collection Vol. 02 · Available Now
-### [Pioneers of Rocket Technology: Selected Works](/rocket-pioneers/)
+### [Pioneers of Rocket Technology: Selected Works](./rocket-pioneers/)
 **Pioneers of Rocket Technology: Selected Works**  
-*Compiled by the Institute of the History of Natural Science and Technology, USSR Academy of Sciences · NASA TT F-9285 (Chinese Edition)*
+*Compiled by the Institute of the History of Natural Science and Technology, USSR Academy of Sciences · NASA TT F-9285 *
 
 - **Volume**: Landmark historical treatises and declassified manuscripts by Russia and the USSR's four founding rocket pioneers (1881–1933).
 - **Significance**: Includes Nikolai Kibal'chich's 1881 death-cell manuscript on pulse combustion propulsion, Yuriy Kondratyuk's works formulating Lunar Orbit Rendezvous (LOR) and gravitational slingshots (*To Whom Will Read to Build*, 1919; *Conquest of Interplanetary Space*, 1929), and Sokol'skiy's historical survey; features 42 engineering plates.
-- **[Open Full Table of Contents (Chinese Edition)](/rocket-pioneers/)**
+- **[Open Full Table of Contents ](/rocket-pioneers/)**
 :::
 
 ---

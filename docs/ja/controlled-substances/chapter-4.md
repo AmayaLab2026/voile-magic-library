@@ -1,174 +1,179 @@
-# 第四章：管制药物化学结构图谱全典 (Chemical Structures of Scheduled Drugs)
+---
+title: "第4章：規制薬物の化学構造図譜全集"
+titleTemplate: "規制物質：化学と法律のガイド · アレクサンダー・シュルギン"
+---
 
-> **著者**：Alexander T. Shulgin, Ph.D.  
-> **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 4, pp. 267–302.  
-> **学术规范**：本章忠实于原书第 253–288 页的有机化学分类与原图谱系，将原书全部 33 组化学分子谱系图完整嵌入，并对舒尔金博士撰写的所有结构变迁、类似物法案映射、构效关系分析进行逐字逐段精译。
+# 第4章：規制薬物の化学構造図譜全典 (Chemical Structures of Scheduled Drugs)
+
+> **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 4, pp. 267–302.  
+> **学術基準**：原書第 253–288 ページの有機化学分類および原図譜系を忠実に再現し、原書に収載された全 33 組の化学分子系統図を完全収録。シュルギン博士が著した構造変遷、類似体規制法（Analogue Act）への射程、および構造活性相関（SAR）解析を一字一句厳密に翻訳。
 
 ---
 
-## 章节引言：化学家的视角与类似物法案困境
+## 本章緒言：化学者の視座と類似体規制法（Analogue Act）のジレンマ
 
-在本参考手册的其他章节中，依据《受管制物质法》被列管的药物主要按两种方式进行组织编排：
-* 在第二章中，它们按照名称及各学科同义词的英文字母顺序进行罗列；
-* 在第五章中，它们按照美国缉毒署（DEA）为其分配的任意四位代码编号的数值大小进行排列。
+本参考ハンドブックの他章において、規制物質法（Controlled Substances Act）に基づき規制対象とされた薬物は、主として次の2つの方法で整理・分類されている：
+* 第2章では、化合物名および各学術分野の同義語の英アルファベット順に配列；
+* 第5章では、米国麻薬取締局（DEA）が各物質に割り振った任意の4桁コード番号の数値順に配列。
 
-**而本章则是专门为了唤起化学家的研究志趣而设计的。**
+**これに対し、本章はもっぱら化学者の学術的探求心と研究的好奇心に応えるべく設計されたものである。**
 
-在这一章节中，全部受管制药物集合完全依据**分子结构的内在逻辑（structural logic）**进行系统的分类和展开。对于关注毒品管制法律前沿的科研人员而言，这种结构化的全景呈现具有多重不可估量的核心学术价值：
+本章において、規制薬物の全集合は**分子構造の内在的論理（structural logic）**に基づいて系統的に分類・展開される。薬物規制法の最前線に注目する研究者にとって、この構造化された全景提示は計り知れない多面的な中核的学術価値を有している：
 
-### 1. 应对 1986 年《受管制物质类似物法案》的实质相似性判定
-随着《类似物法案》的颁布生效，司法指控的重心被前所未有地转移到了一种全新合成化学品与已被某一附表列管的基准物质之间**“分子结构的相似性”**（或其预期的药理作用相似性）之上。
+### 1. 1986年規制物質類似体法（Analogue Act）における実質的類似性判定への対応
+類似体規制法（Controlled Substances Analogue Enforcement Act of 1986）の発効に伴い、刑事訴追の重心はかつてないほど、新規合成化学物質と既にいずれかの規制スケジュールに指定されている基準物質との間の**「分子構造の類似性」**（あるいは予期される薬理作用の類似性）へと移行した。
 
-本章完全基于结构骨架的内在同源性进行构建。试以**吗啡类类似物（Morphine analogs）**这一化学族群为例：
-在由母体四环系统（环菲骨架与含氮杂环）构成的严格取代产物类别中，成文法明文列出并分配了专属代码的管制药物便有 16 种之多。虽然其中只有极少数药物能够在美国凭合法医疗处方获得，但现代药理学教科书中收录了更多的衍生品种，只要随手翻阅一下《化学文摘》（Chemical Abstracts），便会赫然发现成百上千种在分子结构上存在亲缘关系的同系物。
+本章は、構造骨格の内在的相同性に完全に立脚して構築されている。例えば**モルヒネ類似体（Morphine analogs）**の化学族群を例に挙げよう：
+母核となるテトラ環系（フェナントレン骨格と含窒素複素環）からなる厳密な置換生成物の分類において、成文法に明記され専用コードが割り振られた規制薬物だけでも16種類に達する。そのうち合衆国内で合法的な医療用処方箋によって入手可能な薬物はごくわずかに過ぎないが、現代の薬理学教科書には遥かに多くの派生種が収載されており、『ケミカル・アブストラクツ（Chemical Abstracts）』を紐解けば、分子構造上密接な類縁関係にある同族体が直ちに何百何千と見出される。
 
-在过去传统的列管诉讼辩论中，政府控方必须提供确凿证据论证该物质具有“滥用潜能”；然而在全新的类似物法律框架下，**仅仅证明分子结构的相似性，便足以使持有该化学品直接构成联邦重罪**！诚然，成文法要求控方证明其持有“旨在供人类摄入”，但众所周知，探索人类药效本就是全美乃至全球每一家正规制药企业中每一位药物化学家进行药物创新的终极目标。科研人员必须保持清醒认知：科学界永远不乏就两种不同分子结构之间是“相似”还是“不相似”各抒己见的权威专家，而在未来的法庭审判中，控辩双方永远都会在诉讼中迫切争夺这两类截然相反的专家证词。
+かつての伝統的な規制指定を巡る訴訟審理において、政府検察側は当該物質が「乱用可能性（abuse potential）」を有することの確実な証拠を提示しなければならなかった。しかし新たな類似体法の法規定のもとでは、**単に分子構造の類似性を立証するだけで、その化学物質の所持が直接連邦重罪を構成するに足る**のである！ 確かに成文法は、所持が「ヒトの摂取に供することを意図したもの」であることを検察側が立証することを求めている。しかし周知の通り、ヒトにおける薬効の探索こそは全米ひいては全世界の正規製薬企業におけるすべての創薬化学者が行う医薬品開発の究極の目標である。研究者は明晰な認識を維持しなければならない：科学界には2つの異なる分子構造が「類似している」か「類似していない」かについて独自の見解を述べる権威ある専門家が常に存在し、将来の法廷審理においては、訴追側と弁護側の双方がこれら正反対の2つの専門家証言を巡って激しく争うことになるのである。
 
-### 2. 法律灰色地带与“衍生物”的无限扩张陷阱
-现行《受管制物质法》的一个巨大法律灰色地带，在于药物附表正式名录前的序言中充斥着大量的**概括性兜底条款**。这些条款往往诉诸极其模糊的术语，且在司法实践中绝大多数从未在最高法院经历过违宪审查考验。
+### 2. 法律上のグレーゾーンと「誘導体（derivative）」の無限拡張の罠
+現行の規制物質法における巨大な法的グレーゾーンは、規制スケジュール公式リストの冒頭にある前文に、膨大な**包括的包括条項（catch-all clauses）**が散見される点にある。これらの条項は往々にして極めて曖昧な術語に依存しており、司法実務においてその大半は最高裁判所における違憲審査の試練を経たことがない。
 
-这种立法草率最典型的例证，莫过于附表二在正式列举天然鸦片生物碱之前的那段序言：法条规定，除明确列出的极少数例外之外，**“鸦片的任何衍生物”（any derivative of Opium）均应无条件视为附表二管制药物**。从最宽泛的法理字面推导，这意味着只要任何人能够以鸦片中的任何成分（例如吗啡）为原料合成制备出任何化学衍生物（哪怕只是极其平庸的正丁基季铵盐），该产物即使此前在人类科学史上从未被合成过、且没有任何人证实其存在任何滥用潜能，它自诞生那一秒起就已经是联邦重罪管辖下的附表二法定毒品！
+このような立法の粗雑さの最も典型的な事例は、スケジュールIIにおいて天然アヘンアルカロイドを正式に列挙する直前に置かれた前文に見出される：法条は、明示的に列挙された極めて例外的なものを除き、**「アヘンのあらゆる誘導体（any derivative of Opium）」は無条件にスケジュールII規制薬物とみなす**と規定している。最も広義の法理的字義から導出するならば、これは何人であれアヘンのいずれかの成分（例えばモルヒネ）を出発原料として任意の化学誘導体を合成・製造した場合（それが極めて平凡なn-ブチル第四級アンモニウム塩に過ぎないとしても）、その生成物が過去の人類科学史上において一度も合成されたことがなく、またいかなる乱用可能性も立証されていないとしても、それが誕生した瞬間から連邦重罪の管轄下にあるスケジュールII法定麻薬となることを意味する！
 
-这一极端法理假设在司法行政先例中得到了确凿印证——最雄辩的例证就是**阿扑吗啡（Apomorphine）**与**纳曲酮（Naltrexone）**的立法地位。它们作为附表二未列名隐性成员的法律地位，恰恰是在司法部事后专门下达行政命令通过指名道姓将其从管制附表中“除名与去管制化”时，才在法律层面上被反向证实的！既然它们此前必须通过特别指名豁免才能合法存在，那就意味着全美法律界必须默认接受一个荒谬的前提：**凡是能够从鸦片生物碱中衍生出的所有未知化学分子，早已全部被该“衍生物”兜底网罗在附表二的黑名单之中**。
+この極端な法的仮定は、司法行政上の先例によって確実に裏付けられている——その最も雄弁な証拠が、**アポモルヒネ（Apomorphine）**および**ナルトレキソン（Naltrexone）**の法的地位である。それらがスケジュールIIの非列名・潜在的指定薬物であったという法的地位は、司法省が後日、特段の行政命令を発令してそれらを規制スケジュールから名指しで「除外・規制解除」したことによって、法的に逆説的に証明されたのである！ それらが適法に存在するために事後的な特名免除を必要としたということは、全米の法曹界が次の不条理な前提を暗黙のうちに受け入れねばならないことを意味している：**アヘンアルカロイドから誘導され得るすべての未知の化学分子は、この「誘導体」という包括網によってあらかじめスケジュールIIのブラックリストに網羅されている**、と。
 
 ---
 
-## 33 类受管制药物化学结构图谱全览
+## 33類の規制薬物化学構造図譜全覧
 
-以下为全书第四章收录的全部 33 组化学分子谱系图，精确对齐原书扫描底本与矢量化学绘制：
+以下は、本書第4章に収載された全33組の化学分子系統図であり、原書の走査原典およびベクター化学構造描画に精密に準拠している：
 
-### 1. 阿片类药物分子演进史与骨架裂解递变
-![阿片类药物分子演进史](/images/controlled-substances/01-opiate-progression.png)
-* **化学骨架解析**：从天然五环吗啡烷体系（Morphine，环 A/B/C/D/E 完整）逐步拆解：
-  * 切断环 4,5-环氧桥（Ring 4,5-ether bridge）演进为四环体系**吗啡喃类（Morphinans，如左啡诺 Levorphanol）**；
-  * 进一步切断 C 环演进为三环体系**苯并吗喃类（Benzomorphans，如喷他佐新 Pentazocine）**；
-  * 进一步切断 B 环演进为双环体系**苯基哌啶类（Phenylpiperidines，如哌替啶 Meperidine/杜冷丁）**；
-  * 最终彻底裂解杂环演进为开链单环体系**美沙酮类（Methadones）**。
+### 1. アヘン類薬物の分子進化史と骨格開裂の推移
+![オピエート系薬物の分子進化史](/images/controlled-substances/01-opiate-progression.png)
+* **化学骨格解析**：天然の5環性モルヒナン系（モルヒネ Morphine、A/B/C/D/E環が完全保持）からの段階的解体：
+  * 4,5-エーテル架橋（Ring 4,5-ether bridge）の開裂により4環系**モルヒナン類（Morphinans、例：レボルファノール Levorphanol）**へ進化；
+  * さらにC環を開裂することにより3環系**ベンゾモルファン類（Benzomorphans、例：ペンタゾシン Pentazocine）**へ進化；
+  * さらにB環を開裂することにより2環系**フェニルピペリジン類（Phenylpiperidines、例：メペリジン Meperidine / ペチジン）**へ進化；
+  * 最終的に複素環を完全に開環・開裂させて非環式単環系**メタドン類（Methadones）**へと進化。
 
-### 2. 苯基哌啶与芬太尼类结构谱系
-![苯基哌啶与芬太尼类结构谱系](/images/controlled-substances/02-phenylpiperidines-fentanyl.png)
-* **代表性化合物**：芬太尼母体（Fentanyl）、阿芬太尼（Alfentanil）、舒芬太尼（Sufentanil）、卡芬太尼（Carfentanil）、α-甲基芬太尼（Alpha-methylfentanyl，著名的街头类似物“中国白”）。
+### 2. フェニルピペリジン類およびフェンタニル類構造系統
+![フェニルピペリジン類およびフェンタニル類構造系統](/images/controlled-substances/02-phenylpiperidines-fentanyl.png)
+* **代表的化合物**：フェンタニル母体（Fentanyl）、アルフェンタニル（Alfentanil）、スフェンタニル（Sufentanil）、カルフェンタニル（Carfentanil）、α-メチルフェンタニル（Alpha-methylfentanyl、著名な闇市場類似体「チャイナホワイト」）。
 
-### 3. 中枢药理分类总览（第一部分：麻醉、致幻与兴奋剂）
-![中枢药理分类总览图 1](/images/controlled-substances/03-pharmacological-groups-overview-1.png)
-* **涵盖大类**：强效阿片镇痛剂、吲哚生物碱致幻剂（麦角酸二乙酰胺 LSD、裸盖菇素 Psilocybin、二甲基色胺 DMT）、苯乙胺类兴奋剂与致幻剂（安非他命、甲基苯丙胺、甲氧基苯丙胺 PMA、DOM/STP）。
+### 3. 中枢薬理分類総覧（第1部：麻薬性鎮痛薬、幻覚薬、興奮薬）
+![中枢薬理分類総覧 1](/images/controlled-substances/03-pharmacological-groups-overview-1.png)
+* **包含される大分類**：強力なオピオイド鎮痛薬、インドールアルカロイド系幻覚薬（リゼルグ酸ジエチルアミド LSD、シロシビン Psilocybin、ジメチルトリプタミン DMT）、フェネチルアミン系興奮薬および幻覚薬（アンフェタミン、メタンフェタミン、パラメトキシアンフェタミン PMA、DOM/STP）。
 
-### 4. 中枢药理分类总览（第二部分：抑制剂与镇静催眠药）
-![中枢药理分类总览图 2](/images/controlled-substances/04-pharmacological-groups-overview-2.png)
-* **涵盖大类**：经典巴比妥酸类衍生物（长效、中效、超短效巴比妥）、1,4-苯二氮䓬类中枢神经抑制剂、喹唑酮类（安眠酮/甲喹酮 Methaqualone）、氨基甲酸酯类镇静药（眠尔通/甲丙氨酯 Meprobamate）。
+### 4. 中枢薬理分類総覧（第2部：抑制薬、鎮静催眠薬）
+![中枢薬理分類総覧 2](/images/controlled-substances/04-pharmacological-groups-overview-2.png)
+* **包含される大分類**：古典的バルビツール酸誘導体（長時間作用型、中間時間作用型、超短時間作用型バルビツレート）、1,4-ベンゾジアゼピン系中枢神経抑制薬、キナゾリノン類（メタカロン Methaqualone）、カルバメート系鎮静薬（メプロバメート Meprobamate）。
 
-### 5. 吗啡经典母核环系与取代模式
-![吗啡经典母核环系](/images/controlled-substances/05-morphine-ring-skeleton.png)
-* **结构解析**：展示环 A（苯环 3 位酚羟基）、环 C（6 位醇羟基与 7,8 位双键）、环 D（含氮哌啶杂环与 N-17 甲基取代）。3 位酚羟基的甲基化生成**可待因（Codeine）**，乙酰化生成**海洛因（Heroin/3,6-二乙酰吗啡）**。
+### 5. モルヒネの古典的母核環系と置換様式
+![モルヒネの古典的母核環系](/images/controlled-substances/05-morphine-ring-skeleton.png)
+* **構造解析**：A環（ベンゼン環3位のフェノール性ヒドロキシ基）、C環（6位のアルコール性ヒドロキシ基および7,8位二重結合）、D環（含窒素ピペリジン複素環とN-17メチル置換）を明示。3位フェノール性ヒドロキシ基のメチル化により**コデイン（Codeine）**が、アセチル化により**ヘロイン（Heroin / 3,6-ジアセチルモルヒネ）**が生成する。
 
-### 6. 二氢吗啡酮与二氢可待因酮骨架
-![二氢吗啡骨架衍生物](/images/controlled-substances/06-dihydromorphine-skeleton.png)
-* **结构解析**：环 C 的 7,8 位双键氢化饱和，且 6 位羟基氧化为酮基。涵盖**氢吗啡酮（Hydromorphone）**、**氢可酮（Hydrocodone）**及其 14-羟基化衍生物**羟考酮（Oxycodone）**与**羟吗啡酮（Oxymorphone）**。
+### 6. ジヒドロモルヒノンおよびジヒドロコデイノン骨格
+![ジヒドロモルヒネ骨格誘導体](/images/controlled-substances/06-dihydromorphine-skeleton.png)
+* **構造解析**：C環の7,8位二重結合が水素化により飽和され、6位ヒドロキシ基がケトン基へと酸化。**ヒドロモルフォン（Hydromorphone）**、**ヒドロコドン（Hydrocodone）**、ならびにそれらの14-ヒドロキシ化誘導体である**オキシコドン（Oxycodone）**および**オキシモルフォン（Oxymorphone）**を包含。
 
-### 7. 复杂吗啡变体与天然阿片伴生生物碱
-![其他吗啡类衍生物](/images/controlled-substances/07-other-morphine-derivatives.png)
-* **涵盖分子**：蒂巴因（Thebaine，6,8-二烯醚）、乙基吗啡（Ethylmorphine/狄奥宁）、苄吗啡（Benzylmorphine）、尼可吗啡（Nicomorphine，双烟酸酯）以及阿扑吗啡（Apomorphine）。
+### 7. 複雑なモルヒネ変異体および天然アヘン共存アルカロイド
+![その他のモルヒネ誘導体](/images/controlled-substances/07-other-morphine-derivatives.png)
+* **包含される分子**：テバイン（Thebaine、6,8-ジエンエーテル）、エチルモルヒネ（Ethylmorphine / ディオニン）、ベンジルモルヒネ（Benzylmorphine）、ニコモルヒネ（Nicomorphine、ビスニコチン酸エステル）、およびアポモルヒネ（Apomorphine）。
 
-### 8. 狄尔斯-阿尔德（Diels-Alder）桥环奥利帕文与埃托啡衍生物
-![狄尔斯-阿尔德加成物与奥利帕文](/images/controlled-substances/08-diels-alder-oripavine.png)
-* **涵盖分子**：由蒂巴因与亲双烯体经 Diels-Alder 环加成反应制得的强效 6,14-桥亚乙基四氢奥利帕文系列，包括人类药力极强的大型动物镇静剂**埃托啡（Etorphine，镇痛强度为吗啡的 1,000–8,000 倍）**及其解毒拮抗剂**地普诺啡（Diprenorphine）**与**丁丙诺啡（Buprenorphine）**。
+### 8. ディールス・アルダー（Diels-Alder）架橋オリパビンおよびエトルフィン誘導体
+![ディールス・アルダー付加体とオリパビン](/images/controlled-substances/08-diels-alder-oripavine.png)
+* **包含される分子**：テバインと求ジエン体とのディールス・アルダー環化付加反応により合成される強力な6,14-エテノ架橋テトラヒドロオリパビン系列。極めて強力な大型動物用固定化剤である**エトルフィン（Etorphine、鎮痛力価はモルヒネの1,000〜8,000倍）**、ならびにその拮抗・解毒剤である**ジプレノルフィン（Diprenorphine）**および**ブプレノルフィン（Buprenorphine）**を含む。
 
-### 9. 吗啡喃（Morphinans）与苯并吗喃（Benzomorphans）
-![吗啡喃与苯并吗喃](/images/controlled-substances/09-morphinan-and-benzomorphan.png)
-* **结构解析**：剥离 4,5-醚桥。左旋体**左啡诺（Levorphanol）**为强效阿片镇痛剂（列入附表二）；而其右旋对映异构体**右美沙芬（Dextromethorphan）**则丧失阿片受体镇痛活性，转化为中枢镇咳药，成文法明文将其特别排除于管制品之外。
+### 9. モルヒナン類（Morphinans）およびベンゾモルファン類（Benzomorphans）
+![モルヒナンおよびベンゾモルファン](/images/controlled-substances/09-morphinan-and-benzomorphan.png)
+* **構造解析**：4,5-エーテル架橋を欠損した骨格。左旋性異性体**レボルファノール（Levorphanol）**は強力なオピオイド鎮痛薬（スケジュールII指定）；対してその右旋性エナンチオマーである**デキストロメトルファン（Dextromethorphan）**はオピオイド受容体鎮痛活性を喪失し中枢性鎮咳薬として機能し、成文法上明示的に規制対象から除外されている。
 
-### 10. 4-苯基哌啶-4-羧酸乙酯类（哌替啶同系物）
-![4-哌啶羧酸乙酯衍生物](/images/controlled-substances/10-ethyl-4-piperidinecarboxylate.png)
-* **涵盖分子**：**哌替啶（Meperidine / 杜冷丁）**、阿尼利啶（Anileridine）、地芬诺酯（Diphenoxylate）。
+### 10. 4-フェニルピペリジン-4-カルボン酸エチルエステル類（ペチジン同族体）
+![4-ピペリジンカルボン酸エチルエステル誘導体](/images/controlled-substances/10-ethyl-4-piperidinecarboxylate.png)
+* **包含される分子**：**メペリジン（Meperidine / ペチジン）**、アニレリジン（Anileridine）、ジフェノキシレート（Diphenoxylate）。
 
-### 11. 4-苯基-4-丙酰氧基哌啶类（Prodine 系列）
-![4-丙酰氧基哌啶类](/images/controlled-substances/11-4-propionyloxy-piperidines.png)
-* **涵盖分子**：α-普罗丁（Alphaprodine）、β-普罗丁（Betaprodine）、烯丙普罗丁（Allylprodine）、以及历史上著名的致帕金森氏症神经毒素前体杂质 **MPPP 与 MPTP**。
+### 11. 4-フェニル-4-プロピオニルオキシピペリジン類（プロジン系列）
+![4-プロピオニルオキシピペリジン類](/images/controlled-substances/11-4-propionyloxy-piperidines.png)
+* **包含される分子**：α-プロジン（Alphaprodine）、β-プロジン（Betaprodine）、アリルプロジン（Allylprodine）、ならびに歴史的に著名なパーキンソニズム惹起性神経毒素前駆不純物である**MPPPおよびMPTP**。
 
-### 12. 芬太尼母核（4-苯胺基哌啶衍生物）
-![芬太尼基础母核骨架](/images/controlled-substances/12-fentanyl-skeleton.png)
-* **结构解析**：展示 N-苯基-N-(4-哌啶基)丙酰胺的核心分子拓扑学，剖析哌啶环 1 位苯乙基侧链与 4 位酰苯胺基团的药效团几何构象。
+### 12. フェンタニル母核（4-アニリノピペリジン誘導体）
+![フェンタニル基礎母核骨格](/images/controlled-substances/12-fentanyl-skeleton.png)
+* **構造解析**：N-フェニル-N-(4-ピペリジニル)プロパンアミドの核心的分子トポロジーを提示。ピペリジン環の1位フェネチル側鎖と4位アニリド基のファーマコフォア幾何配座を解読。
 
-### 13. 芬太尼高级类似物谱系
-![芬太尼衍生物与类似物谱系](/images/controlled-substances/13-fentanyl-analogues.png)
-* **涵盖分子**：**α-甲基芬太尼（Alpha-methylfentanyl）**、**3-甲基芬太尼（3-Methylfentanyl）**（活性高达吗啡千倍）、对氟芬太尼（Para-fluorofentanyl）、硫代芬太尼（Thiofentanyl）等 1980 年代地下黑市设计毒品核心名录。
+### 13. フェンタニル高度類似体系統図
+![フェンタニル誘導体および類似体系統](/images/controlled-substances/13-fentanyl-analogues.png)
+* **包含される分子**：**α-メチルフェンタニル（Alpha-methylfentanyl）**、**3-メチルフェンタニル（3-Methylfentanyl）**（活性はモルヒネの数千倍）、パラフルオロフェンタニル（Para-fluorofentanyl）、チオフェンタニル（Thiofentanyl）等、1980年代の闇市場デザイナーズドラッグ中核リスト。
 
-### 14. 美沙酮（Methadone）开链二苯烷基胺母核
-![美沙酮开链母核骨架](/images/controlled-substances/14-methadone-skeleton.png)
-* **结构解析**：展示 3,3-二苯基己酸酰胺与庚酮骨架在空间折叠中通过叔氮原子与羰基形成的准杂环伪环状空间稳定构型。
+### 14. メタドン（Methadone）開環ジフェニルアルキルアミン母核
+![メタドン開環母核骨格](/images/controlled-substances/14-methadone-skeleton.png)
+* **構造解析**：3,3-ジフェニルヘキサン酸アミドおよびヘプタノン骨格において、三級窒素原子とカルボニル基が空間的折り畳みにより形成する擬似複素環的擬似環状立体配座を提示。
 
-### 15. 美沙酮旋光异构体与乙酰美沙醇（LAAM）
-![美沙酮光学异构体与 LAAM](/images/controlled-substances/15-methadone-optical-isomers.png)
-* **涵盖分子**：(R)-左旋美沙酮（活性中心）、外消旋美沙酮、左旋乙酰美沙醇（LAAM/Levacetylmethadol，长效阿片替代药物）。
+### 15. メタドン光学異性体およびアセチルメタドール（LAAM）
+![メタドン光学異性体とLAAM](/images/controlled-substances/15-methadone-optical-isomers.png)
+* **包含される分子**：(R)-レボメタドン（活性エウレトマー）、ラセミ体メタドン、レボ-α-アセチルメタドール（LAAM / レバセチルメタドール、長時間作用型オピオイド代替維持療法薬）。
 
-### 16. 美沙酮同系物与右丙氧芬
-![美沙酮类似物与丙氧芬](/images/controlled-substances/16-methadone-analogues-propoxyphene.png)
-* **涵盖分子**：右丙氧芬（Dextropropoxyphene / Darvon，附表四镇痛药）、左旋丙氧芬（Levopropoxyphene，镇咳药，法条特别豁免）。
+### 16. メタドン同族体およびデキストロプロポキシフェン
+![メタドン類似体とプロポキシフェン](/images/controlled-substances/16-methadone-analogues-propoxyphene.png)
+* **包含される分子**：デキストロプロポキシフェン（Dextropropoxyphene / Darvon、スケジュールIV鎮痛薬）、レボプロポキシフェン（Levopropoxyphene、鎮咳薬、法定除外物質）。
 
-### 17. 1,4-苯二氮䓬类（Benzodiazepines）母核骨架
-![1,4-苯二氮䓬基础母核骨架](/images/controlled-substances/17-benzodiazepine-skeleton.png)
-* **结构解析**：经典的 5-苯基-1,3-二氢-2H-1,4-苯二氮䓬-2-酮结构，标定 A 环（7 位电负性取代基卤素/硝基）、B 环（4,5 位亚胺双键与 3 位羟基）、C 环（2' 位卤素取代）。
+### 17. 1,4-ベンゾジアゼピン類（Benzodiazepines）母核骨格
+![1,4-ベンゾジアゼピン基礎母核骨格](/images/controlled-substances/17-benzodiazepine-skeleton.png)
+* **構造解析**：古典的5-フェニル-1,3-ジヒドロ-2H-1,4-ベンゾジアゼピン-2-オン骨格。A環（7位の電気陰性度置換基ハロゲン/ニトロ基）、B環（4,5位イミン二重結合および3位ヒドロキシ基）、C環（2'位ハロゲン置換）を規定。
 
-### 18. 常见列管苯二氮䓬类药物对照矩阵
-![苯二氮䓬类核心取代基图谱](/images/controlled-substances/18-benzodiazepines-table.png)
-* **涵盖分子**：地西泮（Diazepam/安定）、氯氮䓬（Chlordiazepoxide/利眠宁）、氟西泮（Flurazepam）、硝西泮（Nitrazepam）、氯硝西泮（Clonazepam）、奥沙西泮（Oxazepam）、劳拉西泮（Lorazepam）、替马西泮（Temazepam）。
+### 18. 主要規制ベンゾジアゼピン系薬物対照マトリクス
+![ベンゾジアゼピン類主要置換基図譜](/images/controlled-substances/18-benzodiazepines-table.png)
+* **包含される分子**：ジアゼパム（Diazepam / セルシン）、クロルジアゼポキシド（Chlordiazepoxide / バランス）、フルラゼパム（Flurazepam）、ニトラゼパム（Nitrazepam）、クロナゼパム（Clonazepam）、オキサゼパム（Oxazepam）、ロラゼパム（Lorazepam / ワイパックス）、テマゼパム（Temazepam）。
 
-### 19. 苯二氮䓬苯环异构体与变体
-![苯二氮䓬类苯环异构体](/images/controlled-substances/19-benzo-analogues-of-benzodiazepines.png)
-* **涵盖分子**：氯巴占（Clobazam，1,5-苯二氮䓬骨架变体）、普拉西泮（Prazepam，环甲基侧链修饰）。
+### 19. ベンゾジアゼピン芳香環異性体および変異体
+![ベンゾジアゼピン類芳香環異性体](/images/controlled-substances/19-benzo-analogues-of-benzodiazepines.png)
+* **包含される分子**：クロバザム（Clobazam、1,5-ベンゾジアゼピン骨格変異体）、プラゼパム（Prazepam、シクロプロピルメチル側鎖修飾）。
 
-### 20. 稠环三唑并与咪唑并苯二氮䓬
-![三唑并与咪唑并苯二氮䓬稠环](/images/controlled-substances/20-triazolo-imidazo-benzodiazepines.png)
-* **涵盖分子**：阿普唑仑（Alprazolam / Xanax）、三唑仑（Triazolam / 海乐神）、咪达唑仑（Midazolam / 咪哒唑仑）、艾司唑仑（Estazolam）。
+### 20. 縮合トリアゾロおよびイミダゾベンゾジアゼピン
+![トリアゾロおよびイミダゾベンゾジアゼピン縮合環](/images/controlled-substances/20-triazolo-imidazo-benzodiazepines.png)
+* **包含される分子**：アルプラゾラム（Alprazolam / ソラナックス・コンスタン）、トリアゾラム（Triazolam / ハルシオン）、ミダゾラム（Midazolam / ドルミカム）、エスタゾラム（Estazolam / ユーロジン）。
 
-### 21. 取代苯乙胺与安非他命类（Amphetamines）
-![取代苯乙胺类与安非他命谱系](/images/controlled-substances/21-substituted-amphetamines.png)
-* **涵盖分子**：苯丙胺（Amphetamine）、甲基苯丙胺（Methamphetamine）、MDMA（3,4-亚甲二氧基甲基苯丙胺）、MDA、MDE（Eve）、DOM（STP/2,5-二甲氧基-4-甲基苯丙胺）、DOB、PMA。
+### 21. 置換フェネチルアミンおよびアンフェタミン類（Amphetamines）
+![置換フェネチルアミン類およびアンフェタミン系統](/images/controlled-substances/21-substituted-amphetamines.png)
+* **包含される分子**：アンフェタミン（Amphetamine）、メタンフェタミン（Methamphetamine / ヒロポン）、MDMA（3,4-メチレンジオキシメタンフェタミン）、MDA、MDE（Eve）、DOM（STP / 2,5-ジメトキシ-4-メチルアンフェタミン）、DOB、PMA。
 
-### 22. 特殊苯乙胺类似物与杂环兴奋剂
-![非典型苯丙胺同族衍生物](/images/controlled-substances/22-unusual-amphetamine-relatives.png)
-* **涵盖分子**：哌醋甲酯（Methylphenidate / 利他林）、苯甲曲秦（Phendimetrazine）、苄非他明（Benzphetamine）、芬氟拉明（Fenfluramine）。
+### 22. 特殊フェネチルアミン類似体および複素環興奮薬
+![非定型アンフェタミン同族誘導体](/images/controlled-substances/22-unusual-amphetamine-relatives.png)
+* **包含される分子**：メチルフェニデート（Methylphenidate / リタリン）、フェンジメトラジン（Phendimetrazine）、ベンズフェタミン（Benzphetamine）、フェンフルラミン（Fenfluramine）。
 
-### 23. 色胺与吲哚类致幻剂（Tryptamines & Indoles）
-![吲哚与色胺类致幻剂图谱](/images/controlled-substances/23-indoles-and-tryptamines.png)
-* **涵盖分子**：LSD（麦角酸二乙酰胺）、Psilocybin（裸盖菇素）、Psilocin（脱磷酸裸盖菇素）、DMT（N,N-二甲基色胺）、DET（二乙基色胺）、5-MeO-DMT、蟾毒色胺（Bufotenine）。
+### 23. トリプタミンおよびインドール系幻覚薬（Tryptamines & Indoles）
+![インドールおよびトリプタミン系幻覚薬図譜](/images/controlled-substances/23-indoles-and-tryptamines.png)
+* **包含される分子**：LSD（リゼルグ酸ジエチルアミド）、Psilocybin（シロシビン）、Psilocin（シロシン）、DMT（N,N-ジメチルトリプタミン）、DET（ジエチルトリプタミン）、5-MeO-DMT、ブフォテニン（Bufotenine）。
 
-### 24. 巴比妥酸 5,5-双取代衍生物（第一部分）
-![巴比妥酸衍生物图谱 1](/images/controlled-substances/24-barbituric-acid-derivatives-1.png)
-* **涵盖分子**：巴比妥（Barbital / 佛罗拿）、苯巴比妥（Phenobarbital / 鲁米那）、异戊巴比妥（Amobarbital）。
+### 24. バルビツール酸 5,5-二置換誘導体（第1部）
+![バルビツール酸誘導体図譜 1](/images/controlled-substances/24-barbituric-acid-derivatives-1.png)
+* **包含される分子**：バルビタール（Barbital / ベロナール）、フェノバルビタール（Phenobarbital / ルミナール）、アモバルビタール（Amobarbital / イソミタール）。
 
-### 25. 巴比妥酸 5,5-双取代衍生物（第二部分）
-![巴比妥酸衍生物图谱 2](/images/controlled-substances/25-barbituric-acid-derivatives-2.png)
-* **涵盖分子**：司可巴比妥（Secobarbital / 速可眠）、戊巴比妥（Pentobarbital）、丁巴比妥（Butabarbital）、阿罗巴比妥（Allobarbital）。
+### 25. バルビツール酸 5,5-二置換誘導体（第2部）
+![バルビツール酸誘導体図譜 2](/images/controlled-substances/25-barbituric-acid-derivatives-2.png)
+* **包含される分子**：セコバルビタール（Secobarbital / セコナール）、ペントバルビタール（Pentobarbital / ネンブタール）、ブタバルビタール（Butabarbital）、アロバルビタール（Allobarbital）。
 
-### 26. N-甲基与硫代巴比妥类
-![N-甲基与硫代巴比妥衍生物](/images/controlled-substances/26-methyl-barbiturates.png)
-* **涵盖分子**：己巴比妥（Hexobarbital）、甲苯巴比妥（Mephobarbital）、硫喷妥钠（Thiopental，超短效静脉麻醉剂）。
+### 26. N-メチルおよびチオバルビツール酸類
+![N-メチルおよびチオバルビツール酸誘導体](/images/controlled-substances/26-methyl-barbiturates.png)
+* **包含される分子**：ヘキソバルビタール（Hexobarbital）、メフォバルビタール（Mephobarbital）、チオペンタール（Thiopental / ラボナール、超短時間作用型静脈麻酔薬）。
 
-### 27. 苯环己哌啶（PCP）及其芳基环己胺类似物
-![苯环己哌啶类似物图谱](/images/controlled-substances/27-phencyclidine-pcp-analogues.png)
-* **涵盖分子**：**苯环利定（PCP / 天使粉）**、PCE（N-乙基-1-苯基环己胺）、PHP / PCPY（1-(1-苯基环己基)吡咯烷）、TCP（1-[1-(2-噻吩基)环己基]哌啶）。
+### 27. フェンサイクリジン（PCP）およびアリールシクロヘキシルアミン類似体
+![フェンサイクリジン類似体図譜](/images/controlled-substances/27-phencyclidine-pcp-analogues.png)
+* **包含される分子**：**フェンサイクリジン（PCP / エンジェルダスト）**、PCE（N-エチル-1-フェニルシクロヘキシルアミン）、PHP / PCPY（1-(1-フェニルシクロヘキシル)ピロリジン）、TCP（1-[1-(2-チエニル)シクロヘキシル]ピペリジン）。
 
-### 28. 同化雄激素类固醇（睾酮骨架变体）
-![同化雄激素类固醇图谱 1](/images/controlled-substances/28-anabolic-steroids-testosterone.png)
-* **涵盖分子**：甲基睾酮（Methyltestosterone）、甲睾酮、去氢甲睾酮（Methandrostenolone / 大力补 Dianabol）、氟羟甲基睾酮（Fluoxymesterone）。
+### 28. 同化男性化ステロイド（テストステロン骨格変異体）
+![同化ステロイド図譜 1](/images/controlled-substances/28-anabolic-steroids-testosterone.png)
+* **包含される分子**：メチルテストステロン（Methyltestosterone）、メチランドロステノロン（Methandrostenolone / ダイアナボル Dianabol）、フルオキシメステロン（Fluoxymesterone）。
 
-### 29. 19-去甲睾酮衍生物（诺龙系列）
-![同化雄激素类固醇图谱 2](/images/controlled-substances/29-anabolic-steroids-nandrolone.png)
-* **涵盖分子**：苯丙酸诺龙（Nandrolone phenpropionate）、癸酸诺龙（Nandrolone decanoate）、康力龙（Stanozolol / 司坦唑醇）、氧雄龙（Oxandrolone）。
+### 29. 19-ノルテストステロン誘導体（ナンドロロン系列）
+![同化ステロイド図譜 2](/images/controlled-substances/29-anabolic-steroids-nandrolone.png)
+* **包含される分子**：フェニルプロピオン酸ナンドロロン（Nandrolone phenpropionate）、デカン酸ナンドロロン（Nandrolone decanoate）、スタノゾロール（Stanozolol）、オキサンドロロン（Oxandrolone）。
 
-### 30. 砜类与单胺型老式镇静安眠药
-![砜类与非巴比妥类镇静催眠药](/images/controlled-substances/30-sulfones-and-sedatives.png)
-* **涵盖分子**：磺甲烷（Sulfonal / Sulfonmethane）、磺二乙甲烷（Sulfondiethylmethane）、水合氯醛（Chloral hydrate）、格鲁米特（Glutethimide / 导眠能）、甲乙哌酮（Methyprylon）。
+### 30. スルホン類および非バルビツール系古典的鎮静催眠薬
+![スルホン類および非バルビツール系鎮静催眠薬](/images/controlled-substances/30-sulfones-and-sedatives.png)
+* **包含される分子**：スルホナール（Sulfonal / Sulfonmethane）、スルホンジエチルメタン（Sulfondiethylmethane）、抱水クロラール（Chloral hydrate）、グルテチミド（Glutethimide / ドリデン）、メチプリロン（Methyprylon）。
 
-### 31. 大麻素类活性成分与同系物
-![大麻天然与合成活性分子图谱](/images/controlled-substances/31-cannabis-components.png)
-* **涵盖分子**：Δ9-四氢大麻酚（Δ9-THC）、Δ8-THC、大麻酚（CBN）、大麻二酚（CBD）、人工合成大麻素派拉六基（Parahexyl / 双甲基己基四氢大麻酚）。
+### 31. カンナビノイド系活性成分および同族体
+![大麻の天然および合成活性分子図譜](/images/controlled-substances/31-cannabis-components.png)
+* **包含される分子**：$\Delta^9$-テトラヒドロカンナビノール（$\Delta^9$-THC）、$\Delta^8$-THC、カンナビノール（CBN）、カンナビジオール（CBD）、合成カンナビノイド・パラヘキシル（Parahexyl / シンヘキシル）。
 
-### 32. 苯并咪唑类强效阿片镇痛剂
-![苯并咪唑类强效阿片镇痛衍生物](/images/controlled-substances/32-benzimidazole-analgesics.png)
-* **涵盖分子**：依他氮烯（Etonitazene）、氯硝氮烯（Clonitazene）。（其阿片受体亲和力与镇痛活性为吗啡的数十至数百倍）。
+### 32. ベンゾイミダゾール系強力オピオイド鎮痛薬
+![ベンゾイミダゾール系強力オピオイド鎮痛誘導体](/images/controlled-substances/32-benzimidazole-analgesics.png)
+* **包含される分子**：エトニタゼン（Etonitazene）、クロニタゼン（Clonitazene）（オピオイド受容体親和性および鎮痛力価はモルヒネの数十倍から数百倍）。
 
-### 33. 孤品与特殊独立结构化学实体
-![孤立骨架受管制化学实体图谱](/images/controlled-substances/33-one-of-a-kind-compounds.png)
-* **涵盖分子**：甲喹酮（Methaqualone / 安眠酮）、甲基苯乙哌啶（Phenmetrazine / 阿西特朗）、氨苯苄酯（Pemoline / 匹莫林）、二甲氧基溴苯乙胺（DOB）、二乙基丙酮（Diethylpropion）。
+### 33. 孤立骨格および特異的独立構造化学物質
+![孤立骨格規制化学物質図譜](/images/controlled-substances/33-one-of-a-kind-compounds.png)
+* **包含される分子**：メタカロン（Methaqualone）、フェンメトラジン（Phenmetrazine）、ペモリン（Pemoline）、DOB（ジメトキシブロモアンフェタミン）、ジエチルプロピオン（Diethylpropion）。

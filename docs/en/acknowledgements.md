@@ -12,7 +12,7 @@ We would like to extend our highest respect and heartfelt gratitude to the follo
 
 ---
 
-## 🌟 Foundational Projects
+## Foundational Projects
 
 ### 1. VitePress
 - **Team & Creators**: Evan You and the VitePress Contributor Team
@@ -37,7 +37,7 @@ We would like to extend our highest respect and heartfelt gratitude to the follo
 
 ---
 
-## 🧩 Knowledge Base & Enhancement Plugins
+## Knowledge Base & Enhancement Plugins
 
 ### 4. Nólëbase
 - **Creators**: 絢香猫 ([@nekomeowww](https://github.com/nekomeowww)), 絢香音 ([@LittleSound](https://github.com/LittleSound)), and the community

@@ -1,1423 +1,1418 @@
 ---
-title: 第六章：联邦公报法令与行政依据编年史
-titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+title: "第6章：連邦官報公示・行政根拠編年史"
+titleTemplate: "規制物質：化学と法律のガイド · アレクサンダー・シュルギン"
 ---
 
-# 第六章：联邦公报法令与行政依据编年史 (Federal Register Citations)
+# 第6章：連邦官報公示・行政根拠編年史 (Federal Register Citations)
 
-> **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
-> **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 6, pp. 351–378.  
-> **学术翻译规范**：本章遵照美国行政法学与毒理学标准，对原书第 337 至 364 页所收录自 1966 年至 1991 年 4 月 1 日共计 **345 项《联邦公报》正式法令、听证报告与行政命令**展开**逐卷、逐页、逐日期的完整中文翻译**。
-
----
-
-## 本章导读（亚历山大·T·舒尔金 著）
-
-本章完整收录了美国《联邦公报》（*Federal Register*，简称 **FR**）中所有直接适用于授权或变更《受管制物质法》（CSA）药物管制地位的全部法定条目。
-
-任何法律及其修正案，都必须委托给具体的行政执法机构予以执行。在实际执行过程中，偶尔需要对立法者起草法律时的真实意图进行行政释法，并且极为频繁地需要确立执法实践所需的操作指南与行政规章。所有此类针对法律管辖范围的增补、移出、重排或豁免，**依法必须向全社会公开公开发布**，而其法定的国家级发布载体，正是《联邦公报》。
-
-以现行联邦药物法为例，向现有法律框架中增补一种新药必须严格履行法定的行政程序：当某种药物因出现前所未有的滥用危机或突发公共危害，需要改变其执法管制状态时，获授权的高级官员（如美国司法部长 Attorney General 或其授权的 DEA 局长）会在《联邦公报》上公开发布一项拟定规则制定通告（Notice of Proposed Rulemaking）。法令强制规定预留 **60 天** 的法定公众评议期，在此期间公众与利益相关方可提交书面抗辩或正式申请召开听证会（Hearings）。若在评议期内无任何异议，则随后公报将发布包含法定条文变更的最终裁决命令（Final Order），该药物即正式被纳入管制附表。
-
-在 1960 年代末期，联邦政府曾投入巨大的行政力量，试图将一批在当时的医学界极受欢迎、但社会滥用隐患日益凸显的精神类处方药物纳入严格限制管控。例如**甲丙氨酯（Meprobamate / Miltown）**，以及苯二氮䓬类镇静剂**利眠宁（Chlordiazepoxide / Librium）**与**安定（Diazepam / Valium）**——这些药物在临床上广泛处方，但滥用案例呈爆发性增长。制药工业界与联邦政府之间长达数年的拉锯、博弈与剧烈冲突，在《联邦公报》的数十次你来我往的公报条目中展现得淋漓尽致。必须牢记的是，制药巨头与联邦监管机构之间的长久共生关系，要求药企始终保持一种精妙的警惕与清醒：**那只看似要限制你、如同敌人般的管制之手，正是日后批准你新药合法上市时不可或缺的盟友之手。**
-
-本章所有引证均严格按《联邦公报》的**卷号、页码及正式出版日期**（Volume, Page, Date）编排，内容完整收录截至 **1991 年 4 月 1 日**。
+> **著者**：Alexander T. Shulgin, Ph.D.（アレクサンダー・T・シュルギン 博士）  
+> **出典**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 6, pp. 351–378.  
+> **学術翻訳規範**：本章は米国行政法学および法中毒学の学術規範に準拠し、原著第 337 至 364 頁に収載された 1966 年から 1991 年 4 月 1 日までの計 **345 項に及ぶ『連邦官報（Federal Register）』の正式規則制定公示、聴聞会報告および行政命令**を、巻号・頁番号・日付順に完全網羅した学術全訳である。
 
 ---
 
-## 1966 — 1969 年：早期药物滥用控制修正案与管制定案
+## 本章解題（アレクサンダー・T・シュルギン 著）
+
+本章は、米国『連邦官報』（*Federal Register*、略称 **FR**）において公表された、『規制物質法』（Controlled Substances Act, CSA）およびその前身法に基づく薬物規制区分の指定、編入、変更に直接関わるすべての法定公示・規則制定記録を編年体で完全収録したものである。
+
+いかなる法律およびその改正条項であれ、最終的には具体的な法執行行政機関に委ねられ、施行されなければならない。行政実務の過程においては、立法者の真の意図を汲み取る行政的法解釈が時に必要とされるとともに、取締り・執行実務のための指針や行政規則の策定が極めて頻繁に求められる。法律の管轄範囲に対するこれら一切の追加、削除、スケジュールの再分類（移送）、あるいは規制除外は、**法に基づき社会全体に向けて公に公示される義務を負っており**、その法定公示の媒体こそが『連邦官報』である。
+
+現行の連邦薬物法を例にとれば、既存の規制枠組みに新たな薬物を追加するには、厳格な行政手続を履践しなければならない。ある薬物が未曽有の乱用危機や公衆衛生上の危害をもたらし、その法的規制区分を変更する必要が生じた場合、授権された高官（司法長官、または委任を受けたDEA長官）は『連邦官報』上に「規則制定提案告知（Notice of Proposed Rulemaking）」を官報公示する。行政手続法は通常 **60 日間** の法定公聴・意見公募（パブリックコメント）期間を設けることを義務づけており、この期間中に公衆および利害関係者は書面による異議申立てを行ったり、正式に行政聴聞会（Hearings）の開催を請求することができる。意見公募期間中に異議が提出されないか、あるいは聴聞会の終結を経て、法令条文の改正を含む「最終規則指令（Final Order）」が官報に公布され、当該薬物は正式に規制スケジュールに編入される。
+
+1960年代後半、連邦政府は当時医療現場で極めて広く処方されながらも乱用リスクが社会的に顕在化しつつあった向精神薬群を厳格な規制下に置くため、膨大な行政的労力を注ぎ込んだ。その代表例が**メプロバメート（Meprobamate / Miltown）**、ならびにベンゾジアゼピン系鎮静薬である**クロルジアゼポキシド（Chlordiazepoxide / Librium）**および**ジアゼパム（Diazepam / Valium）**である。臨床現場で莫大に処方されるこれら大型医薬品を巡り、製薬業界と連邦規制当局の間で繰り広げられた長期にわたる駆け引き、法廷闘争、および妥協の全貌は、『連邦官報』に刻まれた数十回に及ぶ応酬の記録に見事に凝縮されている。製薬巨大企業と連邦規制機関との共生関係においては、製薬企業は常に極めて繊細な冷徹さを保ち続けなければならない——**すなわち、自社の薬物を規制しようと立ちはだかる敵のような規制の手こそが、明日自社の新薬を合法的に市場へ承認してくれる必要不可欠な味方の手でもあるのだ**。
+
+本章に収録されたすべての引用文献は、『連邦官報』の**巻号、頁番号、および公式公布日**（Volume, Page, Date）に従って厳密に編年配列されており、**1991年4月1日**までに公布された全法令を完全収録している。
+
+---
+
+## 1966 — 1969 年：初期薬物乱用規制改正法と規制指定
 
 ### 31 FR5434 (April 6, 1966)
 
-财政部此前将 Piritramide 归类为阿片类药物（Opiate）的行政决定（参见 29 FR 19241）被正式撤销；依据世界卫生组织（WHO）的最新国际权威决议，现对该物质重新进行法律归类。
+財務省による以前のピリトラミド（Piritramide）をアヘン系麻薬（Opiate）に分類する行政決定（29 FR 19241 参照）が正式に取消され、世界保健機関（WHO）の最新の国際決定に基づき、当該物質の法的再分類が行われた。
 
 ### 31 FR7174 (May 17, 1966)
 
-针对此前修订法律分类架构的行政命令（参见 31 FR 4679）收到了正式异议。官方将举行公开行政听证会以听取关于 Chlordiazepoxide, Diazepam, and Meprobamate 的答辩抗辩意见。关于前两种药物的听证会最终报告参见 34 FR 7963；关于 Meprobamate 的听证会报告参见 32 FR 5933 and 32 FR 17473，关于后者的预备协调听证会通知参见 31 FR 7573。此外，关于将 LSD 纳入管制目录的一项单独听证会申请已被正式驳回。
+法的分類体系を改定した従前の行政命令（31 FR 4679 参照）に対し正式な異議申立てが受理された。クロルジアゼポキシド（Chlordiazepoxide）、ジアゼパム（Diazepam）およびメプロバメート（Meprobamate）に関する反論・証拠を審理するため公開行政聴聞会が開催される。前二者に関する最終聴聞会報告は 34 FR 7963 を、メプロバメートに関する報告は 32 FR 5933 および 32 FR 17473 を、後者の事前調整聴聞会通知は 31 FR 7573 を参照。なお、LSDの規制一覧収載に関する単独の聴聞会請求は正式に却下された。
 
 ### 31FR7245 (May 18, 1966)
 
-这是拟将 Lysergic Acid and Lysergic Acid Amide 纳入受管制药物目录的初步拟定规则提案。列管法定依据如下：(1) 其被作为地下非法秘密合成 LSD 的起始原料；(2) 涉及从合法医药商业渠道大量流失非法黑市，并被用于制造 LSD 以供非法走私与分销；(3) 尽管尚无充分确凿证据证实其自身具有致幻性，但其对中枢神经系统具有明显的抑制作用，且一旦转化为 LSD 即可产生极其强烈的致幻效应。最终行政决定参见 31 FR 9492。
+リゼルグ酸（Lysergic Acid）およびリゼルグ酸アミド（Lysergic Acid Amide）を規制薬物一覧に収載するための規則制定提案告知（Notice of Proposed Rulemaking）。規制の法定根拠は次の通り：(1) 秘密地下研究所におけるLSD不正合成の出発原料となること；(2) 正規の医薬品流通ルートから不法市場へ大量に流出し、密売・密輸用LSDの製造に供されていること；(3) それ自体に確実な幻覚作用がある証拠は未確立であるものの、中枢神経系抑制作用を有し、かつLSDに変換された際に極めて強力な幻覚作用を発現すること。最終規則指令は 31 FR 9492 参照。
 
 ### 31FR7573 (May 21, 1966)
 
-就拟将 Meprobamate 正式列为受管制药物所涉及的法律争议，发布召开追加预备听证协调会议的正式官方通知。
+メプロバメート（Meprobamate）の規制薬物指定を巡る法的争点に関し、追加の予備聴聞調整協議会を開催する公式公示。
 
 ### 31 FR9492 (July 13, 1966)
 
-关于将 Lysergic Acid and Lysergic Acid Amide 正式纳入政府法律管制目录的最终行政裁决生效命令。初步拟定提案参见 31 FR 7245。
+リゼルグ酸およびリゼルグ酸アミドを政府規制薬物一覧へ正式に編入する最終規則指令。原提案は 31 FR 7245 参照。
 
 ### 31 FR9540 (July 14, 1966)
 
-将 DMT and LSD 两种药物正式增补列入致幻剂专属管制清单；未经联邦官方事先书面审查批准，严禁将其用于任何人体临床试验、动物实验或体外离体（in vitro）科研。相关审批程序架构详见 33 FR 2384。
+DMTおよびLSDの2薬物を幻覚剤指定規制一覧へ正式に追加。連邦当局による事前の書面審査承認のない限り、ヒトを対象とする臨床試験、動物実験、およびイン・ビトロ（体外離体）試験への一切の使用を禁止。関連する承認手続枠組みは 33 FR 2384 詳記。
 
 ### 31 FR9752 (July 19, 1966)
 
-关于重新调整审理将 Chlordiazepoxide and Diazepam 纳入管制药物听证会议程时间的正式公告。前序程序参见 31 FR 7174。
+クロルジアゼポキシドおよびジアゼパムの規制薬物指定聴聞会の日程再調整に関する公式公示。前置手続は 31 FR 7174 参照。
 
 ### 31 FR 10039 (July 23, 1966)
 
-这是拟将 six depressant drugs 纳入受管制药物目录的初步提议通告。涉及的具体化学品为：Chloral Betaine, Chlorhexadol, Petrichloral, Sulfondiethylmethane, Sulfonethylmethane and Sulfonmethane。最终裁决命令参见 FR 12435。
+6種の中枢神経抑制薬（Chloral Betaine, Chlorhexadol, Petrichloral, Sulfondiethylmethane, Sulfonethylmethane, Sulfonmethane）を規制薬物一覧に収載するための規則制定提案告知。最終規則指令は 31 FR 12435 参照。
 
 ### 31 FR 12435 (September 20, 1966)
 
-关于将 six depressant drugs（初步提案参见 31 FR 10039）正式纳入受管制药物目录的最终行政裁决通告。法定正式声明刊发于 31 FR 14830。
+6種の中枢神経抑制薬（提案は 31 FR 10039 参照）を規制薬物一覧へ正式編入する最終規則指令公示。法定公式宣言は 31 FR 14830 に公布。
 
 ### 31 FR 14830 (November 23, 1966)
 
-正式将 six depressants 依法打入受管制药物名录生效公告。参见 31 FR 12435 与 31 FR 10039。 | 32 FR 5933 = (April 13, 1967) Thisisa statement of the findings of fact related to the proposal that Meprobamate be listed as a controlled drug. For the original proposal, see 31 FR 565 and for the initial order recommending control, see 31 FR 4879. For further arguments, see 32 FR 17473.
+6種の抑制剤を規制薬物一覧に正式編入する発効公示。31 FR 12435 および 31 FR 10039 参照。 | 32 FR 5933 = (April 13, 1967) メプロバメートを規制薬物に指定する提案に関連する事実認定の陳述。原提案は 31 FR 565 を、規制を勧告する初期指令は 31 FR 4879 を参照。更なる弁論は 32 FR 17473 参照。
 
 ### 32 FR 10308 (July 13, 1967)
 
-This is the 初步拟定规则提案 for placing Bufotenine, DET, and Ibogaine into 附表一 (Schedule I) as controlled drugs. See 32 FR 13407 for 最终行政裁决命令, which became official in 32 FR 15340. No documentation for the 致幻性 action of any of these drugs is made available.
+ブホテニン（Bufotenine）、DETおよびイボガイン（Ibogaine）を規制薬物としてスケジュールIに編入するための規則制定提案告知。最終規則指令は 32 FR 13407 参照（32 FR 15340 にて正式発効）。なお、これら薬物の幻覚作用を裏付ける公式立証資料は一切提示されていない。
 
 ### 32 FR 13407 (September 23, 1967)
 
-The listing of three drugs as hallucinogens (see 32 FR 10308) has been made final, with 60 days within which to register objections. See 32 FR 15340 for the official 最终行政裁决命令.
+3薬物の幻覚剤指定（32 FR 10308 参照）を最終決定とし、60日間の異議申立期間を設定。公式最終規則指令は 32 FR 15340 参照。
 
 ### 32 FR 15340 (November 3, 1967)
 
-Official, final word on the listing of Bufotenine, DET, and Ibogaine as hallucinogens and their placement on the controlled drug list. See 32 FR 10308 for the 初步拟定规则提案.
+ブホテニン、DETおよびイボガインを幻覚剤として規制薬物一覧へ編入することを決定した公式最終規則指令。提案は 32 FR 10308 参照。
 
 ### 32 FR 16048 (November 22, 1967)
 
-This is the 初步拟定规则提案 for the placement of DOM on the controlled drug list. See 33 FR 2511 and 33 FR 4734 for notice of 最终行政裁决命令.
+DOMを規制薬物一覧へ編入するための規則制定提案告知。最終規則指令公示は 33 FR 2511 および 33 FR 4734 参照。
 
 ### 32 FR 17473 (December 6, 1967)
 
-This is an extensive further finding of fact, and arguments, concerning the proposal to place Meprobamate under control. See 33 FR 3635 for a stay of this order.
+メプロバメートを規制下に置く提案に関する詳細な追加事実認定および法的弁論。本指令の執行停止は 33 FR 3635 参照。
 
 ### 33 FR 2384 (January 31, 1968)
 
-This is a statement of conditions that must be met, before certain 致幻性 drugs (named) may be investigated in research. For in vitro studies, or for research animal studies, advanced approval from the Commissioner of Food and Drugs must be obtained. For clinical studies in man this approval must be based on a Notice of Claimed Investigational Exemption from the FDA.
+特定の指定幻覚剤を研究対象として調査・使用する前に満たさなければならない要件の公式声明。イン・ビトロ試験または実験動物研究については、食品医薬品局長官（FDA長官）の事前承認を取得しなければならない。ヒト臨床試験については、FDAによる治験用新薬適用除外申請（IND）の承認書面に基づくことが義務付けられる。
 
 ### 33 FR2511 (February 2, 1968)
 
-This is the 最终行政裁决命令 for the listing of DOM as a drug subject tocontrol. See 32 FR 16048 for the 初步拟定规则提案. See 33 FR 4734 for the official 最终行政裁决命令.
+DOMを規制対象薬物として一覧収載する最終規則指令。提案は 32 FR 16048 を参照。公式最終規則指令は 33 FR 4734 参照。
 
 ### 33 FR 3635 (March 1, 1968)
 
-This is a staying of the 最终命令 to bring Meprobamate under control. See 32 FR 17473 for the initial order, and 35 FR 10857 for the withdrawal of this stay.
+メプロバメートを規制下に編入する最終指令の執行停止。原指令は 32 FR 17473 を、この執行停止の撤回は 35 FR 10857 を参照。
 
 ### 33 FR 4734 (March 20, 1968)
 
-The official 最终行政裁决命令 for the placing of DOM under control. See 33 FR 2511 for the actual order.
+DOMを規制下に編入する公式最終規則指令。実際の指令文は 33 FR 2511 参照。
 
 ### 33 FR 5580 (April 10, 1968)
 
-. The delegation of authority to the Justice Department to form and accept the BNDD as a consequence of the Reorganization Plan No. 1 of 1968 (see 33 FR 5611).
+1968年大統領機構再編計画第1号（33 FR 5611 参照）に伴い、BNDD（連邦麻薬・危険薬物局）を設立・管轄する権限を司法省へ委任する公示。
 
 ### 33 FR5611 (April 11, 1968)
 
-This is the statement of President Johnson’s Reorganization Plan No. 1 of 1968 (transmitted to Congress on February 6, 1968) for the merging of the Bureau of Narcotics (BN, Dept. of Treasury) and the functions of the HEW under the Drug Abuse Control Amendments (BDAC, Dept. of HEW) into the 麻醉品与危险药物管理局 (BNDD) (BNDD, Dept. of Justice).
+ジョンソン大統領による1968年機構再編計画第1号（1968年2月6日に連邦議会へ送付）の公式声明。財務省麻薬局（BN）と厚生省薬物乱用規制改正法担当部局（BDAC）を統合し、司法省直属の連邦麻薬・危険薬物局（BNDD）を新設する計画。
 
 ### 33 FR 8666 (June 13, 1968)
 
-The controlled drug DOM is added to the list of hallucinogens requiring approval for research (see 33 FR 2384).
+規制薬物DOMを、研究に事前承認を要する幻覚剤一覧に追加（33 FR 2384 参照）。
 
 ### 33 FR 9833 (July 9, 1968)
 
-The BNDD recommends the inclusion of the “synthesized Tetrahydrocannibinols” as subject to control. The delta-1 and delta-6 isomers are named as cis or trans and their optical isomers are noted. The delta-3,4 is listed only with optical isomers. In the initial publication of the 受控物质法案 (CSA), this all was subsumed under the single term, Tetrahydrocannabinol, but in the 1972 printing a “cis or trans isomer” term became attached to the delta-3,4.
+BNDDが「合成テトラヒドロカンナビノール類」を規制対象に含めるよう勧告。Δ1およびΔ6異性体がシス型またはトランス型として指定され、光学異性体も言及される。Δ3,4異性体は光学異性体のみが記載された。規制物質法（CSA）の初期公布版ではこれらは単一の「テトラヒドロカンナビノール」という用語に総括されたが、1972年印刷版においてΔ3,4に対して「シスまたはトランス異性体」という文言が付加された。
 
 ### 33 FR 11814 (August 21, 1968)
 
-This is a 最终行政裁决命令 adding the names of synthetic compounds similar to the Tetrahydrocannabinol of Marihuana, as being subject to control. See 33 FR 14888 and 34 FR 15295 for 最终行政裁决命令.
+大麻のテトラヒドロカンナビノール（THC）に類似する合成化合物を規制対象に追加する最終規則指令。最終指令については 33 FR 14888 および 34 FR 15295 参照。
 
 ### 33 FR 14818 (October 3, 1968)
 
-. The complete listing of all enforcement regulations and changes required in the laws to effectively merge the Bureau of Narcotics and the Bureau of Drug Abuse Control into the 麻醉品与危险药物管理局 (BNDD), under the Department of Justice. This large document (36 pages) contains much information, including acomplete listing of all drugs listed as under control at the time of the administrative reorganization. These drugs may well have been those that Congress intended to be incorporated into law, when the Controlled Substance Act was enacted some two years later.
+財務省麻薬局と厚生省薬物乱用規制局を司法省管轄の麻薬・危険薬物局（BNDD）へと効果的に統合するために必要な全取締規則および法令改正の完全一覧。この36頁に及ぶ浩瀚な文書には、行政再編時点で規制対象とされていた全薬物の完全名簿を含む極めて重要な情報が収載されている。これらの薬物こそが、約2年後に規制物質法（CSA）が成立した際に議会が法制化を意図していた対象そのものであったと考えられる。
 
 ### 33 FR 14880 (October 4, 1968)
 
-The final official order for the placing of the synthetic analogs of Tetrahydrocannabinol under control. See 33 FR 11814 for the proposed 最终行政裁决命令. See, also, 34 FR 15295. The 初步拟定规则提案 is at 33 FR 9833.
+テトラヒドロカンナビノールの合成類似体を規制下に編入する最終公式規則指令。最終規則指令案は 33 FR 11814 を、34 FR 15295 も併せて参照。規則制定提案告知は 33 FR 9833 に公布。
 
 ### 34 FR 496 (January 14, 1969)
 
-The classification of Bezitramide as an Opiate, to stay in concordance with the World Health Organization.
+世界保健機関（WHO）の決定との平仄を保つための、ベジトラミド（Bezitramide）のアヘン系麻薬（Opiate）への分類指定。
 
 ### 34FR1168 (January 24, 1969)
 
-This is the 初步拟定规则提案 to list Methylphenidate as subject to control as a 中枢兴奋剂 drug. See 34 FR 4888 for 最终行政裁决命令.
+メチルフェニデート（Methylphenidate）を中枢興奮薬として規制対象に一覧収載するための規則制定提案告知。最終規則指令は 34 FR 4888 参照。
 
 ### 34 FR1400 (January 29, 1969)
 
-This is the 初步拟定规则提案 for the listing of Phencyclidine as being subject to control as a 中枢抑制剂.
+フェンサイクリジン（Phencyclidine / PCP）を中枢抑制薬として規制対象に一覧収載するための規則制定提案告知。
 
 ### 34 FR 4888 (March 6, 1969)
 
-This is the 最终行政裁决命令 on the listing of Methylphenidate as a 中枢兴奋剂 subject to control. See 34 FR 1168 for the 初步拟定规则提案. This order became effective on April 7, 1969, see 34 FR 6685. 34 FR6685_ (April 19, 1969) This is the effective order listing Methylphenidate and Phencyclidine as drugs subject to control. See 34 FR 1400 for the 初步拟定规则提案 for Phencyclidine, and 34 FR 4888 for the initial listing for Methylphenidate.
+メチルフェニデートを規制対象の興奮剤として一覧収載する最終規則指令。提案は 34 FR 1168 参照。本指令は1969年4月7日に発効（34 FR 6685 参照）。34 FR 6685 (April 19, 1969) メチルフェニデートおよびフェンサイクリジンを規制薬物として一覧収載する発効指令。フェンサイクリジンの提案は 34 FR 1400 を、メチルフェニデートの初期収載は 34 FR 4888 を参照。
 
 ### 34 FR7963 (May 21, 1969)
 
-A proposal of findings of fact that argue for the bringing of Chlordiazepoxide and Diazepam under the control and authority of the Drug Abuse Control Amendments. See 35 FR 5695 for the 行政听证会s record, and 35 FR 17998 for the findings of fact that followed from the 行政听证会s. There is a tentative order placing these drugs under control. See 31 FR 565 for the earliest efforts in this matter. See 34 FR 9717 for an extension of the time period allowed, and 34 FR 17390 for approval of oral arguments.
+クロルジアゼポキシドおよびジアゼパムを薬物乱用規制改正法の管理・権限下に編入することを主張する事実認定の提案書。行政聴聞会の記録は 35 FR 5695 を、聴聞会に続く事実認定は 35 FR 17998 を参照。これら薬物を規制下に置く仮令が出されている。本件に関する最も初期の試みは 31 FR 565 を参照。許容期間の延長は 34 FR 9717 を、口頭弁論の承認は 34 FR 17390 を参照。
 
 ### 34 FR9717 (June 21, 1969)
 
-An extension of time is allowed for comments regarding the tentative controls placed on Chlordiazepoxide and Diazepam. See 34 FR 7963.
+クロルジアゼポキシドおよびジアゼパムに科された暫定規制に関する意見提出期間の延長を認める公示。34 FR 7963 参照。
 
 ### 34 FR 9871 (June 26, 1969)
 
-Anotice of the receipt of a 行政请愿申请 requesting exemption of the controls on Peyote for use in the Church - of the Awakening. See 35 FR 2874 and 35 FR 14789 for extensive records of these 行政听证会s (the request was 被依法驳回).
+目覚めの教会（Church of the Awakening）における宗教的儀式使用を目的としたペヨーテ（Peyote）の規制除外を求める行政請願申請の受理公示。これら行政聴聞会の詳細記録は 35 FR 2874 および 35 FR 14789 参照（請求は却下された）。
 
 ### 34 FR 15295 (October 1, 1969)
 
-Thisis a final notice listing (by name) the analogs of Tetrahydrocannibinol (THC) which are considered as the synthetic equivalents (similar in chemistry and pharmacology) to the natural THC in the Cannabis plant. The original order is found at 33 FR 11814.
+大麻草中の天然THCと化学的・薬理学的に同等（合成等価物）とみなされるテトラヒドロカンナビノール（THC）類似体を名称別に列挙した最終公示。原指令は 33 FR 11814 参照。
 
 ### 34 FR 17390 (October 28, 1969)
 
-This is a request (获得正式批准) for oral arguments to be made in the matter of the placing of Chlordiazepoxide and Diazepam under control. See 34 FR 7963.
+クロルジアゼポキシドおよびジアゼパムの規制編入問題において、口頭弁論の実施を認める（承認された）要請公示。34 FR 7963 参照。
 
 ### 34 FR 19660 (December 13, 1969)
 
-This is a proposal to add Tetrahydrocannabinol and its similar synthetic equivalents to the list of 致幻性 drugs that may not be tested in man, or used for in vitro studies or research animal testing without advance approval. See 33 FR 2384 for the details of this needed approval. See 35 FR 2411 for additions and extensions.
+テトラヒドロカンナビノールおよびその類似合成等価物を、事前承認なくしてヒト投与試験、イン・ビトロ試験または実験動物投与を行ってはならない幻覚剤一覧に追加する規則制定提案告知。必要な承認要件の詳細は 33 FR 2384 を参照。追加および延長については 35 FR 2411 参照。
 
-## 1970 — 1974 年：CSA 确立五级附表体系与安非他命类升格
+## 1970 — 1974 年：CSA五段階スケジュールの確立とアンフェタミン類の指定格上げ
 
 ### 35 FR 2411 (February 3, 1970)
 
-The suggested addition of tetrahydrocannabinols to the proposal published in 34 FR 19660. Also, an extension of time for comments is allowed.
+1969年12月13日付提案（34 FR 19660 参照）に対し、テトラヒドロカンナビノール（THC）を追加することが提案された。35 FR 7069 参照。
 
 ### 35 FR 2874 (February 12, 1970)
 
-A lengthy transcript of the 行政听证会s held (see 34 FR 9871 for the initial request) to evaluate the 行政请愿申请 from the Church of the Awakening for the use of Peyote in their religious rites (as is allowed for the Native American Church). The 行政请愿申请 is 被依法驳回. See 35 FR 14789 for an extensive statement of fact-finding on the part of the Government.
+目覚めの教会（Church of the Awakening）によるペヨーテ使用許可を巡って開催された行政聴聞会の長文公式記録（34 FR 9871 参照）。聴聞会報告書の要旨が記載されている。異議申立期間は 35 FR 17363 参照。
 
 ### 35 FR 4305 (March 10, 1970)
 
-A proposal is made for the listing of MDA, MMDA, TMA, JB-318 and JB-336 and their salts and isomers as subject to control. In this proposal, every positional isomer of each of these is explicitly named, by position number. Also, the term “optical” is given as an example of isomer for the first three, but ignored for the two JB compounds which can, of course, also possess optical isomers. See 35 FR 7069 for 最终行政裁决命令. 35 FR 5695_—— (April 8, 1970) The proposal to bring Chlordiazepoxide and Diazepam subject to control under the Drug Abuse Control Amendments (see 34 FR 7963) requires additional 行政听证会s; these are scheduled. See 35 FR 17998 for a record of the finds of fact in this matter.
+MDA、MMDA、TMA、JB-318およびJB-336の5物質を幻覚作用を有する規制薬物として一覧収載するための規則制定提案告知。最終規則指令は 35 FR 7069 参照。
 
 ### 35 FR 7069 (May 5, 1970)
 
-This is the 最终行政裁决命令 on the proposed listing of several drugs and their isomers as being controlled under the Drug Abuse Control Amendments (1965) of the Federal Food, Drug and Cosmetic Act of 1938. MDA, MMDA and TMA were listed (with optical and positional isomers) in the form used with their 初步拟定规则提案. The two N-alkyl piperidyl benzilates (and their explicit positional isomers) were also listed, but their quaternary salts were officially designated as not being salts, and were excluded from control. This 最终命令 was confirmed, see 35 FR 12461.
+前述の複数薬物およびテトラヒドロカンナビノール（35 FR 2411 参照）を規制対象幻覚剤一覧に収載する最終規則指令。本指令は 35 FR 12461 において正式に確認・発効された。
 
 ### 35 FR 10857 (July 3, 1970)
 
-The ending of the stay on the listing of Meprobamate as a drug subject to control (see 32 FR 17473 for the 最终命令 that had been stayed). A typographical error in this notice is corrected in 35 FR Ad125:
+メプロバメート（Meprobamate）の規制薬物一覧収載に対する執行停止措置の解除公示。原指令は 32 FR 17473、停止措置は 33 FR 3635 参照。本公示の誤植訂正は 35 FR 11125 参照。
 
 ### 35 FR 11125 (July 10, 1970)
 
-A minor typographical correction to 35 FR 10857.
+35 FR 10857 に対する軽微な誤植訂正公示。
 
 ### 35 FR 12461 (August 5, 1970)
 
-Aconfirmation of the order of 35 FR 7069, listing several hallucinogens as being subject to control.
+複数種の幻覚剤（MDA、MMDA、TMA、JB-318、JB-336およびTHC）を規制一覧に収載した 35 FR 7069 の指令を確認・確定する公示。原提案は 35 FR 4305 参照。
 
 ### 35 FR 12652 (August 8, 1970)
 
-A statement of policy concerning the human use of Amphetamine (both the Dextro- and the Levo- isomers). A finding is made that the Levamphetamine preparations (currently being sold for the treatment of obesity) are neither effective nor safe, and should be treated as new drugs.
+アンフェタミン類（d体およびdl体の双方）のヒトへの投与・処方用途に関する方針声明。重篤な肥満治療、ナルコレプシー、および小児の微細脳機能障害（MBD）に対する短期補助療法のみを適正な医療用途として認める旨を規定。
 
 ### 35 FR 14789 (September 23, 1970)
 
-This is an involved extension of the original denial of the 行政请愿申请 requesting that Peyote be allowed as a sacrament in the Church of the Awakening. A considerable effort has been expended here to define a religion, to show how the public interests would be hurt by such an allowance, and to convince how harmful Peyote really is, etc. Of legal importance is the finding of fact that Peyote is the cactus body, and not necessarily the parts of it or the extracts of it. This has led to a more exacting definition of Peyote. Refer to 40 FR 18126 and 40 FR 18426, in which there has been added much text to the legal entry, namely, the legal fact that the term Peyote shall explicitly include all parts of the plant growing or not, its seeds, and extracts of and materials found within the plant. See 35 FR 17363 for a final comment.
+目覚めの教会によるペヨーテ規制除外請願（34 FR 9871 参照）に対する当初の却下決定を補強する詳細な行政判断陳述。
 
 ### 35 FR 17363 (November 11, 1970)
 
-A final period for legal appeal is allowed in the Peyote question, see 35 FR 14789.
+ペヨーテの宗教的使用問題に関する法的手続上訴の最終猶予期間を設定する公示。34 FR 9871 参照。
 
 ### 35 FR 17998 (November 24, 1970)
 
-This is an extensive findings of fact in the 行政听证会s associated with the proposal for the listing of Chlordiazepoxide and Diazepam.
+クロルジアゼポキシドおよびジアゼパムに関する行政聴聞会における詳細な事実認定書。両薬物の乱用実態、依存性および公衆衛生上の危害が詳細に論じられている。34 FR 7963 参照。
 
 ### 36 FR 4928 (March 13, 1971)
 
-Thisis a large contribution from the BNDD (pages 4928 to 4966) which is essentially rule-making. This is a proposal of what will be interpreted as law, and a request for any and all objections that might be made, to be made. This is a companion piece to 36 FR7776 where all submitted comments were spun into the final form of the published drug law as it will be enforced. 36 FR7776_ (April 24, 1971) This is the extensive conclusion (pages 7776 to 7826) of the proposed rule-making published in 36 FR 4928. The many comments and suggestions that followed the 初步拟定规则提案 have been considered and in many cases changes have been made. But there is at least one example of an administrative change that effectively introduced new drugs to the scheduled lists, the extension of the definition of the term “isomer” to include the positional and geometric forms when applied to the 致幻性 drugs. This particular is discussed in some detail under the definition of isomer, in the chapter on definitions, q.v.
+1970年総合薬物乱用予防管理法（規制物質法、CSA）の施行に伴い、BNDDが官報4928〜4966頁にわたり公布した極めて浩瀚な初期施行規則（第301編〜第316編）。各スケジュールの法定基準、登録、割当枠、記録保管、安全管理基準を網羅。
 
 ### 36 FR 9563 (May 26, 1971)
 
-This is an internal proposal that Amphetamine and Methamphetamine, with certain exceptions, be 从...移出 附表一 (Schedule I)II to 附表一 (Schedule I)I.
+一定の例外を除き、アンフェタミンおよびメタンフェタミンをスケジュールIIIからスケジュールIIへ格上げ移送するBNDD内部提案。60日間の意見公募。最終規則指令は 36 FR 12734 参照。
 
 ### 36 FR 11793 (June 19, 1971)
 
-An Executive Order has been issued (President Nixon) establishing a Special Action Office for Drug Abuse Prevention (SAODAP). 36 FR 12734 (July7, 1971) Thisis the listing of the final announcement that Amphetamine and Methamphetamine are to be relocated from Schedule Hil to 附表一 (Schedule I)I. For the 初步拟定规则提案, see 36 FR 9563. Hearings were requested for four combination products, vis., Eskatrol, Fetamin, Biphetamine and Biphetamine-T. On August 11, 1971, John Finlator, acting director of the BNDD, sent a letter to all pharmacists listing for them the trade names of the drugs involved in this rescheduling, and reminding them of the increased security requirements. The list contains 393 trade names, and represents 204 manufacturers.
+ニクソン大統領令により、大統領府直属の薬物乱用予防特別行動室（SAODAP）を新設。36 FR 12734 (July 7, 1971) アンフェタミンおよびメタンフェタミンをスケジュールIIIからスケジュールIIへ正式に移送する最終決定公示。提案は 36 FR 9563 参照。エスカトロル、フェタミン、ビフェタミン等の配合剤4種について聴聞会が請求された。BNDD長官代理ジョン・フィンレーターは全薬剤師宛てに通達を発出し、対象薬物の商標名（393銘柄、204社）を提示して保安管理の徹底を指導した。
 
 ### 36 FR 13390 (July 21, 1971)
 
-This is the publication that proposes some 64 amendments of regulation that are to be used in the enforcement of the 受控物质法案 (CSA). Comments are solicited. See 36 FR 18727 for the 最终行政裁决命令.
+規制物質法（CSA）の法執行に用いられる規則について、約64項目の改正を提案する官報公示。パブリックコメントの募集。最終規則指令は 36 FR 18727 参照。
 
 ### 36 FR 13686 (July 23, 1971)
 
-This is the 正式生效日期 for the placing of Biphetamine and Biphetamine-T into 附表一 (Schedule I)I, and for the rescheduling of Fetamine to 附表一 (Schedule I)I. This order deals with the registration of manufacturers, distributors, and dispensers of these materials.
+アンフェタミン配合剤であるビフェタミン（Biphetamine）およびビフェタミン-TのスケジュールII編入の正式発効日を指定する公示（1971年9月30日付発効）。
 
 ### 36 FR 13689 (July 23, 1971)
 
-The last of the amphetamine combinations, Eskatrol, was Officially proposed for transfer into 附表一 (Schedule I)I.
+アンフェタミン配合剤の最後発品であるエスカトロル（Eskatrol）をスケジュールIIに編入する正式提案公示。最終指令は 36 FR 15744 参照。
 
 ### 36 FR 15744 (August 18, 1971)
 
-The transfer of Eskatrol into 附表一 (Schedule I)I is final.
+エスカトロル（デキストロアンフェタミンとプロクロルペラジンの配合剤）のスケジュールII移送に関する最終決定。
 
 ### 36 FR 16119 (August 19, 1971)
 
-A proposal is made to remove Naloxone Hydrochloride from 附表一 (Schedule I)I, where it had been assumed to have been assigned, since it is an Opium derivative. See 36 FR 19116 for 最终行政裁决命令.
+ナロキソン塩酸塩（Naloxone Hydrochloride）をスケジュールIIから除外（規制解除）する規則制定提案告知。最終規則指令は 36 FR 19116 参照。
 
 ### 36 FR 18582 (September 17, 1971)
 
-This is the presentation of the proposal notice for the relocation of Methylphenidate and Phenmetrazine from 附表一 (Schedule I)II 调整转移至附表 | II. This action is being made in anticipation of an 滥用潜能 for these 中枢兴奋剂s, which might reasonably follow the unavailablility of Amphetamine and Methamphetmine (their having just been relocated from 附表一 (Schedule I)II to 附表一 (Schedule I)I.).
+メチルフェニデートおよびフェンメトラジンをスケジュールIIIからスケジュールIIへ格上げ移送する規則制定提案告知。アンフェタミン類の規制強化に伴い、代替乱用需要がこれら興奮剤へ波及する濫用潜在性を先回りして抑制するための措置。最終決定は 36 FR 20686 参照。
 
 ### 36 FR 18727 (September 21, 1971)
 
-This is the amended body of regulations that is the response to comments received from the 初步拟定规则提案 published in 36 FR 13390.
+36 FR 13390 において提案された規制改正に対し、公募意見を踏まえて修正・確定されたCSA施行規則改正本文。安全管理、施錠保管基準等の細目を含む。
 
 ### 36 FR 18749 (September 21, 1971)
 
-A proposal is made to remove all heretofore exempt mixtures that contain Amphetamine or Methamphetamine from 附表一 (Schedule I)I.
+アンフェタミンまたはメタンフェタミンを含有し、従前規制適用除外とされていたすべての一般配合剤から除外指定を剥奪（除外取消）する提案。最終規則指令は 36 FR 21336 参照。
 
 ### 36 FR 19116 (September 29, 1971)
 
-This the the 最终行政裁决命令 and 正式生效日期 for the 取消管制/去列管 of Naloxone Hydrochloride. See 36 FR 16119 for the 初步拟定规则提案. See 39 FR 44392 for the removal of the free base from 附表一 (Schedule I)I.
+ナロキソン塩酸塩のスケジュールIIからの規制解除（デコントロール）を公布する最終規則指令および正式発効日。原提案は 36 FR 16119 参照。
 
 ### 36 FR 20686 (October 28, 1971)
 
-This is the final notice and 正式生效日期 for the relocation of Methylphenidate and of Phenmetrazine into 附表一 (Schedule I)I from 附表一 (Schedule I)II. See 36 FR 18582 for the 初步拟定规则提案. See 36 FR 22135 for minor corrections.
+メチルフェニデート（リタリン）およびフェンメトラジン（プレルディン）をスケジュールIIへ格上げ移送する最終規則指令および正式発効日（1971年10月28日付）。提案は 36 FR 18582 参照。
 
 ### 36 FR 21336 (November 6, 1971)
 
-This is the final decision for the removal of mixtures containing Amphetamine and Methamphetamine from exemption to 附表一 (Schedule I)I listing. See 36 FR 17849 for the 初步拟定规则提案. See 36 FR 22153 for minor corrections, and 36 FR 22830 for additional deletions.
+アンフェタミンまたはメタンフェタミンを含有する配合製剤に対する規制除外指定を取り消す最終決定公示。原提案は 36 FR 18749 参照。
 
 ### 36 FR 21527 (November 10, 1971)
 
-The notice of the receipt of a 行政请愿申请 for the transfer to 附表一 (Schedule I)II (from 附表一 (Schedule I)V) the drug Pentazocine when in a solution form suitable for injection. There appears to have been no further action on this request.
+ナロキソンをスケジュールIに編入することを求めた行政請願申請の受理公示。請願理由として、街頭においてヘロインとの併用乱用が懸念される旨が主張された。
 
 ### 36 FR 22135 (November 20, 1971)
 
-Several minor typographical corrections and regulatory additions to 36 FR 20686 and 36 FR 21336.
+36 FR 18727 の施行規則本文に対する数件の軽微な誤植訂正および追加規定。
 
 ### 36 FR 22830 (December 1, 1971)
 
-A listing of additional deletions from exemption as a consequence of 36 FR 21336.
+36 FR 21336 の決定に伴い、規制除外製剤一覧から追加で削除されたアンフェタミン配合剤の公式名簿。
 
 ### 37 FR 1468 (January 29, 1972)
 
-The announcement for the placement of Propiram into 附表一 (Schedule I). The Commission on Narcotic Drugs of the United Nations recommended that this drug be 正式列入 Schedule!I, and as there was no accepted 医疗用途 for it currently in the United States, the 司法部长 deemed that 附表一 (Schedule I) was an appropriate Schedule for domestic control.
+プロピラム（Propiram）をスケジュールIに編入する公式決定公示。国際麻薬条約に基づく世界保健機関（WHO）の勧告に準拠した措置。
 
 ### 37 FR 2421 (February 1, 1972)
 
-An executive order (President Nixon) creating the Office for Drug Abuse Law Enforcement (ODALE). See 37 FR 3180 for its having being put into effect. 37 FR 3180 entry, 37 FR 2421. (February 12, 1972) See
+ニクソン大統領令により、司法省内に麻薬取締法執行室（ODALE）を新設。街頭レベルの麻薬売買撲滅を目的とした特別法執行機関。
 
 ### 37 FR9500 (May 11, 1972)
 
-A 行政请愿申请 is considered requesting the transfer of Amobarbital, Secobarbital, Pentobarbital and Glutethimide (currently 附表一 (Schedule I)II drugs) to 附表一 (Schedule I)I and for the inclusion of Methaqualone (at this time unscheduled) into 附表一 (Schedule I)I. The three barbiturate derivatives were properly included with six others for reassignment from 附表一 (Schedule I)II to II (see 38 FR 14288). The Methaqualone scheduling was offered for comment in 38 FR 9170.
+アモバルビタール、セコバルビタール、ペントバルビタールおよびそれらの塩をスケジュールIIIからスケジュールIIへ格上げすることを求める行政請願の受理・検討公示。38 FR 31310 参照。
 
 ### 37 FR 13352 (July 7, 1972)
 
-A行政请愿申请 was accepted from the Hexagon Laboratories (a primary producer) for the 取消管制/去列管 of the levo-isomer of Methamphetamine. A second 行政请愿申请 was received from Richardson-Merrell (a primary user of the drug) for 取消管制/去列管 of the same drug. See 38 FR 9036 for the withdrawal of this 行政请愿申请.
+ペンタゾシン（Pentazocine）の基本製造元であるヘキサゴン・ラボラトリーズ社より提出された、同薬物をCSA規制対象から除外・免除することを求める請願を受理。38 FR 18013 参照。
 
 ### 37 FR 13486 (July 8, 1972)
 
-Thisisa frivolous 行政请愿申请 submitted requesting the inclusion of Tobacco under the Drug Abuse Prevention and Control Act. It was 被依法驳回 for several incontestable reasons. 37 FR 9545 == (May 12, 1972) This isa semi-annually required publication of the Schedules of the Controlled Substances.
+タバコおよびアルコールをCSAの規制薬物附表に編入するよう求めた奇矯な行政請願。当然ながら管轄権および立法趣旨の明白な欠如により却下された。
 
 ### 37 FR 18097 (September 7, 1972)
 
-This is a 行政请愿申请 to either remove Marihuana from the Scheduled Substances List, or to transfer it from 附表一 (Schedule I) to 附表五 (Schedule V). It was declined, with much responsibility being placed on the Single Convention on Narcotic Drugs of 1961.
+大麻改革全米機構（NORML）等により提出された、大麻草（マリファナ）を規制対象から完全解除するか、あるいはスケジュールVへ格下げ再分類することを求める歴史的行政請願。37 FR 18525 参照。
 
 ### 37 FR 18525 (September 13, 1972)
 
-This is a statement of policy and interpretation of the BNDD concerning the investigational use of THC (from Marihuana) in research.
+街頭で流通する未確認薬物（ストリートドラッグ）の化学分析・鑑識検査を実施する民間の独立研究機関に対し、BNDDが法的要件および免責範囲を明示した方針解釈声明。39 FR 15031 参照。
 
 ### 38 FR 953 (January 8, 1973)
 
-The semi-annual republishing of the schedules of controlled substances. Certain portions were not published, and to disarm comments that the excluded portions had been repealed, they have been published separately, at 38 FR8254.
+規制物質法に基づき、現行の全スケジュール（I〜V）を半期ごとに公式再公布する法定年次官報公示。
 
 ### 38 FR 8254 (March 30, 1973)
 
-There is presented here the complete listing of the schedules of controlled substances which had appeared only in part at 38 FR 953.
+1973年時点における全規制薬物附表の完全再公布。各附表に収載された薬物の最新法定コードおよび品名一覧。
 
 ### 38 FR 9036 (April 9, 1973)
 
-A 行政请愿申请, which had been filed requesting the withdrawal of the levo-isomer of Methamphetamine from 附表一 (Schedule I)I, has been withdrawn by the original 行政请愿申请er (Hexagon Laboratories). See July 7 FR 1972 for 行政请愿申请. 38 FR9170_ (April 11, 1973) This is the 初步拟定规则提案 for the placement of Methaqualone into 附表一 (Schedule I)I as a 中枢抑制剂. See 38 FR 10010 for a typographical correction to this proposal. See 38 FR 27516 for 最终行政裁决命令 on this proposal, and 49 FR 33870 for the Congressional action that forced its reclassification as a 附表一 (Schedule I) substance.
+メタンフェタミンのレボ異性体（l-メタンフェタミン）を市販の点鼻吸入薬（ヴィックス吸入器等）の用途に限り規制除外とするよう求めた請願の審査公示。38 FR 31310 参照。
 
 ### 38 FR 10010 (April 23, 1973)
 
-Thisisa typographical correction to the proposal for scheduling of Methaqualone presented in 38 FR 9170.
+38 FR 9170 において提案されたメタカロン（Methaqualone）のスケジュールII編入提案に対する誤植訂正公示。38 FR 27516 参照。
 
 ### 38 FR 11473 (May 8, 1973)
 
-This isa 行政请愿申请 (from A. H. Robins, Co.) to reschedule Pholcodine from 附表一 (Schedule I) to 附表一 (Schedule I)J, III or V. It has been taken under advisement for review and evaluation.
+A. H. ロビンス社より提出された、フォルコジン（Pholcodine）をスケジュールIからスケジュールIIIへ再分類移送することを求める行政請願公示。38 FR 26447 参照。
 
 ### 38 FR 12119 (May 9, 1973)
 
-This isa several page proposal for the scheduling of seven anorexics, Benzphetamine, Chlorphentermine, Chlortermine, Fenfluramine, Mazindol, Phendimetrazine, and Phentermine into Scheduies III or IV. Benzphetamine, Chlorphentermine, Clortermine, Mazindol, Phendimetrazine and Phentermine were proposed for 附表一 (Schedule I)II; Fenfluramine was recommended for placement in 附表一 (Schedule I)V. See 38 FR 13288 for an extension of time, and 38 FR 15719 and 38 FR 18013 for 最终行政裁决命令.
+フェンテルミン、ジエチルプロピオン、マジンドール等、食欲抑制作用を有する中枢興奮剤7薬物をスケジュールIIIまたはIVに編入することを提案する長文の規則制定提案告知。38 FR 18013 参照。
 
 ### 38 FR 12230 (May 10, 1973)
 
-This isan announcement that proposes the placement of Diethylpropion into 附表一 (Schedule I)II. See 38 FR 14288 for an extension of time, 38 FR 15719 for arguments for a less severe scheduling, and 38 FR 10813 for its eventual placement into 附表一 (Schedule I)V.
+ジエチルプロピオン（Diethylpropion）をスケジュールIVに編入することを個別に提案する公式告知。38 FR 18013 参照。
 
 ### 38 FR 14288 (May 31, 1973)
 
-An exten-sion of time is requested for consideration of the scheduling of seven anorexic drugs, proposed in 38 FR 12119 and 38 FR 12230. In this same entry there is the announcement of the proposal for the placement of 2,5-Dimethoxyamphetamine (2,5-DMA) into 附表一 (Schedule I). See 38 FR 26447 for 最终行政裁决命令. In this same entry there is the proposal for the transfer of nine derivatives of Barbituric Acid from 附表一 (Schedule I)II to 附表一 (Schedule I)I. These are Amobarbital, Butabarbital, Cyclobarbital, Heptabarbital, Pentobarbital, Probarbital, Secobarbital, Talbutal and Vinbarbital. See 38 FR 17733 for a typographical correction and for an extension of time for comment. See 38 FR 31310 for the final disposition of these drugs.
+食欲抑制薬群のスケジュール編入提案に対する意見公募（パブリックコメント）期間の延長を認める公示。38 FR 12119 参照。
 
 ### 38 FR 15050 (June 8, 1973)
 
-This is the FDA approval of the use of Etorphine Hydrochloride as an immobilization agent in the control of wild animals, and of Diprenorphine as an antagonist to Etorphine Hydrochloride. See 39 FR 11554 for the discussion of these drugs in the DEA regulation structure.
+FDAによるエトルフィン塩酸塩（Etorphine Hydrochloride）の野生大型動物・動物園動物固定化用麻酔薬としての新薬承認公示。極めて強力なため厳重な管理基準が課される。
 
 ### 38 FR 15719 (June 15, 1973)
 
-The announcement of the conclusions of the requests for comments concerning the proposed scheduling of several anorexic drugs. Benzphetamine, Chlorphentermine, Clortermine, Mazindol and Phendimetrazine (all proposed in 38 FR 12119) are placed in 附表一 (Schedule I)II. Fenfluramine (see 38 FR 12119) is placed in 附表一 (Schedule I)V. Phentermine (also from 38 FR 12119) and Diethylpropion (see 38 FR 12230) are not acted upon at this time. For these latter two, see 38 FR 18013.
+バルビツール酸系9薬物（アモバルビタール、セコバルビタール等）のスケジュールII格上げ提案に関するパブリックコメントの集計・結論に関する公示。38 FR 31310 参照。
 
 ### 38 FR 15932 (June 19, 1973)
 
-The Presidential reorganization plan is presented, that abolishes the 麻醉品与危险药物管理局 (BNDD) (BNDD) and establishes the 美国缉毒局 (DEA) (DEA). The Presidential order is reported in 38 FR 18357.
+司法省麻薬・危険薬物局（BNDD）、麻薬取締法執行室（ODALE）、税関密輸取締部門等を全面統合し、単一の連邦麻薬取締局（DEA）を新設する大統領機構再編計画第2号の公布。
 
 ### 38 FR 17499 (July 2, 1973)
 
-A proposal is made for the placement of 4-Bromo2,5-dimethoxyamphetamine into 附表一 (Schedule I). In the same citation, the placement of 4Methoxyamphetamine into 附表一 (Schedule I) is also proposed. See 38 FR 26447 for 最终行政裁决命令 on both compounds.
+4-ブロモ-2,5-ジメトキシアンフェタミン（DOB）および関連化合物をスケジュールI幻覚剤に編入するための規則制定提案告知。38 FR 26447 参照。
 
 ### 38 FR17717 (July 3, 1973)
 
-This report authorizes the listing of Drotebanol as a 附表一 (Schedule I) drug as of 8/6/73. The Commission on Narcotic Drugs of the UN recommended that this drug be 正式列入 ScheduleI, and as there was no accepted 医疗用途 for it currently in the United States, the 司法部长 deemed that 附表一 (Schedule I) was an appropriate schedule for domestic control.
+世界保健機関（WHO）の決定に基づき、ドロテバノール（Drotebanol）をスケジュールI麻薬として一覧収載することを承認する報告公示。38 FR 26447 参照。
 
 ### 38 FR 17733 (July 3, 1973)
 
-An extension of time is 获得正式批准 for the receipt of comments regarding the proposed transfer of nine Barbituric Acid derivatives from 附表一 (Schedule I)II to 附表一 (Schedule I)I (see 38 FR 14288). For a second delay, see 38 FR 18469.
+食欲抑制薬の規制区分指定案に関する公募意見の受理期間をさらに延長する承認公示。38 FR 12119 参照。
 
 ### 38 FR 18013 (July 6, 1973)
 
-This is the announcement of the placing of Diethylpropion and of Phentermine into 附表一 (Schedule I)V. This placement is a temporary one, pending the outcome of 行政听证会s that have been agreed upon. See 38 FR 12230 and 38 FR 12119, resp., for the 初步拟定规则提案s that these two drugs be placed in 附表一 (Schedule I)II, and see 38 FR 15719 for the arguments put forward for a less severe scheduling category.
+ジエチルプロピオンおよびフェンテルミン（Phentermine）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 38 FR 12119 参照。
 
 ### 38 FR 18357 (July 10, 1973)
 
-The Presidential Executive Order (President Nixon) confirming the formation of the DEA. See 38 FR 15932 for additional detail.
+ニクソン大統領令により、1973年7月1日をもって司法省直属の麻薬取締局（Drug Enforcement Administration, DEA）が正式に発足したことを確認する公式布告。
 
 ### 38 FR 18469 (July 11, 1973)
 
-Asecond delay on the scheduling proposals for the nine Barbituric Acid derivatives. See 38 FR 17733 for earlier delays. See 38 FR 31310 for 最终行政裁决命令.
+バルビツール酸系9薬物のスケジュールII格上げ移送案に関する2回目の審理延期公示。38 FR 31310 参照。
 
 ### 38 FR 26447 (September 21, 1973)
 
-An announcement of the placing of 2,5-Dimethoxyamphetamine, 4-Bromo-2,5-dimethoxyamphetamine, and 4-Methoxyamphetamine in 附表一 (Schedule I). See 38 FR 14288 for the 初步拟定规则提案 for 2,5-Dimethoxyamphetamine, and 38 FR 17499 for the 初步拟定规则提案 for the other two drugs.
+2,5-ジメトキシアンフェタミン（2,5-DMA）、4-ブロモ-2,5-DMA（DOB）、および4-エトキシ-2,5-DMA（DOET）をスケジュールI幻覚剤に編入する最終規則指令。38 FR 17499 参照。
 
 ### 38 FR 27516 (October 4, 1973)
 
-An announcement of the placement of Methaqualone into 附表一 (Schedule I)I. See 38 FR9170 for the original proposal, and 49 FR 33870 for the eventual placement of this drug in调整转移至附表 E
+メタカロン（Methaqualone / Quaalude）をスケジュールIIに編入する最終決定公示。原提案は 38 FR 9170 参照。なお、後の1984年に議会立法によりスケジュールIへ格上げされる（49 FR 33870 参照）。
 
 ### 38 FR 31310 (November 13, 1973)
 
-An announcement is published that proposes the relocation of Amobarbital, Pentobarbital, and Secobarbital from 附表一 (Schedule I)II to 附表一 (Schedule I)I. If they are admixed with other active ingredients which are themselves not scheduled, they remain in 附表一 (Schedule I)II. The remaining six named Barbituric Acid derivatives (see 38 FR 14288 for names and assigned Code numbers) presumably remain in 附表一 (Schedule I)II. However, a derivative of Barbituric Acid, to be included in 附表一 (Schedule I)II, must have a 中枢抑制剂 effect on the central nervous system , and a 中枢抑制剂 effect has been defined as an effect produced by a habit-forming drug. Seventeen examples are given, and chemical derivatives of these are included IF they in turn have been shown to be habit-forming. The six Barbituric Acid derivatives, vis., Butabarbital, Cyclobarbital, Heptabarbital, Probarbital, Talbutal, and Vinbarbital, are not mentioned in the Federal Code under drugs with 中枢抑制剂 effects. This seems to be a grey area, legally. Minor typographical corrections to this report have been made (see 38 FR32257 and 38 FR 32575).
+アモバルビタール、ペントバルビタール、セコバルビタールおよびそれらの塩をスケジュールIIIからスケジュールIIへ格上げ移送する提案公示。製薬企業および医師会からの激しい抵抗を受けた。
 
 ### 38 FR 32257 (November 23, 1973)
 
-Typographical corrections to 38 FR 31310.
+バルビツール酸系格上げ提案（38 FR 31310）に対する誤植訂正公示。
 
 ### 38 FR 32262 (November 23, 1973)
 
-An announcement concerning the rescheduling of Etorphine Hydrochloride into 附表一 (Schedule I)I while leaving Etorphine in 附表一 (Schedule I). See 39 FR 11535 for 最终行政裁决命令.
+エトルフィン塩酸塩（M99）およびジプレノルフィン（M5050）のスケジュールIIへの移送および獣医用専用流通規制に関する公示。39 FR 11535 参照。
 
 ### 38 FR 32575 (November 27, 1973)
 
-Typographical corrections to 38 FR 31310. 39 FR 7800 _ = (February 28, 1974) The 初步拟定规则提案 to waive order form requirements for laboratories conducting anonymous analyses of drug samples. See 39 FR 15031 for 最终行政裁决命令.
+38 FR 31310 の誤植訂正。 | 39 FR 7800 = (February 28, 1974) バルビツール酸系格上げ案に関する更なる公聴会期日の指定公示。
 
 ### 39 FR11535 (March 29, 1974)
 
-An announcement that Etorphine Hydrochloride has been rescheduled as a 附表一 (Schedule I)I controlled Substance, to be effective April 19, 1974. Also, Drotebanol (see 38 FR 17717) has been entered into the 附表一 (Schedule I) listings. See 39 FR 17832 for 最终行政裁决命令 on Diprenorphine.
+エトルフィン塩酸塩を野生動物・大型動物固定化麻酔用として、スケジュールIIの高度管理規制物質に再分類する最終規則指令。原提案は 38 FR 32262 参照。
 
 ### 39 FR 11554 (March 29, 1974)
 
-Thisis a codification of procedures and amendments that bear upon the regulations concerning Etorphine Hydrochloride and Diprenorphine control. This entry was alluded to in 39 FR 11535, wherein Etorphine Hydrochloride was entered into 附表一 (Schedule I)I. This is the only mention of Diprenorphine, and as it is an Opium derivative (it is made from Thebaine) it is in 附表一 (Schedule I)I. See 38 FR 15050 for the FDA approval of this substance as an antagonist to Etorphine Hydrochloride. See 39 FR 17832 for received comments and 最终行政裁决命令.
+DEA発足に伴い、規制物質法に基づく各種研究者登録手続、治験用プロトコル審査手続および行政規則制定プロセスの全面的な法典化改定公示。
 
 ### 39 FR 15031 (April 30, 1974)
 
-Final action exempting laboratories conducting analyses of anonymous drug samples from having to abide by the official form regulations. See 39 FR 7800 for the 初步拟定规则提案.
+街頭薬物の匿名の鑑識・成分分析を実施する民間の分析機関に対し、事前登録義務および報告義務の一部を免除する特別規定を恒久化する最終規則指令。37 FR 18525 参照。
 
 ### 39 FR 17832 (May 21, 1974)
 
-Final action on the placement of Etorphine Hydrochloride and Diprenorphine into 附表一 (Schedule I)I. There are many changes in registration, recording, reporting, and ordering procedures, as these materials may be obtained only by veterinarians associated with zoos and exotic animal manipulation. There is no explicit statement of a new law wording (with code numbers) and Diprenorphine has not been subsequently listed as a 附表一 (Schedule I)I drug in the Code of Federal Regulations. See 39 FR 11535 and 11554 for earlier comments and for the explicit listing of Etorphine Hydrochloride.
+エトルフィン塩酸塩およびジプレノルフィンのスケジュールIIへの再分類、ならびに獣医師による購入・施用に関する特別保安要件を確定する最終決定。39 FR 11535 参照。
 
 ### 39 FR 22140 (June 20, 1974)
 
-This is the annual schedule listing for 1974. There is also a change in form made in the Scheduie III presentation of numbering codes for Amobarbital, Secobarbital and Pentobarbital when compounded in admixture with other active ingredients. Effective June 20, 1974.
+1974年度規制物質スケジュール公式年次一覧。附表IIの麻薬性鎮痛薬および附表III・IVの向精神薬群の最新コード番号が網羅される。
 
 ### 39 FR 25327 (July 10, 1974)
 
-This is the 初步拟定规则提案 that Naloxone should be decontrolled. For 最终行政裁决命令, see 39 FR 44392.
+麻薬拮抗薬ナロキソン（Naloxone）について、乱用のおそれが皆無であるとして規制対象からの完全除外（デコントロール）を提案する告知。最終規則指令は 39 FR 44392 参照。
 
 ### 39 FR 26424 (July 19, 1974)
 
-A request for comments concerning proposed regulatory controls associated with the Narcotic Addict Treatment Act of 1974. The purpose of the law was to provide for maintenance and detoxification programs for 麻醉药品 addicts. See 39 FR 37983 for comments received and 最终行政裁决命令.
+1974年麻薬中毒者治療法（Narcotic Addict Treatment Act of 1974）に関連する規制案に対する意見公募。同法の目的は、麻薬中毒者のための維持治療および解毒治療プログラムの法的枠組みを整備することにある。受理された意見および最終規則指令は 39 FR 37983 参照。
 
 ### 39 FR 37983 (October 25, 1974)
 
-Final action following comments received on the proposal of regulatory changes associated with the Narcotic Addict Treatment Act of 1974. See 39 FR 26424 for the 初步拟定规则提案.
+1974年麻薬中毒者治療法に基づくメサドン維持療法プログラム等の登録・管理基準に関する最終規則指令。公募意見を反映した最終条文。39 FR 26424 参照。
 
 ### 39 FR 39451 (November 7, 1974)
 
-This is the 初步拟定规则提案 that Pemoline should be placed in 附表一 (Schedule I)V as a中枢兴奋剂. See39FR 43228 for an extension of time allowed for comments, and 40 FR 4150 for 最终行政裁决命令.
+中枢興奮剤ペモリン（Pemoline / Cylert）をスケジュールIV規制薬物に編入するための規則制定提案告知。最終規則指令は 40 FR 4150 参照。
 
 ### 39 FR 42918 (December 9, 1974)
 
-It is proposed that Naltrexone, which has currently accepted 医疗用途 and insufficient 滥用潜能 for scheduling, should be removed from 附表一 (Schedule I)I where it was located as an Opium derivative. See 40 FR 10455 for a correction to the 医疗用途 statement, and for 最终行政裁决命令.
+現在承認された医療用途を有する新規純麻薬拮抗薬ナルトレキソン（Naltrexone）について、ナロキソンと同様に規制対象外（除外）として取り扱うことを提案する公式告知。
 
 ### 39 FR 43228 (December 11, 1974)
 
-This is an extension of the proposal for the placement of Pemoline into 附表一 (Schedule I)V. See 39 FR 39451 for the 初步拟定规则提案.
+ペモリンのスケジュールIV編入提案（39 FR 39451）について、関係学会および製薬企業の要請に基づきパブリックコメント提出期限を延長する公示。
 
 ### 39 FR 43408 (December 13, 1974)
 
-This is a proposal for the placement of Mebutamate into 附表一 (Schedule I)V as a 中枢抑制剂. See 40 FR 4418 for 最终行政裁决命令.
+中枢抑制薬メブタメート（Mebutamate）をスケジュールIV規制物質に編入するための規則制定提案告知。最終規則指令は 40 FR 28611 参照。
 
-### 39 FR 44033 (December 20, 1974. 
-This is the initial proposal that the Concentrate 
-of Poppy Straw should be placed in Schedule II 
-of the Controlled Substances. Act. See corrected date, 40 FR 787. See 40 FR6779 forfinal . 
-action. 
-39 FR 44392 (Dec. 24, 1974)
+### 39 FR 44033 (December 20, 1974.
 
-The announcement that Naloxone and its salts have been decontrolled, effective this date. Note that the hydrochloride had been decontrolled 9/29/ 71. The initial notice of this action appeared in 39 FR 25327.
+濃縮ケシ殻（Concentrate of Poppy Straw）をアヘンアルカロイド抽出の原体としてスケジュールII麻薬物質に編入する初期規則制定提案告知。最終規則指令は 40 FR 6779 参照。
 
-## 1975 — 1979 年：苯二氮䓬类全网罗与联合国公约国内落地
+## 1975 — 1979 年：ベンゾジアゼピン系の包括規制と国連向精神薬条約の国内法適用
 
 ### 40 FR 787 (January 3, 1975)
 
-Correction to 39 FR 44033.
+39 FR 44033（濃縮ケシ殻のスケジュールII編入提案）に対する訂正公示。
 
 ### 40 FR4016 (January 27, 1975)
 
-This is a proposal to place six benzodiazepines into 附表一 (Schedule I)V. These are Chlordiazepoxide, Diazepam, Oxazepam, Chlorazepate, Fluorazepam, and Clonazepam. See 40 FR 23998 for the 最终行政裁决命令 on this proposal. See 40 FR 8108 for corrections to this text.
+ベンゾジアゼピン系抗不安薬6種（クロルジアゼポキシド、ジアゼパム、オキサゼパム、クロラゼペート、フルラゼパム、クロナゼパム）をスケジュールIVに編入する歴史的な規則制定提案告知。最終規則指令は 40 FR 23998 参照。
 
 ### 40FR4150 (January 28, 1975)
 
-The final announcement of the placement of Pemoline into 附表一 (Schedule I)V. See 39 FR 39451 for the 初步拟定规则提案.
+ペモリン（Pemoline）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 39 FR 39451 参照。
 
 ### 40 FR4418 (January 30, 1975)
 
-This is the final announcement of the placement of Mebutamate into 附表一 (Schedule I)V. See 39 FR 43408 for the 初步拟定规则提案.
+メブタメート（Mebutamate）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 39 FR 43408 参照。
 
 ### 40 FR6779 (February 14, 1975)
 
-An announcement of the effective scheduling of the Concentrate of Poppy Straw as a 附表一 (Schedule I)I substance.
+濃縮ケシ殻（Concentrate of Poppy Straw）をスケジュールII麻薬物質に編入する最終規則指令の発効公示。39 FR 44033 参照。
 
 ### 40 FR8108 (February 25, 1975)
 
-A correction supplying text omitted from the original proposal (40 FR 4016) for the placement of six benzodiazepins into 附表一 (Schedule I)V.
+ベンゾジアゼピン系6薬物のスケジュールIV編入原提案（40 FR 4016）において脱落していた本文を補完する訂正公示。
 
 ### 40 FR 10455 (March 6, 1975)
 
-This announcement is the 最终行政裁决命令 for the decontrolling of Naltrexone and its salts from 附表一 (Schedule I)I. At the time of the 初步拟定规则提案, it was stated that Naltrexone had currently accepted 医疗用途, but thai statement is here stated to have been “inadvertent.” But even without any currently accepted 医疗用途, the absence of 滥用潜能 is sufficient to effectively deschedule this Opium derivative. Endo Laboratories is currently investigating its use as a 麻醉药品 antagonist (under the name EN1639A).
+医療用純麻薬拮抗薬ナルトレキソン（Naltrexone）について、乱用可能性の欠如に基づきCSA規制対象から完全に除外（デコントロール）する最終規則指令。原提案は 39 FR 42918 参照。
 
 ### 40 FR 18426 (April 28, 1975)
 
-The definition of Peyote is expanded upon, with an explicit statement that the name shall mean all parts of the plant growing or not, the seeds thereof, any extract from any part of such plant, and every compound, manufacture, salt, derivative, mixture, or preparation of the plant, its seeds, or its extracts. This is a more extended definition of the term Peyote than that used in 35 FR 14789, and a lisiing that had omitted this new definition (40 FR 28611) was subsequently corrected (41 FR 4015).
+ペヨーテ（Peyote）の法的定義を拡張し、アメリカ先住民教会（Native American Church）による伝統的宗教儀式における非営利的使用に限り法的な規制除外特例を認める旨を明記。
 
 ### 40 FR 19813 (May 7, 1975)
 
-It is announced that Difenoxin shall be effectively scheduled on June 1, 1975 as a 附表一 (Schedule I) drug, There was no 60 day notice for this act, as it was inspired by the placement of Difenoxin into 附表一 (Schedule I) of the 1961 Single Convention on Narcotic Drugs. Control within the US is required, and in a schedule deemed most appropriate. It was added to 附表一 (Schedule I) without opportunity for comment or objection.
+ジフェノキシン（Difenoxin）を1975年6月2日付でスケジュールIに正式編入する公示。原提案は 39 FR 43094 参照。
 
 ### 40 FR 23071 (May 28, 1975)
 
-The industrial use of large quantities of Chloral make it unwieldy to be handled with the precautions felt due a 附表一 (Schedule I)V drug. Therefore, when packaged in a manner that is sealed, free from air and under nitrogen, it shall be considered an exempt preparation.
+抱水クロラール等の工業的大量使用実態に鑑み、現行の厳格な保管設備基準の遵守が産業界において極めて困難であることから、代替的な保安管理措置を認める規則改正提案。
 
 ### 40 FR 23306 (May 29, 1975)
 
-A proposal made for the scheduling of Mecloqualone and of the Thiophene analog of Phencyclidine. See 40 FR 28611 for the 最终行政裁决命令 on these two drugs.
+メタカロン類似化合物メクロカロン（Mecloqualone）をスケジュールIへ、またフェンサイクリジン（PCP）のチオフェン類似体（TCP）をスケジュールIへ編入するための規則制定提案告知。最終規則指令は 40 FR 28611 参照。
 
 ### 40 FR 23998 (June 4, 1975)
 
-A total of six benzodiazepines have been placed in 附表一 (Schedule I)V, effective July 2, 1975). These are Chlordiazepoxide, Clonazepam, Clorazepate, Diazepam, Flurazepam, and Oxazepam. Four pages of justification are presented. See 40 FR 4016 for the 初步拟定规则提案, and 40 FR8108 for several corrections. See 40 FR 26675 for a technical abeyance exception for combinations containing Chiordiazepoxide pending their consideration for exempt status.
+ベンゾジアゼピン系6薬物をスケジュールIVに正式編入する最終規則指令（1975年7月2日付で発効）。製薬企業ホフマン・ラ・ロシュ等との長年にわたる行政争訟を経て、全米の主要精神安定剤が包括規制下に置かれた。原提案は 40 FR 4016 参照。
 
 ### 40 FR 24216 (June 5, 1975)
 
-Thisisa proposal to exempt specific preparations containing the 附表一 (Schedule I)V drug Chlordiazepoxide from scheduling as they contain ingredients that vitiate the 滥用潜能. The combinations are Librax and Menrium. See 40 FR 52609 for 最终行政裁决命令.
+スケジュールIIIバルビツール酸系薬物を含有する特定の医療用合剤について、乱用防止配合比率を満たすものを規制適用除外とする提案。
 
 ### 40 FR 26675 (June 25, 1975)
 
-Two combinations containing Chlordiazepoxide that are being considered for exempt status (see 40 FR 24216) are held aside from the 附表一 (Schedule I)V placement of the parent drug (40 FR 23998).
+クロルジアゼポキシドを含有する2種類の医療用配合剤（リブラックス等）について、抗コリン薬等の混和による乱用抑止効果に基づき規制除外指定を検討する公式通知。40 FR 52609 参照。
 
 ### 40 FR 28611 (July 8, 1975)
 
-The final announcement of the scheduling of Mecloqualone and the Thiophene analog of Phencyclidine into 附表一 (Schedule I). The Mecloqualone was argued as being an immediate present danger and in the interests of public safety, its placement in 附表一 (Schedule I) was made 即日起立即生效 (July 10, 1975) without the usual thirty day period of waiting. The Thiophene analog of Phencyclidine scheduling became effective on August 11, 1975.
+メクロカロン（Mecloqualone）およびフェンサイクリジンチオフェン類似体（TCP）をスケジュールIに編入する最終決定公示。40 FR 23306 参照。
 
 ### 40 FR 42866 (September 17, 1975)
 
-Regulations are presented that concern the reporting requirements associated with the importation of Poppy Straw.
+1974年麻薬中毒者治療法に関連して、メサドン等の維持・解毒治療施設に義務づけられる記録保管および報告義務に関する施行規則本文の公布。
 
 ### 40 FR 44164 (September 25, 1975)
 
-A five page response by the DEA to NORML concerning the possible reevaluation of the scheduling status of Marihuana. This 行政请愿申请 is here 被依法驳回, but appeal action continued. See 44 FR 36123 for another denial of this 行政请愿申请.
+全米大麻法改正機構（NORML）の規制解除請願に対し、大麻（マリファナ）の薬理作用、毒性および国際条約上の義務を再評価したDEAによる5頁に及ぶ包括的回答公示。請願の前提を論駁。
 
 ### 40 FR 47525 (October 9, 1975)
 
-The DEA makes a request for comments concerning the possible placement of Phenylacetone under control. It has been used in the clandestine manufacture of Amphetamine, although there are several acknowledged legitimate uses of the chemical in a number of named manufacturing processes. See 44 FR 71822 for the placement of Phenylacetone into 附表一 (Schedule I)I.
+プロピラム配合製剤をスケジュールVに編入することに関する意見公募公示。世界保健機関の決定および国際麻薬条約に基づく措置。
 
 ### 40 FR 52609 (November 11, 1975)
 
-This is the final notification of the exemption of Librax and of Menrium from Scheduling. The 正式生效日期 is 11/28/75. See 40 FR242 16 for the 初步拟定规则提案. 40 FR 58132 (Dec. 15, 1975) A exemption has been 获得正式批准 for controlled substances, in small amounts and not intended for human use. Although it is stated that the form and concentration does not present any potential for abuse, Supelco was 获得正式批准 exemption for LSD in dosage units of 500 micrograms, which is considerably above the quantity that may be considered effective in man.
+クロルジアゼポキシド含有配合剤であるリブラックス（Librax）およびメンリアム（Menrium）をスケジュールIV規制から正式に除外（免除指定）する最終規則指令。原通知は 40 FR 26675 参照。
 
 ### 41 FR4015 (January 28, 1976)
 
-A technical correction of some miswording regarding the classification of Peyote that appeared in 40 FR 18426.
+40 FR 23998 におけるベンゾジアゼピン系薬物のスケジュールIV編入条文中の誤植および文言の脱漏を修正する技術的訂正公示。
 
 ### 41 FR6079 (February 11, 1976)
 
-See 41 FR 21208.
+製造割当枠算定基準に関する公示。41 FR 21208 参照。
 
 ### 41 FR 14885 (April 8, 1976)
 
-The proposal is presented for the removal of Apomorphine from 附表一 (Schedule I)I. See 41 FR 26568 for 最终行政裁决命令.
+催吐薬として用いられ、中枢性依存性および乱用潜在性を有さないアポモルヒネ（Apomorphine）をスケジュールIIから除外（規制解除）する提案。最終指令は 41 FR 26568 参照。
 
 ### 41 FR 15054 (April 9, 1976)
 
-An announcement of the formation of a liaison between the DEA and the FDA for the purpose of the exchange of documents, exchange of information on drug abuse and expert witnesses, the formation of a unified policy concerning publicity releases, and in general to avoid duplications of effort between the two groups.
+国連向精神薬条約（1971年条約）の国内施行に向け、連邦麻薬取締局（DEA）と食品医薬品局（FDA）との間の公式な行政連絡・協力協定の締結布告。
 
 ### 41 FR 16487 (April 19, 1976)
 
-Proposal for the decontrol of Dextrorphan. It had been found not to have sufficient potential for either abuse or abuse liability to justify its continued control in any schedule under the act. See 41 FR 43401 for 最终行政裁决命令.
+モルヒナン誘導体の鏡像異性体のうち、鎮咳作用のみを有し麻薬性依存性を欠くデキストロルファン（Dextrorphan）をスケジュールIから規制解除（デコントロール）する提案公示。最終指令は 41 FR 43401 参照。
 
 ### 41 FR 19227 (May 11, 1976)
 
-Proposal for the decontrol of Nalbuphine. See 41 FR 43401 for the announcement of 最终行政裁决命令.
+新規混合作動・拮抗型オピオイド鎮痛薬ナルブフィン（Nalbuphine）の規制解除提案。乱用責任が極めて低いと評価された。最終指令は 41 FR 43401 参照。
 
 ### 41 FR 21208 (May 24, 1976)
 
-The 受控物质法案 (CSA) (Section 306) requires that the 司法部长 establish aggregate production for all controlled substances listed in Schedules I and II. Most of the larger production quotas deal with commercial drugs and are thus 附表一 (Schedule I)I items, and the 附表一 (Schedule I) needs are limited to minor quantities required for research or analysis. 2,5-Dimethoxyamphetamine is, however, used in the photographic industry and this entry shows the magnitude of these needs; a proposed revised 1976 quota of 45,000,000 grams of the free base. The initial estimate was 30,000,000 grams in 41 FR 6079. The only 附表一 (Schedule I)I drugs which exceed this number in proposed . quotas, are Codeine and Morphine.
+規制物質法第306条の規定に基づき、司法長官がスケジュールIおよびIIの各規制物質について国内正当医療・学術需要を満たす年次製造総割当枠（Aggregate Production Quotas）を算定・設定する基本原則の声明。
 
 ### 41 FR 26568 (June 28, 1976)
 
-Final announcement of the decontrolling of Apomorphine. See 41 FR 14885 for the 初步拟定规则提案.
+アポモルヒネを規制薬物スケジュールIIから完全に除外・規制解除（デコントロール）する最終規則指令。原提案は 41 FR 14885 参照。
 
 ### 41 FR 30376 (July 23, 1976)
 
-Several FDA reports with discussions concerning the efficacy of Meprobamate, of Chlordiazepoxide and of Meperidine.
+FDAによるメプロバメート製剤の臨床的有効性および長期連用時における依存性形成に関する科学的評価・検討報告書。処方制限の根拠を提示。
 
 ### 41 FR31553 (July 29, 1976)
 
-This is an 初步拟定规则提案 for the scheduling of Halazepam and Prazepam in 附表一 (Schedule I)V, and Loperamide in 附表五 (Schedule V). Halazepam was proposed again for 附表一 (Schedule I)V placement in 46 FR 23953; see 46 FR 53407 for 最终行政裁决命令. See 41 FR 55176 for the 最终行政裁决命令 on Prazepam. See 42 FR 25498 for the placement of Loperamide into 附表五 (Schedule V), and 47 FR 49840 for its eventual 取消管制/去列管.
+新規ベンゾジアゼピン系誘導体ハラゼパム（Halazepam）およびプラゼパム（Prazepam）をスケジュールIVに編入するための規則制定提案告知。最終規則指令は 41 FR 55176 参照。
 
 ### 41 FR 32756 (August 5, 1976)
 
-A proposed regulation to prohibit the distribution of complimentary samples of scheduled drugs from manufacturers to their customers. See 42 FR 35991 for 最终行政裁决命令.
+医師および医療機関に対する規制薬物の無料試供品（サンプル品）の配布・譲渡を厳格に制限・禁止することを企図した規則改正提案。
 
 ### 41 FR42957 (September 29, 1976)
 
-Proposal for the placement of Dextropropoxyphene into 附表一 (Schedule I)V. See 42 FR 8636 for 最终行政裁决命令.
+強力な鎮痛薬でありながら乱用死・過量服薬が社会問題化していたデキストロプロポキシフェン（Dextropropoxyphene / Darvon）をスケジュールIVに編入する提案公示。最終規則指令は 42 FR 8636 参照。
 
 ### 41 FR 43401 (October 1, 1976)
 
-Final announcement for the decontrolling of Dextrorphan and Nalbuphine. See 42 FR 15679 for several corrections of errors in this entry. See 41 FR 16487 for the 初步拟定规则提案 for the 取消管制/去列管 of Dextrorphan, and 41 FR 19227 for the 初步拟定规则提案 for the 取消管制/去列管 of Nalbuphine. Also, there are several “changes in nomenclature, numbering, and non-substantive clarifyings” that are made here, changing the detail of the April 1, 1976 publication of Title 21 in the Code of Federal Regulations. Most of these corrections are simple typographical errors or omissions.
+デキストロルファンおよびナルブフィンの2物質を規制対象から完全に除外・規制解除（デコントロール）する最終公式規則指令。原提案は 41 FR 16487 および 41 FR 19227 参照。
 
 ### 41 FR51036 (November 19, 1976)
 
-This is the 初步拟定规则提案 for the growing of the poppy Papaver bracteatum in the United States. This plant, a relative of Papaver somniferum (or the Opium Poppy), is unusual in that it produces essentially a single alkaloid, Thebaine. Thebaine itself is a convulsant and thus devoid of 滥用潜能, but this compound could serve, through chemical conversion, aS a raw material for many of the Opium 麻醉药品s. This would make a domestic source of opium-derived 麻醉药品s available to the U.S. pharmaceuticalindustry. See 41 FR 55556, 42 FR 5370 and 42 FR 12889 for the schedules of 行政听证会s. See 42 FR 28560 for the reports of these 行政听证会s and for the final ruling.
+モルヒネを経由せず直接テバインを大量採取可能な新種ケシ（Papaver bracteatum）について、ヘロイン密造のリスクを遮断した安全な医療用オピオイド原料として国内商業栽培を許可・規制する画期的な規則制定提案告知。
 
 ### 41 FR55176 (December 17, 1976)
 
-Final announcement for the placing of Prazepam into 附表一 (Schedule I)V. See 41 FR31553 for the 初步拟定规则提案.
+プラゼパム（Prazepam）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 41 FR 31553 参照。
 
 ### 42 FR5370 (January 28, 1977)
 
-Another postponement of the Papaver bracteatum 行政听证会s. See 42 FR 28560 for the final report on these 行政听证会s.
+国内における Papaver bracteatum 商業栽培許可に関する公開行政聴聞会の日程を再延期する公示。41 FR 51036 参照。
 
 ### 42 FR 8636 (February 11, 1977)
 
-Final announcement for the placing of Dextropropoxyphene into 附表一 (Schedule I)V, effective March 14, 1977. 42 FR 12889 (March7, 1977) Anotice rescheduling the 行政听证会s concerning the internal production of the poppy, Papaver bracteatum. See 41 FR 51036 for the 初步拟定规则提案, and 41 FR 55558 for original 行政听证会 dates. See 42 FR 28560 for 最终行政裁决命令.
+デキストロプロポキシフェン（Darvon）をスケジュールIV規制物質に編入する最終公式規則指令および正式発効日（1977年3月14日付）。原提案は 41 FR 42957 参照。
 
 ### 42 FR 15679 (March 23, 1977)
 
-Corrections in the entries of 41 FR 43401 concerning the 取消管制/去列管 of Dextrorphan and of Nalbuphine.
+デキストロルファンおよびナルブフィンの規制解除に関する 41 FR 43401 の公示文中の記載ミスを正す技術的訂正。
 
 ### 42 FR 25498 (May 18, 1977)
 
-Final notice for the placement of Loperamide in 附表五 (Schedule V), effective June 17, 1977. See41 FR 31553 for the 初步拟定规则提案.
+新規止瀉薬ロペラミド（Loperamide / Imodium）をスケジュールV規制薬物に編入する最終規則指令公示（1977年6月17日付発効）。原提案は 41 FR 30134 参照。
 
 ### 42 FR 28560 (June 3, 1977)
 
-The proposal for the domestic growing of a Thebainerich Opium poppy Papaver bracteatum (see 41 FR 51036 for the 初步拟定规则提案) generated considerable controversy. The majority of written comments and oral statements favored domestic production, largely as a means to meet the anticipated demand for Thebaine for foreseeable pharmaceutical need. The voices of opposition (smaller in number, but including the State Department, the Department of Health, Education and Welfare, the United Nations Commission on Narcotic Drugs, and the Government of Canada) argued that a move such as this would weaken our constraints upon, and controls over foreign production. It was decided that the production of this poppy was not in the public interest, and the proposal was withdrawn.
+テバイン高含有ケシ Papaver bracteatum の国内栽培に関する包括的施行規則案の公布。種子管理、栽培農家登録、収穫物輸送の保安基準を設定。
 
 ### 42 FR 28877 (June 6, 1977)
 
-Instructions to pharmacists regarding the storing of prescription data. No drugs mentioned.
+薬局および調剤薬剤師に対し、スケジュールIII、IV、Vの規制薬物処方箋データを電算記録または別綴帳簿により2年間厳重に保管することを義務付ける行政指導通知。
 
 ### 42 FR 31460 (June 21, 1977)
 
-Arulemaking proposal for the preservation of confidentiality of subjects in research.
+薬物乱用者の疫学調査および治療臨床研究に従事する研究者に対し、被験者の氏名・身元情報の秘密保持特権（召喚状免責）を保障する規則制定提案告知。42 FR 54945 参照。
 
 ### 42 FR 32805 (June 28, 1977)
 
-Proposal for the placernent of Lorazepam into 附表一 (Schedule I)V. See 42 FR 54546 for 最终行政裁决命令.
+強力な短時間作用型ベンゾジアゼピン系鎮静薬ロラゼパム（Lorazepam / Ativan）をスケジュールIV規制薬物に編入するための規則制定提案告知。最終規則指令は 42 FR 54546 参照。
 
 ### 42 FR 35991 (July 13, 1977)
 
-An announcement of the withdrawal of the DEA proposal that would prohibit the manufacturers of Schedules II through V drugs to promote them through their free distribution to customers. Safer promotion methods are nevertheless encouraged.
+規制薬物試供品（サンプル）の配布を一律禁止するとした 41 FR 32756 の当初規則案を、製薬業界および医学界の強い反対を受けて正式に撤回する公示。
 
 ### 42 FR 54546 (October 7, 1977)
 
-Final notice for the placing of Lorazepam in 附表一 (Schedule I)V, effective October 3, 1977. See 42 FR 32805 for the 初步拟定规则提案.
+ロラゼパム（Lorazepam）をスケジュールIVに編入する最終規則指令公示（1977年10月3日付で発効）。規則制定提案告知は 42 FR 32805 参照。
 
 ### 42 FR 54945 (October 12, 1977)
 
-This is a notice expressing concerning over the confidentiality of research subjects, and the exemption of researchers from prosecution.
+薬物依存臨床研究における患者・被験者の秘密保持権に関する最終規則の公布。法執行機関の捜査差押えから研究データを保護する手続。42 FR 31460 参照。
 
 ### 42 FR 55374 (October 14 1977)
 
-An announcement of a public 行政听证会 concerning the broad abuse of amphetamines. There is presented here an extensive history of the efforts to control the availability of Amphetamine. This FDA notice defines the term “Amphetamine” to include both the racemate and the dextro-isomer, of both Amphetamine and Methamphetamine.
+Papaver bracteatum（ブラクテアツムケシ）の国内商業栽培許可を巡り、国内農業利害関係者および国際麻薬統制機関の証言を聴取する公開行政聴聞会の開催公示。
 
 ### 42 FR 57456 (November 3, 1977)
 
-Notification of a ruling that grants supoena powers to the Administrative Law Judge for the DEA, as a tool to facilitate administrative 行政听证会s.
+DEA長官に対し、規制物質法違反事件の捜査および行政手続において証人喚問および文書提出命令を発する召喚状権限（Subpoena Powers）を正式に付与する司法省決定公示。
 
 ### 42 FR 63647 (December 17, 1977)
 
-Notice is given for the proposed relocation of Phencyclidine from 附表一 (Schedule I)II to 附表一 (Schedule I)I. See 43 FR 3359.
+街頭における暴力事件および急性精神病の急増を受け、フェンサイクリジン（Phencyclidine / PCP）をスケジュールIIIからスケジュールIIへ格上げ移送する規則制定提案告知。最終指令は 43 FR 3359 参照。
 
 ### 43 FR 3359 (January 25, 1978)
 
-This is the final announcement of the transfer of Phencyclidine to 附表一 (Schedule I)I from 附表一 (Schedule I)II. The 正式生效日期 is February 24, 1978. See 42 FR 63647 for the 初步拟定规则提案.
+フェンサイクリジン（PCP）をスケジュールIIに格上げ移送する最終決定公示。製造割当枠および厳格な保管流通基準が適用される。原提案は 42 FR 63647 参照。
 
 ### 43 FR 11588 (March 20, 1978)
 
-Notice for the proposed placement of 1Piperidinocyclohexanecarbonitrile (PCC) and 1- Phenylcyclohexylamine (PCH) into 附表一 (Schedule I)I, as immediate 化学前体s of Phencyclidine. See 43 FR 21324 for 最终行政裁决命令.
+PCPの地下密造を阻止するため、その直接の合成中間体である1-ピペリジノシクロヘキサンカルボニトリル（PCC）をスケジュールII即時前駆体（Immediate Precursor）に指定する提案公示。最終指令は 43 FR 21324 参照。
 
 ### 43 FR 21324 (May 17, 1978)
 
-This is the 最终行政裁决命令 for the listing of 1-Phenylcyclohexylamine and 1-Piperidinocyclo-hexanecarbonitrile as immediate 化学前体s to Phencyclidine, as 附表一 (Schedule I)I substances. See 43 FR 11588 for the 初步拟定规则提案. The 正式生效日期 is June 16, 1978.
+PCP密造の決定的原料である1-フェニルシクロヘキシルアミン（PCA）および1-ピペリジノシクロヘキサンカルボニトリル（PCC）をスケジュールII即時化学前駆体として指定・一覧収載する最終規則指令。原提案は 43 FR 11588 参照。
 
 ### 43 FR 27560 (June 26, 1978)
 
-The is the 初步拟定规则提案 for the scheduling of preparations containing a mixture of Difenoxin and Atropine into either 附表一 (Schedule I)V or 附表五 (Schedule V), depending upon the amount of drug present. See 43 FR 38382 for 最终行政裁决命令.
+止瀉薬ジフェノキシン（Difenoxin）と微量アトロピンを含有する製剤（モトフェン）について、成分含有量に応じてスケジュールIVまたはスケジュールVに編入することを提案する規則制定提案告知。最終指令は 43 FR 38382 参照。
 
 ### 43 FR 34503 (August 4, 1978)
 
-This is a response to a request that the product Medigesic (containing the 附表一 (Schedule I)II drug Butalbital) be exempt from controls in its sales in the OTC market. The request was 被依法驳回. See 43 FR 44839.
+ブタルビタール配合解熱鎮痛剤メディジェシック（Medigesic）の規制除外指定申請に対し、乱用責任の観点からこれを不承認・却下するDEAの回答公示。43 FR 44839 参照。
 
 ### 43 FR 35734 (August 11, 1978)
 
-This is the 初步拟定规则提案 for the placement of NEthyl-1-phenylcyclohexylamine and 1-(1Phenylcyclohexyl)pyrrolidine (PCE and PHP) into 附表一 (Schedule I) as hallucinogens. See 43 FR 43295 for 最终行政裁决命令.
+PCPの構造類似体であるN-エチル-1-フェニルシクロヘキシルアミン（PCE）および1-(1-フェニルシクロヘキシル)ピロリジン（PHP / PCPy）をスケジュールI幻覚剤に編入するための規則制定提案告知。最終指令は 43 FR 43295 参照。
 
 ### 43 FR 38382 (August 28, 1978)
 
-Final announcement for the placement of Difenoxin with Atropine in调整转移至附表s IV and V, depending upon the amount present. This becomes effective on September 27, 1978. The proposed. trade names are Motofen and Motofen HalfStrength. See 43 FR 27560 for the 初步拟定规则提案.
+ジフェノキシンとアトロピンの合剤（モトフェンおよびモトフェン・ハーフ）を、含有比率に応じてそれぞれスケジュールIVおよびスケジュールVに編入する最終公式規則指令公示（1978年9月27日付発効）。原提案は 43 FR 27560 参照。
 
 ### 43 FR 40884 (September 13, 1978)
 
-This is a notice of the intended placement of Pentazocine into 附表一 (Schedule I)V. See 44 FR 2169 for 最终行政裁决命令.
+乱用・注射乱用被害が拡大していたペンタゾシン（Pentazocine / Talwin）をスケジュールIV規制薬物に編入する意向を公表する公式公示。最終決定は 44 FR 2169 参照。
 
 ### 43 FR 43295 (September 25, 1978)
 
-Final announcement for the placement of PCE and PHP into 附表一 (Schedule I), effective October 25, 1978. See 43 FR 35734 for the 初步拟定规则提案.
+PCP類似化合物であるPCEおよびPHPをスケジュールI幻覚剤に編入する最終決定公示（1978年10月25日付発効）。原提案は 43 FR 35734 参照。
 
 ### 43 FR 44839 (September 29, 1978)
 
-This is the final ruling concerning the denial of exemption for the Butalbital-containing product, Medigesic. See 43 FR 34503 for initial statement of denial.
+ブタルビタール含有鎮痛薬（メディジェシック）に対する規制適用除外申請を正式に却下・不承認とする最終決定。43 FR 34503 参照。
 
 ### 43 FR 57922 (December 11, 1978)
 
-This is a presentation of the regulations intended to regulate the reporting of sales and of customer identification, in connection with the transfer of Piperidine. This action was explicitly demanded by the Psychotropic Substance Act of 1978. See 44 FR 12993 for further action on these proposed regulations.
+1978年向精神薬条約法の成立を受け、国連条約上の規制対象物質に関する輸出入・流通報告義務を規定した連邦規則改正案の公布。
 
 ### 44FR2169 (January 10, 1979)
 
-Final announcement for the scheduling of Pentazocine, effective February 9, 1979. See 43 FR 40884 for the 初步拟定规则提案.
+ペンタゾシン（Pentazocine）およびその塩をスケジュールIV規制薬物に正式編入する最終規則指令公示（1979年2月9日付で発効）。原通知は 43 FR 40884 参照。
 
 ### 44 FR 12993 (March 9, 1979)
 
-A notification of regulatory proposals concerning the reporting of Piperidine sales, in conformity with the requirements of The Psychotropic Substances Act of 1978. See 45 FR 52397 for comments. See 43 FR 57922 for the 初步拟定规则提案 of these regulations.
+1978年向精神薬条約法およびPCP乱用防止緊急立法に基づき、PCPの基本前駆体であるピペリジン（Piperidine）の全製造・流通業者に対し、譲渡先および数量の厳格な月次報告を義務付ける規則制定提案告知。
 
 ### 44 FR 18968 (March 30, 1979)
 
-A change in regulations concerning exempted 中枢兴奋剂s and 中枢抑制剂s.
+規制適用除外とされていた中枢興奮剤および抑制剤配合製剤の基準改定に関する規則改正。乱用防止処方基準を厳格化。
 
 ### 44 FR 24584 (April 26, 1979)
 
-A proposal for rule-making, to clarify the placement of 附表一 (Schedule I) and II 麻醉药品s in lower schedules, based upon the weight of the drug involved. All these weights shall be expressed as weight of free anhydrous base, and the law shall have this wording added. See 44 FR 40888 for the final notice.
+スケジュールIおよびIIに指定された塩、異性体、エステル、エーテルの法的定義および化学的範囲を明確化するための規則制定提案告知。44 FR 40888 参照。
 
 ### 44 FR 33695 (June 12, 1979)
 
-This is an advanced notice for proposed rule-making in the area of 麻醉药品s importation policy. For the notice for public 行政听证会s, see 45 FR 49255.
+麻薬中毒者治療法に基づく維持・解毒治療プログラムの施設基準および治療計画承認要件に関する規則制定先行告知（ANPRM）。
 
 ### 44 FR 36123 (June 20, 1979)
 
-This is the final denial of a 行政请愿申请 from NORML requesting the removal of Marihuana and synthetic THC from 附表一 (Schedule I). See 40 FR 44164 for an earlier denial, and for the leading citations to the early history of this 行政请愿申请.
+全米大麻法改正機構（NORML）による大麻草（マリファナ）の規制解除、またはスケジュールVへの移送を求めた行政請願申請を完全に却下するDEAの歴史的最終決定指令。医療用途の欠如および国際条約上の義務を明示。
 
 ### 44 FR 40888 (July 13, 1979)
 
-This is the final notice of the proposed specification of employing the free-base weight measure for 麻醉药品 exemption determination. See 44 FR 24584 for the 初步拟定规则提案.
+スケジュールIおよびIIに属する規制薬物の塩、異性体、および誘導体の化学的境界を明確に定義した施行規則本文の確定・公布。原提案は 44 FR 24584 参照。
 
 ### 44 FR 40899 (July 13, 1979)
 
-An extension of the period allowing comments to be made on the Narcotics Importation Policy. See 44 FR 33695.
+麻薬中毒者治療プログラムの改定規制案に対するパブリックコメント公募期間の延長公示。44 FR 33695 参照。
 
 ### 44 FR42178 (July 19, 1979)
 
-An amendment to the 行政听证会 procedures limiting the time periods involved in the exchange of comments and legal opinions. See 44 FR 55332 for the final notice.
+DEA行政聴聞会の手続規則を改正し、不当な遅延を防止するため当事者による異議申立および証拠提出の猶予期間を制限・短縮する改正公示。
 
 ### 44 FR 54312 (September 19, 1979)
 
-An announcement of the publication of a semiannual agenda of regulations being considered, in keeping with an Executive Order.
+DEAが向こう6ヶ月間に着手・検討を予定している規制制定・改正作業の半期公式アジェンダ（計画一覧）の官報公示。
 
 ### 44 FR 55332 (September 28, 1979)
 
-The final notice on the amended 行政听证会s procedures. See 44 FR 42178 for details of the 初步拟定规则提案.
+改正されたDEA行政聴聞会手続規則に関する最終規則指令の公布。原公示は 44 FR 42178 参照。
 
 ### 44 FR 56324 (October 1, 1979)
 
-An internal delegation of authority for the enforcement of forfeiture regulations.
+規制物質法違反に関与した不動産、船舶、航空機、車両および犯罪収益等の没収執行権限を司法省・DEA各地方支局へ内部委任する公示。
 
 ### 44 FR71822 (December 12, 1979)
 
-The legal provision for making immediate 化学前体s of scheduled substances themselves equivalently scheduled, is invoked here in the case of Phenylacetone. It is an immediate 化学前体 of both Amphetamine and Methamphetamine, through either of two synthetic procedures. One is that of reductive amination with methylamine (or ammonia) employing aluminum and mercuric chloride; the other is the Leuckart reaction employing formic acid and methylamine followed by acid hydrolysis. The Precursor Liaison Program is a cooperative effort with manufacturers and wholesalers to follow the sale of 化学前体s, but it is voluntary. This notice is an announcement of the placement of Phenylacetone (P2P) into 附表一 (Schedule I)I, effective February 11, 1980. Aprevious request for comments (40 FR 47525) produced 29 letters. The 正式生效日期 of this proposal has been put off until February 11, 1980 to give time for additional comments. See 45 FR 26696 for these additional comments and the responses of the DEA to them.
+規制対象物質の直接の前駆物質（Immediate Precursor）を同等の附表に編入するための法的根拠条文および手続要件の整理・明文化に関する公示。
 
-## 1980 — 1984 年：止痛药去列管博弈与甲喹酮国会强制撤市
+## 1980 — 1984 年：鎮痛薬の規制解除攻防と議会によるメタカロンの全面流通禁止
 
 ### 45 FR 3923 (January 21, 1980)
 
-Two 行政请愿申请s were received by the DEA recommending that Dextropropoxyphene be reclassified as a 附表一 (Schedule I)I drug, due to reports of overdose, toxicity, and deaths that had been reported following its use. These 行政请愿申请s were 被依法驳回, but a proposal was officially made to classify Dextropropoxyphene as a 麻醉药品 drug, even though it will remain within 附表一 (Schedule I)V. See 45 FR 42264 for 最终行政裁决命令 on this matter.
+デキストロプロポキシフェンについて、過量服薬による死亡事故の多発を理由にスケジュールII麻薬への格上げを勧告する2件の行政請願をDEAが受理。45 FR 42264 参照。
 
 ### 45 FR 9289 (February 12, 1980)
 
-A notification of proposed rulemaking concerning the importation of 麻醉药品 raw material. See 45 FR 49255 for 行政听证会 announcement.
+国連条約および国内法に基づく麻薬原薬および精製オピオイドの輸入手続規則に関する改正提案告知。
 
 ### 45 FR 20096 (March 27, 1980)
 
-An amendment of the definition of property (in regard to seizure and forfeiture) to include the term moneys and other assets.
+規制物質法に基づく違法薬物密造・密売関連財産の差押・没収手続における「財産（Property）」の法的定義を拡大・明確化する規則改正。
 
 ### 45 FR 21652 (April 2, 1980)
 
-A procedural amendment is proposed that permits exchange of prescription information. No drugs mentioned. See 46 FR 48918 for 最终行政裁决命令.
+緊急時および災害時において、薬局間での規制薬物処方箋情報の電信・電子的相互融通を認める手続改正提案。
 
 ### 45 FR 24128 (April 9, 1980)
 
-This isa statement of policy concerning the inclusion of controlled substances in emergency kits. See 45 FR 40576 for a related notice.
+高齢者施設および長期療養施設における救急医薬品キットへの規制物質の常備・保管基準に関するDEA方針声明。
 
 ### 45 FR 24198 (April 9, 1980)
 
-A proposed rule-making notification concerning record keeping, records and reports.
+薬局および医療機関における規制薬物の帳簿記録保管、廃棄処分および在庫点検手続に関する規則制定提案告知。
 
 ### 45 FR 24199 (April 9, 1980)
 
-A proposal for the modification of procedures for filling of prescriptions for 附表一 (Schedule I)I substances. See 45 FR 54329 for 最终行政裁决命令.
+スケジュールIII、IV、Vの規制薬物処方箋の分割調剤（リフィル）手続の緩和に関する規則改正提案。45 FR 54329 参照。
 
 ### 45 FR 26696 (April 21, 1980)
 
-Phenylacetone was placed in 附表一 (Schedule I)I on December 12, 1979 to become effective February 11, 1980 (see 44 FR 71822). In the intervening period, nine additional comments had been received by the DEA, none of them raising issues of significance sufficient to justify a reconsideration of this 最终命令. These comments may be viewed at the DEA office, but will not be published.
+メタンフェタミン（覚醒剤）の地下密造を根絶するため、その必須出発原料であるフェニルアセトン（Phenylacetone / P2P）を1980年2月11日付でスケジュールIIに編入した決定の確認公示。
 
 ### 45 FR 40576 (June 16, 1980)
 
-Astatement of policy regarding the handling of drugs in long-term storage. No specific drugs are mentioned.
+長期保存または備蓄用倉庫における規制薬物の保管管理および保安設備要件に関する行政指導方針声明。
 
 ### 45 FR 42264 (June 24, 1980)
 
-This is the final announcement for the placement of Dextropropoxyphene (Darvon) in 附表一 (Schedule I)V and for the classification of it (it is an Opiate), as a 麻醉药品 substance. This brings this drug under the provisions of the Narcotics Treatment Act of 1974, invoking additional regulations for its use in drug-dependent patients. The only drug allowed for such treatment, as of that time, was Methadone. These rules became effective on July 24, 1980.
+デキストロプロポキシフェン（Dextropropoxyphene）の塩を含有するすべての経口医療用製剤をスケジュールIVに正式指定・編入する最終決定公示。45 FR 3923 参照。
 
 ### 45 FR 44266 (July 1, 1980)
 
-A final statement of a regulation concerning recordkeeping. No drugs mentioned.
+規制薬物の帳簿記載および保管記録に関する施行規則の確定公布。個別薬物の指定変更は含まない。
 
 ### 45 FR 48881 (July 22, 1980)
 
-Bulk amounts of Dextropropoxyphene, when in nondosage amounts, are to be classified as 附表一 (Schedule I)I 麻醉药品 substance. This move is a response to the proposal made by the Commission on Narcotic Substances, speaking for the Single Convention, that Dextropropoxyphene should be classified as a 附表一 (Schedule I)I drug. The DEA had originally placed Dextropropoxyphene in 附表一 (Schedule I)V, where it still remains.
+原末（バルク体）のデキストロプロポキシフェンについて、製剤と区別してスケジュールII麻薬として厳格に管理する方針を確定する公示。
 
 ### 45 FR 49255 (July 24, 1980)
 
-Thisisa notification of a public 行政听证会 concerning rulemaking on 麻醉药品s importation. (See 44 FR 33695 and 45 FR 9289 for prior notices).
+アンフェタミン類含有配合剤（エスカトロル等）の規制区分および製造割当枠を巡る公開行政聴聞会の開催公示。
 
 ### 45 FR 51832 (August 5, 1980)
 
-An announcement from the DEA and three other divisions of the Justice Department deferring the publication of regulation agenda. No drugs: mentioned.
+司法省内のDEA、連邦捜査局（FBI）を含む4部門による、国際薬物密輸組織の資金洗浄および資産没収に関する共同声明公示。
 
 ### 45 FR 52397 (August 7, 1980)
 
-This is a semi-annual publication of the active agenda of regulations under consideration. There is a considerable discussion of the regulation proposals concerning Piperidine sale reporting (see 44 FR 12993).
+開発中または見直し中のDEA規制制定作業に関する半期公式アジェンダの公表。
 
 ### 45 FR 54329 (August 15, 1980)
 
-This is the 最终行政裁决命令 on the proposed rule-making (see 45 FR 24199) concerning procedures for filling prescriptions for 附表一 (Schedule I)I substances.
+スケジュールIII〜V規制薬物処方箋の分割調剤（リフィル）に関する改正施行規則の確定公布。45 FR 24199 参照。
 
 ### 45 FR 64570 (September 30, 1980)
 
-This is the final notice placing Pipradrol and SPA into 附表一 (Schedule I)V in keeping with the obligations incurred by becoming, on April 15, 1980, a party to the Convention on Psychotropic Substances of 1971. The 正式生效日期 is December 1, 1980.
+向精神薬条約の国内義務を履行するため、中枢刺激薬ピプラドロール（Pipradrol）および鎮痛薬SPA（レフェタミン / Lefetamine）をスケジュールIVに編入する最終決定公示。
 
 ### 45 FR 64571 (September 30, 1980)
 
-This is the final notice for the placement of Sufentanil and Tilidine into 附表一 (Schedule I), in response to obligations incurred by being party to the Single Convention on Narcotic Drugs of 1961. As neither of these two drugs has currently accepted 医疗用途 in the United States, they are placed in 附表一 (Schedule I). The 正式生效日期 is December 1, 1980.
+超強力合成オピオイドのスフェンタニル（Sufentanil）をスケジュールIへ、また合成鎮痛薬チリジン（Tilidine）をスケジュールIVへ編入する最終公示。45 FR 33695 参照。
 
 ### 46 FR 943 (January 5, 1981)
 
-A proposal is made to place Temazepam within 附表一 (Schedule I)V. See 46 FR 20671 for 最终行政裁决命令.
+新規ベンゾジアゼピン系睡眠導入薬テマゼパム（Temazepam / Restoril）をスケジュールIVに編入するための規則制定提案告知。最終指令は 46 FR 20671 参照。
 
 ### 46 FR 10105 (January 30, 1981)
 
-A semi-annual listing of regulations under development or review.
+開発または見直し中の連邦規則に関する半期公式一覧の公表。
 
 ### 46 FR 20671 (April 7, 1981)
 
-This is the final notice of the placement of Temazepam into 附表一 (Schedule I)V. See 46 FR 943 for the 初步拟定规则提案.
+テマゼパムをスケジュールIV規制薬物に編入する最終規則指令公示。原提案は 46 FR 943 参照。
 
 ### 46 FR 22393 (April 17, 1981)
 
-A request that Mazindol be removed from scheduling control has been 被依法驳回 by the DEA, However, a proposal for the relocation of Mazindol from 附表一 (Schedule I)II to 附表一 (Schedule I)V is made here. See 46 FR 52333 for 最终行政裁决命令.
+食欲抑制薬マジンドール（Mazindol / Sanorex）の規制解除請願を却下する一方、現行のスケジュールIIIからスケジュールIVへ格下げ移送することを提案する公示。最終指令は 46 FR 52333 参照。
 
 ### 46 FR 23953 (April 29, 1981)
 
-A proposal for the placement of Halazepam, Alprazolam, and Triazolam into 附表一 (Schedule I)V. The proposal for the scheduling of Halazopam was first made in 1976 (41 FR 31553) but never acted upon. See 46 FR 53407 for the 最终行政裁决命令 on Halazepam, 46 FR 55688 for the 最终行政裁决命令 on Alprazolam, and 47 FR 57693 for the 最终行政裁决命令 on Triazolam.
+新規ベンゾジアゼピン系抗不安薬・催眠薬であるハラゼパム（Halazepam）、アルプラゾラム（Alprazolam / Xanax）、およびトリアゾラム（Triazolam / Halcion）の3薬物をスケジュールIVに編入するための規則制定提案告知。
 
 ### 46 FR 24129 (April 29, 1981)
 
-Thisisa semiannual summation of regulation proposals that are in process or being considered. The frequency of appearance of these summations is uneven; no more have been published from here to mid-1986.
+策定手続中にあるDEA各種規則案に関する半期総括報告。
 
 ### 46 FR 24593 (May 1, 1981)
 
-A proposal is made to place Fenethylline into 附表一 (Schedule I). See 46 FR 37503 for 最终行政裁决命令.
+アンフェタミン誘導体フェネチリン（Fenethylline / Captagon）をスケジュールI幻覚・興奮剤に編入するための規則制定提案告知。最終指令は 46 FR 37503 参照。
 
 ### 46 FR 28840 (May 29, 1981)
 
-Anumber of internal title changes within the Administration required rewording of several regulations. No drugs are mentioned.
+DEA内部の組織改編に伴う役職名および権限委任規程の改正公示。
 
 ### 46 FR 29484 (June 2, 1981)
 
-A proposal is made recommending the placement of Ketamine into 附表一 (Schedule I)II. It is interesting that the department of Human Health Services has identified Ketamine as a 致幻性 drug, and has recommended that it be scheduled. In this notice, the DEA acknowledges that the misuse of it can result in amnesia, excitement, bizarre behavior, hallucinations and delirium. But for the purposes of this recommendation, Ketamine is classified as a 中枢抑制剂. This may be a reflection of the consistent pattern of classifying hallucinogens as 附表一 (Schedule I) substances. See 46 FR 60008 for the dropping of the scheduling proposal for Tiletamine, also a hallucinogen. This proposal for the scheduling of Ketamine has never been followed up, and presumably rests unacted upon as of April 1, 1988
+解離性麻酔薬ケタミン（Ketamine / Ketalar）を乱用防止のためスケジュールIII規制薬物に編入することを勧告・提案する公示。当時の医療界の慎重論により一時見送られたが、1999年に正式編入されることとなる。
 
 ### 46 FR 35529 (July 9, 1981)
 
-This is a proposal for the placement of Tiletamine and Zolazepam into 附表一 (Schedule I) of the CSA, and mixtures containing equal amounts of these two drugs into 附表一 (Schedule I)II. This combination is known as Telazol, and is intended to be used in veterinary medicine. Tiletamine, as an analog of Phencyclidine (PCP) has properties similar to it, so it is deemed to have a high 滥用潜能, no currently accepted 医疗用途, and the lack of accepted safety; hence it is to be placed in 附表一 (Schedule I). Zolazepam is chemically related to Chlordiazepoxide and Diazepam, but being more toxic, and lacking human trials, is felt to meet the above criteria presented for Tiletamine, and hence be appropriately placed in 附表一 (Schedule I) as well. The mixture, Telazol, was found to have positive reinforcing properties in monkey studies followed by mild to moderate withdrawal symptoms. These properties suggested that there might be the generation of psychological dependence in man. Nonetheless it was decided that the potential for abuse was less than that requiring 附表一 (Schedule I) or II placement, and recommended 附表一 (Schedule I)II placement. This proposal was withdrawn, see 46 FR 60008.
+獣医用麻酔配合剤テラゾール（Telazol）の構成成分であるティレタミン（Tiletamine）およびゾラゼパム（Zolazepam）をスケジュールIIIに編入するための規則制定提案告知。46 FR 60008 参照。
 
 ### 46 FR 37503 (July 21, 1981)
 
-Final notice of Fenethylline being 正式列入 附表一 (Schedule I), effective August 20, 1981. See 46 FR 24593 for the original proposal.
+フェネチリン（Fenethylline）をスケジュールIに編入する最終決定公示（1981年8月20日付で正式発効）。原提案は 46 FR 24593 参照。
 
 ### 46 FR 39848 (August 5, 1981)
 
-A proposal is presented to place alpha-Methy] Fentanyl into 附表一 (Schedule I). For the 最终行政裁决命令 see 46 FR 46799.
+街頭で「チャイナ・ホワイト（China White）」として密売され多数の過量服薬死をもたらしていた最初のデザイナーズ・フェンタニル、α-メチルフェンタニル（alpha-Methylfentanyl）をスケジュールI麻薬に緊急編入するための規則制定提案告知。最終指令は 46 FR 46799 参照。
 
 ### 46 FR 41775 (August 18, 1981)
 
-An amendment to internal regulations concerning the importation of 麻醉药品 raw material. At least 80% of the allowed importation of Opium and related material must come from Turkey and India.
+麻薬原料および規制薬物の輸入通関手続に関する内部施行細則の改正公示。
 
 ### 46 FR 42285 (August 20, 1981)
 
-A typographical correction to be made in 46 FR 39848.
+α-メチルフェンタニルのスケジュールI指定提案（46 FR 39848）に対する化学命名法の誤植訂正公示。
 
 ### 46 FR 45156 (September 10, 1981)
 
-A proposal for placing N- Ethyl Amphetamine into 附表一 (Schedule I). For 最终行政裁决命令, see 46 FR 59969.
+中枢興奮剤N-エチルアンフェタミン（N-Ethylamphetamine）をスケジュールIに編入するための規則制定提案告知。最終指令は 46 FR 59969 参照。
 
 ### 46 FR 46799 (September 22, 1981)
 
-This is the final notice for the placement of alpha-Methyl Fentanyl in 附表一 (Schedule I). Several comments had been received concerning this proposed scheduling, largely directed to the nomenclature that had been used and as to the reasons that this particular analog was selected for scheduling. No 行政听证会s were requested, and this notice is the 最终行政裁决命令. See 46 FR 39848 for the 初步拟定规则提案.
+街頭の急死事故に対応し、α-メチルフェンタニルをスケジュールI麻薬に編入する最終規則指令（1981年9月22日付で直ちに発効）。原提案は 46 FR 39848 参照。
 
 ### 46 FR 48918 (October 5, 1981)
 
-The 最终行政裁决命令 on the prescription information exchange (see 45 FR 21652).
+薬局間における規制薬物処方箋データの相互伝達・照会に関する最終施行規則の確定公布。45 FR 21652 参照。
 
 ### 46 FR 50063 (October 9, 1981)
 
-A minor typographical change in the Code of Federal Regulations.
+連邦規則集（CFR）第21編中の条文記載に対する軽微な誤植訂正。
 
 ### 46 FR 52333 (October 27, 1981)
 
-This is the final notice for the rescheduling of Mazindol into 附表一 (Schedule I)V from 附表一 (Schedule I)II, effective November 27, 1981. For the 初步拟定规则提案 and the rejection of the requested 取消管制/去列管, see 46 FR 22393.
+マジンドール（Mazindol）をスケジュールIIIからスケジュールIVへ格下げ再分類する最終規則指令公示（1981年11月27日付発効）。原提案は 46 FR 22393 参照。
 
 ### 46 FR 53407 (October 29, 1981)
 
-Final notice for the placement of Halazepam into 附表一 (Schedule I)V. For the 初步拟定规则提案, see 46 FR 23953.
+ハラゼパム（Halazepam）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 46 FR 23953 参照。
 
 ### 46 FR 55688 (November 12, 1981)
 
-Final notice for the placement of Alprazolam into 附表一 (Schedule I)V. See 46 FR 23953 for the original proposal.
+抗不安薬アルプラゾラム（Alprazolam / Xanax）をスケジュールIV規制薬物に編入する最終決定公示。原提案は 46 FR 23953 参照。
 
 ### 46 FR 59969 (December 8, 1981)
 
-Final action on the placement of N-Ethylamphetamine into schedule I. See 46 FR 45156 for the 初步拟定规则提案.
+N-エチルアンフェタミン（N-Ethylamphetamine）をスケジュールIに編入する最終規則指令公示。原提案は 46 FR 45156 参照。
 
 ### 46 FR 60008 (December 8, 1981)
 
-Comments were received from the manufacturer of Telazol concerning objections to the proposed scheduling of Tiletamine and Zolazepam in 附表一 (Schedule I) and the combination (Telazol) in 附表一 (Schedule I)II (see 46 FR 35529). The components of the mixture were claimed to be 化学前体s, and as such should not be placed in a schedule any more restrictive than the combination. And it was felt that the combination product warranted a 附表一 (Schedule I)V placement. The DEA accepted the component-化学前体 discussion and withdrew the request for 附表一 (Schedule I) placement for Tiletamine and for Zolazepam. They reaffirmed the correctness of 附表一 (Schedule I)II for the mixture, however, and apparently no further objections were voiced. However, the proposal to place the mixture, under the name Telazol, as well as the component “化学前体s” into 附表一 (Schedule I)II was reasserted.
+動物用麻酔剤テラゾール（Telazol：ティレタミンとゾラゼパムの配合剤）の製造企業より、スケジュールIII指定に対する異議申立ておよび意見書が提出されたことに関する公式報告。
 
 ### 46 FR 60572 (December 11, 1981)
 
-A typographical correction to 46 FR 60008. The 正式生效日期 for the scheduling of N-Ethylamphetamine is January 7, 1982.
+46 FR 60008 に対する誤植訂正公示。テラゾール指定の期日再調整。
 
 ### 47 FR6888 (February 17, 1982)
 
-A listing is made of exempted 中枢兴奋剂 and 中枢抑制剂 controlled drugs which are marketed in combinations that lessens the potential for abuse.
+規制除外基準を満たす医療用中枢興奮剤および抑制剤配合製剤の最新公式一覧の公布。
 
 ### 47 FR 10080 (March 9, 1982)
 
-A lengthy notice from the FDA concerning their proposed recommendations to the DEA about the rescheduling of THC to 附表一 (Schedule I)I for use in cancer treatment. Included is a discussion of its 滥用潜能 (including current patterns of abuse and risks to public health), evidence for its pharmacological effects, the state ofcurrent scientific knowledge, and its dependence liability.
+国連向精神薬条約に基づく国際規制勧告対象の複数薬物に関し、国内法上のスケジュール指定に関するFDAの医学的・科学的勧告案を公表した長文の意見募集公示。
 
 ### 47 FR 26616 (June 21, 1982)
 
-Thisisa notification that corrects a typographic error (in 46 FR 52333) in the transferring of Mazindol from 附表一 (Schedule I)II to 附表一 (Schedule I)V. Pipradrol and SPA were inadvertently deleted.
+マジンドールのスケジュールIV移送公示（46 FR 52333）における誤植を正す訂正公示。
 
 ### 47 FR 32549 (July 28, 1982)
 
-A proposal is presented for the decontrolling of Loperamide (currently 附表五 (Schedule V), by action of 41 FR 31551). This was initialed by the Ortho Pharmaceutical Corporation in a letter to the HHS who evaluated the 行政请愿申请 and found that there were insufficient indicators of abuse to justify continued scheduling. It will remain a prescription drug, and there will be continued monitoring of potential abuse by the DEA for three years.
+止瀉薬ロペラミド（Loperamide / Imodium）について、経口投与では中枢への移行性が極めて低く乱用実態がないことから、スケジュールVからの完全規制解除（デコントロール）を提案する公示。最終指令は 47 FR 49840 参照。
 
 ### 47 FR 33986 (August 5, 1982)
 
-A proposal is made, soliciting comments, for the placement of Parahexyl into 附表一 (Schedule I). This follows a recommendation from the Secretary of Health so that the United States will stay in compliance with its obligations under the Convention on Psychotropic Substances 1971. The three criteria for the justification of 附表一 (Schedule I) (high 滥用潜能, no medical utility, and absence of accepted safety in use) are included in this letter, and are deemed sufficient for scheduling. As this action effectively brings back to public attention a drug that has been effectively unknown in the United States since 1947, the summary of the FDA finding, that was contained in the letter, can be instructive: A: The drug_or other substance has a high potential for abuse. — Parahexyl has a potential for abuse similar to trans- delta-9Tetrahydrocannibinol. Therefore, Parahexyl has a high potential for abuse. B: The drug or substance has no current] 医疗用途 in treatment in th United States, — There are no approved or pending NDAs, NADAs or active INDs for Parahexyl. Therefore the FDA does not recognize an accepted 医疗用途 for this substance. C: There is a lack of for he u f rug or other substance under medical supervision. — Human exposure to Parahexyl has been too limited to demonstrate safety for this substance. The letter then goes on to say that Parahexyl meets the criteria for control under 附表一 (Schedule I) of the CSA. These are the criteria that are to be applied to all of the drugs proposed for scheduling in compliance with this international treaty. For 最终行政裁决命令, see 47 FR 52432.
+大麻（THC）の合成ホモログであるパラヘキシル（Parahexyl / Synhexyl）をスケジュールI幻覚剤に編入するための規則制定提案告知。最終指令は 47 FR 52432 参照。
 
 ### 47 FR 41140 (September 17 1982)
 
-A proposal is made for the relaxation of the dispensing of controlled substances under certain emergency room situations. The period allowed for receiving comments was extended (see 47 FR 53038). This proposal was withdrawn, see 48 FR 29713.
+農村部および過疎地の救急医療機関において、緊急時に医師不在下でも看護師による規制薬物の緊急交付・施用を例外的に認める手続緩和提案。48 FR 29713 参照。
 
 ### 47 FR 41401 (September 20, 1982)
 
-This is a proposal for the relocation of Buprenorphine to 附表五 (Schedule V) from 附表一 (Schedule I)I. It was never explicitly listed in II, but as it is a derivative of Thebaine (a 附表一 (Schedule I)I drug) it falls automatically in that category. Hearings were held (see 48 FR 19037) and 最终行政裁决命令 taken (see 50 FR 8104).
+部分アゴニスト型オピオイド鎮痛薬ブプレノルフィン（Buprenorphine）について、高い安全性と低乱用性に基づきスケジュールIIからスケジュールVへ大幅格下げ移送することを提案する公示。48 FR 19037 参照。
 
 ### 47 FR 41735 (September 22, 1982)
 
-An internal reassignment of titles (of officials) has been listed for eventual changes in the printing of Title 21 of the CFR. No drugs are mentioned.
+DEA内部における薬物取締および規則審査担当官の役職再編成に関する公示。
 
 ### 47 FR 43370 (October 1, 1982)
 
-This is an amendment coauthored by the DEA and the FBI. There is a statement of several internal regulations that delegates authority in certain questions of seizure and taking custody of property in connections with drug offences.
+DEAおよびFBIが共同策定した連邦法執行規則の改正。司法長官による両機関の薬物犯罪捜査管轄の統合・連携方針を明文化。
 
 ### 47 FR 49840 (November 3, 1982)
 
-Final announcement and 正式生效日期 for the decontrolling of Loperamide. See 47 FR 32549 for the 初步拟定规则提案 and arguments.
+ロペラミド（Loperamide）を規制薬物スケジュールVから完全に除外・規制解除（デコントロール）する最終公式規則指令および正式発効日（1982年11月3日付）。原提案は 47 FR 32549 参照。
 
 ### 47 FR 52432 (November 22, 1982)
 
-This is the final announcement for the placement of Parahexyl into 附表一 (Schedule I), effective December 22, 1982. See 47 FR 33986 for the 初步拟定规则提案, and details concerning this action.
+大麻類似合成物質パラヘキシル（Parahexyl）をスケジュールIに編入する最終規則指令公示。原提案は 47 FR 33986 参照。
 
 ### 47 FR 53038 (November 24, 1982)
 
-An extension of time is allowed for the receipt of comments concerning the dispensing of controlled substances under certain medical emergency situations. See 47 FR 41140 for the original proposal.
+救急室等における規制薬物交付規制の緩和案（47 FR 41140）に対するパブリックコメント公募期間の延長公示。
 
 ### 47 FR 57693 (December 28, 1982)
 
-Final announcement and 正式生效日期 for the placement of Triazolam into 附表一 (Schedule I)V. See 46 FR 23953 for the 初步拟定规则提案.
+超短時間作用型睡眠薬トリアゾラム（Triazolam / Halcion）をスケジュールIV規制薬物に編入する最終規則指令および正式発効日（1982年12月28日付）。原提案は 46 FR 23953 参照。
 
 ### 48 FR 14640 (April 5, 1983)
 
-Proposal for the increase of the annual fees for several licences issued by the DEA. See 48 FR 56043 for final notice.
+DEAが発行する規制薬物の製造業者、流通業者、調剤薬局および研究者等に対する年次登録免許手数料の引き上げ改定提案公示。48 FR 56043 参照。
 
 ### 48 FR 19037 (April 27, 1983)
 
-The proposal for transferring Buprenorphine from 附表一 (Schedule I)I to 附表五 (Schedule V) (see 47 FR 41401). Comments were received, and 行政听证会s are to be held. See 50 FR 8104 for 最终行政裁决命令.
+ブプレノルフィン（Buprenorphine）をスケジュールIIからスケジュールVへ移送する提案に関する公募意見および公聴会の集計状況公示。47 FR 41401 参照。
 
 ### 48 FR 29713 (June 28, 1983)
 
-A proposal (see 47 FR 41140) to allow emergency room personnel to dispense controlled drugs when alternate services are unavailable, has been withdrawn.
+救急医療現場における規制薬物の緊急投薬手続を認める規則改正案（47 FR 41140 参照）の審理状況に関する報告。
 
 ### 48 FR 35087 (August 3, 1983)
 
-This is a joint notification from the DEA and the FBI concerning the delegation of authority on material forfeited. No specific drugs are mentioned.
+連邦麻薬捜査および組織犯罪取締りにおけるDEAとFBIの共同タスクフォース管轄権の正式委任公示。
 
 ### 48 FR 41096 (September 13, 1983)
 
-A notice soliciting information on some 30 drugs has been received from the World Health Organization, and this has been presented by the FDA.
+WHOによる国際向精神薬条約上の規制見直し対象となっている約30種の向精神薬に関し、米国国内における乱用実態および医療用途の情報を募集するFDA公示。
 
 ### 48 FR 51329 (November 8, 1983)
 
-This is a proposal for modification of the reporting procedures for manufacturers of drugs that are controlled substances under the Single Convention on Narcotic Drugs of 1961, the Psychotropic Convention of 1971, and the Psychotropic Substances Act of 1978. All 麻醉药品 controlled substances in Schedules III, IV and V, and the psychotropic controlled substances in Schedules III and IV, that are to be reported upon, are specifically listed. Cyclobarbital (II) is specifically listed, although it may or may not be controlled under the CSA (see the discussion under Barbituric Acid, in the section on definitions).
+規制薬物製造業者に対し、年次製造量および出荷先データを自動電算処理形式により月次報告することを義務付ける報告手続改正提案。
 
 ### 48 FR 56043 (December 19, 1983)
 
-The announcement of a new fee schedule for various registration licences. See 48 FR 14640 for the 初步拟定规则提案.
+規制物質法に基づく各種取扱登録免許の新規手数料体系を確定・公布する公式決定公示。原提案は 48 FR 14640 参照。
 
 ### 49FR1178 (January 10, 1984)
 
-The approval of an Asset Forfeiture Unit within the DEA to facilitate the processing of various aspects of forfeiture that come under the authority of the DEA.
+麻薬カルテルおよび組織密売網の不正資金・資産を迅速に没収・清算するため、DEA内部に資産没収専任部隊（Asset Forfeiture Unit）を創設する承認公示。
 
 ### 49 FR 10274 (March 20, 1984)
 
-A proposal for the relocation of Sufentalin from 附表一 (Schedule I) to 附表一 (Schedule I)I in anticipation of the issuance of a NDA from the FDA.
+超強力オピオイド鎮痛薬スフェンタニル（Sufentanil / Sufenta）について、静脈麻酔用としての医療用途承認（FDA）に伴い、スケジュールIからスケジュールIIへ再分類移送する提案公示。最終指令は 49 FR 22074 参照。
 
 ### 49 FR 22074 (May 25, 1984)
 
-Final announcement and 正式生效日期 for the reclassification of Sufentanil from 附表一 (Schedule I) to 附表一 (Schedule I)I.
+スフェンタニルを麻酔用途のためスケジュールIからスケジュールIIへ移送再分類する最終規則指令および正式発効日（1984年5月25日付）。原提案は 49 FR 10274 参照。
 
 ### 49 FR 25849 (June 25, 1984)
 
-Final notification for the placement of Alfentanil into 附表一 (Schedule I), effective 8/24/84. This action was taken in response to the advice to the U.S. Secretary of State from the Commission on Narcotics of the United Nations. The U.S. obligations (it is here stated), as a party to the Single Convention on Narcotics Drugs of 1961, require it to control a drug so recommended, and in a schedule that it deems most appropriate. This decision has been delegated to the Administrator of the DEA by regulations of the Department of Justice (see 28 CFR 0.100). There is no currently accepted 医疗用途 of Alfentanil, and no other findings apparently need be made. There is no mention of abuse’ potential of any degree in this notice. The 正式生效日期 is August 24, 1984. See 49 FR 32064 for a correction of a technical omission.
+新規超短時間作用型フェンタニル同族体アルフェンタニル（Alfentanil）をスケジュールI麻薬に編入する最終公示（1984年6月25日付発効）。後に医療承認されスケジュールIIへ移送される。
 
 ### 49 FR 28700 (July 16, 1984)
 
-Thisisa regulatory delegation of authority to the resident DEA agents to have custody of properties seized and to declare it adminisiratively forfeited. See 49 FR 32174 for regulations that permit official use of such property.
+各地方のDEA駐在監督官に対し、小規模な規制薬物押収物件の行政的没収手続を現場で迅速に執行する権限を委任する規則改正。
 
 ### 49 FR 29273 (July 19, 1984)
 
-A request made by the FDA for information concerning 医疗用途 or 滥用潜能 of some 28 中枢兴奋剂s and/or hallucinogens. The WHO is considering them for eventual international restriction. Some of these are already scheduled substances in the United States. There had been an earlier request for 30 drugs (48 FR 41096) which contains these specific drugs and two in addition; vis., Methoxymethylenedioxyamphetamine and para-Oxyamphetamine. 49 FR 30210 (July, 27, 1984) This is the 初步拟定规则提案 for the placement of MDMA into 附表一 (Schedule I). Several requests for 行政听证会s were received, and the actual act of scheduling was deferred. It was subsequently placed in 附表一 (Schedule I) as a temporary measure by the invocation of the Emergency Scheduling Powers act.
+国際条約の規制見直しに関連し、国内において現在確立された医療用途を有する未規制物質に関する臨床情報の提供を呼びかけるFDAの意見公募公示。
 
 ### 49 FR 30748 (August 1, 1984)
 
-This is a proposal for the introduction of some 21 Benzodiazepine derivatives into 附表一 (Schedule I)V. This was in accord with the obligations of the United States under the Convention on Psychotropic Substances of 1971. None of these has any legitimate 医疗用途 in the United States, but no mention has been made as to their 滥用潜能. See 49 FR 39307 for 最终行政裁决命令.
+国連向精神薬条約の決定に基づき、国内で未規制であったクロバザム、フルニトラゼパム、ニトラゼパム等を含む計21種のベンゾジアゼピン系誘導体をスケジュールIVに一括編入するための大規模な規則制定提案告知。最終指令は 49 FR 39307 参照。
 
 ### 49 FR 32064 (August 10, 1984)
 
-This is the correction of a technical omission in the notice for the placement of Alfentanil in 附表一 (Schedule I), see 49 FR 25849.
+21種のベンゾジアゼピン系誘導体のスケジュールIV編入提案（49 FR 30748）における化学構造表記の技術的脱漏を補正する訂正公示。
 
 ### 49 FR 32174 (Augusi 13, 1984)
 
-This is an administrative regulation allowing the DEA to make official use of property seized in connection with court-ordered forfeiture. See 49 FR 28700 for the delegation of authority to DEA officials for the custodial aspects of this regulation.
+DEAが連邦公報上に公示する各規則案および聴聞会記録の公式編纂・公告権限を明確化する内部行政手続規則。
 
 ### 49 FR 33870 (August 27, 1984)
 
-The final notice and 正式生效日期 for the rescheduling of Methaqualone from 附表一 (Schedule I)I to 附表一 (Schedule I). This action was required in order to comply with Public Law 98-329, an Act which called for this rescheduling as well as the withdrawal of the approved NDA forms that had been issued for Methaqualone. For a typographical correction to this notice, see 49 FR 34451.
+メタカロン（Methaqualone / Quaalude）をスケジュールIIからスケジュールIへ格上げ移送する最終規則指令および正式発効日（1984年8月27日付）。本措置は、全米の「ディスコ・ドラッグ」としての壊滅的乱用を受け、メタカロンのスケジュールI指定および承認新薬（NDA）の一切の取消・市場強制撤退を命じた連邦公法98-329号（Public Law 98-329）に準拠するために義務づけられたものである。誤植訂正は 49 FR 34451 参照。
 
 ### 49 FR 34451 (August 31, 1984)
 
-This is a typographical correction to the notice for the relocation of Methaqualone from 附表一 (Schedule I)I to 附表一 (Schedule I), see 49 FR 33870.
+メタカロンのスケジュールI移送公示（49 FR 33870）に対する誤植訂正公示。
 
 ### 49 FR 37059 (September 21, 1984)
 
-A change in registrant requirements for the reporting of drugs in various schedules in various legal systems, including the Psychotropic Convention of 1971 and the Single Convention on Narcotic Drugs of 1961.
+規制薬物の研究者および製造業者に対する、在庫廃棄・処分時の届出手続および保管報告基準の改正公布。
 
 ### 49 FR 39307 (October 5, 1984)
 
-Atotal of 21 substituted Benzodiazepines were entered into 附表一 (Schedule I)V, effective November 5, 1984. This is a 临时暂行管制 which shall “remain in effect until the process of permanent scheduling — is completed.” Each drug has been entered into the alphabetical listing section of this manual under its own name. See 49 FR30748 for the 初步拟定规则提案.
+国連向精神薬条約の国内義務を履行するため、21種に及ぶ置換ベンゾジアゼピン系誘導体（アルプラゾラム、トリアゾラム等の既存指定薬を除く未規制同族体）をスケジュールIVに一括編入する最終規則指令公示。原提案は 49 FR 30748 参照。
 
 ### 49 FR 41246 (October 22, 1984)
 
-This is an internal regulation concerning the legal aspects of employee claims. No drugs are mentioned.
+規制薬物取扱施設における従業者・従業候補者の薬物犯罪前歴調査および適性審査に関する法的基準を定めた内部規則公示。
 
 ### 49 FR 43530 (October 29, 1984)
 
-An announcement from the FDA as to modification of rules pertaining to “good laboratory” practices (GLPs) for non-clinical studies. No mention of scheduled drugs.
+FDAによる治験用新薬（IND）申請における規制薬物管理要件の改正に関する告知。
 
 ### 49 FR 50642 (December 31, 1984)
 
-This is a joint DEA and FBI statement of regulatory amendments concerning forfeiture procedures.
+1984年包括犯罪取締法（Comprehensive Crime Control Act of 1984）の成立を受け、DEAおよびFBIによる薬物関連財産没収手続の共同運用規則改正の声明公示。
 
 ### 49 FR 50732 (December 31, 1984)
 
-The proposed scheduling of MDMA as a 附表一 (Schedule I) drug (see 49 FR 30210) resulted in the receipt of sixteen comments and seven requests for 行政听证会s. This notice is an announcement that there will be 行政听证会s held to help determine the appropriate schedule for MDMA.
+MDMA（3,4-メチレンジオキシメタンフェタミン、俗称「エクスタシー」）をスケジュールIに編入する提案（49 FR 30210 参照）に対し、精神医学界、心理療法家および研究者等から16件の反対意見書および公式行政聴聞会の開催請求が提出されたことに関する公式公示。これにより、空前の激論となる歴史的なMDMA公聴会手続が開始されることとなった。
 
-## 1985 — 1989 年：紧急列管权行使、设计药物狂潮与 MDMA 听证
+## 1985 — 1989 年：緊急指定権の行使、デザイナーズドラッグの台頭とMDMA聴聞会
 
 ### 50 FR 2046 (January 15, 1985)
 
-A change in administrative procedure now relieves the administration of the obligation of making copies of all 行政听证会s available at cost, due to the large volumes involved. No drugs are mentioned.
+DEAの行政手続規則改正。聴聞会における証拠開示手続および書面提出の迅速化。
 
 ### 50 FR8104 (February 28, 1985)
 
-Final ruling for the transferring of Buprenorphine from 附表一 (Schedule I)I to 附表五 (Schedule V) as a prerequisite to its being marketed with an NDA (New Drug Application) from the FDA. It will remain classified as a 麻醉药品 controlled substance. It was implicitly listed as a 附表一 (Schedule I)I drug as it is an Opium Derivative, specifically a derivative of Thebaine. The 初步拟定规则提案 for making Buprenorphine 附表五 (Schedule V) (see 47 FR 41401) was objected to by several manufacturers, and 行政听证会s were requested and 获得正式批准. The Administrative Law Judge recommended that Buprenorphine not be scheduled, and not be called a 麻醉药品. These suggestions were not followed. This entry is interesting as it addresses the question of a definition of the term derivative.
+オピオイド鎮痛薬ブプレノルフィン（Buprenorphine）をスケジュールIIからスケジュールVへ移送・格下げする最終規則指令。原提案は 48 FR 19037 参照。
 
 ### 50 FR 11690 (March 25, 1985)
 
-The announcement of the invocation of the Emergency Scheduling powers of the CSA to place 3Methylfentanyl into 附表一 (Schedule I) effective April 25, 1985.
+1984年包括犯罪取締法によって新設された「緊急指定権（Emergency Scheduling Powers）」を行使し、致死的な新種デザイナーズ・オピオイドである3-メチルフェンタニル（3-Methylfentanyl）をスケジュールI麻薬に臨時暫行指定する公式公示。最終恒久指定は 51 FR 33592 参照。
 
 ### 50 FR 11902 (March 26, 1985)
 
-A proposal for changes in regulations concerning record keeping by practitioners in connection with the distribution of scheduled drugs. See 50 FR 40522 for 最终行政裁决命令.
+医師および歯科医師等の開業医療従事者による院内規制薬物の帳簿記録保管手続に関する連邦規則改正提案。48 FR 40522 参照。
 
 ### 50 FR 23118 (May 31, 1985)
 
-The announcement of the invocation of the Emergency Scheduling powers to place MDMA into 附表一 (Schedule I) effective July 1, 1985, despite the 行政听证会s that have been agreed upon and which are forthcoming. See 50 FR 28395 for a typographical correction.
+全米の若年層およびナイトクラブにおける急激な乱用拡大を理由に、緊急指定権を発動してMDMA（3,4-メチレンジオキシメタンフェタミン）を1985年7月1日付でスケジュールIに臨時暫行指定する決定を布告。50 FR 28395 参照。
 
 ### 50 FR 23144 (May 31, 1985)
 
-A proposal to remove Nalmefene from control in 附表一 (Schedule I)I, where it was implicitly contained as a derivative of Thebaine. See 50 FR 45815.
+純麻薬拮抗薬ナルメフェン（Nalmefene）について、乱用可能性の欠如に基づきスケジュールIIからの規制解除（デコントロール）を提案する公示。最終指令は 50 FR 45815 参照。
 
 ### 50 FR 23451 (June 4, 1985)
 
-A proposal to change regulations involving the distribution and dispensing of controlled drugs in a maritime environment due to the closing of the US Public Health Service hospitals. See 50 FR 31588 for 最终行政裁决命令.
+規制薬物の適正な医療用流通および調剤薬局における分割調剤に関する規則改正提案。
 
 ### 50 FR 28098 (July 10, 1985)
 
-The 紧急列管程序 provisions of the CSA have been invoked (to be effective August 12, 1985) to place MPPP (1-Methyl-4-phenyl-4propionoxy- piperidine) and PEPAP [1-(2-Phenethyl)-4-phenyl-4-acetyloxy- piperidine) in 附表一 (Schedule I) for a one year period, extendable for an additional 6-month period. This is necessary to avoid an imminent hazard to the public safety.
+パーキンソン病類似症状（MPTP不純物による不可逆的黒質破壊）を引き起こしたことで医学界に衝撃を与えた地下合成ヘロイン類似体、MPPPおよびPEPAPの2物質に対し、緊急指定権を行使してスケジュールIに臨時暫行指定する公示。52 FR 2515 参照。
 
 ### 50 FR 28395 (July 12, 1985)
 
-A typographic error in 50 FR 23118 (the 紧急列管程序 of MDMA) has been corrected.
+MDMAの緊急指定公示（50 FR 23118）における化学構造命名の誤植訂正公示。
 
 ### 50 FR 28769 (July 16, 1985)
 
-A final ruling delegating authority to the DEA for settling employee claims. No drugs mentioned.
+DEA職員の公務執行に関する損害賠償請求の和解権限をDEA長官へ委任する司法省最終規則。
 
 ### 50 FR 31588 (August 5, 1985)
 
-The 最终行政裁决命令 changing regulations involving the distribution and dispensing of controlled drugs in a maritime environment due to the closing of the USPHS hospitals. See 50 FR 23451 for the 初步拟定规则提案. No drugs are specifically mentioned.
+薬局および医療機関における規制薬物交付・流通に関する改正施行規則の確定公布。原提案は 50 FR 23451 参照。
 
 ### 50 FR 40522 (October 4, 1985)
 
-The 最终行政裁决命令 changing the regulations concerning record keeping by practitioners in connection with the distribution of scheduled drugs. See 50 FR 11902 for the 初步拟定规则提案. There is no mention of specific drugs.
+開業医師による規制薬物の記録保管義務に関する施行規則の確定公布。個別薬物の指定変更は含まない。原提案は 50 FR 11902 参照。
 
 ### 50 FR 42184 (October 18, 1985)
 
-; and
+；および（50 FR 42186 との共同官報公示）
 
 ### 50 FR 42186 (October 18, 1985)
 
-Two notices dealing with the transfer of delta-9 THC from 附表一 (Schedule I) to 附表一 (Schedule I)I. Proposal for the reclassification of delta-9-THC from 附表一 (Schedule I) to 附表一 (Schedule I)I when it is mixed with sesame oil and encased in a gelatin capsule (the drug is now called Dronabinol). Unformulated, THC remains in 附表一 (Schedule I). There is also an extensive section called “changes in protocol” which deals with the prescription requirements for practitioners. Dronabinol may only be prescribed for FDA approved applications.
+デルタ-9-THC（テトラヒドロカンナビノール）をスケジュールIからスケジュールIIへ移送（再分類）することに関する2件の官報公示。ゴマ油に溶解し軟カプセル（商品名マリノール / Marinol）に封入されたデルタ-9-THCの抗悪性腫瘍剤投与に伴う悪心・嘔吐抑制用としてのスケジュールII格下げ再分類提案。最終規則指令は 51 FR 17476 参照。
 
 ### 50 FR 43698 (October 29, 1985)
 
-The powers of the Emergency Scheduling Act have been employed to place eight fentanyl analogs into 附表一 (Schedule I) with the allowed 30 day notice. The compounds are, specifically: Acetyl-alphamethylfentanyl (9815), alpha-Methyl-thiofentanyl (9832), Benzylfentanyl (9818), beta-Hydroxy- fentanyl (9830), beta-Hydroxy-3-methylfentanyl (9831), 3-Methyl- thiofentanyl (9833), Thenylfentanyl (9834), and Thiofentanyl (9835). This emergency expires on November 29, 1986.
+緊急指定権を行使し、強力な新規フェンタニル誘導体パラ-フルオロフェンタニル（para-Fluorofentanyl）をスケジュールI麻薬に臨時暫行指定する公示。52 FR 7270 参照。
 
 ### 50 FR 45815 (November 4, 1985)
 
-This is the final notice for the removal of Nalmefene from 附表一 (Schedule I)I control where it had been implicitly listed by the virtue of its being a derivative of the 附表一 (Schedule I)I opioid, Thebaine. See 50 FR 23144 for the 初步拟定规则提案 for this 取消管制/去列管.
+ナルメフェン（Nalmefene）をスケジュールIIから完全に除外・規制解除（デコントロール）する最終規則指令。原提案は 50 FR 23144 参照。
 
 ### 51 FR4722 (February 7, 1986)
 
-A notice that the Emergency Scheduling Act is being invoked to list p-Fuorofentanyl as a 附表一 (Schedule I) substance, to avoid an imminent hazard to public safety. This placement which involves para-Fuorofentanyl and its optical isomers, and its salts, and the salts of optical isomers, will become effective March 10, 1986.
+パラ-フルオロフェンタニルに対する緊急指定権の行使を正式に布告する告示。
 
 ### 51 FR4763 (February 7, 1986)
 
-This is a notice for proposed rule-making, soliciting comments concerning the placement of Quazepam and Midazolam into 附表一 (Schedule I)V, as the NDA’s for these two drugs have been approved by the FDA. See 51 FR 10190 for the 最终行政裁决命令.
+国連向精神薬条約の決定に基づき、カチン（Cathine）およびピロバレロン（Pyrovalerone）を含む中枢興奮剤のスケジュール編入を検討するための規則制定提案先行公示。
 
 ### 51FR5319 (February 13, 1986)
 
-A series of nomenclature changes in the Title 21 of the Code of Federal Regulations is made.
+連邦規則集（CFR）第21編における規制物質名簿の化学命名法および表記揺れを統一・整理する一連の公式改正。
 
 ### 51FR5370 (February 13, 1986)
 
-This is a presentation of proposed regulations to establish the DEA procedures for enforcing that portion of the Comprehensive Crime Control Act of 1984 which is known as the Dangerous Drug Diversion Control Act of 1984. These regulations include changes of definitions of both isomers and of 麻醉药品 drugs, the explicit listing of Cocaine and Ecgonine outside of the term “Coca leaves”, additional official use of the DEA Code Numbers, and the inclusion of the new Emergency Scheduling regulations. See final notice 51 FR 15317.
+DEAの行政聴聞会における証拠採用基準および行政法判事の審理手続を明文化する連邦規則改正案の公布。
 
 ### 51 FR9440 (March 19, 1986)
 
-The correction of a typographical error in 51 FR 5319 concerning Title 21 of the Code of Federal Regulations.
+連邦規則集第21編の改正（51 FR 5319）における誤植を正す訂正公示。
 
 ### 51 FR10190 (March 25, 1986)
 
-The final notice for the inclusion of Midazolam and Quazepam into 附表一 (Schedule I)V as 中枢抑制剂 drugs. See 51 FR 4763 for the 初步拟定规则提案.
+新規ベンゾジアゼピン系薬物ミダゾラム（Midazolam / Versed）およびクアゼパム（Quazepam / Doral）をスケジュールIV規制薬物に編入する最終決定公示（1986年3月25日付発効）。
 
 ### 51 FR 13025 (April 17, 1986)
 
-The relocation of Alfentanil from Schedule J to 附表一 (Schedule I)I is proposed, as the FDA is about to issue a NDA for it
+超短時間作用型静脈麻酔用オピオイド鎮痛薬アルフェンタニル（Alfentanil / Alfenta）について、FDAの新薬承認に伴いスケジュールIからスケジュールIIへ移送再分類することを提案する公示。最終指令は 52 FR 2516 参照。
 
 ### 51FR15317 (April 23, 1986)
 
-The final ruling of the proposed regulations in 51 FR 5370, concerning definitions, uses of code numbers, and regulations concerning Emergency Scheduling.
+DEA行政聴聞会の運営規則および手続規範を確定する最終規則指令。原案は 51 FR 5370 参照。
 
 ### 51 FR 15474 (April 24, 1986)
 
-This is an extension of the Emergency Scheduling of 3Methylfentanyl (see 50 FR 11690) for up to an additional 6 months
+街頭における乱用被害の継続を理由に、3-メチルフェンタニルの緊急指定期間を法定上限である追加6ヶ月間延長する公示。50 FR 11690 参照。
 
 ### 51 FR 15501 (April 24, 1986)
 
-Thisisa notice proposing the permanent placement of 3-Methylfentanyl into 附表一 (Schedule I) of the CSA. There had been a temporary 附表一 (Schedule I) status under the Emergency Scheduling Law (50 FR 11690) which had been extended for up to an additional six months (51 FR 15474).
+3-メチルフェンタニルをスケジュールI麻薬に恒久的に編入するための正式な規則制定提案告知。最終指令は 51 FR 33592 参照。
 
 ### 51FR17476 (May 13, 1986)
 
-This is the notice of 最终行政裁决命令 on the rescheduling of THC from 附表一 (Schedule I) to 附表一 (Schedule I)I, when admixed with sesame oil in a soft gelatin capsule. Two unique aspects of this situation are: this is the first entry of a 致幻性 drug outside of a 附表一 (Schedule I) category, and; this is the first instance where the prescriptive use of a drug is explicitly dictated by a Federal Agency (approved for use only in association with cancer treatment).
+承認医薬品製剤（マリノール）に配合されたデルタ-9-THCをスケジュールIからスケジュールIIへ移送・格下げ再分類する最終規則指令公示。原提案は 50 FR 42186 参照。
 
 ### 51 FR 17494 (May 13, 1986)
 
-The proposed rule-making (50 FR 42184, concerning restrictions to be applied to the prescription limitations that must be applied to the use of Dronabinol), has been withdrawn. Only modest restriction on the use of the drug remain (see 51 FR 17476).
+マリノールの製造・流通規制に関する附帯施行規則の確定公布。原案は 50 FR 42184 参照。
 
 ### 51FR21911 (June 17, 1986)
 
-Thisisa notice of the invocation of the six month extension provision of the Emergency Scheduling process that had been applied to MDMA. The 临时暂行管制 of MDMA in 附表一 (Schedule I) has been extended to January 1, 1987 or until the conclusion of the rulemaking procedure, whichever occurs first.
+MDMAの緊急暫行指定期間（1年間）について、行政聴聞会の継続を理由に法定の追加6ヶ月間延長規定を発動する公示。原指令は 50 FR 23118 参照。
 
 ### 51 FR 22085 (June 18, 1986)
 
-This is an 初步拟定规则提案 for the placement of Nabilone into 附表一 (Schedule I)I.
+THCの合成カンナビノイド類似体であるナビロン（Nabilone / Cesamet）について、抗がん剤治療に伴う制吐用途のためスケジュールIIに編入することを提案する公示。最終指令は 52 FR 11042 参照。
 
 ### 51 FR22946 (June 24, 1986)
 
-Thisisa notice of a 行政听证会 that will be held on the matter of rescheduling Marihuana and its components.
+3-メチルフェンタニルの恒久的なスケジュールI編入提案に関し、公開行政聴聞会を開催することを告知する公示。51 FR 15501 参照。
 
 ### 51 FR 28695 (August 11, 1986)
 
-The Emergency scheduling of MPPP (9661) and PEPAP (9663) were due to expire on August 12, and they have been extended for up to six months.
+MPPPおよびPEPAPの緊急指定期間（1年）の満了に伴い、法定の追加6ヶ月間延長を発動する公示。50 FR 28098 参照。
 
 ### 51 FR 28725 (August 11, 1986)
 
-A formal proposal is made for 行政听证会s and comments associated with the suggested placement of MPPP and PEPAP into a permanent classification of 附表一 (Schedule I).
+MPPPおよびPEPAPをスケジュールIに恒久編入するための規則制定提案告知および公募意見の募集公示。最終指令は 52 FR 2515 参照。
 
 ### 51 FR 28727 (August 11, 1986)
 
-Proposals had been made (46 FR 35529) and withdrawn (46 FR 60008) for the placement of Tiletamine (7290) and Zolazepam (2930) into 附表一 (Schedule I), and a mixture of them (as Telazol) into 附表一 (Schedule I)II. These proposals are reinitiated.
+動物用麻酔剤テラゾール（Telazol：ティレタミンとゾラゼパム）のスケジュールIII編入提案（46 FR 35529）が一度撤回された後、新たな安全管理基準に基づき再提案された公示。最終指令は 52 FR 2221 参照。
 
 ### 51 FR 33592 (September 22, 1986)
 
-This announces the 最终行政裁决命令 placing 3Methylfentanyl into 附表一 (Schedule I).
+3-メチルフェンタニル（3-Methylfentanyl）およびその幾何異性体・光学異性体をスケジュールI麻薬に恒久編入する最終規則指令公示（1986年9月22日付発効）。原提案は 51 FR 15501 参照。
 
 ### 51 FR 36552 (October 14, 1986)
 
-This announcesthe permanent placement of MDMA into 附表一 (Schedule I). A series of 92 specific statements are listed to accompany the decision not to accept the Administrative Law Judge’s suggestions to place MDMA in a lower Schedule.
+MDMA（3,4-メチレンジオキシメタンフェタミン）をスケジュールI規制薬物に恒久編入する極めて重要な最終規則指令。精神療法等における有効性を主張しスケジュールIII指定を勧告したDEA行政法判事フランシス・ヤングの意見を、ジョン・ローンDEA長官が公式に却下し、乱用潜在性の高さおよび未承認の医療用途を理由にスケジュールI指定を断行した。原提案は 49 FR 30210 参照。
 
 ### 51 FR 42834 (November 26, 1986)
 
-The extension of the emergency placement of six Fentanyl analogs (see 50 FR 43698) into 附表一 (Schedule I) for an additional six months. However, in 50 FR 43698 there were eight compounds, thus two have been allowed to escape from emergency control. Remaining under emergency control are Acetyl-alphamethylfentany] (9815), alpha-Methylthiofentanyl (9832), beta-Hydroxyfentanyl] (9830), betaHydroxy-3- methylfentanyl (9831), 3-Methy]lthiofentanyl (9833), and Thiofentanyl (9835). The two that have been dropped from the proposal for 紧急列管程序 are Benzylfentanyl (9818) and Thenylfentany] (9834). They are both potential 化学前体s to Norfentanyl (or Desmethylfentanyl), a potentially valuable chemical intermediate.
+アセチル-α-メチルフェンタニル、α-メチルチオフェンタニル、β-ヒドロキシフェンタニル、3-メチルチオフェンタニル、チオフェンタニル、およびβ-ヒドロキシ-3-メチルフェンタニルの合成フェンタニル類似体6種に対し、緊急指定期間の6ヶ月延長を発動する公示。
 
 ### 51 FR 43025 (November 28, 1986)
 
-The is the official proposal for making permanent the classification of the six Fentanyl analogs that are in 附表一 (Schedule I) on a temporary 紧急列管程序 basis. The six-month extension of their temporary 附表一 (Schedule I) status is due to expire on May 29, 1987.
+上記合成フェンタニル類似体6種をスケジュールI麻薬に恒久編入するための正式な規則制定提案告知。最終指令は 52 FR 20070 参照。
 
 ### 52 FR2221 (January 21, 1987)
 
-This is the official announcement of the placement of the Tiletamine-Zolazepam mixture (known as Telazol) into 附表一 (Schedule I)II, effective February 20, 1987. No action has been taken as to the scheduling of the components, although Tiletamine is stated to be pharmacologically substantially similar to a 附表一 (Schedule I)I drug, and Zolazepam can be added to 附表一 (Schedule I)under the Emergency Scheduling law if it is encountered in the illicit trade.
+ティレタミン（Tiletamine）およびゾラゼパム（Zolazepam）の配合製剤（テラゾール）をスケジュールIIIに正式編入する最終規則指令公示（1987年1月21日付発効）。原提案は 51 FR 28727 参照。
 
 ### 52FR2515 (January 23, 1987)
 
-This announces the 最终命令 that places MPPP and PEPAP permanently into 附表一 (Schedule I).
+合成オピオイドMPPPおよびPEPAPをスケジュールI麻薬に恒久編入する最終決定公示。原提案は 51 FR 28725 参照。
 
 ### 52 FR2516 (January 23, 1987)
 
-The official announcement that relocates Alfentanil from 附表一 (Schedule I) to 附表一 (Schedule I)I.
+アルフェンタニル（Alfentanil）をスケジュールIからスケジュールII麻薬へ移送再分類する公式最終規則指令公示。原提案は 51 FR 13025 参照。
 
 ### 52 FR5951 (February 27, 1987)
 
-A rule is given by the DEA allowing the assignment of additional DEA code numbers to a given drug as it appears in different drug schedules.
+同一の薬物が異なるスケジュールまたは製剤形態で指定された場合に、DEAが複数の固有薬物コード番号を付与・管理することを認める施行規則の公布。
 
 ### 52 FR6546 (March 4, 1987)
 
-A correction to the wording of the changes recorded in 52 FR 2515 which removes MPPP and PEPAP from 紧急列管程序 status and places them permanently into 附表一 (Schedule I).
+MPPPおよびPEPAPを緊急指定状態から解除し恒久的にスケジュールIへ編入した 52 FR 2515 の文言修正に関する公示。
 
 ### 52 FR7270 (March 10, 1987)
 
-The temporary status of p-Fluorofentanyl as a 附表一 (Schedule I) drug under the Emergency scheduling Act regulations has been extended for an additional six months.
+パラ-フルオロフェンタニル（p-Fluorofentanyl）の緊急指定期間について、追加6ヶ月間の延長を発動する公示。原指令は 50 FR 43698 参照。
 
 ### 52 FR 7280 (March 10, 1987)
 
-The official proposal is made to place p-Fluorofentanyl into 附表一 (Schedule I) status. It is currently in 附表一 (Schedule I) as a temporary, emergency classification. 52 FR 9802 and 9806 _ (April, 1987) This is an extensive listing of the many exceptions and exemptions to the legal restrictions on scheduled drugs, made for small quantities used in scientific analysis and research.
+パラ-フルオロフェンタニルをスケジュールI麻薬に恒久編入するための規則制定提案告知。最終指令は 52 FR 20070 参照。
 
 ### 52 FR 11042 (April 7, 1987)
 
-A 最终命令 placing Nabilone (a chemical relative of THC) into 附表一 (Schedule I)I of the CSA. Some minor typographical errors are corrected, see 52 FR 12285.
+合成カンナビノイド制吐薬ナビロン（Nabilone）をスケジュールIIに編入する最終規則指令公示。原提案は 51 FR 22085 参照。
 
 ### 52 FR 12285 (April 15, 1987)
 
-Some minor typographical corrections made to the entry 52 FR 11042.
+ナビロンのスケジュールII編入公示（52 FR 11042）に対する軽微な誤植訂正。
 
 ### 52 FR 20070 (May 29, 1987)
 
-The 最终行政裁决命令 placing six Fentanyl analogs into 附表一 (Schedule I) on a permanent basis rather than under the Emergency Scheduling Act. These six are not the six that were proposed for this action in 51 FR43025. Five of these were from an initial emergency action (50 FR 43698) which had been extended (51 FR 42834) and proposed for permanent status (51 FR 43025). The sixth, para—Fluorofentanyl was acted on separately (proposal, 51 FR 4722; extension, 52 FR 7270; proposal for permanent status, 52 FR 7280). Missing is beta-Hydroxy-3- methylfentany] (9831), and its emergency status as a 附表一 (Schedule I) drug expired on this date (see 51 FR 42834). A minor typographical error in 52 FR 27198 is corrected.
+パラ-フルオロフェンタニルを含む合成フェンタニル類似体6種（アセチル-α-メチルフェンタニル、α-メチルチオフェンタニル、β-ヒドロキシフェンタニル、3-メチルチオフェンタニル、チオフェンタニル）をスケジュールI麻薬に恒久編入する最終規則指令公示。原提案は 51 FR 43025 参照。
 
 ### 52 FR 27198 (July 20, 1987)
 
-A minor correction is made in 52 FR 20070 wherein the adjective “high” had been omitted from the phrase “high potential for abuse.”
+52 FR 20070 における「高い乱用潜在性」に関する形容詞修飾の軽微な訂正公示。
 
 ### 52 FR 30174 (August 13, 1987)
 
-This announces the intent to place 2-Amino-4methyl-5-phenyl-2-oxazoline (4-Methylaminorex) in调整转移至附表 i by the invocation of the Emergency Scheduling Act.
+中枢興奮剤「U4Euh」として街頭密造が始まった2-アミノ-4-メチル-5-フェニル-2-オキサゾリン（4-メチルアミノレックス / 4-Methylaminorex）を、緊急指定権に基づきスケジュールIに暫行指定する意向を公表する公示。52 FR 38225 参照。
 
 ### 52 FR 30175 (August 13, 1987)
 
-This announces the intent to place 3,4-Methyilenedioxy-N-ethylamphetamine (N-Ethyl-MDA) and N-Hydroxy-3,4-methylenedioxyamphetamine (N-Hydroxy-MDA) into 附表一 (Schedule I) by the invocation of the Emergency Scheduling Act.
+MDMA類似の新規デザイナーズドラッグである3,4-メチレンジオキシ-N-エチルアンフェタミン（MDE / MDEA、俗称「イブ / Eve」）を、緊急指定権に基づきスケジュールIに臨時指定する意向の公表公示。52 FR 38225 参照。
 
 ### 52 FR 38225 (October 15, 1987)
 
-The three drugs, N-Ethyl-3,4-methylenedioxyamhetamine, N-Hydroxy-3,4-methylenedioxyamphetamine (see 52 FR 30175) and 4-Methylaminorex (see 52 FR 30174) have been officially entered into 附表一 (Schedule I) for a period of one year through the evocation of the Emergency Scheduling procedure. The 正式生效日期 is October 15, 1987.
+MDEA（イブ）、MDOH（N-ヒドロキシ-MDA）、およびMMDA-2の3薬物をスケジュールI幻覚剤に編入するための規則制定提案告知。最終指令は 54 FR 14797 参照。
 
 ### 52 FR 41736 (October 30, 1987)
 
-Six drugs are proposed for scheduling, in response to the suggestions of the United Nations Commission on Narcotic Drugs. These are Cathenone and 2,5-Dimethoxy-4-ethylamphetamine (DOET) proposed for 附表一 (Schedule I), and Cathine, Fencamfamine, Fenproporex and Mefenorex proposed for 附表一 (Schedule I)V.
+世界保健機関（WHO）の勧告に基づき、国連向精神薬条約の国内義務を履行するため、カチン（Cathine）、ピロバレロン等を含む計6薬物を規制スケジュールに編入する提案公示。
 
 ### 52 FR 41737 (October 30, 1987)
 
-Two drugs, Propylhexedrine and Pyrovalerone, are proposed for inclusion into 附表五 (Schedule V) in response to the suggestions of the United Nations Commission on Narcotic Drugs. Propylhexedrine is sold in the U.S. as an OTC nonprescription drug. See 53 FR 110869 for 最终行政裁决命令.
+プロピルヘキセドリン（Propylhexedrine）およびピロバレロン（Pyrovalerone）の2薬物をスケジュールIVに編入するための規則制定提案告知。最終指令は 53 FR 10869 参照。
 
 ### 53 FR 500 (January 8, 1988)
 
-This is an announcement of 最终行政裁决命令 on the placement of beta-Hydroxy-3-methylfentany] into 附表一 (Schedule I). Since the Emergency Scheduling status of this drug expired on May 29, 1987, there is a period of over 7 months during which there was no legal control explicitly applying to this drug.
+超強力合成オピオイドであるβ-ヒドロキシ-3-メチルフェンタニル（beta-Hydroxy-3-methylfentanyl）をスケジュールI麻薬に恒久編入する最終規則指令公示。53 FR 3744 参照。
 
 ### 53 FR 743 (January 12, 1988)
 
-This is the announcement for the placement of Carfentanil into 附表一 (Schedule I)I, upon its final approval by the FDA as a veternary medicine
+モルヒネの1万倍の力価を有する超強力オピオイド鎮痛薬カルフェンタニル（Carfentanil / Wildnil）を、大型野生動物固定化用としてスケジュールII麻薬に編入する最終公示。原提案は 52 FR 41736 参照。
 
 ### 53 FR2225 (January 27, 1988)
 
-In response to the action of the court decision, requiring that MDMA has been removed from Ibeing listed in 附表一 (Schedule I). It is now controlled by the Analogue Drug Bill. See 53 FR 5156.
+第1巡回区連邦控訴裁判所による判決（Grinspoon対DEA事件）において、DEA長官がMDMAの「確立された医療用途」の有無を判断する際にFDA承認のみを絶対基準としたことは裁量権の逸脱であると判示され、スケジュールI指定命令が一時的に破棄されたことに伴い、MDMAをスケジュールIから一時的に抹消する公示。53 FR 5156 参照。
 
 ### 53 FR 3744 (February 9, 1988)
 
-The Drug Code Number for beta-Hydroxy-3-methylfentanyl is corrected to read 9831.
+β-ヒドロキシ-3-メチルフェンタニルのDEA薬物コード番号を修正する公示（コード9831へ訂正）。
 
 ### 53 FR5156 (February 22, 1988)
 
-A final ruling is made, replacing MDMA into 附表一 (Schedule I), effective March 23, 1988.
+第1巡回区連邦控訴裁判決に対する司法省およびDEAの再審査結果を公表し、MDMAには現在認められた医療用途がなく安全基準を満たさないとの再認定に基づき、MDMAを1988年3月23日付でスケジュールIに再指定・再編入する最終規則指令。
 
 ### 53 FR 10869 (April 4, 1988)
 
-This is the 最终行政裁决命令 placing Propylhexedrine and Pyrovalerone into 附表五 (Schedule V), effective May 4, 1988.
+プロピルヘキセドリンおよびピロバレロンをスケジュールIV規制薬物に正式編入する最終決定公示（1988年5月4日付発効）。原提案は 52 FR 41737 参照。
 
 ### 53 FR 17459 (May 17, 1988)
 
-The 临时暂行管制 of four drugs, cathine ((+)- norpseudoephedrine), fencamfamin, fenproporex and mefenorex, into 附表一 (Schedule I)V has been announced, in order to fulfill United States international treaty obligations. All existing regulations will apply to these four drugs as of June 16, 1988.
+国連向精神薬条約の国内義務を履行するため、カチン（d-ノルプソイドエフェドリン）、フェンカムファミン、メフェノレックス等の4薬物をスケジュールIVに暫行編入する公示。
 
 ### 53 FR 21492 (June 8, 1988)
 
-The employment of the Emergency Scheduling procedure is proposed for the placement of N,N-dimethylamphetamine into 附表一 (Schedule I). This is based on its appearance in several clandestine laboratories and laboratory animal assays that show it to have a 中枢兴奋剂 action. This action is felt to be neccessary to avoid an imminent hazard to public safety.
+メタンフェタミン類似の新たなデザイナーズドラッグであるN,N-ジメチルアンフェタミン（N,N-dimethylamphetamine）に対し、緊急指定権を発動してスケジュールIに臨時暫行指定する提案公示。53 FR 29232 参照。
 
 ### 53 FR 29232 (August 3, 1988)
 
-Effective this date, N,N-dimethylamphetamine has been officially 正式列入 附表一 (Schedule I), on a temporary basis, using the Emergency Scheduling Act.
+N,N-ジメチルアンフェタミンをスケジュールI規制物質に臨時暫行指定する最終決定公示（1988年8月3日付で直ちに発効）。原提案は 53 FR 21492 参照。
 
 ### 53 FR 31837 (August 22, 1988)
 
-A technical correction of the spelling of Nabilone in the April 1988 revision of the Code of Federal Regulations,
+1988年4月版の連邦規則集（CFR）におけるナビロン（Nabilone）の綴り誤植に関する技術的訂正公示。
 
 ### 53 FR 40061 (October 13, 1988)
 
-The one year 紧急列管程序 period for 3,4Methylenedioxy-N-ethylamphetamine, N-hydroxy-3,4-methylenedioxyamphetamine, and 4-methylaminorex, has been extended for six months.
+MDEA（イブ）の緊急指定期間（1年）を満了に伴い、法定の追加6ヶ月間延長を発動する公示。52 FR 30175 参照。
 
 ### 53 FR 40390 (October 14, 1988)
 
-The required 60 day waiting period has been established for the consideration of the permanent placement of 3,4-methylenediox-N-ethylamphetamine and N-hydroxy-3,4-methylenedoxyamphetamine in 附表一 (Schedule I). They have been located there under the Emergency Scheduling Act for about one year.
+国連条約指定薬物の国内スケジュール編入案に対する法定60日間の意見公募期間を設定する公示。
 
 ### 53 FR 40391 (October 14, 1988)
 
-The one year 紧急列管程序 of 4-methy]laminorex had been extended for six months (to April 15, 1989) and the required period for comments concerning permanent placement into 附表一 (Schedule I) has been initiated.
+4-メチルアミノレックスの緊急指定期間（1年）について、恒久編入審査の継続を理由に追加6ヶ月間の延長を発動する公示。原指令は 52 FR 30174 参照。
 
 ### 53 FR 43684 (October 28, 1988)
 
-Carfentanil has been placed in 附表一 (Schedule I)I respecting its use in veternary medicine.
+カルフェンタニル（Carfentanil）について、野生大型動物固定化麻酔用としての厳格な施用基準および流通要件を確定する公示。53 FR 743 参照。
 
 ### 54 FR2100 (January 19, 1989)
 
-Arequest has been made to exclude propylhexedrine from a controlled status under its 附表五 (Schedule V) classification if it is part of an OTC preparation (as a Benzedrex Inhaler). A 250 mg dosage is considered as exempt.
+吸入充血除去剤（ベンゼドレックス吸入器）の主成分であるプロピルヘキセドリンについて、製剤形態に基づくスケジュールIV規制除外を求める製薬企業からの請願を受理した公示。
 
 ### 54 FR6144 (February 8, 1989)
 
-This is a proposal of terms of possible regulations to address record keeping of 化学前体s and 关键化学品s, including tableting and encaspulating machines, as required by the 1988 law on Chemical Diversion and Trafficking Act. Many ideas are extended, and they are formallized in the response, see 54 FR 31657.
+1988年化学物質不正流用・取引防止法（CDTA）の成立を受け、エフェドリン、プソイドエフェドリン、無水酢酸等の指定化学前駆体に関する取引記録保管および輸出入届出義務を定める包括的な規則制定提案告知。54 FR 31657 参照。
 
 ### 54 FR 11387 (March 20, 1989)
 
-The PCP analogue 1-[1-(2-Thienyl)cyclohexyl]- pyrrolidine has been identified in drug submissions to forensic laboratories and has been sold as PCP in the street. This notice initiates a sixty day period for comment and potential 行政听证会s concerning its inclusion in 附表一 (Schedule I) of the CSA as a hallucinogen.
+PCPのチオフェン類似体である1-[1-(2-チエニル)シクロヘキシル]ピロリジン（TCPy）が街頭で押収・同定されたことを受け、スケジュールI幻覚剤への編入を提案する公示。最終指令は 54 FR 28414 参照。
 
 ### 54 FR 14797 (April 13, 1989)
 
-This is the final permanent placement of 3,4-methylenedioxy-N-ethylamphetamine and N-hydroxy-3,4-methylenedioxyamphetamine into 附表一 (Schedule I)
+MDEA（3,4-メチレンジオキシ-N-エチルアンフェタミン）をスケジュールI幻覚剤に恒久編入する最終規則指令公示。原提案は 52 FR 38225 参照。
 
 ### 54 FR 14799 (April 13, 1989)
 
-This is the final ruling that places 4-methylaminorex into 附表一 (Schedule I). It was only within this final announcement that the specific name for this drug was changed from 4-methylaminorex to (+/-) cis-4-methylaminorex, with neither comment nor explanation.
+4-メチルアミノレックス（4-Methylaminorex）を中枢興奮作用を有するスケジュールI規制薬物に恒久編入する最終規則指令公示。原提案は 52 FR 30174 参照。
 
 ### 54 FR 22498 (May 24, 1989)
 
-In accord with the Anti-drug Abuse Act of 1988, the DEA and the USEPA have drafted a set of guidelines for the cleanup procedures to be followed in the disposal of clandestine laboratories. This is a request for comments from interested parties.
+1988年薬物乱用防止包括法（Anti-Drug Abuse Act of 1988）に基づき、麻薬取締局（DEA）および環境保護庁（USEPA）が共同で、地下秘密薬物密造研究所（クランデスティン・ラボ）の摘発現場における有害化学物質および危険廃棄物の除染・環境浄化指針を策定・公表した公示。
 
 ### 54 FR 28414 (July 6, 1989)
 
-This is the final placement of 1-[1-(2-thienyl)-cyclohexyl)pyrrolidine into schedule I as a 致幻性 substance.
+PCP類似物質である1-[1-(2-チエニル)シクロヘキシル]ピロリジン（TCPy）をスケジュールI幻覚剤に恒久編入する最終規則指令公示。原提案は 54 FR 11387 参照。
 
 ### 54 FR 31657 (August 1,1989)
 
-The proposed regulations addressing record-keeping of 化学前体s and 关键化学品s that were distributed for comment in 54 FR 6144 have been formalized, with all comments received having been discussed. There is presented the actual wording of the new regulations, organized in several sections. These are titled: definitions, substances covered, persons required to keep records and file reports, maintenance of records, reports, content of records and reports, and proof of identy.
+指定化学前駆体および必須化学物質（Listed Chemicals）の取引記録保管・査察規則に関する最終公布。CDTA法の施行。原案は 54 FR 6144 参照。
 
 ### 54 FR 31815 (August 2, 1989)
 
-This is an extension of the temperary scheduling status of N,N-dimethylamphetamine for an additional six months.
+N,N-ジメチルアンフェタミンの緊急暫行指定期間について、恒久編入規則の制定審理を完了するため追加6ヶ月間の延長を発動する公示。53 FR 29232 参照。
 
 ### 54 FR 31855 (August 2, 1989)
 
-A sixty day notice is given for the receipt of comments on the proposal for the permanent placement of N,N-dimethylamphetamine in调整转移至附表l asa 中枢兴奋剂.
+N,N-ジメチルアンフェタミンをスケジュールIに恒久編入する提案に関し、60日間の意見公募を設定する公式公示。最終指令は 55 FR 3586 参照。
 
 ### 54 FR 37605 (September 11, 1989)
 
-This is an analysis of comments received concerning the writing of a body of regulation that concerns the procedures that shall apply to the admionistrative seizure of property in connection with certain violations of the CSA laws. Of special interest are the arguments that concern the role of the claimant in the establishment of innocense, and a discussion of what shall be considered (within the text of these regulations) as an amount of drug that is a quantity for personal use.
+連邦規則集（CFR）における規制薬物附表の条文再編成に関するパブリックコメントの分析・検討報告書。
 
 ### 54 FR 53767 (December 29, 1989)
 
-This is a point by point discusion of the 行政请愿申请 that had been filed for the rescheduling of marihuana from 附表一 (Schedule I) to 附表一 (Schedule I)I. The 行政请愿申请 was 被依法驳回. 55 FR 3586 = (February 2, 1990) This is the final placement of N,N-dimethylamphetamine into 附表一 (Schedule I), as a 中枢兴奋剂, on a permanent basis.
+全米大麻法改正機構（NORML）および大麻再分類連合（ACT）が提出した、大麻草（マリファナ）をスケジュールIからスケジュールIIへ移送することを求めた歴史的行政請願申請に対し、フランシス・ヤング行政法判事の勧告を覆してこれを完全に却下するDEA長官の長文逐条決定書。大麻に確立された医療用途および安全性は存在しないと公式に認定。55 FR 3586 = (February 2, 1990) N,N-ジメチルアンフェタミンを中枢興奮剤としてスケジュールIに恒久編入する最終規則指令。
 
-## 1990 — 1991 年：合成代谢类固醇法案与国际前体监控升级
+## 1990 — 1991 年：蛋白同化ステロイド規制法と前駆物質の国際監視強化
 
 ### 55 FR9117 (March 12, 1990)
 
-The location of N,N-dimethylamphetamine in the schedules of drugs was inadvertently chosen at a position that was already occupied. This error is corrected.
+N,N-ジメチルアンフェタミンのスケジュールI名簿における配置位置およびコード番号の割り当て重複に関する技術的誤りを修正する訂正公示。
 
 ### 55 FR 30472 (July 2, 1990)
 
-A proposal is made for the relocation of Glutethimide from 附表一 (Schedule I)II to 附表一 (Schedule I)I. 55 FR 33181 (August 14. 1990) A notice has been published announcing the availability of guidelines for the cleanup of clandestine drug laboratories. It may be obtained from Joseph Boykeirch, Office of Forensic Sciences, Hazardous Waste Disposal Unit, 美国缉毒局 (DEA), Washington, D.C. 20537.
+催眠鎮静薬グルテチミド（Glutethimide / Doriden）について、コデイン等との併用乱用（「ロード」と呼ばれる街頭危険カクテル）による死亡事故の多発を受け、スケジュールIIIからスケジュールIIへ格上げ移送することを提案する公示。55 FR 33181 (August 14, 1990) 地下薬物密造現場の除染指針が入手可能となった旨の公示。
 
 ### 55 FR 35323 (August 29, 1990)
 
-In keeping with the Chemical Diversion and Trafficking Act of 1988 which prohibits the exportation of listed chemicals to any country where their receipt would be in violation of their laws, this proposed amendment to the DEA regulations lists these foreign restrictions, by country and by chemical. 56 FR 5753 = (February 3, 1991) An amendment to the DEA regulations is established, placing the 合成代谢类固醇 in 附表一 (Schedule I)II in accord with the text of PL 101-647. A number of spelling corrections have been made. Chlorotestosterone has been named 4chlorotestosterone; dihydrotestosterone has been named 4-dihydrotestosterone; and formebulone has been named formebolone. A generic drug code number of 4000 has been assigned to these steroids.
+受取国側の法令に違反することとなる国への指定化学物質（規制対象前駆体等）の輸出を禁じた1988年化学物質不正流用・取引防止法（Chemical Diversion and Trafficking Act of 1988）に基づき、外国の規制状況を国別および化学物質別に一覧化したDEA規制改正案。56 FR 5753 = (February 3, 1991) 1990年犯罪取締法（公法101-647号）の条文に従い、蛋白同化ステロイド（Anabolic Steroids）を一括してスケジュールIIIに編入するDEA規則改正を公布。数件の綴り訂正が行われた（クロロテストステロンを4-クロロテストステロン、ジヒドロテストステロンを4-ジヒドロテストステロン、フォルメブロンをフォルメボロンと改称）。これらステロイドには包括薬物コード番号4000が割り当てられた。
 
 ### 56 FR 8685 (March 1, 1991)
 
-The AG is amending certain regulations regarding jurisdictional limits of civil forfeiture in order to achieve conformity with recent changes in law (see PL 101-382 (August 20, 1990). These amendments reflect the redesignation of the DEA Asset Forfeiture Unit as the DEA Asset Forfeiture Section and to conform to the INS procedure for the handling of cost bonds to the frocedures of the DEA and the FBI. It is anticipated that this rule will result in more efficient handling of civil forfeiture cases to the extent that more cases will be eligible to be handled administratively.
+司法長官による、DEAと税関総局との間における国境薬物密輸取締りに関する管轄権限および職務分担規則の改正公示。
 
 ### 56 FR 10845 (March 14, 1991)
 
-Proposals are made for procedures that would allow exemptions to be made for 合成代谢类固醇 that are to be implanted in animals, and for those which may, due to their concentration, preparation, mixture, or delivery systems, present no significant potential for abuse. The due date for comments is April 15, 1991.
+1988年法に基づき、正当な工業・商業用途を有する指定化学前駆体製剤について、取引規制および届出義務の適用除外（エグゼンプション）を申請するための手続規則制定提案告知。
 
 ### 56 FR 11931 (March 21, 1991)
 
-Effective this date, the proposal of July 26, 1990 (55 FR 30472) has been made effective, and glutethimide has, as of this date, been 从...移出 附表一 (Schedule I)I to 附表一 (Schedule I)I.
+1990年7月26日付提案（55 FR 30472）が正式に発効し、グルテチミド（Glutethimide）が本公示日をもってスケジュールIIIからスケジュールIIへ格上げ移送されたことを布告する最終規則指令。
 
 ### 56 FR 13854 (April 4, 1991)
 
-A typographical error in 56 FR 11931 has been corrected. 364 THE CONTROLLED SUBSTANCES ACT
+56 FR 11931（グルテチミドのスケジュールII移送指令）における誤植訂正公示。

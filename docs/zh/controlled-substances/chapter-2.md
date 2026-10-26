@@ -1,3 +1,8 @@
+---
+title: 第二章：受管制药物与同义词全表
+titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+---
+
 # 第二章：受管制药物与同义词全典 (List of Scheduled Drugs and Synonyms)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  

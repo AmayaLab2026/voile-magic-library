@@ -1,3 +1,8 @@
+---
+title: 第五章：DEA 管制代码编号全表
+titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+---
+
 # 第五章：美国缉毒署（DEA）药物管制代码全典 (Drug Code Numbers)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  

@@ -74,6 +74,9 @@ importers:
       '@nolebase/vitepress-plugin-thumbnail-hash':
         specifier: ^2.18.2
         version: 2.18.2(vitepress@2.0.0-alpha.19(change-case@5.4.4)(esbuild@0.28.1)(jiti@2.6.1)(jwt-decode@4.0.0)(less@4.9.0)(markdown-it-mathjax3@4.3.2)(postcss@8.5.26)(tsx@4.23.13)(typescript@5.9.3)(yaml@2.8.2))
+      '@resvg/resvg-wasm':
+        specifier: ^2.6.2
+        version: 2.6.2
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4

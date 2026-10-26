@@ -12,7 +12,7 @@ hideReprintNotice: true
 
 ---
 
-## 🌟 コア基盤プロジェクト
+## コア基盤プロジェクト
 
 ### 1. VitePress
 - **チーム・創作者**：Evan You（尤雨溪）および VitePress コントリビューターチーム
@@ -37,7 +37,7 @@ hideReprintNotice: true
 
 ---
 
-## 🧩 ナレッジベースエコシステム＆拡張プラグイン
+## ナレッジベースエコシステム＆拡張プラグイン
 
 ### 4. Nólëbase
 - **創作者**：絢香猫 ([@nekomeowww](https://github.com/nekomeowww))、絢香音 ([@LittleSound](https://github.com/LittleSound)) およびコミュニティ

@@ -1,169 +1,169 @@
 ---
-title: 引言与序言
-titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+title: Introduction & Forewords
+titleTemplate: Controlled Substances · Alexander T. Shulgin
 ---
 
-# 引言与专家序言 (Introduction & Forewords)
+# Introduction & Forewords
 
-> **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
-> **序言撰写者**：
-> * **James Bakalar**（哈佛大学医学院法学与精神病学讲师）  
-> * **John I. Thornton**（加利福尼亚大学伯克利分校法庭科学教授）  
-> * **Peyton Jacob III**（加利福尼亚大学旧金山分校副研究化学家）  
-> **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Introduction & Forewords, pp. iv–ix.  
-> **版本核定**：1992 年第二版全文完整无删节翻译（含 1988–1991 年全部法条更正注记）。
-
----
-
-## 本书引言 (Introduction)
-### 亚历山大·T·舒尔金 博士 (Alexander T. Shulgin, Ph.D.)
-
-本手册是两个截然不同世界相互交叠碰撞的产物。
-
-在加利福尼亚大学伯克利分校（UC Berkeley），每年秋季学期我都会讲授一门由公共卫生学院（Department of Public Health）主办的研究生课程。然而，冠在这门课程头上的名称，与它实际讲授的核心内容几乎没有什么实质关联。这门课程的正式名称叫做**《法庭毒理学》（Forensic Toxicology）**；按照通常的理解，我理应在此帮助未来的刑事鉴识科学家（criminalist）学习一套套标准化实验技术，使他们能够在停尸房死者的血液样本中检测出海洛因（Heroin）——或者至少找到曾经摄入过海洛因的生化证据。
-
-但这其实只是我教学工作中微不足道的一小部分。在绝大多数课堂时间里，我实际上是在主持一场场畅所欲言、自由交锋的研讨会：我们探讨科学哲学的本质，探讨培根式“强推论”（Baconian strong inference）的方法论架构，探讨盲目寻求绝对“证实”的徒劳无功，以及沉浸于纯粹知识求索中的狂喜。
-
-在某一次常规的课堂研讨流动中，学生冷不丁向我抛出了一个问题。那一瞬间，我惊觉自己竟然站在了一片毫无把握的流沙之上。
-
-那个问题极其朴素而直接：  
-**“氯胺酮（Ketamine，俗称K他命 / K粉）属于受管制的法定药物吗？”**
-
-一刹那间，一连串绝佳的授课切入点如潮水般涌现在我的脑海：究竟什么才算作“法定受管制药物（scheduled drug）”？从科学与法律的双重维度来看，什么才构成一种“药物（drug）”，而法律所谓的“列入附表（scheduled）”究竟意味着什么？更深一层追问：那部被所有人公认为充斥着浩繁复杂的修正案、行政法规与司法判例意见的现行联邦法律，其真实的本来面貌究竟是什么？
-
-我当时给出的回答连我自己都十分不满意。我坦白承认：“我不知道——但我一定会去查个水落石出。”
-
-### 艰难的查证之旅
-
-然而，我究竟该去哪里寻找权威答案？
-
-我手头有一份当时最新印行的 1970 年原始《公法第 91-513 号》（Public Law 91-513，即《受管制物质法》CSA 原文），在此之前我一直深信这就是美国这片土地上至高无上的准绳法典。然而令我大感意外的是，在法律明文列出的全部五级管制附表中，**从头到尾根本找不到氯胺酮的踪影**。
-
-可事实是，这是一种在临床医学界拥有合法手术麻醉用途、但同时滥用潜能已被全社会广泛公认的化学物质。事实上，美国卫生与公众服务部（DHHS，其前身为卫生、教育与福利部 HEW）负责卫生事务的助理部长早已在公开场合正式确认：氯胺酮是一种具有致幻特性的药物，理应由美国缉毒局（DEA）依法启动行政程序将其正式列入附表管制。
-
-随着我对这一问题的探究不断深入，更多的荒谬与意外接踵而至。我想，氯胺酮会不会是以某种不为人知的备用化学名或商品名被登记在册？于是我翻开最新版的《默克索引》（*Merck Index*），在里面查到了关于氯胺酮的 7 个简短俗名/同义词以及 2 个气势恢宏的系统化学命名。然而，这 9 个候选名称无一例外，全都没有出现在 1970 年的成文法律条文中！
-
-不仅如此，当时法律中大量条款的小节末尾，都带有极其宽泛而概括的兜底短语，例如“以及其所有异构体（and all isomers）”、“以及其所有衍生物（and all derivatives）”。那么，氯胺酮会不会在法律层面上被视作某种已知受管药物的异构体或化学衍生物？单凭肉眼查阅法律法条上的那些文字目录，根本无法给出任何确切的答案。
-
-紧接着，我又投入了一些时间反向探索相反维度的转换：  
-我开始在法律所列出的受管制药物名单中，逐一检索那些在《默克索引》——甚至在《美国药典》（USP）、《美国采用药名》（USAN）以及我案头所有关于药物化学的标准参考教科书中——**连词条都查不到的怪异药名**。  
-举一个典型的例子：**“磺二乙甲烷”（Sulfondiethylmethane）**在成文法中被明明白白列为“附表三（Schedule III）”管制药物；但我耗费了巨大的文献考据心力才好不容易搞清楚它到底是什么东西——因为这种老药在整整过去的几十年间，既没有任何被社会群体滥用的案件记录，也早已没有任何合法的现代临床医疗用途！它在现实世界中早已被遗忘，却如同化石一般被死死冻结在联邦刑法典的重罪名录之中。
-
-随后我进一步震惊地发现：由联邦公报局编纂出版的《联邦行政法典》（Code of Federal Regulations, CFR）第 21 篇（食品与药品）第 1300 部分及后续章节（以 1982 年 4 月 1 日修订版为例）中所列出的“受管制药物名录”，里面充斥着海量在 1970 年原始国会法案中根本不存在的陌生条目！显而易见，在执法实践的漫长岁月中，这些法定名录的法律架构与实体内容已经经历了翻天覆地的演变与重塑，而且这种由行政裁量驱动的法条裂变，直到今天依然在每分每秒地发生着。
-
-### 这座知识断层的拷问
-
-面对这一现实，一系列严峻的司法与科学拷问不可避免地浮出水面：
-
-* **联邦检察官究竟该去哪里核实**：他依据刑法向某位公民正式提起的“非法持有毒品”重罪指控，起诉书上写的那串化学名称在案发当时到底是不是一种受法律管辖的非法毒品？
-* **法庭物证鉴识专家究竟该去哪里核实**：他在司法机关移送送检的未知物证粉末中分离化验出的那种冷门化学成分，到底是不是附表名录中的管制物质？
-* **刑事辩护律师究竟该去哪里查证**：警方从其当事人住所搜查扣押的那包白色粉末，在其实际被查扣的那一法定时刻，其确切的法律管制地位究竟属于附表二、附表三，还是在法律上根本未予列管？
-* **实验室有机合成化学家究竟该去哪里确认**：他在通风橱前日以继夜进行的复杂全合成研究，是否会在完全无辜不知情的状态下，合成出某种按照现行法律持有即构成重罪的违禁结构？
-* **缉毒实验室的毒品检验员究竟该去哪里验证**：上级交给他分析鉴定的一份怪异未知化学品结构式，到底是不是某种极其罕见、隐藏在模糊法条兜底条款之下的法定违禁物？
-* **新闻媒体的深度调查记者究竟该去哪里梳理**：充斥在城市街头巷尾的某个毒品俚语黑话，究竟对应着联邦刑法典上的哪一种受控化学分子？
-* **国会议员与立法起草者究竟该去哪里寻找权威参考**：当他起草一项旨在遏制新型药物滥用危机的法案时，究竟该如何使用毫无破绽的严密科学语言去界定他想要封堵的目标？
-
-我深切地意识到，整个社会极度渴望一本能够将浩如烟海的真实法定事实分门别类加以系统汇编的工具书。
-
-这些事实应当涵盖受管制药物的法定标准学名、所有已知同义词、立体化学分子结构式、分子同一性判定标准、药理学作用分类，以及赋予它们当前管制法律地位的立法历史渊源与行政裁决授权依据。
-
-### 本书各章节体系架构
-
-为此，我编写了这部研究手册，并将其科学划分为以下各个核心章节，以期逐一彻底解决上述难题：
-
-1. **第一章：细则与法定定义（Details and Definitions）**  
-   对法案正文及各附表序言中反复出现的大量法律与化学术语（如“衍生物”、“类似物”、“异构体”、“盐类”、“公认医疗用途”、“滥用潜能”）进行穷尽式的严密法理解析与科学溯源。
-2. **第二章：受管制药物法定名录与同义词全集（Controlled Drugs and Their Synonyms）**  
-   按英文字母顺序对自《受管制物质法》颁布以来所有被卷入该法的药物进行全量收录，并将所有在医学界或科学界曾经使用过的全部同义词混合编排。此外还收录了极少数广为人知的街头俚语（尽管街头黑话往往生命周期极短，学术参考价值有限）。每个主词条均包含：美国缉毒局（DEA）专属四位识别代码、药理学法定分类、美国化学会化学文摘社注册号（CAS Registry Number）、确立该药物当前管制地位的《联邦公报》权威引证出处，以及指向第四章精准化学结构式图版的位置交叉索引。
-3. **第三章：联邦药物管制法历史沿革（History of Federal Drug Law）**  
-   系统梳理美国药物法体系的百年演变，简要回顾那些虽已废止但影响深远的历史法案，并深入剖析所有现行有效的实体法与程序法。同时特别收录了那些最初制定目的并非用于缉毒管制、但在司法实践中已被证明在涉毒资产追缴与执法中具有巨大威力的法律（如 RICO 法案、犯罪资产没收法等）。
-4. **第四章：受管制药物化学结构式图解（Chemical Structures of Controlled Drugs）**  
-   根据严密的有机化学母核分类体系，对所有涉案管制药物的立体分子结构进行系统图解。全书划分为多个核心化学大类，并为每一个独一无二的分子构型标注指向 DEA 识别代码的交叉检索索引。
-5. **第五章：DEA 药物识别代码全量数值索引（Drug Code Numbers）**  
-   按四位数字顺序穷尽列出 DEA 在历史上所有指派过的药物管制代码，以及这些代码当前（或曾经）所指代的所有药物实体、化学前体、异构体形态与生化试剂。
-6. **第六章：联邦公报法令与行政依据编年史（Federal Register Citations）**  
-   按编年顺序汇编所有曾被用作修改法案管制范围、调整附表级别或设立行政豁免的《联邦公报》（Federal Register）正式公报条目，并为每一条公报配发精炼的法理摘要。
-7. **法律附录（Appendices）**  
-   完整收录 1991 年 4 月最新的联邦法定附表全文，并与 1970 年国会原始法典进行逐字逐行的历史差异对照。同时收录紧急列管法、受控物质类似物法案、量刑指南及第一/第二类前体化学品法定清单。
-8. **第七章：经验实验式全量索引库（Empirical Formula Index）**  
-   最后，按照经典的希尔化学排序法（Hill System），将全书中所有被赋予过 DEA 管制代码的化合物（无论其最终属于管制附表抑或豁免试剂），按其最基本的经验分子式进行统一编排，提供逆向化学检索支持。
-
-### 第二版修订说明
-
-本研究手册的第一版成书于 1988 年 4 月 1 日。呈现在读者面前的这本**第二版**，则完整收纳了自那以后直至 **1991 年 4 月 1 日** 全美在法律条文、行政规章与管制名录方面所发生的一切全新变革。
-
-第一版中遗留了一些错误——其中绝大多数幸运地属于令人不快但并不影响整体准确性的小瑕疵，但确实也有极少数属于事实层面的硬伤，这些问题在本版中已经得到了彻底的校正与补全。其中相当一部分勘误是由本手册的专业读者在实际使用中发现并向我指出的，在此，我谨向所有曾抽出宝贵时间致信给我并提出宝贵指正意见的同仁致以最由衷的谢意。
-
-顺便提一句：截至 1991 年 4 月，**氯胺酮（Ketamine）尽管目前在社会上的滥用现象愈演愈烈，但它依然不是法定受管制物质；而“磺二乙甲烷”（Sulfondiethylmethane）尽管在医学界被彻底遗忘了四十余年，却依然是一味不可动摇的法定附表重罪违禁药。**
+> **Author**: Alexander T. Shulgin, Ph.D.  
+> **Forewords Contributed By**:
+> * **James Bakalar** (Lecturer in Law and Psychiatry, Department of Psychiatry, Harvard Medical School)  
+> * **John I. Thornton** (Professor of Forensic Science, University of California, Berkeley)  
+> * **Peyton Jacob III, Ph.D.** (Associate Research Chemist, University of California, San Francisco)  
+> **Source**: *Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Introduction & Forewords, pp. iv–ix.  
+> **Textual Integrity**: Complete, unabridged translation of the 1992 Second Edition (including all statutory correction notes from 1988–1991).
 
 ---
 
-## 专家序言一 (Foreword I)
-### 詹姆斯·巴卡拉 (James Bakalar)
-*哈佛大学医学院精神病学系 法学与精神病学讲师*
+## Introduction
+### Alexander T. Shulgin, Ph.D.
 
-亚历山大·T·舒尔金是一位具有非凡独创天赋的化学家，他在自己设立于加州农场的私人实验室中，亲手合成并创造出了难以计数的全新精神活性化合物。与此同时，他对现代科学的方法论演进、以及人类改变意识物质的社会应用与法律规制，始终保持着极其深邃的哲学反思。
+This handbook is the product of the collision and overlap of two completely disparate worlds.
 
-在这部与众不同的跨学科权威工具书中，他将长期散落在数十卷浩繁的联邦法律全书、行政法典通告以及司法判例汇编中的孤立碎片，首次进行了前所未有的系统性汇聚与严密编织，并倾注了他自己独到的历史与科学批判性评注。
+Each fall quarter at the University of California, Berkeley, I offer a graduate course sponsored by the Department of Public Health. The formal title under which this course is listed bears virtually no resemblance to what is actually taught. Officially designated as **Forensic Toxicology**, one would reasonably presume that I spend my time instructing aspiring criminalists in standardized analytical techniques designed to detect heroin in post-mortem blood samples—or at least to isolate biochemical evidence of its prior ingestion.
 
-现代药理学赋予了我们无数带有奇异晦涩名称的新型化学物质——名噪一时的所谓“设计毒品（designer drugs）”仅仅只是这股浪潮中的冰山一角。舒尔金博士编纂的详尽名录，将当代药物管制法网在其所有精密与错综复杂之处展露无遗；通过本书，我们得以清晰窥见：一部现代国家的成文法律，是如何被迫将其刑事定罪量刑的至高权威，建立在对分子空间微观立体结构的深奥理论推导之上的。这一管制体系野蛮生长的全过程，完整地镌刻在其法律与化学的定义演变史之中。
+In practice, that constitutes a negligible fraction of what occurs in my classroom. During the vast majority of our class hours, we conduct an open, freewheeling seminar: probing the philosophy of science, examining the methodological architecture of Baconian "strong inference," confronting the futility of chasing absolute "proof," and reveling in the pure, unadulterated joy of intellectual inquiry.
 
-尤其引人入胜的，是舒尔金对“衍生物（derivative）”、“麻醉品（narcotic）”、“中枢抑制剂（depressant）”、“中枢兴奋剂（stimulant）”、“异构体（isomer）”等高度专业化技术术语的犀利剖析；同样精彩的，还有他对那些看似技术色彩较淡、实则在法庭上更为模糊暧昧的词汇——如“公认医疗用途（accepted medical use）”和“滥用潜能（abuse potential）”——所展开的解构。
+During one such routine seminar session, a student unexpectedly posed a question. In that single instant, I realized I was standing on utter quicksand.
 
-对法律社会史感兴趣的学者，将会特别着迷于舒尔金对美国社会在对待精神药物时所表现出的精神分裂式矛盾心态的深刻洞察——这种心态淋漓尽致地投射在国家的刑事惩处法典与税收政策杠杆之中。舒尔金揭示了一个极具启发性的切入点：许多曾经被早期宪法判例与成文法明确禁止的国家强权手段——例如针对未定罪公民财产的民事/刑事推定没收（forfeiture），以及动用正规联邦军队参与国内平民执法——在过去的二十年间，仅仅因为全社会对毒品贩运的狂热恐惧，竟统统打着禁毒战争的旗号堂而皇之地死灰复燃。
+The question was deceptively simple:  
+**"Is ketamine a scheduled drug?"**
 
-他按编年顺序整理的《受控物质法案》下辖全部行政法规沿革，为读者生动勾勒出了美国药物管制最高联邦国家机器——美国缉毒局（DEA）——日常行政运作的真实轨迹。
+Immediately, an avalanche of superb pedagogical avenues cascaded through my mind: What truly defines a "scheduled drug"? From both scientific and legal vantage points, what constitutes a "drug," and what does it mean to be placed on a "schedule"? And at a deeper level: what is the true, unvarnished nature of our current federal statutory law—a body of jurisprudence universally acknowledged to be encrusted with an impenetrable thicket of legislative amendments, administrative regulations, and appellate case law?
 
-贯穿整部著作，那些曾经哺育了舒尔金深邃思考的浩瀚事实，如今转化为了启迪我们所有人思考的思想食粮。在我们当下这个时代，药物滥用已然沦为全社会高度政治敏感与焦虑关注的焦点，然而公众与决策层所掌握的扎实客观知识，却远远落后于膨胀的利益诉求与狂热的政治激情。舒尔金以一种极其便捷、透明而无偏见的典籍形式，为我们呈现了庞大坚固的化学与法律基石——而任何针对药物及药物管制的诚实、理性思考，都必须严格奠定在这些基石之上。
+My immediate response was thoroughly unsatisfactory, even to myself. I confessed frankly: "I don't know—but I will find out."
 
-无论对于前沿实验室的合成化学家、精神卫生临床专家，还是法史学者、社会学家、立法议员、联邦法官抑或一线刑事司法执法人员，本书都将是一部不可或缺、启迪深远的案头指南。
+### The Arduous Search for Answers
+
+Yet, where on earth does one search for an authoritative answer?
+
+I had at hand the then-latest printing of Public Law 91-513—the original Controlled Substances Act of 1970—which I had long naively regarded as the supreme statutory authority in the land. To my genuine astonishment, across all five statutory schedules, **ketamine was nowhere to be found**.
+
+Yet here was a chemical substance possessing undisputed legitimate surgical anesthetic utility, while concurrently exhibiting a widely recognized societal abuse liability. Indeed, the Assistant Secretary for Health within the Department of Health and Human Services (DHHS, formerly HEW) had publicly declared ketamine to be a drug possessing hallucinogenic properties, asserting that administrative proceedings ought to be initiated by the Drug Enforcement Administration (DEA) to formally place it under statutory control.
+
+As my inquiry deepened, further incongruities and surprises proliferated. I wondered whether ketamine might be catalogued under some obscure alternate chemical designation or proprietary trade name. I consulted the latest edition of the *Merck Index*, uncovering seven succinct synonyms and two imposing systematic chemical names. Not a single one of these nine candidate designations appeared anywhere within the statutory text of the 1970 Act!
+
+Furthermore, numerous statutory subsections concluded with sweeping, catch-all umbrella phrases such as "and all isomers" or "and all derivatives." Could ketamine legally be subsumed as an isomer or a chemical derivative of some already-scheduled substance? A mere visual perusal of the statutory lists could yield no definitive determination.
+
+I then embarked upon the inverse inquiry:  
+I began cross-referencing the statutory schedules against the *Merck Index*—and subsequently against the *United States Pharmacopeia* (USP), *United States Adopted Names* (USAN), and every standard reference pharmacology text on my shelves—searching for **bizarre, unlocatable drug names**.  
+A classic case in point: **"Sulfondiethylmethane"** is explicitly designated by statute as a Schedule III controlled substance. Yet it required extensive archival literature sleuthing merely to discover what this compound actually was—for over the preceding four decades, this archaic substance had recorded zero history of illicit street abuse and possessed not the slightest remaining legitimate clinical utility! Forgotten by modern medicine, it remained entombed like a fossil within the federal felony statutes.
+
+Subsequently, I was startled to discover that Title 21 of the Code of Federal Regulations (21 CFR § 1300 et seq., specifically the revision of April 1, 1982) contained an official "List of Controlled Substances" teeming with unfamiliar entries entirely absent from the original 1970 Congressional enactment! Clearly, throughout years of administrative enforcement, the structural architecture and substantive inventory of these statutory schedules had undergone profound mutations. What is more, this administrative fission continues unabated, minute by minute, to this very day.
+
+### Questions Arising from the Knowledge Void
+
+Confronted with this reality, a series of urgent scientific and jurisprudential questions inevitably surfaced:
+
+* **Where does a federal prosecutor verify** whether the chemical entity named in his criminal indictment for "illicit drug possession" was, at the precise moment of the alleged offense, an illegal contraband drug under federal law?
+* **Where does a forensic criminalist determine** whether an obscure compound isolated from an evidentiary powder submitted by law enforcement is in fact a scheduled controlled substance?
+* **Where does a defense attorney confirm** the precise statutory status of a seized powder at the exact moment of search and seizure—was it Schedule II, Schedule III, or completely uncontrolled by law?
+* **Where does a bench research organic chemist verify** whether his intricate total synthesis, conducted in good faith beneath a laboratory fume hood, might inadvertently yield a molecular structure whose mere possession constitutes a federal felony?
+* **Where does an analytical chemist in a drug enforcement laboratory ascertain** whether an unfamiliar molecular structure before him is a contraband substance lurking within ambiguous catch-all provisions?
+* **Where does an investigative journalist turn** to discover which statutory molecule corresponds to the latest illicit street slang?
+* **Where does a member of Congress or a legislative draftsman find authoritative guidance** to formulate scientifically unassailable language when drafting statutes to curb emerging drug crises?
+
+I recognized with absolute clarity that society stood in desperate need of a comprehensive handbook capable of systematically categorizing and cross-referencing this vast ocean of statutory and scientific facts.
+
+These facts must encompass the official statutory designations of controlled drugs, their known synonyms, stereochemical structures, criteria for molecular identity, pharmacological classifications, and the legislative genealogies and administrative rulemaking authorities that established their current legal status.
+
+### Structural Architecture of This Handbook
+
+To resolve these quandaries, I organized this manual into the following core chapters:
+
+1. **Chapter 1: Details and Definitions**  
+   An exhaustive legal and scientific deconstruction of recurring terms within the statutes and schedule preambles (e.g., "derivatives," "analogues," "isomers," "salts," "accepted medical use," and "potential for abuse").
+2. **Chapter 2: Controlled Drugs and Their Synonyms**  
+   An alphabetical master compendium of all drugs encompassed by the Controlled Substances Act since its enactment, interwoven with every known medical, chemical, and trivial synonym, alongside select widely recognized street terms. Each primary entry provides: its four-digit DEA identification code, pharmacological classification, Chemical Abstracts Service (CAS) Registry Number, the authoritative *Federal Register* citation establishing its status, and a cross-reference to its molecular structure in Chapter 4.
+3. **Chapter 3: History of Federal Drug Law**  
+   A systematic review of a century of American drug control jurisprudence, chronicling superseded historical acts and analyzing current substantive and procedural statutes. Special attention is devoted to enactments not originally intended for drug enforcement but subsequently deployed with formidable power (e.g., RICO, criminal asset forfeiture).
+4. **Chapter 4: Chemical Structures of Controlled Drugs**  
+   A systematic visual atlas of stereochemical molecular structures categorized by rigorous organic parent nuclei, with each unique configuration linked directly to its corresponding DEA code.
+5. **Chapter 5: Drug Code Numbers**  
+   A sequential numerical index of all four-digit identification codes ever assigned by the DEA, tracing all drug entities, precursors, isomeric forms, and biochemical reagents associated with each code.
+6. **Chapter 6: Federal Register Citations**  
+   A chronological compendium of every formal *Federal Register* rule, hearing notice, and scheduling order that amended statutory coverage, accompanied by analytical legal summaries.
+7. **Legal Appendices**  
+   A complete textual compilation of the federal schedules as of April 1991, compared verbatim against the original 1970 statute, alongside the texts of the Emergency Scheduling statute, the Controlled Substances Analogue Enforcement Act, sentencing guidelines, and List I / List II precursor chemicals.
+8. **Chapter 7: Empirical Formula Index**  
+   Arranged according to the classical Hill System, this index provides a reverse chemical lookup for every compound assigned a DEA code, whether currently controlled or exempt.
+
+### Notes on the Second Edition
+
+The first edition of this handbook was completed as of April 1, 1988. This **Second Edition** incorporates all legislative enactments, administrative regulations, and scheduling revisions that occurred throughout the United States up to **April 1, 1991**.
+
+A number of errors present in the first edition—the vast majority happily categorized as minor annoyances, though a few were substantive—have been thoroughly corrected. Many of these corrections were brought to my attention by observant readers, to whom I extend my deepest gratitude.
+
+As a final note: as of April 1991, **ketamine, despite escalating societal abuse, remains unscheduled under federal law; while sulfondiethylmethane, thoroughly forgotten by medicine for more than four decades, remains an unshakeable statutory felony contraband.**
 
 ---
 
-## 专家序言二 (Foreword II)
-### 约翰·I·桑顿 教授 (John I. Thornton)
-*加利福尼亚大学伯克利分校公共卫生学院 法庭科学教授*
+## Foreword I
+### James Bakalar
+*Lecturer in Law and Psychiatry, Department of Psychiatry, Harvard Medical School*
 
-没有严密的法律，社会就绝不可能对精神药物实施任何具有实质强制执行力的有效管制；而无可争议的是，对某些特定烈性药物实施严格国家管制，确实完全符合全人类社会的根本福祉。然而，这种法律管制究竟是如何一步步被炮制出来的，以及行政机关在行使这种管制权力时所拥有的自由裁量权究竟有多么宽泛与危险，正是这部著作所要彻底揭示的核心主题。它所描绘的，是一幅法律与科学在漫长交汇碰撞过程中，彼此充满敌意、极不优雅地相互纠缠的奇异图景。
+Alexander T. Shulgin is a chemist of extraordinary originality and inventive genius. In his private laboratory on a California farm, he has synthesized and characterized an astonishing array of novel psychoactive molecules. Concurrently, he has sustained a profound philosophical contemplation regarding the methodology of science and the social regulation of consciousness-altering substances.
 
-这是一个何其引人入胜、却又何其令人痛苦的课题！
+In this singular treatise, Dr. Shulgin has gathered the scattered debris of dozens of volumes of federal statutes, administrative notices, and judicial rulings, weaving them into a coherent tapestry illuminated by his own distinctive historical and scientific critique.
 
-翻开这本手册的正文，我们立刻会被一系列荒诞的法律现实所震撼：例如，在联邦缉毒局的档案库中，“安非他命（Amphetamine）”被正式指派了管制识别代码 **1102**，而其在化学上完全同义的规范学名“α-甲基苯乙胺（alpha-Methylphenethylam-ine）”却被荒唐地赋予了另一个完全独立的管制代码 **8720**！又如，四氢大麻酚“Tetrahydrocannibinol”被赋予了管制代码 **7370**，而完全相同的“天然有机四氢大麻酚 Tetrahydrocannibinol (organic)”却拥有另一个专属代码 **7371**！
+Modern pharmacology continues to generate a bewildering variety of chemical entities—of which so-called "designer drugs" represent merely the most visible crest of the wave. Dr. Shulgin's meticulous inventory lays bare the contemporary drug regulatory apparatus in all its intricate complexity. Through this work, we observe how a modern legal system is compelled to anchor its most severe penal sanctions to esoteric theoretical deductions regarding molecular stereochemistry. The untamed growth of this apparatus is inscribed in the evolving definitions of law and chemistry.
 
-我们的法治怎么会堕落到如此田地？我们最初仅仅是在尝试为化学分子确立客观名称，而最终，我们竟然作茧自缚，沦落到了必须为名称再次编制代码的荒诞死胡同里！
+Particularly compelling is Shulgin's dissection of technical statutory terms such as "derivative," "narcotic," "depressant," "stimulant," and "isomer." Equally trenchant is his deconstruction of deceptively non-technical phrases that prove notoriously ambiguous in court, such as "accepted medical use" and "abuse potential."
 
-从舒尔金的文字中我们进一步看到：成文法虽然试图通过成文法条对 THC 的“几何异构体（geometric isomers）”进行法律界定，但法律术语所谓的“位置异构体（positional isomers）”到底算不算双键在环上的位移？成文法保持了死一般的沉默。至于“巴比妥酸（Barbituric Acid）”在法律上到底算不算附表管制物质？法条与规章所引发的混乱，完全是一场彻底的、未见丝毫缓解的灾难性大混乱！
+Scholars of legal history will find special resonance in Shulgin's analysis of American society's ambivalent, almost schizophrenic stance toward psychoactive drugs—a tension vividly reflected in penal codes and fiscal tax mechanisms. Shulgin illuminates how extraordinary state powers long constrained by constitutional jurisprudence—such as civil asset forfeiture and the domestic deployment of military forces—have been aggressively resurrected under the banner of the War on Drugs.
 
-这把我们所有人抛向了何处？缉毒执法官员、公诉人、刑事辩护律师协会、法庭刑事鉴识专家、药物合成化学家、制药企业厂商以及国会立法者，各自都揣着狭隘甚至自私的部门利益与立场。然而，面对这一乱象，我们所有人绝不能容忍司法正义对基本法治原则的“选择性适用”！
+His chronological chronicle of administrative actions under the Controlled Substances Act provides a vivid window into the institutional mechanics of the Drug Enforcement Administration.
 
-**一种化学物质，在成文法的严格文义解释下，要么属于法定管制毒品，要么就不属于！这项决定生死与罪错的法律裁决，绝不能被任由抛掷给行政官员的一时兴起与执法偏好，更绝不能被建立在对法理学或对有机化学客观规律的强行歪曲与牵强附会之上！**
+Throughout this volume, the exhaustive facts that have nourished Shulgin's own reflections become vital intellectual sustenance for us all. In an era where drug policy is dominated by political passion and societal anxiety, sound objective knowledge has lagged far behind rhetorical zeal. Shulgin provides the indispensable, transparent chemical and legal bedrock upon which all honest, rational discourse regarding drug policy must be founded.
 
-那种视科学逻辑于不顾的司法操作，最终只会导致全社会对我们整个国家药物法律体系的彻底幻灭、深切不信任与无情嘲弄。在很多先例中，当局总在辩解说法律条文本身确实晦涩难懂。晦涩或许是造成混乱的一种客观历史解释，但这绝非执法机构与法庭继续胡作非为的挡箭牌！要求国会制定合情合理的成文法律——且将重音真正落在“理性与科学（reason）”之上——难道这对于一个现代文明国家而言真的算是一种过分的奢求吗？我认为绝不是。
-
-在此，请容许我冒昧地凝视片刻预测未来的水晶球，尝试预判这部著作自今日起十年后的历史地位。
-
-我坚信并断言：**这部著作对人类社会未来最大的单一历史贡献，在于它将成为推动我们国家药物法律重新回归理性与良知的伟大序幕（prolegomenon）。**
-
-正是因为这部著作破天荒第一次将我们国家药物法律体系的全貌完整、毫无保留地置于同一束理性的聚光灯之下，它将彻底羞惭并强烈鞭策所有从事受控物质执法与司法审判的人员，促使他们不得不正视现实，痛定思痛，全力推动将更加严密、合乎逻辑与化学常识的理性准绳注入我们的法典之中。
-
-这条道路注定无比艰难漫长。但是，正是由于亚历山大·舒尔金博士在此所付出的开创性卓绝努力，我们前行的步伐从今天起将变得前所未有的坚实而清晰！
+For synthetic chemists, clinicians, legal historians, sociologists, legislators, judges, and law enforcement officers alike, this volume is an essential and illuminating guide.
 
 ---
 
-## 专家序言三 (Foreword III)
-### 佩顿·雅各布三世 博士 (Peyton Jacob III, Ph.D.)
-*加利福尼亚大学旧金山分校医学院与精神病学系 副研究化学家*
+## Foreword II
+### John I. Thornton
+*Professor of Forensic Science, School of Public Health, University of California, Berkeley*
 
-这部独一无二的著作，是对美国《受控物质法案》所管辖的浩繁庞杂化学物质的权威集大成全书。正因如此，对于任何迫切需要精准判定某一种特定化学分子法律管制地位的人士而言，它都将是一部无价的案头圣经。
+Without rigorous law, society cannot exert meaningful control over psychoactive substances; and incontrovertibly, the regulation of certain potent drugs is essential to the collective welfare. Yet how that regulation is conceived, and how broadly and perilously administrative discretion is exercised in its execution, is the central revelation of this work. It depicts a curious landscape in which law and science have encountered one another with mutual hostility and clumsy entanglement.
 
-令人难以置信的是，在舒尔金博士动手编纂本书之前，全美竟然没有任何单一文献来源，能够为科研界与司法界提供一份涵盖全美现行所有受管制化学物质的完整汇编！
+It is a fascinating yet profoundly troubling subject.
 
-除了在法庭科学与刑事司法鉴识领域的巨大实用价值之外，本书还凝聚了海量对一线科研科学家与临床医师极具启发意义的高价值信息。传统的标准参考工具书与常规药理学教科书，其收录范围基本上仅局限于临床普遍处方的合法医药，以及少数几种在社会上最频繁泛滥的传统滥用药物。而本书所详尽披露的信息，在过去往往需要学者在浩如烟海、汗牛充栋的原始科学期刊文献中进行极其繁琐枯燥的专项检索才能勉强获得。
+Opening the pages of this handbook, one is immediately struck by administrative absurdities: in DEA registries, "Amphetamine" is designated by code **1102**, while its precise chemical synonym, "alpha-Methylphenethylam-ine," is assigned a separate code, **8720**! Likewise, "Tetrahydrocannibinol" bears code **7370**, while the identical "Tetrahydrocannibinol (organic)" is assigned code **7371**!
 
-书中对每种药物所有已知科学同义词以及美国化学会化学文摘社注册号（CAS）的全面收录，为读者打开了一扇畅通无阻的大门，使人们能够瞬间逆向穿透临床医学、基础药理学、法庭毒理学、专利文献乃至最前沿的有机化学专业文献。不仅如此，书中还亲手绘制并提供了超过 250 种核心受管药物的高精度立体化学结构式图版，这无疑使其成为了全世界药物化学家手中一份极其珍贵的学术宝藏。
+How did our legal jurisprudence arrive at such a pass? Having set out to assign objective names to chemical molecules, we ended in the absurd cul-de-sac of assigning codes to names!
 
-舒尔金博士极其深厚而传奇的跨学科背景，使他成为了全美当之无愧、唯一有资格驾驭并撰写这部巨著的科学家。他早年受训于加利福尼亚大学伯克利分校，并取得了生物化学博士学位；此后，他先后在 BioRad 放射性实验室以及陶氏化学公司（The Dow Chemical Company）潜心从事高活性生物活性分子的全合成科研工作。在陶氏化学任职期间，他对其分子药理机制产生了极大的学术兴趣，并促成了他随后在加利福尼亚大学旧金山分校（UCSF）医学院药理学系与精神病学系获得博士后研究职位。
+Shulgin further demonstrates that while statutes attempt to define "geometric isomers" of THC, the law maintains an obstinate silence as to whether "positional isomers" include endocyclic double-bond migrations. And as to whether "Barbituric Acid" is itself a controlled substance, the statutory and administrative confusion represents an unmitigated disaster.
 
-在过去的二十多年里，舒尔金博士一直以独立顶级科学顾问的身份活跃于学界，并在加州大学系统长期讲授法庭毒理学、精神药理学以及药物化学等大学核心课程。凭借在法庭科学领域的崇高声望，他无数次作为全美最具权威的中立专家证人（expert witness），出庭参与涉及各类重大疑难毒品案件的法庭司法质证。
+Where does this leave us? Law enforcement agencies, prosecutors, defense bars, forensic scientists, pharmaceutical manufacturers, and legislators each pursue distinct and often parochial interests. Yet we cannot tolerate the selective application of fundamental legal principles.
 
-截至目前，舒尔金博士已在国际一流学术期刊上独立发表或合著了一百余篇权威学术研究论文，撰写了多部学术专著章节，并拥有多项重磅发明专利；他是全球公认的、在精神活性药物分子结构与神经机制领域最富盛名的世界级权威。
+**Under strict statutory construction, a chemical substance is either a controlled drug or it is not! That decisive determination cannot be surrendered to administrative caprice, nor can it rest upon the distortion of jurisprudence or organic chemistry!**
+
+Adjudications that disregard scientific logic ultimately engender profound cynicism and disrespect toward the entire legal edifice. Obscurity in statutory language may explain historical confusion, but it can never justify administrative overreach. Is it truly unreasonable to expect Congress to enact sensible statutes grounded in reason and science? I think not.
+
+Allow me to gaze into the crystal ball and predict the standing of this work a decade hence.
+
+I submit that **its greatest single contribution will be to serve as a prolegomenon to the return of reason and intellectual integrity in our national drug laws.**
+
+Because this book places the entire drug regulatory apparatus under the unsparing light of rational scrutiny, it must inevitably compel those tasked with drug enforcement and adjudication to confront reality and inject scientific rigor into our penal codes.
+
+That journey will be arduous. Yet through Dr. Shulgin's pioneering labor, our steps forward are rendered infinitely firmer and clearer.
+
+---
+
+## Foreword III
+### Peyton Jacob III, Ph.D.
+*Associate Research Chemist, Departments of Medicine and Psychiatry, University of California, San Francisco*
+
+This unique volume represents the definitive compendium of the vast array of chemical entities governed by the United States Controlled Substances Act. Consequently, for anyone requiring a precise determination of the legal status of a chemical substance, it is an invaluable reference.
+
+Remarkably, prior to Dr. Shulgin's undertaking, no single literature source existed within the United States that provided a complete compilation of all currently controlled chemical substances.
+
+Beyond its immense utility in forensic science and criminal jurisprudence, this handbook contains a wealth of high-value information for bench researchers and clinical practitioners. Standard reference manuals and pharmacology textbooks typically confine their coverage to approved prescription pharmaceuticals and a handful of common street drugs. The comprehensive data presented here previously required laborious literature searches through primary scientific journals.
+
+The inclusion of all known scientific synonyms and Chemical Abstracts Service (CAS) Registry Numbers affords immediate access to clinical medicine, basic pharmacology, forensic toxicology, patent literature, and synthetic organic chemistry. Furthermore, the inclusion of hand-drawn stereochemical structures for more than 250 controlled substances constitutes an extraordinary scholarly resource for medicinal chemists worldwide.
+
+Dr. Shulgin's distinguished interdisciplinary background uniquely qualified him to author this monumental work. Trained at the University of California, Berkeley, where he earned his Ph.D. in biochemistry, he conducted research on bioactive molecules at BioRad Laboratories and The Dow Chemical Company. His interest in molecular mechanisms of drug action led to postdoctoral research in pharmacology and psychiatry at the University of California, San Francisco (UCSF).
+
+For over two decades, Dr. Shulgin has served as an independent scientific consultant, lecturing across the University of California system in forensic toxicology, psychopharmacology, and medicinal chemistry. His esteemed standing in forensic science has led to frequent appearances as an authoritative expert witness in major drug litigation.
+
+Author or co-author of over one hundred research papers, book chapters, and patents, Dr. Shulgin is internationally recognized as a preeminent authority on the relationship between molecular structure and psychoactive activity.

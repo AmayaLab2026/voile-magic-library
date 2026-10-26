@@ -1,158 +1,159 @@
 ---
-title: 第一章：细则与法定定义
-titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+title: "Chapter 1: Details and Definitions"
+titleTemplate: Controlled Substances · Alexander T. Shulgin
 ---
 
-# 第一章：细则与法定定义 (Details and Definitions)
+# Chapter 1: Details and Definitions
 
-> **著者**：Alexander T. Shulgin, Ph.D.（亚历山大·T·舒尔金 博士）  
-> **出处**：*Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 1, pp. 15–26.  
-> **学术翻译规范**：本章遵照法理学、毒理学与有机化学学术标准，对原书第 15 至 26 页全部正文、法理评注、各附表法定标准、管制除外条款及司法判例展开**完整无删节、无摘要替代的逐字逐段权威精译**。
-
----
-
-## 立法背景与法网边界 (Legislative Background)
-
-现行的美国联邦药物法，即 1970 年颁布的《受管制物质法》（Controlled Substances Act of 1970，简称 **CSA**），其在法典中的正式法定全称为《1970 年综合毒品滥用预防与控制法》（Comprehensive Drug Abuse Prevention and Control Act of 1970），即 1970 年 10 月 27 日正式通过生效的**公法第 91-513 号**（Public Law 91-513）。该法的制定，旨在全面彻底取代此前在美国已经强制施行了长达五十五年之久的《哈里森麻醉品税法》（Harrison Narcotics Act of 1914）。
-
-在这部法典中，有相当一部分法律术语在起草时得到了极其审慎详尽的定义，然而亦有大量至关重要的核心术语根本未予任何界定。某些未予界定的术语曾零散见诸于其他历史立法或行政规章制定过程中，人们只能依据这些外部渊源来推断其法定含义。其中一部分曾由当时的联邦麻醉品与危险药物管理局（Bureau of Narcotics and Dangerous Drugs，简称 BNDD，即现今美国缉毒局 DEA 的前身）通过行政规章予以界定（参见 1968 年 10 月 3 日《联邦公报》33 FR 14818），并可能在 1970 年国会法案起草时存在于立法者的构想之中。然而，正如许多其他法律领域一样，各级联邦法院在具体案件中所作出的司法解释与判例，最终赋予了这部法律以实践的操作架构与具体的执法形态。
-
-在许多情况下，法律条文中的这种不确定性毫无疑问是法案起草议员无心造成的疏漏，他们很可能理所当然地认为，每一个未界定术语所处的上下文语境已经足以自我说明其含义。然而在另一些情况下，条文中可能存在有意为之的模糊界定，以期赋予执法行政机关在适用该法时以充分自由裁量的弹性空间。在许多先例中，执法行政机关试图通过颁布行政规章、法院试图通过撰写判决意见，来消除原始法案明文表述中所包含的不确定性；然而，其最终结果往往是新的歧义与混乱迅速取代了旧的困惑。
-
-这种混淆领域的一个典型例证，便是一个在法律条文中反复出现却从未被法律赋予明确定义的关键词汇——**“衍生物”（derivative）**。
-
-在立法层面上，“衍生物”一词零星出现在各类药物群组的序言中，给人的直观印象是：立法者的本意是囊括那些原本应该在法律条文中明确列出但却遗漏了的相关物质。例如，在有关蒂巴因（Thebaine）的条目中规定，包括其“所有盐类、衍生物和盐类的衍生物”。这种表述方式立刻开启了一扇危险的大门：究竟什么才是衍生物？如果仅凭执法化学家在法庭上的证词就能裁定某种物质是蒂巴因的“衍生物”，那么这位化学家实际上就是在行使立法权！必须铭记的是，从化学合成角度而言，存在着成百上千种完全可以从蒂巴因制备而来的化合物——其中一些是强效镇痛剂，另一些是麻醉拮抗剂，还有一些是中枢兴奋剂，甚至还有大量在药理学上完全惰性无活性的物质。难道仅仅因为它们在化学合成路径上起源于蒂巴因，它们就全部自动属于附表二（Schedule II）的法定重罪管制物质吗？
-
-新近通过的法律——**《受控物质类似物法案》（Controlled Substances Analogue Enforcement Act of 1986）**，则为法律定义的泥潭引入了另一重新层面的微妙困境。
-
-在该法案中明文规定：如果一种化合物的化学结构与附表一（Schedule I）或附表二（Schedule II）管制药物“**实质相似（substantially similar）**”，且有理由相信该化合物拟用于人体摄入，则该化合物应被视同已被列入附表管制进行刑事追诉。
-
-在此，“实质相似”这一双重限定词成为了未经界定的核心操作死结：  
-究竟由谁来判定这种特定药物与那种特定药物在化学结构上算不算“实质相似”？  
-在这一措辞中根本不存在任何客观绝对的科学标准，因此可以断言，不同的专家完全能够作出截然相反的解释。最终的定罪裁决，极有可能交由一个其成员被刻意排除了任何化学或医学专业背景的普通平民陪审团来敲定。
-
-法律条文中的术语名录依然充满着不完整性：许多术语在长期的司法实践中已经逐渐形成了被普遍接受的定义，而另一些术语则可能永远无法达成让所有人信服的共识。
-
-本章余下部分划分为两个主要板块：  
-1. **管制药物法律条文所使用的词汇或短语的法定定义汇编**；  
-2. **将新药物增补列入管制附表所必须遵循的法定程序与必须考量的综合法理要素**。
+> **Author**: Alexander T. Shulgin, Ph.D.  
+> **Source**: *Controlled Substances: A Chemical and Legal Guide to the Federal Drug Laws (2nd Edition, 1992)*, Chapter 1, pp. 15–26.  
+> **Academic Translation Standard**: In accordance with the standards of jurisprudence, forensic toxicology, and organic chemistry, this translation presents a complete, unabridged, verbatim rendering of pages 15 through 26 of the original work, including all analytical commentaries, statutory scheduling standards, exemption provisions, and judicial precedents.
 
 ---
 
-## 核心法定词汇与化学术语定义全集 (Definitions)
+## Legislative Background
 
-### 鸦片 (OPIUM)
-成文法对“鸦片”的界定，是指罂粟植物（*Papaver somniferum* L.）的凝结汁液。法律条文随后将其细分为原鸦片（Raw Opium）、精制鸦片（Refined Opium）、颗粒鸦片（Granulated Opium）、粉末鸦片（Powdered Opium）以及鸦片酊（Tincture of Opium / Laudanum）。
+The current federal drug law of the United States—the Controlled Substances Act of 1970 (**CSA**)—is codified under Title II of the Comprehensive Drug Abuse Prevention and Control Act of 1970, enacted as **Public Law 91-513** on October 27, 1970. This legislation was enacted to replace in its entirety the Harrison Narcotics Act of 1914, which had governed federal drug enforcement for fifty-five years.
 
-### 阿片类物质 (OPIATE)
-法律将“阿片类物质”（Opiate）定义为：任何具有类似成瘾性（addiction-forming）或维持成瘾性（addiction-sustaining）倾向的药物，其作用类似于吗啡，或者能够转化为具有此类成瘾潜能的药物。这一定义赋予了司法部长（实际由 DEA 代行）极大的行政自由裁量权，只要某种合成化学品被实验证实具有阿片样受体激动活性并能替代吗啡维持成瘾状态，便可直接依据“阿片类物质”这一法定类别将其归入管制附表。
+Within this statutory framework, certain legal terms were defined with meticulous precision during drafting, whereas many other critical terms were left entirely undefined. Certain undefined terms had appeared sporadically in antecedent statutes or regulatory proceedings, requiring one to deduce their statutory import from extraneous administrative sources. Some had been defined administratively by the Bureau of Narcotics and Dangerous Drugs (BNDD, the predecessor agency of the DEA; see October 3, 1968, *Federal Register*, 33 FR 14818) and were presumably in the minds of the drafters when the 1970 Act was framed. However, as is common throughout jurisprudence, judicial interpretations rendered by federal courts in actual litigated cases ultimately shaped the operational mechanics and statutory boundaries of the law.
 
-### 鸦片衍生物 (OPIUM DERIVATIVES)
-成文法在附表一中列出了若干种明确命名的“鸦片衍生物”，例如海洛因（Heroin/二乙酰吗啡）、乙酰二氢可待因（Acetyldihydrocodeine）、苄吗啡（Benzylmorphine）、二氢脱氧吗啡（Desomorphine）、脱吗啡（Dihydromorphine）、尼可吗啡（Nicomorphine）等。然而，另一项条文（涉及植物来源或化学合成的物质）涵盖了“鸦片与阿片类物质”，虽然明确指明包括其盐类与衍生物，但**唯独没有提及异构体（isomers）**！
+In many instances, this statutory indeterminacy was undoubtedly inadvertent on the part of legislative draftsmen, who presumed that the context surrounding each undefined term would sufficiently clarify its meaning. In other instances, however, intentional statutory ambiguity was likely engineered to afford administrative enforcement agencies maximum latitude and administrative discretion. In numerous precedents, administrative agencies promulgated regulations and courts authored opinions in an effort to dispel ambiguities inherent in the original statutory language; yet all too often, new layers of confusion and controversy merely replaced the old.
 
-这一立法疏漏引发了重大的法理问题：**鸦片衍生物的光学异构体是否属于法定受管制药物？**  
-天然左旋吗啡的镜像异构体（即人工合成的右旋吗啡 D-morphine）是否是管制药物？吗啡-N-氧化物（Morphine-N-oxide）的镜像异构体是否是管制药物？在科研界与法理推导中：前者（天然吗啡的镜像异构体）作为附表二药物的光学对映体，法律条文中漏列了“异构体”，因此在法理上**不属于受管制物质**；而后者（吗啡-N-氧化物）作为附表一列名物质，由于附表一序言包含了特定的涵盖词，因而**属于受管制物质**。
+A quintessential illustration of this confusion surrounds a recurrent statutory term for which the law provides no definition whatever: **"derivative."**
 
-此外，由附表二阿片类物质衍生出的化合物还面临另一重法律困境：任何能够从此类阿片制备的化合物在技术上都是鸦片衍生物，但在司法追诉前，它似乎必须先被行政机关正式赋予法定名称。典型案例是麻醉拮抗剂**地普诺啡（Diprenorphine）**：它由蒂巴因合成制得，化学上属于不折不扣的鸦片衍生物。FDA 批准将其作为埃托啡过量的特效解毒拮抗剂（38 FR 15050），DEA 随后发表声明承认其为附表二管制药物（39 FR 11554）。然而，在成文法及 CFR 的历次管制名录中，它从未被正式列出名称或分配专属代码！
+At the statutory level, the term "derivative" appears sporadically in the preambles to various drug categories, conveying the unmistakable impression that Congress intended to capture related substances that ought to have been listed by name but were inadvertently omitted. For example, the statutory entry regarding thebaine encompasses its "salts, derivatives, and salts of derivatives." This phrase immediately unlocks a perilous door: what, precisely, constitutes a derivative? If a chemical entity can be adjudged a "derivative" of thebaine merely upon the testimonial say-so of a government chemist in a court of law, that chemist is in effect exercising legislative authority! It must be remembered that, in synthetic organic chemistry, hundreds of compounds can be prepared directly from thebaine—some are potent analgesics, others are narcotic antagonists, still others are stimulants, and a substantial number are pharmacologically inert. Are all of these chemical compounds automatically Schedule II controlled substances carrying heavy criminal felony penalties merely because their synthetic genealogy traces back to thebaine?
 
-### 麻醉药品 (NARCOTIC DRUGS)
-在联邦法律语境下，“麻醉药品”（Narcotic Drug）是一个纯粹的法律拟制概念，与现代药理学中指代中枢抑制镇痛药的“麻醉剂”有着天壤之别。法律定义的麻醉药品仅限于：
-1. 鸦片、古柯叶（Coca leaves）及其阿片类衍生物；
-2. 上述物质的任何盐类、化合物、衍生物或制剂；
-3. 与上述物质在化学结构上完全相同的任何合成等同物；
-4. 罂粟秆（Poppy straw）及其浓缩提取物；
-5. 古柯叶及其提取物，**以及从古柯叶中提取的爱哥宁（Ecgonine，又称芽子碱）及其所有的盐类、异构体、衍生物与盐类的衍生物**；以及可卡因（Cocaine）。
+A more recent statute—the **Controlled Substances Analogue Enforcement Act of 1986**—injected an entirely new dimension of conceptual perplexity into this statutory morass.
 
-药理学上属于中枢兴奋剂的可卡因，在法律上被强行归类为“麻醉药品”，其直接法律后果在于：涉及可卡因的刑事量刑将直接适用针对阿片类烈性麻醉品的极刑裁量标准。
+This statute mandates that if a chemical compound possesses a chemical structure that is **"substantially similar"** to that of a Schedule I or Schedule II controlled substance, and is intended for human consumption, it shall be treated as a controlled substance under Schedule I for the purposes of criminal prosecution.
 
-### 中枢抑制剂或兴奋剂物质 (DEPRESSANT OR STIMULANT SUBSTANCE)
-法律将其界定为包含以下几类的任何药物：
-* 含有任何数量的巴比妥酸（Barbituric Acid）或其任何盐类的药物；
-* 含有任何数量的安非他命（Amphetamine）或其任何旋光异构体的药物；
-* 任何含有被司法部长通过行政规章认定为具有中枢兴奋或抑制作用、且存在滥用潜能的化学物质。
+Here, the operative qualifying phrase "substantially similar" constitutes an undefined statutory nexus:  
+Who determines whether a specific unlisted chemical structure is "substantially similar" to that of a listed drug?  
+Because the statute provides no objective, absolute scientific criteria, diverse qualified experts can and do arrive at diametrically opposing conclusions. Ultimately, the resolution of criminal guilt is consigned to a lay jury from which individuals possessing chemical or medical training are routinely excluded.
 
-### 盐类 (SALTS)
-几乎在所有的附表类别中，受管制物质的“盐类”（Salts）都受到与游离碱或游离酸完全相同的法定管制。在化学实践中，几乎所有的碱性药物（如可卡因、安非他命）都是以盐酸盐、硫酸盐的形式存在，酸性药物（如巴比妥类）以钠盐形式存在。法律特别明确，无论阴离子或阳离子配体为何，只要活性母体属于管制物质，其成盐形式均无条件受列管约束。
+The statutory vocabulary remains riddled with incompleteness: while certain terms have crystallized into generally accepted definitions through sustained judicial application, others remain perpetually contested without consensus.
 
-### 异构体 (ISOMER)
-在有机化学中，“异构体”包含结构异构（位置异构、链异构）、立体异构（顺反/几何异构、构象异构）以及光学对映异构。然而在 CSA 法律定义中，**“异构体”通常特指“光学对映异构体（optical isomers）”**，但存在两项极为重大的法定例外：
-1. 在**附表一(c) 致幻剂类**（CFR Title 21 中对应的 Schedule I(d)）中，法律特别明文规定：异构体涵盖“**任何光学异构体、位置异构体以及几何异构体**（optical, positional, and geometric isomers）”。这意味着致幻剂类药物（如取代苯乙胺、色胺、大麻素）的任何环取代位移衍生物与顺反异构体，均被法律网罗殆尽。
-2. 在针对可卡因的条目中，法律的修订引入了关于 D-可卡因与 L-可卡因对映体法律地位的长达数年的司法论战。
-
-### 酯类与醚类 (ESTERS & ETHERS)
-在附表一针对阿片类药物的前言中，“其所有的酯类与醚类”均被列为法定受管对象。化学上，酯类是由酸与醇脱水缩合而成，醚类是由两分子醇脱水缩合而成。这一条款堵死了通过简单酯化（如将吗啡单乙酰化、丙酰化）来规避管制的漏洞。
-
-### 衍生物 (DERIVATIVE)
-如前所述，成文法从始至终未曾给出“衍生物”的法定定义。在化学文献中，广义的衍生物可指代任何可通过一步或多步化学反应从前体母体转化而来的物质；狭义的衍生物则要求保留核心母核骨架。在司法审判中，检方专家证人常常试图将“衍生物”的概念无限扩大至所有起始合成物，这构成了法庭辩论中最激烈的交锋点。
-
-### 类似物 (ANALOGUE)
-1986 年《受控物质类似物法案》专门界定了“受控物质类似物”：
-1. 其化学结构与附表一或附表二受控物质**实质相似**；
-2. 其对中枢神经系统的刺激、抑制或致幻作用，与附表一或附表二受控物质**实质相似或更大**；或者被宣称/意图具有此种作用。  
-**法定排除**：已被正式列入附表的药物本身绝不能被称为类似物；已获 FDA 批准的新药申请（NDA）或研究性新药（IND）排除在此定义之外。
-
-### 前体与关键化学品 (PRECURSOR & ESSENTIAL CHEMICAL)
-1988 年《化学品贩运转移控制法案》（Chemical Diversion and Trafficking Act of 1988）正式将前体区分为两类：
-* **第一类化学品（List I Chemicals / 前体化学品 Precursor）**：直接用于制造受控物质的关键反应原料，其分子结构成为终产物的一部分（如苯乙酸、麻黄碱、哌啶、N-乙酰邻氨基苯甲酸）；
-* **第二类化学品（List II Chemicals / 关键化学品 Essential Chemical）**：在制造过程中作为溶剂、催化剂或试剂使用（如丙酮、乙醚、甲苯、高锰酸钾、无水氨）。
-
-### 医疗执业人员与行为界定 (PRACTITIONER, ADMINISTER, DISPENSE, DISTRIBUTE)
-* **执业人员 (Practitioner)**：经依法注册许可的内科医生、牙医、兽医、药剂师或科学研究人员；
-* **给药 (Administer)**：将受控物质直接施用/注射于患者或实验动物体内；
-* **调配 (Dispense)**：执业医师依法开具处方、配发包装受控物质以供患者遵医嘱使用；
-* **分发/分销 (Distribute)**：除直接给药或调配之外的任何受控物质交付与流转行为（在法律上等同于贩运考量）。
+The remainder of this chapter is organized into two primary divisions:  
+1. **A compendium of statutory definitions for terms and phrases employed within the controlled substances laws**;  
+2. **The statutory procedural mechanisms and substantive criteria governing the addition of new drugs to the controlled schedules**.
 
 ---
 
-## 药物列入附表的法定监管要素与裁量准则 (Regulatory Aspects)
+## Definitions
 
-依据《受管制物质法》第 201 条（21 U.S.C. 811），司法部长（由 DEA 代行）在对任何药物进行列管、移出附表或变更附表级别之前，必须启动法定评估程序，并**强制性综合考察以下八项法定要素**：
+### OPIUM
+Statute defines opium as the coagulated juice of the opium poppy (*Papaver somniferum* L.). The law subsequently distinguishes between Raw Opium, Refined Opium, Granulated Opium, Powdered Opium, and Tincture of Opium (Laudanum).
 
-1. **实际或相对的滥用潜能**（Its actual or relative potential for abuse）；
-2. **已知的科学药理作用证据**（Scientific evidence of its pharmacological effect, if known）；
-3. **当前科学知识发展水平**（The state of current scientific knowledge regarding the drug or other substance）；
-4. **历史与当前的滥用模式**（Its history and current pattern of abuse）；
-5. **滥用范围、持续时间与严重程度**（The scope, duration, and significance of abuse）；
-6. **对公共卫生的危险程度**（What, if any, risk there is to the public health）；
-7. **形成心理或生理依赖的倾向**（Its psychic or physiological dependence liability）；
-8. **该物质是否构成已被列管物质的直接前体**（Whether the substance is an immediate precursor of a substance already controlled under this title）。
+### OPIATE
+The statute defines an "opiate" as any drug having an addiction-forming or addiction-sustaining liability similar to morphine, or capable of conversion into a drug having such addiction-forming or addiction-sustaining liability. This statutory definition grants the Attorney General (delegated in practice to the DEA) immense administrative latitude: whenever a synthetic chemical entity is demonstrated experimentally to exert opiate-like receptor agonist activity capable of substituting for morphine in sustaining addiction, it may be placed under statutory control within the category of an "opiate."
 
-### 核心法理争议一：“公认医疗用途”的裁量权归属
-在 CSA 框架下，附表一与附表二的分水岭在于是否存在**“当前公认的医疗用途”（Currently Accepted Medical Use）**。  
-长期以来，DEA 主张唯有通过 FDA 正式批准的新药申请（NDA）才能被视作存在公认医疗用途；而医学界与法官在 MDMA（摇头丸）及大麻的系列行政听证会上指出，FDA 的新药审批是一项繁复昂贵的商业化进程，未获 NDA 绝不等于在临床专业医生群体中没有公认的疗效与安全性。这一争端直接导致了 DEA 与行政法法官（ALJ）之间的多次司法交锋。
+### OPIUM DERIVATIVES
+The statute enumerates several specifically named "opium derivatives" under Schedule I, including heroin (diacetylmorphine), acetyldihydrocodeine, benzylmorphine, desomorphine, dihydromorphine, nicomorphine, and others. However, a separate statutory clause governing substances of vegetable origin or chemical synthesis encompasses "opium and opiates," explicitly including their salts and derivatives, **yet conspicuously omits any mention of isomers**!
 
-### 核心法理争议二：“高度滥用潜能”与“严重公共危害”
-何谓“高度滥用潜能”？听证会判例确立了以下事实判定标准：
-* 个人正在自行摄入该物质，且其摄入量已足以对个人健康或社会安全构成实质危害；
-* 存在显著的非法黑市分流与脱离合法医疗监管的扩散趋势；
-* 该物质是已知附表管制物质的近亲衍生物，具有相类似的中枢兴奋、抑制或致幻活性。
+This statutory omission generates profound jurisprudential dilemmas: **Are the optical isomers of opium derivatives controlled substances under federal law?**  
+Is the mirror-image optical antipode of natural levorotatory morphine (i.e., synthetic D-morphine) a controlled substance? Is the optical antipode of morphine-N-oxide a controlled substance? Within scientific reasoning and strict statutory construction: the former (synthetic D-morphine), being the optical isomer of a Schedule II drug whose subsection omits "isomers," is **not a controlled substance** as a matter of law; whereas the latter (the antipode of morphine-N-oxide), being an isomer of an explicitly enumerated Schedule I substance whose preamble contains inclusive isomer language, **is a controlled substance**.
 
-### 紧急列管权 (Emergency Scheduling)
-1984 年《综合犯罪控制法案》（Comprehensive Crime Control Act of 1984）赋予了司法部长一项前所未有的特权：为“避免对公共安全的迫切危害”，司法部长可**绕过常规冗长的 FDA 医疗评估与公众听证程序**，直接下令将某种未列管物质紧急列入附表一，有效期最长一年（后修订可再延长六个月）。这一权力首次行使于 1985 年针对 3-甲基芬太尼与 MDMA 的紧急封堵行动中。
+Furthermore, compounds derived from Schedule II opiates face another statutory anomaly: virtually any compound preparable from such opiates constitutes an opium derivative in the technical chemical sense; yet prior to judicial enforcement, administrative authorities appear to require that it first be assigned a formal designation. A classic case is the narcotic antagonist **diprenorphine**: synthesized from thebaine, it is unquestionably a chemical derivative of opium. The FDA approved it as a specific reversal agent for etorphine overdose (38 FR 15050), and the DEA subsequently issued an administrative notice recognizing it as a Schedule II controlled substance (39 FR 11554). Yet, throughout the statutory code and CFR scheduling lists, diprenorphine was never explicitly enumerated by name nor assigned a dedicated drug code number!
+
+### NARCOTIC DRUGS
+Within federal jurisprudence, "narcotic drug" is a pure legal fiction that diverges sharply from modern pharmacology (wherein narcotics denote central nervous system depressant analgesics). Statutorily, narcotic drugs are strictly confined to:
+1. Opium, coca leaves, and opiates;
+2. Any salt, compound, derivative, or preparation thereof;
+3. Any substance chemically identical to any of the substances described in clauses (1) or (2);
+4. Poppy straw and concentrate of poppy straw;
+5. Coca leaves and any salt, compound, derivative, or preparation of coca leaves, **and any salt, isomer, derivative, or salt of a derivative of ecgonine**; and cocaine.
+
+Cocaine, pharmacologically classified as a central nervous system stimulant, is statutorily designated as a "narcotic drug." The direct penal consequence is that criminal prosecutions involving cocaine carry the severe statutory penalties reserved for potent opiate narcotics.
+
+### DEPRESSANT OR STIMULANT SUBSTANCE
+The statute defines this classification as encompassing any drug containing:
+* Any quantity of barbituric acid or any of its salts;
+* Any quantity of amphetamine or any of its optical isomers;
+* Any substance that the Attorney General, through administrative rulemaking, determines to possess a potential for abuse associated with a depressant or stimulant effect on the central nervous system.
+
+### SALTS
+Across virtually all statutory schedules, the "salts" of controlled substances are subject to identical regulatory controls as the corresponding free bases or free acids. In chemical practice, basic drugs (such as cocaine and amphetamine) are handled as hydrochlorides or sulfates, while acidic drugs (such as barbiturates) exist as sodium salts. The statute explicitly provides that regardless of the anionic or cationic moiety, if the parent molecule is controlled, its salt forms are unequivocally subject to statutory regulation.
+
+### ISOMER
+In organic chemistry, the term "isomer" encompasses constitutional isomers (positional, skeletal), stereoisomers (cis/trans geometric isomers, conformational isomers), and optical enantiomers. Under the general statutory definitions of the CSA, however, **"isomer" is restricted to mean "optical isomer,"** subject to two monumental statutory exceptions:
+1. Under **Schedule I(c) Hallucinogenic Substances** (corresponding to 21 CFR § 1308.11(d)), the statute explicitly mandates that the term "isomer" includes **any optical, positional, or geometric isomer**. This sweeps within federal jurisdiction all ring-positional isomers and geometric configurations of hallucinogens (such as substituted phenethylamines, tryptamines, and cannabinoids).
+2. In provisions governing cocaine, statutory revisions generated protracted judicial battles concerning the legal status of the unnatural D-cocaine enantiomer versus natural L-cocaine.
+
+### ESTERS & ETHERS
+In the statutory preambles governing Schedule I opiates, "all esters and ethers" are explicitly made subject to control. Chemically, esters arise from the condensation of acids and alcohols, whereas ethers arise from the linkage of two alcohol moieties. This provision effectively forecloses attempts to circumvent scheduling via simple esterification (e.g., monoacetylation or propionylation of morphine).
+
+### DERIVATIVE
+As noted previously, the statutory text nowhere provides a legal definition of "derivative." In the broader chemical literature, a derivative may denote any compound obtainable through one or more chemical transformations from a precursor; in a narrower sense, it implies structural preservation of the core parent nucleus. In criminal prosecutions, expert witnesses for the government frequently endeavor to expand the concept of "derivative" to encompass all synthetic downstream products, precipitating some of the most fiercely contested courtroom battles.
+
+### ANALOGUE
+The Controlled Substances Analogue Enforcement Act of 1986 established a tripartite statutory definition of a "controlled substance analogue":
+1. A substance whose chemical structure is **substantially similar** to the chemical structure of a controlled substance in Schedule I or II;
+2. Which has a stimulant, depressant, or hallucinogenic effect on the central nervous system that is **substantially similar to or greater than** that of a Schedule I or II substance; or
+3. With respect to a particular person, which such person represents or intends to have such an effect.  
+**Statutory Exclusions**: A chemical substance already placed under statutory schedule control cannot be an analogue; any new drug approved under Section 505 of the FD&C Act (NDA) or authorized under an Investigational New Drug exemption (IND) is explicitly excluded from the definition.
+
+### PRECURSOR & ESSENTIAL CHEMICAL
+The Chemical Diversion and Trafficking Act of 1988 formally established a statutory dichotomy for regulatory chemicals:
+* **List I Chemicals (Precursor Chemicals)**: Chemicals directly utilized in the illicit synthesis of controlled substances whose molecular structure is incorporated into the final target molecule (e.g., phenylacetic acid, ephedrine, piperidine, N-acetylanthranilic acid);
+* **List II Chemicals (Essential Chemicals)**: Reagents, catalysts, and solvents utilized during manufacturing processes that do not become part of the target molecule (e.g., acetone, ethyl ether, toluene, potassium permanganate, anhydrous hydrogen chloride).
+
+### PRACTITIONER, ADMINISTER, DISPENSE, DISTRIBUTE
+* **Practitioner**: A physician, dentist, veterinarian, scientific investigator, or pharmacy licensed to distribute, dispense, or administer controlled substances;
+* **Administer**: The direct application of a controlled substance to the body of a patient or research subject by injection, inhalation, or ingestion;
+* **Dispense**: To deliver a controlled substance to an ultimate user by lawful prescription or compounding;
+* **Distribute**: To deliver a controlled substance other than by administering or dispensing (statutorily equated with trafficking).
 
 ---
 
-## 联邦受管制物质五级附表法定分类标准 (Definition of the Five CSA Schedules)
+## Regulatory Aspects of Drug Scheduling
 
-成文法明确设立了严格对应于社会危害、滥用风险与医疗价值的五级金字塔式附表管理体系：
+Pursuant to Section 201 of the Controlled Substances Act (21 U.S.C. § 811), prior to initiating proceedings to add a drug to a schedule, transfer it between schedules, or remove it entirely, the Attorney General (acting through the DEA) must **mandatorily evaluate eight statutory factors**:
 
-| 管制附表 | 滥用潜能法定标准 | 临床医疗用途法定标准 | 依赖性/危害倾向法定标准 | 典型代表药物举例 |
+1. **Its actual or relative potential for abuse**;
+2. **Scientific evidence of its pharmacological effect, if known**;
+3. **The state of current scientific knowledge regarding the drug or other substance**;
+4. **Its history and current pattern of abuse**;
+5. **The scope, duration, and significance of abuse**;
+6. **What, if any, risk there is to the public health**;
+7. **Its psychic or physiological dependence liability**;
+8. **Whether the substance is an immediate precursor of a substance already controlled under this title**.
+
+### Legal Controversy I: The Locus of "Accepted Medical Use"
+Under the CSA, the statutory boundary separating Schedule I from Schedule II hinges upon whether a drug possesses a **"currently accepted medical use in treatment in the United States."**  
+For years, the DEA maintained the rigid position that nothing short of formal New Drug Application (NDA) approval by the FDA could establish an accepted medical use. Conversely, clinicians and Administrative Law Judges (ALJs) during hearings on MDMA and cannabis established that commercial FDA approval is an onerous corporate process; the absence of an NDA does not establish the lack of therapeutic efficacy or clinical consensus among practicing physicians. This divergence sparked repeated judicial confrontations between the DEA Administrator and ALJs.
+
+### Legal Controversy II: "High Potential for Abuse"
+Administrative hearing precedents have recognized several evidentiary standards establishing a high potential for abuse:
+* Individuals are self-administering the substance in amounts sufficient to create hazardous consequences to their health or public safety;
+* Significant illicit diversion from legitimate medical channels into clandestine markets is occurring;
+* The substance is a chemical congener of an established controlled drug, sharing similar stimulant, depressant, or hallucinogenic pharmacology.
+
+### Emergency Scheduling Authority
+The Comprehensive Crime Control Act of 1984 granted the Attorney General unprecedented emergency authority: to "avoid an imminent hazard to the public safety," the Attorney General may **bypass the standard, protracted FDA medical evaluation and public rulemaking proceedings** to place an uncontrolled substance temporarily into Schedule I for a period of up to one year (with a statutory six-month extension). This authority was first deployed in 1985 to schedule 3-methylfentanyl and MDMA.
+
+---
+
+## Definition of the Five CSA Schedules
+
+The statute establishes a hierarchical five-tier scheduling framework predicated upon comparative abuse potential, medical utility, and dependence liability:
+
+| Schedule | Statutory Abuse Potential | Statutory Medical Use Criteria | Statutory Dependence / Hazard Criteria | Exemplary Controlled Drugs |
 | :--- | :--- | :--- | :--- | :--- |
-| **附表一 (Schedule I)** | **高滥用潜能** (High potential for abuse) | **在美国无任何当前公认的医疗用途**；且在医疗监护下缺乏公认的安全性 | 极高度生理或心理依赖危险 | 海洛因、LSD、MDMA、大麻、甲喹酮、芬太尼街头类似物 |
-| **附表二 (Schedule II)** | **高滥用潜能** (High potential for abuse) | **具有当前公认的医疗用途**（或附带严苛限制的医疗用途） | 滥用可能导致**严重心理或生理依赖** | 吗啡、可卡因、可待因（纯品）、甲基苯丙胺、苯巴比妥、芬太尼 |
-| **附表三 (Schedule III)** | 滥用潜能低于附表一和附表二药物 | **具有当前公认的医疗用途** | 滥用可能导致**中度至低度生理依赖**，或**高度心理依赖** | 包含微量可待因的复方制剂、氯胺酮、促合成代谢类固醇 |
-| **附表四 (Schedule IV)** | 滥用潜能低于附表三药物 | **具有当前公认的医疗用途** | 滥用可能导致**有限的生理或心理依赖**（相对于附表三） | 安定（地西泮）、阿普唑仑、三唑仑等绝大多数苯二氮䓬类镇静剂 |
-| **附表五 (Schedule V)** | 滥用潜能低于附表四药物 | **具有当前公认的医疗用途** | 滥用可能导致**极其有限的生理或心理依赖**（相对于附表四） | 极低浓度阿片类止咳糖浆、地芬诺酯极微量止泻复合制剂 |
+| **Schedule I** | **High potential for abuse** | **No currently accepted medical use in treatment in the U.S.**; lacks accepted safety under medical supervision | Severe psychic or physical dependence liability | Heroin, LSD, MDMA, Marihuana, Methaqualone, Fentanyl analogues |
+| **Schedule II** | **High potential for abuse** | **Currently accepted medical use in treatment in the U.S.** (or medical use with severe restrictions) | Abuse may lead to **severe psychic or physical dependence** | Morphine, Cocaine, Codeine (pure), Methamphetamine, Pentobarbital, Fentanyl |
+| **Schedule III** | Potential for abuse less than substances in Schedules I and II | **Currently accepted medical use in treatment in the U.S.** | Abuse may lead to **moderate or low physical dependence** or **high psychological dependence** | Codeine combination formulations, Ketamine, Anabolic Steroids |
+| **Schedule IV** | Low potential for abuse relative to substances in Schedule III | **Currently accepted medical use in treatment in the U.S.** | Abuse may lead to **limited physical or psychological dependence** relative to Schedule III | Diazepam, Alprazolam, Triazolam, and most Benzodiazepines |
+| **Schedule V** | Low potential for abuse relative to substances in Schedule IV | **Currently accepted medical use in treatment in the U.S.** | Abuse may lead to **extremely limited physical or psychological dependence** relative to Schedule IV | Low-concentration codeine cough preparations, Diphenoxylate combination antidiarrheals |
 
 ---
 
-## 法定除外、豁免与排除条款 (Exemptions, Exceptions, and Exclusions)
+## Exemptions, Exceptions, and Exclusions
 
-根据《美国法典》第 21 篇第 811(g) 条，法律为防止对合法科研、工业生产及非处方医疗造成不当误伤，设立了三类明确的法定豁免机制：
+Under 21 U.S.C. § 811(g), Congress instituted three formal exemption categories to safeguard legitimate research, industrial manufacturing, and non-prescription healthcare:
 
-1. **工业与诊断试剂除外 (Exempt Chemical Preparations)**：  
-   凡含有受管药物成分、但其物理化学形态或浓度配比被证明**不适于人体或动物施用**，或含有剧毒变性剂（denaturants）使其在技术上无法被提纯还原的生化试剂盒、染色液或实验室标样，经 DEA 批准后正式从刑法管制中豁免。
-2. **豁免复方处方制剂 (Exempt Prescription Products)**：  
-   含有中枢抑制剂或兴奋剂（如巴比妥类），但复方中配伍混合了足量的其他非受控活性药物成分（如镇痛剂、解痉剂），使得该药物完全丧失了单独被滥用提取的可能（例如含有微量丁巴比妥的止头痛复方）。
-3. **非处方非麻醉类豁免 (Exempt Non-narcotic Over-the-Counter Drugs)**：  
-   符合 FDA 非处方药标准、其滥用危险可忽略不计的传统制剂，依法直接排除在管制附表之外。
+1. **Exempt Chemical Preparations**:  
+   Formulations containing controlled substances that, by virtue of physical/chemical form, concentration, or the presence of denaturants, are **rendered unfit for human or animal consumption** and cannot be readily recovered for illicit use (e.g., diagnostic assay kits, laboratory staining solutions, analytical reference standards) are formally exempted by administrative regulation.
+2. **Exempt Prescription Products**:  
+   Prescription formulations containing depressant or stimulant substances (such as barbiturates) compounded with sufficient quantities of non-controlled active ingredients (e.g., analgesics or antispasmodics) such that the compound possesses no significant potential for abuse.
+3. **Exempt Non-narcotic Over-the-Counter Drugs**:  
+   Commercial preparations compliant with FDA over-the-counter standards whose abuse liability is negligible are excluded from statutory schedules by operation of law.

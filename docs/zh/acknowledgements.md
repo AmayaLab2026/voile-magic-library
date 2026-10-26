@@ -12,7 +12,7 @@ hideReprintNotice: true
 
 ---
 
-##  核心基石项目
+## 核心基石项目
 
 ### 1. VitePress
 - **团队与创作者**：Evan You（尤雨溪）及 VitePress 贡献者团队
@@ -37,7 +37,7 @@ hideReprintNotice: true
 
 ---
 
-##  知识库生态与增强插件
+## 知识库生态与增强插件
 
 ### 4. Nólëbase
 - **创作者**：絢香猫 ([@nekomeowww](https://github.com/nekomeowww))、絢香音 ([@LittleSound](https://github.com/LittleSound)) 及社区

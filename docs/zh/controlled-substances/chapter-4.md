@@ -1,3 +1,8 @@
+---
+title: 第四章：药物化学结构图谱全集
+titleTemplate: 管制物质：化学与法律指南 · 亚历山大·舒尔金
+---
+
 # 第四章：管制药物化学结构图谱全典 (Chemical Structures of Scheduled Drugs)
 
 > **著者**：Alexander T. Shulgin, Ph.D.  

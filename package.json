@@ -26,11 +26,12 @@
     "vitepress-doc"
   ],
   "scripts": {
+    "build:og": "tsx scripts/build_all_og.ts",
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "pnpm build:og && vitepress build",
     "serve": "vitepress serve",
     "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
+    "docs:build": "pnpm build:og && vitepress build",
     "docs:serve": "vitepress serve",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
@@ -58,6 +59,7 @@
     "@nolebase/vitepress-plugin-page-properties": "2.18.2",
     "@nolebase/vitepress-plugin-sidebar": "^2.18.2",
     "@nolebase/vitepress-plugin-thumbnail-hash": "^2.18.2",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash": "^4.17.25",
     "@types/markdown-it": "^14.2.0",

@@ -1,4 +1,7 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { presetMarkdownIt } from '@nolebase/integrations/vitepress/markdown-it'
 import { presetVite } from '@nolebase/integrations/vitepress/vite'
 import { transformHeadMeta } from '@nolebase/vitepress-plugin-meta'
@@ -12,8 +15,10 @@ import enConfig from '../docs/en/config'
 import jaConfig from '../docs/ja/config'
 import zhHantConfig from '../docs/zh-hant/config'
 import zhConfig from '../docs/zh/config'
-import { githubRepoLink, siteDescription, siteName } from '../metadata/index'
+import { githubRepoLink, siteDescription, siteName, targetDomain } from '../metadata/index'
 import head from './head'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const nolebase = presetMarkdownIt()
 const nolebaseVite = presetVite({
@@ -211,6 +216,44 @@ export default defineConfig({
     const returnedHead = await transformHeadMeta()(head, context)
     if (typeof returnedHead !== 'undefined')
       head = returnedHead
+
+    try {
+      const relPath = context.pageData?.relativePath || ''
+      let cleanPath = relPath.replace(/\.md$/, '')
+      if (cleanPath.startsWith('zh/'))
+        cleanPath = cleanPath.slice(3)
+      if (cleanPath.endsWith('/index'))
+        cleanPath = cleanPath.slice(0, -5)
+      if (!cleanPath || cleanPath === 'index')
+        cleanPath = '/'
+      else if (!cleanPath.startsWith('/'))
+        cleanPath = `/${cleanPath}`
+
+      let ogPath = '/og/index.png'
+      const mappingFile = path.resolve(__dirname, '../metadata/og-mapping.json')
+      if (fs.existsSync(mappingFile)) {
+        const mapping = JSON.parse(fs.readFileSync(mappingFile, 'utf-8'))
+        if (mapping[cleanPath])
+          ogPath = mapping[cleanPath]
+      }
+
+      const fullOgUrl = `${targetDomain}${ogPath}`
+
+      const ogImgIdx = head.findIndex(([tag, attrs]) => tag === 'meta' && attrs?.property === 'og:image')
+      if (ogImgIdx !== -1)
+        head[ogImgIdx] = ['meta', { property: 'og:image', content: fullOgUrl }]
+      else
+        head.push(['meta', { property: 'og:image', content: fullOgUrl }])
+
+      const twImgIdx = head.findIndex(([tag, attrs]) => tag === 'meta' && attrs?.name === 'twitter:image')
+      if (twImgIdx !== -1)
+        head[twImgIdx] = ['meta', { name: 'twitter:image', content: fullOgUrl }]
+      else
+        head.push(['meta', { name: 'twitter:image', content: fullOgUrl }])
+    }
+    catch (e) {
+      console.warn('[transformHead] Failed to inject dynamic OG image:', e)
+    }
 
     return head
   },
