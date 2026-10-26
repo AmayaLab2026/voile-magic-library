@@ -8,6 +8,7 @@ description: "涵蓋點陣圖字型 (A)、TeX/Omega (B)、PostScript Type 1/CFF 
 選自《Fonts & Encodings》第 599–938 頁（共 340 頁技術附錄）
 *譯者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
+
 ---
 
 本參考手冊涵蓋了《Fonts & Encodings》後半部全部七大技術附錄（Appendices A 至 G）。這部分內容是雅尼斯·哈拉蘭博斯（Yannis Haralambous）為數字字型工程師、底層排版引擎開發者以及計算機文字學學者構建的技術基石。它詳盡記錄了從 20 世紀 80 年代點陣點陣圖格式到 21 世紀現代 OpenType/AAT 容器表結構、虛擬機器指令集與曲線微分幾何的全部數學實現。
@@ -22,28 +23,36 @@ description: "涵蓋點陣圖字型 (A)、TeX/Omega (B)、PostScript Type 1/CFF 
 
 在經典 Mac OS（System 1.0 至 Mac OS 9）中，字型被封裝為資源分支（Resource Fork）中的資源。
 
+
+::: tip 麥金塔作業系統經典 Chicago 字型的全域性條帶影象（Figure A-1）
+![麥金塔作業系統經典 Chicago 字型的全域性條帶影象（Figure A-1）](/images/fonts-encodings/fig-app-a1.png)
+*麥金塔作業系統經典 Chicago 字型的全域性條帶影象（Figure A-1）*
+:::
+
+*圖 A-1：在蘋果 Macintosh 視窗選單中服役超過 15 年的經典 Chicago 字型全域性點陣條帶點陣圖（Strike Bitmap）。圖中展示了包含了歐元符號（€）的現代維護版本。*
+
 ### 1. `FONT` 與 `NFNT` 資源頭結構
 `FONT` 是早期固定字號點陣資源，`NFNT`（New Font Numbering Table）則是擴充了龐大家族編號體系的演進版本。兩者在記憶體中展開為相同的二進位制資料結構：
 
 ```c
 struct FontRec {
-    short fontType;       // 字型型別標誌位（包含比例/等寬、顏色等屬性）
-    short firstChar;      // 字符集中第一個字元的 ASCII 碼點（通常為 0 或 32）
-    short lastChar;       // 最後一個字元的碼點（通常為 255）
-    short widMax;         // 整個字型中字元的最大寬度（畫素）
-    short kernMax;        // 最大負向字距調整量（通常 <= 0）
-    short nDescent;       // 字元基線以下的負向下沉深度（負數）
-    short fRectWidth;     // 字元包圍盒矩形的最大寬度
-    short fRectHeight;    // 字元包圍盒矩形的最大高度
-    short owTLoc;         // 偏移/寬度表（Offset/Width Table）相對於表頭的字偏移量
-    short ascent;         // 基線至大寫字母頂部的上升高度
-    short descent;        // 基線至降部底部的下降深度
-    short leading;        // 行間額外留白
-    short rowWords;       // 點陣連續影象行寬（以 16 位整數字為單位）
-    // 隨後緊跟：
-    // 1. Bitmaps Array: 所有字元點陣橫向拼接而成的連續點陣圖條帶（Strike-font）
-    // 2. LocTable: 字元在點陣圖條帶中的水平列起始偏移索引表
-    // 3. OwTable: 字元邏輯寬度與字距微調偏移表
+    short fontType;       // 字体类型标志位（包含比例/等宽、颜色等属性）
+    short firstChar;      // 字符集中第一个字符的 ASCII 码点（通常为 0 或 32）
+    short lastChar;       // 最后一个字符的码点（通常为 255）
+    short widMax;         // 整个字体中字符的最大宽度（像素）
+    short kernMax;        // 最大负向字距调整量（通常 <= 0）
+    short nDescent;       // 字符基线以下的负向下沉深度（负数）
+    short fRectWidth;     // 字符包围盒矩形的最大宽度
+    short fRectHeight;    // 字符包围盒矩形的最大高度
+    short owTLoc;         // 偏移/宽度表（Offset/Width Table）相对于表头的字偏移量
+    short ascent;         // 基线至大写字母顶部的上升高度
+    short descent;        // 基线至降部底部的下降深度
+    short leading;        // 行间额外留白
+    short rowWords;       // 点阵连续图像行宽（以 16 位整数字为单位）
+    // 随后紧跟：
+    // 1. Bitmaps Array: 所有字符点阵横向拼接而成的连续位图条带（Strike-font）
+    // 2. LocTable: 字符在位图条带中的水平列起始偏移索引表
+    // 3. OwTable: 字符逻辑宽度与字距微调偏移表
 };
 ```
 
@@ -63,6 +72,14 @@ MS-DOS 透過 `MODE CON CP PREP` 命令載入的螢幕點陣字型被封裝在 `
 ### 2. Windows FNT 與 FON 格式
 - **`.FNT` 檔案**：Windows 3.x 引入的裸點陣字型檔案，內部包含版本號（`0x0200` 或 `0x0300`）、`dfPoints`（磅值）、`dfVertRes` 與 `dfHorizRes`（目標 DPI，如 96 DPI）、字元間距型別（定寬或變寬）、以及字元偏移表 `dfCharTable`；
 - **`.FON` 檔案**：本質上是一個偽裝的 16 位 Windows 動態連結庫（NE 格式 DLL）或 32 位可執行檔案（PE 格式 DLL），其程式碼段為空，僅在資源段（`.rsrc`）中嵌入了若干個對應不同字號的 `.FNT` 資料流。
+
+
+::: tip BDF 規範中表意漢字點陣與度量屬性的定義模型（Figure A-2）
+![BDF 規範中表意漢字點陣與度量屬性的定義模型（Figure A-2）](/images/fonts-encodings/fig-app-a2.png)
+*BDF 規範中表意漢字點陣與度量屬性的定義模型（Figure A-2）*
+:::
+
+*圖 A-2：Adobe BDF 規範對單個漢字表意文字點陣畫素陣列與外包圍盒、基線偏移、字距步進向量的完整定義模型。*
 
 ### 3. Unix 與 X11 體系：Adobe BDF 與 PCF 格式
 - **BDF（Bitmap Distribution Format）**：由 Adobe 制定的純 ASCII 文字點陣交換格式。語法清晰可讀：
@@ -106,10 +123,18 @@ MS-DOS 透過 `MODE CON CP PREP` 命令載入的螢幕點陣字型被封裝在 `
 
 唐納德·高德納為 METAFONT 輸出設計的點陣圖格式代表了資料壓縮工程的藝術極境。
 
+
+::: tip gftodvi 在 5,203 DPI 超高解析度下渲染的 Computer Modern 字母排印圖（Figure A-3）
+![gftodvi 在 5,203 DPI 超高解析度下渲染的 Computer Modern 字母排印圖（Figure A-3）](/images/fonts-encodings/fig-app-a3.png)
+*gftodvi 在 5,203 DPI 超高解析度下渲染的 Computer Modern 字母排印圖（Figure A-3）*
+:::
+
+*圖 A-3：高德納開發的大師級公用程式 `gftodvi` 將 GF 點陣字型檔逆向轉化為 DVI 檔案的排印樣張（Computer Modern Roman 10 磅在 5,203 DPI 下的精細點陣剖析）。*
+
 ### 1. GF（Generic Font）格式
 METAFONT 的原始輸出格式。GF 格式採用位元組碼指令流描述字元，包含繪製單行黑白相間畫素的指令：`paint_0` 至 `paint_63`、`skip`（換行）、`boc`（Begin of Character，包含字元包圍盒）、`eoc`（End of Character）。
 
-### 2. PK（Packed Font）格式與遊程動態壓縮演演算法
+### 2. PK（Packed Font）格式與遊程動態壓縮演算法
 為了節約極度寶貴的磁碟空間，Tomas Rokicki 於 1985 年發明了 **PK 格式**。PK 格式透過極富創意的**動態閾值變長遊程編碼（Run-length Encoding with Dynamic Packing）**，將 GF 檔案的體積削減了近一半！
 
 #### 動態壓縮閾值 $dyn\_f$ 的數學機理：
@@ -131,25 +156,25 @@ TFM 檔案是 $\TeX$ 排版引擎感知字型的唯一視窗。一個合法的 T
 
 ```
 ┌────────────────────────────────────────────────────────┐
-│ 1. HEADER (檔案頭後設資料，包含校驗和與設計尺寸)           │
+│ 1. HEADER (文件头元数据，包含校验和与设计尺寸)           │
 ├────────────────────────────────────────────────────────┤
-│ 2. CHAR_INFO (字元資訊表，每個字元佔用一個 4 位元組字)     │
+│ 2. CHAR_INFO (字符信息表，每个字符占用一个 4 字节字)     │
 ├────────────────────────────────────────────────────────┤
-│ 3. WIDTH (寬度陣列)                                    │
+│ 3. WIDTH (宽度数组)                                    │
 ├────────────────────────────────────────────────────────┤
-│ 4. HEIGHT (高度陣列，至多 16 種不同高度)                 │
+│ 4. HEIGHT (高度数组，至多 16 种不同高度)                 │
 ├────────────────────────────────────────────────────────┤
-│ 5. DEPTH (深度陣列，至多 16 種不同深度)                 │
+│ 5. DEPTH (深度数组，至多 16 种不同深度)                 │
 ├────────────────────────────────────────────────────────┤
-│ 6. ITALIC (傾斜校正陣列，至多 64 種不同校正量)          │
+│ 6. ITALIC (倾斜校正数组，至多 64 种不同校正量)          │
 ├────────────────────────────────────────────────────────┤
-│ 7. LIG_KERN (連字與字偶間距狀態機程式指令表)            │
+│ 7. LIG_KERN (连字与字偶间距状态机程序指令表)            │
 ├────────────────────────────────────────────────────────┤
-│ 8. KERN (實際物理字距數值陣列)                         │
+│ 8. KERN (实际物理字距数值数组)                         │
 ├────────────────────────────────────────────────────────┤
-│ 9. EXTEN (大型可伸展數學字元拼接零件裝配表)             │
+│ 9. EXTEN (大型可伸展数学字符拼接零件装配表)             │
 ├────────────────────────────────────────────────────────┤
-│ 10. PARAM (字型全域性排版引數: 包含空格自然長、伸縮量等)   │
+│ 10. PARAM (字体全局排版参数: 包含空格自然长、伸缩量等)   │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -192,6 +217,22 @@ VF 檔案由 `vptovf` 編譯生成。
 
 ## C.1 PostScript 語言執行機與圖形狀態
 
+::: tip PostScript 路徑構建與填充程式碼（Figure C-1）
+![PostScript 路徑構建與填充程式碼（Figure C-1）](/images/fonts-encodings/fig-app-c1.png)
+*PostScript 路徑構建與填充程式碼（Figure C-1）*
+:::
+
+*圖 C-1：PostScript 語言底層路徑構建與填充執行指令。*
+
+
+::: tip 非零纏繞數規則與奇偶環繞規則的物理填充對比（Figure C-2）
+![非零纏繞數規則與奇偶環繞規則的物理填充對比（Figure C-2）](/images/fonts-encodings/fig-app-c2.png)
+*非零纏繞數規則與奇偶環繞規則的物理填充對比（Figure C-2）*
+:::
+
+*圖 C-2：左側三圖展示非零環繞數規則（Nonzero Winding Number Rule），右側三圖展示奇偶填充規則（Even-Odd Rule）對自相交複雜路徑的填充判定。*
+
+
 PostScript 是一門基於堆疊操作的、圖靈完備的逆波蘭表示法（Postfix）程式語言。直譯器維護著四大堆疊：
 1. **運算元棧（Operand Stack）**：暫存數值、字串、字典與幾何路徑；
 2. **字典棧（Dictionary Stack）**：檢索全域性與區域性變數；
@@ -203,27 +244,75 @@ PostScript 是一門基於堆疊操作的、圖靈完備的逆波蘭表示法（
 ## C.2 Type 1 字型的內部架構與加密數學
 
 PostScript Type 1 字型不僅包含輪廓，更內嵌了一套高強度的專用加密機制：
-- **`eexec` 加密演演算法**：用於保護字型私有字典（`Private Dictionary`）。採用 16 位線性同餘偽隨機數流加密：
+- **`eexec` 加密演算法**：用於保護字型私有字典（`Private Dictionary`）。採用 16 位線性同餘偽隨機數流加密：
   $$R_{n+1} = (R_n \times 52845 + 22719) \bmod 65536$$
   $$C_n = P_n \oplus (R_n \gg 8)$$
   其中初始密碼種子金鑰 $R_0 = 55665$。檔案在進入正式程式碼前必須填充 4 個隨機位元組以混淆密文起始狀態；
-- **`charstring` 加密演演算法**：用於加密 `CharStrings` 字典內部的具體字形位元組碼，使用相同的數學同餘公式，但初始種子金鑰固定為 $R_0 = 4330$。
+- **`charstring` 加密演算法**：用於加密 `CharStrings` 字典內部的具體字形位元組碼，使用相同的數學同餘公式，但初始種子金鑰固定為 $R_0 = 4330$。
+
+
+::: tip 跨文種字元度量高度與超逸（Overshoot）全景（Figure C-7）
+![跨文種字元度量高度與超逸（Overshoot）全景（Figure C-7）](/images/fonts-encodings/fig-app-c7.png)
+*跨文種字元度量高度與超逸（Overshoot）全景（Figure C-7）*
+:::
+
+*圖 C-7：Omega Serif 字型中拉丁文、阿拉伯文、希伯來文與亞美尼亞文多種複雜文字的基準高度與光學超逸量分佈。*
+
+
+::: tip 字母 ‘H’、‘O’、‘m’ 的對齊區與微調主幹（Figure C-9）
+![字母 ‘H’、‘O’、‘m’ 的對齊區與微調主幹（Figure C-9）](/images/fonts-encodings/fig-app-c9.png)
+*字母 ‘H’、‘O’、‘m’ 的對齊區與微調主幹（Figure C-9）*
+:::
+
+*圖 C-9：PostScript Type 1 字形中的水平與垂直微調主幹（灰色陰影帶代表 `BlueValues` 與 `OtherBlues` 對齊區）。*
+
+
+::: tip 字母 ‘B’ 中四重提示替換的執行過程（Figure C-10）
+![字母 ‘B’ 中四重提示替換的執行過程（Figure C-10）](/images/fonts-encodings/fig-app-c10.png)
+*字母 ‘B’ 中四重提示替換的執行過程（Figure C-10）*
+:::
+
+*圖 C-10：字母 ‘B’ 內部四個區域性垂直微調的動態提示替換（Hint Substitution）連續階段。*
+
+
+::: tip PostScript Type 1 雙三次貝塞爾 Flex 機制（Figure C-11）
+![PostScript Type 1 雙三次貝塞爾 Flex 機制（Figure C-11）](/images/fonts-encodings/fig-app-c11.png)
+*PostScript Type 1 雙三次貝塞爾 Flex 機制（Figure C-11）*
+:::
+
+*圖 C-11：由兩段三次貝塞爾曲線 $abcd$ 與 $defg$ 構成的 Flex 彈性微調結構。*
 
 ### Type 1 CharString 核心操作碼全集
 
 在解密後的位元組流中，操作碼分為單位元組指令（0–31）與帶轉義的二位元組指令（操作碼 12 引導）：
 - `hstem` (1), `vstem` (3)：宣告水平與垂直主幹提示；
 - `vmoveto` (4), `rlineto` (5), `hlineto` (6), `vlineto` (7)：相對座標直線繪製；
-- `rrcurveto` (8)：相對座標三次貝茲曲線繪製（輸入 6 個相對座標增量：$dx_a, dy_a, dx_b, dy_b, dx_c, dy_c$）；
+- `rrcurveto` (8)：相對座標三次貝塞爾曲線繪製（輸入 6 個相對座標增量：$dx_a, dy_a, dx_b, dy_b, dx_c, dy_c$）；
 - `callsubr` (10), `return` (11)：呼叫/返回區域性子程式（Subrs，用於複用襯線、圓弧等通用元件）；
 - `endchar` (14)：字形繪製終結；
 - `rmoveto` (21), `hmoveto` (22)：相對移動原點；
-- `vhcurveto` (30), `hvcurveto` (31)：垂直/水平先導的切線貝茲曲線；
+- `vhcurveto` (30), `hvcurveto` (31)：垂直/水平先導的切線貝塞爾曲線；
 - `seac` (12-6, Standard Encoding Accented Character)：高階複合字元裝配指令，輸入基底字元、重音字元及其相對座標，瞬間拼裝出帶重音字母。
 
 ---
 
 ## C.3 CFF（Compact Font Format）與 Type 2 CharStrings
+
+::: tip 漢字 “講” 與 “皿” 內部的白空主幹計數控制（Figure C-12）
+![漢字 “講” 與 “皿” 內部的白空主幹計數控制（Figure C-12）](/images/fonts-encodings/fig-app-c12.png)
+*漢字 “講” 與 “皿” 內部的白空主幹計數控制（Figure C-12）*
+:::
+
+*圖 C-12：PostScript Type 1 與 Type 2 面向東亞複雜表意文字的白空主幹計數控制（Counter Control）。*
+
+
+::: tip CIDFont（Type 0）整體解引用架構（Figure C-16）
+![CIDFont（Type 0）整體解引用架構（Figure C-16）](/images/fonts-encodings/fig-app-c16.png)
+*CIDFont（Type 0）整體解引用架構（Figure C-16）*
+:::
+
+*圖 C-16：CIDFont 檔案基於字符集身份碼（CID）從全域性二進位制流解引用字形資料的完整管線。*
+
 
 隨著 OpenType 的普及，Adobe 徹底重構了 Type 1 的老舊冗餘語法，推出了 **CFF 容器** 與 **Type 2 字元指令集**：
 - 採用無縫的 **INDEX 索引表結構**，所有資料偏移與長度採用純二進位制整型表頭索引；
@@ -246,16 +335,32 @@ TrueType 與 OpenType 共同基於 **SFNT（Spline Font）模組化表容器架�
 緊隨其後的是 `numTables` 個由 16 位元組構成的**表目錄記錄（Table Directory Records）**：
 ```c
 struct TableRecord {
-    char tag[4];        // 4 字元表標籤，如 "head", "cmap", "glyf", "GSUB"
-    unsigned int checkSum; // 該資料表的 32 位全字校驗和
-    unsigned int offset;   // 從檔案絕對開頭的位元組物理偏移量
-    unsigned int length;   // 該資料表的物理位元組長度
+    char tag[4];        // 4 字符表标签，如 "head", "cmap", "glyf", "GSUB"
+    unsigned int checkSum; // 该数据表的 32 位全字校验和
+    unsigned int offset;   // 从文件绝对开头的字节物理偏移量
+    unsigned int length;   // 该数据表的物理字节长度
 };
 ```
 
 ---
 
 ## D.2 核心基礎資料表詳解
+
+::: tip EBLC 點陣表中字形的水平與垂直度量（Figure D-1）
+![EBLC 點陣表中字形的水平與垂直度量（Figure D-1）](/images/fonts-encodings/fig-app-d1.png)
+*EBLC 點陣表中字形的水平與垂直度量（Figure D-1）*
+:::
+
+*圖 D-1：TrueType EBLC 表中內嵌點陣字形的水平與垂直排版度量定義。*
+
+
+::: tip Verdana 字型 letter ‘A’ 在 gasp 表控制下的柵格尺寸分佈（Figure D-3）
+![Verdana 字型 letter ‘A’ 在 gasp 表控制下的柵格尺寸分佈（Figure D-3）](/images/fonts-encodings/fig-app-d3.png)
+*Verdana 字型 letter ‘A’ 在 gasp 表控制下的柵格尺寸分佈（Figure D-3）*
+:::
+
+*圖 D-3：微軟經典螢幕字型 Verdana 在 `gasp` 表控制下，平滑抗鋸齒與網格微調隨 ppem 尺寸的動態階梯切換。*
+
 
 ### 1. `head`（Font Header）
 記錄字型的全域性物理常量：
@@ -298,9 +403,25 @@ $$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{Loo
 
 1. **ScriptList（書寫系統列表）**：根據輸入文字的語言系統（如 `latn`, `arab`, `deva`）查詢支援的特性索引；
 2. **FeatureList（特性列表）**：定位具體特性（如 `liga`, `smcp`, `kern`）所包含的查詢表索引；
-3. **LookupList（查詢表列表）**：執行具體的字形變換演演算法。
+3. **LookupList（查詢表列表）**：執行具體的字形變換演算法。
 
 ### 2. 覆蓋表（Coverage Table）與類定義表（ClassDef Table）
+
+::: tip CastleType 的 202 個花體 Ampersand 字元全景（Figure D-6）
+![CastleType 的 202 個花體 Ampersand 字元全景（Figure D-6）](/images/fonts-encodings/fig-app-d6.png)
+*CastleType 的 202 個花體 Ampersand 字元全景（Figure D-6）*
+:::
+
+*圖 D-6：CastleType 字型工坊製作的 202 個極具書法美感的 Ampersand（&）連字變體。*
+
+
+::: tip Apple Skia 字型在 wght 軸上的連續變形全景（Figure D-8）
+![Apple Skia 字型在 wght 軸上的連續變形全景（Figure D-8）](/images/fonts-encodings/fig-app-d8.png)
+*Apple Skia 字型在 wght 軸上的連續變形全景（Figure D-8）*
+:::
+
+*圖 D-8：蘋果 AAT 經典可變字型 Skia 在字重（`wght`）軸上的平滑連續漸變插值。*
+
 為了在毫秒級判斷某個字元是否參與排版規則，OpenType 引入了覆蓋表：
 - **Format 1**：單個 GID 線性列表；
 - **Format 2**：由連續範圍組成的區間表（`startGlyphID` 到 `endGlyphID` 對映至連續覆蓋索引）。
@@ -317,13 +438,21 @@ $$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{Loo
 ```metafont
 z1 = (0, 0);
 z2 = (w, h);
-z3 = .5[z1, z2];          % 宣告 z3 是 z1 與 z2 的正中中點！
-x4 = x3; y4 = 0;          % 宣告 z4 位於 z3 的正下方基線上
-draw z1--z2;              % 繪製連線線段
-draw z3..z4;              % 繪製平滑穿過指定點的曲線
+z3 = .5[z1, z2];          % 声明 z3 是 z1 与 z2 的正中中点！
+x4 = x3; y4 = 0;          % 声明 z4 位于 z3 的正下方基线上
+draw z1--z2;              % 绘制连接线段
+draw z3..z4;              % 绘制平滑穿过指定点的曲线
 ```
 
 ## E.2 畫筆（Pens）與包絡線理論
+
+::: tip METAFONT 原始 Computer Modern 字型家族譜系（1/2）（Figure F-1）
+![METAFONT 原始 Computer Modern 字型家族譜系（1/2）（Figure F-1）](/images/fonts-encodings/fig-app-f1.png)
+*METAFONT 原始 Computer Modern 字型家族譜系（1/2）（Figure F-1）*
+:::
+
+*圖 F-1：高德納原始 Computer Modern 字型家族全集譜系（前半部）。*
+
 METAFONT 的筆觸模型基於凸多邊形或橢圓畫筆沿軌跡掃掠而成的**包絡線（Envelope）**：
 - `pickup pencircle scaled 2pt;`：拾起一枚直徑為 2 磅的圓形墨水筆；
 - `pickup pensquare xscaled 1pt yscaled 3pt rotated 30;`：模擬古典寬邊羽毛筆的傾斜切面。
@@ -343,6 +472,22 @@ TrueType 字型內部整合了一個功能完備的**圖靈完備堆疊虛擬機
 - **字形區（Glyph Zone, Zone 1）**：當前正在光柵化的真實字形輪廓節點。
 
 ## F.2 核心指令全集分類字典
+
+::: tip Courier 字型在 TrueType 虛擬機器下的指令控制點陣（Figure E-1）
+![Courier 字型在 TrueType 虛擬機器下的指令控制點陣（Figure E-1）](/images/fonts-encodings/fig-app-e1.png)
+*Courier 字型在 TrueType 虛擬機器下的指令控制點陣（Figure E-1）*
+:::
+
+*圖 E-1：蘋果/Bitstream Courier 字型大寫字母 ‘T’ 在 TrueType 指令系統控制下的網格微調與對齊點。*
+
+
+::: tip Verdana 字母 ‘O’ 在 MIRP 指令控制下的輪廓擬合（Figure E-2）
+![Verdana 字母 ‘O’ 在 MIRP 指令控制下的輪廓擬合（Figure E-2）](/images/fonts-encodings/fig-app-e2.png)
+*Verdana 字母 ‘O’ 在 MIRP 指令控制下的輪廓擬合（Figure E-2）*
+:::
+
+*圖 E-2：微軟 Verdana 字型大寫 ‘O’ 在指令 `MIRP[10110]` 控制下對 CVT 參考值與輪廓點距的鎖定。*
+
 
 | 操作碼分類 | 代表指令 | 功能與數學行為描述 |
 | :--- | :--- | :--- |
@@ -368,7 +513,7 @@ TrueType 字型內部整合了一個功能完備的**圖靈完備堆疊虛擬機
 
 ## G.1 伯恩斯坦多項式（Bernstein Polynomials）基底
 
-$n$ 次貝茲曲線以伯恩斯坦多項式作為基底函式：
+$n$ 次貝塞爾曲線以伯恩斯坦多項式作為基底函式：
 
 $$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}, \quad i = 0, 1, \dots, n$$
 
@@ -377,15 +522,15 @@ $$B_{i,n}(t) = \binom{n}{i} t^i (1-t)^{n-i}, \quad i = 0, 1, \dots, n$$
    $$\sum_{i=0}^n B_{i,n}(t) \equiv 1, \quad \forall t \in \mathbb{R}$$
 2. **非負性（Non-negativity）**：
    $$B_{i,n}(t) \ge 0, \quad \forall t \in [0, 1]$$
-這兩大性質構成了貝茲曲線最重要的幾何特徵——**凸包性（Convex Hull Property）**：曲線整體嚴格包含在所有控制節點構成的凸多邊形內部，這使得字型渲染引擎在執行視錐裁剪（Clipping）與碰撞檢測時可以閃電般地排除不相交區域。
+這兩大性質構成了貝塞爾曲線最重要的幾何特徵——**凸包性（Convex Hull Property）**：曲線整體嚴格包含在所有控制節點構成的凸多邊形內部，這使得字型渲染引擎在執行視錐裁剪（Clipping）與碰撞檢測時可以閃電般地排除不相交區域。
 
-## G.2 貝茲曲線的微分動量與切向量（Hodograph）
+## G.2 貝塞爾曲線的微分動量與切向量（Hodograph）
 
-對 $n$ 次貝茲曲線 $\mathbf{B}(t) = \sum_{i=0}^n B_{i,n}(t) \mathbf{P}_i$ 求一階導數，其導函式（導曲線）是一條度數降為 $n-1$ 次的新貝茲曲線：
+對 $n$ 次貝塞爾曲線 $\mathbf{B}(t) = \sum_{i=0}^n B_{i,n}(t) \mathbf{P}_i$ 求一階導數，其導函式（導曲線）是一條度數降為 $n-1$ 次的新貝塞爾曲線：
 
 $$\mathbf{B}'(t) = n \sum_{i=0}^{n-1} B_{i,n-1}(t) (\mathbf{P}_{i+1} - \mathbf{P}_i)$$
 
-對於三次貝茲曲線（$n=3$）：
+對於三次貝塞爾曲線（$n=3$）：
 - 曲線在起點 $t=0$ 處的切向量為：$\mathbf{B}'(0) = 3(\mathbf{P}_1 - \mathbf{P}_0)$；
 - 曲線在終點 $t=1$ 處的切向量為：$\mathbf{B}'(1) = 3(\mathbf{P}_3 - \mathbf{P}_2)$。
 
@@ -393,9 +538,9 @@ $$\mathbf{B}'(t) = n \sum_{i=0}^{n-1} B_{i,n-1}(t) (\mathbf{P}_{i+1} - \mathbf{P
 
 ---
 
-## G.3 德卡斯特里奧細分演演算法（De Casteljau's Algorithm）
+## G.3 德卡斯特里奧細分演算法（De Casteljau's Algorithm）
 
-德卡斯特里奧演演算法是貝茲曲線在計算機中繪製、平滑細分與求交計算的黃金基石。給定控制點 $\mathbf{P}_0, \mathbf{P}_1, \mathbf{P}_2, \mathbf{P}_3$ 與引數 $t_0 \in (0, 1)$：
+德卡斯特里奧演算法是貝塞爾曲線在計算機中繪製、平滑細分與求交計算的黃金基石。給定控制點 $\mathbf{P}_0, \mathbf{P}_1, \mathbf{P}_2, \mathbf{P}_3$ 與引數 $t_0 \in (0, 1)$：
 
 ```
 P0 ────(t0)────> P01 ────(t0)────> P012 ────(t0)────> P0123 = B(t0)
@@ -407,7 +552,7 @@ P3
 遞推公式為：
 $$\mathbf{P}_i^{(k)}(t_0) = (1-t_0)\mathbf{P}_i^{(k-1)}(t_0) + t_0 \mathbf{P}_{i+1}^{(k-1)}(t_0)$$
 
-該演演算法不僅能在純加減法與線性插值中以極高數值穩定性計算出曲線上任意點 $\mathbf{B}(t_0)$，而且當 $t_0 = 0.5$ 時，點序列 $(\mathbf{P}_0, \mathbf{P}_0^{(1)}, \mathbf{P}_0^{(2)}, \mathbf{P}_0^{(3)})$ 與 $(\mathbf{P}_0^{(3)}, \mathbf{P}_1^{(2)}, \mathbf{P}_2^{(1)}, \mathbf{P}_3)$ 精準地構成了將原曲線一分為二後的兩條獨立子曲線的完整控制網格！光柵化引擎只需透過迴圈二分細分，直至控制多邊形扁平收斂為直線，即可實現畫素級的極速直線掃描轉換。
+該演算法不僅能在純加減法與線性插值中以極高數值穩定性計算出曲線上任意點 $\mathbf{B}(t_0)$，而且當 $t_0 = 0.5$ 時，點序列 $(\mathbf{P}_0, \mathbf{P}_0^{(1)}, \mathbf{P}_0^{(2)}, \mathbf{P}_0^{(3)})$ 與 $(\mathbf{P}_0^{(3)}, \mathbf{P}_1^{(2)}, \mathbf{P}_2^{(1)}, \mathbf{P}_3)$ 精準地構成了將原曲線一分為二後的兩條獨立子曲線的完整控制網格！光柵化引擎只需透過迴圈二分細分，直至控制多邊形扁平收斂為直線，即可實現畫素級的極速直線掃描轉換。
 
 ---
 
@@ -415,6 +560,6 @@ $$\mathbf{P}_i^{(k)}(t_0) = (1-t_0)\mathbf{P}_i^{(k-1)}(t_0) + t_0 \mathbf{P}_{i
 
 至此，《Fonts & Encodings》全書十五個章節與七大技術附錄的所有微觀資料結構、數學公式、編譯流水線與歷史源流已全部呈現在你的眼前。
 
-從千年前楔形文字與金屬活字在泥板與鉛印上的沉重烙印，到 8 位位元組時代高德納在斯坦福構建的 $\TeX$ 盒子宇宙，再到 16 位 Unicode、OpenType 佈局流與現代 Web 字型光柵化演演算法，人類為了跨越時空阻隔、為了讓知識與思想永存所傾注的智慧，全都被凝鍊在了這一個個精微至極的位元組、向量與貝茲控制點之中。
+從千年前楔形文字與金屬活字在泥板與鉛印上的沉重烙印，到 8 位位元組時代高德納在斯坦福構建的 $\TeX$ 盒子宇宙，再到 16 位 Unicode、OpenType 佈局流與現代 Web 字型光柵化演算法，人類為了跨越時空阻隔、為了讓知識與思想永存所傾注的智慧，全都被凝鍊在了這一個個精微至極的位元組、向量與貝塞爾控制點之中。
 
 願這套技術文獻，能成為所有在現代數字文字文明之海中探索、求索與創造者的常備羅盤與指路明燈！

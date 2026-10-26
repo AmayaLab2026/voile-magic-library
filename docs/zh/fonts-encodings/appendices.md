@@ -8,6 +8,7 @@ description: "涵盖位图字体 (A)、TeX/Omega (B)、PostScript Type 1/CFF (C)
 选自《Fonts & Encodings》第 599–938 页（共 340 页技术附录）
 *译者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
+
 ---
 
 本参考手册涵盖了《Fonts & Encodings》后半部全部七大技术附录（Appendices A 至 G）。这部分内容是雅尼斯·哈拉兰博斯（Yannis Haralambous）为数字字体工程师、底层排版引擎开发者以及计算机文字学学者构建的技术基石。它详尽记录了从 20 世纪 80 年代点阵位图格式到 21 世纪现代 OpenType/AAT 容器表结构、虚拟机指令集与曲线微分几何的全部数学实现。
@@ -21,6 +22,14 @@ description: "涵盖位图字体 (A)、TeX/Omega (B)、PostScript Type 1/CFF (C)
 ## A.1 苹果 Macintosh 体系：FONT 与 NFNT 资源结构
 
 在经典 Mac OS（System 1.0 至 Mac OS 9）中，字体被封装为资源分支（Resource Fork）中的资源。
+
+
+::: tip 麦金塔操作系统经典 Chicago 字体的全局条带图像（Figure A-1）
+![麦金塔操作系统经典 Chicago 字体的全局条带图像（Figure A-1）](/images/fonts-encodings/fig-app-a1.png)
+*麦金塔操作系统经典 Chicago 字体的全局条带图像（Figure A-1）*
+:::
+
+*图 A-1：在苹果 Macintosh 视窗菜单中服役超过 15 年的经典 Chicago 字体全局点阵条带位图（Strike Bitmap）。图中展示了包含了欧元符号（€）的现代维护版本。*
 
 ### 1. `FONT` 与 `NFNT` 资源头结构
 `FONT` 是早期固定字号点阵资源，`NFNT`（New Font Numbering Table）则是扩充了庞大家族编号体系的演进版本。两者在内存中展开为相同的二进制数据结构：
@@ -64,6 +73,14 @@ MS-DOS 通过 `MODE CON CP PREP` 命令加载的屏幕点阵字体被封装在 `
 - **`.FNT` 文件**：Windows 3.x 引入的裸点阵字体文件，内部包含版本号（`0x0200` 或 `0x0300`）、`dfPoints`（磅值）、`dfVertRes` 与 `dfHorizRes`（目标 DPI，如 96 DPI）、字符间距类型（定宽或变宽）、以及字符偏移表 `dfCharTable`；
 - **`.FON` 文件**：本质上是一个伪装的 16 位 Windows 动态链接库（NE 格式 DLL）或 32 位可执行文件（PE 格式 DLL），其代码段为空，仅在资源段（`.rsrc`）中嵌入了若干个对应不同字号的 `.FNT` 数据流。
 
+
+::: tip BDF 规范中表意汉字点阵与度量属性的定义模型（Figure A-2）
+![BDF 规范中表意汉字点阵与度量属性的定义模型（Figure A-2）](/images/fonts-encodings/fig-app-a2.png)
+*BDF 规范中表意汉字点阵与度量属性的定义模型（Figure A-2）*
+:::
+
+*图 A-2：Adobe BDF 规范对单个汉字表意文字点阵像素阵列与外包围盒、基线偏移、字距步进向量的完整定义模型。*
+
 ### 3. Unix 与 X11 体系：Adobe BDF 与 PCF 格式
 - **BDF（Bitmap Distribution Format）**：由 Adobe 制定的纯 ASCII 文本点阵交换格式。语法清晰可读：
   ```text
@@ -105,6 +122,14 @@ MS-DOS 通过 `MODE CON CP PREP` 命令加载的屏幕点阵字体被封装在 `
 ## A.3 $\TeX$ 体系的巅峰之作：GF 与 PK 格式
 
 唐纳德·高德纳为 METAFONT 输出设计的位图格式代表了数据压缩工程的艺术极境。
+
+
+::: tip gftodvi 在 5,203 DPI 超高分辨率下渲染的 Computer Modern 字母排印图（Figure A-3）
+![gftodvi 在 5,203 DPI 超高分辨率下渲染的 Computer Modern 字母排印图（Figure A-3）](/images/fonts-encodings/fig-app-a3.png)
+*gftodvi 在 5,203 DPI 超高分辨率下渲染的 Computer Modern 字母排印图（Figure A-3）*
+:::
+
+*图 A-3：高德纳开发的大师级公用程序 `gftodvi` 将 GF 点阵字库逆向转化为 DVI 文件的排印样张（Computer Modern Roman 10 磅在 5,203 DPI 下的精细点阵剖析）。*
 
 ### 1. GF（Generic Font）格式
 METAFONT 的原始输出格式。GF 格式采用字节码指令流描述字符，包含绘制单行黑白相间像素的指令：`paint_0` 至 `paint_63`、`skip`（换行）、`boc`（Begin of Character，包含字符包围盒）、`eoc`（End of Character）。
@@ -192,6 +217,22 @@ VF 文件由 `vptovf` 编译生成。
 
 ## C.1 PostScript 语言执行机与图形状态
 
+::: tip PostScript 路径构建与填充代码（Figure C-1）
+![PostScript 路径构建与填充代码（Figure C-1）](/images/fonts-encodings/fig-app-c1.png)
+*PostScript 路径构建与填充代码（Figure C-1）*
+:::
+
+*图 C-1：PostScript 语言底层路径构建与填充执行指令。*
+
+
+::: tip 非零缠绕数规则与奇偶环绕规则的物理填充对比（Figure C-2）
+![非零缠绕数规则与奇偶环绕规则的物理填充对比（Figure C-2）](/images/fonts-encodings/fig-app-c2.png)
+*非零缠绕数规则与奇偶环绕规则的物理填充对比（Figure C-2）*
+:::
+
+*图 C-2：左侧三图展示非零环绕数规则（Nonzero Winding Number Rule），右侧三图展示奇偶填充规则（Even-Odd Rule）对自相交复杂路径的填充判定。*
+
+
 PostScript 是一门基于堆栈操作的、图灵完备的逆波兰表示法（Postfix）编程语言。解释器维护着四大堆栈：
 1. **操作数栈（Operand Stack）**：暂存数值、字符串、字典与几何路径；
 2. **字典栈（Dictionary Stack）**：检索全局与局部变量；
@@ -209,6 +250,38 @@ PostScript Type 1 字体不仅包含轮廓，更内嵌了一套高强度的专�
   其中初始密码种子密钥 $R_0 = 55665$。文件在进入正式代码前必须填充 4 个随机字节以混淆密文起始状态；
 - **`charstring` 加密算法**：用于加密 `CharStrings` 字典内部的具体字形字节码，使用相同的数学同余公式，但初始种子密钥固定为 $R_0 = 4330$。
 
+
+::: tip 跨文种字符度量高度与超逸（Overshoot）全景（Figure C-7）
+![跨文种字符度量高度与超逸（Overshoot）全景（Figure C-7）](/images/fonts-encodings/fig-app-c7.png)
+*跨文种字符度量高度与超逸（Overshoot）全景（Figure C-7）*
+:::
+
+*图 C-7：Omega Serif 字体中拉丁文、阿拉伯文、希伯来文与亚美尼亚文多种复杂文字的基准高度与光学超逸量分布。*
+
+
+::: tip 字母 ‘H’、‘O’、‘m’ 的对齐区与微调主干（Figure C-9）
+![字母 ‘H’、‘O’、‘m’ 的对齐区与微调主干（Figure C-9）](/images/fonts-encodings/fig-app-c9.png)
+*字母 ‘H’、‘O’、‘m’ 的对齐区与微调主干（Figure C-9）*
+:::
+
+*图 C-9：PostScript Type 1 字形中的水平与垂直微调主干（灰色阴影带代表 `BlueValues` 与 `OtherBlues` 对齐区）。*
+
+
+::: tip 字母 ‘B’ 中四重提示替换的执行过程（Figure C-10）
+![字母 ‘B’ 中四重提示替换的执行过程（Figure C-10）](/images/fonts-encodings/fig-app-c10.png)
+*字母 ‘B’ 中四重提示替换的执行过程（Figure C-10）*
+:::
+
+*图 C-10：字母 ‘B’ 内部四个局部垂直微调的动态提示替换（Hint Substitution）连续阶段。*
+
+
+::: tip PostScript Type 1 双三次贝塞尔 Flex 机制（Figure C-11）
+![PostScript Type 1 双三次贝塞尔 Flex 机制（Figure C-11）](/images/fonts-encodings/fig-app-c11.png)
+*PostScript Type 1 双三次贝塞尔 Flex 机制（Figure C-11）*
+:::
+
+*图 C-11：由两段三次贝塞尔曲线 $abcd$ 与 $defg$ 构成的 Flex 弹性微调结构。*
+
 ### Type 1 CharString 核心操作码全集
 
 在解密后的字节流中，操作码分为单字节指令（0–31）与带转义的二字节指令（操作码 12 引导）：
@@ -224,6 +297,22 @@ PostScript Type 1 字体不仅包含轮廓，更内嵌了一套高强度的专�
 ---
 
 ## C.3 CFF（Compact Font Format）与 Type 2 CharStrings
+
+::: tip 汉字 “講” 与 “皿” 内部的白空主干计数控制（Figure C-12）
+![汉字 “講” 与 “皿” 内部的白空主干计数控制（Figure C-12）](/images/fonts-encodings/fig-app-c12.png)
+*汉字 “講” 与 “皿” 内部的白空主干计数控制（Figure C-12）*
+:::
+
+*图 C-12：PostScript Type 1 与 Type 2 面向东亚复杂表意文字的白空主干计数控制（Counter Control）。*
+
+
+::: tip CIDFont（Type 0）整体解引用架构（Figure C-16）
+![CIDFont（Type 0）整体解引用架构（Figure C-16）](/images/fonts-encodings/fig-app-c16.png)
+*CIDFont（Type 0）整体解引用架构（Figure C-16）*
+:::
+
+*图 C-16：CIDFont 文件基于字符集身份码（CID）从全局二进制流解引用字形数据的完整管线。*
+
 
 随着 OpenType 的普及，Adobe 彻底重构了 Type 1 的老旧冗余语法，推出了 **CFF 容器** 与 **Type 2 字符指令集**：
 - 采用无缝的 **INDEX 索引表结构**，所有数据偏移与长度采用纯二进制整型表头索引；
@@ -256,6 +345,22 @@ struct TableRecord {
 ---
 
 ## D.2 核心基础数据表详解
+
+::: tip EBLC 点阵表中字形的水平与垂直度量（Figure D-1）
+![EBLC 点阵表中字形的水平与垂直度量（Figure D-1）](/images/fonts-encodings/fig-app-d1.png)
+*EBLC 点阵表中字形的水平与垂直度量（Figure D-1）*
+:::
+
+*图 D-1：TrueType EBLC 表中内嵌点阵字形的水平与垂直排版度量定义。*
+
+
+::: tip Verdana 字体 letter ‘A’ 在 gasp 表控制下的栅格尺寸分布（Figure D-3）
+![Verdana 字体 letter ‘A’ 在 gasp 表控制下的栅格尺寸分布（Figure D-3）](/images/fonts-encodings/fig-app-d3.png)
+*Verdana 字体 letter ‘A’ 在 gasp 表控制下的栅格尺寸分布（Figure D-3）*
+:::
+
+*图 D-3：微软经典屏幕字体 Verdana 在 `gasp` 表控制下，平滑抗锯齿与网格微调随 ppem 尺寸的动态阶梯切换。*
+
 
 ### 1. `head`（Font Header）
 记录字体的全局物理常量：
@@ -301,6 +406,22 @@ $$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{Loo
 3. **LookupList（查找表列表）**：执行具体的字形变换算法。
 
 ### 2. 覆盖表（Coverage Table）与类定义表（ClassDef Table）
+
+::: tip CastleType 的 202 个花体 Ampersand 字符全景（Figure D-6）
+![CastleType 的 202 个花体 Ampersand 字符全景（Figure D-6）](/images/fonts-encodings/fig-app-d6.png)
+*CastleType 的 202 个花体 Ampersand 字符全景（Figure D-6）*
+:::
+
+*图 D-6：CastleType 字体工坊制作的 202 个极具书法美感的 Ampersand（&）连字变体。*
+
+
+::: tip Apple Skia 字体在 wght 轴上的连续变形全景（Figure D-8）
+![Apple Skia 字体在 wght 轴上的连续变形全景（Figure D-8）](/images/fonts-encodings/fig-app-d8.png)
+*Apple Skia 字体在 wght 轴上的连续变形全景（Figure D-8）*
+:::
+
+*图 D-8：苹果 AAT 经典可变字体 Skia 在字重（`wght`）轴上的平滑连续渐变插值。*
+
 为了在毫秒级判断某个字符是否参与排版规则，OpenType 引入了覆盖表：
 - **Format 1**：单个 GID 线性列表；
 - **Format 2**：由连续范围组成的区间表（`startGlyphID` 到 `endGlyphID` 映射至连续覆盖索引）。
@@ -324,6 +445,14 @@ draw z3..z4;              % 绘制平滑穿过指定点的曲线
 ```
 
 ## E.2 画笔（Pens）与包络线理论
+
+::: tip METAFONT 原始 Computer Modern 字体家族谱系（1/2）（Figure F-1）
+![METAFONT 原始 Computer Modern 字体家族谱系（1/2）（Figure F-1）](/images/fonts-encodings/fig-app-f1.png)
+*METAFONT 原始 Computer Modern 字体家族谱系（1/2）（Figure F-1）*
+:::
+
+*图 F-1：高德纳原始 Computer Modern 字体家族全集谱系（前半部）。*
+
 METAFONT 的笔触模型基于凸多边形或椭圆画笔沿轨迹扫掠而成的**包络线（Envelope）**：
 - `pickup pencircle scaled 2pt;`：拾起一枚直径为 2 磅的圆形墨水笔；
 - `pickup pensquare xscaled 1pt yscaled 3pt rotated 30;`：模拟古典宽边羽毛笔的倾斜切面。
@@ -343,6 +472,22 @@ TrueType 字体内部集成了一个功能完备的**图灵完备堆栈虚拟机
 - **字形区（Glyph Zone, Zone 1）**：当前正在光栅化的真实字形轮廓节点。
 
 ## F.2 核心指令全集分类字典
+
+::: tip Courier 字体在 TrueType 虚拟机下的指令控制点阵（Figure E-1）
+![Courier 字体在 TrueType 虚拟机下的指令控制点阵（Figure E-1）](/images/fonts-encodings/fig-app-e1.png)
+*Courier 字体在 TrueType 虚拟机下的指令控制点阵（Figure E-1）*
+:::
+
+*图 E-1：苹果/Bitstream Courier 字体大写字母 ‘T’ 在 TrueType 指令系统控制下的网格微调与对齐点。*
+
+
+::: tip Verdana 字母 ‘O’ 在 MIRP 指令控制下的轮廓拟合（Figure E-2）
+![Verdana 字母 ‘O’ 在 MIRP 指令控制下的轮廓拟合（Figure E-2）](/images/fonts-encodings/fig-app-e2.png)
+*Verdana 字母 ‘O’ 在 MIRP 指令控制下的轮廓拟合（Figure E-2）*
+:::
+
+*图 E-2：微软 Verdana 字体大写 ‘O’ 在指令 `MIRP[10110]` 控制下对 CVT 参考值与轮廓点距的锁定。*
+
 
 | 操作码分类 | 代表指令 | 功能与数学行为描述 |
 | :--- | :--- | :--- |

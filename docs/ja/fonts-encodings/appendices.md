@@ -22,6 +22,14 @@ description: "ビットマップフォント (A)、TeX/Omega (B)、PostScript Ty
 
 クラシック Mac OS（System 1.0 〜 Mac OS 9）において、フォントはリソースフォーク（Resource Fork）内のリソースとしてカプセル化されていました。
 
+
+::: tip Macintosh 伝統の Chicago フォントの全体ストライク画像（Figure A-1）
+![麦金塔操作系统经典 Chicago 字体的全局条带图像（Figure A-1）](/images/fonts-encodings/fig-app-a1.png)
+*麦金塔操作系统经典 Chicago 字体的全局条带图像（Figure A-1）*
+:::
+
+*図 A-1：Apple Macintosh のメニュー画面で 15 年以上にわたり使用された伝説的フォント Chicago の全体ストライクビットマップ（Strike Bitmap）。ユーロ記号（€）を含む現代改訂版。*
+
 ### 1. `FONT` と `NFNT` リソースヘッダー構造
 
 `FONT` は初期の固定サイズビットマップリソースであり、`NFNT`（New Font Numbering Table）は膨大なファミリー番号体系を拡張した進化版です。両者はメモリ内で同一の `FontRec` レコード構造を共有します：
@@ -64,6 +72,14 @@ Windows 1.0 〜 3.1x で標準とされたビットマップ規格です：
 - `.FNT`：個々のポイントサイズと文字セットに対応する生のビットマップバイナリストリーム；
 - `.FON`：16 ビット NE（New Executable）または 32 ビット PE（Portable Executable）形式のダイナミックリンクライブラリ（DLL）コンテナ。コードは持たず、リソースセクション（`.rsrc`）内に複数の `.FNT` ストリームをパッケージングします。各グリフは `GLYPHENTRY`（文字幅とビットマップオフセット）によってインデックスされます。
 
+
+::: tip BDF 仕様における表意文字ビットマップとメトリクス定義（Figure A-2）
+![BDF 规范中表意汉字点阵与度量属性的定义模型（Figure A-2）](/images/fonts-encodings/fig-app-a2.png)
+*BDF 规范中表意汉字点阵与度量属性的定义模型（Figure A-2）*
+:::
+
+*図 A-2：Adobe BDF 規格における単一表意文字のビットマップ配列、バウンディングボックス、ベースラインオフセット、および送り幅ベクトルの定義モデル。*
+
 ### 3. Unix および X11 体系：Adobe BDF と PCF 形式
 - **BDF（Bitmap Distribution Format）**：ASCII テキストベースのオープンビットマップ交換フォーマット。`FONT`、`SIZE`、`FONTBOUNDINGBOX`、各グリフの `SWIDTH`（スケーラブル幅）、`DWIDTH`（デバイスピクセル幅）、`BBX`、16 進数 `BITMAP` 行で構成されます；
 - **PCF（Portable Compiled Format）**：BDF を X サーバー用にバイナリコンパイルした高速テーブル形式で、エンディアン独立なテーブルディレクトリ構造を持ちます。
@@ -71,6 +87,16 @@ Windows 1.0 〜 3.1x で標準とされたビットマップ規格です：
 ## A.3 $\TeX$ 体系の精緻：GF と PK 形式
 
 Donald E. Knuth の METAFONT コンパイラと現代の $\TeX$ 出力エンジンにおいて、ビットマップフォントは極めて高度な圧縮数学を誇ります。
+
+
+
+
+::: tip gftodvi により 5,203 DPI で生成された Computer Modern 組版サンプル（Figure A-3）
+![gftodvi 在 5,203 DPI 超高分辨率下渲染的 Computer Modern 字母排印图（Figure A-3）](/images/fonts-encodings/fig-app-a3.png)
+*gftodvi 在 5,203 DPI 超高分辨率下渲染的 Computer Modern 字母排印图（Figure A-3）*
+:::
+
+*図 A-3：クヌースのユーティリティ `gftodvi` が GF フォントから生成した DVI 組版サンプル（5,203 DPI 超高解像度）。*
 
 ### 1. GF（Generic Font）形式
 METAFONT が `.mf` ソースコードを解釈した直後に出力する原始バイトコードです。グラフィックス描画コマンド `paint_0`..`paint_63`、スキップ行 `skip0`..`skip3`、文字定義 `boc`（beginning of character）、`eoc`（end of character）により、幾何輪郭からラスタライズされたランレングスデータを記述します。
@@ -142,6 +168,22 @@ TFM の文字情報は、文字ごとに 32 ビット（4 バイト）の単一�
 
 ## C.1 PostScript 仮想マシンの状態スタック
 
+::: tip PostScript パス構築と塗りつぶしコード例（Figure C-1）
+![PostScript 路径构建与填充代码（Figure C-1）](/images/fonts-encodings/fig-app-c1.png)
+*PostScript 路径构建与填充代码（Figure C-1）*
+:::
+
+*図 C-1：PostScript 言語によるパス構築および塗りつぶし実行命令。*
+
+
+::: tip 非ゼロ巻き数規則と偶奇規則の物理的塗りつぶし比較（Figure C-2）
+![非零缠绕数规则与奇偶环绕规则的物理填充对比（Figure C-2）](/images/fonts-encodings/fig-app-c2.png)
+*非零缠绕数规则与奇偶环绕规则的物理填充对比（Figure C-2）*
+:::
+
+*図 C-2：自己交差パスに対する非ゼロ巻き数規則（Nonzero Winding Number Rule、左 3 図）と偶奇規則（Even-Odd Rule、右 3 図）の比較。*
+
+
 PostScript インタプリタはチューリング完全なスタック指向プログラミング言語環境です。以下の独立スタックを維持します：
 1. **オペランドスタック（Operand Stack）**：数値、文字列、名前、配列、辞書オブジェクトを操作；
 2. **ディクショナリスタック（Dictionary Stack）**：スコープ解決のための辞書スタック（`systemdict`, `globaldict`, `userdict`, フォント固有辞書）；
@@ -166,6 +208,38 @@ $$R_{n+1} = (R_n \times 52845 + 22719) \bmod 65536$$
 $$C_n = P_n \oplus (R_n \gg 8)$$
 
 各暗号化ブロックの先頭には 4 バイトのランダムバイト（Random Bytes）が付加され、暗号文の周波数解析を無効化します。
+
+
+::: tip 多言語文字メトリクスとオーバーシュートの全景（Figure C-7）
+![跨文种字符度量高度与超逸（Overshoot）全景（Figure C-7）](/images/fonts-encodings/fig-app-c7.png)
+*跨文种字符度量高度与超逸（Overshoot）全景（Figure C-7）*
+:::
+
+*図 C-7：Omega Serif フォントにおけるラテン、アラビア、ヘブライ、アルメニア文字の基準高さと視覚的オーバーシュート量。*
+
+
+::: tip 文字 ‘H’, ‘O’, ‘m’ のアライメントゾーンとヒント（Figure C-9）
+![字母 ‘H’、‘O’、‘m’ 的对齐区与微调主干（Figure C-9）](/images/fonts-encodings/fig-app-c9.png)
+*字母 ‘H’、‘O’、‘m’ 的对齐区与微调主干（Figure C-9）*
+:::
+
+*図 C-9：PostScript Type 1 字形における水平・垂直ヒント（灰色帯は `BlueValues` アライメントゾーン）。*
+
+
+::: tip 文字 ‘B’ における 4 重ヒント置換の実行プロセス（Figure C-10）
+![字母 ‘B’ 中四重提示替换的执行过程（Figure C-10）](/images/fonts-encodings/fig-app-c10.png)
+*字母 ‘B’ 中四重提示替换的执行过程（Figure C-10）*
+:::
+
+*図 C-10：文字 ‘B’ 内部におけるヒント置換（Hint Substitution）の段階的プロセス。*
+
+
+::: tip PostScript Type 1 2連3次ベジェ Flex 機構（Figure C-11）
+![PostScript Type 1 双三次贝塞尔 Flex 机制（Figure C-11）](/images/fonts-encodings/fig-app-c11.png)
+*PostScript Type 1 双三次贝塞尔 Flex 机制（Figure C-11）*
+:::
+
+*図 C-11：2 つの 3 次ベジェ曲線 $abcd$ と $defg$ で構成される Flex 弾性的ヒンティング構造。*
 
 ### 2. Type 1 CharString 命令コード全表
 
@@ -194,6 +268,26 @@ CharString バイトストリームは可変長バイトコードで表現され
 | `12 17` | `pop` | — | `callothersubr` の戻り値を引数スタックへプッシュ |
 
 ## C.3 CFF（Compact Font Format）と Type 2 CharStrings
+
+::: tip 漢字「講」および「皿」におけるカウンター制御（Figure C-12）
+![汉字 “講” 与 “皿” 内部的白空主干计数控制（Figure C-12）](/images/fonts-encodings/fig-app-c12.png)
+*汉字 “講” 与 “皿” 内部的白空主干计数控制（Figure C-12）*
+:::
+
+*図 C-12：複雑な東アジア表意文字に対する PostScript Type 1 / Type 2 のカウンター制御（Counter Control）。*
+
+
+::: tip CIDFont（Type 0）全体のデリファレンスアーキテクチャ（Figure C-16）
+![CIDFont（Type 0）整体解引用架构（Figure C-16）](/images/fonts-encodings/fig-app-c16.png)
+*CIDFont（Type 0）整体解引用架构（Figure C-16）*
+:::
+
+*図 C-16：CIDFont において CID 番号から字形データを解決する全体パイプライン。*
+
+
+
+
+
 
 CFF（PostScript Type 2）は OpenType の `.otf` フォントにおける CFF テーブルとして採用されています：
 - **INDEX テーブル**：全オブジェクトの長さとオフセット配列を集約し、ファイル内ポインタの局所性を向上；
@@ -233,6 +327,22 @@ struct TableRecord {
 ```
 
 ## D.2 中核基本データテーブル
+
+::: tip EBLC ビットマップテーブルにおける水平・垂直メトリクス（Figure D-1）
+![EBLC 点阵表中字形的水平与垂直度量（Figure D-1）](/images/fonts-encodings/fig-app-d1.png)
+*EBLC 点阵表中字形的水平与垂直度量（Figure D-1）*
+:::
+
+*図 D-1：TrueType EBLC テーブルにおける内蔵ビットマップ字形のメトリクス定義。*
+
+
+::: tip Verdana フォント letter ‘A’ の gasp テーブル制御下におけるピクセル分布（Figure D-3）
+![Verdana 字体 letter ‘A’ 在 gasp 表控制下的栅格尺寸分布（Figure D-3）](/images/fonts-encodings/fig-app-d3.png)
+*Verdana 字体 letter ‘A’ 在 gasp 表控制下的栅格尺寸分布（Figure D-3）*
+:::
+
+*図 D-3：Verdana フォントにおける `gasp` テーブルによるアンチエイリアスとヒンティングの ppem 段階的切り替え。*
+
 
 ### 1. `head`（Font Header）テーブル
 フォントの大域的な物理属性を定義します：
@@ -276,6 +386,22 @@ $$\text{ScriptList} \longrightarrow \text{FeatureList} \longrightarrow \text{Loo
 4. **LookupTable**：実際の変換を実行するサブテーブル（SubTable）群を包含。
 
 ### 2. カバレッジテーブル（Coverage Table）とクラス定義テーブル（ClassDef Table）
+
+::: tip CastleType 社による 202 個の優美なアンパサンド（&）異体字（Figure D-6）
+![CastleType 的 202 个花体 Ampersand 字符全景（Figure D-6）](/images/fonts-encodings/fig-app-d6.png)
+*CastleType 的 202 个花体 Ampersand 字符全景（Figure D-6）*
+:::
+
+*図 D-6：CastleType ファウンドリによる 202 個のカリグラフィ的アンパサンド（&）合字群。*
+
+
+::: tip Apple Skia フォントの wght 軸における連続変形（Figure D-8）
+![Apple Skia 字体在 wght 轴上的连续变形全景（Figure D-8）](/images/fonts-encodings/fig-app-d8.png)
+*Apple Skia 字体在 wght 轴上的连续变形全景（Figure D-8）*
+:::
+
+*図 D-8：Apple AAT バリアブルフォント Skia の太さ（`wght`）軸に沿った滑らかな連続補間。*
+
 照合高速化のため、すべてのサブテーブルは先頭にカバレッジテーブルを持ちます：
 - **Coverage Format 1**：個々の GID の昇順配列；
 - **Coverage Format 2**：連続する GID 範囲 `RangeRecord { startCoverageIndex, startGlyphID, endGlyphID }` の配列；
@@ -302,6 +428,14 @@ METAFONT の内部ソルバーはガウス消去法を用いてすべての末�
 
 ## E.2 ペン（Pens）と包絡線理論（Envelopes）
 
+::: tip METAFONT 伝統の Computer Modern 書体系統樹（Figure F-1）
+![METAFONT 原始 Computer Modern 字体家族谱系（1/2）（Figure F-1）](/images/fonts-encodings/fig-app-f1.png)
+*METAFONT 原始 Computer Modern 字体家族谱系（1/2）（Figure F-1）*
+:::
+
+*図 F-1：クヌースによるオリジナルの Computer Modern フォントファミリー系統樹。*
+
+
 METAFONT の描画は「ペン」の概念に依拠します：
 - ペンは凸多角形または楕円（`pencircle`）として定義されます；
 - パス $z(t)$ に沿ってペン $P$ を走査させる描画は、数学的にはミンコフスキー和（Minkowski Sum）およびその境界である包絡線（Envelope）の生成に相当します：
@@ -324,6 +458,22 @@ TrueType 仮想マシンは 2 つのスタック（オペランドスタック�
 - **Twilight Zone（黄昏ゾーン）**：グリフ輪郭に属さない計算用の一時ノード（最大 64 個）を保持するメモリ空間。
 
 ## F.2 中核命令全集分類
+
+::: tip Courier フォントにおける TrueType 命令制御グリッド（Figure E-1）
+![Courier 字体在 TrueType 虚拟机下的指令控制点阵（Figure E-1）](/images/fonts-encodings/fig-app-e1.png)
+*Courier 字体在 TrueType 虚拟机下的指令控制点阵（Figure E-1）*
+:::
+
+*図 E-1：Courier フォントの大文字 ‘T’ における TrueType 命令によるグリッド適合。*
+
+
+::: tip Verdana 文字 ‘O’ における MIRP 命令による輪郭制御（Figure E-2）
+![Verdana 字母 ‘O’ 在 MIRP 指令控制下的轮廓拟合（Figure E-2）](/images/fonts-encodings/fig-app-e2.png)
+*Verdana 字母 ‘O’ 在 MIRP 指令控制下的轮廓拟合（Figure E-2）*
+:::
+
+*図 E-2：Verdana 文字 ‘O’ における `MIRP[10110]` 命令による CVT 参照値との距離固定。*
+
 
 | カテゴリ | オペコード | コマンド名 | 機能と数学的効果 |
 |:---|:---|:---|:---|

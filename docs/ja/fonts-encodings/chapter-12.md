@@ -1,271 +1,197 @@
 ---
-title: "第 12 章：フォントの編集と作成"
-description: "フォント編集ソフト（FontLab Studio、FontForge）、Python によるバッチ自動化、3 次/2 次ベジェ曲線変換、Spiro 幾何学、PostScript ヒンティング（BlueValues、StemSnap、ヒント置換）の全景。"
+title: 第12章 · フォントの編集と作成
+description: ヤニス・ハラランブス『Fonts & Encodings』第12章 全文完全学術邦訳：Fontographer、FontStudio および FontLab Studio の工業級設計構造、4大表示モード、3次・2次ベジェスプラインの幾何トポロジー変換、FontAudit 幾何検証、Multiple Master 多マスター設計、Python スクリプト自動化バッチ処理、FontForge オープンソース工房と Spiro オイラー螺旋、ScanFont と自動トレース（Autotracing）アルゴリズム徹底解剖。
 ---
 
-# 第 12 章：フォントの編集と作成
+# 第12章 · フォントの編集と作成
 ### Chapter 12: Editing and Creating Fonts
-ヤニス・ハラランボス（Yannis Haralambous, Ph.D.）著
-選書『Fonts & Encodings』第 501–550 頁
-*訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
+**著者：ヤニス・ハラランブス 博士（Yannis Haralambous, Ph.D.）**  
+*『フォントとエンコーディング』（Fonts & Encodings）原著 441–504 ページより*
+
+*翻訳者：[Lycoris \<lycorismisaka@gmail.com\>](mailto:lycorismisaka@gmail.com)*
 
 ---
 
-## 1. 文字作成の全景（Introduction）
+前章までにおいて、我々はフォントの論理仕様、オペレーティングシステムの低層配信機構、および Web 時代の組版プロトコルを体系的に探求してきた。しかしながら、根本的な疑問が常にタイポグラフィ研究者とエンジニアの前に横たわっている：**字形そのものは、そもそもどのようにして生み出されるのか？** フォント設計者はヒューマンマシンインタフェースを通じてどのように各文字の幾何学的輪郭を制御するのか？カーニング（Kerning）、メトリクス（Metrics）、およびヒンティング命令（Hinting）はどのようにバイナリフォントへと注入されるのか？
 
-デジタルフォントの作成と編集は、純粋な視覚芸術と厳密なコンピュータサイエンスが交差する極致の領域です。1 文字（グリフ）のデザインは、単なる幾何学的スケッチではなく、厳密な座標系、アフィン変換、位相幾何学的方向規則、そしてラスタライズエンジン（レンダラ）との対話のための命令群によって成立しています。
+活字の時代において、書体を制作するには父型彫刻師（Punchcutter）が硬質鋼の先端に彫刻刀で突起した文字を精密に手彫りし、それを銅片に打ち込んで母型（Matrix）を作り、鉛・アンチモン・錫の合金を流し込んで実体活字を鋳造する必要があった。しかしコンピュータ革命以降、この数百年続いた冶金と機械の工芸は、純粋な**計算幾何学、スプライン曲線論、そして GUI インタラクションの芸術**へと完全に抽象化された。
 
-### 1.1 グリフの解剖学的構造
-グリフ空間は仮想デザイングリッド（通常、TrueType では $2048 \times 2048$、PostScript/CFF では $1000 \times 1000$ 単位の EM 正方形）上に配置されます：
-- **ベースライン（Baseline, $y = 0$）**：すべての文字が水平に整列する基本基準線；
-- **送り幅（Advance Width）**：現在の文字の原点から次の文字の原点までの水平変位；
-- **左サイドベアリング（LSB, Left Sidebearing）**：グリフの原点（$x=0$）から文字の最も左端の輪郭点までの距離；
-- **右サイドベアリング（RSB, Right Sidebearing）**：文字の最も右端の輪郭点から送り幅の終端までの余白：
-$$\text{Advance Width} = \text{LSB} + \text{Bounding Box Width} + \text{RSB}$$
-- **アセンダ線（Ascender line）**：'d', 'h', 'k' などの上部ステムの上限；
-- **ディセンダ線（Descender line）**：'p', 'q', 'y' などの下部ステムの最下端；
-- **キャップハイト（Cap Height）**：大文字 'H', 'E' などの平坦な頂点の高さ；
-- **エックスハイト（x-height）**：小文字 'x', 'v', 'w' などの平坦な上端の高さ。
+本章では、DTP 革命の幕を開けた **Fontographer** や **FontStudio** から、世界の商業書体産業を長年支配してきた **FontLab Studio**、さらにはオープンソースの巨城 **FontForge** や画像自動トレースツール **ScanFont** に至るまで、デジタルフォント創造の全ライフサイクルエンジニアリングチェーンを徹底的に解剖する。
 
-### 1.2 曲線幾何：3 次ベジェ曲線と 2 次ベジェ曲線の本質的差異
-- **PostScript / CFF（3 次ベジェ曲線）**：各曲線セグメントは 2 つの端点（$\mathbf{P}_0, \mathbf{P}_3$）と 2 つの独立した制御点（$\mathbf{P}_1, \mathbf{P}_2$）を持ち、変曲点（S 字カーブ）や非対称な張力変化を 1 つのセグメントでエレガントに表現できます：
+---
+
+## 1. フォント設計とデジタル化概論（Introduction）
+
+1980 年代半ば以前、デジタルフォントの作成は大手写植機メーカー（Linotype、Monotype、Compugraphic など）に独占されていた。字形の設計は数百万ドル規模の CAD ワークステーションやパンチカードを介した離散座標入力に依存していた。
+
+1986 年、ジム・フォン・エール（Jim von Ehr）が率いる Altsys 社は、誕生したばかりの Apple Macintosh 向けに画期的な **Fontographer** を投入した。これは一般のデザイナーがマウスを用いてベジェ輪郭を描画・編集し、標準の PostScript Type 1 フォントを出力できる史上初のデスクトップソフトウェアであった。**Figure 12-1** に示すように、Fontographer は「フォント一覧ウィンドウ（Font Window）」、「字形編集ウィンドウ（Glyph Window）」、および「メトリクス調整ウィンドウ（Metrics Window）」からなる現代フォントツールの 3 層インタラクションモデルを確立した。
+
+::: tip Mac OS X 上における Macromedia Fontographer のフォント一覧ウィンドウ（Figure 12-1）
+![Macromedia Fontographer 在 Mac OS X 下的字体视窗（Figure 12-1）](/images/fonts-encodings/fig12-1.png)
+*Macromedia Fontographer 在 Mac OS X 下的字体视窗（Figure 12-1）*
+:::
+
+*図 12-1：Mac OS X 上で動作する Macromedia Fontographer の操作画面。上部に文字コード順のマトリクスが表示され、各セルに現在の字形の微小シルエットが描画される。*
+
+同時期に並立したもう一つの名機が、Letraset 社の **FontStudio** である（**Figure 12-2**）。FontStudio は Mac OS 9 時代において高精度のマルチレイヤー編集環境をいち早く実現し、下絵スキャン画像を背景参照レイヤーに置いてベジェ曲線でトレースする手法を確立した。
+
+::: tip Mac OS 9 上における Letraset FontStudio の字形編集ウィンドウ（Figure 12-2）
+![Letraset FontStudio 在 Mac OS 9 下的单字编辑视窗（Figure 12-2）](/images/fonts-encodings/fig12-2.png)
+*Letraset FontStudio 在 Mac OS 9 下的单字编辑视窗（Figure 12-2）*
+:::
+
+*図 12-2：Mac OS 9 上で動作する Letraset FontStudio の字形編集画面。直交座標系における輪郭描画機能と、左側のフローティングツールボックスによる精密制御が示されている。*
+
+1990 年代、サンクトペテルブルクのユーリ・ヤルモラ（Yuri Yarmola）らによる SoftUnion（現 FontLab Ltd.）が **FontLab** を発表した。高次のベジェ数理ツール、完全な OpenType コンパイラ、高度な自動ヒンティング、および統合 Python 環境を備えた FontLab は、世界中のフォントファウンドリの標準工業ツールとしての地位を不動のものとした。
+
+---
+
+## 2. 幾何学的基礎：スプライン曲線とノードトポロジー
+
+字形編集ウィンドウにおいて、デザイナーが直面する最大の課題は、いかに少ない数学的制御点を用いて滑らかな輪郭を表現するかである。
+
+デジタルタイポグラフィには 2 つの対立する流派が存在する：**PostScript 陣営の 3 次ベジェ曲線（Cubic Bézier）** と **TrueType 陣営の 2 次 B スプライン曲線（Quadratic Bézier / B-spline）** である。
+
+### 2.1 3 次ベジェ曲線（PostScript Type 1 / OpenType CFF）
+3 次ベジェ曲線は 4 つの制御点（始点 $\mathbf{P}_0$、外部方向ハンドル $\mathbf{P}_1, \mathbf{P}_2$、終点 $\mathbf{P}_3$）によって定義され、3 次バーンスタイン多項式に従う：
+
 $$\mathbf{B}(t) = (1-t)^3 \mathbf{P}_0 + 3(1-t)^2 t \mathbf{P}_1 + 3(1-t) t^2 \mathbf{P}_2 + t^3 \mathbf{P}_3, \quad t \in [0, 1]$$
 
-- **TrueType（2 次ベジェ曲線）**：各セグメントは 2 つの端点（$\mathbf{P}_0, \mathbf{P}_2$）と 1 つの制御点（$\mathbf{P}_1$）のみを持ちます：
+### 2.2 2 次ベジェ曲線（TrueType）
+2 次ベジェ曲線は 3 つの点（始点 $\mathbf{P}_0$、外部制御点 $\mathbf{P}_1$、終点 $\mathbf{P}_2$）によって定義される：
+
 $$\mathbf{B}(t) = (1-t)^2 \mathbf{P}_0 + 2(1-t) t \mathbf{P}_1 + t^2 \mathbf{P}_2, \quad t \in [0, 1]$$
-曲率変化を表現するには複数の放物線セグメントを連続させる必要があり、TrueType では連続する 2 つのオフカーブ（制御点）の中点を暗黙のオンカーブ点として扱うことでデータサイズを節約します。
+
+* **次数上昇（Degree Elevation）方程式**：  
+  2 次ベジェ曲線は、以下の代数変換により完全に等価な 3 次ベジェ曲線へと無損失に変換可能である：
+  $$\mathbf{Q}_0 = \mathbf{P}_0, \quad \mathbf{Q}_1 = \mathbf{P}_0 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_0), \quad \mathbf{Q}_2 = \mathbf{P}_2 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_2), \quad \mathbf{Q}_3 = \mathbf{P}_2$$
+
+::: tip PostScript 3 次曲線と TrueType 2 次曲線の輪郭比較（Figure 12-11）
+![PostScript 三次曲线与 TrueType 二次曲线轮廓对比（Figure 12-11）](/images/fonts-encodings/fig12-11.png)
+*PostScript 三次曲线与 TrueType 二次曲线轮廓对比（Figure 12-11）*
+:::
+
+*図 12-11：PostScript 3 次ベジェ輪郭（左）と TrueType 2 次 B スプライン輪郭（右）の比較。TrueType においては、連続する 2 つのオフカーブ制御点の中点が自動的にオンカーブ切点として補間される。*
 
 ---
 
-## 2. FontLab Studio 商業フォント開発体系
+## 3. FontLab Studio 工業級設計体系
 
-FontLab Studio（バージョン 4 および 5）は、タイポグラフィ産業において長年にわたり事実上のデファクトスタンダードとして君臨してきたプロフェッショナル向けフォントエディタです。
+### 3.1 4 大字形表示モード（Font Window Display Modes）
+1. **名前モード（Names Mode, Figure 12-3）**：グリフ名によるフラット表示；
+2. **ページモード（Pages Mode, Figure 12-4）**：256 文字単位のコードページ分割表示；
+3. **ブロックモード（Ranges Mode, Figure 12-5）**：Unicode 公式ブロックごとのグループ表示；
+4. **インデックスモード（Index Mode, Figure 12-6）**：物理 GID（Glyph ID）順の表示。
 
-### 2.1 4 つのフォントウィンドウ表示モード（Font Window Display Modes）
-FontLab は文字セットを体系的にナビゲートするために 4 つの表示モードを提供します：
-1. **名前モード（Names Mode）**：Adobe Glyph Naming 規約に準拠したグリフ識別子（`A`, `acute`, `adieresis`, `afii10017` 等）を表示；
-2. **ページモード（Pages Mode）**：256 文字ごとのコードページ単位で文字テーブルを分割表示；
-3. **範囲モード（Ranges Mode）**：Unicode の公式ブロック範囲（Basic Latin, Latin-1 Supplement, Cyrillic, Greek 等）に基づきグリフをフィルタリング；
-4. **インデックスモード（Index Mode）**：フォントファイル内の物理的なグリフインデックス（GID 0, 1, 2...）順に配列。
+::: tip FontLab 字体视窗的名称模式（Figure 12-3）
+![FontLab 字体视窗的名称模式（Figure 12-3）](/images/fonts-encodings/fig12-3.png)
+*FontLab 字体视窗的名称模式（Figure 12-3）*
+:::
 
-### 2.2 輪郭編集の幾何学：ノードタイプと位相幾何拘束
-FontLab の輪郭エディタは、ノード（頂点）を厳密な位相的役割によって分類します：
-- **コーナーノード（Corner Node, 四角形アイコン）**：接線方向が不連続な角点。両側のハンドルが独立に回転；
-- **スムーズノード（Smooth Node, 丸型アイコン）**：$C^1$ 連続性（傾きの一致）を維持し、両側のハンドルが 180 度の一直線を形成；
-- **タンジェントノード（Tangent Node, 三角形アイコン）**：直線セグメントと曲線セグメントが滑らかに合流する接続点。
+*図 12-3：FontLab の Names モード表示。*
 
-#### 輪郭方向の物理的絶対則（Contour Direction）
-ラスタライザが内外判定（Fill/Winding Rule）を正しく実行するため、輪郭の描画方向には厳格な規約が存在します：
-- **PostScript Type 1 / OpenType (CFF)**：外側のアウトラインは反時計回り（Counter-Clockwise, CCW）、内側の穴（カウンター）は時計回り（Clockwise, CW）；
-- **TrueType**：外側のアウトラインは時計回り（CW）、内側の穴は反時計回り（CCW）。
-輪郭の向きが反転すると、TrueType ラスタライザで文字が「中空（塗りつぶされない）」あるいは「反転」する重大な描画破綻が発生します。
+::: tip FontLab 字体视窗的页面模式（Figure 12-4）
+![FontLab 字体视窗的页面模式（Figure 12-4）](/images/fonts-encodings/fig12-4.png)
+*FontLab 字体视窗的页面模式（Figure 12-4）*
+:::
 
-### 2.3 メトリクスとカーニング体系（Metrics and Kerning）
+*図 12-4：FontLab の Pages モード表示。*
 
-#### 1. LSB、RSB と文字幅の計算
-文字の読みやすさは、白と黒の視覚的バランス（空間配分）によって決定されます。丸い文字（'O', 'C'）や斜めの文字（'A', 'V'）では、幾何学的なバウンディングボックスの境界を視覚的な「錯視補正（Overshoot）」によって外側へわずかに突き出させる必要があります。
+::: tip FontLab 字体视窗的区段模式（Figure 12-5）
+![FontLab 字体视窗的区段模式（Figure 12-5）](/images/fonts-encodings/fig12-5.png)
+*FontLab 字体视窗的区段模式（Figure 12-5）*
+:::
 
-#### 2. クラスカーニング（Class-based Kerning）
-数千文字に及ぶフォントにおいて、個別のグリフペアごとにカーニング値を設定することは不可能です。FontLab は**クラスカーニング（Kerning Classes）**を導入しました：
-- 左側クラス `@Left_Round`（`O`, `C`, `G`, `Q`, `OE` 等）
-- 右側クラス `@Right_Round`（`O`, `D`, `P`, `Q` 等）
-- `@Left_Round` と `@Right_Round` の間に $-40$ 単位のカーニングを設定することで、数千の文字ペアの適切なスペーシングが一撃で定義されます。
+*図 12-5：FontLab の Ranges モード表示。*
 
-### 2.4 輪郭の幾何変換とフィルタ
-- **スラント変換（Slanting）**：傾き角度 $\theta$ による斜体（Oblique）の自動生成；
-- **ステム太さ拡張（Expand Stroke）**：アウトラインの平行オフセットによるボールド化；
-- **ブーリアン演算（Remove Overlap）**：交差する複数の独立パスを単一の外周輪郭へと自動マージ。
+::: tip FontLab 字体视窗的索引模式（Figure 12-6）
+![FontLab 字体视窗的索引模式（Figure 12-6）](/images/fonts-encodings/fig12-6.png)
+*FontLab 字体视窗的索引模式（Figure 12-6）*
+:::
 
----
+*図 12-6：FontLab の Index モード表示。*
 
-## 3. Python スクリプトによる FontLab Studio の自動制御
+### 3.2 フォントメタデータ設定（Font Info）
 
-FontLab は内部に Python インタプリタを組み込んでおり、全フォントオブジェクト、グリフ、ノード、カーニングペアをプログラミングから直接操作可能です。
+::: tip Font Info 元数据与版权标签页（Figure 12-7）
+![Font Info 元数据与版权标签页（Figure 12-7）](/images/fonts-encodings/fig12-7.png)
+*Font Info 元数据与版权标签页（Figure 12-7）*
+:::
 
-### 3.1 FontLab Python API アーキテクチャ
-- `fl`：FontLab のメインアプリケーションオブジェクト；
-- `Font`：開かれているフォントファイル（グリフ配列、ヘッダー情報、メトリック辞書）；
-- `Glyph`：個々のグリフ（ノードリスト、コンポーネント、アンカー、幅）；
-- `Node`：輪郭上の点座標 $(x, y)$、タイプ、スムーズ属性；
-- `Point`：2 次元ベクトル演算。
+*図 12-7：Font Info の Names および Copyright 設定パネル。*
 
-### 3.2 実戦スクリプト：全自動文字検査と合成グリフ生成
+::: tip Font Info 核心度量与支持代码页标签页（Figure 12-8）
+![Font Info 核心度量与支持代码页标签页（Figure 12-8）](/images/fonts-encodings/fig12-8.png)
+*Font Info 核心度量与支持代码页标签页（Figure 12-8）*
+:::
 
-#### スクリプト 1：フォント全グリフのメトリック検査と極値検出
-全グリフを走査し、バウンディングボックスの異常値やベースライン沈み込みを検出するスクリプトです：
+*図 12-8：Font Info の Key dimensions および Supported codepages 設定パネル。*
 
-```python
-# -*- coding: utf-8 -*-
-# FontLab Studio 用グリフバウンディングボックス検査スクリプト
-import fl
+### 3.3 メトリクスとカーニング（Metrics & Kerning）
 
-font = fl.font
-print(f"フォント名: {font.font_name}")
-print(f"総グリフ数: {len(font.glyphs)}")
+$$\text{Advance Width} = \text{LSB} + \text{Bounding Box Width} + \text{RSB}$$
 
-overflow_glyphs = []
-for index, glyph in enumerate(font.glyphs):
-    bbox = glyph.GetBoundingBox()
-    # bbox は Rect(xmin, ymin, xmax, ymax)
-    if bbox.top > font.ascender + 100:
-        overflow_glyphs.append((glyph.name, bbox.top))
+### 3.4 Multiple Master 多マスター設計
 
-print(f"アセンダを著しく超過したグリフ数: {len(overflow_glyphs)}")
-for name, top in overflow_glyphs[:10]:
-    print(f"  グリフ [{name}]: 上端 Y = {top}")
-```
+::: tip FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）
+![FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）](/images/fonts-encodings/fig12-9.png)
+*FontLab 中设计 Multiple Master 字体的界面（Figure 12-9）*
+:::
 
-#### スクリプト 2：アクセント記号付き合成グリフ（Composite Glyphs）の全自動生成
-基底文字（例: `A`）の上にアクセント記号（例: `acute`）をアンカー座標に基づいて自動配置し、新規グリフ `Aacute` を組み立てるスクリプトです：
+*図 12-9：FontLab における Multiple Master 設計画面。同一ウィンドウ内で複数のマスター輪郭が同時に重層表示される。*
 
-```python
-# -*- coding: utf-8 -*-
-# アンカーに基づく自動合成グリフビルダー
-import fl
+::: tip 从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）
+![从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）](/images/fonts-encodings/fig12-10.png)
+*从普通字体创建 Multiple Master 的配置视窗（Figure 12-10）*
+:::
 
-font = fl.font
+*図 12-10：2 つの独立フォントから Multiple Master フォントを生成するダイアログ。*
 
-def build_accented_glyph(base_name, accent_name, target_name):
-    base_idx = font.FindGlyph(base_name)
-    accent_idx = font.FindGlyph(accent_name)
-    
-    if base_idx == -1 or accent_idx == -1:
-        print(f"エラー: 基底文字またはアクセントが見つかりません: {base_name}, {accent_name}")
-        return
-        
-    base_glyph = font.glyphs[base_idx]
-    accent_glyph = font.glyphs[accent_idx]
-    
-    # 新規グリフの作成または取得
-    target_idx = font.FindGlyph(target_name)
-    if target_idx == -1:
-        new_glyph = fl.Glyph()
-        new_glyph.name = target_name
-        font.glyphs.append(new_glyph)
-        target_glyph = font.glyphs[-1]
-    else:
-        target_glyph = font.glyphs[target_idx]
-        target_glyph.Clear()
-        
-    # 送り幅の継承
-    target_glyph.width = base_glyph.width
-    
-    # 基底文字コンポーネントの追加
-    c1 = fl.Component(base_idx, fl.Point(0, 0))
-    target_glyph.components.append(c1)
-    
-    # アクセントの配置オフセット計算（中央揃え）
-    base_bbox = base_glyph.GetBoundingBox()
-    accent_bbox = accent_glyph.GetBoundingBox()
-    
-    offset_x = (base_bbox.left + base_bbox.right) / 2 - (accent_bbox.left + accent_bbox.right) / 2
-    offset_y = base_bbox.top - accent_bbox.bottom + 20 # 20 単位の間隔
-    
-    c2 = fl.Component(accent_idx, fl.Point(offset_x, offset_y))
-    target_glyph.components.append(c2)
-    
-    font.modified = 1
-    print(f"合成成功: {target_name} ({base_name} + {accent_name})")
+### 3.5 PostScript アライメントゾーンと BlueValues 数理
 
-build_accented_glyph("A", "acute", "Aacute")
-build_accented_glyph("E", "grave", "Egrave")
-fl.UpdateFont()
-```
-
----
-
-## 4. FontForge オープンソースフォント工房
-
-George Williams によって開発された **FontForge** は、GNU GPL ライセンスの下で提供される比類なき高機能オープンソースフォントエディタです。
-
-### 4.1 幾何学と全平面 Unicode サポート
-FontForge は最初から Unicode 体系（UTF-32/UCS-4）をネイティブ内部構造として設計されており、BMP（基本多言語面）のみならず、SMP（第 1 面、歴史的文字や音楽記号）、SIP（第 2 面、CJK 統合漢字拡張面）に至る 100 万を超える文字コード空間をシームレスに扱えます。
-
-### 4.2 3 次/2 次ベジェの双方向変換と Spiro 幾何学
-1. **PostScript と TrueType の双方向変換**：
-   FontForge は 3 次ベジェと 2 次ベジェを相互に自動変換します。2 次ベジェ曲線から 3 次ベジェ曲線への次数上昇（Degree Elevation）は数学的に完全に無損失で行われます：
-$$\mathbf{Q}_0 = \mathbf{P}_0, \quad \mathbf{Q}_1 = \mathbf{P}_0 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_0), \quad \mathbf{Q}_2 = \mathbf{P}_2 + \frac{2}{3}(\mathbf{P}_1 - \mathbf{P}_2), \quad \mathbf{Q}_3 = \mathbf{P}_2$$
-一方、3 次曲線を 2 次曲線へダウンサンプリングする際は、許容誤差（Tolerance）パラメータに基づいて自動的に最適な中間オンカーブ点を挿入します；
-2. **Raph Levien の Spiro 幾何学モデル**：
-   FontForge はオイラーの螺旋（クロソイド曲線、Clothoid）に基づく **Spiro** モードを内包しています。曲率 $\kappa$ が弧長 $s$ に対して線形に変化する性質を持つため、曲率が跳躍することなく完全に連続する $G^2$ / $G^3$ 連続の極めて滑らかな輪郭をわずか数個のアンカー点から自動生成できます。
-
-### 4.3 ビットマップの自動ベクター追跡（Auto-tracing）
-FontForge はオープンソースのトレースエンジン（Potrace および Autotrace）と緊密に統合されています。スキャンされた高解像度活字ビットマップを取り込み、閾値二値化、輪郭検出、多角形近似、そして滑らかな 3 次ベジェ曲線フィッティングを完全に自動で実行します。
-
-### 4.4 FontForge Python 自動化パイプライン
-FontForge は強力なスタンドアロン Python モジュール（`import fontforge`）を提供し、GUI なしでサーバーサイドや CI/CD パイプライン内でフォントをコンパイルできます：
-
-```python
-# -*- coding: utf-8 -*-
-# FontForge による自動ビルド・ヒンティング・出力スクリプト
-import fontforge
-
-# UFO または SFD ソースの読み込み
-font = fontforge.open("MyFont-Regular.sfd")
-
-# 重なり輪郭の自動除去（ブーリアン結合）
-for glyph in font.glyphs():
-    glyph.removeOverlap()
-
-# 極値点の自動追加（ラスタライズとヒンティングの必須条件）
-for glyph in font.glyphs():
-    glyph.addExtrema()
-
-# 正しい輪郭方向への強制修正
-for glyph in font.glyphs():
-    glyph.correctDirection()
-
-# 自動ヒンティング（Auto-Hinting）
-font.autoHint()
-
-# 高品質 OpenType (CFF) フォントとしてエクスポート
-font.generate("dist/MyFont-Regular.otf", flags=("opentype", "round"))
-print("フォント出力完了: dist/MyFont-Regular.otf")
-```
-
----
-
-## 5. PostScript ヒンティング体系（PostScript Hinting）
-
-低解像度画面や 300〜600 dpi のオフィスプリンタにおいて、数学的に純粋なベジェ曲線輪郭はラスタライズの量子化誤差（グリッド交点への丸め）により、ステムの太さの不揃い、ドットの消失、文字の歪みといった深刻な視覚劣化を引き起こします。PostScript はこれを防ぐため、**ヒンティング（Hinting）**と呼ばれる幾何学的補正技術を開発しました。
-
-### 5.1 大域ヒント（Global Hints）とアライメントゾーン（Alignment Zones）
-
-#### 1. `BlueValues` と `OtherBlues`
-すべてのグリフの垂直位置（ベースライン、x-height、キャップハイト、ディセンダ）を整列させるため、Type 1 フォントは `Private` 辞書内に整列ゾーン配列を定義します：
-- `BlueValues`：最大 7 ペア（14 個）の符号付き整数配列。下端境界と上端境界をペアで記述します：
 $$\text{BlueValues} = [y_{b0}, y_{t0}, \quad y_{b1}, y_{t1}, \quad \dots]$$
-ベースラインゾーン（例: `[-15, 0]`）および上部ゾーン（例: x-height `[450, 465]`、Cap Height `[700, 715]`）を指定します；
-- `OtherBlues`：最大 5 ペアの配列。ディセンダゾーン（例: `[-215, -200]`）を定義。
 
-#### 錯視補正（Overshoot）と丸め抑制の数学
-文字 'O' や 'C' などの丸い輪郭は、幾何学的に直線文字 'H' や 'I' と同じ高さにすると視覚的に小さく見えます。そのため、デザイナーは輪郭の頂点をわずかに外側へ突き出させます（Overshoot）。
-低解像度において、この突き出しが 1 ピクセルの余分な突起となって文字がガタつくのを防ぐため、ラスタライザは解像度が特定のピクセル閾値以下のときに**オーバーシュートをベースラインまたはキャップハイトへ強制平坦化**します。
-
-この平坦化が解除される最大解像度（閾値ポイントサイズ）は、`BlueScale` パラメータによって数学的に決定されます：
 $$\text{Threshold Size} = \frac{1}{\text{BlueScale} \times (\text{Zone Height})}$$
 
-デフォルト値 `BlueScale = 0.039625` の場合、$PPM_{max} \approx 24.7$ ピクセルとなり、25 ピクセル未満の小型表示では常にオーバーシュートが抑制されて端正な整列が維持されます。
+---
 
-#### 2. 標準ステム幅：`StdHW`, `StdVW` とスナップ配列
-- **`StdHW`（Standard Horizontal Stem Width）**：フォント内で最も支配的な水平ステムの太さ（例: 'E', 'H' の横バー）；
-- **`StdVW`（Standard Vertical Stem Width）**：最も支配的な垂直ステムの太さ（例: 'l', 'H' の縦ステム）；
-- **`StemSnapH`, `StemSnapV`**：最大 12 個の代表的なステム幅の昇順配列。
-ラスタライザは、個々の文字のステム幅がこれら代表値に近い場合、強制的に同一のピクセル幅（例: 12 pt で正確に 1 ピクセル、18 pt で正確に 2 ピクセル）へスナップ（量子化）し、同一行の文字群で線の太さが不揃いになる現象を完全に根絶します。
+## 4.  автоматизация: Python スクリプト革命
 
-### 5.2 局所ヒント（Local Hints）とヒント置換（Hint Substitution）
+### 4.1 FontLab Studio の Python オブジェクトモデル
+`Font`、`Glyph`、`Contour`、`Node` による 4 層の階層構造を通じて、全字形のバッチ処理が可能である。
 
-各文字の CharString 内において、ステムの位置は `hstem`（水平ステム）および `vstem`（垂直ステム）オペコードによって局所的に宣言されます。
-
-#### ヒント置換（Hint Substitution）の革新的メカニズム
-複雑な文字（例: 'B', 'R', 'g', 'e', 漢字）において、グリフ全体で単一のヒントセットを適用すると、上下や左右でステム定義が衝突・交差し、かえってラスタライザを混乱させます。
-Type 1（Subr 12 経由）および Type 2（`hintmask` バイトコード）は**ヒント置換**を導入しました：
-輪郭の描画パスの途中で、それまでのヒントセットを無効化し、現在の幾何学的サブパスに特化した新たなヒントセットへと動的に切り替えます。これにより、極限の低解像度下でも複雑な文字のカウンターとステムが驚異的な明瞭さでレンダリングされます。
+### 4.2 FontForge による CI/CD ビルド自動化
+純粋なテキスト形式である **SFD（Spline Font Database）** と Python API により、GUI を起動することなく完全自動化されたフォント生成パイプラインが構築可能である。
 
 ---
 
-## 6. 結語（Conclusions）
+## 5. 画像から字形へ：ScanFont と自動トレース
 
-フォントの作成と編集は、幾何学的な直観と計算機的な厳密性の見事な融合です。FontLab や FontForge を使いこなし、Python によるスクリプティングと PostScript ヒンティングの数学的基礎を深く理解することによって、初めて数百年受け継がれてきたタイポグラフィの美を、現代のシリコンと液晶のディスプレイ上に忠実に再現することが可能となるのです。
+::: tip ScanFont 中的字形图素自动分割（Figure 12-12）
+![ScanFont 中的字形图素自动分割（Figure 12-12）](/images/fonts-encodings/fig12-12.png)
+*ScanFont 中的字形图素自动分割（Figure 12-12）*
+:::
 
-*本章の全訳および技術校正は ヴワル魔法図書館（Voile Magic Library）文献翻訳工房 により完了しました。*
+*図 12-12：ScanFont におけるグリフの自動分割処理画面。*
+
+::: tip ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）
+![ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）](/images/fonts-encodings/fig12-13.png)
+*ScanFont 中自动追踪参数的实时配置对话框（Figure 12-13）*
+:::
+
+*図 12-13：自動トレースパラメータのリアルタイム調整ダイアログ。*
+
+::: tip 手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）
+![手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）](/images/fonts-encodings/fig12-14.png)
+*手工绘制轮廓与不同参数自动追踪轮廓的微观对比（Figure 12-14）*
+:::
+
+*図 12-14：熟練のデザイナーによる手動トレース（左）と、自動トレースアルゴリズムによる生成輪郭（中央・右）の品質比較。*
+
+---
+
+Altsys Fontographer から FontLab Studio、FontForge、そして ScanFont に至る進化は、デジタル書体制作における職人精神と計算幾何学の完璧な融合を示している。
+
+しかし、美しい連続輪郭を描き出すことは第一歩に過ぎない。低解像度の画面上でこの輪郭がレンダリングされる際、離散ピクセルによるグリフの破綻をいかに防ぐのか？
+
+これこそが、**第 13 章：ラスタライズ微調整（Hinting）の究極の芸術**において探求するバイトコード仮想マシンの世界である。
