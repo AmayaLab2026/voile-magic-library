@@ -192,6 +192,53 @@ $$\text{VML-}[\text{LCC Subject Class}]\text{.}[\text{Cutter Author No}]\text{-}
 
 ---
 
+
+---
+
+## Special Collection Volume 03 (Vol. 03)
+
+### Archival Record
+
+* **Author**: Yannis Haralambous, Ph.D.
+* **Translation & Expansion**: P. Scott Horne, Ph.D.
+* **Call Number**: `VML-Z250.8.H37-2007`
+* **LCC**: `Z250.8` / `QA76.9.T48` | **DDC**: `005.72` / `686.22544`
+* **ISBN**: 978-0-596-10242-5 / 0-596-10242-9
+* **Original Title**: Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between (1st Edition, 2007)
+* **Publisher**: O'Reilly Media, Inc. (Sebastopol, CA)
+* **Digital Morphology**: 14 Comprehensive Chapters, 7 Technical Appendices, High-Resolution Typographic Plates, and Mathematical Proofs
+* **Subject Headings**: Character Encodings; Unicode 5.0; Digital Font Engineering; PostScript Type 1; TrueType Virtual Machine; OpenType Layout Tables; Apple Advanced Typography (AAT); Bézier Curves; TeX & Omega Systems
+
+### Author Biographical Note
+
+#### Yannis Haralambous, Ph.D.
+* **Academic Identity**: Professor of Computer Science at IMT Atlantique (formerly ENST Bretagne), Brest, France. Renowned digital typographer, computational linguist, and pure mathematician.
+* **Scholarly Background**: Earned his doctorate in pure mathematics from Université de Lille I. Applied differential geometry, topology, and finite automata to digital font outlines, font hint rasterization, and multi-script typesetting. Co-creator of the $\Omega$ (Omega) system extending TeX to 16/32-bit Unicode.
+
+### Volume Structure & Direct Reading Navigation
+
+* **[Introduction: Explorations](/en/fonts-encodings/introduction)**: Philosophical duality of characters and glyphs; anatomical parts of a letter (Figure 0-1); mathematical descriptions of letter 'E' (Figure 0-2); letterpress composing stick and type cases (Figures 0-3 to 0-5); digital font dimensions and book structure map (Figure 0-6).
+* **Part I: Encodings & Unicode**
+  * **[Chapter 1: Before Unicode](/en/fonts-encodings/chapter-1)**: FIELDATA, 7-bit ASCII, EBCDIC, ISO 2022, ISO 8859 families, East Asian multi-byte encodings, code pages, MIME, and early Web text.
+  * **[Chapter 2: Characters, Glyphs, Bytes: An Introduction to Unicode](/en/fonts-encodings/chapter-2)**: Philosophical principles, UTF-8, UTF-16, UTF-32, CESU-8, SCSU, BMP, and supplementary planes roadmap.
+  * **[Chapter 3: Properties of Unicode Characters](/en/fonts-encodings/chapter-3)**: Character names, blocks, general categories, case properties, rendering properties (Arabic/Syriac), and the UCD.
+  * **[Chapter 4: Normalization, Bidirectionality, and East Asian Characters](/en/fonts-encodings/chapter-4)**: Canonical/compatibility decompositions, NFC/NFD/NFKC/NFKD, Unicode Bidi Algorithm, and CJK Unihan ideographs.
+  * **[Chapter 5: Using Unicode](/en/fonts-encodings/chapter-5)**: Character map utilities (Character Palette, Character Map, BabelMap, Gucharmap) and keyboard layout creator tools.
+* **Part II: Font Management**
+  * **[Chapter 6: Font Management on the Macintosh](/en/fonts-encodings/chapter-6)**: Classic Mac OS resource/data forks, suitcases, Mac OS X font domains, and Font Book.
+  * **[Chapter 7: Font Management under Windows](/en/fonts-encodings/chapter-7)**: Windows Fonts directory, GDI logical fonts (LOGFONT), registry configuration, and ClearType.
+  * **[Chapter 8: Font Management under X Window](/en/fonts-encodings/chapter-8)**: XLFD font names, X font server (XFS), and client-side FreeType/Fontconfig/Xft stack.
+* **Part III: Typographic Software & Web**
+  * **[Chapter 9: Fonts in TeX and Omega, their installation and use](/en/fonts-encodings/chapter-9)**: Knuth's compiler pipeline, TFM metrics, DVI drivers, Virtual Fonts, and Omega's 16/32-bit OTPs.
+  * **[Chapter 10: Fonts and Web Pages](/en/fonts-encodings/chapter-10)**: HTML/CSS font specifications, `font-size-adjust` aspect ratio normalization, dynamic web fonts (TrueDoc, WEFT/EOT), and SVG fonts.
+* **Part IV: Typeface Art, Design & Typography**
+  * **[Chapter 11: The History and Classifications of Latin Typefaces](/en/fonts-encodings/chapter-11)**: Gutenberg to modern sans-serifs, Vox-ATypI classification, and Panose-1 10-digit metric system.
+  * **[Chapter 12: Creating and Modifying Fonts](/en/fonts-encodings/chapter-12)**: FontLab and FontForge workflows, cubic and quadratic Bézier splines, contour winding rules, and class-based kerning.
+  * **[Chapter 13: Optimizing a rasterization](/en/fonts-encodings/chapter-13)**: Low-resolution rasterization dilemmas, PostScript hints (BlueValues, stem hints), and TrueType instructions/deltas.
+  * **[Chapter 14: Enriching Fonts: Advanced Typography](/en/fonts-encodings/chapter-14)**: OpenType layout tables (GSUB/GPOS/GDEF), Adobe feature file syntax, Microsoft VOLT, and Apple AAT finite state automata.
+* **Part V: Technical Reference**
+  * **[Appendices A–G: Technical Reference Manual](/en/fonts-encodings/appendices)**: Bitmap font formats (BDF/PCF/PK), TeX & Omega metric binary formats (TFM/OFM/VF), PostScript language and Type 1/CFF, TrueType/OpenType/AAT table anatomy, TrueType bytecode reference, METAFONT, and Bézier curve mathematical proofs.
+
 ## Interdisciplinary Cross-Reference Matrix
 
 | Subject Area | Core Theory / Statute | Volume | Primary Chapters |
@@ -204,6 +251,10 @@ $$\text{VML-}[\text{LCC Subject Class}]\text{.}[\text{Cutter Author No}]\text{-}
 | **Gravity Assist Maneuvers** | Hyperbolic Flyby & Gravitational Slingshot | Vol. 02 Rocket Pioneers | [Part II · Section 6: Gravity Slingshot](/en/rocket-pioneers/kondratyuk-build/section-6) |
 | **Atmospheric Glide Re-entry** | Blunt-Body Shock Waves & Re-entry Corridors | Vol. 02 Rocket Pioneers | [Part III · Chapter 9: Atmospheric Deceleration](/en/rocket-pioneers/kondratyuk-space/chapter-9) |
 | **Astronautical Archival Historiography** | TsGAOR Dossier 112 & ARAN Manuscript Stems | Vol. 02 Rocket Pioneers | [Editorial Foreword](/en/rocket-pioneers/preface) & [Bibliography](/en/rocket-pioneers/bibliography) |
+| **Character & Glyph Duality** | Abstract Mental Entity vs Concrete Visual Depiction | Vol. 03 Fonts & Encodings | [Introduction: Explorations](/en/fonts-encodings/introduction) |
+| **Character Encoding History** | From FIELDATA, ASCII, ISO 8859 to Universal Character Set | Vol. 03 Fonts & Encodings | [Chapter 1: Before Unicode](/en/fonts-encodings/chapter-1) |
+| **Digital Font Engineering** | TrueType Virtual Machine Bytecode, OpenType GSUB/GPOS | Vol. 03 Fonts & Encodings | [Overview & Table of Contents](/en/fonts-encodings/) |
+| **Typographical Geometry** | Pierre Bézier Cubic Curves & Bernstein Polynomial Proofs | Vol. 03 Fonts & Encodings | [Appendices A–G](/en/fonts-encodings/appendices) |
 
 ---
 
@@ -236,6 +287,20 @@ $$\text{VML-}[\text{LCC Subject Class}]\text{.}[\text{Cutter Author No}]\text{-}
        note={Voile Magic Library Call Number: VML-TL781.P56-1965}
      }
      ```
+    * **Vol. 03**:
+      ```bibtex
+      @book{haralambous2007fonts,
+        title={Fonts & Encodings: From Unicode to Advanced Typography and Everything in Between},
+        author={Haralambous, Yannis},
+        translator={Horne, P. Scott},
+        edition={1st},
+        year={2007},
+        publisher={O'Reilly Media, Inc.},
+        address={Sebastopol, CA},
+        isbn={978-0-596-10242-5},
+        note={Voile Magic Library Call Number: VML-Z250.8.H37-2007}
+      }
+      ```
 2. **Open Access Policy**:
    * Special collection digital holdings adhere to academic research and non-commercial educational dissemination standards. Complete translations, high-resolution figures, and commentary are freely accessible.
    * Maintained and curated by Head Librarian Reina Neko ([AmayaLab](https://github.com/AmayaLab2026)).

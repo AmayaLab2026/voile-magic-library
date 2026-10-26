@@ -71,6 +71,60 @@ export default defineConfig({
           ],
         },
       ],
+      '/en/fonts-encodings/': [
+        {
+          text: 'Front Matter',
+          items: [
+            { text: 'Overview & Table of Contents', link: '/en/fonts-encodings/' },
+            { text: 'Introduction: Explorations', link: '/en/fonts-encodings/introduction' },
+          ],
+        },
+        {
+          text: 'Part I: Encodings & Unicode',
+          collapsed: false,
+          items: [
+            { text: 'Chapter 1: Before Unicode', link: '/en/fonts-encodings/chapter-1' },
+            { text: 'Chapter 2: Characters, Glyphs, Bytes', link: '/en/fonts-encodings/chapter-2' },
+            { text: 'Chapter 3: Properties of Unicode Characters', link: '/en/fonts-encodings/chapter-3' },
+            { text: 'Chapter 4: Normalization, Bidi & East Asian', link: '/en/fonts-encodings/chapter-4' },
+            { text: 'Chapter 5: Using Unicode', link: '/en/fonts-encodings/chapter-5' },
+          ],
+        },
+        {
+          text: 'Part II: Font Management',
+          collapsed: false,
+          items: [
+            { text: 'Chapter 6: Management on Macintosh', link: '/en/fonts-encodings/chapter-6' },
+            { text: 'Chapter 7: Management under Windows', link: '/en/fonts-encodings/chapter-7' },
+            { text: 'Chapter 8: Management under X Window', link: '/en/fonts-encodings/chapter-8' },
+          ],
+        },
+        {
+          text: 'Part III: Typographic Software & Web',
+          collapsed: false,
+          items: [
+            { text: 'Chapter 9: Fonts in TeX and Omega', link: '/en/fonts-encodings/chapter-9' },
+            { text: 'Chapter 10: Fonts and Web Pages', link: '/en/fonts-encodings/chapter-10' },
+          ],
+        },
+        {
+          text: 'Part IV: Typeface Art, Design & Typography',
+          collapsed: false,
+          items: [
+            { text: 'Chapter 11: History and Classifications', link: '/en/fonts-encodings/chapter-11' },
+            { text: 'Chapter 12: Creating and Modifying Fonts', link: '/en/fonts-encodings/chapter-12' },
+            { text: 'Chapter 13: Optimizing a Rasterization', link: '/en/fonts-encodings/chapter-13' },
+            { text: 'Chapter 14: Enriching Fonts: Advanced Typography', link: '/en/fonts-encodings/chapter-14' },
+          ],
+        },
+        {
+          text: 'Part V: Technical Reference',
+          collapsed: false,
+          items: [
+            { text: 'Appendices A–G: Technical Reference Manual', link: '/en/fonts-encodings/appendices' },
+          ],
+        },
+      ],
       '/en/controlled-substances/': [
         {
           text: 'Controlled Substances: Guide',
@@ -101,6 +155,7 @@ export default defineConfig({
           items: [
             { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
             { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/en/rocket-pioneers/' },
+            { text: 'Vol. 03 Fonts & Encodings: Complete Guide', link: '/en/fonts-encodings/' },
           ],
         },
         {
@@ -171,6 +226,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         { text: 'Vol. 01 Controlled Substances Guide', link: '/en/controlled-substances/' },
         { text: 'Vol. 02 Pioneers of Rocket Technology', link: '/en/rocket-pioneers/' },
+        { text: 'Vol. 03 Fonts & Encodings: Complete Guide', link: '/en/fonts-encodings/' },
       ],
     },
     {
