@@ -244,6 +244,162 @@ iconv -f GBK -t UTF-8//IGNORE legacy_chinese.txt > utf8_chinese.txt
 
 ---
 
+
+---
+
+### 傳奇轉碼利器：François Pinard 的 `recode` 實用程序
+
+在 Unix 自由軟件歷史長河中，有一款擁有數十載深厚淵源的傳奇轉碼工具——由加拿大魁北克傑出程序員弗朗索瓦·皮納爾（François Pinard）主導開發的 **`recode`** [293]。其歷史雛形（當時冠以其他名稱）甚至可一路追溯至 20 世紀 70 年代，而其現代版本則在底層依託於 GNU `libiconv` 運行時架構。
+
+#### 1. 極簡優雅的管道語法
+
+在命令行中，轉換文件 `foo.txt` 的基本語法極其直觀：只需在 `recode` 龐大的支持列表裏找到源編碼 $A$ 與目標編碼 $B$，即可直接執行原位覆寫轉換：
+
+```bash
+recode A..B foo.txt
+```
+
+若希望保留原始文件並重定向輸出至新文件，可使用標準流重定向：
+
+```bash
+recode A..B < foo.txt > foo-converted.txt
+```
+
+更爲驚豔的是，`recode` 允許在單一命令調用中串聯任意多級轉換跳板：
+
+```bash
+recode A..B..C..D..E foo.txt
+```
+
+#### 2. “表面”（Surface）序列化機制
+
+`recode` 最具突破性的設計之一，在於引入了名爲“表面”（Surface）的概念——這在本質上正是 Unicode 序列化機制（Serialization Mechanisms）的對應物：**在不改變字符抽象編碼的前提下，對其物理存儲與傳輸載體形態進行變換**。
+
+若 $S$ 爲某種表面序列化機制，用戶可通過斜槓語法將其直接附加於目標編碼之後：
+
+```bash
+recode A..B/S foo.txt
+```
+
+在執行編碼 $A \to B$ 轉換的同時，工具會自動疊加上特定的序列化表示。`recode` 提供的核心表面機制包括：
+* **`b64`**：標準的 Base64 編碼；
+* **`d1, d2, d4`**：以十進制純數字形式轉儲字符（分別對應單字節 byte-by-byte、雙字節 wyde-by-wyde、四字節 tetrabyte-by-tetrabyte）；
+* **`h1, x2, x4`**（以及八進制形式 `o1`）：以十六進制或八進制格式輸出字節序列；
+* **`QP`**：電子郵件中廣泛採用的 Quoted-Printable 可打印字符編碼；
+* **`CR` 與 `CR-LF`**：行尾終止符標準化轉換（將 Unix 換行符 LF 轉換爲經典 Mac 的回車符 CR，或 Windows/DOS 的 CR-LF 序列）。
+
+#### 3. 全景式 Unicode 與 ISO 10646 編碼形式支持
+
+對於面向現代 Unicode 體系的轉換，`recode` 提供了細緻入微的編碼形式別名：
+* **`u7`**：UTF-7 編碼（其優勢在於完全由純 ASCII 字符表示，對歐洲語言具備高度的人類可讀性）；
+* **`u8`**：通用的標準 UTF-8；
+* **`u6`**：通用 UTF-16（字節序自適應當前主機平臺的本地硬件架構）；
+* **`UTF-16BE` 與 `UTF-16LE`**：顯式欽定的大端序（Big-Endian）與小端序（Little-Endian）UTF-16；
+* **ISO 10646 家族別名**：
+  - `UCS-2-INTERNAL`：採用本地字節序的 16 位編碼；
+  - `UCS-2-SWAPPED`：採用與本地主機完全相反字節序的 16 位編碼；
+  - `UCS-2LE`：純小端序 16 位編碼（在此重溫：UCS-2 絕大多數規則與 UTF-16 一致，唯獨不支持超出 `0x10FFFF` 的輔助平面代理對）；
+  - `UCS-4-INTERNAL`、`UCS-4-SWAPPED`、`UCS-4BE`、`UCS-4LE`：32 位全寬編碼的完整字節序矩陣。
+
+在轉換過程中，若文檔包含某些無法直接映射的目標字符，`recode` 默認會終止處理以確保數據安全；用戶可通過附加 **`-f`（Force）參數** 強制工具完成轉碼（未識別字符將被特定標記替換，但在工程中須謹慎校驗結果）。
+
+#### 4. 277 種編碼體系與獨特的“僞編碼”（Pseudo-Encodings）生態
+
+截至 3.6 版本，`recode` 官方支持的編碼庫高達 277 種，完整橫跨了半個多世紀的計算史遺產：
+* **`us`**：美國本地化 ASCII（即後來的 ISO 646.1991-IRV），帶音符的字母會自動拆解爲反斜槓形式（如 `voil\a`）；
+* **Macintosh 體系**：`MacArabic`、`MacCentralEurope`、`MacCroatian`、`MacCyrillic`、`MacGreek`、`MacHebrew`、`MacIceland`、`MacRoman`、`MacRomania`、`MacThai`、`MacTurkish`、`MacUkraine` 等全套經典資源分叉編碼；
+* **中文傳統編碼**：`BIG5`、`cn`（GB 1988）、`CHINESE`（GB 2312）、`ISO-2022-CN`、`ISO-2022-CN-EXT`、`EUC-CN`、`EUC-TW`；
+* **日文傳統編碼**：`JIS_C6220-1969`、`JIS_C6229-1984`、`JIS_X0201`、`JIS_X0208`、`JIS_X0212`、`SJIS`、`ISO-2022-JP`、`EUC-JP` 等；
+* **韓文傳統編碼**：`KSC5636`、`KSC_5601`、`JOHAB`（組合型編碼）、`ISO-2022-KR`、`EUC-KR`；
+* **ISO 8859 全家桶**：`l1` 至 `l9`（Latin-1 至 Latin-9）、`cyrillic`（8859-5）、`arabic`（8859-6）、`greek`（8859-7）、`hebrew`（8859-8）；
+* **微軟代碼頁**：`CP866`、`CP874`、`CP932`、`CP949`、`CP950`、`CP1258`、`ms-ee`（Windows-1250）、`ms-cyrl`（Windows-1251）、`ms-ansi`（Windows-1252）、`ms-greek`、`ms-turk`、`ms-hebr`、`ms-arab` 等；
+* **大型機 EBCDIC**：覆蓋各主要國家語言本地化變體的 EBCDIC 系列。
+
+尤爲令人拍案叫絕的是 `recode` 原創的一系列**“僞編碼”（Pseudo-Encodings）**，它們爲文檔排版與逆向工程提供了不可替代的魔術般捷徑：
+* **`TeX`**：自動將文檔中的帶音符字符轉換爲純正的 $\mathrm{\TeX}$ 控制宏（例如將 `é` 轉爲 `\'{e}`，將 `à` 轉爲 `\`{a}`）；
+* **`h1, ..., h4`**：自動將特殊字符轉義爲對應 HTML 版本標準的命名實體（如 `&eacute;`、`&ccedil;`）；
+* **`flat`**：將所有帶音符的字母粗暴剝離其附加符號，退化爲其基礎拉丁字母骨架（如將 `ë`、`ê`、`é` 統一拍平爲 `e`）；
+* **`dump-with-names`**：將文檔中的每一個字符逐一展開，打印出其所屬的 Unicode 官方標準全稱（例如將字符 `A` 展開爲 `0x0041 LATIN CAPITAL LETTER A`），爲字符屬性研判與疑難亂碼排查提供了終極調試利器！
+
+
+
+---
+
+### 傳奇轉碼利器：François Pinard 的 `recode` 實用程序
+
+在 Unix 自由軟件歷史長河中，有一款擁有數十載深厚淵源的傳奇轉碼工具——由加拿大魁北克傑出程序員弗朗索瓦·皮納爾（François Pinard）主導開發的 **`recode`** [293]。其歷史雛形（當時冠以其他名稱）甚至可一路追溯至 20 世紀 70 年代，而其現代版本則在底層依託於 GNU `libiconv` 運行時架構。
+
+#### 1. 極簡優雅的管道語法
+
+在命令行中，轉換文件 `foo.txt` 的基本語法極其直觀：只需在 `recode` 龐大的支持列表裏找到源編碼 $A$ 與目標編碼 $B$，即可直接執行原位覆寫轉換：
+
+```bash
+recode A..B foo.txt
+```
+
+若希望保留原始文件並重定向輸出至新文件，可使用標準流重定向：
+
+```bash
+recode A..B < foo.txt > foo-converted.txt
+```
+
+更爲驚豔的是，`recode` 允許在單一命令調用中串聯任意多級轉換跳板：
+
+```bash
+recode A..B..C..D..E foo.txt
+```
+
+#### 2. “表面”（Surface）序列化機制
+
+`recode` 最具突破性的設計之一，在於引入了名爲“表面”（Surface）的概念——這在本質上正是 Unicode 序列化機制（Serialization Mechanisms）的對應物：**在不改變字符抽象編碼的前提下，對其物理存儲與傳輸載體形態進行變換**。
+
+若 $S$ 爲某種表面序列化機制，用戶可通過斜槓語法將其直接附加於目標編碼之後：
+
+```bash
+recode A..B/S foo.txt
+```
+
+在執行編碼 $A \to B$ 轉換的同時，工具會自動疊加上特定的序列化表示。`recode` 提供的核心表面機制包括：
+* **`b64`**：標準的 Base64 編碼；
+* **`d1, d2, d4`**：以十進制純數字形式轉儲字符（分別對應單字節 byte-by-byte、雙字節 wyde-by-wyde、四字節 tetrabyte-by-tetrabyte）；
+* **`h1, x2, x4`**（以及八進制形式 `o1`）：以十六進制或八進制格式輸出字節序列；
+* **`QP`**：電子郵件中廣泛採用的 Quoted-Printable 可打印字符編碼；
+* **`CR` 與 `CR-LF`**：行尾終止符標準化轉換（將 Unix 換行符 LF 轉換爲經典 Mac 的回車符 CR，或 Windows/DOS 的 CR-LF 序列）。
+
+#### 3. 全景式 Unicode 與 ISO 10646 編碼形式支持
+
+對於面向現代 Unicode 體系的轉換，`recode` 提供了細緻入微的編碼形式別名：
+* **`u7`**：UTF-7 編碼（其優勢在於完全由純 ASCII 字符表示，對歐洲語言具備高度的人類可讀性）；
+* **`u8`**：通用的標準 UTF-8；
+* **`u6`**：通用 UTF-16（字節序自適應當前主機平臺的本地硬件架構）；
+* **`UTF-16BE` 與 `UTF-16LE`**：顯式欽定的大端序（Big-Endian）與小端序（Little-Endian）UTF-16；
+* **ISO 10646 家族別名**：
+  - `UCS-2-INTERNAL`：採用本地字節序的 16 位編碼；
+  - `UCS-2-SWAPPED`：採用與本地主機完全相反字節序的 16 位編碼；
+  - `UCS-2LE`：純小端序 16 位編碼（在此重溫：UCS-2 絕大多數規則與 UTF-16 一致，唯獨不支持超出 `0x10FFFF` 的輔助平面代理對）；
+  - `UCS-4-INTERNAL`、`UCS-4-SWAPPED`、`UCS-4BE`、`UCS-4LE`：32 位全寬編碼的完整字節序矩陣。
+
+在轉換過程中，若文檔包含某些無法直接映射的目標字符，`recode` 默認會終止處理以確保數據安全；用戶可通過附加 **`-f`（Force）參數** 強制工具完成轉碼（未識別字符將被特定標記替換，但在工程中須謹慎校驗結果）。
+
+#### 4. 277 種編碼體系與獨特的“僞編碼”（Pseudo-Encodings）生態
+
+截至 3.6 版本，`recode` 官方支持的編碼庫高達 277 種，完整橫跨了半個多世紀的計算史遺產：
+* **`us`**：美國本地化 ASCII（即後來的 ISO 646.1991-IRV），帶音符的字母會自動拆解爲反斜槓形式（如 `voil\a`）；
+* **Macintosh 體系**：`MacArabic`、`MacCentralEurope`、`MacCroatian`、`MacCyrillic`、`MacGreek`、`MacHebrew`、`MacIceland`、`MacRoman`、`MacRomania`、`MacThai`、`MacTurkish`、`MacUkraine` 等全套經典資源分叉編碼；
+* **中文傳統編碼**：`BIG5`、`cn`（GB 1988）、`CHINESE`（GB 2312）、`ISO-2022-CN`、`ISO-2022-CN-EXT`、`EUC-CN`、`EUC-TW`；
+* **日文傳統編碼**：`JIS_C6220-1969`、`JIS_C6229-1984`、`JIS_X0201`、`JIS_X0208`、`JIS_X0212`、`SJIS`、`ISO-2022-JP`、`EUC-JP` 等；
+* **韓文傳統編碼**：`KSC5636`、`KSC_5601`、`JOHAB`（組合型編碼）、`ISO-2022-KR`、`EUC-KR`；
+* **ISO 8859 全家桶**：`l1` 至 `l9`（Latin-1 至 Latin-9）、`cyrillic`（8859-5）、`arabic`（8859-6）、`greek`（8859-7）、`hebrew`（8859-8）；
+* **微軟代碼頁**：`CP866`、`CP874`、`CP932`、`CP949`、`CP950`、`CP1258`、`ms-ee`（Windows-1250）、`ms-cyrl`（Windows-1251）、`ms-ansi`（Windows-1252）、`ms-greek`、`ms-turk`、`ms-hebr`、`ms-arab` 等；
+* **大型機 EBCDIC**：覆蓋各主要國家語言本地化變體的 EBCDIC 系列。
+
+尤爲令人拍案叫絕的是 `recode` 原創的一系列**“僞編碼”（Pseudo-Encodings）**，它們爲文檔排版與逆向工程提供了不可替代的魔術般捷徑：
+* **`TeX`**：自動將文檔中的帶音符字符轉換爲純正的 $\mathrm{\TeX}$ 控制宏（例如將 `é` 轉爲 `\'{e}`，將 `à` 轉爲 `\`{a}`）；
+* **`h1, ..., h4`**：自動將特殊字符轉義爲對應 HTML 版本標準的命名實體（如 `&eacute;`、`&ccedil;`）；
+* **`flat`**：將所有帶音符的字母粗暴剝離其附加符號，退化爲其基礎拉丁字母骨架（如將 `ë`、`ê`、`é` 統一拍平爲 `e`）；
+* **`dump-with-names`**：將文檔中的每一個字符逐一展開，打印出其所屬的 Unicode 官方標準全稱（例如將字符 `A` 展開爲 `0x0041 LATIN CAPITAL LETTER A`），爲字符屬性研判與疑難亂碼排查提供了終極調試利器！
+
+
 ### 現代腳本語言中的轉碼生態
 
 在現代高級編程語言中，Unicode 轉換已經成爲語言基礎設施的有機組成部分：

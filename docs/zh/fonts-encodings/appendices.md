@@ -779,7 +779,270 @@ def parse_tfm(data: bytes):
 
 ---
 
-## C.1 PostScript Type 1 字体的内存拓扑与解密引擎
+## C.1 PostScript 页面描述语言技术导论（Introduction to the PostScript Language）
+
+自 1985 年首款激光打印机（Apple LaserWriter）面世以来，PostScript 语言迅速风靡了整个计算机世界——从印刷工业级的出版物制作，到企业办公与个人文档打印，它无处不在。在本附录中，我们将详细剖析 PostScript 体系的各类字体格式：首当其冲的自然是 Type 1，此外还包括 Type 3、Type 42、Type 0、CID 架构、多重母版（Multiple Master）以及紧凑字体格式 CFF/Type 2。
+
+在剖析具体的字体二进制容器与轮廓格式之前，我们必须首先对 PostScript 语言进行精要而严谨的技术导引。这门导引对于理解字体内部所使用的语法结构、算子操作模型以及字形对象的操纵本质至关重要。需要说明的是，本节并不企图面面俱到地替代厚达 912 页的官方《PostScript 语言参考手册》（*PostScript Language Reference*, 俗称红皮书）[24]；我们的核心宗旨在于直击要害，为排印工程师建立扎实的语言心智模型。
+
+### C.1.1 语法范式与逆波兰栈式机（Syntax）
+
+PostScript 是一门纯粹的**解释型、栈式、后缀表达式（Postfix / Reverse Polish Notation, RPN）**编程语言。其基本语法规则由空白字符（空格、制表符、换行符）分隔的**词元（Tokens）**构成，以 `%` 开头的行视为注释。
+
+当解释器扫描到一个词元时：
+- 若词元代表一个字面常量（如整数、实数、字符串），解释器将其直接压入**操作数栈（Operand Stack）**；
+- 若词元代表一个可执行算子（Operator）或命名过程，解释器将立即执行它，该算子会从操作数栈顶弹出所需数量的操作数，执行计算后将结果重新压回栈顶。
+
+例如，简单的数学加法 $3 + 4$ 在 PostScript 中书写为：
+
+```postscript
+3 4 add
+```
+
+计算完毕后，操作数栈顶只留下唯一的整数结果 `7`。
+
+PostScript 支持丰富的数据类型：
+1. **数值型（Numbers）**：整数（`123`）、八进制数（`8#177`）、十六进制数（`16#FF`）与实数（`3.14159`、`-1.2e-4`）；
+2. **布尔型（Booleans）**：`true` 与 `false`；
+3. **字符串（Strings）**：定界在圆括号中的普通字符串（如 `(Hello World)`），或定界在尖括号中的十六进制字符串（如 `<48656C6C6F>`）；
+4. **名称（Names）**：
+   - **字面名称（Literal Name）**：以斜杠开头的符号（如 `/Helvetica`、`/width`），自身不被立即求值，直接作为符号键名压入栈中；
+   - **可执行名称（Executable Name）**：不带斜杠的标识符（如 `add`、`moveto`），被解释器在当前活动字典层级中查找并立即执行；
+5. **数组（Arrays）**：由方括号定界的对象序列（如 `[ 1 2 (three) /four ]`）；
+6. **过程（Procedures）**：由花括号定界的可执行代码块（如 `{ add 2 div }`），在被调用前作为整体对象保存在栈或字典中；
+7. **字典（Dictionaries）**：键值对集合，驱动着 PostScript 的全局变量表与字体定义模型。
+
+### C.1.2 物理坐标系与用户空间（The System of Coordinates）
+
+在 PostScript 中，所有几何绘图操作均发生在一个抽象的**用户空间（User Space）**中，解释器在光栅化输出时会将其自动映射到物理设备的**设备空间（Device Space）**。
+
+- **默认度量单位**：用户坐标系采用经典的排印**大号点（PostScript Point）**，严格定义为：
+  $$1 \text{ pt} = \frac{1}{72} \text{ inch} = \frac{25.4}{72} \text{ mm} \approx 0.352778 \text{ mm}$$
+- **默认原点与轴向**：默认原点 $(0, 0)$ 坐落于物理页面的**左下角**；$x$ 轴水平向右延伸，$y$ 轴垂直向上延伸。这与大多数计算机屏幕坐标系（原点在左上角、$y$ 轴向下）形成了鲜明对立。
+
+### C.1.3 当前变换矩阵（The Current Transformation Matrix, CTM）
+
+用户空间到物理设备空间的几何映射由一个 $3 \times 3$ 的仿射变换矩阵掌控，称为**当前变换矩阵（CTM）**。任何用户坐标 $(x, y)$ 变换为设备坐标 $(x', y')$ 的矩阵代数方程为：
+
+$$\begin{bmatrix} x' & y' & 1 \end{bmatrix} = \begin{bmatrix} x & y & 1 \end{bmatrix} \begin{bmatrix} a & b & 0 \\ c & d & 0 \\ t_x & t_y & 1 \end{bmatrix} = \begin{bmatrix} a x + c y + t_x & b x + d y + t_y & 1 \end{bmatrix}$$
+
+在 PostScript 中，该矩阵在内存中紧凑地表示为一个六元数组 `[a b c d tx ty]`。PostScript 提供了完整的坐标系操纵算子：
+- `translate`：将原点平移 $(t_x, t_y)$，即 `tx ty translate`；
+- `scale`：按比例因子 $(s_x, s_y)$ 缩放坐标系，即 `sx sy scale`；
+- `rotate`：逆时针旋转 $\theta$ 角度，即 `theta rotate`；
+- `concat`：将栈顶的自定义变换矩阵复合累加到当前 CTM 中；
+- `matrix`：在内存中分配一个恒等变换矩阵 `[1 0 0 1 0 0]`；
+- `currentmatrix` 与 `setmatrix`：获取与恢复底层 CTM。
+
+### C.1.4 矢量路径系统（Paths）
+
+在 PostScript 中，绘制任意几何轮廓的核心是**路径（Path）**。路径由一系列连续或离散的线段和三次贝塞尔曲线段构成。构建路径的关键算子包括：
+- `newpath`：清空当前路径缓存，初始化一条全新路径；
+- `moveto`（与相对位移 `rmoveto`）：抬起虚拟画笔，移动至绝对坐标 $(x, y)$，确立新的**当前点（Current Point）**；
+- `lineto`（与相对位移 `rlineto`）：从当前点向目标点 $(x, y)$ 连接一条直线段；
+- `curveto`（与相对位移 `rcurveto`）：从当前点 $(x_0, y_0)$ 出发，以 $(x_1, y_1)$ 与 $(x_2, y_2)$ 作为两个离线贝塞尔控制手柄，绘制平滑到达 $(x_3, y_3)$ 的**三次贝塞尔曲线段（Cubic Bézier Curve）**：
+  $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3, \quad t \in [0, 1]$$
+- `closepath`：从当前点向当前子路径的起始点绘制一条闭合直线，封口形成闭合轮廓；
+- `pathbbox`：计算并返回当前路径的严格轴对齐外包围盒 `llx lly urx ury`；
+- `clip`：将当前闭合路径设为**裁剪区域（Clipping Path）**，后续的所有绘制操作将被限制在闭合多边形内部。
+
+### C.1.5 轮廓着色与两大填色拓扑准则（Shapes & Filling Rules）
+
+路径构建完毕后，本身仅是一条无形数学边界；要将其固化为可见图元，需调用着色算子：
+- `stroke`：使用当前描边宽度与画笔属性，沿路径轨迹绘制有宽度的墨迹；
+- `fill`：按照**非零环绕数规则（Non-zero Winding Number Rule）**对闭合多边形内部进行实体填充；
+- `eofill`：按照**奇偶规则（Even-Odd Rule）**对闭合多边形内部进行填充。
+
+::: tip 深入理解两大填充法则的拓扑对立
+* **非零环绕数规则（`fill`）**：从待判定的测试点向无穷远处引一条射线。初始化计数器为 0；凡是从射线左侧穿向右侧的轮廓线，计数器加 1；凡是从右侧穿向左侧的轮廓线，计数器减 1。若最终计数器的代数和不等于 0，则判定该点位于图形内部，执行着色；若等于 0，则判定为外部镂空（Counter）。**这正是 Type 1 与 TrueType 字体规范中要求外轮廓与内镂空轮廓必须严格逆向旋转的拓扑根源！**
+* **奇偶规则（`eofill`）**：从测试点向无穷远引一条射线，统计与路径的所有交点总数。若交点总数为奇数，则判定在内部填充；若为偶数，则判定在外部。该规则无需关心轮廓绘制的顺时针或逆时针方向。
+:::
+
+### C.1.6 光栅位图渲染（Bitmap Images）
+
+除了矢量路径，PostScript 还支持点阵光栅位图的精准印制：
+- `imagemask`：专门用于渲染 1 位黑白单色掩码，常用于位图点阵字体的快速印制。它将单色像素阵列作为不透明与全透明的蒙版，仅在位为 1 的区域泼洒当前选定的前景色；
+- `image`：用于渲染 8 位或 24 位的多级灰度与全彩照片级图像，通过传入宽度、高度、位深与矩阵解码数据流。
+
+### C.1.7 虚拟机堆栈、数组与字典管理（Managing Stack & Dictionaries）
+
+PostScript 解释器内部常驻三大核心堆栈：
+1. **操作数栈（Operand Stack）**：暂存全部数据与算子参数；
+2. **执行栈（Execution Stack）**：跟踪当前正在调用的嵌套过程与控制流；
+3. **字典栈（Dictionary Stack）**：管理名称与对象绑定的作用域。
+
+#### (1) 操作数栈操纵经典算子
+- `dup`：复制栈顶元素（`x -> x x`）；
+- `pop`：丢弃栈顶元素（`x -> `）；
+- `exch`：交换栈顶前两个元素的位置（`x y -> y x`）；
+- `copy`：复制栈顶前 $n$ 个元素；
+- `index`：将栈深第 $n$ 处的元素复制一份置于栈顶（`xn ... x0 n -> xn ... x0 xn`）；
+- `roll`：对栈顶 $n$ 个元素执行深度为 $j$ 的循环滚动置换；
+- `clear`：清空整个操作数栈。
+
+#### (2) 字典管理与命名空间
+字典是键值对哈希表。字典栈顶部的字典称为**当前字典（Current Dictionary）**。
+- `dict`：在堆内存中分配指定容量的新字典（例如 `10 dict` 创建一个容量为 10 的字典）；
+- `begin`：将指定的字典压入字典栈顶，使其成为当前查找名称的第一优先作用域；
+- `end`：弹出字典栈顶的字典；
+- `def`：在当前字典中创建键值绑定（如 `/pi 3.14159 def`）；
+- `load`：在字典栈中沿着作用域层级由顶向下搜索指定的键名并返回其绑定的对象。
+
+### C.1.8 字体调度与排版核心指令（Font Management and Typesetting）
+
+PostScript 将字体本身设计为一种特殊的顶层字典。排版文本的基本工作流由以下核心指令驱动：
+1. `findfont`：在全局字库目录（`FontDirectory`）中按名称检索字体字典指针（如 `/Helvetica findfont`）；
+2. `scalefont`：将字体的基准设计空间（通常为 1000 单位正方形）按指定字号缩放（如 `12 scalefont`，在底层自动将其 `FontMatrix` 与缩放矩阵相乘）；
+3. `setfont`：将缩放后的字体安装到当前图形状态中；
+4. `show`：从当前点出发，将栈顶字符串逐字渲染输出，并自动按照各字符的进深（Advance Width）步进当前点；
+5. `stringwidth`：计算指定字符串在当前字体下的总体排版宽度与位移量 `(wx wy)`，但不执行任何实际墨迹绘制；
+6. `charpath`：提取字符串中每一个字符的纯矢量轮廓，将其转化为当前路径，以便设计师后续调用 `stroke` 描边、`clip` 镂空或填充渐变特效！
+
+### C.1.9 图形状态堆栈与色彩模型（The Graphics State）
+
+为了支持模块化的绘图逻辑，PostScript 维护了**图形状态（Graphics State）**栈：
+- `gsave`：将当前的全部图形属性（CTM、当前点、画笔线宽、线帽样式、裁剪路径、色彩等）打包克隆并压入图形栈顶；
+- `grestore`：弹出并完全恢复上一次保存的图形上下文状态，确保子程序的局部坐标变换绝不污染全局页面。
+
+线条与色彩控制指令包括：
+- `setlinewidth`：设定描边线宽；
+- `setlinecap`：设定线端端点形状（0 为平头断开，1 为圆头，2 为方形延伸方头）；
+- `setlinejoin`：设定折角连接样式（0 为尖角拼接，1 为圆弧拼接，2 为斜角平切）；
+- `setmiterlimit`：设定斜接限制比率，防止尖角过度延长；
+- `setdash`：配置虚线模式（如 `[3 2] 0 setdash`）；
+- `setgray`、`setrgbcolor`、`setcmykcolor`：分别在单通道灰度、三原色 RGB 以及四色印刷 CMYK 色彩空间中配置当前绘制墨色。
+
+### C.1.10 文档结构规范化注释（Structured Comments / DSC）
+
+为了让外部预检软件、排版排版解释器与打印机后台打印管理程序（Spooler）能够在不完全执行整个 PostScript 程序的情况下提取页面元数据，Adobe 制定了**文档结构规范（Document Structuring Conventions, DSC）**。这些结构化信息均以形如 `%%` 的特殊注释格式书写：
+- `%!PS-Adobe-3.0`：指明该文件遵循 DSC 3.0 工业标准；
+- `%%BoundingBox: llx lly urx ury`：声明整个文档所有页面的全局闭包矩形；
+- `%%Pages: n`：声明文档的总页数；
+- `%%Page: label ordinal`：明确标识某一特定页面的起始点（例如 `%%Page: 1 1`）；
+- `%%Trailer`：进入文档的尾声收尾段落；
+- `%%EOF`：文档正式终止标记。
+
+---
+
+## C.2 纯 PostScript 可编程字型：Type 3 字体架构（Type 3 Fonts）
+
+在所有 PostScript 字体格式中，**Type 3** 是最为自由、最为开放、但也最缺乏光栅微调约束的一种特殊格式。与底层采用高度压缩加密字节码（CharStrings）的 Type 1 不同，Type 3 字体**直接使用正规的 PostScript 高级源码过程来定义字形**！
+
+### C.2.1 Type 3 字体的工业优势与技术局限
+
+- **核心优势**：
+  * **完全图灵完备的自由表达**：字形描述过程可以使用几乎所有合法的 PostScript 算子！这意味着字形可以拥有全彩色渐变（Shading）、可以内嵌光栅照片（`image`）、可以动态计算随机纹理、甚至可以绘制带有可调线宽的灰度描边图元；
+  * **零授权成本**：在 Type 1 加密算法被 Adobe 严密封锁的岁月里，Type 3 成为所有第三方开源编译器与 DTP 软件生成矢量字型的唯一合法途径。
+- **技术局限**：
+  * **无微观提示机制（No Hinting）**：Type 3 规范不具备 Type 1 专属的干预像素栅格对齐的提示算子。因此在低分辨率显示器或激光打印机的小字号排印下，字形边缘容易模糊或笔画断裂；
+  * **无法享受专用硬件光栅加速器**：多数 PostScript RIP 硬件针对 Type 1 内置了极其快速的专用解密与光栅化 ASIC 芯片，而 Type 3 只能作为普通通用 PostScript 过程在解释器主循环中慢速解析。
+
+### C.2.2 Type 3 字体字典的内部字段架构
+
+一个标准的 Type 3 字体字典必须向解释器注册以下关键条目：
+
+| 字典键名 | 类型 | 规范说明 |
+| :--- | :---: | :--- |
+| `FontType` | 整数 | **固定必须为 3**，向解释器声明此乃 Type 3 字体字典。 |
+| `FontMatrix` | 数组 | 将字形设计空间转换为用户空间的仿射变换矩阵（常用 `[0.001 0 0 0.001 0 0]`，将 1000 单位的设计网格折算为 1 点）。 |
+| `FontBBox` | 数组 | 容纳字库中全体字形的绝对外包围盒 `[llx lly urx ury]`。 |
+| `Encoding` | 数组 | 容量固定为 256 的名称数组，将 `0-255` 编码映射为字形符号名称。 |
+| `BuildGlyph` | 过程 | 现代 PostScript Level 2/3 标准驱动程序：从栈顶接收字体字典与字形名称，负责动态绘制该字形。 |
+| `BuildChar` | 过程 | 早期 PostScript Level 1 兼容程序：从栈顶接收字体字典与字符编码，负责执行字形绘制。 |
+
+### C.2.3 `setcachedevice` 与 `setcharwidth` 缓存决策
+
+在 `BuildGlyph`（或 `BuildChar`）过程内部，字形绘制的第一步必须明确通知底层图形引擎该字形是否应当被存入 RIP 的高速字形点阵缓存（Font Cache）：
+
+1. **`setcachedevice`（启用字形高速缓存）**：
+   语法：`wx wy llx lly urx ury setcachedevice`
+   通知解释器：该字形的前进量为 $(w_x, w_y)$，外包围盒为 $[ll_x, ll_y, ur_x, ur_y]$。解释器会为该字形在内存中分配一块点阵缓冲区；当相同字符再次出现时，直接拷贝光栅位图，极大提升排版吞吐率。**注意：使用 `setcachedevice` 的字形内部严禁调用任何色彩算子（如 `setrgbcolor`），所有描边与填充强制继承外部文本前景色。**
+2. **`setcharwidth`（禁用缓存，允许全彩与复杂动态特性）**：
+   语法：`wx wy setcharwidth`
+   仅向系统声明字形水平与垂直位移 $(w_x, w_y)$。系统不会缓存渲染结果，每次排版均重新执行绘制代码。**该算子专为全彩色字形、多色套印图章、以及带有随机动态算法的特殊字型量身定制！**
+
+### C.2.4 极简 Type 3 字体纯 PostScript 源码实战范例
+
+以下是一份完全符合工业标准的 Type 3 字体可执行 PostScript 源代码范本，它定义了一个名为 `/MinimalType3` 的字体，并在内部通过纯矢量指令手工绘制了字母 `'A'` 与 `'B'`：
+
+```postscript
+%!PS-Adobe-3.0 Resource-Font
+8 dict begin
+  /FontType 3 def
+  /FontMatrix [0.001 0 0 0.001 0 0] def
+  /FontBBox [0 0 1000 1000] def
+
+  % 256 位编码向量初始化：默认填入 /.notdef
+  /Encoding 256 array def
+  0 1 255 { Encoding exch /.notdef put } for
+  Encoding 65 /A put
+  Encoding 66 /B put
+
+  % 字形轮廓描述子字典
+  /CharProcs 3 dict def
+  CharProcs begin
+    /.notdef {
+      0 0 0 0 0 0 setcachedevice
+    } def
+
+    /A {
+      % 进深 600，包围盒 [50 0 550 800]
+      600 0 50 0 550 800 setcachedevice
+      newpath
+      50 0 moveto
+      300 800 lineto
+      550 0 lineto
+      450 0 lineto
+      375 250 lineto
+      225 250 lineto
+      150 0 lineto
+      closepath
+      % 内部镂空三角（逆时针绘制以实现非零环绕数镂空）
+      300 600 moveto
+      250 400 lineto
+      350 400 lineto
+      closepath
+      fill
+    } def
+
+    /B {
+      % 进深 650，包围盒 [50 0 600 800]
+      650 0 50 0 600 800 setcachedevice
+      newpath
+      50 0 moveto 50 800 lineto 400 800 lineto
+      550 800 600 700 600 550 curveto
+      600 450 520 400 450 400 curveto
+      550 400 600 350 600 200 curveto
+      600 50 500 0 350 0 curveto
+      closepath
+      fill
+    } def
+  end
+
+  % BuildGlyph 分发器
+  /BuildGlyph {
+    exch begin
+      % 栈：glyphname
+      dup CharProcs exch known {
+        CharProcs exch get exec
+      } {
+        pop CharProcs /.notdef get exec
+      } ifelse
+    end
+  } def
+
+  /BuildChar {
+    1 index /Encoding get exch get
+    1 index /BuildGlyph get exec
+  } def
+currentdict end
+/MinimalType3 exch definefont pop
+```
+
+
+---
+
+## C.3 PostScript Type 1 字体的内存拓扑与解密引擎
 
 一个物理上的 Type 1 字体在不同操作系统下有不同的打包载体：
 1. **`.PFA`（PostScript Font ASCII）**：纯文本封装格式，常用于 Unix 工作站与通信信道。`eexec` 加密段被编码为两位的十六进制 ASCII 字符串（Hexadecimal-encoded），每行 64 字符；
@@ -1157,6 +1420,83 @@ end
 ```
 
 通过将字符与字形完全解耦，CMap 文件不仅支持一对一的直接寻址，更通过垂直变体（`V` 系列 CMap）与竖排度量表实现了无缝的纵向书写切换。
+---
+
+---
+
+## C.6 PostScript 字体外部度量规范：AFM、AMFM 与 Windows PFM（Font Metrics Files）
+
+在 PostScript 架构中，字体轮廓程序（`.pfa` 或 `.pfb`）主要由打印机或屏幕 RIP 解释器在光栅化着色阶段执行；而在上层的桌面排版软件（如 PageMaker、QuarkXPress、InDesign）或排版系统（如 $\mathrm{\TeX}$、$\mathrm{Troff}$）中，排版引擎计算行长、折行断字以及字距微调时，**并不需要读取沉重且加密的矢量轮廓字节码，而只需获悉各个字符的纯几何度量数据（Metrics）**。
+
+为此，Adobe 制定了一套完全基于纯 ASCII 文本的工业度量文件标准——**AFM（Adobe Font Metrics）** [22]，以及 Windows 操作系统所专用的二进制派生物 **PFM（Printer Font Metrics）**。
+
+### C.6.1 AFM 文件的全局结构与度量语法
+
+AFM 文件本质上是一份由换行符分隔的键值对与表格流，以 `StartFontMetrics 4.1` 开头，以 `EndFontMetrics` 结尾。其内部结构严格由四大功能段落构成：
+
+#### 1. 全局字体元数据段（Global Font Information）
+该段落声明整座字体的宏观物理度量基准与标识字符串：
+* **`FontName`**：字体的正式 PostScript 符号名称（如 `Helvetica-Bold`）；
+* **`FullName`** 与 **`FamilyName`**：完整人类可读名称与家族族名；
+* **`Weight`**：字重（如 `Medium`、`Bold`、`Black`）；
+* **`ItalicAngle`**：笔画倾斜角（以度为单位，逆时针方向为负，正体为 `0`，典型斜体为 `-12`）；
+* **`IsFixedPitch`**：布尔值，声明是否为等宽字体（`true` 或 `false`）；
+* **`FontBBox`**：容纳字体全部字符外边缘的全局外包围盒 `llx lly urx ury`；
+* **`UnderlinePosition` 与 `UnderlineThickness`**：下划线的垂直偏移基线深度与笔画粗细；
+* **`Version`** 与 **`Notice`**：版本号与版权声明；
+* **`EncodingScheme`**：该度量文件所默认绑定的编码方案名称（如 `AdobeStandardEncoding`、`ISOLatin1Encoding` 或 `FontSpecific`）；
+* **`CapHeight` 与 `XHeight`**：大写字母字高与小写字母 x 字高；
+* **`Ascender` 与 `Descender`**：上升部最高线与下降部最低谷。
+
+#### 2. 单字形微观度量段（Individual Character Metrics）
+以 `StartCharMetrics n` 开头（$n$ 为包含的字符总数），以 `EndCharMetrics` 结尾。每一行精确记录一个字形的几何度量，字段之间以分号 `;` 分隔：
+
+```afm
+C 65 ; WX 667 ; N A ; B 17 0 650 718 ;
+C 102 ; WX 333 ; N f ; B 20 0 382 718 ; L i fi ; L l fl ;
+```
+
+关键度量字段的严密物理定义：
+* **`C`**：字符在该字体默认编码向量中的十进制编码值（`-1` 代表在默认编码中未被分配码位的字形）；
+* **`WX`**（或纵向模式下的 `WY`）：字形的水平排版前进进深宽度（以 1000 设计单位为基准）；
+* **`N`**：该字形在 PostScript 字典中的唯一符号名称（如 `A`、`ampersand`）；
+* **`B`**：该字形的轴对齐外包围盒 `llx lly urx ury`（左下角点与右上角点坐标）；
+* **`L`（连字指令，Ligature Directive）**：声明该字形后继跟随时可自动合成的合字规则（如 `L i fi` 声明当字符 `f` 之后紧跟字符 `i` 时，自动替换为合字 `fi`）。
+
+#### 3. 字距微调对段（Kerning Pairs）
+以 `StartKernData` 开头，以 `EndKernData` 结尾。其核心为字偶微调对子表：
+```afm
+StartKernPairs 350
+KPX A V -75
+KPX T o -80
+KPX W a -60
+EndKernPairs
+```
+每行以 **`KPX`** 关键字引导，声明左侧字形、右侧字形以及沿水平 $x$ 轴施加的度量微调量（以 1000 单位正方形为尺度；负值表示两字靠拢紧缩，正值表示相互推开）。
+
+#### 4. 轨迹字距调整段（Track Kerning）
+AFM 规范还支持通过 `StartTrackKern` 声明**轨迹字距（Track Kerning）**，允许排版软件根据文档当前的实际排版字号，线性插值缩放字距松紧度，实现在极小正文字号下自适应放宽字距、在特大标题字号下自适应收紧字距的高级排印物理模型！
+
+### C.6.2 多重母版度量文件：AMFM 与多母版协作
+
+对于多重母版字体（Multiple Master），度量体系由两层架构支撑：
+1. **主度量文件（`.amfm`，Adobe Multiple Master Font Metrics）**：声明所有设计轴（Design Axes，如字重轴 Weight、字宽轴 Width、光学尺寸轴 Optical Size）、轴向极值范围、主母版数目、以及用于驱动插值运算的代数混合矩阵（Blend Matrix）；
+2. 各个离散极限母版各自附带一份独立的普通 AFM 文件，排版软件根据用户指定的坐标点 $(w_1, w_2, \dots)$ 对所有 AFM 度量执行加权向量线性求和，动态合成当前专属实例的度量数据。
+
+### C.6.3 Windows 二进制打印机度量文件：PFM
+
+在经典的 16 位与 32 位 Windows 操作系统（Windows 3.1/95/98/NT/2000/XP）中，系统内核与 GDI 引擎为了规避解析庞大 ASCII 文本文件的性能惩罚，规定必须将 AFM 文件预先编译为二进制的 **`.pfm`（Printer Font Metrics）** 文件。
+
+一个 PFM 文件由精密的 C 语言二进制结构体打包而成：
+- **`dfType`**：字体类型（通常为 `0x0080` 表示 PostScript 栅格驱动）；
+- **`dfPoints`** 与 **`dfVertRes` / `dfHorizRes`**：标称点数与设计分辨率；
+- **`dfAscent`** 与 **`dfInternalLeading` / `dfExternalLeading`**：Windows 经典的字体上升部与行距前导空白；
+- **`dfWeight`**：以 1 到 1000 标定的字重整数（400 为常规 Normal，700 为粗体 Bold）；
+- **`dfPitchAndFamily`**：等宽/变宽标志位与 Windows 字体家族族群分类码；
+- **`dfWidthTable`**：指向 256 位字符宽度表的 32 位文件偏移指针；
+- **`dfPairKernTable`**：指向经过二进制结构化排序的字距微调对数组的文件偏移量指针。
+
+
 ---
 
 ## C.7 CFF 字典键值与二进制操作码权威词典
@@ -2515,6 +2855,91 @@ GPOS Type 6 构筑了音标之间的递归相对几何锚点：
 | **工业生态与标准** | **全球绝对主导标准**：Windows, Linux, Android, Web 浏览器默认标准 | 苹果生态独占专有标准：macOS, iOS 原生支持，工业跨平台支持较弱 |
 ---
 
+## D.7 点阵嵌入表族：EBLC、EBDT、EBSC 与 bhed（Bitmap Management）
+
+在低分辨率液晶屏或打印机上，依靠矢量轮廓与 Hinting 虚拟机实时解算微观网格有时依然难以兼顾极佳的阅读质感，尤其对于拥有繁复交织笔画的东亚巨型汉字库而言更是如此。为此，微软与苹果在 OpenType/TrueType 架构中设计了一组专门用于在矢量字体内部直接封装离散手绘点阵字符的底层数据表：
+
+### D.7.1 嵌入位图定位与数据表：`EBLC` 与 `EBDT`（亦名 `bloc` 与 `bdat`）
+
+`EBLC`（Embedded Bitmap Location Table）与 `EBDT`（Embedded Bitmap Data Table）在逻辑上必须成对共存。在苹果 AAT 规范中，这两个表分别被称为 `bloc` 与 `bdat`，两者的二进制拓扑结构完全兼容。
+
+- **`EBLC`（定位索引表）**：
+  不保存具体的单色点阵位图像素，而是专门存储整座字库在不同目标显示尺寸下的**字号打击表（`bitmapSizeTable` / Strike）**与指向对应字形位图数据的字节偏移指针。每个 Strike 声明了适用的水平与垂直分辨率（如 96 DPI）、字号像素大小（ppem）、颜色位深（1 位单色、2/4/8 位抗锯齿灰度），并引用一组子索引表（`IndexSubTable`）。
+- **五大子索引表类型（`IndexSubTable` Formats 1–5）**：
+  * **Format 1**：等长字形位图变长数据索引，包含各字形的显式数据偏移数组；
+  * **Format 2**：所有字形共享完全相同的度量尺寸与位图字节长度，偏移量可通过简单线性乘法算得；
+  * **Format 3**：双字节变长偏移索引，适用于较紧凑的字库；
+  * **Format 4**：基于稀疏字形 ID 数组的非连续码表索引；
+  * **Format 5**：稀疏固定尺寸点阵索引。
+- **`EBDT`（真实位图数据流）**：
+  紧跟在 `EBLC` 之后，严格由各个具体字形的单色或多阶灰度位图数据包（`bitmapGlyph`）紧密排布而成。规范定义了 Formats 1 至 9 多达九种位图存储编码：
+  * **Format 1/2**：小尺寸度量头加按字节对齐（Byte-aligned）或位对齐（Bit-aligned）的原始位图点阵；
+  * **Format 5**：仅包含纯位图位流，完全省略度量头（所有字形强制继承外部统一 Strike 度量）；
+  * **Format 8/9**：复合点阵字形（Component Bitmap Glyphs），允许通过多个子图元叠加拼装形成复杂的合字或重音汉字！
+
+### D.7.2 嵌入位图尺寸倍率缩放表：`EBSC`
+
+当应用程序请求的显示字号恰好落在字库未曾内置真实手工点阵的中间地带（例如字库仅手工绘制了 12px 与 16px 点阵，而用户请求了 14px）时，`EBSC`（Embedded Bitmap Scaling Table）表负责介入仲裁：它向渲染系统声明是否允许通过对最邻近的已有点阵 Strike 进行整数倍插值或抽取缩放来合成中间尺寸，从而避免突兀地切换回生硬的未优化矢量轮廓。
+
+### D.7.3 位图头表：`bhed`
+
+在仅包含纯点阵字形而完全剔除矢量 `glyf` 表的极端嵌入式 TrueType 点阵字库中，苹果规范规定使用 `bhed` 表完全取代原有的矢量 `head` 表，其字段定义与标准 `head` 完全一致，唯独在魔数与特性标志位上向系统声明这是一座纯位图字体。
+
+---
+
+## D.8 核心可选辅助表族：`DSIG`、`gasp`、`hdmx`、`LTSH`、`kern` 与 `VDMX`（Optional Tables）
+
+除核心骨干表外，一座高工业规格的 OpenType/TrueType 商业字体通常还包含一系列精妙的可选度量与安全控制表：
+
+### D.8.1 数字签名表：`DSIG`
+
+`DSIG`（Digital Signature Table）用于保证字体文件在互联网或企业分发过程中的知识产权归属与未篡改完整性。该表内嵌由权威公钥基础设施（PKI / VeriSign 等）签发的 X.509 标准 PKCS#7 格式二进制加密证书签名。当 Windows 操作系统加载字体时，内核字体驱动会解析 `DSIG` 表并比对全表校验和；若签名有效，字体属性面板将展示“受信任商业数字签名”徽标。
+
+### D.8.2 网格拟合与平滑光栅化策略表：`gasp`
+
+在屏幕渲染历史上，`gasp`（Grid-fitting and Scan-conversion Procedure Table）是微软为协调 TrueType 虚拟机字节码 Hinting 与操作系统抗锯齿（ClearType）渲染而设立的决策总指挥部。
+
+`gasp` 表按字号像素尺寸（ppem）划分区间，为不同的显示精度阶梯配置四种核心标志位组合：
+* **`GASP_GRIDFIT` (`0x0001`)**：启用 TrueType 字节码执行引擎，强行将控制点对齐物理像素网格；
+* **`GASP_DOGRAY` (`0x0002`)**：启用多级灰度亚像素抗锯齿平滑；
+* **`GASP_SYMMETRIC_SMOOTHING` (`0x0008`)**：启用全对称平滑滤波；
+* **`GASP_SYMMETRIC_GRIDFIT` (`0x0004`)**：启用高精对称网格拟合。
+
+典型配置法则：在极小字号（如 $0 \le \text{ppem} \le 8$）下仅启用灰度平滑（防止笔画粘连成黑块）；在阅读字号（$9 \le \text{ppem} \le 16$）下同时强制开启 `GRIDFIT` 与 `DOGRAY`（获得最清晰锐利的正文字骨）；而在超大字号（$\ge 17$）下关闭字节码 Hinting、全权交由纯平滑抗锯齿渲染以呈现自然曲率。
+
+### D.8.3 高速设备度量缓存与线性阈值表：`hdmx` 与 `LTSH`
+
+- **`hdmx`（Horizontal Device Metrics）**：
+  由于 TrueType 提示指令（Hinting）会在离散像素级别强行推拉控制点，导致小字号下的实际像素前进宽度（Advance Width in Pixels）往往偏离由浮点数线性缩放算出的理想宽度。为了避免排版引擎在计算长文本换行时频繁调用沉重的虚拟机解释器逐字解算，`hdmx` 表预先将常见字号下全体字形的整数像素宽度烘焙固化为极速查表数组。
+- **`LTSH`（Linear Threshold Table）**：
+  记录每个字形的“线性阈值”（以 ppem 为单位）。在该阈值尺寸之下，字形受 Hinting 扭曲影响显著，宽度必须查阅 `hdmx`；而一旦字号超过该阈值，字形宽度的非线性形变降至可忽略不计的程度，排版引擎可安全切回极速浮点线性乘法。
+
+### D.8.4 传统字距微调表：`kern`
+
+在 OpenType `GPOS` 表横空出世之前，经典 TrueType 与早期 Mac 字体完全依赖 `kern` 表实现字符对之间的字距微调。
+
+`kern` 表包含多个子表（Subtables），最常用的为 **Format 0（有序字偶微调对）**：
+- 子表头部声明字偶微调对总数 `nPairs`；
+- 紧随其后的是按 `(leftGlyph, rightGlyph)` 严格二分递增排列的条目数组；
+- 每个条目由左字形 ID、右字形 ID 以及一个带符号的 16 位整数 `FWord` 距离微调值构成。现代排版引擎若在字体中同时探测到 `GPOS` 与 `kern` 表，规范要求**优先执行 `GPOS` 表的上下文微调并静默屏蔽 `kern`**。
+
+### D.8.5 垂直设备度量量化表：`VDMX`
+
+`VDMX`（Vertical Device Metrics Table）用于解决在非线性 Hinting 介入下，字体在特定 ppem 尺寸下实际渲染像素的最高上升部（Max Ascender）与最低下降部（Min Descender）偏离全局设计比例的问题。它为每一个目标字号提供了一对强制量化的像素整数极值，供 Windows GDI 等渲染框架在计算单行文本物理行高边界框时使用，彻底消除了文本滚动时因行高抖动引发的屏幕闪烁撕裂。
+
+### D.8.6 垂直排版度量头与进深表：`vhea` 与 `vmtx`
+
+与水平排版的 `hhea` 和 `hmtx` 高度镜像对称，`vhea`（Vertical Header Table）与 `vmtx`（Vertical Metrics Table）是驱动东亚纵向直排的关键数据底座：
+- `vhea` 声明全局垂直基线距离、最大纵向进深与超限参数；
+- `vmtx` 存储每个字形的纵向步进高度（`advanceHeight`）与顶端边距（`topSideBearing`，即字形包围盒顶缘距离纵向原点的垂直落差）。
+
+### D.8.7 惠普 PCL 5 属性表：`PCLT`
+
+`PCLT` 表专门服务于 HP LaserJet 打印机及兼容 PCL 5 页面描述协议的工业输出设备。该表容纳了字体的 16 位校验和、原厂字库代号、笔画字重数字、宽度比例、衬线样式代码（Serif Style）以及专门用于 PCL 字体匹配的专属符号集代码。
+
+
+---
+
 ## D.11 OpenType 1.8 矢量可变字体（Variable Fonts）体系演进
 
 2016 年 9 月，苹果、微软、Adobe 与 Google 在波兰华沙的 ATypI 大会上联合发布了历史性的 **OpenType 1.8 规范**。该规范引入了源自苹果 TrueType GX 与 Adobe Multiple Master 的集大成者——**OpenType 字体可变机制（OpenType Font Variations）**。
@@ -3050,7 +3475,100 @@ DELTAP1
 
 ---
 
-## F.1 METAFONT 编程语言与声明式几何方程求解器
+## F.1 METAFONT 声明式排印编程语言底层原语（The METAFONT Programming Language）
+
+由高德纳（Donald E. Knuth）教授打造的 **METAFONT**，是人类计算机排版史上第一门纯粹基于**一阶线性代数方程约束求解系统（Linear Equations Solver）**的声明式矢量编程语言。在 METAFONT 的世界观中，字母不是死板画在图纸上的静态坐标连线，而是一组由几何命题、画笔骨架与动态约束构成的有机数学方程。
+
+### F.1.1 核心数据结构与符号代数代换（Basic Concepts）
+
+METAFONT 的虚拟机架构由八大基础数据类型严密支撑：
+1. **数值型（Numeric）**：以浮点数表示的标量，支持加减乘除与三角函数运算；
+2. **点对（Pair）**：表示笛卡尔坐标系中的二维点 $(x, y)$，写作 `(x, y)`。点对之间天然支持向量加减、标量数乘以及内积运算；
+3. **画笔（Pen）**：定义用于描摹笔画轨迹的物理笔尖几何轮廓（圆形笔尖 `pencircle`、矩形笔尖 `pensquare`、或任意凸多边形笔尖 `makepen`）；
+4. **路径（Path）**：由离散节点通过三次样条曲线或直线段串联而成的闭合或开放矢量轨迹；
+5. **画卷（Picture）**：容纳光栅化离散像素阵列的二维图像缓冲区；
+6. **仿射变换（Transform）**：掌控平移、缩放、旋转与倾斜切变的 $3 \times 3$ 仿射算子（例如 `currenttransform`）；
+7. **布尔型（Boolean）** 与 **字符串（String）**：控制流程分流与调试输出。
+
+#### 声明式联立线性方程组求解
+与传统编程语言中 `x = a + b` 代表单向赋值赋值不同，在 METAFONT 中，等号 `=` 严格代表**数学恒等式（Mathematical Equation）**！
+程序员可以以任意次序书写方程：
+
+```metafont
+z1 = (.5w, 0);
+z2 = z1 + (-3u, 0);
+z3 - z2 = z2 - z1;
+```
+
+METAFONT 内部常驻一套高效的高斯消元法线性求解器。当且仅当某个未知变量通过上下文联立方程被唯一确定时，系统自动完成数值解算；若方程组存在欠定自由度，METAFONT 会将未知数作为符号线性组合持续传递，直到后续条件将其彻底解出！
+
+### F.1.2 绘制、填色与曲线张力微积分（Drawing and Filling）
+
+在路径构造中，METAFONT 引入了极具数学优美感的连接算子：
+- `..`：使用三次样条曲线穿过控制点，自动保证交接处的一阶导数与二阶导数连续（曲率平滑过渡）；
+- `--`：在两个点之间拉出一条严格的刚性直线段；
+- `---`：在直线与曲线交界处强制施加切线连续性；
+- `{dir theta}`：显式指定曲线在离开或进入某节点时的物理切线朝向角；
+- `tension`：调节两点之间贝塞尔曲线的“张力”（Tension）。高德纳证明了，当张力为 1 时曲线呈现自然的弹性钢尺弯曲形态；当张力趋向无穷大时，曲线退化为刚性直线；
+- `cycle`：声明闭合当前路径。
+
+绘图核心算子：
+- `pickup pen_name`：激活指定的几何画笔；
+- `draw path`：将画笔中心沿着指定路径拖曳，生成具有物理笔画宽度的墨迹外包络线；
+- `fill path`：闭合路径内部进行实心着色；
+- `unfill path`：从当前画卷中逆向挖除（镂空）指定闭合区域；
+- `cull`：对画卷中的像素值执行阈值过滤与非零量化。
+
+### F.1.3 参数化字形架构与宏观度量（Advanced Parameterization）
+
+一座工业级 METAFONT 字库的源文件遵循标准化的度量参数体系：
+- **纯设计尺寸（Sharp Dimensions）**：以 `#` 结尾的绝对度量单位（如 `u# = 1pt#;`，`em# = 10pt#;`），代表不受物理输出设备分辨率影响的抽象印刷设计规格；
+- **设备像素转换（`define_pixels`）**：宏调用 `define_pixels(u, em)` 会自动根据当前目标设备的输出分辨率（如 300 DPI 或 600 DPI）将抽象度量折算为实际设备像素整数网格；
+- **字形声明宏（`beginchar` 与 `endchar`）**：
+  ```metafont
+  beginchar("A", 13u#, 10pt#, 0pt#);
+    % 依次传入字符编码、设计宽度 w#、大写字高 h#、以及下降部深度 d#
+    % 内部声明 z1..zn 几何拓扑并执行 draw/fill
+  endchar;
+  ```
+  `endchar` 宏在执行完毕后，不仅会自动将光栅化的点阵写入通用字体格式（GF / PK）文件，更会将精准的几何度量信息提炼输出为供排版引擎调用的 $\mathrm{\TeX}$ 字体度量文件（TFM）！
+
+### F.1.4 栅格化自适应圆整微调（Optimizing the Rasterization）
+
+为了在低分辨率点阵打印机上消除锯齿与笔画粗细不均，METAFONT 提供了精密的像素网格对齐指令：
+- `good.x` 与 `good.y`：根据当前画笔的离散边缘特性，将连续坐标微调推拉至最契合的整数像素网格线上；
+- `autorounding`：自动对所有水平与垂直切线极值点施加网格拟合偏置，防止笔画被随机截断。
+
+---
+
+## F.4 波兰 METATYPE1 体系与 Antykwa Półtawskiego 字体复兴
+
+由波兰著名的排印技术先驱**博古斯瓦夫·亚茨科夫斯基（Bogusław Jackowski）**、**雅努什·诺瓦茨基（Janusz M. Nowacki）**与**彼得·斯特热尔奇克（Piotr Strzelczyk）**联手打造的 **METATYPE1** 架构，是 METAFONT 走向现代工业矢量字型的终极桥梁。
+
+### F.4.1 METATYPE1 的设计哲学
+
+传统 METAFONT 的致命软肋在于其原生仅能输出离散点阵像素文件（PK / GF），而无法直接产出以三次贝塞尔曲线为标准的 PostScript Type 1 矢量字体。METATYPE1 彻底重构了底层输出管线：
+- 将 MetaPost 的矢量微积分内核直接嫁接为 METAFONT 的字型描述前端；
+- 允许排印师完全继续享用 METAFONT 声明式方程求解系统的无穷威力；
+- 编译器后端直接输出高工业精度的 PostScript Type 1 字形描述字节码（CharStrings），并自动生成高质量的 Type 1 提示指令（Hints）！
+
+### F.4.2 语法差异与 PostScript 三次贝塞尔曲线适配
+
+在 METATYPE1 语法规范中，字形轮廓强制遵循纯闭合路径外形表达：
+- 废弃了依赖画笔中心线拖曳的 `draw` 算子，全面改用基于轮廓边缘的 `fill` 与 `unfill` 复合建模；
+- 引入了针对三次贝塞尔曲线转折点的极值点吸附约束；
+- 提供针对复合字形部件的子路径提取函数 `subpath` 与无名极值点寻址算子。
+
+### F.4.3 波兰国宝级经典字型 Antykwa Półtawskiego 的数字化重塑
+
+METATYPE1 架构最伟大的历史勋绩，莫过于对 20 世纪波兰著名图形艺术家**亚当·普武陶夫斯基（Adam Półtawski，1881–1952）**于 1928 年设计的经典活字——**Antykwa Półtawskiego** 的全数字化复兴。
+
+Półtawski 针对波兰语中高频出现的对角倾斜笔画字母（如 ‘k’、‘w’、‘y’、‘z’）进行了极具独创性的光学平衡设计。波兰排印小组利用 METATYPE1，将这一饱含中欧人文风骨的铅字杰作，通过纯数学参数化方程进行了完整重现，一举生成了覆盖极细（Light）到特粗（Bold）、正体到意大利斜体的全家族高质量 Type 1 与 OpenType 工业级字库，成为数字排印史上数学算法与传统人文艺术交相辉映的永恒丰碑！
+
+
+---
+
+## F.2 METAFONT 编程语言与声明式几何方程求解器
 
 在 METAFONT 代码中，设计师从来不以过程式命令赋值坐标（如传统编程中的 `x = 5; y = 10`），而是直接书写一组平等的联立代数方程：
 

@@ -35,23 +35,23 @@ Mac OS 中的點陣字型主要由兩類資源承載：
 
 ```c
 struct FontRec {
-    uint16 fontType;        /* 字体属性标志位字（见下文位域解析） */
-    uint16 firstChar;       /* 字体支持的首个字符 ASCII 码（通常 0x00 或 0x20） */
-    uint16 lastChar;        /* 字体支持的末尾字符 ASCII 码（通常 0xFF） */
-    uint16 widMax;          /* 全字体字形的最大外形推进宽度（Advance Width） */
-    int16  kernMax;         /* 全字体最大负字距（Negative Kerning，通常 <= 0） */
-    int16  nDescent;        /* 负向降部高度（Descent，向下为负值） */
-    uint16 fRectWidth;      /* 字体包围盒的最大位图宽度（Bounding Box Width） */
-    uint16 fRectHeight;     /* 字体包围盒的最大位图高度（Bounding Box Height） */
-    uint16 owTLoc;          /* 偏移量/字宽表（Offset/Width Table）距离本结构体首地址的 16 位字偏移 */
-    int16  ascent;          /* 正向升部高度（Ascent，从基线到字身顶端） */
-    int16  descent;         /* 降部深度绝对值（Descent，从基线到字身底部） */
-    int16  leading;         /* 推荐行间空隙（Leading，行距增量） */
-    uint16 rowWords;        /* 位图全景图像（Bit Image）每一扫描行所占的 16 位双字节字数（Words） */
-    /* 紧随其后为可变长度数组：
-       uint16 bitImage[rowWords * fRectHeight]; 位图图像连续扫描行矩阵
-       uint16 locTable[lastChar - firstChar + 3]; 字形横向切片列定位表
-       uint16 owTable[lastChar - firstChar + 3];  字宽与字距微调偏移表
+    uint16 fontType;        /* 字體屬性標誌位字（見下文位域解析） */
+    uint16 firstChar;       /* 字體支持的首個字符 ASCII 碼（通常 0x00 或 0x20） */
+    uint16 lastChar;        /* 字體支持的末尾字符 ASCII 碼（通常 0xFF） */
+    uint16 widMax;          /* 全字體字形的最大外形推進寬度（Advance Width） */
+    int16  kernMax;         /* 全字體最大負字距（Negative Kerning，通常 <= 0） */
+    int16  nDescent;        /* 負向降部高度（Descent，向下爲負值） */
+    uint16 fRectWidth;      /* 字體包圍盒的最大位圖寬度（Bounding Box Width） */
+    uint16 fRectHeight;     /* 字體包圍盒的最大位圖高度（Bounding Box Height） */
+    uint16 owTLoc;          /* 偏移量/字寬表（Offset/Width Table）距離本結構體首地址的 16 位字偏移 */
+    int16  ascent;          /* 正向升部高度（Ascent，從基線到字身頂端） */
+    int16  descent;         /* 降部深度絕對值（Descent，從基線到字身底部） */
+    int16  leading;         /* 推薦行間空隙（Leading，行距增量） */
+    uint16 rowWords;        /* 位圖全景圖像（Bit Image）每一掃描行所佔的 16 位雙字節字數（Words） */
+    /* 緊隨其後爲可變長度數組：
+       uint16 bitImage[rowWords * fRectHeight]; 位圖圖像連續掃描行矩陣
+       uint16 locTable[lastChar - firstChar + 3]; 字形橫向切片列定位表
+       uint16 owTable[lastChar - firstChar + 3];  字寬與字距微調偏移表
     */
 };
 ```
@@ -114,38 +114,38 @@ Mac OS 點陣字體最具天才的設計在於其**連貫橫向帶狀圖像（St
 ```c
 #pragma pack(push, 1)
 struct WinFNTHeader {
-    uint16 dfVersion;            /* 格式版本号：0x0200 (Win 2.x) 或 0x0300 (Win 3.x) */
-    uint32 dfSize;               /* .FNT 整个文件的总字节长度 */
-    char   dfCopyright[60];      /* ASCII 编码的版权声明字符串 */
-    uint16 dfType;               /* 字体类型：0x0000 代表点阵光栅字，0x0001 代表矢量矢量线框字 */
-    uint16 dfPoints;             /* 标称设计磅值（Nominal Point Size） */
-    uint16 dfVertRes;            /* 设计垂直分辨率（通常 96 DPI） */
-    uint16 dfHorizRes;           /* 设计水平分辨率（通常 96 DPI） */
-    uint16 dfAscent;             /* 基线至顶端的升部高度（Ascent in pixels） */
-    uint16 dfInternalLeading;    /* 内部行距（留给重音符号的空间） */
-    uint16 dfExternalLeading;    /* 外部行距（推荐的额外空隙） */
-    uint8  dfItalic;             /* 斜体标志位（1 为斜体） */
-    uint8  dfUnderline;          /* 下划线标志位 */
-    uint8  dfStrikeOut;          /* 删除线标志位 */
-    uint16 dfWeight;             /* 字重（100 Thin 至 900 Black，400 为 Regular） */
-    uint8  dfCharSet;            /* 字符集代码（0: ANSI, 1: Default, 2: Symbol, 128: Shift-JIS） */
-    uint16 dfPixWidth;           /* 等宽字体的像素宽度（若为 0 则为比例变宽字体） */
-    uint16 dfPixHeight;          /* 字符全高的像素数（Scanlines） */
-    uint8  dfPitchAndFamily;     /* 变宽/等宽标志与字族分类（Serif, Sans-serif 等） */
-    uint16 dfAvgWidth;           /* 小写字母平均宽度 */
-    uint16 dfMaxWidth;           /* 字体中最大字形宽度 */
-    uint8  dfFirstChar;          /* 首个支持的字符码点（通常 32 空格） */
-    uint8  dfLastChar;           /* 最后一个字符码点（通常 255） */
-    uint8  dfDefaultChar;        /* 替代缺失字符的默认字符偏移量 */
-    uint8  dfBreakChar;          /* 用于断行分词的空格字符偏移量 */
-    uint16 dfWidthBytes;         /* 每一行扫描线在内存中对齐的单行字节数（必须为双字节偶数倍） */
-    uint32 dfDevice;             /* 指向目标设备名称字符串的文件内字节偏移 */
-    uint32 dfFace;               /* 指向字体家族名称字符串（如 "System", "Terminal"）的文件内偏移 */
-    uint32 dfBitsPointer;        /* 运行时内存中的位图指针（文件中填 0） */
-    uint32 dfBitsOffset;         /* 位图数据阵列距离文件头的绝对字节偏移量！ */
-    /* Windows 3.0 (dfVersion == 0x0300) 额外包含扩展字段： */
-    uint8  dfByteFlags;          /* 位图打包与内存管理标志 */
-    uint32 dfColorMapOffset;     /* 颜色表偏移量 */
+    uint16 dfVersion;            /* 格式版本號：0x0200 (Win 2.x) 或 0x0300 (Win 3.x) */
+    uint32 dfSize;               /* .FNT 整個文件的總字節長度 */
+    char   dfCopyright[60];      /* ASCII 編碼的版權聲明字符串 */
+    uint16 dfType;               /* 字體類型：0x0000 代表點陣光柵字，0x0001 代表矢量矢量線框字 */
+    uint16 dfPoints;             /* 標稱設計磅值（Nominal Point Size） */
+    uint16 dfVertRes;            /* 設計垂直分辨率（通常 96 DPI） */
+    uint16 dfHorizRes;           /* 設計水平分辨率（通常 96 DPI） */
+    uint16 dfAscent;             /* 基線至頂端的升部高度（Ascent in pixels） */
+    uint16 dfInternalLeading;    /* 內部行距（留給重音符號的空間） */
+    uint16 dfExternalLeading;    /* 外部行距（推薦的額外空隙） */
+    uint8  dfItalic;             /* 斜體標誌位（1 爲斜體） */
+    uint8  dfUnderline;          /* 下劃線標誌位 */
+    uint8  dfStrikeOut;          /* 刪除線標誌位 */
+    uint16 dfWeight;             /* 字重（100 Thin 至 900 Black，400 爲 Regular） */
+    uint8  dfCharSet;            /* 字符集代碼（0: ANSI, 1: Default, 2: Symbol, 128: Shift-JIS） */
+    uint16 dfPixWidth;           /* 等寬字體的像素寬度（若爲 0 則爲比例變寬字體） */
+    uint16 dfPixHeight;          /* 字符全高的像素數（Scanlines） */
+    uint8  dfPitchAndFamily;     /* 變寬/等寬標誌與字族分類（Serif, Sans-serif 等） */
+    uint16 dfAvgWidth;           /* 小寫字母平均寬度 */
+    uint16 dfMaxWidth;           /* 字體中最大字形寬度 */
+    uint8  dfFirstChar;          /* 首個支持的字符碼點（通常 32 空格） */
+    uint8  dfLastChar;           /* 最後一個字符碼點（通常 255） */
+    uint8  dfDefaultChar;        /* 替代缺失字符的默認字符偏移量 */
+    uint8  dfBreakChar;          /* 用於斷行分詞的空格字符偏移量 */
+    uint16 dfWidthBytes;         /* 每一行掃描線在內存中對齊的單行字節數（必須爲雙字節偶數倍） */
+    uint32 dfDevice;             /* 指向目標設備名稱字符串的文件內字節偏移 */
+    uint32 dfFace;               /* 指向字體家族名稱字符串（如 "System", "Terminal"）的文件內偏移 */
+    uint32 dfBitsPointer;        /* 運行時內存中的位圖指針（文件中填 0） */
+    uint32 dfBitsOffset;         /* 位圖數據陣列距離文件頭的絕對字節偏移量！ */
+    /* Windows 3.0 (dfVersion == 0x0300) 額外包含擴展字段： */
+    uint8  dfByteFlags;          /* 位圖打包與內存管理標誌 */
+    uint32 dfColorMapOffset;     /* 顏色表偏移量 */
     uint32 dfReserved[4];        /* 保留字段 */
 };
 #pragma pack(pop)
@@ -238,10 +238,10 @@ PCF 文件由一個**塊目錄（Table Directory）**管理整個文件的物理
 * **子表目錄項**：
   ```c
   struct PCFTableEntry {
-      uint32 type;        /* 子表类型位域掩码（见下文） */
-      uint32 format;      /* 格式控制字：包含字节序（MSB/LSB）、字长（1/2/4字节）、压缩标志 */
-      uint32 size;        /* 子表在文件中的原始字节大小 */
-      uint32 offset;      /* 子表距离文件头的绝对字节偏移量 */
+      uint32 type;        /* 子表類型位域掩碼（見下文） */
+      uint32 format;      /* 格式控制字：包含字節序（MSB/LSB）、字長（1/2/4字節）、壓縮標誌 */
+      uint32 size;        /* 子表在文件中的原始字節大小 */
+      uint32 offset;      /* 子表距離文件頭的絕對字節偏移量 */
   };
   ```
 
@@ -313,12 +313,12 @@ $$\text{Flag Byte} = (dyn\_f \times 16) + (\text{first\_pixel\_black} \ ? \ 8 : 
 ```python
 def unpack_pk_runs(nybble_stream, dyn_f, first_pixel_black, total_pixels):
     """
-    解压 PK 字符点阵游程流
-    :param nybble_stream: 生成器，逐个产出 0-15 的 4-bit 整数
-    :param dyn_f: 动态阈值 (0-14)
-    :param first_pixel_black: 首像素极性
-    :param total_pixels: 字符总像素数 (width * height)
-    :return: 展开后的 0/1 像素一维数组
+    解壓 PK 字符點陣遊程流
+    :param nybble_stream: 生成器，逐個產出 0-15 的 4-bit 整數
+    :param dyn_f: 動態閾值 (0-14)
+    :param first_pixel_black: 首像素極性
+    :param total_pixels: 字符總像素數 (width * height)
+    :return: 展開後的 0/1 像素一維數組
     """
     pixels = []
     is_black = first_pixel_black
@@ -327,37 +327,37 @@ def unpack_pk_runs(nybble_stream, dyn_f, first_pixel_black, total_pixels):
     while len(pixels) < total_pixels:
         nyb = next(nybble_stream)
         
-        # 状态 1: 扫描行重复计数
+        # 狀態 1: 掃描行重複計數
         if nyb == 15:
-            # 读取重复因子
+            # 讀取重複因子
             repeat_count = next(nybble_stream)
             continue
             
-        # 状态 2: 单半字节短游程
+        # 狀態 2: 單半字節短遊程
         if nyb < dyn_f:
             run_length = nyb
-        # 状态 3: 双半字节中游程
+        # 狀態 3: 雙半字節中游程
         elif nyb <= 13:
             nyb2 = next(nybble_stream)
             run_length = (nyb - dyn_f - 1) * 16 + nyb2 + dyn_f + 1
-        # 状态 4: 三半字节长游程
+        # 狀態 4: 三半字節長遊程
         elif nyb == 14:
             nyb2 = next(nybble_stream)
             nyb3 = next(nybble_stream)
             run_length = (nyb2 - 16) * 16 + nyb3 + dyn_f + 1
             
-        # 将当前颜色的像素追加到结果流
+        # 將當前顏色的像素追加到結果流
         pixel_val = 1 if is_black else 0
         pixels.extend([pixel_val] * run_length)
         
-        # 处理垂直扫描行重复
+        # 處理垂直掃描行重複
         if repeat_count > 0:
             row_data = pixels[-run_length:]
             for _ in range(repeat_count):
                 pixels.extend(row_data)
             repeat_count = 0
             
-        # 翻转像素颜色状态 (黑 <-> 白)
+        # 翻轉像素顏色狀態 (黑 <-> 白)
         is_black = not is_black
         
     return pixels[:total_pixels]
@@ -374,41 +374,41 @@ def unpack_pk_runs(nybble_stream, dyn_f, first_pixel_black, total_pixels):
 #pragma pack(push, 1)
 struct Win30FontHeader {
     uint16 dfVersion;           /* 0x0300 代表 Windows 3.0 */
-    uint32 dfSize;              /* 包含头部的物理文件总字节大小 */
-    char   dfCopyright[60];     /* 60 字节定长版权 ASCII 字符串 */
-    uint16 dfType;              /* 0 代表点阵位图光栅字，1 代表早期矢量矢量字 */
-    uint16 dfPoints;            /* 设计标称点数磅值 (Point Size) */
-    uint16 dfVertRes;           /* 垂直标称设计分辨率 (通常 96 DPI) */
-    uint16 dfHorizRes;          /* 水平标称设计分辨率 (通常 96 DPI) */
-    uint16 dfAscent;            /* 基线到字形包围盒顶部的距离 (升部) */
-    uint16 dfInternalLeading;   /* 字身内部预留重音符号间距 */
-    uint16 dfExternalLeading;   /* 行与行之间的推荐外部空隙 */
-    uint8  dfItalic;            /* 非零代表斜体 */
-    uint8  dfUnderline;         /* 非零代表下划线 */
-    uint8  dfStrikeOut;         /* 非零代表删除线 */
-    uint16 dfWeight;            /* 字重数值 (100..900, 400 为 Normal, 700 为 Bold) */
+    uint32 dfSize;              /* 包含頭部的物理文件總字節大小 */
+    char   dfCopyright[60];     /* 60 字節定長版權 ASCII 字符串 */
+    uint16 dfType;              /* 0 代表點陣位圖光柵字，1 代表早期矢量矢量字 */
+    uint16 dfPoints;            /* 設計標稱點數磅值 (Point Size) */
+    uint16 dfVertRes;           /* 垂直標稱設計分辨率 (通常 96 DPI) */
+    uint16 dfHorizRes;          /* 水平標稱設計分辨率 (通常 96 DPI) */
+    uint16 dfAscent;            /* 基線到字形包圍盒頂部的距離 (升部) */
+    uint16 dfInternalLeading;   /* 字身內部預留重音符號間距 */
+    uint16 dfExternalLeading;   /* 行與行之間的推薦外部空隙 */
+    uint8  dfItalic;            /* 非零代表斜體 */
+    uint8  dfUnderline;         /* 非零代表下劃線 */
+    uint8  dfStrikeOut;         /* 非零代表刪除線 */
+    uint16 dfWeight;            /* 字重數值 (100..900, 400 爲 Normal, 700 爲 Bold) */
     uint8  dfCharSet;           /* 字符集 (0: ANSI, 1: Default, 2: Symbol, 128: Shift-JIS) */
-    uint16 dfPixWidth;          /* 若为 0 表示比例变宽字；若非 0 表示全字固定点阵宽度 */
-    uint16 dfPixHeight;         /* 点阵像素矩阵的物理总高度 */
-    uint8  dfPitchAndFamily;    /* 字体族与间距标志 */
-    uint16 dfAvgWidth;          /* 小写字母加权平均宽度 */
-    uint16 dfMaxWidth;          /* 字体中最大的字符位图宽度 */
-    uint8  dfFirstChar;         /* 支持的首个字符 ASCII 编码 */
-    uint8  dfLastChar;          /* 支持的末尾字符 ASCII 编码 */
+    uint16 dfPixWidth;          /* 若爲 0 表示比例變寬字；若非 0 表示全字固定點陣寬度 */
+    uint16 dfPixHeight;         /* 點陣像素矩陣的物理總高度 */
+    uint8  dfPitchAndFamily;    /* 字體族與間距標誌 */
+    uint16 dfAvgWidth;          /* 小寫字母加權平均寬度 */
+    uint16 dfMaxWidth;          /* 字體中最大的字符位圖寬度 */
+    uint8  dfFirstChar;         /* 支持的首個字符 ASCII 編碼 */
+    uint8  dfLastChar;          /* 支持的末尾字符 ASCII 編碼 */
     uint8  dfDefaultChar;       /* 缺失字符替代符偏移 */
-    uint8  dfBreakChar;         /* 单词断句空格字符偏移 */
-    uint16 dfWidthBytes;        /* 位图扫描行对齐字节数 */
-    uint32 dfDevice;            /* 指向目标设备名称字符串的相对文件偏移量 */
-    uint32 dfFace;              /* 指向字体家族名称（如 "Arial"）的相对文件偏移量 */
-    uint32 dfBitsPointer;       /* 内存中点阵位图矩阵的绝对地址（文件中预留为 0） */
-    uint32 dfBitsOffset;        /* 点阵位图位流相对于文件开头的 32 位绝对字节偏移 */
-    uint8  dfReserved;          /* 预留字节 */
-    uint32 dfFlags;             /* 标志位 */
-    uint16 dfAspace;            /* A 空间间隙（左侧负轴承补偿） */
-    uint16 dfBspace;            /* B 空间间隙（位图黑体宽度） */
-    uint16 dfCspace;            /* C 空间间隙（右侧轴承补偿） */
-    uint32 dfColorPointer;      /* 彩色位图调色板偏移 */
-    uint32 dfReserved1[4];      /* 预留对齐填充字 */
+    uint8  dfBreakChar;         /* 單詞斷句空格字符偏移 */
+    uint16 dfWidthBytes;        /* 位圖掃描行對齊字節數 */
+    uint32 dfDevice;            /* 指向目標設備名稱字符串的相對文件偏移量 */
+    uint32 dfFace;              /* 指向字體家族名稱（如 "Arial"）的相對文件偏移量 */
+    uint32 dfBitsPointer;       /* 內存中點陣位圖矩陣的絕對地址（文件中預留爲 0） */
+    uint32 dfBitsOffset;        /* 點陣位圖位流相對於文件開頭的 32 位絕對字節偏移 */
+    uint8  dfReserved;          /* 預留字節 */
+    uint32 dfFlags;             /* 標誌位 */
+    uint16 dfAspace;            /* A 空間間隙（左側負軸承補償） */
+    uint16 dfBspace;            /* B 空間間隙（位圖黑體寬度） */
+    uint16 dfCspace;            /* C 空間間隙（右側軸承補償） */
+    uint32 dfColorPointer;      /* 彩色位圖調色板偏移 */
+    uint32 dfReserved1[4];      /* 預留對齊填充字 */
 };
 #pragma pack(pop)
 ```
@@ -437,7 +437,7 @@ struct Win30FontHeader {
    * `num_fonts`：該代碼頁下封裝的不同像素規格點陣字體總數（通常爲 3 種：$8 \times 8$, $8 \times 14$, $8 \times 16$）。
 4. **Screen Font Data（屏幕點陣原始字節矩陣）**：
    * 存儲每個字符的點陣位圖。例如對於標準的 $8 \times 16$ VGA 字體，每個字符佔用 16 個連續字節（每行 8 像素佔用 1 字節）。256 個字符恰好佔用：
-     $$256 \times 16 \text{ 字节} = 4096 \text{ 字节} = 4 \text{ KB}$$
+     $$256 \times 16 \text{ 字節} = 4096 \text{ 字節} = 4 \text{ KB}$$
    DOS 的 `MODE CON: SELECT=...` 命令正是將這 4KB 數據通過顯卡 BIOS 中斷（`INT 10h, AX=1100h`）直接寫入 VGA 顯卡的字符發生器內存平面 2（Plane 2），實現了純硬件級的即時字符渲染！
 
 ---
@@ -557,10 +557,10 @@ $$1\text{ fix\_word} = \frac{\text{Value}}{2^{20}} = \frac{\text{Value}}{1,048,5
 
 ```c
 struct LigKernStep {
-    uint8 skip_byte;    /* 跳跃控制字节：若 >= 128 则为停机指令（Stop Step） */
-    uint8 next_char;    /* 预期紧随其后的相邻字符码点 */
-    uint8 op_byte;      /* 操作码字节：若 >= 128 则为字距微调；若 < 128 则为合字替换 */
-    uint8 remainder;    /* 结果：目标字距在 KERN 表中的索引，或新合成的合字码点 */
+    uint8 skip_byte;    /* 跳躍控制字節：若 >= 128 則爲停機指令（Stop Step） */
+    uint8 next_char;    /* 預期緊隨其後的相鄰字符碼點 */
+    uint8 op_byte;      /* 操作碼字節：若 >= 128 則爲字距微調；若 < 128 則爲合字替換 */
+    uint8 remainder;    /* 結果：目標字距在 KERN 表中的索引，或新合成的合字碼點 */
 };
 ```
 
@@ -721,7 +721,7 @@ $$u \longleftarrow \max\left( u, \; \text{depth}(\text{Numerator}) + \frac{3}{2}
 import struct
 
 def parse_tfm(data: bytes):
-    # 读取 12 个 16 位头表字
+    # 讀取 12 個 16 位頭表字
     lf, lh, bc, ec, nw, nh, nd, ni, nl, nk, ne, np = struct.unpack(">12H", data[:24])
     print(f"TFM File: {lf} words, Char Range: [{bc}, {ec}]")
     
@@ -748,7 +748,7 @@ def parse_tfm(data: bytes):
         })
         offset += 4
         
-    # WIDTH 表 (nw words, 转换为浮点磅值)
+    # WIDTH 表 (nw words, 轉換爲浮點磅值)
     widths = []
     for _ in range(nw):
         val, = struct.unpack(">i", data[offset:offset+4])
@@ -779,7 +779,270 @@ def parse_tfm(data: bytes):
 
 ---
 
-## C.1 PostScript Type 1 字體的內存拓撲與解密引擎
+## C.1 PostScript 頁面描述語言技術導論（Introduction to the PostScript Language）
+
+自 1985 年首款激光打印機（Apple LaserWriter）面世以來，PostScript 語言迅速風靡了整個計算機世界——從印刷工業級的出版物製作，到企業辦公與個人文檔打印，它無處不在。在本附錄中，我們將詳細剖析 PostScript 體系的各類字體格式：首當其衝的自然是 Type 1，此外還包括 Type 3、Type 42、Type 0、CID 架構、多重母版（Multiple Master）以及緊湊字體格式 CFF/Type 2。
+
+在剖析具體的字體二進制容器與輪廓格式之前，我們必須首先對 PostScript 語言進行精要而嚴謹的技術導引。這門導引對於理解字體內部所使用的語法結構、算子操作模型以及字形對象的操縱本質至關重要。需要說明的是，本節並不企圖面面俱到地替代厚達 912 頁的官方《PostScript 語言參考手冊》（*PostScript Language Reference*, 俗稱紅皮書）[24]；我們的核心宗旨在於直擊要害，爲排印工程師建立扎實的語言心智模型。
+
+### C.1.1 語法範式與逆波蘭棧式機（Syntax）
+
+PostScript 是一門純粹的**解釋型、棧式、後綴表達式（Postfix / Reverse Polish Notation, RPN）**編程語言。其基本語法規則由空白字符（空格、製表符、換行符）分隔的**詞元（Tokens）**構成，以 `%` 開頭的行視爲註釋。
+
+當解釋器掃描到一個詞元時：
+- 若詞元代表一個字面常量（如整數、實數、字符串），解釋器將其直接壓入**操作數棧（Operand Stack）**；
+- 若詞元代表一個可執行算子（Operator）或命名過程，解釋器將立即執行它，該算子會從操作數棧頂彈出所需數量的操作數，執行計算後將結果重新壓回棧頂。
+
+例如，簡單的數學加法 $3 + 4$ 在 PostScript 中書寫爲：
+
+```postscript
+3 4 add
+```
+
+計算完畢後，操作數棧頂只留下唯一的整數結果 `7`。
+
+PostScript 支持豐富的數據類型：
+1. **數值型（Numbers）**：整數（`123`）、八進制數（`8#177`）、十六進制數（`16#FF`）與實數（`3.14159`、`-1.2e-4`）；
+2. **布爾型（Booleans）**：`true` 與 `false`；
+3. **字符串（Strings）**：定界在圓括號中的普通字符串（如 `(Hello World)`），或定界在尖括號中的十六進制字符串（如 `<48656C6C6F>`）；
+4. **名稱（Names）**：
+   - **字面名稱（Literal Name）**：以斜槓開頭的符號（如 `/Helvetica`、`/width`），自身不被立即求值，直接作爲符號鍵名壓入棧中；
+   - **可執行名稱（Executable Name）**：不帶斜槓的標識符（如 `add`、`moveto`），被解釋器在當前活動字典層級中查找並立即執行；
+5. **數組（Arrays）**：由方括號定界的對象序列（如 `[ 1 2 (three) /four ]`）；
+6. **過程（Procedures）**：由花括號定界的可執行代碼塊（如 `{ add 2 div }`），在被調用前作爲整體對象保存在棧或字典中；
+7. **字典（Dictionaries）**：鍵值對集合，驅動着 PostScript 的全局變量表與字體定義模型。
+
+### C.1.2 物理座標系與用戶空間（The System of Coordinates）
+
+在 PostScript 中，所有幾何繪圖操作均發生在一個抽象的**用戶空間（User Space）**中，解釋器在光柵化輸出時會將其自動映射到物理設備的**設備空間（Device Space）**。
+
+- **默認度量單位**：用戶座標系採用經典的排印**大號點（PostScript Point）**，嚴格定義爲：
+  $$1 \text{ pt} = \frac{1}{72} \text{ inch} = \frac{25.4}{72} \text{ mm} \approx 0.352778 \text{ mm}$$
+- **默認原點與軸向**：默認原點 $(0, 0)$ 坐落於物理頁面的**左下角**；$x$ 軸水平向右延伸，$y$ 軸垂直向上延伸。這與大多數計算機屏幕座標系（原點在左上角、$y$ 軸向下）形成了鮮明對立。
+
+### C.1.3 當前變換矩陣（The Current Transformation Matrix, CTM）
+
+用戶空間到物理設備空間的幾何映射由一個 $3 \times 3$ 的仿射變換矩陣掌控，稱爲**當前變換矩陣（CTM）**。任何用戶座標 $(x, y)$ 變換爲設備座標 $(x', y')$ 的矩陣代數方程爲：
+
+$$\begin{bmatrix} x' & y' & 1 \end{bmatrix} = \begin{bmatrix} x & y & 1 \end{bmatrix} \begin{bmatrix} a & b & 0 \\ c & d & 0 \\ t_x & t_y & 1 \end{bmatrix} = \begin{bmatrix} a x + c y + t_x & b x + d y + t_y & 1 \end{bmatrix}$$
+
+在 PostScript 中，該矩陣在內存中緊湊地表示爲一個六元數組 `[a b c d tx ty]`。PostScript 提供了完整的座標系操縱算子：
+- `translate`：將原點平移 $(t_x, t_y)$，即 `tx ty translate`；
+- `scale`：按比例因子 $(s_x, s_y)$ 縮放座標系，即 `sx sy scale`；
+- `rotate`：逆時針旋轉 $\theta$ 角度，即 `theta rotate`；
+- `concat`：將棧頂的自定義變換矩陣複合累加到當前 CTM 中；
+- `matrix`：在內存中分配一個恆等變換矩陣 `[1 0 0 1 0 0]`；
+- `currentmatrix` 與 `setmatrix`：獲取與恢復底層 CTM。
+
+### C.1.4 矢量路徑系統（Paths）
+
+在 PostScript 中，繪製任意幾何輪廓的核心是**路徑（Path）**。路徑由一系列連續或離散的線段和三次貝塞爾曲線段構成。構建路徑的關鍵算子包括：
+- `newpath`：清空當前路徑緩存，初始化一條全新路徑；
+- `moveto`（與相對位移 `rmoveto`）：抬起虛擬畫筆，移動至絕對座標 $(x, y)$，確立新的**當前點（Current Point）**；
+- `lineto`（與相對位移 `rlineto`）：從當前點向目標點 $(x, y)$ 連接一條直線段；
+- `curveto`（與相對位移 `rcurveto`）：從當前點 $(x_0, y_0)$ 出發，以 $(x_1, y_1)$ 與 $(x_2, y_2)$ 作爲兩個離線貝塞爾控制手柄，繪製平滑到達 $(x_3, y_3)$ 的**三次貝塞爾曲線段（Cubic Bézier Curve）**：
+  $$B(t) = (1-t)^3 P_0 + 3(1-t)^2 t P_1 + 3(1-t) t^2 P_2 + t^3 P_3, \quad t \in [0, 1]$$
+- `closepath`：從當前點向當前子路徑的起始點繪製一條閉合直線，封口形成閉合輪廓；
+- `pathbbox`：計算並返回當前路徑的嚴格軸對齊外包圍盒 `llx lly urx ury`；
+- `clip`：將當前閉合路徑設爲**裁剪區域（Clipping Path）**，後續的所有繪製操作將被限制在閉合多邊形內部。
+
+### C.1.5 輪廓着色與兩大填色拓撲準則（Shapes & Filling Rules）
+
+路徑構建完畢後，本身僅是一條無形數學邊界；要將其固化爲可見圖元，需調用着色算子：
+- `stroke`：使用當前描邊寬度與畫筆屬性，沿路徑軌跡繪製有寬度的墨跡；
+- `fill`：按照**非零環繞數規則（Non-zero Winding Number Rule）**對閉合多邊形內部進行實體填充；
+- `eofill`：按照**奇偶規則（Even-Odd Rule）**對閉合多邊形內部進行填充。
+
+::: tip 深入理解兩大填充法則的拓撲對立
+* **非零環繞數規則（`fill`）**：從待判定的測試點向無窮遠處引一條射線。初始化計數器爲 0；凡是從射線左側穿向右側的輪廓線，計數器加 1；凡是從右側穿向左側的輪廓線，計數器減 1。若最終計數器的代數和不等於 0，則判定該點位於圖形內部，執行着色；若等於 0，則判定爲外部鏤空（Counter）。**這正是 Type 1 與 TrueType 字體規範中要求外輪廓與內鏤空輪廓必須嚴格逆向旋轉的拓撲根源！**
+* **奇偶規則（`eofill`）**：從測試點向無窮遠引一條射線，統計與路徑的所有交點總數。若交點總數爲奇數，則判定在內部填充；若爲偶數，則判定在外部。該規則無需關心輪廓繪製的順時針或逆時針方向。
+:::
+
+### C.1.6 光柵位圖渲染（Bitmap Images）
+
+除了矢量路徑，PostScript 還支持點陣光柵位圖的精準印製：
+- `imagemask`：專門用於渲染 1 位黑白單色掩碼，常用於位圖點陣字體的快速印製。它將單色像素陣列作爲不透明與全透明的蒙版，僅在位爲 1 的區域潑灑當前選定的前景色；
+- `image`：用於渲染 8 位或 24 位的多級灰度與全綵照片級圖像，通過傳入寬度、高度、位深與矩陣解碼數據流。
+
+### C.1.7 虛擬機堆棧、數組與字典管理（Managing Stack & Dictionaries）
+
+PostScript 解釋器內部常駐三大核心堆棧：
+1. **操作數棧（Operand Stack）**：暫存全部數據與算子參數；
+2. **執行棧（Execution Stack）**：跟蹤當前正在調用的嵌套過程與控制流；
+3. **字典棧（Dictionary Stack）**：管理名稱與對象綁定的作用域。
+
+#### (1) 操作數棧操縱經典算子
+- `dup`：複製棧頂元素（`x -> x x`）；
+- `pop`：丟棄棧頂元素（`x -> `）；
+- `exch`：交換棧頂前兩個元素的位置（`x y -> y x`）；
+- `copy`：複製棧頂前 $n$ 個元素；
+- `index`：將棧深第 $n$ 處的元素複製一份置於棧頂（`xn ... x0 n -> xn ... x0 xn`）；
+- `roll`：對棧頂 $n$ 個元素執行深度爲 $j$ 的循環滾動置換；
+- `clear`：清空整個操作數棧。
+
+#### (2) 字典管理與命名空間
+字典是鍵值對哈希表。字典棧頂部的字典稱爲**當前字典（Current Dictionary）**。
+- `dict`：在堆內存中分配指定容量的新字典（例如 `10 dict` 創建一個容量爲 10 的字典）；
+- `begin`：將指定的字典壓入字典棧頂，使其成爲當前查找名稱的第一優先作用域；
+- `end`：彈出字典棧頂的字典；
+- `def`：在當前字典中創建鍵值綁定（如 `/pi 3.14159 def`）；
+- `load`：在字典棧中沿着作用域層級由頂向下搜索指定的鍵名並返回其綁定的對象。
+
+### C.1.8 字體調度與排版核心指令（Font Management and Typesetting）
+
+PostScript 將字體本身設計爲一種特殊的頂層字典。排版文本的基本工作流由以下核心指令驅動：
+1. `findfont`：在全局字庫目錄（`FontDirectory`）中按名稱檢索字體字典指針（如 `/Helvetica findfont`）；
+2. `scalefont`：將字體的基準設計空間（通常爲 1000 單位正方形）按指定字號縮放（如 `12 scalefont`，在底層自動將其 `FontMatrix` 與縮放矩陣相乘）；
+3. `setfont`：將縮放後的字體安裝到當前圖形狀態中；
+4. `show`：從當前點出發，將棧頂字符串逐字渲染輸出，並自動按照各字符的進深（Advance Width）步進當前點；
+5. `stringwidth`：計算指定字符串在當前字體下的總體排版寬度與位移量 `(wx wy)`，但不執行任何實際墨跡繪製；
+6. `charpath`：提取字符串中每一個字符的純矢量輪廓，將其轉化爲當前路徑，以便設計師後續調用 `stroke` 描邊、`clip` 鏤空或填充漸變特效！
+
+### C.1.9 圖形狀態堆棧與色彩模型（The Graphics State）
+
+爲了支持模塊化的繪圖邏輯，PostScript 維護了**圖形狀態（Graphics State）**棧：
+- `gsave`：將當前的全部圖形屬性（CTM、當前點、畫筆線寬、線帽樣式、裁剪路徑、色彩等）打包克隆並壓入圖形棧頂；
+- `grestore`：彈出並完全恢復上一次保存的圖形上下文狀態，確保子程序的局部座標變換絕不污染全局頁面。
+
+線條與色彩控制指令包括：
+- `setlinewidth`：設定描邊線寬；
+- `setlinecap`：設定線端端點形狀（0 爲平頭斷開，1 爲圓頭，2 爲方形延伸方頭）；
+- `setlinejoin`：設定折角連接樣式（0 爲尖角拼接，1 爲圓弧拼接，2 爲斜角平切）；
+- `setmiterlimit`：設定斜接限制比率，防止尖角過度延長；
+- `setdash`：配置虛線模式（如 `[3 2] 0 setdash`）；
+- `setgray`、`setrgbcolor`、`setcmykcolor`：分別在單通道灰度、三原色 RGB 以及四色印刷 CMYK 色彩空間中配置當前繪製墨色。
+
+### C.1.10 文檔結構規範化註釋（Structured Comments / DSC）
+
+爲了讓外部預檢軟件、排版排版解釋器與打印機後臺打印管理程序（Spooler）能夠在不完全執行整個 PostScript 程序的情況下提取頁面元數據，Adobe 制定了**文檔結構規範（Document Structuring Conventions, DSC）**。這些結構化信息均以形如 `%%` 的特殊註釋格式書寫：
+- `%!PS-Adobe-3.0`：指明該文件遵循 DSC 3.0 工業標準；
+- `%%BoundingBox: llx lly urx ury`：聲明整個文檔所有頁面的全局閉包矩形；
+- `%%Pages: n`：聲明文檔的總頁數；
+- `%%Page: label ordinal`：明確標識某一特定頁面的起始點（例如 `%%Page: 1 1`）；
+- `%%Trailer`：進入文檔的尾聲收尾段落；
+- `%%EOF`：文檔正式終止標記。
+
+---
+
+## C.2 純 PostScript 可編程字型：Type 3 字體架構（Type 3 Fonts）
+
+在所有 PostScript 字體格式中，**Type 3** 是最爲自由、最爲開放、但也最缺乏光柵微調約束的一種特殊格式。與底層採用高度壓縮加密字節碼（CharStrings）的 Type 1 不同，Type 3 字體**直接使用正規的 PostScript 高級源碼過程來定義字形**！
+
+### C.2.1 Type 3 字體的工業優勢與技術侷限
+
+- **核心優勢**：
+  * **完全圖靈完備的自由表達**：字形描述過程可以使用幾乎所有合法的 PostScript 算子！這意味着字形可以擁有全綵色漸變（Shading）、可以內嵌光柵照片（`image`）、可以動態計算隨機紋理、甚至可以繪製帶有可調線寬的灰度描邊圖元；
+  * **零授權成本**：在 Type 1 加密算法被 Adobe 嚴密封鎖的歲月裏，Type 3 成爲所有第三方開源編譯器與 DTP 軟件生成矢量字型的唯一合法途徑。
+- **技術侷限**：
+  * **無微觀提示機制（No Hinting）**：Type 3 規範不具備 Type 1 專屬的干預像素柵格對齊的提示算子。因此在低分辨率顯示器或激光打印機的小字號排印下，字形邊緣容易模糊或筆畫斷裂；
+  * **無法享受專用硬件光柵加速器**：多數 PostScript RIP 硬件針對 Type 1 內置了極其快速的專用解密與光柵化 ASIC 芯片，而 Type 3 只能作爲普通通用 PostScript 過程在解釋器主循環中慢速解析。
+
+### C.2.2 Type 3 字體字典的內部字段架構
+
+一個標準的 Type 3 字體字典必須向解釋器註冊以下關鍵條目：
+
+| 字典鍵名 | 類型 | 規範說明 |
+| :--- | :---: | :--- |
+| `FontType` | 整數 | **固定必須爲 3**，向解釋器聲明此乃 Type 3 字體字典。 |
+| `FontMatrix` | 數組 | 將字形設計空間轉換爲用戶空間的仿射變換矩陣（常用 `[0.001 0 0 0.001 0 0]`，將 1000 單位的設計網格折算爲 1 點）。 |
+| `FontBBox` | 數組 | 容納字庫中全體字形的絕對外包圍盒 `[llx lly urx ury]`。 |
+| `Encoding` | 數組 | 容量固定爲 256 的名稱數組，將 `0-255` 編碼映射爲字形符號名稱。 |
+| `BuildGlyph` | 過程 | 現代 PostScript Level 2/3 標準驅動程序：從棧頂接收字體字典與字形名稱，負責動態繪製該字形。 |
+| `BuildChar` | 過程 | 早期 PostScript Level 1 兼容程序：從棧頂接收字體字典與字符編碼，負責執行字形繪製。 |
+
+### C.2.3 `setcachedevice` 與 `setcharwidth` 緩存決策
+
+在 `BuildGlyph`（或 `BuildChar`）過程內部，字形繪製的第一步必須明確通知底層圖形引擎該字形是否應當被存入 RIP 的高速字形點陣緩存（Font Cache）：
+
+1. **`setcachedevice`（啓用字形高速緩存）**：
+   語法：`wx wy llx lly urx ury setcachedevice`
+   通知解釋器：該字形的前進量爲 $(w_x, w_y)$，外包圍盒爲 $[ll_x, ll_y, ur_x, ur_y]$。解釋器會爲該字形在內存中分配一塊點陣緩衝區；當相同字符再次出現時，直接拷貝光柵位圖，極大提升排版吞吐率。**注意：使用 `setcachedevice` 的字形內部嚴禁調用任何色彩算子（如 `setrgbcolor`），所有描邊與填充強制繼承外部文本前景色。**
+2. **`setcharwidth`（禁用緩存，允許全綵與複雜動態特性）**：
+   語法：`wx wy setcharwidth`
+   僅向系統聲明字形水平與垂直位移 $(w_x, w_y)$。系統不會緩存渲染結果，每次排版均重新執行繪製代碼。**該算子專爲全綵色字形、多色套印圖章、以及帶有隨機動態算法的特殊字型量身定製！**
+
+### C.2.4 極簡 Type 3 字體純 PostScript 源碼實戰範例
+
+以下是一份完全符合工業標準的 Type 3 字體可執行 PostScript 源代碼範本，它定義了一個名爲 `/MinimalType3` 的字體，並在內部通過純矢量指令手工繪製了字母 `'A'` 與 `'B'`：
+
+```postscript
+%!PS-Adobe-3.0 Resource-Font
+8 dict begin
+  /FontType 3 def
+  /FontMatrix [0.001 0 0 0.001 0 0] def
+  /FontBBox [0 0 1000 1000] def
+
+  % 256 位編碼向量初始化：默認填入 /.notdef
+  /Encoding 256 array def
+  0 1 255 { Encoding exch /.notdef put } for
+  Encoding 65 /A put
+  Encoding 66 /B put
+
+  % 字形輪廓描述子字典
+  /CharProcs 3 dict def
+  CharProcs begin
+    /.notdef {
+      0 0 0 0 0 0 setcachedevice
+    } def
+
+    /A {
+      % 進深 600，包圍盒 [50 0 550 800]
+      600 0 50 0 550 800 setcachedevice
+      newpath
+      50 0 moveto
+      300 800 lineto
+      550 0 lineto
+      450 0 lineto
+      375 250 lineto
+      225 250 lineto
+      150 0 lineto
+      closepath
+      % 內部鏤空三角（逆時針繪製以實現非零環繞數鏤空）
+      300 600 moveto
+      250 400 lineto
+      350 400 lineto
+      closepath
+      fill
+    } def
+
+    /B {
+      % 進深 650，包圍盒 [50 0 600 800]
+      650 0 50 0 600 800 setcachedevice
+      newpath
+      50 0 moveto 50 800 lineto 400 800 lineto
+      550 800 600 700 600 550 curveto
+      600 450 520 400 450 400 curveto
+      550 400 600 350 600 200 curveto
+      600 50 500 0 350 0 curveto
+      closepath
+      fill
+    } def
+  end
+
+  % BuildGlyph 分發器
+  /BuildGlyph {
+    exch begin
+      % 棧：glyphname
+      dup CharProcs exch known {
+        CharProcs exch get exec
+      } {
+        pop CharProcs /.notdef get exec
+      } ifelse
+    end
+  } def
+
+  /BuildChar {
+    1 index /Encoding get exch get
+    1 index /BuildGlyph get exec
+  } def
+currentdict end
+/MinimalType3 exch definefont pop
+```
+
+
+---
+
+## C.3 PostScript Type 1 字體的內存拓撲與解密引擎
 
 一個物理上的 Type 1 字體在不同操作系統下有不同的打包載體：
 1. **`.PFA`（PostScript Font ASCII）**：純文本封裝格式，常用於 Unix 工作站與通信信道。`eexec` 加密段被編碼爲兩位的十六進制 ASCII 字符串（Hexadecimal-encoded），每行 64 字符；
@@ -788,12 +1051,12 @@ def parse_tfm(data: bytes):
 
 ```
 +-------------------------------------------------------+
-|  .PFB 记录块结构 (Record Header: 6 Bytes)              |
+|  .PFB 記錄塊結構 (Record Header: 6 Bytes)              |
 +-------------------------------------------------------+
-|  Byte 0:     0x80 (魔数标识符)                          |
-|  Byte 1:     记录类型 (0x01: ASCII, 0x02: Binary, 0x03: EOF)
-|  Bytes 2-5:  记录长度 (32-bit Little-Endian uint32)    |
-|  Bytes 6..N: 载荷数据 (Payload Data)                  |
+|  Byte 0:     0x80 (魔數標識符)                          |
+|  Byte 1:     記錄類型 (0x01: ASCII, 0x02: Binary, 0x03: EOF)
+|  Bytes 2-5:  記錄長度 (32-bit Little-Endian uint32)    |
+|  Bytes 6..N: 載荷數據 (Payload Data)                  |
 +-------------------------------------------------------+
 ```
 
@@ -835,7 +1098,7 @@ $$P_n = C_n \oplus (R_n \gg 8)$$
 #### Python 工業級 eexec 解密與加密實現：
 ```python
 def decrypt_type1_cipher(ciphertext: bytes, key: int = 52845, discard: int = 4) -> bytes:
-    # PostScript Type 1 线性同余解密算法
+    # PostScript Type 1 線性同餘解密算法
     # key = 52845 (eexec) 或 4330 (CharStrings)
     c1 = 52845
     c2 = 22719
@@ -848,7 +1111,7 @@ def decrypt_type1_cipher(ciphertext: bytes, key: int = 52845, discard: int = 4) 
     return bytes(plaintext[discard:])
 
 def encrypt_type1_cipher(plaintext: bytes, key: int = 52845, random_header: bytes = b'\x00\x00\x00\x00') -> bytes:
-    # PostScript Type 1 线性同余加密算法
+    # PostScript Type 1 線性同餘加密算法
     c1 = 52845
     c2 = 22719
     r = key
@@ -1133,18 +1396,18 @@ end def
 /XUID [1 10 25330] def
 /WMode 0 def % 0 = Horizontal, 1 = Vertical
 
-% 声明编码空间范围 (1 到 4 字节)
+% 聲明編碼空間範圍 (1 到 4 字節)
 1 begincodespacerange
   <0000> <FFFF>
 endcodespacerange
 
-% 单字符映射 (Character to CID)
+% 單字符映射 (Character to CID)
 10 beginbfchar
   <0020> 1
   <0021> 2
 endbfchar
 
-% 范围连续映射 (Range to CID)
+% 範圍連續映射 (Range to CID)
 25 begincidrange
   <0022> <005F> 3
   <0060> <007E> 65
@@ -1157,6 +1420,83 @@ end
 ```
 
 通過將字符與字形完全解耦，CMap 文件不僅支持一對一的直接尋址，更通過垂直變體（`V` 系列 CMap）與豎排度量表實現了無縫的縱向書寫切換。
+---
+
+---
+
+## C.6 PostScript 字體外部度量規範：AFM、AMFM 與 Windows PFM（Font Metrics Files）
+
+在 PostScript 架構中，字體輪廓程序（`.pfa` 或 `.pfb`）主要由打印機或屏幕 RIP 解釋器在光柵化着色階段執行；而在上層的桌面排版軟件（如 PageMaker、QuarkXPress、InDesign）或排版系統（如 $\mathrm{\TeX}$、$\mathrm{Troff}$）中，排版引擎計算行長、折行斷字以及字距微調時，**並不需要讀取沉重且加密的矢量輪廓字節碼，而只需獲悉各個字符的純幾何度量數據（Metrics）**。
+
+爲此，Adobe 制定了一套完全基於純 ASCII 文本的工業度量文件標準——**AFM（Adobe Font Metrics）** [22]，以及 Windows 操作系統所專用的二進制派生物 **PFM（Printer Font Metrics）**。
+
+### C.6.1 AFM 文件的全局結構與度量語法
+
+AFM 文件本質上是一份由換行符分隔的鍵值對與表格流，以 `StartFontMetrics 4.1` 開頭，以 `EndFontMetrics` 結尾。其內部結構嚴格由四大功能段落構成：
+
+#### 1. 全局字體元數據段（Global Font Information）
+該段落聲明整座字體的宏觀物理度量基準與標識字符串：
+* **`FontName`**：字體的正式 PostScript 符號名稱（如 `Helvetica-Bold`）；
+* **`FullName`** 與 **`FamilyName`**：完整人類可讀名稱與家族族名；
+* **`Weight`**：字重（如 `Medium`、`Bold`、`Black`）；
+* **`ItalicAngle`**：筆畫傾斜角（以度爲單位，逆時針方向爲負，正體爲 `0`，典型斜體爲 `-12`）；
+* **`IsFixedPitch`**：布爾值，聲明是否爲等寬字體（`true` 或 `false`）；
+* **`FontBBox`**：容納字體全部字符外邊緣的全局外包圍盒 `llx lly urx ury`；
+* **`UnderlinePosition` 與 `UnderlineThickness`**：下劃線的垂直偏移基線深度與筆畫粗細；
+* **`Version`** 與 **`Notice`**：版本號與版權聲明；
+* **`EncodingScheme`**：該度量文件所默認綁定的編碼方案名稱（如 `AdobeStandardEncoding`、`ISOLatin1Encoding` 或 `FontSpecific`）；
+* **`CapHeight` 與 `XHeight`**：大寫字母字高與小寫字母 x 字高；
+* **`Ascender` 與 `Descender`**：上升部最高線與下降部最低谷。
+
+#### 2. 單字形微觀度量段（Individual Character Metrics）
+以 `StartCharMetrics n` 開頭（$n$ 爲包含的字符總數），以 `EndCharMetrics` 結尾。每一行精確記錄一個字形的幾何度量，字段之間以分號 `;` 分隔：
+
+```afm
+C 65 ; WX 667 ; N A ; B 17 0 650 718 ;
+C 102 ; WX 333 ; N f ; B 20 0 382 718 ; L i fi ; L l fl ;
+```
+
+關鍵度量字段的嚴密物理定義：
+* **`C`**：字符在該字體默認編碼向量中的十進制編碼值（`-1` 代表在默認編碼中未被分配碼位的字形）；
+* **`WX`**（或縱向模式下的 `WY`）：字形的水平排版前進進深寬度（以 1000 設計單位爲基準）；
+* **`N`**：該字形在 PostScript 字典中的唯一符號名稱（如 `A`、`ampersand`）；
+* **`B`**：該字形的軸對齊外包圍盒 `llx lly urx ury`（左下角點與右上角點座標）；
+* **`L`（連字指令，Ligature Directive）**：聲明該字形後繼跟隨時可自動合成的合字規則（如 `L i fi` 聲明當字符 `f` 之後緊跟字符 `i` 時，自動替換爲合字 `fi`）。
+
+#### 3. 字距微調對段（Kerning Pairs）
+以 `StartKernData` 開頭，以 `EndKernData` 結尾。其核心爲字偶微調對子表：
+```afm
+StartKernPairs 350
+KPX A V -75
+KPX T o -80
+KPX W a -60
+EndKernPairs
+```
+每行以 **`KPX`** 關鍵字引導，聲明左側字形、右側字形以及沿水平 $x$ 軸施加的度量微調量（以 1000 單位正方形爲尺度；負值表示兩字靠攏緊縮，正值表示相互推開）。
+
+#### 4. 軌跡字距調整段（Track Kerning）
+AFM 規範還支持通過 `StartTrackKern` 聲明**軌跡字距（Track Kerning）**，允許排版軟件根據文檔當前的實際排版字號，線性插值縮放字距鬆緊度，實現在極小正文字號下自適應放寬字距、在特大標題字號下自適應收緊字距的高級排印物理模型！
+
+### C.6.2 多重母版度量文件：AMFM 與多母版協作
+
+對於多重母版字體（Multiple Master），度量體系由兩層架構支撐：
+1. **主度量文件（`.amfm`，Adobe Multiple Master Font Metrics）**：聲明所有設計軸（Design Axes，如字重軸 Weight、字寬軸 Width、光學尺寸軸 Optical Size）、軸向極值範圍、主母版數目、以及用於驅動插值運算的代數混合矩陣（Blend Matrix）；
+2. 各個離散極限母版各自附帶一份獨立的普通 AFM 文件，排版軟件根據用戶指定的座標點 $(w_1, w_2, \dots)$ 對所有 AFM 度量執行加權向量線性求和，動態合成當前專屬實例的度量數據。
+
+### C.6.3 Windows 二進制打印機度量文件：PFM
+
+在經典的 16 位與 32 位 Windows 操作系統（Windows 3.1/95/98/NT/2000/XP）中，系統內核與 GDI 引擎爲了規避解析龐大 ASCII 文本文件的性能懲罰，規定必須將 AFM 文件預先編譯爲二進制的 **`.pfm`（Printer Font Metrics）** 文件。
+
+一個 PFM 文件由精密的 C 語言二進制結構體打包而成：
+- **`dfType`**：字體類型（通常爲 `0x0080` 表示 PostScript 柵格驅動）；
+- **`dfPoints`** 與 **`dfVertRes` / `dfHorizRes`**：標稱點數與設計分辨率；
+- **`dfAscent`** 與 **`dfInternalLeading` / `dfExternalLeading`**：Windows 經典的字體上升部與行距前導空白；
+- **`dfWeight`**：以 1 到 1000 標定的字重整數（400 爲常規 Normal，700 爲粗體 Bold）；
+- **`dfPitchAndFamily`**：等寬/變寬標誌位與 Windows 字體家族族羣分類碼；
+- **`dfWidthTable`**：指向 256 位字符寬度表的 32 位文件偏移指針；
+- **`dfPairKernTable`**：指向經過二進制結構化排序的字距微調對數組的文件偏移量指針。
+
+
 ---
 
 ## C.7 CFF 字典鍵值與二進制操作碼權威詞典
@@ -1266,7 +1606,7 @@ class CFFIndex:
         offsets_start = offset + 3
         offsets_count = self.count + 1
         
-        # 动态解析 1 到 4 字节的变宽偏移量
+        # 動態解析 1 到 4 字節的變寬偏移量
         raw_offsets = []
         for i in range(offsets_count):
             pos = offsets_start + i * self.off_size
@@ -1297,19 +1637,19 @@ class CFFIndex:
 在 PostScript 解釋器內部，用戶可以通過動態混合（Blend）直接派生出全新的物理字體實例：
 
 ```postscript
-% 查找基础多重母版字体
+% 查找基礎多重母版字體
 /MinionMM findfont
 
-% 在二维设计空间中定义归一化插值坐标：
-% 字重轴权重 0.45 (Light到Black之间)，字宽轴权重 0.80 (紧缩到宽体之间)
+% 在二維設計空間中定義歸一化插值座標：
+% 字重軸權重 0.45 (Light到Black之間)，字寬軸權重 0.80 (緊縮到寬體之間)
 [0.45 0.80] makeblendedfont
 
-% 将生成的派生字体注册为全局字体
+% 將生成的派生字體註冊爲全局字體
 /Minion-Custom findfont
 12 scalefont
 setfont
 
-% 在页面上排版输出
+% 在頁面上排版輸出
 100 700 moveto
 (Voile Magic Library: Multiple Master Dynamic Instance) show
 showpage
@@ -1370,32 +1710,32 @@ $$\mathbf{W} = \bigotimes_{j=1}^k \begin{pmatrix} 1 - w_j \\ w_j \end{pmatrix}$$
 以下爲一段真實的 Type 1 解密字節碼指令序列及其物理執行過程：
 
 ```postscript
-% 1. 设置水平左侧轴承为 50，前进字宽为 500
+% 1. 設置水平左側軸承爲 50，前進字寬爲 500
 50 500 hsbw
 
-% 2. 声明字符上半部分的初始水平与垂直提示
-% 顶部横弧 (y=650, dy=40) 与 中部横梁 (y=360, dy=35)
+% 2. 聲明字符上半部分的初始水平與垂直提示
+% 頂部橫弧 (y=650, dy=40) 與 中部橫樑 (y=360, dy=35)
 650 40 360 35 hstem
-% 左右垂直干提示 (x=230, dx=40)
+% 左右垂直幹提示 (x=230, dx=40)
 230 40 vstem
 
-% 3. 绘制顶部衬线与第一段曲线
+% 3. 繪製頂部襯線與第一段曲線
 230 650 rmoveto
 40 hlineto
 -15 -30 -40 -35 -80 -40 rrcurveto
 
-% 4. 触发动态提示替换 (Hint Substitution)
-% 抹除上半部提示，激活中腰与下半部的全新笔画提示集合！
+% 4. 觸發動態提示替換 (Hint Substitution)
+% 抹除上半部提示，激活中腰與下半部的全新筆畫提示集合！
 1 3 callothersubr pop
-150 40 hstem % 底部横弧提示
-210 40 vstem % 下干提示
+150 40 hstem % 底部橫弧提示
+210 40 vstem % 下幹提示
 
-% 5. 继续绘制穿越中腰的平滑反向曲线
+% 5. 繼續繪製穿越中腰的平滑反向曲線
 -30 -20 -40 -30 -30 -60 rrcurveto
 0 -50 vlineto
 closepath
 
-% 6. 终结绘制，提交光栅缓冲区
+% 6. 終結繪製，提交光柵緩衝區
 endchar
 ```
 
@@ -1432,17 +1772,17 @@ endchar
 
 ```c
 struct TableDirectory {
-    uint32 sfntVersion;     /* 格式识别魔数：0x00010000 代表 TrueType 轮廓，0x4F54544F ('OTTO') 代表 CFF OpenType */
-    uint16 numTables;       /* 文件中包含的二进制子表总数 */
-    uint16 searchRange;     /* 小于等于 numTables 的最大 2 的幂乘以 16：(2^floor(log2(numTables))) * 16 */
-    uint16 entrySelector;   /* 二分查找最大幂次迭代步数：floor(log2(numTables)) */
+    uint32 sfntVersion;     /* 格式識別魔數：0x00010000 代表 TrueType 輪廓，0x4F54544F ('OTTO') 代表 CFF OpenType */
+    uint16 numTables;       /* 文件中包含的二進制子表總數 */
+    uint16 searchRange;     /* 小於等於 numTables 的最大 2 的冪乘以 16：(2^floor(log2(numTables))) * 16 */
+    uint16 entrySelector;   /* 二分查找最大冪次迭代步數：floor(log2(numTables)) */
     uint16 rangeShift;      /* numTables * 16 - searchRange */
-    /* 紧随其后为 numTables 个子表目录项，严格按 tag 字典序升序排列： */
+    /* 緊隨其後爲 numTables 個子表目錄項，嚴格按 tag 字典序升序排列： */
     struct TableRecord {
-        uint32 tag;         /* 4 字节 ASCII 表名标签（如 'head', 'glyf', 'GSUB'） */
-        uint32 checkSum;    /* 该子表的 32 位校验和 */
-        uint32 offset;      /* 该子表在文件中的起始字节偏移量 */
-        uint32 length;      /* 该子表的实际字节长度 */
+        uint32 tag;         /* 4 字節 ASCII 表名標籤（如 'head', 'glyf', 'GSUB'） */
+        uint32 checkSum;    /* 該子表的 32 位校驗和 */
+        uint32 offset;      /* 該子表在文件中的起始字節偏移量 */
+        uint32 length;      /* 該子表的實際字節長度 */
     } tables[numTables];
 };
 ```
@@ -1519,20 +1859,20 @@ def parse_sfnt_directory(font_data: bytes):
 
 ```
 +-------------------------------------------------------+
-|  TTC 物理文件拓扑 (TrueType Collection Topology)        |
+|  TTC 物理文件拓撲 (TrueType Collection Topology)        |
 +-------------------------------------------------------+
 |  'ttcf' Header (Magic, Version, numFonts, Offsets)    |
 |  ├── Font 0 Table Directory ───────────┐              |
 |  └── Font 1 Table Directory ─────┐     │              |
 |                                  │     │              |
-|  [共享物理数据表]                  │     │              |
+|  [共享物理數據表]                  │     │              |
 |  ├── 'glyf' Table (完全共享!) <────┴─────┘              |
 |  ├── 'loca' Table (完全共享!) <────┴─────┘              |
-|  [独立物理数据表]                                      |
-|  ├── Font 0 'name' Table (名称: "MingLiU")            |
-|  ├── Font 1 'name' Table (名称: "PMingLiU")           |
-|  ├── Font 0 'cmap' Table (等宽映射)                    |
-|  └── Font 1 'cmap' Table (比例变宽映射)                |
+|  [獨立物理數據表]                                      |
+|  ├── Font 0 'name' Table (名稱: "MingLiU")            |
+|  ├── Font 1 'name' Table (名稱: "PMingLiU")           |
+|  ├── Font 0 'cmap' Table (等寬映射)                    |
+|  └── Font 1 'cmap' Table (比例變寬映射)                |
 +-------------------------------------------------------+
 ```
 
@@ -1582,7 +1922,7 @@ def parse_sfnt_directory(font_data: bytes):
 `head` 是操作系統在裝載字庫時首個讀取的元數據表。其固定長度爲 54 字節：
 
 ```xml
-<!-- TTX XML 表达范例 -->
+<!-- TTX XML 表達範例 -->
 <head>
   <tableVersion value="1.0"/>
   <fontRevision value="1.002"/>
@@ -1752,26 +2092,26 @@ uint16 lookup_gid_format4(uint16 char_code, CmapFormat4* cmap) {
     uint16 segCount = cmap->segCountX2 / 2;
     int left = 0, right = segCount - 1, hit = -1;
     
-    /* 二分查找命中的连续段 */
+    /* 二分查找命中的連續段 */
     while (left <= right) {
         int mid = (left + right) / 2;
         if (cmap->endCode[mid] >= char_code) {
             hit = mid;
-            right = mid - 1; /* 继续向前探寻最小可能段 */
+            right = mid - 1; /* 繼續向前探尋最小可能段 */
         } else {
             left = mid + 1;
         }
     }
     
     if (hit == -1 || cmap->startCode[hit] > char_code) {
-        return 0; /* 字符不在任何合法段内，返回缺失字形 GID 0 (.notdef) */
+        return 0; /* 字符不在任何合法段內，返回缺失字形 GID 0 (.notdef) */
     }
     
-    /* 核心寻址逻辑 */
+    /* 核心尋址邏輯 */
     if (cmap->idRangeOffset[hit] == 0) {
         return (char_code + cmap->idDelta[hit]) & 0xFFFF;
     } else {
-        /* 基于指针偏移计算在 glyphIdArray 中的位置 */
+        /* 基於指針偏移計算在 glyphIdArray 中的位置 */
         uint16* offset_addr = &cmap->idRangeOffset[hit];
         uint16* target_ptr = offset_addr + (cmap->idRangeOffset[hit] / 2) + (char_code - cmap->startCode[hit]);
         uint16 gid = *target_ptr;
@@ -1822,7 +2162,7 @@ uint16 lookup_gid_format4(uint16 char_code, CmapFormat4* cmap) {
 `name` 表是字庫的人事檔案庫。爲了確保同一款字體能夠在英語 Windows、繁體中文 Mac OS、日文 X11 等異構操作系統的字體選擇菜單中正確顯示出本地化名稱，`name` 表定義了精密的多語言命名記錄結構：
 
 ```xml
-<!-- TTX XML 表达范例 -->
+<!-- TTX XML 表達範例 -->
 <name>
   <namerecord nameID="0" platformID="3" platEncID="1" langID="0x409">
     Copyright © 2007 Adobe Systems Incorporated. All Rights Reserved.
@@ -1872,17 +2212,17 @@ uint16 lookup_gid_format4(uint16 char_code, CmapFormat4* cmap) {
 ```c
 struct PostTableFormat2 {
     uint32 format;              /* 0x00020000 */
-    int32  italicAngle;         /* 16.16 定点数倾斜角 */
-    int16  underlinePosition;   /* 下划线基准线垂直偏移 */
-    int16  underlineThickness;  /* 下划线宽度 */
-    uint32 isFixedPitch;        /* 是否等宽 */
-    uint32 minMemType42;        /* 激光照排机下载 Type 42 所需的最小内存 */
+    int32  italicAngle;         /* 16.16 定點數傾斜角 */
+    int16  underlinePosition;   /* 下劃線基準線垂直偏移 */
+    int16  underlineThickness;  /* 下劃線寬度 */
+    uint32 isFixedPitch;        /* 是否等寬 */
+    uint32 minMemType42;        /* 激光照排機下載 Type 42 所需的最小內存 */
     uint32 maxMemType42;
     uint32 minMemType1;
     uint32 maxMemType1;
-    uint16 numGlyphs;           /* 包含的字形总数 */
-    uint16 glyphNameIndex[numGlyphs]; /* 指向标准 258 符号或后续自定义字符串的索引数组 */
-    /* 紧随其后为 Pascal-string 连续数组: uint8 length + char data[length] */
+    uint16 numGlyphs;           /* 包含的字形總數 */
+    uint16 glyphNameIndex[numGlyphs]; /* 指向標準 258 符號或後續自定義字符串的索引數組 */
+    /* 緊隨其後爲 Pascal-string 連續數組: uint8 length + char data[length] */
 };
 ```
 
@@ -1896,10 +2236,10 @@ struct PostTableFormat2 {
 ```xml
 <gasp>
   <version value="1"/>
-  <gaspRange rangeMaxPPEM="8" rangeGaspBehavior="2"/> <!-- 仅执行灰度平滑，关闭提示 -->
-  <gaspRange rangeMaxPPEM="16" rangeGaspBehavior="1"/> <!-- 极小字号：强行开启网格提示对齐 -->
-  <gaspRange rangeMaxPPEM="2048" rangeGaspBehavior="15"/> <!-- 正常与大字号：同时开启微指令、灰度与 ClearType 平滑 -->
-  <gaspRange rangeMaxPPEM="65535" rangeGaspBehavior="14"/> <!-- 超大海报：关闭微指令，仅执行全平滑 -->
+  <gaspRange rangeMaxPPEM="8" rangeGaspBehavior="2"/> <!-- 僅執行灰度平滑，關閉提示 -->
+  <gaspRange rangeMaxPPEM="16" rangeGaspBehavior="1"/> <!-- 極小字號：強行開啓網格提示對齊 -->
+  <gaspRange rangeMaxPPEM="2048" rangeGaspBehavior="15"/> <!-- 正常與大字號：同時開啓微指令、灰度與 ClearType 平滑 -->
+  <gaspRange rangeMaxPPEM="65535" rangeGaspBehavior="14"/> <!-- 超大海報：關閉微指令，僅執行全平滑 -->
 </gasp>
 ```
 
@@ -1935,7 +2275,7 @@ OpenType 徹底超越傳統點陣與靜態矢量的核心，在於其將排印�
 $$\text{ScriptList} \longrightarrow \text{LangSysRecord} \longrightarrow \text{FeatureList} \longrightarrow \text{LookupList} \longrightarrow \text{SubTables}$$
 
 ```xml
-<!-- OpenType 顶层布局结构拓扑 (TTX 范例) -->
+<!-- OpenType 頂層佈局結構拓撲 (TTX 範例) -->
 <GSUB>
   <Version value="0x00010000"/>
   <ScriptList>
@@ -1969,7 +2309,7 @@ $$\text{ScriptList} \longrightarrow \text{LangSysRecord} \longrightarrow \text{F
     <Lookup index="0">
       <LookupType value="4"/> <!-- Ligature Substitution -->
       <LookupFlag value="0"/>
-      <!-- 具体子表 -->
+      <!-- 具體子表 -->
     </Lookup>
     <Lookup index="1">
       <LookupType value="1"/> <!-- Single Substitution -->
@@ -1989,21 +2329,21 @@ $$\text{ScriptList} \longrightarrow \text{LangSysRecord} \longrightarrow \text{F
 * **Format 1（離散字形數組）**：
   ```c
   struct CoverageFormat1 {
-      uint16 coverageFormat; /* 恒为 1 */
-      uint16 glyphCount;     /* 受控字形总数 */
-      uint16 glyphArray[glyphCount]; /* 严格按 GID 字典序升序排列 */
+      uint16 coverageFormat; /* 恆爲 1 */
+      uint16 glyphCount;     /* 受控字形總數 */
+      uint16 glyphArray[glyphCount]; /* 嚴格按 GID 字典序升序排列 */
   };
   ```
 * **Format 2（連續區間數組）**：
   ```c
   struct CoverageRangeRecord {
-      uint16 startGlyphID;   /* 连续区间起始 GID */
-      uint16 endGlyphID;     /* 连续区间结束 GID */
-      uint16 startCoverageIndex; /* 该区间首个字符分配的连续覆盖索引 */
+      uint16 startGlyphID;   /* 連續區間起始 GID */
+      uint16 endGlyphID;     /* 連續區間結束 GID */
+      uint16 startCoverageIndex; /* 該區間首個字符分配的連續覆蓋索引 */
   };
   struct CoverageFormat2 {
-      uint16 coverageFormat; /* 恒为 2 */
-      uint16 rangeCount;     /* 区间总数 */
+      uint16 coverageFormat; /* 恆爲 2 */
+      uint16 rangeCount;     /* 區間總數 */
       struct CoverageRangeRecord rangeRecords[rangeCount];
   };
   ```
@@ -2040,7 +2380,7 @@ $$\text{ScriptList} \longrightarrow \text{LangSysRecord} \longrightarrow \text{F
   <LookupType value="2"/>
   <LookupFlag value="0"/>
   <MultipleSubst index="0" Format="1">
-    <!-- 将连字符 'ffi' 还原分解为独立的三个字形 -->
+    <!-- 將連字符 'ffi' 還原分解爲獨立的三個字形 -->
     <Sequence glyph="f_f_i">
       <Substitute value="f"/>
       <Substitute value="f"/>
@@ -2074,11 +2414,11 @@ $$\text{ScriptList} \longrightarrow \text{LangSysRecord} \longrightarrow \text{F
   <LookupFlag value="0"/>
   <LigatureSubst index="0" Format="1">
     <LigatureSet glyph="f">
-      <!-- 遇到 'f' + 'i' 触发替换为 'fi' (GID 280) -->
+      <!-- 遇到 'f' + 'i' 觸發替換爲 'fi' (GID 280) -->
       <Ligature components="i" glyph="f_i"/>
-      <!-- 遇到 'f' + 'l' 触发替换为 'fl' (GID 281) -->
+      <!-- 遇到 'f' + 'l' 觸發替換爲 'fl' (GID 281) -->
       <Ligature components="l" glyph="f_l"/>
-      <!-- 遇到 'f' + 'f' + 'i' 触发替换为 'ffi' -->
+      <!-- 遇到 'f' + 'f' + 'i' 觸發替換爲 'ffi' -->
       <Ligature components="f,i" glyph="f_f_i"/>
     </LigatureSet>
   </LigatureSubst>
@@ -2092,20 +2432,20 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
   <LookupType value="6"/>
   <LookupFlag value="0"/>
   <ChainContextSubst index="0" Format="3">
-    <!-- 回溯序列：前面必须有大写字母 -->
+    <!-- 回溯序列：前面必須有大寫字母 -->
     <BacktrackCoverage index="0" Format="1">
       <Glyph value="A"/>
       <Glyph value="E"/>
     </BacktrackCoverage>
-    <!-- 输入序列：当前字符小写 'e' -->
+    <!-- 輸入序列：當前字符小寫 'e' -->
     <InputCoverage index="0" Format="1">
       <Glyph value="e"/>
     </InputCoverage>
-    <!-- 前瞻序列：后面必须跟随字母 'r' -->
+    <!-- 前瞻序列：後面必須跟隨字母 'r' -->
     <LookaheadCoverage index="0" Format="1">
       <Glyph value="r"/>
     </LookaheadCoverage>
-    <!-- 动作：在当前输入位置 0 处，调用 Lookup 1 (小型大写替换) -->
+    <!-- 動作：在當前輸入位置 0 處，調用 Lookup 1 (小型大寫替換) -->
     <SubstLookupRecord index="0">
       <SequenceIndex value="0"/>
       <LookupListIndex value="1"/>
@@ -2134,7 +2474,7 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
       <Glyph value="hyphen"/>
       <Glyph value="endash"/>
     </Coverage>
-    <!-- 将连字符向上抬高 120 栅格单位以匹配大写字母中心 -->
+    <!-- 將連字符向上抬高 120 柵格單位以匹配大寫字母中心 -->
     <Value YPlacement="120"/>
   </SinglePos>
 </Lookup>
@@ -2144,7 +2484,7 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
 ```xml
 <Lookup index="8">
   <LookupType value="2"/>
-  <LookupFlag value="8"/> <!-- 忽略结合音标 -->
+  <LookupFlag value="8"/> <!-- 忽略結合音標 -->
   <PairPos index="0" Format="2">
     <Coverage Format="1">
       <Glyph value="T"/>
@@ -2162,12 +2502,12 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
       <ClassDefinition glyph="e" class="1"/>
       <ClassDefinition glyph="a" class="2"/>
     </ClassDef2>
-    <!-- 类别 1 (T) 与 类别 1 (o, c, e) 相遇时的字距调整 -->
+    <!-- 類別 1 (T) 與 類別 1 (o, c, e) 相遇時的字距調整 -->
     <Class1Record index="1">
       <Class2Record index="1">
         <Value1 XAdvance="-180"/>
       </Class2Record>
-      <!-- 类别 1 (T) 与 类别 2 (a) 相遇时微调 -150 -->
+      <!-- 類別 1 (T) 與 類別 2 (a) 相遇時微調 -150 -->
       <Class2Record index="2">
         <Value1 XAdvance="-150"/>
       </Class2Record>
@@ -2180,7 +2520,7 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
 ```xml
 <Lookup index="9">
   <LookupType value="3"/>
-  <LookupFlag value="1"/> <!-- 从右向左排版 -->
+  <LookupFlag value="1"/> <!-- 從右向左排版 -->
   <CursivePos index="0" Format="1">
     <Coverage Format="1">
       <Glyph value="ar_baa.init"/>
@@ -2218,7 +2558,7 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
     </BaseCoverage>
     <BaseArray>
       <BaseRecord index="0">
-        <!-- 字母 'a' 顶部的对齐中心锚点 -->
+        <!-- 字母 'a' 頂部的對齊中心錨點 -->
         <BaseAnchor index="0" Format="1">
           <XCoordinate value="260"/>
           <YCoordinate value="680"/>
@@ -2293,7 +2633,7 @@ Type 6 是 OpenType 文法重寫的頂峯。它維護 Backtrack、Input、Lookah
 
 ```
 +-------------------------------------------------------+
-|  AAT 状态机执行流 (State Machine Execution Pipeline)   |
+|  AAT 狀態機執行流 (State Machine Execution Pipeline)   |
 +-------------------------------------------------------+
 |  Input Glyph GID                                      |
 |       │                                               |
@@ -2381,7 +2721,7 @@ OpenType 引擎首先通過 `init`、`medi`、`fina`、`isol` 四個排版特性
   <LookupType value="5"/> <!-- Contextual Substitution -->
   <LookupFlag value="1"/> <!-- RightToLeft -->
   <ContextSubst index="0" Format="2">
-    <!-- 覆盖所有具有连笔能力的阿拉伯文字母 -->
+    <!-- 覆蓋所有具有連筆能力的阿拉伯文字母 -->
     <Coverage Format="1">
       <Glyph value="ar_baa"/>
       <Glyph value="ar_jeem"/>
@@ -2392,7 +2732,7 @@ OpenType 引擎首先通過 `init`、`medi`、`fina`、`isol` 四個排版特性
       <ClassDefinition glyph="ar_jeem" class="1"/>
       <ClassDefinition glyph="space" class="2"/>
     </ClassDef>
-    <!-- 当 Class 1 (字母) 后紧随 Class 1 (字母) 时，触发替换为词首态 -->
+    <!-- 當 Class 1 (字母) 後緊隨 Class 1 (字母) 時，觸發替換爲詞首態 -->
     <SubClassSet index="1">
       <SubClassRule index="0">
         <ClassSequence>
@@ -2400,7 +2740,7 @@ OpenType 引擎首先通過 `init`、`medi`、`fina`、`isol` 四個排版特性
         </ClassSequence>
         <SubstLookupRecord index="0">
           <SequenceIndex value="0"/>
-          <LookupListIndex value="20"/> <!-- 词首态替换子表 -->
+          <LookupListIndex value="20"/> <!-- 詞首態替換子表 -->
         </SubstLookupRecord>
       </SubClassRule>
     </SubClassSet>
@@ -2419,17 +2759,17 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
   <LookupType value="6"/> <!-- MarkToMark Attachment -->
   <LookupFlag value="0"/>
   <MarkMarkPos index="0" Format="1">
-    <!-- 顶层音标：开音符 (Fathah) -->
+    <!-- 頂層音標：開音符 (Fathah) -->
     <Mark1Coverage Format="1">
       <Glyph value="ar_fathah"/>
     </Mark1Coverage>
-    <!-- 底层音标：鼻音化轻读符 (Tanwin) -->
+    <!-- 底層音標：鼻音化輕讀符 (Tanwin) -->
     <Mark2Coverage Format="1">
       <Glyph value="ar_tanwin"/>
     </Mark2Coverage>
     <Mark2Array>
       <Mark2Record index="0">
-        <!-- 在底层音标顶端定义向上的对接锚点 -->
+        <!-- 在底層音標頂端定義向上的對接錨點 -->
         <Mark2Anchor index="0" Format="1">
           <XCoordinate value="0"/>
           <YCoordinate value="220"/>
@@ -2464,11 +2804,11 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
       <Glyph value="f_f_i"/>
     </Coverage>
     <LigGlyph index="0">
-      <!-- 'f' 与第二个 'f' 之间的光标闪烁 X 坐标 -->
+      <!-- 'f' 與第二個 'f' 之間的光標閃爍 X 座標 -->
       <CaretValue index="0" Format="1">
         <Coordinate value="320"/>
       </CaretValue>
-      <!-- 第二个 'f' 与 'i' 之间的光标闪烁 X 坐标 -->
+      <!-- 第二個 'f' 與 'i' 之間的光標閃爍 X 座標 -->
       <CaretValue index="1" Format="1">
         <Coordinate value="650"/>
       </CaretValue>
@@ -2484,7 +2824,7 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
 
 爲了深刻理解 AAT `morx` 表內部狀態轉移的數學精髓，我們以印地語天城體（Devanagari）的短元音 'i'（Matra-I）前置重排狀態機爲例進行推導：
 
-在天城體中，邏輯編碼順序爲：$\text{辅音 (Consonant)} + \text{短元音 (Matra-I)}$，但在視覺排版中，短元音必須被“向前翻轉”到輔音左側！
+在天城體中，邏輯編碼順序爲：$\text{輔音 (Consonant)} + \text{短元音 (Matra-I)}$，但在視覺排版中，短元音必須被“向前翻轉”到輔音左側！
 
 ### 狀態轉移代數模型：
 * **狀態集合**：$Q = \{ S_0: \text{StartOfLine}, \, S_1: \text{SawConsonant}, \, S_2: \text{SawVirama} \}$；
@@ -2515,6 +2855,91 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
 | **工業生態與標準** | **全球絕對主導標準**：Windows, Linux, Android, Web 瀏覽器默認標準 | 蘋果生態獨佔專有標準：macOS, iOS 原生支持，工業跨平臺支持較弱 |
 ---
 
+## D.7 點陣嵌入表族：EBLC、EBDT、EBSC 與 bhed（Bitmap Management）
+
+在低分辨率液晶屏或打印機上，依靠矢量輪廓與 Hinting 虛擬機實時解算微觀網格有時依然難以兼顧極佳的閱讀質感，尤其對於擁有繁複交織筆畫的東亞巨型漢字庫而言更是如此。爲此，微軟與蘋果在 OpenType/TrueType 架構中設計了一組專門用於在矢量字體內部直接封裝離散手繪點陣字符的底層數據表：
+
+### D.7.1 嵌入位圖定位與數據表：`EBLC` 與 `EBDT`（亦名 `bloc` 與 `bdat`）
+
+`EBLC`（Embedded Bitmap Location Table）與 `EBDT`（Embedded Bitmap Data Table）在邏輯上必須成對共存。在蘋果 AAT 規範中，這兩個表分別被稱爲 `bloc` 與 `bdat`，兩者的二進制拓撲結構完全兼容。
+
+- **`EBLC`（定位索引表）**：
+  不保存具體的單色點陣位圖像素，而是專門存儲整座字庫在不同目標顯示尺寸下的**字號打擊表（`bitmapSizeTable` / Strike）**與指向對應字形位圖數據的字節偏移指針。每個 Strike 聲明瞭適用的水平與垂直分辨率（如 96 DPI）、字號像素大小（ppem）、顏色位深（1 位單色、2/4/8 位抗鋸齒灰度），並引用一組子索引表（`IndexSubTable`）。
+- **五大子索引表類型（`IndexSubTable` Formats 1–5）**：
+  * **Format 1**：等長字形位圖變長數據索引，包含各字形的顯式數據偏移數組；
+  * **Format 2**：所有字形共享完全相同的度量尺寸與位圖字節長度，偏移量可通過簡單線性乘法算得；
+  * **Format 3**：雙字節變長偏移索引，適用於較緊湊的字庫；
+  * **Format 4**：基於稀疏字形 ID 數組的非連續碼錶索引；
+  * **Format 5**：稀疏固定尺寸點陣索引。
+- **`EBDT`（真實位圖數據流）**：
+  緊跟在 `EBLC` 之後，嚴格由各個具體字形的單色或多階灰度位圖數據包（`bitmapGlyph`）緊密排布而成。規範定義了 Formats 1 至 9 多達九種位圖存儲編碼：
+  * **Format 1/2**：小尺寸度量頭加按字節對齊（Byte-aligned）或位對齊（Bit-aligned）的原始位圖點陣；
+  * **Format 5**：僅包含純位圖位流，完全省略度量頭（所有字形強制繼承外部統一 Strike 度量）；
+  * **Format 8/9**：複合點陣字形（Component Bitmap Glyphs），允許通過多個子圖元疊加拼裝形成複雜的合字或重音漢字！
+
+### D.7.2 嵌入位圖尺寸倍率縮放表：`EBSC`
+
+當應用程序請求的顯示字號恰好落在字庫未曾內置真實手工點陣的中間地帶（例如字庫僅手工繪製了 12px 與 16px 點陣，而用戶請求了 14px）時，`EBSC`（Embedded Bitmap Scaling Table）表負責介入仲裁：它向渲染系統聲明是否允許通過對最鄰近的已有點陣 Strike 進行整數倍插值或抽取縮放來合成中間尺寸，從而避免突兀地切換回生硬的未優化矢量輪廓。
+
+### D.7.3 位圖頭表：`bhed`
+
+在僅包含純點陣字形而完全剔除矢量 `glyf` 表的極端嵌入式 TrueType 點陣字庫中，蘋果規範規定使用 `bhed` 表完全取代原有的矢量 `head` 表，其字段定義與標準 `head` 完全一致，唯獨在魔數與特性標誌位上向系統聲明這是一座純位圖字體。
+
+---
+
+## D.8 核心可選輔助表族：`DSIG`、`gasp`、`hdmx`、`LTSH`、`kern` 與 `VDMX`（Optional Tables）
+
+除核心骨幹表外，一座高工業規格的 OpenType/TrueType 商業字體通常還包含一系列精妙的可選度量與安全控制表：
+
+### D.8.1 數字簽名表：`DSIG`
+
+`DSIG`（Digital Signature Table）用於保證字體文件在互聯網或企業分發過程中的知識產權歸屬與未篡改完整性。該表內嵌由權威公鑰基礎設施（PKI / VeriSign 等）簽發的 X.509 標準 PKCS#7 格式二進制加密證書籤名。當 Windows 操作系統加載字體時，內核字體驅動會解析 `DSIG` 表並比對全表校驗和；若簽名有效，字體屬性面板將展示“受信任商業數字簽名”徽標。
+
+### D.8.2 網格擬合與平滑光柵化策略表：`gasp`
+
+在屏幕渲染歷史上，`gasp`（Grid-fitting and Scan-conversion Procedure Table）是微軟爲協調 TrueType 虛擬機字節碼 Hinting 與操作系統抗鋸齒（ClearType）渲染而設立的決策總指揮部。
+
+`gasp` 表按字號像素尺寸（ppem）劃分區間，爲不同的顯示精度階梯配置四種核心標誌位組合：
+* **`GASP_GRIDFIT` (`0x0001`)**：啓用 TrueType 字節碼執行引擎，強行將控制點對齊物理像素網格；
+* **`GASP_DOGRAY` (`0x0002`)**：啓用多級灰度亞像素抗鋸齒平滑；
+* **`GASP_SYMMETRIC_SMOOTHING` (`0x0008`)**：啓用全對稱平滑濾波；
+* **`GASP_SYMMETRIC_GRIDFIT` (`0x0004`)**：啓用高精對稱網格擬合。
+
+典型配置法則：在極小字號（如 $0 \le \text{ppem} \le 8$）下僅啓用灰度平滑（防止筆畫粘連成黑塊）；在閱讀字號（$9 \le \text{ppem} \le 16$）下同時強制開啓 `GRIDFIT` 與 `DOGRAY`（獲得最清晰銳利的正文字骨）；而在超大字號（$\ge 17$）下關閉字節碼 Hinting、全權交由純平滑抗鋸齒渲染以呈現自然曲率。
+
+### D.8.3 高速設備度量緩存與線性閾值表：`hdmx` 與 `LTSH`
+
+- **`hdmx`（Horizontal Device Metrics）**：
+  由於 TrueType 提示指令（Hinting）會在離散像素級別強行推拉控制點，導致小字號下的實際像素前進寬度（Advance Width in Pixels）往往偏離由浮點數線性縮放算出的理想寬度。爲了避免排版引擎在計算長文本換行時頻繁調用沉重的虛擬機解釋器逐字解算，`hdmx` 表預先將常見字號下全體字形的整數像素寬度烘焙固化爲極速查表數組。
+- **`LTSH`（Linear Threshold Table）**：
+  記錄每個字形的“線性閾值”（以 ppem 爲單位）。在該閾值尺寸之下，字形受 Hinting 扭曲影響顯著，寬度必須查閱 `hdmx`；而一旦字號超過該閾值，字形寬度的非線性形變降至可忽略不計的程度，排版引擎可安全切回極速浮點線性乘法。
+
+### D.8.4 傳統字距微調錶：`kern`
+
+在 OpenType `GPOS` 表橫空出世之前，經典 TrueType 與早期 Mac 字體完全依賴 `kern` 表實現字符對之間的字距微調。
+
+`kern` 表包含多個子表（Subtables），最常用的爲 **Format 0（有序字偶微調對）**：
+- 子表頭部聲明字偶微調對總數 `nPairs`；
+- 緊隨其後的是按 `(leftGlyph, rightGlyph)` 嚴格二分遞增排列的條目數組；
+- 每個條目由左字形 ID、右字形 ID 以及一個帶符號的 16 位整數 `FWord` 距離微調值構成。現代排版引擎若在字體中同時探測到 `GPOS` 與 `kern` 表，規範要求**優先執行 `GPOS` 表的上下文微調並靜默屏蔽 `kern`**。
+
+### D.8.5 垂直設備度量量化表：`VDMX`
+
+`VDMX`（Vertical Device Metrics Table）用於解決在非線性 Hinting 介入下，字體在特定 ppem 尺寸下實際渲染像素的最高上升部（Max Ascender）與最低下降部（Min Descender）偏離全局設計比例的問題。它爲每一個目標字號提供了一對強制量化的像素整數極值，供 Windows GDI 等渲染框架在計算單行文本物理行高邊界框時使用，徹底消除了文本滾動時因行高抖動引發的屏幕閃爍撕裂。
+
+### D.8.6 垂直排版度量頭與進深表：`vhea` 與 `vmtx`
+
+與水平排版的 `hhea` 和 `hmtx` 高度鏡像對稱，`vhea`（Vertical Header Table）與 `vmtx`（Vertical Metrics Table）是驅動東亞縱向直排的關鍵數據底座：
+- `vhea` 聲明全局垂直基線距離、最大縱向進深與超限參數；
+- `vmtx` 存儲每個字形的縱向步進高度（`advanceHeight`）與頂端邊距（`topSideBearing`，即字形包圍盒頂緣距離縱向原點的垂直落差）。
+
+### D.8.7 惠普 PCL 5 屬性表：`PCLT`
+
+`PCLT` 表專門服務於 HP LaserJet 打印機及兼容 PCL 5 頁面描述協議的工業輸出設備。該表容納了字體的 16 位校驗和、原廠字庫代號、筆畫字重數字、寬度比例、襯線樣式代碼（Serif Style）以及專門用於 PCL 字體匹配的專屬符號集代碼。
+
+
+---
+
 ## D.11 OpenType 1.8 矢量可變字體（Variable Fonts）體系演進
 
 2016 年 9 月，蘋果、微軟、Adobe 與 Google 在波蘭華沙的 ATypI 大會上聯合發佈了歷史性的 **OpenType 1.8 規範**。該規範引入了源自蘋果 TrueType GX 與 Adobe Multiple Master 的集大成者——**OpenType 字體可變機制（OpenType Font Variations）**。
@@ -2524,7 +2949,7 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
 
 ```xml
 <fvar>
-  <!-- 声明五大注册标准设计轴之一：字重轴 (wght) -->
+  <!-- 聲明五大註冊標準設計軸之一：字重軸 (wght) -->
   <Axis>
     <AxisTag value="wght"/>
     <Flags value="0x0000"/>
@@ -2533,7 +2958,7 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
     <MaxValue value="900.0"/>
     <AxisNameID value="256"/>
   </Axis>
-  <!-- 声明字宽轴 (wdth) -->
+  <!-- 聲明字寬軸 (wdth) -->
   <Axis>
     <AxisTag value="wdth"/>
     <Flags value="0x0000"/>
@@ -2543,7 +2968,7 @@ GPOS Type 6 構築了音標之間的遞歸相對幾何錨點：
     <AxisNameID value="257"/>
   </Axis>
 
-  <!-- 预定义命名的静态样式快照 (Named Instances) -->
+  <!-- 預定義命名的靜態樣式快照 (Named Instances) -->
   <NamedInstance nameID="258"> <!-- "Light Condensed" -->
     <Coordinates>
       <Coord axis="wght" value="300.0"/>
@@ -2593,14 +3018,14 @@ TrueType 虛擬機是一臺純粹的**大端序棧式計算機（Stack-based Mac
 
 ```
 +-------------------------------------------------------+
-|  TrueType 虚拟机硬件资源全景                           |
+|  TrueType 虛擬機硬件資源全景                           |
 +-------------------------------------------------------+
-|  1. 操作数栈 (Operand Stack, 通常 256-512 深度)        |
-|  2. 控制值表 (Control Value Table, CVT, 16位有符号字)   |
-|  3. 存储区 (Storage Area, 32位通用暂存数组)             |
-|  4. 黄昏区 (Twilight Zone, Zone 0, 临时辅助几何点池)   |
-|  5. 字形区 (Glyph Zone, Zone 1, 真实轮廓控制点阵列)     |
-|  6. 图形状态机寄存器组 (Graphics State Registers)       |
+|  1. 操作數棧 (Operand Stack, 通常 256-512 深度)        |
+|  2. 控制值表 (Control Value Table, CVT, 16位有符號字)   |
+|  3. 存儲區 (Storage Area, 32位通用暫存數組)             |
+|  4. 黃昏區 (Twilight Zone, Zone 0, 臨時輔助幾何點池)   |
+|  5. 字形區 (Glyph Zone, Zone 1, 真實輪廓控制點陣列)     |
+|  6. 圖形狀態機寄存器組 (Graphics State Registers)       |
 +-------------------------------------------------------+
 ```
 
@@ -2691,14 +3116,14 @@ TrueType 中**最重要的全局收尾指令**！在整個 Hinting 過程中，�
 操作碼範圍從十六進制 `0xCE` 到 `0xDF`（十進制 206–223）。這是一條極度強大的複合指令，指令編號本身低 5 位即編碼了完整的幾何控制邏輯：
 
 ```
-MIRP[abcde] (操作码 = 0xCE + abcde)
-Bit 4 (a): set_rp0      -> 若为 1，在完成移动后将 rp0 自动更新为当前目标点 p
-Bit 3 (b): min_distance -> 若为 1，强制施加单极小距离约束（距离 >= SMD）
-Bit 2 (c): round_dist   -> 若为 1，根据当前 RoundingState 对距离执行网格舍入
-Bits 1-0 (de): color    -> 笔画距离色彩约束：
-                           00: 灰度距离（无约束）
-                           01: 黑色距离（笔画实体内部）
-                           10: 白色距离（笔画之间的空白负空间）
+MIRP[abcde] (操作碼 = 0xCE + abcde)
+Bit 4 (a): set_rp0      -> 若爲 1，在完成移動後將 rp0 自動更新爲當前目標點 p
+Bit 3 (b): min_distance -> 若爲 1，強制施加單極小距離約束（距離 >= SMD）
+Bit 2 (c): round_dist   -> 若爲 1，根據當前 RoundingState 對距離執行網格舍入
+Bits 1-0 (de): color    -> 筆畫距離色彩約束：
+                           00: 灰度距離（無約束）
+                           01: 黑色距離（筆畫實體內部）
+                           10: 白色距離（筆畫之間的空白負空間）
 ```
 
 *執行語義*：以參考點 $rp0$ 爲基準，讀取 CVT 表中索引爲 $cvt$ 的標準距離，沿自由向量 $\vec{f}$ 平移目標點 $p$，使得 $p$ 在投影向量 $\vec{p}$ 上的位移精確等於經網格舍入與切入判斷後的 CVT 間距！
@@ -2867,72 +3292,72 @@ $$arg = (\text{nudge} + 8) \times 16 + (\text{target\_ppem} - \text{base\_ppem})
 ### 2. Y 軸方向網格對齊指令流執行跟蹤：
 
 ```tt-assembly
-/* 步骤 1：将投影向量与自由向量同时设置为 Y 轴 (0, 1) */
+/* 步驟 1：將投影向量與自由向量同時設置爲 Y 軸 (0, 1) */
 SVTCA[y]
 
-/* 步骤 2：对齐基线 */
-/* 将点 0（左立柱底端）直接对齐到最近的物理像素网格边界，并标记为已触碰 (Touched) */
+/* 步驟 2：對齊基線 */
+/* 將點 0（左立柱底端）直接對齊到最近的物理像素網格邊界，並標記爲已觸碰 (Touched) */
 PUSHB[000] 0
 MDAP[round]
 
-/* 步骤 3：以点 0 为基准，拉伸并锁定左立柱高度 */
-/* 设置参考点 rp0 = 0 */
+/* 步驟 3：以點 0 爲基準，拉伸並鎖定左立柱高度 */
+/* 設置參考點 rp0 = 0 */
 PUSHB[000] 0
 SRP0
-/* 将点 3（左立柱顶端）移动到距 rp0 经 CVT 切入控制的标准大写字高处 */
-PUSHB[001] 3 1  /* 参数：目标点 3，CVT 槽位 1 (CapHeight) */
-MIRP[round,min,set_rp0] /* 移动后将 rp0 自动更新为点 3 */
+/* 將點 3（左立柱頂端）移動到距 rp0 經 CVT 切入控制的標準大寫字高處 */
+PUSHB[001] 3 1  /* 參數：目標點 3，CVT 槽位 1 (CapHeight) */
+MIRP[round,min,set_rp0] /* 移動後將 rp0 自動更新爲點 3 */
 
-/* 步骤 4：以大写字高为基准，平移右立柱顶端与横梁 */
-/* 将点 10（右立柱顶端）与点 3 对齐在同一水平线上 */
+/* 步驟 4：以大寫字高爲基準，平移右立柱頂端與橫樑 */
+/* 將點 10（右立柱頂端）與點 3 對齊在同一水平線上 */
 PUSHB[000] 10
 ALIGNRP
 
-/* 将点 0 与点 9（右立柱底端）对齐到基线 */
+/* 將點 0 與點 9（右立柱底端）對齊到基線 */
 PUSHB[000] 0
 SRP0
 PUSHB[000] 9
 ALIGNRP
 
-/* 步骤 5：定位横梁并锁定横梁厚度 */
-/* 沿 Y 轴内插横梁下沿点 4 的位置 */
-PUSHB[002] 4 0 3 /* 目标点 4，参考点 0 与 3 */
+/* 步驟 5：定位橫樑並鎖定橫樑厚度 */
+/* 沿 Y 軸內插橫樑下沿點 4 的位置 */
+PUSHB[002] 4 0 3 /* 目標點 4，參考點 0 與 3 */
 IP
-/* 以点 4 为基准，向上锁定横梁厚度（读取 CVT 槽位 2: BarHeight） */
+/* 以點 4 爲基準，向上鎖定橫樑厚度（讀取 CVT 槽位 2: BarHeight） */
 PUSHB[000] 4
 SRP0
 PUSHB[001] 7 2
 MIRP[round,min,color_black]
 
-/* 步骤 6：全局平滑内插 Y 轴所有剩余未触碰点 */
+/* 步驟 6：全局平滑內插 Y 軸所有剩餘未觸碰點 */
 IUP[y]
 ```
 
 ### 3. X 軸方向網格對齊指令流：
 
 ```tt-assembly
-/* 切换至 X 轴方向 (1, 0) */
+/* 切換至 X 軸方向 (1, 0) */
 SVTCA[x]
 
-/* 对齐左侧轴承 (LSB) */
+/* 對齊左側軸承 (LSB) */
 PUSHB[000] 0
 MDAP[round]
 
-/* 锁定左立柱宽度（从 CVT 槽位 3 读取 StdVW 垂直主干宽） */
+/* 鎖定左立柱寬度（從 CVT 槽位 3 讀取 StdVW 垂直主幹寬） */
 PUSHB[000] 0
 SRP0
 PUSHB[001] 1 3
 MIRP[round,min,set_rp0]
 
-/* 锁定右立柱位置与宽度 */
-/* 读取 CVT 槽位 4 (立柱间距)，将点 8 平移到正确间距 */
+/* 鎖定右立柱位置與寬度 */
+/* 讀取 CVT 槽位 4 (立柱間距)，將點 8 平移到正確間距 */
 PUSHB[001] 8 4
 MIRP[round,min,set_rp0]
-/* 以点 8 为基准锁定右立柱宽度（点 9） */
+/* 以點 8 爲基準鎖定右立柱寬度（點 9） */
 PUSHB[001] 9 3
 MIRP[round,min,color_black]
 
-/* 横梁左右端点对齐到立柱内侧边 */
+/* 橫樑左右端點對齊到立柱內側邊 */
 PUSHB[000] 1
 SRP0
 PUSHB[001] 4 7
@@ -2945,13 +3370,13 @@ PUSHB[001] 5 6
 ALIGNRP
 ALIGNRP
 
-/* 最终对齐右侧幻影点（锁定字符总前进字宽） */
+/* 最終對齊右側幻影點（鎖定字符總前進字寬） */
 PUSHB[000] 9
 SRP0
-PUSHB[001] 13 5 /* CVT 槽位 5: 推荐前进字宽 */
+PUSHB[001] 13 5 /* CVT 槽位 5: 推薦前進字寬 */
 MIRP[round,set_rp0]
 
-/* 全局平滑内插 X 轴所有剩余未触碰点 */
+/* 全局平滑內插 X 軸所有剩餘未觸碰點 */
 IUP[x]
 ```
 
@@ -3004,14 +3429,14 @@ TrueType 專門開闢了一個與當前真實字形平行的虛擬內存區域�
 TrueType 字體工程師利用 `DELTAP` 指令進行精妙的人工微干預：
 
 ```tt-assembly
-/* 针对小写字母 'e' 的顶部拱门最高点（点 5） */
-/* 当且仅当 PPEM == 11 时，将点 5 向上微挪 2/8 个像素 (nudge = +2) */
-/* 计算 arg: (2 + 8) * 16 + (11 - 9) = 10 * 16 + 2 = 162 */
+/* 針對小寫字母 'e' 的頂部拱門最高點（點 5） */
+/* 當且僅當 PPEM == 11 時，將點 5 向上微挪 2/8 個像素 (nudge = +2) */
+/* 計算 arg: (2 + 8) * 16 + (11 - 9) = 10 * 16 + 2 = 162 */
 PUSHB[001] 162 5
 DELTAP1
 
-/* 当且仅当 PPEM == 11 时，将横梁下沿（点 8）向下微挪 1/8 像素 (nudge = -1) */
-/* 计算 arg: (-1 + 8) * 16 + (11 - 9) = 7 * 16 + 2 = 114 */
+/* 當且僅當 PPEM == 11 時，將橫樑下沿（點 8）向下微挪 1/8 像素 (nudge = -1) */
+/* 計算 arg: (-1 + 8) * 16 + (11 - 9) = 7 * 16 + 2 = 114 */
 PUSHB[001] 114 8
 DELTAP1
 ```
@@ -3050,7 +3475,100 @@ DELTAP1
 
 ---
 
-## F.1 METAFONT 編程語言與聲明式幾何方程求解器
+## F.1 METAFONT 聲明式排印編程語言底層原語（The METAFONT Programming Language）
+
+由高德納（Donald E. Knuth）教授打造的 **METAFONT**，是人類計算機排版史上第一門純粹基於**一階線性代數方程約束求解系統（Linear Equations Solver）**的聲明式矢量編程語言。在 METAFONT 的世界觀中，字母不是死板畫在圖紙上的靜態座標連線，而是一組由幾何命題、畫筆骨架與動態約束構成的有機數學方程。
+
+### F.1.1 核心數據結構與符號代數代換（Basic Concepts）
+
+METAFONT 的虛擬機架構由八大基礎數據類型嚴密支撐：
+1. **數值型（Numeric）**：以浮點數表示的標量，支持加減乘除與三角函數運算；
+2. **點對（Pair）**：表示笛卡爾座標系中的二維點 $(x, y)$，寫作 `(x, y)`。點對之間天然支持向量加減、標量數乘以及內積運算；
+3. **畫筆（Pen）**：定義用於描摹筆畫軌跡的物理筆尖幾何輪廓（圓形筆尖 `pencircle`、矩形筆尖 `pensquare`、或任意凸多邊形筆尖 `makepen`）；
+4. **路徑（Path）**：由離散節點通過三次樣條曲線或直線段串聯而成的閉合或開放矢量軌跡；
+5. **畫卷（Picture）**：容納光柵化離散像素陣列的二維圖像緩衝區；
+6. **仿射變換（Transform）**：掌控平移、縮放、旋轉與傾斜切變的 $3 \times 3$ 仿射算子（例如 `currenttransform`）；
+7. **布爾型（Boolean）** 與 **字符串（String）**：控制流程分流與調試輸出。
+
+#### 聲明式聯立線性方程組求解
+與傳統編程語言中 `x = a + b` 代表單向賦值賦值不同，在 METAFONT 中，等號 `=` 嚴格代表**數學恆等式（Mathematical Equation）**！
+程序員可以以任意次序書寫方程：
+
+```metafont
+z1 = (.5w, 0);
+z2 = z1 + (-3u, 0);
+z3 - z2 = z2 - z1;
+```
+
+METAFONT 內部常駐一套高效的高斯消元法線性求解器。當且僅當某個未知變量通過上下文聯立方程被唯一確定時，系統自動完成數值解算；若方程組存在欠定自由度，METAFONT 會將未知數作爲符號線性組合持續傳遞，直到後續條件將其徹底解出！
+
+### F.1.2 繪製、填色與曲線張力微積分（Drawing and Filling）
+
+在路徑構造中，METAFONT 引入了極具數學優美感的連接算子：
+- `..`：使用三次樣條曲線穿過控制點，自動保證交接處的一階導數與二階導數連續（曲率平滑過渡）；
+- `--`：在兩個點之間拉出一條嚴格的剛性直線段；
+- `---`：在直線與曲線交界處強制施加切線連續性；
+- `{dir theta}`：顯式指定曲線在離開或進入某節點時的物理切線朝向角；
+- `tension`：調節兩點之間貝塞爾曲線的“張力”（Tension）。高德納證明了，當張力爲 1 時曲線呈現自然的彈性鋼尺彎曲形態；當張力趨向無窮大時，曲線退化爲剛性直線；
+- `cycle`：聲明閉合當前路徑。
+
+繪圖核心算子：
+- `pickup pen_name`：激活指定的幾何畫筆；
+- `draw path`：將畫筆中心沿着指定路徑拖曳，生成具有物理筆畫寬度的墨跡外包絡線；
+- `fill path`：閉合路徑內部進行實心着色；
+- `unfill path`：從當前畫卷中逆向挖除（鏤空）指定閉合區域；
+- `cull`：對畫卷中的像素值執行閾值過濾與非零量化。
+
+### F.1.3 參數化字形架構與宏觀度量（Advanced Parameterization）
+
+一座工業級 METAFONT 字庫的源文件遵循標準化的度量參數體系：
+- **純設計尺寸（Sharp Dimensions）**：以 `#` 結尾的絕對度量單位（如 `u# = 1pt#;`，`em# = 10pt#;`），代表不受物理輸出設備分辨率影響的抽象印刷設計規格；
+- **設備像素轉換（`define_pixels`）**：宏調用 `define_pixels(u, em)` 會自動根據當前目標設備的輸出分辨率（如 300 DPI 或 600 DPI）將抽象度量折算爲實際設備像素整數網格；
+- **字形聲明宏（`beginchar` 與 `endchar`）**：
+  ```metafont
+  beginchar("A", 13u#, 10pt#, 0pt#);
+    % 依次傳入字符編碼、設計寬度 w#、大寫字高 h#、以及下降部深度 d#
+    % 內部聲明 z1..zn 幾何拓撲並執行 draw/fill
+  endchar;
+  ```
+  `endchar` 宏在執行完畢後，不僅會自動將光柵化的點陣寫入通用字體格式（GF / PK）文件，更會將精準的幾何度量信息提煉輸出爲供排版引擎調用的 $\mathrm{\TeX}$ 字體度量文件（TFM）！
+
+### F.1.4 柵格化自適應圓整微調（Optimizing the Rasterization）
+
+爲了在低分辨率點陣打印機上消除鋸齒與筆畫粗細不均，METAFONT 提供了精密的像素網格對齊指令：
+- `good.x` 與 `good.y`：根據當前畫筆的離散邊緣特性，將連續座標微調推拉至最契合的整數像素網格線上；
+- `autorounding`：自動對所有水平與垂直切線極值點施加網格擬合偏置，防止筆畫被隨機截斷。
+
+---
+
+## F.4 波蘭 METATYPE1 體系與 Antykwa Półtawskiego 字體復興
+
+由波蘭著名的排印技術先驅**博古斯瓦夫·亞茨科夫斯基（Bogusław Jackowski）**、**雅努什·諾瓦茨基（Janusz M. Nowacki）**與**彼得·斯特熱爾奇克（Piotr Strzelczyk）**聯手打造的 **METATYPE1** 架構，是 METAFONT 走向現代工業矢量字型的終極橋樑。
+
+### F.4.1 METATYPE1 的設計哲學
+
+傳統 METAFONT 的致命軟肋在於其原生僅能輸出離散點陣像素文件（PK / GF），而無法直接產出以三次貝塞爾曲線爲標準的 PostScript Type 1 矢量字體。METATYPE1 徹底重構了底層輸出管線：
+- 將 MetaPost 的矢量微積分內核直接嫁接爲 METAFONT 的字型描述前端；
+- 允許排印師完全繼續享用 METAFONT 聲明式方程求解系統的無窮威力；
+- 編譯器後端直接輸出高工業精度的 PostScript Type 1 字形描述字節碼（CharStrings），並自動生成高質量的 Type 1 提示指令（Hints）！
+
+### F.4.2 語法差異與 PostScript 三次貝塞爾曲線適配
+
+在 METATYPE1 語法規範中，字形輪廓強制遵循純閉合路徑外形表達：
+- 廢棄了依賴畫筆中心線拖曳的 `draw` 算子，全面改用基於輪廓邊緣的 `fill` 與 `unfill` 複合建模；
+- 引入了針對三次貝塞爾曲線轉折點的極值點吸附約束；
+- 提供針對複合字形部件的子路徑提取函數 `subpath` 與無名極值點尋址算子。
+
+### F.4.3 波蘭國寶級經典字型 Antykwa Półtawskiego 的數字化重塑
+
+METATYPE1 架構最偉大的歷史勳績，莫過於對 20 世紀波蘭著名圖形藝術家**亞當·普武陶夫斯基（Adam Półtawski，1881–1952）**於 1928 年設計的經典活字——**Antykwa Półtawskiego** 的全數字化復興。
+
+Półtawski 針對波蘭語中高頻出現的對角傾斜筆畫字母（如 ‘k’、‘w’、‘y’、‘z’）進行了極具獨創性的光學平衡設計。波蘭排印小組利用 METATYPE1，將這一飽含中歐人文風骨的鉛字傑作，通過純數學參數化方程進行了完整重現，一舉生成了覆蓋極細（Light）到特粗（Bold）、正體到意大利斜體的全家族高質量 Type 1 與 OpenType 工業級字庫，成爲數字排印史上數學算法與傳統人文藝術交相輝映的永恆豐碑！
+
+
+---
+
+## F.2 METAFONT 編程語言與聲明式幾何方程求解器
 
 在 METAFONT 代碼中，設計師從來不以過程式命令賦值座標（如傳統編程中的 `x = 5; y = 10`），而是直接書寫一組平等的聯立代數方程：
 
@@ -3096,25 +3614,25 @@ beginchar(110, 7pt#, 6pt#, 0pt#);
   x_height = 5.1u; oo = .2u; stem = 1.1u; join = .2u;
   serif_tip = .2u; serif_height = .7u; delta = .033u; offset = .125u;
 
-  % 左立柱下端与上端点
+  % 左立柱下端與上端點
   z4 = (1.6u, delta); penpos4(stem, 180);
   x3 = x4 + offset; y3r = x_height;
   x3l - x3r = stem; y3l - y3r = .5serif_tip; z3 = .5[z3l, z3r];
   penstroke z3e .. {down}z4e;
 
-  % 右立柱与拱门相交点
+  % 右立柱與拱門相交點
   x11 = w - 1.65u; y11 = y4; penpos11(stem, 180);
   y10 = y8 = .7x_height; z8 = whatever[z3, z4];
   z10 - z11 = whatever * (z3 - z4);
   z10l - z10r = z3l - z3r; z10 = .5[z10l, z10r];
 
-  % 拱门最高张力圆弧
+  % 拱門最高張力圓弧
   penpos9(.87[join, stem], -136); y9l = x_height + oo; x9 = .68[x8, x10];
   z8' = whatever[z11, z10]; y8' = 1.25x_height;
   penpos8(join, angle(z8' - z8) - 90);
   penstroke z8e{z8' - z8} .. tension 1.5 .. z9e{right} .. z10e -- z11e;
 
-  % 底部衬线装配
+  % 底部襯線裝配
   numeric serif; serif = x11r - x12 = 1u;
   x7 - x4l = serif; x3r - x1 = .95serif; x4r - x5 = .9serif; x14 - x11l = .8serif;
   y1l = y3l; penpos1(serif_tip, -90); z2 = z3l;
@@ -3423,7 +3941,7 @@ $$\frac{d}{dt} B_{i,n}(t) = n \left( B_{i-1,n-1}(t) - B_{i,n-1}(t) \right)$$
 ### 極式視角的控制點黃金對應律：
 曲線的幾何控制點 $\mathbf{P}_i$，在極式空間中具有令人驚歎的離散端點取值表達：
 
-$$\mathbf{P}_i = p(\underbrace{0, \dots, 0}_{n-i \text{ 个}}, \, \underbrace{1, \dots, 1}_{i \text{ 个}})$$
+$$\mathbf{P}_i = p(\underbrace{0, \dots, 0}_{n-i \text{ 個}}, \, \underbrace{1, \dots, 1}_{i \text{ 個}})$$
 
 例如對於三次貝塞爾曲線（$n=3$）：
 * 起點：$\mathbf{P}_0 = p(0, 0, 0)$；
@@ -3477,7 +3995,7 @@ $$\mathbf{P}_i^{(k)}(t_0) = (1-t_0)\mathbf{P}_i^{(k-1)}(t_0) + t_0 \mathbf{P}_{i
 ```python
 def de_casteljau_subdivide(points: list, t: float = 0.5):
     """
-    对任意阶贝塞尔曲线在参数 t 处进行数值无损细分
+    對任意階貝塞爾曲線在參數 t 處進行數值無損細分
     """
     n = len(points) - 1
     pyramid = [list(points)]

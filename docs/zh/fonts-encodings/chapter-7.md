@@ -234,7 +234,9 @@ Typograf 不仅能对本地硬盘及整张光盘镜像的未安装字体建立�
 
 # 跨平台字体格式转换工程（Tools for Font Conversion）
 
-在多平台混合办公网络中，将 Mac 专有的字体资源迁移至 Windows 是日常工作中的家常便饭。除了在 Mac OS X 章节中详尽论述的工业级转换旗舰 **TransType Pro**（其 Windows XP 运行界面见 **图 7-12**，在功能与算法上与 Mac 版分毫不差，在此不再赘述）与 **FontFlasher** 之外，Windows 平台上还孕育了一款备受推崇的高性价比强力竞争者——由美国 Acute Systems 公司打造的 **CrossFont**（**图 7-13**）：
+在多平台混合办公网络中，将 Mac 专有的字体资源迁移至 Windows 是日常工作中的家常便饭。我们在讨论 Mac OS 的章节中已经详细介绍了多款字体格式转换工具；其中，**TransType Pro** 与 **FontFlasher** 同样提供了 Windows 版本，其功能和操作与 Macintosh 版本在每一个技术细节上均完全一致（其 Windows XP 运行界面见 **图 7-12**，读者可参阅本书第 6 章第 205 至 208 页的对应论述）。
+
+然而，在 Windows 平台上，TransType Pro 还面临着一位强有力的竞争对手——由美国 Acute Systems 公司打造的 **CrossFont**（**图 7-13**），该公司专注于 PC 与 Macintosh 之间的数据格式转换工程：
 
 ::: tip 图 7-12：FontLab TransType Pro 在 Windows XP 下的工作视窗
 ![Figure 7-12: The interface of TransType Pro under Windows XP](/images/fonts-encodings/fig7-12.png)
